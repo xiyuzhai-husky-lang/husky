@@ -1,4 +1,4 @@
-use self::instantiation::JavelinTermSymbolResolution;
+use self::instantiation::JavTermSymbolResolution;
 
 use super::*;
 use husky_entity_path::TypePath;
@@ -21,7 +21,7 @@ pub struct JavelinTypePathLeading {
     pub ty_path: TypePath,
     /// phantom arguments are ignored
     #[return_ref]
-    pub template_arguments: JavelinTemplateArguments,
+    pub template_arguments: JavTemplateArguments,
 }
 
 #[salsa::interned(db = JavelinDb, jar = JavelinJar, constructor = new)]
@@ -39,7 +39,7 @@ pub struct JavelinRitchieParameter {
 impl JavelinRitchieParameter {
     fn from_hir(
         param: HirRitchieParameter,
-        javelin_instantiation: &JavelinInstantiation,
+        javelin_instantiation: &JavInstantiation,
         db: &salsa::Db,
     ) -> Self {
         match param {
@@ -64,14 +64,14 @@ impl JavelinRitchieParameter {
 impl JavelinType {
     pub(crate) fn from_hir(
         hir_ty: HirType,
-        javelin_instantiation: &JavelinInstantiation,
+        javelin_instantiation: &JavInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         match hir_ty {
             HirType::PathLeading(hir_ty) => JavelinTypePathLeading::new(
                 db,
                 hir_ty.ty_path(db),
-                JavelinTemplateArgument::from_hir_template_arguments(
+                JavTemplateArgument::from_hir_template_arguments(
                     hir_ty.template_arguments(db),
                     javelin_instantiation,
                     db,

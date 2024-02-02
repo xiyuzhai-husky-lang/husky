@@ -4,14 +4,14 @@ use vec_like::SmallVecPairMap;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct FluffyInstantiation {
-    env: FluffyInstantiationEnvironment,
-    symbol_map: SmallVecPairMap<SymbolEthTerm, FluffyTermSymbolResolution, 4>,
+pub struct FlyInstantiation {
+    env: FlyInstantiationEnvironment,
+    symbol_map: SmallVecPairMap<SymbolEthTerm, FlyTermSymbolResolution, 4>,
     separator: Option<u8>,
 }
 
-impl std::ops::Index<SymbolEthTerm> for FluffyInstantiation {
-    type Output = FluffyTermSymbolResolution;
+impl std::ops::Index<SymbolEthTerm> for FlyInstantiation {
+    type Output = FlyTermSymbolResolution;
 
     fn index(&self, index: SymbolEthTerm) -> &Self::Output {
         &self.symbol_map[index].1
@@ -19,28 +19,28 @@ impl std::ops::Index<SymbolEthTerm> for FluffyInstantiation {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FluffyTermSymbolResolution {
-    Explicit(FluffyTerm),
+pub enum FlyTermSymbolResolution {
+    Explicit(FlyTerm),
     /// means we don't care about it now
     SelfLifetime,
-    SelfPlace(FluffyPlace),
+    SelfPlace(FlyPlace),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FluffyInstantiationEnvironment {
+pub enum FlyInstantiationEnvironment {
     TypeOntologyConstructor,
     AssociatedFn,
-    MethodFn { self_place: FluffyPlace },
+    MethodFn { self_place: FlyPlace },
     MemoizedField,
 }
 
-impl FluffyInstantiation {
+impl FlyInstantiation {
     pub fn from_template_parameters(
-        env: FluffyInstantiationEnvironment,
+        env: FlyInstantiationEnvironment,
         syn_expr_idx: SynExprIdx,
         template_parameters1: &[EthTemplateParameter],
         template_parameters2: Option<&[EthTemplateParameter]>,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         db: &::salsa::Db,
     ) -> Self {
         let separator = template_parameters2
@@ -55,7 +55,7 @@ impl FluffyInstantiation {
                     let symbol = param.symbol();
                     (
                         symbol,
-                        FluffyTermSymbolResolution::Explicit(
+                        FlyTermSymbolResolution::Explicit(
                             terms
                                 .new_hole_from_template_parameter_symbol(
                                     syn_expr_idx.into(),
@@ -72,21 +72,21 @@ impl FluffyInstantiation {
     }
 
     pub(crate) fn from_ethereal(
-        env: FluffyInstantiationEnvironment,
+        env: FlyInstantiationEnvironment,
         instantiation: &EtherealInstantiation,
     ) -> Self {
-        FluffyInstantiation {
+        FlyInstantiation {
             env,
             symbol_map: instantiation
                 .symbol_map()
                 .iter()
-                .map(|&(symbol, term)| (symbol, FluffyTermSymbolResolution::Explicit(term.into())))
+                .map(|&(symbol, term)| (symbol, FlyTermSymbolResolution::Explicit(term.into())))
                 .collect(),
             separator: instantiation.separator(),
         }
     }
 
-    pub fn symbol_map(&self) -> &[(SymbolEthTerm, FluffyTermSymbolResolution)] {
+    pub fn symbol_map(&self) -> &[(SymbolEthTerm, FlyTermSymbolResolution)] {
         self.symbol_map.as_ref()
     }
 
@@ -97,8 +97,8 @@ impl FluffyInstantiation {
     pub fn symbol_map_splitted(
         &self,
     ) -> (
-        &[(SymbolEthTerm, FluffyTermSymbolResolution)],
-        Option<&[(SymbolEthTerm, FluffyTermSymbolResolution)]>,
+        &[(SymbolEthTerm, FlyTermSymbolResolution)],
+        Option<&[(SymbolEthTerm, FlyTermSymbolResolution)]>,
     ) {
         let symbol_map: &[_] = self.symbol_map.as_ref();
         match self.separator {
@@ -115,22 +115,22 @@ impl FluffyInstantiation {
     }
 }
 
-pub trait FluffyInstantiate: Copy {
+pub trait FlyInstantiate: Copy {
     type Target;
 
     fn instantiate(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
-        instantiation: &FluffyInstantiation,
+        instantiation: &FlyInstantiation,
     ) -> Self::Target;
 
     // set flag to true if target is different
     fn instantiate_with_flag(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
-        instantiation: &FluffyInstantiation,
+        instantiation: &FlyInstantiation,
         flag: &mut bool,
     ) -> Self::Target
     where
@@ -146,34 +146,34 @@ pub trait FluffyInstantiate: Copy {
     }
 }
 
-pub(crate) trait FluffyInstantiateRef {
+pub(crate) trait FlyInstantiateRef {
     type Target;
 
     fn instantiate(
         &self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
-        instantiation: &mut FluffyInstantiation,
+        instantiation: &mut FlyInstantiation,
     ) -> Self::Target;
 }
 
-pub struct FluffyTermInstantiationBuilder {
-    env: FluffyInstantiationEnvironment,
-    symbol_map: SmallVecPairMap<SymbolEthTerm, Option<FluffyTermSymbolResolution>, 4>,
+pub struct FlyTermInstantiationBuilder {
+    env: FlyInstantiationEnvironment,
+    symbol_map: SmallVecPairMap<SymbolEthTerm, Option<FlyTermSymbolResolution>, 4>,
     separator: Option<u8>,
 }
 
-impl std::ops::Index<SymbolEthTerm> for FluffyTermInstantiationBuilder {
-    type Output = Option<FluffyTermSymbolResolution>;
+impl std::ops::Index<SymbolEthTerm> for FlyTermInstantiationBuilder {
+    type Output = Option<FlyTermSymbolResolution>;
 
     fn index(&self, index: SymbolEthTerm) -> &Self::Output {
         &self.symbol_map[index].1
     }
 }
 
-impl FluffyTermInstantiationBuilder {
+impl FlyTermInstantiationBuilder {
     pub fn new_associated(
-        env: FluffyInstantiationEnvironment,
+        env: FlyInstantiationEnvironment,
         impl_block_template_parameters: &[EthTemplateParameter],
         associated_item_template_parameters: &[EthTemplateParameter],
         db: &::salsa::Db,
@@ -189,15 +189,15 @@ impl FluffyTermInstantiationBuilder {
                         symbol,
                         match symbol.index(db).inner() {
                             EthTermSymbolIndexImpl::SelfLifetime => {
-                                Some(FluffyTermSymbolResolution::SelfLifetime)
+                                Some(FlyTermSymbolResolution::SelfLifetime)
                             }
                             EthTermSymbolIndexImpl::SelfPlace => Some(match env {
-                                FluffyInstantiationEnvironment::AssociatedFn => todo!(),
-                                FluffyInstantiationEnvironment::MethodFn { self_place } => {
-                                    FluffyTermSymbolResolution::SelfPlace(self_place)
+                                FlyInstantiationEnvironment::AssociatedFn => todo!(),
+                                FlyInstantiationEnvironment::MethodFn { self_place } => {
+                                    FlyTermSymbolResolution::SelfPlace(self_place)
                                 }
-                                FluffyInstantiationEnvironment::MemoizedField => todo!(),
-                                FluffyInstantiationEnvironment::TypeOntologyConstructor => todo!(),
+                                FlyInstantiationEnvironment::MemoizedField => todo!(),
+                                FlyInstantiationEnvironment::TypeOntologyConstructor => todo!(),
                             }),
                             _ => None,
                         },
@@ -218,29 +218,25 @@ impl FluffyTermInstantiationBuilder {
     /// JustOk(()) means rule is added and everything is compatible
     /// Nothing means something is incompatible
     /// JustErr(_) means something is wrong
-    pub(crate) fn try_add_rule(
-        &mut self,
-        src: EthTerm,
-        dst: FluffyTerm,
-    ) -> FluffyTermMaybeResult<()> {
+    pub(crate) fn try_add_rule(&mut self, src: EthTerm, dst: FlyTerm) -> FlyTermMaybeResult<()> {
         match src {
             EthTerm::Literal(_) => todo!(),
             EthTerm::Symbol(symbol) => {
                 let (_, ref mut dst0) = self.symbol_map[symbol];
                 match *dst0 {
                     Some(dst0) => match dst0 {
-                        FluffyTermSymbolResolution::Explicit(dst0) => {
+                        FlyTermSymbolResolution::Explicit(dst0) => {
                             if dst != dst0 {
                                 todo!()
-                                // return JustErr(FluffyTermError);
+                                // return JustErr(FlyTermError);
                             } else {
                                 return JustOk(());
                             }
                         }
-                        FluffyTermSymbolResolution::SelfLifetime => todo!(),
-                        FluffyTermSymbolResolution::SelfPlace(_) => todo!(),
+                        FlyTermSymbolResolution::SelfLifetime => todo!(),
+                        FlyTermSymbolResolution::SelfPlace(_) => todo!(),
                     },
-                    None => *dst0 = Some(FluffyTermSymbolResolution::Explicit(dst)),
+                    None => *dst0 = Some(FlyTermSymbolResolution::Explicit(dst)),
                 }
                 JustOk(())
             }
@@ -257,8 +253,8 @@ impl FluffyTermInstantiationBuilder {
         }
     }
 
-    pub(crate) fn finish(self, db: &::salsa::Db) -> FluffyInstantiation {
-        FluffyInstantiation {
+    pub(crate) fn finish(self, db: &::salsa::Db) -> FlyInstantiation {
+        FlyInstantiation {
             env: self.env,
             symbol_map: self
                 .symbol_map
@@ -270,14 +266,14 @@ impl FluffyTermInstantiationBuilder {
     }
 }
 
-impl FluffyInstantiate for EthTerm {
-    type Target = FluffyTerm;
+impl FlyInstantiate for EthTerm {
+    type Target = FlyTerm;
 
     fn instantiate(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
-        instantiation: &FluffyInstantiation,
+        instantiation: &FlyInstantiation,
     ) -> Self::Target {
         if instantiation.symbol_map.len() == 0 {
             return self.into();
@@ -286,9 +282,9 @@ impl FluffyInstantiate for EthTerm {
             EthTerm::Literal(_) => todo!(),
             EthTerm::Symbol(symbol) => match instantiation[symbol] {
                 resolution => match resolution {
-                    FluffyTermSymbolResolution::Explicit(term) => term,
-                    FluffyTermSymbolResolution::SelfLifetime => todo!(),
-                    FluffyTermSymbolResolution::SelfPlace(place) => place.into(),
+                    FlyTermSymbolResolution::Explicit(term) => term,
+                    FlyTermSymbolResolution::SelfLifetime => todo!(),
+                    FlyTermSymbolResolution::SelfPlace(place) => place.into(),
                 },
             },
             EthTerm::Rune(_) => todo!(),
@@ -305,14 +301,14 @@ impl FluffyInstantiate for EthTerm {
     }
 }
 
-impl FluffyInstantiate for ApplicationEthTerm {
-    type Target = FluffyTerm;
+impl FlyInstantiate for ApplicationEthTerm {
+    type Target = FlyTerm;
 
     fn instantiate(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
-        instantiation: &FluffyInstantiation,
+        instantiation: &FlyInstantiation,
     ) -> Self::Target {
         let mut flag = false;
         let db = engine.db();
@@ -324,10 +320,10 @@ impl FluffyInstantiate for ApplicationEthTerm {
                     debug_assert_eq!(arguments.len(), 2);
                     let the_place = arguments[0].instantiate(engine, expr_idx, instantiation);
                     let the_place = match the_place.base() {
-                        FluffyTermBase::Ethereal(_) => todo!(),
-                        FluffyTermBase::Solid(_) => todo!(),
-                        FluffyTermBase::Hollow(_) => todo!(),
-                        FluffyTermBase::Place => the_place.place().unwrap(),
+                        FlyTermBase::Ethereal(_) => todo!(),
+                        FlyTermBase::Solid(_) => todo!(),
+                        FlyTermBase::Hollow(_) => todo!(),
+                        FlyTermBase::Place => the_place.place().unwrap(),
                     };
                     let base = arguments[1].instantiate(engine, expr_idx, instantiation);
                     match base.place() {
@@ -348,7 +344,7 @@ impl FluffyInstantiate for ApplicationEthTerm {
                         })
                         .collect();
                     if flag {
-                        FluffyTerm::new_ty_ontology(
+                        FlyTerm::new_ty_ontology(
                             db,
                             engine.fluffy_terms_mut(),
                             path,
@@ -366,14 +362,14 @@ impl FluffyInstantiate for ApplicationEthTerm {
     }
 }
 
-impl FluffyInstantiate for RitchieEthTerm {
-    type Target = FluffyTerm;
+impl FlyInstantiate for RitchieEthTerm {
+    type Target = FlyTerm;
 
     fn instantiate(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
-        instantiation: &FluffyInstantiation,
+        instantiation: &FlyInstantiation,
     ) -> Self::Target {
         let mut flag = false;
         let db = engine.db();
@@ -386,7 +382,7 @@ impl FluffyInstantiate for RitchieEthTerm {
             self.return_ty(db)
                 .instantiate_with_flag(engine, expr_idx, instantiation, &mut flag);
         match flag {
-            true => FluffyTerm::new_ritchie(engine, self.ritchie_kind(db), params, return_ty)
+            true => FlyTerm::new_ritchie(engine, self.ritchie_kind(db), params, return_ty)
                 .expect("should be okay"),
             false => self.into(),
         }

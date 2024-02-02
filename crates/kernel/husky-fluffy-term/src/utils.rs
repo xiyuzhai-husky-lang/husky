@@ -1,20 +1,20 @@
 use super::*;
 
-impl FluffyTerm {
-    pub(crate) fn curry_destination(self, db: &::salsa::Db, terms: &FluffyTerms) -> FluffyTerm {
+impl FlyTerm {
+    pub(crate) fn curry_destination(self, db: &::salsa::Db, terms: &FlyTerms) -> FlyTerm {
         match self.data_inner(db, terms) {
-            FluffyTermData::TypeOntology { .. }
-            | FluffyTermData::Hole(_, _)
-            | FluffyTermData::Category(_)
-            | FluffyTermData::Ritchie { .. }
-            | FluffyTermData::Symbol { .. }
-            | FluffyTermData::Rune { .. } => self,
-            FluffyTermData::Curry { return_ty, .. } => return_ty.curry_destination(db, terms),
-            FluffyTermData::Literal(_) | FluffyTermData::TypeVariant { .. } => unreachable!(),
+            FlyTermData::TypeOntology { .. }
+            | FlyTermData::Hole(_, _)
+            | FlyTermData::Category(_)
+            | FlyTermData::Ritchie { .. }
+            | FlyTermData::Symbol { .. }
+            | FlyTermData::Rune { .. } => self,
+            FlyTermData::Curry { return_ty, .. } => return_ty.curry_destination(db, terms),
+            FlyTermData::Literal(_) | FlyTermData::TypeVariant { .. } => unreachable!(),
         }
     }
 
-    pub fn final_destination(self, engine: &impl FluffyTermEngine) -> FinalDestination {
+    pub fn final_destination(self, engine: &impl FlyTermEngine) -> FinalDestination {
         self.final_destination_inner(engine.db(), engine.fluffy_terms())
     }
 
@@ -23,25 +23,23 @@ impl FluffyTerm {
     pub(crate) fn final_destination_inner(
         self,
         db: &::salsa::Db,
-        fluffy_terms: &FluffyTerms,
+        fluffy_terms: &FlyTerms,
     ) -> FinalDestination {
         match self.data_inner(db, fluffy_terms) {
-            FluffyTermData::TypeOntology { .. } => FinalDestination::TypeOntology,
-            FluffyTermData::Curry { return_ty, .. } => {
+            FlyTermData::TypeOntology { .. } => FinalDestination::TypeOntology,
+            FlyTermData::Curry { return_ty, .. } => {
                 return_ty.final_destination_inner(db, fluffy_terms)
             }
-            FluffyTermData::Hole(kind, idx) => match kind {
+            FlyTermData::Hole(kind, idx) => match kind {
                 HoleKind::UnspecifiedIntegerType
                 | HoleKind::UnspecifiedFloatType
                 | HoleKind::ImplicitType => FinalDestination::TypeOntology,
                 HoleKind::Any => FinalDestination::AnyOriginal,
             },
-            FluffyTermData::Category(_) => FinalDestination::Sort,
-            FluffyTermData::Ritchie { ritchie_kind, .. } => FinalDestination::Ritchie(ritchie_kind),
-            FluffyTermData::Symbol { .. } | FluffyTermData::Rune { .. } => {
-                FinalDestination::AnyOriginal
-            }
-            FluffyTermData::Literal(_) | FluffyTermData::TypeVariant { .. } => unreachable!(),
+            FlyTermData::Category(_) => FinalDestination::Sort,
+            FlyTermData::Ritchie { ritchie_kind, .. } => FinalDestination::Ritchie(ritchie_kind),
+            FlyTermData::Symbol { .. } | FlyTermData::Rune { .. } => FinalDestination::AnyOriginal,
+            FlyTermData::Literal(_) | FlyTermData::TypeVariant { .. } => unreachable!(),
         }
     }
 
@@ -49,20 +47,20 @@ impl FluffyTerm {
     /// -> i8 {v: v> 0}
     ///
     /// todo: include ritchie??
-    pub fn curry_parameter_count(self, engine: &impl FluffyTermEngine) -> i8 {
+    pub fn curry_parameter_count(self, engine: &impl FlyTermEngine) -> i8 {
         self.curry_parameter_count_inner(engine.db(), engine.fluffy_terms())
     }
 
-    pub fn curry_parameter_count_inner(self, db: &::salsa::Db, fluffy_terms: &FluffyTerms) -> i8 {
+    pub fn curry_parameter_count_inner(self, db: &::salsa::Db, fluffy_terms: &FlyTerms) -> i8 {
         match self.data_inner(db, fluffy_terms) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
+            FlyTermData::Literal(_) => todo!(),
+            FlyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
                 ty_arguments: arguments,
                 ty_ethereal_term,
             } => 0,
-            FluffyTermData::Curry {
+            FlyTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -74,15 +72,15 @@ impl FluffyTerm {
                 Some(ty_ethereal_term) => ty_ethereal_term.curry_parameter_count(db),
                 None => todo!(),
             },
-            FluffyTermData::Hole(hole_kind, _) => 0,
-            FluffyTermData::Category(_) => 0,
-            FluffyTermData::Ritchie {
+            FlyTermData::Hole(hole_kind, _) => 0,
+            FlyTermData::Category(_) => 0,
+            FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
             } => 0,
-            FluffyTermData::Symbol { .. } | FluffyTermData::Rune { .. } => 0,
-            FluffyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::Symbol { .. } | FlyTermData::Rune { .. } => 0,
+            FlyTermData::TypeVariant { path } => todo!(),
         }
     }
 }

@@ -54,9 +54,9 @@ impl Expectation {
     pub(crate) fn resolve(
         &self,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<FluffyTermEffect> {
+    ) -> AltOption<FlyTermEffect> {
         match state.resolve_progress() {
             ExpectationProgress::Intact | ExpectationProgress::Holed => (),
             ExpectationProgress::Resolved(_) => return AltNone,
@@ -80,7 +80,7 @@ impl Expectation {
 }
 
 // maybe make this Copy?
-pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
+pub trait ExpectFlyTerm: Into<Expectation> + Clone {
     type Outcome: Clone + Into<ExpectationOutcome>;
 
     fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome;
@@ -92,15 +92,15 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
     /// final destination of `Sort` is `FinalDestination::Sort`
     ///
     /// final destination of a type path `A` is `FinalDestination::TypePath(A)`
-    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination;
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FlyTerms) -> FinalDestination;
 
     #[inline(always)]
-    fn final_destination(&self, engine: &impl FluffyTermEngine<'_>) -> FinalDestination {
+    fn final_destination(&self, engine: &impl FlyTermEngine<'_>) -> FinalDestination {
         self.final_destination_inner(engine.db(), engine.fluffy_terms())
     }
 
     #[inline(always)]
-    fn disambiguate_ty_path(&self, engine: &impl FluffyTermEngine<'_>) -> TypePathDisambiguation {
+    fn disambiguate_ty_path(&self, engine: &impl FlyTermEngine<'_>) -> TypePathDisambiguation {
         self.disambiguate_ty_path_inner(engine.db(), engine.fluffy_terms())
     }
 
@@ -110,7 +110,7 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
     fn disambiguate_ty_path_inner(
         &self,
         db: &::salsa::Db,
-        terms: &FluffyTerms,
+        terms: &FlyTerms,
     ) -> TypePathDisambiguation {
         match self.final_destination_inner(db, terms) {
             FinalDestination::Sort => TypePathDisambiguation::OntologyConstructor,
@@ -124,13 +124,13 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
         }
     }
 
-    fn destination(&self) -> Option<FluffyTerm>;
+    fn destination(&self) -> Option<FlyTerm>;
 
     fn destination_term_data<'a>(
         &self,
         db: &'a ::salsa::Db,
-        fluffy_terms: &'a FluffyTerms,
-    ) -> Option<FluffyTermData<'a>> {
+        fluffy_terms: &'a FlyTerms,
+    ) -> Option<FlyTermData<'a>> {
         self.destination()
             .map(|destination| destination.data_inner(db, fluffy_terms))
     }
@@ -139,12 +139,12 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
     fn resolve(
         &self,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<FluffyTermEffect>;
+    ) -> AltOption<FlyTermEffect>;
 }
 
-pub type FluffyTermExpectationIdx = ArenaIdx<FluffyTermExpectationEntry>;
+pub type FlyTermExpectationIdx = ArenaIdx<FlyTermExpectationEntry>;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -169,11 +169,11 @@ pub enum ExpectationOutcome {
 pub enum ExpectationProgress {
     Intact,
     Holed,
-    Resolved(FluffyTermExpectationResult<ExpectationOutcome>),
+    Resolved(FlyTermExpectationResult<ExpectationOutcome>),
 }
 
 impl ExpectationProgress {
-    pub fn outcome<E: ExpectFluffyTerm>(&self) -> Option<&E::Outcome> {
+    pub fn outcome<E: ExpectFlyTerm>(&self) -> Option<&E::Outcome> {
         match self {
             ExpectationProgress::Intact | ExpectationProgress::Holed => None,
             ExpectationProgress::Resolved(Ok(outcome)) => Some(E::retrieve_outcome(outcome)),
@@ -184,60 +184,60 @@ impl ExpectationProgress {
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
-pub enum FluffyTermExpectationError {
+pub enum FlyTermExpectationError {
     #[error("original {0}")]
-    Original(#[from] OriginalFluffyTermExpectationError),
+    Original(#[from] OriginalFlyTermExpectationError),
     #[error("derived {0}")]
-    Derived(#[from] DerivedFluffyTermExpectationError),
+    Derived(#[from] DerivedFlyTermExpectationError),
 }
 
-pub type FluffyTermExpectationResult<T> = Result<T, FluffyTermExpectationError>;
+pub type FlyTermExpectationResult<T> = Result<T, FlyTermExpectationError>;
 
-impl From<FluffyPlaceError> for FluffyTermExpectationError {
-    fn from(e: FluffyPlaceError) -> Self {
-        FluffyTermExpectationError::Original(e.into())
+impl From<FlyPlaceError> for FlyTermExpectationError {
+    fn from(e: FlyPlaceError) -> Self {
+        FlyTermExpectationError::Original(e.into())
     }
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
-pub enum OriginalFluffyTermExpectationError {
+pub enum OriginalFlyTermExpectationError {
     #[error("type path mismatch for subtyping")]
     TypePathMismatchForSubtyping {
-        expected: FluffyTerm,
-        expectee: FluffyTerm,
+        expected: FlyTerm,
+        expectee: FlyTerm,
         expected_path: TypePath,
         expectee_path: TypePath,
     },
     #[error("type path mismatch for coersion")]
     TypePathMismatchForCoersion {
         contract: TermContract,
-        ty_expected: FluffyTerm,
-        expectee: FluffyTerm,
+        ty_expected: FlyTerm,
+        expectee: FlyTerm,
         expected_path: TypePath,
         expectee_path: TypePath,
     },
     #[error("expected category")]
-    ExpectedCategory { expectee: FluffyTerm },
+    ExpectedCategory { expectee: FlyTerm },
     #[error("expected subtype")]
-    ExpectedSubtype { expectee: FluffyTerm },
+    ExpectedSubtype { expectee: FlyTerm },
     #[error("expected function type")]
     ExpectedFunctionType,
     #[error("ExpectedCoersion")]
     ExpectedCoersion {
-        expectee: FluffyTerm,
+        expectee: FlyTerm,
         contract: TermContract,
-        expected: FluffyTerm,
+        expected: FlyTerm,
     },
     #[error("place")]
-    Place(#[from] FluffyPlaceError),
+    Place(#[from] FlyPlaceError),
     #[error("todo")]
     Todo,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
-pub enum DerivedFluffyTermExpectationError {
+pub enum DerivedFlyTermExpectationError {
     #[error("{term:?} {error}")]
     TermTypeError { term: EthTerm, error: EthTermError },
     #[error("{0}")]
@@ -245,7 +245,7 @@ pub enum DerivedFluffyTermExpectationError {
     #[error("target substitution failure")]
     TargetSubstitutionFailure,
     #[error("duplication")]
-    Duplication(FluffyTermExpectationIdx),
+    Duplication(FlyTermExpectationIdx),
     #[error("unresolved local term")]
     UnresolvedLocalTerm,
     #[error("type path {ty_path:?} type error {error}")]

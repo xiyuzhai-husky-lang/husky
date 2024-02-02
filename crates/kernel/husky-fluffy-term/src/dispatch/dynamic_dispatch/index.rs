@@ -5,39 +5,37 @@ mod solid;
 use self::ethereal::*;
 use super::*;
 
-pub type FluffyIndexDynamicDispatch = FluffyDynamicDispatch<FluffyIndexSignature>;
+pub type FlyIndexDynamicDispatch = FlyDynamicDispatch<FlyIndexSignature>;
 
-impl FluffyTerm {
+impl FlyTerm {
     pub fn dispatch_index(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
-        index_ty: FluffyTerm,
-    ) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
+        index_ty: FlyTerm,
+    ) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
         self.dispatch_index_aux(
             engine,
             expr_idx,
             index_ty,
-            FluffyIndirections::new(self.initial_place()),
+            FlyIndirections::new(self.initial_place()),
         )
     }
 
     fn dispatch_index_aux(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
-        index_ty: FluffyTerm,
-        mut indirections: FluffyIndirections,
-    ) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
+        index_ty: FlyTerm,
+        mut indirections: FlyIndirections,
+    ) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
         match self.base_resolved(engine) {
-            FluffyTermBase::Ethereal(owner_ty) => {
+            FlyTermBase::Ethereal(owner_ty) => {
                 ethereal_owner_ty_index_dispatch(engine, expr_idx, owner_ty, index_ty, indirections)
             }
-            FluffyTermBase::Solid(owner_ty) => {
-                owner_ty.disambiguate_index(engine, expr_idx, index_ty)
-            }
-            FluffyTermBase::Hollow(_) => todo!(),
-            FluffyTermBase::Place => todo!(),
+            FlyTermBase::Solid(owner_ty) => owner_ty.disambiguate_index(engine, expr_idx, index_ty),
+            FlyTermBase::Hollow(_) => todo!(),
+            FlyTermBase::Place => todo!(),
         }
     }
 }

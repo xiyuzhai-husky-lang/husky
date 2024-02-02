@@ -7,7 +7,7 @@ use super::*;
 #[enum_class::from_variants]
 pub enum HoleSource {
     Expr(SynExprIdx),
-    Expectation(FluffyTermExpectationIdx),
+    Expectation(FlyTermExpectationIdx),
 }
 
 impl HoleSource {
@@ -27,7 +27,7 @@ pub enum HoleKind {
 }
 
 impl HollowTerm {
-    pub(crate) fn new(engine: &mut impl FluffyTermEngine, data: HollowTermData) -> Self {
+    pub(crate) fn new(engine: &mut impl FlyTermEngine, data: HollowTermData) -> Self {
         engine
             .fluffy_term_region_mut()
             .hollow_terms_mut()
@@ -35,7 +35,7 @@ impl HollowTerm {
     }
 
     pub(crate) fn new_hole(
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         src: impl Into<HoleSource>,
         hole_kind: HoleKind,
     ) -> Self {

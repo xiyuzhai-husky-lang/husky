@@ -46,4 +46,4 @@ use salsa::DebugWithDb as _;
 use smallvec::*;
 
 #[salsa::jar]
-pub struct FluffyTermJar(term_ritchie_fluffy_data, term_application_fluffy_data);
+pub struct FlyTermJar(term_ritchie_fluffy_data, term_application_fluffy_data);

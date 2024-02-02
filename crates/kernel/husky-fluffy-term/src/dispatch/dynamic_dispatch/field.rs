@@ -7,17 +7,17 @@ pub(crate) use self::ethereal::*;
 use super::*;
 use husky_coword::Ident;
 
-#[deprecated(note = "use FluffyMemberDynamicDispatch instantiation instead")]
+#[deprecated(note = "use FlyMemberDynamicDispatch instantiation instead")]
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct FluffyFieldDyanmicDispatch {
-    indirections: FluffyIndirections,
+pub struct FlyFieldDyanmicDispatch {
+    indirections: FlyIndirections,
     ty_path: TypePath,
-    signature: FluffyFieldSignature,
+    signature: FlyFieldSignature,
 }
 
-impl FluffyFieldDyanmicDispatch {
-    pub fn indirections(&self) -> &FluffyIndirections {
+impl FlyFieldDyanmicDispatch {
+    pub fn indirections(&self) -> &FlyIndirections {
         &self.indirections
     }
 
@@ -25,49 +25,49 @@ impl FluffyFieldDyanmicDispatch {
         self.ty_path
     }
 
-    pub fn signature(&self) -> &FluffyFieldSignature {
+    pub fn signature(&self) -> &FlyFieldSignature {
         &self.signature
     }
 
-    pub fn expr_ty(&self) -> FluffyTerm {
+    pub fn expr_ty(&self) -> FlyTerm {
         self.signature
             .return_ty()
             .with_place(self.indirections.final_place)
     }
 }
 
-impl FluffyTerm {
+impl FlyTerm {
     /// returns None if no such field
     pub fn field_dispatch(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-    ) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
+    ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
         self.field_dispatch_aux(
             engine,
             ident,
             available_traits,
-            FluffyIndirections::new(self.initial_place()),
+            FlyIndirections::new(self.initial_place()),
         )
     }
 
     fn field_dispatch_aux(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-        mut indirections: FluffyIndirections,
-    ) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
+        mut indirections: FlyIndirections,
+    ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
         match self.base_resolved(engine) {
-            FluffyTermBase::Ethereal(term) => {
+            FlyTermBase::Ethereal(term) => {
                 ethereal_ty_field_dispatch(engine.db(), term, ident, indirections)
             }
-            FluffyTermBase::Solid(term) => {
+            FlyTermBase::Solid(term) => {
                 term.field_dispatch_aux(engine, ident, available_traits, indirections)
             }
-            FluffyTermBase::Hollow(term) => todo!(),
-            FluffyTermBase::Place => todo!(),
+            FlyTermBase::Hollow(term) => todo!(),
+            FlyTermBase::Place => todo!(),
         }
     }
 }

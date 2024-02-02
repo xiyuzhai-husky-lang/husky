@@ -1,24 +1,24 @@
 pub(crate) mod method_fn;
 
-use self::method_fn::MethodFnFluffySignature;
+use self::method_fn::MethodFnFlySignature;
 use super::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[enum_class::from_variants]
-pub enum MethodFluffySignature {
-    MethodFn(MethodFnFluffySignature),
+pub enum MethodFlySignature {
+    MethodFn(MethodFnFlySignature),
     MethodGn,
 }
 
-impl MemberSignature for MethodFluffySignature {
-    fn expr_ty(&self, self_value_final_place: FluffyPlace) -> FluffyTermResult<FluffyTerm> {
+impl MemberSignature for MethodFlySignature {
+    fn expr_ty(&self, self_value_final_place: FlyPlace) -> FlyTermResult<FlyTerm> {
         todo!()
     }
 }
 
-// impl From<&TraitForTypeMethodFnEtherealSignature> for MethodFluffySignature {
+// impl From<&TraitForTypeMethodFnEtherealSignature> for MethodFlySignature {
 //     fn from(sig: &TraitForTypeMethodFnEtherealSignature) -> Self {
-//         MethodFluffySignature::MethodFn(sig.into())
+//         MethodFlySignature::MethodFn(sig.into())
 //     }
 // }

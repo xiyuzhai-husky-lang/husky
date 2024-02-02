@@ -65,8 +65,8 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -165,9 +165,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -175,9 +175,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     1,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -213,7 +213,7 @@
                         1,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 EntityPath(
@@ -240,8 +240,8 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -253,7 +253,7 @@
                 expectations: Expectations {
                     arena: Arena {
                         data: [
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: UniverseTerm(
@@ -267,9 +267,9 @@
                                         syn_expr_idx: 1,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },

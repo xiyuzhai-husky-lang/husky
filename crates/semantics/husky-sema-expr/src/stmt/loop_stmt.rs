@@ -40,7 +40,7 @@ impl<'a> SemaExprEngine<'a> {
         let Ok(ref range) = particulars.range else {
             todo!()
         };
-        let mut expected_frame_var_ty: Option<FluffyTerm> = None;
+        let mut expected_frame_var_ty: Option<FlyTerm> = None;
         let initial_bound_sema_expr_idx = match range.initial_boundary.bound_expr {
             Some(bound_expr) => {
                 let (bound_sema_expr_idx, num_ty_outcome) =
@@ -75,7 +75,7 @@ impl<'a> SemaExprEngine<'a> {
         let Some(expected_frame_var_ty) = expected_frame_var_ty else {
             todo!()
         };
-        // let place = FluffyPlace::ImmutableStackOwned {
+        // let place = FlyPlace::ImmutableStackOwned {
         //     location: for_loop_var_symbol_idx
         //         .into_local_symbol_idx(self.syn_expr_region_data())
         //         .into(),
@@ -162,7 +162,7 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         particulars: &'a SynForextParticulars,
         forext_loop_var_sema_expr_idx: SemaExprIdx,
-        forext_loop_var_ty: FluffyTerm,
+        forext_loop_var_ty: FlyTerm,
     ) -> SemaForextParticulars {
         let bound_expr_sema_expr_idx = self.build_sema_expr(
             particulars.bound_expr,

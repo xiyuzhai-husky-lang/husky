@@ -6,7 +6,7 @@ use crate::{
     *,
 };
 use husky_ethereal_term::EthTerm;
-use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
+use husky_fluffy_term::{FlyTerm, FlyTermBase, FlyTerms};
 use husky_hir_ty::HirType;
 use husky_sema_expr::{
     SemaExprArena, SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
@@ -177,7 +177,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         HirType::from_ethereal(self.expr_term(sema_expr_idx), self.db)
     }
 
-    pub(crate) fn expr_ty(&self, sema_expr_idx: SemaExprIdx) -> FluffyTerm {
+    pub(crate) fn expr_ty(&self, sema_expr_idx: SemaExprIdx) -> FlyTerm {
         sema_expr_idx.ty(self.sema_expr_region_data.sema_expr_arena2())
     }
 
@@ -190,10 +190,10 @@ impl<'a> HirEagerExprBuilder<'a> {
             .expect("hir stage ok")
             .base_resolved_inner(self.sema_expr_region_data.fluffy_term_region().terms())
         {
-            FluffyTermBase::Ethereal(term) => term,
-            FluffyTermBase::Solid(_) => todo!(),
-            FluffyTermBase::Hollow(_) => todo!(),
-            FluffyTermBase::Place => todo!(),
+            FlyTermBase::Ethereal(term) => term,
+            FlyTermBase::Solid(_) => todo!(),
+            FlyTermBase::Hollow(_) => todo!(),
+            FlyTermBase::Place => todo!(),
         }
     }
 
@@ -256,7 +256,7 @@ impl<'a> HirEagerExprBuilder<'a> {
             .syn_pattern_expr_ty(syn_pattern_expr_idx, self.db)
     }
 
-    pub(crate) fn fluffy_terms(&self) -> &FluffyTerms {
+    pub(crate) fn fluffy_terms(&self) -> &FlyTerms {
         self.sema_expr_region_data.fluffy_term_region().terms()
     }
 }

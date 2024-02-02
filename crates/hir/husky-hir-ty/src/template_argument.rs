@@ -1,7 +1,7 @@
 use crate::{path_leading::HirTypePathLeading, ritchie::HirRitchieType, *};
 use husky_ethereal_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
 use husky_ethereal_term::EthTerm;
-use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
+use husky_fluffy_term::{FlyTerm, FlyTermBase, FlyTerms};
 use husky_term_prelude::ItemPathTerm;
 
 #[salsa::debug_with_db]
@@ -72,20 +72,16 @@ impl HirTemplateArgument {
         })
     }
 
-    pub(crate) fn from_fluffy(
-        term: FluffyTerm,
-        db: &::salsa::Db,
-        terms: &FluffyTerms,
-    ) -> Option<Self> {
+    pub(crate) fn from_fluffy(term: FlyTerm, db: &::salsa::Db, terms: &FlyTerms) -> Option<Self> {
         match term.base_resolved_inner(terms) {
-            FluffyTermBase::Ethereal(ethereal_term) => Self::from_ethereal(ethereal_term, db),
-            FluffyTermBase::Solid(_) => todo!(),
-            FluffyTermBase::Hollow(t) => {
+            FlyTermBase::Ethereal(ethereal_term) => Self::from_ethereal(ethereal_term, db),
+            FlyTermBase::Solid(_) => todo!(),
+            FlyTermBase::Hollow(t) => {
                 use husky_print_utils::p;
                 p!(t, term.show(db, terms));
                 todo!()
             }
-            FluffyTermBase::Place => todo!(),
+            FlyTermBase::Place => todo!(),
         }
     }
 }

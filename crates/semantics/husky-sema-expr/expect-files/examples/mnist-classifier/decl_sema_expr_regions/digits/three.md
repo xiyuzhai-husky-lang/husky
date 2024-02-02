@@ -58,9 +58,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -68,9 +68,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     1,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -106,7 +106,7 @@
                         1,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 EntityPath(
@@ -133,8 +133,8 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -146,7 +146,7 @@
                 expectations: Expectations {
                     arena: Arena {
                         data: [
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: UniverseTerm(
@@ -160,9 +160,9 @@
                                         syn_expr_idx: 1,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -246,9 +246,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                     ),
                                 },
@@ -256,9 +256,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     1,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
@@ -279,9 +279,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -289,9 +289,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     2,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -310,9 +310,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`independent MnistLabel -> Type`),
                                     ),
                                 },
@@ -320,9 +320,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     3,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`independent MnistLabel -> Type`),
                                         ),
                                     },
@@ -350,7 +350,7 @@
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
-                                        FluffyInstantiation {
+                                        FlyInstantiation {
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -359,9 +359,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`MnistLabel`),
                                     ),
                                 },
@@ -369,9 +369,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     4,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`MnistLabel`),
                                         ),
                                     },
@@ -390,9 +390,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -400,9 +400,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     5,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -438,7 +438,7 @@
                         2,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 EntityPath(
@@ -461,7 +461,7 @@
                         1,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 EntityPath(
@@ -484,7 +484,7 @@
                         3,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 Application(
@@ -503,7 +503,7 @@
                         4,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 EntityPath(
@@ -526,7 +526,7 @@
                         5,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 Application(
@@ -549,8 +549,8 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -562,7 +562,7 @@
                 expectations: Expectations {
                     arena: Arena {
                         data: [
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
                                         final_destination: FinalDestination::Sort,
@@ -574,9 +574,9 @@
                                         syn_expr_idx: 1,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
@@ -585,17 +585,17 @@
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    return_ty: FluffyTerm {
+                                                    return_ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Ethereal(
+                                                        base: FlyTermBase::Ethereal(
                                                             EthTerm(`independent variable_ad_hoc_fmt -> Type`),
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: Some(
-                                                            RuneFluffyTerm(
-                                                                FluffyTerm {
+                                                            RuneFlyTerm(
+                                                                FlyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Rune(
@@ -609,15 +609,15 @@
                                                                 },
                                                             ),
                                                         ),
-                                                        parameter_ty: FluffyTerm {
+                                                        parameter_ty: FlyTerm {
                                                             place: None,
-                                                            base: FluffyTermBase::Ethereal(
+                                                            base: FlyTermBase::Ethereal(
                                                                 EthTerm(`Type`),
                                                             ),
                                                         },
-                                                        return_ty: FluffyTerm {
+                                                        return_ty: FlyTerm {
                                                             place: None,
-                                                            base: FluffyTermBase::Ethereal(
+                                                            base: FlyTermBase::Ethereal(
                                                                 EthTerm(`independent variable_ad_hoc_fmt -> Type`),
                                                             ),
                                                         },
@@ -628,10 +628,10 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
-                                        curry_destination: FluffyTerm {
+                                        curry_destination: FlyTerm {
                                             place: None,
                                             base: Ethereal(
                                                 Category(
@@ -651,9 +651,9 @@
                                         syn_expr_idx: 2,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -661,7 +661,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
                                         final_destination: FinalDestination::Sort,
@@ -673,9 +673,9 @@
                                         syn_expr_idx: 3,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`independent MnistLabel -> Type`),
                                         ),
                                     },
@@ -684,24 +684,24 @@
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    return_ty: FluffyTerm {
+                                                    return_ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Ethereal(
+                                                        base: FlyTermBase::Ethereal(
                                                             EthTerm(`Type`),
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: None,
-                                                        parameter_ty: FluffyTerm {
+                                                        parameter_ty: FlyTerm {
                                                             place: None,
-                                                            base: FluffyTermBase::Ethereal(
+                                                            base: FlyTermBase::Ethereal(
                                                                 EthTerm(`MnistLabel`),
                                                             ),
                                                         },
-                                                        return_ty: FluffyTerm {
+                                                        return_ty: FlyTerm {
                                                             place: None,
-                                                            base: FluffyTermBase::Ethereal(
+                                                            base: FlyTermBase::Ethereal(
                                                                 EthTerm(`Type`),
                                                             ),
                                                         },
@@ -712,10 +712,10 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
-                                        curry_destination: FluffyTerm {
+                                        curry_destination: FlyTerm {
                                             place: None,
                                             base: Ethereal(
                                                 EntityPath(
@@ -739,9 +739,9 @@
                                         syn_expr_idx: 4,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`MnistLabel`),
                                         ),
                                     },
@@ -749,7 +749,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: UniverseTerm(
@@ -763,9 +763,9 @@
                                         syn_expr_idx: 5,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -849,9 +849,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -859,9 +859,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     1,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -881,9 +881,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -891,9 +891,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     2,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -914,9 +914,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -924,9 +924,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     3,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -946,9 +946,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -956,9 +956,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     4,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1005,7 +1005,7 @@
                         1,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 EntityPath(
@@ -1028,7 +1028,7 @@
                         2,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 Application(
@@ -1047,7 +1047,7 @@
                         3,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 EntityPath(
@@ -1070,7 +1070,7 @@
                         4,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 Application(
@@ -1089,7 +1089,7 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 StackPure {
                                     location: StackLocationIdx(
@@ -1099,7 +1099,7 @@
                                     ),
                                 },
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Leash ConcaveComponent`),
                             ),
                         },
@@ -1110,8 +1110,8 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -1123,10 +1123,10 @@
                 expectations: Expectations {
                     arena: Arena {
                         data: [
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
-                                        curry_destination: FluffyTerm {
+                                        curry_destination: FlyTerm {
                                             place: None,
                                             base: Ethereal(
                                                 Category(
@@ -1146,9 +1146,9 @@
                                         syn_expr_idx: 1,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1156,7 +1156,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: UniverseTerm(
@@ -1170,9 +1170,9 @@
                                         syn_expr_idx: 2,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1188,12 +1188,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`Type`),
                                             ),
                                         },
@@ -1205,9 +1205,9 @@
                                         syn_expr_idx: 3,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1221,7 +1221,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: UniverseTerm(
@@ -1235,9 +1235,9 @@
                                         syn_expr_idx: 4,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1321,9 +1321,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -1331,9 +1331,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     1,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1353,9 +1353,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -1363,9 +1363,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     2,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1386,9 +1386,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -1396,9 +1396,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     3,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1418,9 +1418,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -1428,9 +1428,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     4,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1477,7 +1477,7 @@
                         1,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 EntityPath(
@@ -1500,7 +1500,7 @@
                         2,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 Application(
@@ -1519,7 +1519,7 @@
                         3,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 EntityPath(
@@ -1542,7 +1542,7 @@
                         4,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 Application(
@@ -1561,7 +1561,7 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 StackPure {
                                     location: StackLocationIdx(
@@ -1571,7 +1571,7 @@
                                     ),
                                 },
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Leash ConcaveComponent`),
                             ),
                         },
@@ -1582,8 +1582,8 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -1595,10 +1595,10 @@
                 expectations: Expectations {
                     arena: Arena {
                         data: [
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
-                                        curry_destination: FluffyTerm {
+                                        curry_destination: FlyTerm {
                                             place: None,
                                             base: Ethereal(
                                                 Category(
@@ -1618,9 +1618,9 @@
                                         syn_expr_idx: 1,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1628,7 +1628,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: UniverseTerm(
@@ -1642,9 +1642,9 @@
                                         syn_expr_idx: 2,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1660,12 +1660,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`Type`),
                                             ),
                                         },
@@ -1677,9 +1677,9 @@
                                         syn_expr_idx: 3,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1693,7 +1693,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: UniverseTerm(
@@ -1707,9 +1707,9 @@
                                         syn_expr_idx: 4,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1793,9 +1793,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -1803,9 +1803,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     1,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1825,9 +1825,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -1835,9 +1835,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     2,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1858,9 +1858,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -1868,9 +1868,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     3,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1890,9 +1890,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -1900,9 +1900,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     4,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1949,7 +1949,7 @@
                         1,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 EntityPath(
@@ -1972,7 +1972,7 @@
                         2,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 Application(
@@ -1991,7 +1991,7 @@
                         3,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 EntityPath(
@@ -2014,7 +2014,7 @@
                         4,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 Application(
@@ -2033,7 +2033,7 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 StackPure {
                                     location: StackLocationIdx(
@@ -2043,7 +2043,7 @@
                                     ),
                                 },
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Leash ConcaveComponent`),
                             ),
                         },
@@ -2054,8 +2054,8 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -2067,10 +2067,10 @@
                 expectations: Expectations {
                     arena: Arena {
                         data: [
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
-                                        curry_destination: FluffyTerm {
+                                        curry_destination: FlyTerm {
                                             place: None,
                                             base: Ethereal(
                                                 Category(
@@ -2090,9 +2090,9 @@
                                         syn_expr_idx: 1,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -2100,7 +2100,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: UniverseTerm(
@@ -2114,9 +2114,9 @@
                                         syn_expr_idx: 2,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -2132,12 +2132,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`Type`),
                                             ),
                                         },
@@ -2149,9 +2149,9 @@
                                         syn_expr_idx: 3,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -2165,7 +2165,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: UniverseTerm(
@@ -2179,9 +2179,9 @@
                                         syn_expr_idx: 4,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Type`),
                                         ),
                                     },

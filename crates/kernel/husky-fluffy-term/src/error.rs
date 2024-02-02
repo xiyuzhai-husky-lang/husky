@@ -6,36 +6,36 @@ use thiserror::Error;
 
 #[salsa::debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
-pub enum FluffyTermError {
+pub enum FlyTermError {
     #[error("ethereal signature")]
     EtherealSignature(EtherealSignatureError),
     #[error("ethereal term")]
     EthTerm(EthTermError),
 }
 
-impl From<EtherealSignatureError> for FluffyTermError {
+impl From<EtherealSignatureError> for FlyTermError {
     fn from(e: EtherealSignatureError) -> Self {
-        FluffyTermError::EtherealSignature(e)
+        FlyTermError::EtherealSignature(e)
     }
 }
 
-impl From<EthTermError> for FluffyTermError {
+impl From<EthTermError> for FlyTermError {
     fn from(e: EthTermError) -> Self {
-        FluffyTermError::EthTerm(e)
+        FlyTermError::EthTerm(e)
     }
 }
 
-impl From<&EntityTreeError> for FluffyTermError {
+impl From<&EntityTreeError> for FlyTermError {
     fn from(value: &EntityTreeError) -> Self {
         todo!()
     }
 }
 
-impl From<DeclarativeTermSymbolTypeErrorKind> for FluffyTermError {
+impl From<DeclarativeTermSymbolTypeErrorKind> for FlyTermError {
     fn from(value: DeclarativeTermSymbolTypeErrorKind) -> Self {
         todo!()
     }
 }
 
-pub type FluffyTermResult<T> = Result<T, FluffyTermError>;
-pub type FluffyTermMaybeResult<T> = MaybeResult<T, FluffyTermError>;
+pub type FlyTermResult<T> = Result<T, FlyTermError>;
+pub type FlyTermMaybeResult<T> = MaybeResult<T, FlyTermError>;

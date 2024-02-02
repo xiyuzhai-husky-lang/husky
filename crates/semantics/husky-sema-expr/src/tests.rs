@@ -45,7 +45,7 @@ use husky_vfs::*;
     husky_declarative_ty::db::DeclarativeTypeJar,
     EthTermJar,
     EtherealSignatureJar,
-    FluffyTermJar,
+    FlyTermJar,
     SemaExprJar
 )]
 #[derive(Default)]

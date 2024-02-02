@@ -6,7 +6,7 @@ use husky_hir_defn::HirDefn;
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum JavelinPath {
+pub enum JavPath {
     Fugitive(FugitivePath),
     TypeItem(TypeItemPath),
     TraitItem(TraitItemPath),
@@ -15,7 +15,7 @@ pub enum JavelinPath {
     TypeVariantConstructor(TypeVariantPath),
 }
 
-impl std::ops::Deref for JavelinPath {
+impl std::ops::Deref for JavPath {
     type Target = ItemPathId;
 
     fn deref(&self) -> &Self::Target {
@@ -31,7 +31,7 @@ fn javelin_item_path_deref_works() {
     DB::ast_plain_test(
         |db, module_path| {
             for &item_path in module_item_paths(db, module_path) {
-                if let Some(javelin_item_path) = JavelinPath::try_from_item_path(item_path, db) {
+                if let Some(javelin_item_path) = JavPath::try_from_item_path(item_path, db) {
                     assert_eq!(*javelin_item_path, *item_path)
                 }
             }
@@ -44,7 +44,7 @@ fn javelin_item_path_deref_works() {
     )
 }
 
-impl JavelinPath {
+impl JavPath {
     pub fn try_from_item_path(item_path: ItemPath, db: &::salsa::Db) -> Option<Self> {
         match item_path {
             ItemPath::Submodule(_, _) => None,
@@ -66,10 +66,10 @@ impl JavelinPath {
                     {
                         return None;
                     }
-                    Some(JavelinPath::TraitForTypeItem(path))
+                    Some(JavPath::TraitForTypeItem(path))
                 }
-                AssociatedItemPath::TypeItem(path) => Some(JavelinPath::TypeItem(path)),
-                AssociatedItemPath::TraitItem(path) => Some(JavelinPath::TraitItem(path)),
+                AssociatedItemPath::TypeItem(path) => Some(JavPath::TypeItem(path)),
+                AssociatedItemPath::TraitItem(path) => Some(JavPath::TraitItem(path)),
             },
             ItemPath::TypeVariant(_, path) => Some(path.into()),
             ItemPath::ImplBlock(_) => None,

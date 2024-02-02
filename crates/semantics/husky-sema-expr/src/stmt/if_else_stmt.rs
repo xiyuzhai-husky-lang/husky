@@ -27,7 +27,7 @@ impl SemaIfBranch {
 }
 
 impl<'a> SemaExprEngine<'a> {
-    pub(crate) fn build_sema_if_branch<Expectation: ExpectFluffyTerm>(
+    pub(crate) fn build_sema_if_branch<Expectation: ExpectFlyTerm>(
         &mut self,
         syn_if_branch: &'a SynIfBranch,
         merger: &mut BranchTypeMerger<Expectation>,
@@ -64,7 +64,7 @@ impl SemaElifBranch {
 }
 
 impl<'a> SemaExprEngine<'a> {
-    pub(crate) fn build_sema_elif_branch<Expectation: ExpectFluffyTerm>(
+    pub(crate) fn build_sema_elif_branch<Expectation: ExpectFlyTerm>(
         &mut self,
         syn_elif_branch: &'a SynElifBranch,
         merger: &mut BranchTypeMerger<Expectation>,
@@ -105,10 +105,10 @@ impl<'a> SemaExprEngine<'a> {
         syn_if_branch: &'a SynIfBranch,
         syn_elif_branches: &'a [SynElifBranch],
         syn_else_branch: Option<&'a SynElseBranch>,
-        stmt_ty_expectation: impl ExpectFluffyTerm,
+        stmt_ty_expectation: impl ExpectFlyTerm,
     ) -> (
         SemaExprDataResult<SemaStmtData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let mut merger = BranchTypeMerger::new(stmt_ty_expectation);
         let Ok(sema_if_branch) = self.build_sema_if_branch(syn_if_branch, &mut merger) else {
@@ -144,7 +144,7 @@ impl<'a> SemaExprEngine<'a> {
         )
     }
 
-    fn build_sema_else_branch<Expectation: ExpectFluffyTerm>(
+    fn build_sema_else_branch<Expectation: ExpectFlyTerm>(
         &mut self,
         syn_else_branch: &'a SynElseBranch,
         merger: &mut BranchTypeMerger<Expectation>,

@@ -1314,7 +1314,7 @@
                                                 LinTypePathLeading {
                                                     ty_path: TypePath(`core::option::Option`, `Enum`),
                                                     template_arguments: [
-                                                        LinkageTemplateArgument::Type(
+                                                        LinTemplateArgument::Type(
                                                             LinType::PathLeading(
                                                                 LinTypePathLeading {
                                                                     ty_path: TypePath(`core::num::f32`, `Extern`),

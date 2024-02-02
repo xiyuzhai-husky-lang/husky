@@ -2,12 +2,12 @@ use super::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum SemaBinaryOprFluffySignature {
+pub enum SemaBinaryOprFlySignature {
     Builtin,
 }
 
-impl MemberSignature for SemaBinaryOprFluffySignature {
-    fn expr_ty(&self, self_value_final_place: FluffyPlace) -> FluffyTermResult<FluffyTerm> {
+impl MemberSignature for SemaBinaryOprFlySignature {
+    fn expr_ty(&self, self_value_final_place: FlyPlace) -> FlyTermResult<FlyTerm> {
         todo!()
     }
 }

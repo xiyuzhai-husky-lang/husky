@@ -5,14 +5,14 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         syn_expr_idx: SynExprIdx,
         function_syn_expr_idx: SynExprIdx,
-        expr_ty_expectation: &impl ExpectFluffyTerm,
+        expr_ty_expectation: &impl ExpectFlyTerm,
         template_arguments: Option<&SynTemplateArguments>,
         lpar_regional_token_idx: RegionalTokenIdx,
         items: &[SynCommaListItem],
         rpar_regional_token_idx: RegionalTokenIdx,
     ) -> (
         SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let (function_sema_expr_idx, outcome) = self.build_sema_expr_with_outcome(
             function_syn_expr_idx,
@@ -102,7 +102,7 @@ impl<'a> SemaExprEngine<'a> {
         rpar_regional_token_idx: RegionalTokenIdx,
     ) -> (
         SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let (function_sema_expr_idx, outcome) = self
             .build_sema_expr_with_outcome(function, ExpectEqsRitchieType::new(final_destination));

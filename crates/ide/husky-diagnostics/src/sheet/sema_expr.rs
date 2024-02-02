@@ -245,15 +245,15 @@ impl Diagnose for (HoleSource, &'_ OriginalHollowTermResolveError) {
     }
 }
 
-impl Diagnose for (ExpectationSource, &'_ OriginalFluffyTermExpectationError) {
+impl Diagnose for (ExpectationSource, &'_ OriginalFlyTermExpectationError) {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
         match self.1 {
-            OriginalFluffyTermExpectationError::Todo => {
-                format!("OriginalFluffyTermExpectationError::Todo")
+            OriginalFlyTermExpectationError::Todo => {
+                format!("OriginalFlyTermExpectationError::Todo")
             }
-            OriginalFluffyTermExpectationError::TypePathMismatchForSubtyping {
+            OriginalFlyTermExpectationError::TypePathMismatchForSubtyping {
                 expected,
                 expectee,
                 expected_path,
@@ -265,16 +265,16 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFluffyTermExpectationError) {
                 expected_path.display(ctx.db()),
                 expectee_path.display(ctx.db())
             ),
-            OriginalFluffyTermExpectationError::ExpectedCategory { expectee: _ } => {
+            OriginalFlyTermExpectationError::ExpectedCategory { expectee: _ } => {
                 format!("Term Error: expected category",)
             }
-            OriginalFluffyTermExpectationError::ExpectedFunctionType => {
+            OriginalFlyTermExpectationError::ExpectedFunctionType => {
                 format!("Term Error: expected function type",)
             }
-            OriginalFluffyTermExpectationError::ExpectedSubtype { expectee: _ } => {
+            OriginalFlyTermExpectationError::ExpectedSubtype { expectee: _ } => {
                 format!("Term Error: expected subtype",)
             }
-            OriginalFluffyTermExpectationError::ExpectedCoersion {  expectee, expected, contract } => {
+            OriginalFlyTermExpectationError::ExpectedCoersion {  expectee, expected, contract } => {
                 format!(
                     "Term Error: expected coersion from `{}` to `{}` under contract `{}`",
                     expectee.show(ctx.db(), ctx.fluffy_term_region().terms()),
@@ -282,7 +282,7 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFluffyTermExpectationError) {
                     contract.as_str(),
                 )
             }
-            OriginalFluffyTermExpectationError::TypePathMismatchForCoersion { contract, ty_expected, expectee, expected_path, expectee_path } => format!(
+            OriginalFlyTermExpectationError::TypePathMismatchForCoersion { contract, ty_expected, expectee, expected_path, expectee_path } => format!(
                 "Type Error: type path mismatch in coersing `{}` into `{}` of contract `{}`, expected `{}`, but got `{}` instead",
                 expectee.show(ctx.db(), ctx.fluffy_term_region().terms()),
                 ty_expected.show(ctx.db(), ctx.fluffy_term_region().terms()),
@@ -290,7 +290,7 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFluffyTermExpectationError) {
                 expected_path.display(ctx.db()),
                 expectee_path.display(ctx.db())
             ),
-            OriginalFluffyTermExpectationError::Place(e) => format!("place error {}", e),
+            OriginalFlyTermExpectationError::Place(e) => format!("place error {}", e),
         }
     }
 

@@ -12,15 +12,15 @@ impl<'a> SemaExprEngine<'a> {
         application_composition_f_given_opd_ty: F3,
     ) -> (
         SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     )
     where
         F1: FnOnce(
             &mut Self,
-            FluffyTerm,
+            FlyTerm,
         ) -> (
             SemaExprDataResult<SemaSuffixOpr>,
-            SemaExprTypeResult<FluffyTerm>,
+            SemaExprTypeResult<FlyTerm>,
         ),
         F2: FnOnce(
             &mut Self,
@@ -28,14 +28,14 @@ impl<'a> SemaExprEngine<'a> {
             RegionalTokenIdx,
         ) -> (
             SemaExprDataResult<SemaExprData>,
-            SemaExprTypeResult<FluffyTerm>,
+            SemaExprTypeResult<FlyTerm>,
         ),
         F3: FnOnce(
             &mut Self,
-            FluffyTerm,
+            FlyTerm,
         ) -> (
             SemaExprDataResult<SemaSuffixOpr>,
-            SemaExprTypeResult<FluffyTerm>,
+            SemaExprTypeResult<FlyTerm>,
         ),
     {
         match final_destination {
@@ -44,8 +44,8 @@ impl<'a> SemaExprEngine<'a> {
                     .build_sema_expr_with_ty(opd, ExpectFinalDestination::new(final_destination));
                 match opd_ty {
                     Some(opd_ty) => match opd_ty.data(self) {
-                        FluffyTermData::Literal(_) => todo!(),
-                        FluffyTermData::TypeOntology { .. } => {
+                        FlyTermData::Literal(_) => todo!(),
+                        FlyTermData::TypeOntology { .. } => {
                             let (sema_opr_result, ty_result) =
                                 naive_suffix_f_given_opd_ty(self, opd_ty);
                             (
@@ -57,17 +57,17 @@ impl<'a> SemaExprEngine<'a> {
                                 ty_result,
                             )
                         }
-                        FluffyTermData::Curry { .. } => todo!(),
-                        FluffyTermData::Hole(_, _) => todo!(),
-                        FluffyTermData::Category(_) => todo!(),
-                        FluffyTermData::Ritchie {
+                        FlyTermData::Curry { .. } => todo!(),
+                        FlyTermData::Hole(_, _) => todo!(),
+                        FlyTermData::Category(_) => todo!(),
+                        FlyTermData::Ritchie {
                             ritchie_kind,
                             parameter_contracted_tys,
                             return_ty,
                         } => todo!(),
-                        FluffyTermData::Symbol { .. } => todo!(),
-                        FluffyTermData::Rune { .. } => todo!(),
-                        FluffyTermData::TypeVariant { path } => todo!(),
+                        FlyTermData::Symbol { .. } => todo!(),
+                        FlyTermData::Rune { .. } => todo!(),
+                        FlyTermData::TypeVariant { path } => todo!(),
                     },
                     None => (
                         todo!(),

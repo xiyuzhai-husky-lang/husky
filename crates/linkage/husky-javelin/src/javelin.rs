@@ -1,5 +1,5 @@
 use crate::{
-    amazon::package_amazon_javelins, instantiation::JavelinInstantiation, path::JavelinPath,
+    amazon::package_amazon_javelins, instantiation::JavInstantiation, path::JavPath,
     template_argument::ty::JavelinType, valkyrie::package_valkyrie_javelins, *,
 };
 
@@ -15,8 +15,8 @@ pub struct Javelin {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum JavelinData {
     PathLeading {
-        path: JavelinPath,
-        instantiation: JavelinInstantiation,
+        path: JavPath,
+        instantiation: JavInstantiation,
     },
     VecConstructor {
         element_ty: JavelinType,

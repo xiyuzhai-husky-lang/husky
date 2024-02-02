@@ -7,16 +7,16 @@ use husky_coword::Ident;
 use husky_entity_tree::helpers::TraitInUseItemsWithGivenIdent;
 use husky_regional_token::IdentRegionalToken;
 
-pub type FluffyMethodDynamicDispatch = FluffyDynamicDispatch<MethodFluffySignature>;
+pub type FlyMethodDynamicDispatch = FlyDynamicDispatch<MethodFlySignature>;
 
-pub trait HasFluffyTraitMethodDispatch: Copy {
+pub trait HasFlyTraitMethodDispatch: Copy {
     fn trai_method_dispatch(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
         ident_regional_token: IdentRegionalToken,
-        indirections: FluffyIndirections,
-    ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+        indirections: FlyIndirections,
+    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
         self.trai_method_dispatch_aux(
             engine,
             expr_idx,
@@ -30,22 +30,22 @@ pub trait HasFluffyTraitMethodDispatch: Copy {
 
     fn trai_method_dispatch_aux(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
-        indirections: FluffyIndirections,
-    ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch>;
+        indirections: FlyIndirections,
+    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch>;
 }
 
-pub trait HasFluffyTypeMethodDispatch: Copy {
+pub trait HasFlyTypeMethodDispatch: Copy {
     fn ty_method_dispatch(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-        indirections: FluffyIndirections,
-    ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch>;
+        indirections: FlyIndirections,
+    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch>;
 }
 
 /// dispatch orders are
@@ -55,22 +55,20 @@ pub trait HasFluffyTypeMethodDispatch: Copy {
 /// - builtin indirected trait methods
 /// - trait methods
 /// - custom indirected trait methods
-pub trait HasFluffyMethodDispatch:
-    HasFluffyTypeMethodDispatch + HasFluffyTraitMethodDispatch
-{
+pub trait HasFlyMethodDispatch: HasFlyTypeMethodDispatch + HasFlyTraitMethodDispatch {
     fn method_dispatch(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-    ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
         let initial_place = self.initial_place();
         if let Some(dispatch) = self
             .ty_method_dispatch(
                 engine,
                 expr_idx,
                 ident_token,
-                FluffyIndirections::new(initial_place),
+                FlyIndirections::new(initial_place),
             )
             .into_result_option()?
         {
@@ -80,75 +78,75 @@ pub trait HasFluffyMethodDispatch:
             engine,
             expr_idx,
             ident_token,
-            FluffyIndirections::new(initial_place),
+            FlyIndirections::new(initial_place),
         )
     }
 
-    fn initial_place(self) -> FluffyPlace;
+    fn initial_place(self) -> FlyPlace;
 }
 
-impl HasFluffyTypeMethodDispatch for FluffyTerm {
+impl HasFlyTypeMethodDispatch for FlyTerm {
     fn ty_method_dispatch(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-        indirections: FluffyIndirections,
-    ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+        indirections: FlyIndirections,
+    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
         match self.base_resolved(engine) {
-            FluffyTermBase::Ethereal(ty_term) => {
+            FlyTermBase::Ethereal(ty_term) => {
                 ty_term.ty_method_dispatch(engine, expr_idx, ident_token, indirections)
             }
-            FluffyTermBase::Solid(ty_term) => {
+            FlyTermBase::Solid(ty_term) => {
                 ty_term.ty_method_dispatch(engine, expr_idx, ident_token, indirections)
             }
-            FluffyTermBase::Hollow(ty_term) => {
+            FlyTermBase::Hollow(ty_term) => {
                 ty_term.ty_method_dispatch(engine, expr_idx, ident_token, indirections)
             }
-            FluffyTermBase::Place => todo!(),
+            FlyTermBase::Place => todo!(),
         }
     }
 }
 
-impl HasFluffyTraitMethodDispatch for FluffyTerm {
+impl HasFlyTraitMethodDispatch for FlyTerm {
     fn trai_method_dispatch_aux(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
-        indirections: FluffyIndirections,
-    ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+        indirections: FlyIndirections,
+    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
         match self.base_resolved(engine) {
-            FluffyTermBase::Ethereal(ty_term) => ty_term.trai_method_dispatch_aux(
+            FlyTermBase::Ethereal(ty_term) => ty_term.trai_method_dispatch_aux(
                 engine,
                 expr_idx,
                 ident_token,
                 trai_item_records,
                 indirections,
             ),
-            FluffyTermBase::Solid(ty_term) => ty_term.trai_method_dispatch_aux(
+            FlyTermBase::Solid(ty_term) => ty_term.trai_method_dispatch_aux(
                 engine,
                 expr_idx,
                 ident_token,
                 trai_item_records,
                 indirections,
             ),
-            FluffyTermBase::Hollow(ty_term) => ty_term.trai_method_dispatch_aux(
+            FlyTermBase::Hollow(ty_term) => ty_term.trai_method_dispatch_aux(
                 engine,
                 expr_idx,
                 ident_token,
                 trai_item_records,
                 indirections,
             ),
-            FluffyTermBase::Place => todo!(),
+            FlyTermBase::Place => todo!(),
         }
     }
 }
 
-impl HasFluffyMethodDispatch for FluffyTerm {
-    fn initial_place(self) -> FluffyPlace {
+impl HasFlyMethodDispatch for FlyTerm {
+    fn initial_place(self) -> FlyPlace {
         // ad hoc
-        self.place().unwrap_or(FluffyPlace::Transient)
+        self.place().unwrap_or(FlyPlace::Transient)
     }
 }

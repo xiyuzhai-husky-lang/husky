@@ -7,18 +7,18 @@ impl<'a> SemaExprEngine<'a> {
         final_destination: FinalDestination,
     ) -> (
         SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         todo!()
     }
 
     pub(super) fn calc_compose_with_not_expr_ty_given_opd_ty(
         &mut self,
-        opd_ty: FluffyTerm,
+        opd_ty: FlyTerm,
         // final_destination: FinalDestination,
     ) -> (
         SemaExprDataResult<SemaSuffixOpr>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         todo!()
     }

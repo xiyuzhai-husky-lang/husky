@@ -61,11 +61,11 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -75,16 +75,16 @@
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
                 ],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -168,11 +168,11 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -182,16 +182,16 @@
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
                 ],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -275,11 +275,11 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -289,16 +289,16 @@
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
                 ],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -382,11 +382,11 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -396,16 +396,16 @@
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
                 ],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -489,11 +489,11 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -503,16 +503,16 @@
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
                 ],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -596,11 +596,11 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -610,16 +610,16 @@
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
                 ],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -703,11 +703,11 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -717,16 +717,16 @@
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
                 ],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -810,11 +810,11 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -824,16 +824,16 @@
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
                 ],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -917,11 +917,11 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -931,16 +931,16 @@
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
                 ],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -1024,11 +1024,11 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -1038,16 +1038,16 @@
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
                 ],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -1135,8 +1135,8 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -1220,11 +1220,11 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -1234,16 +1234,16 @@
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
                 ],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -1327,11 +1327,11 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -1341,16 +1341,16 @@
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
                 ],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -1438,8 +1438,8 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -1527,8 +1527,8 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -1612,11 +1612,11 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -1626,16 +1626,16 @@
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
                 ],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -1719,11 +1719,11 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -1733,16 +1733,16 @@
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
                 ],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -1826,21 +1826,21 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
                     ),
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -1850,22 +1850,22 @@
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
                 ],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },

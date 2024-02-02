@@ -2461,12 +2461,12 @@
                 LinTypePathLeading {
                     ty_path: TypePath(`core::option::Option`, `Enum`),
                     template_arguments: [
-                        LinkageTemplateArgument::Type(
+                        LinTemplateArgument::Type(
                             LinType::PathLeading(
                                 LinTypePathLeading {
                                     ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                     template_arguments: [
-                                        LinkageTemplateArgument::Type(
+                                        LinTemplateArgument::Type(
                                             LinType::PathLeading(
                                                 LinTypePathLeading {
                                                     ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -3682,12 +3682,12 @@
                 LinTypePathLeading {
                     ty_path: TypePath(`core::option::Option`, `Enum`),
                     template_arguments: [
-                        LinkageTemplateArgument::Type(
+                        LinTemplateArgument::Type(
                             LinType::PathLeading(
                                 LinTypePathLeading {
                                     ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                     template_arguments: [
-                                        LinkageTemplateArgument::Type(
+                                        LinTemplateArgument::Type(
                                             LinType::PathLeading(
                                                 LinTypePathLeading {
                                                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -3880,7 +3880,7 @@
                         LinTypePathLeading {
                             ty_path: TypePath(`core::option::Option`, `Enum`),
                             template_arguments: [
-                                LinkageTemplateArgument::Type(
+                                LinTemplateArgument::Type(
                                     LinType::PathLeading(
                                         LinTypePathLeading {
                                             ty_path: TypePath(`core::num::f32`, `Extern`),

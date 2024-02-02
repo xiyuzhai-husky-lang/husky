@@ -10,7 +10,7 @@ use husky_declarative_term::DeclarativeTermJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_ethereal_signature::EtherealSignatureJar;
 use husky_ethereal_term::EthTermJar;
-use husky_fluffy_term::FluffyTermJar;
+use husky_fluffy_term::FlyTermJar;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 use husky_sema_expr::SemaExprJar;
@@ -46,7 +46,7 @@ use husky_toml_token::TomlTokenJar;
     EthTermJar,
     EtherealSignatureJar,
     DecSignatureJar,
-    FluffyTermJar,
+    FlyTermJar,
     SemaExprJar
 )]
 #[derive(Default)]

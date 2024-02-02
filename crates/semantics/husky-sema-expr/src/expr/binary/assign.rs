@@ -11,7 +11,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaBinaryOpr,
         SemaExprIdx,
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         // self
         //     .fluffy_term_region

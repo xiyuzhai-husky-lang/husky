@@ -9,7 +9,7 @@ impl<'a> SemaExprEngine<'a> {
         ident_token: IdentRegionalToken,
     ) -> (
         SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let (owner_sema_expr_idx, owner_ty) =
             self.build_sema_expr_with_ty(owner, ExpectAnyOriginal);

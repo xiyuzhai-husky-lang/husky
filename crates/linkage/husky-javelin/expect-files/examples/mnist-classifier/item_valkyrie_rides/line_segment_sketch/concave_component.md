@@ -40,7 +40,7 @@
                         ),
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -74,7 +74,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -108,7 +108,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -281,7 +281,7 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -315,7 +315,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -349,7 +349,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -397,7 +397,7 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -431,7 +431,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -479,7 +479,7 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -513,7 +513,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -547,7 +547,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -612,7 +612,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -646,7 +646,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TraitForTypeItem(
+                        javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
                                     data: ItemPathData::AssociatedItem(
@@ -693,7 +693,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -745,7 +745,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -779,7 +779,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TraitForTypeItem(
+                        javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
                                     data: ItemPathData::AssociatedItem(
@@ -844,7 +844,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -878,7 +878,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TraitForTypeItem(
+                        javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
                                     data: ItemPathData::AssociatedItem(
@@ -960,7 +960,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -1012,7 +1012,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {

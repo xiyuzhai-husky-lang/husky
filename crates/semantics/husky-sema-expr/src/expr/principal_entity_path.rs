@@ -3,23 +3,22 @@ use either::*;
 use husky_ethereal_signature::{FugitiveEthTemplate, HasEthTemplate, TypeVariantEthTemplate};
 use husky_ethereal_term::instantiation::EthTermInstantiate;
 use husky_fluffy_term::instantiation::{
-    FluffyInstantiate, FluffyInstantiation, FluffyInstantiationEnvironment,
-    FluffyTermSymbolResolution,
+    FlyInstantiate, FlyInstantiation, FlyInstantiationEnvironment, FlyTermSymbolResolution,
 };
 use husky_regional_token::IdentRegionalToken;
 use maybe_result::*;
 
 impl<'a> SemaExprEngine<'a> {
-    /// only returns None for Option<FluffyInstantiation> if this is an ontology constructor
+    /// only returns None for Option<FlyInstantiation> if this is an ontology constructor
     pub(super) fn calc_principal_item_path_expr_ty(
         &mut self,
         syn_expr_idx: SynExprIdx,
         path: PrincipalEntityPath,
-        expr_ty_expectation: &impl ExpectFluffyTerm,
+        expr_ty_expectation: &impl ExpectFlyTerm,
         ty_path_disambiguation: TypePathDisambiguation,
     ) -> (
-        SemaExprDataResult<Option<FluffyInstantiation>>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprDataResult<Option<FlyInstantiation>>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let db = self.db();
         match path {
@@ -37,8 +36,8 @@ impl<'a> SemaExprEngine<'a> {
                     TypePathDisambiguation::InstanceConstructor => {
                         match path.ethereal_signature_template(db) {
                             Ok(tmpl) => {
-                                let instantiation = FluffyInstantiation::from_template_parameters(
-                                    FluffyInstantiationEnvironment::TypeOntologyConstructor,
+                                let instantiation = FlyInstantiation::from_template_parameters(
+                                    FlyInstantiationEnvironment::TypeOntologyConstructor,
                                     syn_expr_idx,
                                     tmpl.template_parameters(db),
                                     None,
@@ -61,8 +60,8 @@ impl<'a> SemaExprEngine<'a> {
                 }
                 MajorItemPath::Fugitive(path) => match path.ethereal_signature_template(db) {
                     Ok(tmpl) => {
-                        let instantiation = FluffyInstantiation::from_template_parameters(
-                            FluffyInstantiationEnvironment::TypeOntologyConstructor,
+                        let instantiation = FlyInstantiation::from_template_parameters(
+                            FlyInstantiationEnvironment::TypeOntologyConstructor,
                             syn_expr_idx,
                             tmpl.template_parameters(db),
                             None,
@@ -70,30 +69,26 @@ impl<'a> SemaExprEngine<'a> {
                             db,
                         );
                         let ty = match tmpl {
-                            FugitiveEthTemplate::FunctionFn(tmpl) => {
-                                FluffyInstantiate::instantiate(
-                                    tmpl.ritchie_ty(db),
-                                    self,
-                                    syn_expr_idx,
-                                    &instantiation,
-                                )
-                            }
-                            FugitiveEthTemplate::FunctionGn(tmpl) => {
-                                FluffyInstantiate::instantiate(
-                                    tmpl.ritchie_ty(db),
-                                    self,
-                                    syn_expr_idx,
-                                    &instantiation,
-                                )
-                            }
+                            FugitiveEthTemplate::FunctionFn(tmpl) => FlyInstantiate::instantiate(
+                                tmpl.ritchie_ty(db),
+                                self,
+                                syn_expr_idx,
+                                &instantiation,
+                            ),
+                            FugitiveEthTemplate::FunctionGn(tmpl) => FlyInstantiate::instantiate(
+                                tmpl.ritchie_ty(db),
+                                self,
+                                syn_expr_idx,
+                                &instantiation,
+                            ),
                             FugitiveEthTemplate::TypeAlias(_) => todo!(),
-                            FugitiveEthTemplate::Val(tmpl) => FluffyInstantiate::instantiate(
+                            FugitiveEthTemplate::Val(tmpl) => FlyInstantiate::instantiate(
                                 tmpl.return_ty(db),
                                 self,
                                 syn_expr_idx,
                                 &instantiation,
                             )
-                            .with_place(FluffyPlace::Leashed),
+                            .with_place(FlyPlace::Leashed),
                         };
                         (Ok(Some(instantiation)), Ok(ty))
                     }
@@ -110,15 +105,15 @@ impl<'a> SemaExprEngine<'a> {
                     Ok(tmpl) => tmpl,
                     Err(_) => todo!(),
                 };
-                let instantiation = FluffyInstantiation::from_template_parameters(
-                    FluffyInstantiationEnvironment::TypeOntologyConstructor,
+                let instantiation = FlyInstantiation::from_template_parameters(
+                    FlyInstantiationEnvironment::TypeOntologyConstructor,
                     syn_expr_idx,
                     parent_ty_tmpl.template_parameters(db),
                     None, // tmpl.template_parameters(db),
                     self.fluffy_terms_mut(),
                     db,
                 );
-                let ty = FluffyInstantiate::instantiate(
+                let ty = FlyInstantiate::instantiate(
                     tmpl.instance_constructor_ty(db),
                     self,
                     syn_expr_idx,
@@ -132,15 +127,15 @@ impl<'a> SemaExprEngine<'a> {
     fn calc_ty_variant_path_expr_ty(
         &mut self,
         path: TypeVariantPath,
-        expr_ty_expectation: &impl ExpectFluffyTerm,
-    ) -> SemaExprTypeResult<FluffyTerm> {
+        expr_ty_expectation: &impl ExpectFlyTerm,
+    ) -> SemaExprTypeResult<FlyTerm> {
         let db = self.db();
         let parent_ty_path = path.parent_ty_path(db);
         match path.ethereal_signature_template(db)? {
             TypeVariantEthTemplate::Props(_) => todo!(),
             TypeVariantEthTemplate::Unit(_) => match expr_ty_expectation.destination() {
                 Some(destination) => match destination.data(self) {
-                    FluffyTermData::TypeOntology { ty_path, .. } if ty_path == parent_ty_path => {
+                    FlyTermData::TypeOntology { ty_path, .. } if ty_path == parent_ty_path => {
                         Ok(destination)
                     }
                     _ => Ok(path.ty(db)?.into()),

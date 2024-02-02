@@ -14,7 +14,7 @@ impl ExpectEqsRitchieType {
     }
 }
 
-impl ExpectFluffyTerm for ExpectEqsRitchieType {
+impl ExpectFlyTerm for ExpectEqsRitchieType {
     type Outcome = ExpectEqsRitchieTypeOutcome;
 
     #[inline(always)]
@@ -26,30 +26,30 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
     }
 
     #[inline(always)]
-    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination {
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FlyTerms) -> FinalDestination {
         self.final_destination
     }
 
     #[inline(always)]
-    fn destination(&self) -> Option<FluffyTerm> {
+    fn destination(&self) -> Option<FlyTerm> {
         None
     }
 
     fn resolve(
         &self,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<FluffyTermEffect> {
+    ) -> AltOption<FlyTermEffect> {
         match state.expectee().data_inner(db, terms) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
+            FlyTermData::Literal(_) => todo!(),
+            FlyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
                 ty_arguments: arguments,
                 ..
             } => todo!(),
-            FluffyTermData::Curry {
+            FlyTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -61,9 +61,9 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
                 p!(curry_kind);
                 todo!()
             }
-            FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie {
+            FlyTermData::Hole(_, _) => todo!(),
+            FlyTermData::Category(_) => todo!(),
+            FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
@@ -75,27 +75,27 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
                 },
                 Default::default(),
             ),
-            FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { .. } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::Symbol { .. } => todo!(),
+            FlyTermData::Rune { .. } => todo!(),
+            FlyTermData::TypeVariant { path } => todo!(),
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-// #[salsa::derive_debug_with_db(db = FluffyTermDb)]
+// #[salsa::derive_debug_with_db(db = FlyTermDb)]
 pub struct ExpectEqsRitchieTypeOutcome {
     pub(crate) ritchie_kind: RitchieKind,
-    pub(crate) parameter_contracted_tys: SmallVec<[FluffyRitchieParameter; 2]>,
-    pub(crate) return_ty: FluffyTerm,
+    pub(crate) parameter_contracted_tys: SmallVec<[FlyRitchieParameter; 2]>,
+    pub(crate) return_ty: FlyTerm,
 }
 
 impl ExpectEqsRitchieTypeOutcome {
-    pub fn parameter_contracted_tys(&self) -> &[FluffyRitchieParameter] {
+    pub fn parameter_contracted_tys(&self) -> &[FlyRitchieParameter] {
         &self.parameter_contracted_tys
     }
 
-    pub fn return_ty(&self) -> FluffyTerm {
+    pub fn return_ty(&self) -> FlyTerm {
         self.return_ty
     }
 

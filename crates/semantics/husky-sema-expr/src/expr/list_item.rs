@@ -7,7 +7,7 @@ pub struct SemaCommaListItem {
 }
 
 impl<'a> SemaExprEngine<'a> {
-    pub(crate) fn build_sema_comma_list_item<E: ExpectFluffyTerm>(
+    pub(crate) fn build_sema_comma_list_item<E: ExpectFlyTerm>(
         &mut self,
         syn_comma_list_item: SynCommaListItem,
         expr_ty_expectation: E,
@@ -20,11 +20,11 @@ impl<'a> SemaExprEngine<'a> {
         }
     }
 
-    pub(crate) fn build_sema_comma_list_item_with_its_ty_returned<E: ExpectFluffyTerm>(
+    pub(crate) fn build_sema_comma_list_item_with_its_ty_returned<E: ExpectFlyTerm>(
         &mut self,
         syn_comma_list_item: SynCommaListItem,
         expr_ty_expectation: E,
-    ) -> (SemaCommaListItem, Option<FluffyTerm>) {
+    ) -> (SemaCommaListItem, Option<FlyTerm>) {
         let (sema_expr_idx, ty) =
             self.build_sema_expr_with_ty(syn_comma_list_item.syn_expr_idx(), expr_ty_expectation);
         (
@@ -142,7 +142,7 @@ impl<'a> SemaExprEngine<'a> {
     pub(crate) fn build_sema_keyed_call_list_item(
         &mut self,
         item: SynKeyedCallListItem,
-        param: FluffyRitchieKeyedParameter,
+        param: FlyRitchieKeyedParameter,
     ) -> SemaKeyedCallListItem {
         let (argument_sema_expr_idx, coersion_outcome) = self.build_sema_expr_with_outcome(
             item.argument_syn_expr_idx(),

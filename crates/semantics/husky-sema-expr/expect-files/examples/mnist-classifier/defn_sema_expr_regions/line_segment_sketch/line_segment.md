@@ -53,7 +53,7 @@
                                 ),
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         StackPure {
                                             location: StackLocationIdx(
@@ -63,7 +63,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`LineSegment`),
                                     ),
                                 },
@@ -71,7 +71,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     1,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -81,7 +81,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`LineSegment`),
                                         ),
                                     },
@@ -94,7 +94,7 @@
                                     owner_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
-                                    owner_ty: FluffyTerm {
+                                    owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -104,7 +104,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`LineSegment`),
                                         ),
                                     },
@@ -117,8 +117,8 @@
                                             3,
                                         ),
                                     },
-                                    dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyFieldDyanmicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
@@ -136,10 +136,10 @@
                                             },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                        signature: FluffyFieldSignature::PropsStruct {
-                                            ty: FluffyTerm {
+                                        signature: FlyFieldSignature::PropsStruct {
+                                            ty: FlyTerm {
                                                 place: None,
-                                                base: FluffyTermBase::Ethereal(
+                                                base: FlyTermBase::Ethereal(
                                                     EthTerm(`Point2d`),
                                                 ),
                                             },
@@ -148,7 +148,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         StackPure {
                                             location: StackLocationIdx(
@@ -158,7 +158,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Point2d`),
                                     ),
                                 },
@@ -166,7 +166,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     2,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -176,7 +176,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Point2d`),
                                         ),
                                     },
@@ -192,7 +192,7 @@
                                 ),
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         StackPure {
                                             location: StackLocationIdx(
@@ -202,7 +202,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`LineSegment`),
                                     ),
                                 },
@@ -210,7 +210,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     3,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -220,7 +220,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`LineSegment`),
                                         ),
                                     },
@@ -233,7 +233,7 @@
                                     owner_sema_expr_idx: SemaExprIdx(
                                         3,
                                     ),
-                                    owner_ty: FluffyTerm {
+                                    owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -243,7 +243,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`LineSegment`),
                                         ),
                                     },
@@ -256,8 +256,8 @@
                                             9,
                                         ),
                                     },
-                                    dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyFieldDyanmicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
@@ -275,10 +275,10 @@
                                             },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                        signature: FluffyFieldSignature::PropsStruct {
-                                            ty: FluffyTerm {
+                                        signature: FlyFieldSignature::PropsStruct {
+                                            ty: FlyTerm {
                                                 place: None,
-                                                base: FluffyTermBase::Ethereal(
+                                                base: FlyTermBase::Ethereal(
                                                     EthTerm(`Point2d`),
                                                 ),
                                             },
@@ -287,7 +287,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         StackPure {
                                             location: StackLocationIdx(
@@ -297,7 +297,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Point2d`),
                                     ),
                                 },
@@ -305,7 +305,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     4,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -315,7 +315,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Point2d`),
                                         ),
                                     },
@@ -338,8 +338,8 @@
                                             5,
                                         ),
                                     },
-                                    dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyDynamicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
@@ -356,40 +356,40 @@
                                                 ),
                                             },
                                         },
-                                        signature: MethodFluffySignature::MethodFn(
-                                            MethodFnFluffySignature {
+                                        signature: MethodFlySignature::MethodFn(
+                                            MethodFnFlySignature {
                                                 path: AssociatedItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                                                 ),
-                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
-                                                    ty: FluffyTerm {
+                                                    ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Ethereal(
+                                                        base: FlyTermBase::Ethereal(
                                                             EthTerm(`Point2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [
-                                                    FluffyRitchieParameter::Regular(
-                                                        FluffyRitchieRegularParameter {
+                                                    FlyRitchieParameter::Regular(
+                                                        FlyRitchieRegularParameter {
                                                             contract: Pure,
-                                                            ty: FluffyTerm {
+                                                            ty: FlyTerm {
                                                                 place: None,
-                                                                base: FluffyTermBase::Ethereal(
+                                                                base: FlyTermBase::Ethereal(
                                                                     EthTerm(`Point2d`),
                                                                 ),
                                                             },
                                                         },
                                                     ),
                                                 ],
-                                                return_ty: FluffyTerm {
+                                                return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`Vector2d`),
                                                     ),
                                                 },
-                                                instantiation: FluffyInstantiation {
+                                                instantiation: FlyInstantiation {
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             location: StackLocationIdx(
@@ -413,11 +413,11 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FluffyRitchieRegularParameter {
+                                            FlyRitchieRegularParameter {
                                                 contract: Pure,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`Point2d`),
                                                     ),
                                                 },
@@ -429,7 +429,7 @@
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
-                                                            TrivialFluffyCoersion {
+                                                            TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
                                                                     location: StackLocationIdx(
                                                                         ShiftedU32(
@@ -451,9 +451,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -461,9 +461,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     5,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -481,9 +481,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -491,9 +491,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     6,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -516,7 +516,7 @@
                                         ExpectationOutcome::Coersion(
                                             ExpectCoersionOutcome {
                                                 coersion: Trivial(
-                                                    TrivialFluffyCoersion {
+                                                    TrivialFlyCoersion {
                                                         expectee_place: Transient,
                                                     },
                                                 ),
@@ -529,9 +529,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -564,8 +564,8 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -577,7 +577,7 @@
                 expectations: Expectations {
                     arena: Arena {
                         data: [
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -587,7 +587,7 @@
                                         syn_expr_idx: 1,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -597,7 +597,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`LineSegment`),
                                         ),
                                     },
@@ -605,7 +605,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -615,7 +615,7 @@
                                         syn_expr_idx: 2,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -625,7 +625,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Point2d`),
                                         ),
                                     },
@@ -633,7 +633,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -643,7 +643,7 @@
                                         syn_expr_idx: 3,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -653,7 +653,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`LineSegment`),
                                         ),
                                     },
@@ -661,13 +661,13 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`Point2d`),
                                             ),
                                         },
@@ -679,7 +679,7 @@
                                         syn_expr_idx: 4,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -689,7 +689,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Point2d`),
                                         ),
                                     },
@@ -699,7 +699,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: StackPure {
                                                                 location: StackLocationIdx(
                                                                     ShiftedU32(
@@ -715,13 +715,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`Vector2d`),
                                             ),
                                         },
@@ -733,9 +733,9 @@
                                         syn_expr_idx: 5,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -745,7 +745,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -755,13 +755,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`Vector2d`),
                                             ),
                                         },
@@ -773,9 +773,9 @@
                                         syn_expr_idx: 6,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -785,7 +785,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -862,7 +862,7 @@
                                 ),
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         StackPure {
                                             location: StackLocationIdx(
@@ -872,7 +872,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`LineSegment`),
                                     ),
                                 },
@@ -880,7 +880,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     1,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -890,7 +890,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`LineSegment`),
                                         ),
                                     },
@@ -913,8 +913,8 @@
                                             6,
                                         ),
                                     },
-                                    dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyDynamicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
@@ -931,28 +931,28 @@
                                                 ),
                                             },
                                         },
-                                        signature: MethodFluffySignature::MethodFn(
-                                            MethodFnFluffySignature {
+                                        signature: MethodFlySignature::MethodFn(
+                                            MethodFnFlySignature {
                                                 path: AssociatedItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodFn`),
                                                 ),
-                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
-                                                    ty: FluffyTerm {
+                                                    ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Ethereal(
+                                                        base: FlyTermBase::Ethereal(
                                                             EthTerm(`LineSegment`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
-                                                return_ty: FluffyTerm {
+                                                return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`Vector2d`),
                                                     ),
                                                 },
-                                                instantiation: FluffyInstantiation {
+                                                instantiation: FlyInstantiation {
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             location: StackLocationIdx(
@@ -981,9 +981,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -991,9 +991,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     2,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -1009,7 +1009,7 @@
                                 ),
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         StackPure {
                                             location: StackLocationIdx(
@@ -1019,7 +1019,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`LineSegment`),
                                     ),
                                 },
@@ -1027,7 +1027,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     3,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -1037,7 +1037,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`LineSegment`),
                                         ),
                                     },
@@ -1050,7 +1050,7 @@
                                     owner_sema_expr_idx: SemaExprIdx(
                                         3,
                                     ),
-                                    owner_ty: FluffyTerm {
+                                    owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -1060,7 +1060,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`LineSegment`),
                                         ),
                                     },
@@ -1073,8 +1073,8 @@
                                             14,
                                         ),
                                     },
-                                    dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyFieldDyanmicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
@@ -1092,10 +1092,10 @@
                                             },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                        signature: FluffyFieldSignature::PropsStruct {
-                                            ty: FluffyTerm {
+                                        signature: FlyFieldSignature::PropsStruct {
+                                            ty: FlyTerm {
                                                 place: None,
-                                                base: FluffyTermBase::Ethereal(
+                                                base: FlyTermBase::Ethereal(
                                                     EthTerm(`Point2d`),
                                                 ),
                                             },
@@ -1104,7 +1104,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         StackPure {
                                             location: StackLocationIdx(
@@ -1114,7 +1114,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Point2d`),
                                     ),
                                 },
@@ -1122,7 +1122,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     4,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -1132,7 +1132,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Point2d`),
                                         ),
                                     },
@@ -1153,7 +1153,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         StackPure {
                                             location: StackLocationIdx(
@@ -1163,7 +1163,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Point2d`),
                                     ),
                                 },
@@ -1171,7 +1171,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     5,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -1181,7 +1181,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Point2d`),
                                         ),
                                     },
@@ -1204,8 +1204,8 @@
                                             16,
                                         ),
                                     },
-                                    dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyDynamicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
@@ -1222,40 +1222,40 @@
                                                 ),
                                             },
                                         },
-                                        signature: MethodFluffySignature::MethodFn(
-                                            MethodFnFluffySignature {
+                                        signature: MethodFlySignature::MethodFn(
+                                            MethodFnFlySignature {
                                                 path: AssociatedItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                                                 ),
-                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
-                                                    ty: FluffyTerm {
+                                                    ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Ethereal(
+                                                        base: FlyTermBase::Ethereal(
                                                             EthTerm(`Point2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [
-                                                    FluffyRitchieParameter::Regular(
-                                                        FluffyRitchieRegularParameter {
+                                                    FlyRitchieParameter::Regular(
+                                                        FlyRitchieRegularParameter {
                                                             contract: Pure,
-                                                            ty: FluffyTerm {
+                                                            ty: FlyTerm {
                                                                 place: None,
-                                                                base: FluffyTermBase::Ethereal(
+                                                                base: FlyTermBase::Ethereal(
                                                                     EthTerm(`Point2d`),
                                                                 ),
                                                             },
                                                         },
                                                     ),
                                                 ],
-                                                return_ty: FluffyTerm {
+                                                return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`Vector2d`),
                                                     ),
                                                 },
-                                                instantiation: FluffyInstantiation {
+                                                instantiation: FlyInstantiation {
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             location: StackLocationIdx(
@@ -1279,11 +1279,11 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FluffyRitchieRegularParameter {
+                                            FlyRitchieRegularParameter {
                                                 contract: Pure,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`Point2d`),
                                                     ),
                                                 },
@@ -1295,7 +1295,7 @@
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
-                                                            TrivialFluffyCoersion {
+                                                            TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
                                                                     location: StackLocationIdx(
                                                                         ShiftedU32(
@@ -1317,9 +1317,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -1327,9 +1327,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     6,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -1350,7 +1350,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
@@ -1360,7 +1360,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -1368,7 +1368,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     7,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -1378,7 +1378,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -1399,7 +1399,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
@@ -1409,7 +1409,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -1417,7 +1417,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     8,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -1427,7 +1427,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -1450,8 +1450,8 @@
                                             23,
                                         ),
                                     },
-                                    dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyDynamicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
@@ -1468,40 +1468,40 @@
                                                 ),
                                             },
                                         },
-                                        signature: MethodFluffySignature::MethodFn(
-                                            MethodFnFluffySignature {
+                                        signature: MethodFlySignature::MethodFn(
+                                            MethodFnFlySignature {
                                                 path: AssociatedItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
                                                 ),
-                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
-                                                    ty: FluffyTerm {
+                                                    ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Ethereal(
+                                                        base: FlyTermBase::Ethereal(
                                                             EthTerm(`Vector2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [
-                                                    FluffyRitchieParameter::Regular(
-                                                        FluffyRitchieRegularParameter {
+                                                    FlyRitchieParameter::Regular(
+                                                        FlyRitchieRegularParameter {
                                                             contract: Pure,
-                                                            ty: FluffyTerm {
+                                                            ty: FlyTerm {
                                                                 place: None,
-                                                                base: FluffyTermBase::Ethereal(
+                                                                base: FlyTermBase::Ethereal(
                                                                     EthTerm(`Vector2d`),
                                                                 ),
                                                             },
                                                         },
                                                     ),
                                                 ],
-                                                return_ty: FluffyTerm {
+                                                return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
-                                                instantiation: FluffyInstantiation {
+                                                instantiation: FlyInstantiation {
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
@@ -1525,11 +1525,11 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FluffyRitchieRegularParameter {
+                                            FlyRitchieRegularParameter {
                                                 contract: Pure,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`Vector2d`),
                                                     ),
                                                 },
@@ -1541,7 +1541,7 @@
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
-                                                            TrivialFluffyCoersion {
+                                                            TrivialFlyCoersion {
                                                                 expectee_place: ImmutableStackOwned {
                                                                     location: StackLocationIdx(
                                                                         ShiftedU32(
@@ -1563,9 +1563,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -1573,9 +1573,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     9,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -1600,11 +1600,11 @@
                                 ),
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -1612,11 +1612,11 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     10,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -1632,13 +1632,13 @@
                                     opr: Comparison(
                                         Less,
                                     ),
-                                    dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyDynamicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: SemaBinaryOprFluffySignature::Builtin,
+                                        signature: SemaBinaryOprFlySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         27,
@@ -1649,9 +1649,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -1659,9 +1659,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     11,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -1682,7 +1682,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
@@ -1692,7 +1692,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -1700,7 +1700,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     12,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -1710,7 +1710,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -1733,8 +1733,8 @@
                                             32,
                                         ),
                                     },
-                                    dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyDynamicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
@@ -1751,28 +1751,28 @@
                                                 ),
                                             },
                                         },
-                                        signature: MethodFluffySignature::MethodFn(
-                                            MethodFnFluffySignature {
+                                        signature: MethodFlySignature::MethodFn(
+                                            MethodFnFlySignature {
                                                 path: AssociatedItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
-                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
-                                                    ty: FluffyTerm {
+                                                    ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Ethereal(
+                                                        base: FlyTermBase::Ethereal(
                                                             EthTerm(`Vector2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
-                                                return_ty: FluffyTerm {
+                                                return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
-                                                instantiation: FluffyInstantiation {
+                                                instantiation: FlyInstantiation {
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
@@ -1801,9 +1801,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -1811,9 +1811,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     13,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -1829,7 +1829,7 @@
                                 ),
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         StackPure {
                                             location: StackLocationIdx(
@@ -1839,7 +1839,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`LineSegment`),
                                     ),
                                 },
@@ -1847,7 +1847,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     14,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -1857,7 +1857,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`LineSegment`),
                                         ),
                                     },
@@ -1870,7 +1870,7 @@
                                     owner_sema_expr_idx: SemaExprIdx(
                                         14,
                                     ),
-                                    owner_ty: FluffyTerm {
+                                    owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -1880,7 +1880,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`LineSegment`),
                                         ),
                                     },
@@ -1893,8 +1893,8 @@
                                             42,
                                         ),
                                     },
-                                    dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyFieldDyanmicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
@@ -1912,10 +1912,10 @@
                                             },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                        signature: FluffyFieldSignature::PropsStruct {
-                                            ty: FluffyTerm {
+                                        signature: FlyFieldSignature::PropsStruct {
+                                            ty: FlyTerm {
                                                 place: None,
-                                                base: FluffyTermBase::Ethereal(
+                                                base: FlyTermBase::Ethereal(
                                                     EthTerm(`Point2d`),
                                                 ),
                                             },
@@ -1924,7 +1924,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         StackPure {
                                             location: StackLocationIdx(
@@ -1934,7 +1934,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Point2d`),
                                     ),
                                 },
@@ -1942,7 +1942,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     15,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -1952,7 +1952,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Point2d`),
                                         ),
                                     },
@@ -1973,7 +1973,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         StackPure {
                                             location: StackLocationIdx(
@@ -1983,7 +1983,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Point2d`),
                                     ),
                                 },
@@ -1991,7 +1991,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     16,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -2001,7 +2001,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Point2d`),
                                         ),
                                     },
@@ -2024,8 +2024,8 @@
                                             44,
                                         ),
                                     },
-                                    dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyDynamicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
@@ -2042,40 +2042,40 @@
                                                 ),
                                             },
                                         },
-                                        signature: MethodFluffySignature::MethodFn(
-                                            MethodFnFluffySignature {
+                                        signature: MethodFlySignature::MethodFn(
+                                            MethodFnFlySignature {
                                                 path: AssociatedItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                                                 ),
-                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
-                                                    ty: FluffyTerm {
+                                                    ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Ethereal(
+                                                        base: FlyTermBase::Ethereal(
                                                             EthTerm(`Point2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [
-                                                    FluffyRitchieParameter::Regular(
-                                                        FluffyRitchieRegularParameter {
+                                                    FlyRitchieParameter::Regular(
+                                                        FlyRitchieRegularParameter {
                                                             contract: Pure,
-                                                            ty: FluffyTerm {
+                                                            ty: FlyTerm {
                                                                 place: None,
-                                                                base: FluffyTermBase::Ethereal(
+                                                                base: FlyTermBase::Ethereal(
                                                                     EthTerm(`Point2d`),
                                                                 ),
                                                             },
                                                         },
                                                     ),
                                                 ],
-                                                return_ty: FluffyTerm {
+                                                return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`Vector2d`),
                                                     ),
                                                 },
-                                                instantiation: FluffyInstantiation {
+                                                instantiation: FlyInstantiation {
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             location: StackLocationIdx(
@@ -2099,11 +2099,11 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FluffyRitchieRegularParameter {
+                                            FlyRitchieRegularParameter {
                                                 contract: Pure,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`Point2d`),
                                                     ),
                                                 },
@@ -2115,7 +2115,7 @@
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
-                                                            TrivialFluffyCoersion {
+                                                            TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
                                                                     location: StackLocationIdx(
                                                                         ShiftedU32(
@@ -2137,9 +2137,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -2147,9 +2147,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     17,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -2170,7 +2170,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
@@ -2180,7 +2180,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -2188,7 +2188,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     18,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -2198,7 +2198,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -2219,7 +2219,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
@@ -2229,7 +2229,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -2237,7 +2237,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     19,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -2247,7 +2247,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -2270,8 +2270,8 @@
                                             51,
                                         ),
                                     },
-                                    dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyDynamicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
@@ -2288,40 +2288,40 @@
                                                 ),
                                             },
                                         },
-                                        signature: MethodFluffySignature::MethodFn(
-                                            MethodFnFluffySignature {
+                                        signature: MethodFlySignature::MethodFn(
+                                            MethodFnFlySignature {
                                                 path: AssociatedItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
                                                 ),
-                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
-                                                    ty: FluffyTerm {
+                                                    ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Ethereal(
+                                                        base: FlyTermBase::Ethereal(
                                                             EthTerm(`Vector2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [
-                                                    FluffyRitchieParameter::Regular(
-                                                        FluffyRitchieRegularParameter {
+                                                    FlyRitchieParameter::Regular(
+                                                        FlyRitchieRegularParameter {
                                                             contract: Pure,
-                                                            ty: FluffyTerm {
+                                                            ty: FlyTerm {
                                                                 place: None,
-                                                                base: FluffyTermBase::Ethereal(
+                                                                base: FlyTermBase::Ethereal(
                                                                     EthTerm(`Vector2d`),
                                                                 ),
                                                             },
                                                         },
                                                     ),
                                                 ],
-                                                return_ty: FluffyTerm {
+                                                return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
-                                                instantiation: FluffyInstantiation {
+                                                instantiation: FlyInstantiation {
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
@@ -2345,11 +2345,11 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FluffyRitchieRegularParameter {
+                                            FlyRitchieRegularParameter {
                                                 contract: Pure,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`Vector2d`),
                                                     ),
                                                 },
@@ -2361,7 +2361,7 @@
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
-                                                            TrivialFluffyCoersion {
+                                                            TrivialFlyCoersion {
                                                                 expectee_place: ImmutableStackOwned {
                                                                     location: StackLocationIdx(
                                                                         ShiftedU32(
@@ -2383,9 +2383,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -2393,9 +2393,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     20,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -2420,11 +2420,11 @@
                                 ),
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -2432,11 +2432,11 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     21,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -2452,13 +2452,13 @@
                                     opr: Comparison(
                                         Greater,
                                     ),
-                                    dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyDynamicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: SemaBinaryOprFluffySignature::Builtin,
+                                        signature: SemaBinaryOprFlySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         55,
@@ -2469,9 +2469,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -2479,9 +2479,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     22,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -2502,7 +2502,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
@@ -2512,7 +2512,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -2520,7 +2520,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     23,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -2530,7 +2530,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -2553,8 +2553,8 @@
                                             60,
                                         ),
                                     },
-                                    dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyDynamicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
@@ -2571,28 +2571,28 @@
                                                 ),
                                             },
                                         },
-                                        signature: MethodFluffySignature::MethodFn(
-                                            MethodFnFluffySignature {
+                                        signature: MethodFlySignature::MethodFn(
+                                            MethodFnFlySignature {
                                                 path: AssociatedItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
-                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
-                                                    ty: FluffyTerm {
+                                                    ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Ethereal(
+                                                        base: FlyTermBase::Ethereal(
                                                             EthTerm(`Vector2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
-                                                return_ty: FluffyTerm {
+                                                return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
-                                                instantiation: FluffyInstantiation {
+                                                instantiation: FlyInstantiation {
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
@@ -2621,9 +2621,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -2631,9 +2631,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     24,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -2654,7 +2654,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
@@ -2664,7 +2664,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -2672,7 +2672,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     25,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -2682,7 +2682,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -2703,7 +2703,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
@@ -2713,7 +2713,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -2721,7 +2721,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     26,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -2731,7 +2731,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -2754,8 +2754,8 @@
                                             67,
                                         ),
                                     },
-                                    dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyDynamicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
@@ -2772,40 +2772,40 @@
                                                 ),
                                             },
                                         },
-                                        signature: MethodFluffySignature::MethodFn(
-                                            MethodFnFluffySignature {
+                                        signature: MethodFlySignature::MethodFn(
+                                            MethodFnFlySignature {
                                                 path: AssociatedItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
                                                 ),
-                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
-                                                    ty: FluffyTerm {
+                                                    ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Ethereal(
+                                                        base: FlyTermBase::Ethereal(
                                                             EthTerm(`Vector2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [
-                                                    FluffyRitchieParameter::Regular(
-                                                        FluffyRitchieRegularParameter {
+                                                    FlyRitchieParameter::Regular(
+                                                        FlyRitchieRegularParameter {
                                                             contract: Pure,
-                                                            ty: FluffyTerm {
+                                                            ty: FlyTerm {
                                                                 place: None,
-                                                                base: FluffyTermBase::Ethereal(
+                                                                base: FlyTermBase::Ethereal(
                                                                     EthTerm(`Vector2d`),
                                                                 ),
                                                             },
                                                         },
                                                     ),
                                                 ],
-                                                return_ty: FluffyTerm {
+                                                return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
-                                                instantiation: FluffyInstantiation {
+                                                instantiation: FlyInstantiation {
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
@@ -2829,11 +2829,11 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FluffyRitchieRegularParameter {
+                                            FlyRitchieRegularParameter {
                                                 contract: Pure,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`Vector2d`),
                                                     ),
                                                 },
@@ -2845,7 +2845,7 @@
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
-                                                            TrivialFluffyCoersion {
+                                                            TrivialFlyCoersion {
                                                                 expectee_place: ImmutableStackOwned {
                                                                     location: StackLocationIdx(
                                                                         ShiftedU32(
@@ -2867,9 +2867,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -2877,9 +2877,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     27,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -2902,34 +2902,34 @@
                                             72,
                                         ),
                                     },
-                                    dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyDynamicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: MethodFluffySignature::MethodFn(
-                                            MethodFnFluffySignature {
+                                        signature: MethodFlySignature::MethodFn(
+                                            MethodFnFlySignature {
                                                 path: AssociatedItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                                 ),
-                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
-                                                    ty: FluffyTerm {
+                                                    ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Ethereal(
+                                                        base: FlyTermBase::Ethereal(
                                                             EthTerm(`f32`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
-                                                return_ty: FluffyTerm {
+                                                return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
-                                                instantiation: FluffyInstantiation {
+                                                instantiation: FlyInstantiation {
                                                     env: MethodFn {
                                                         self_place: Transient,
                                                     },
@@ -2952,9 +2952,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -2962,9 +2962,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     28,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -2985,7 +2985,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
@@ -2995,7 +2995,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -3003,7 +3003,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     29,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -3013,7 +3013,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -3036,8 +3036,8 @@
                                             78,
                                         ),
                                     },
-                                    dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyDynamicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
@@ -3054,28 +3054,28 @@
                                                 ),
                                             },
                                         },
-                                        signature: MethodFluffySignature::MethodFn(
-                                            MethodFnFluffySignature {
+                                        signature: MethodFlySignature::MethodFn(
+                                            MethodFnFlySignature {
                                                 path: AssociatedItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
-                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
-                                                    ty: FluffyTerm {
+                                                    ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Ethereal(
+                                                        base: FlyTermBase::Ethereal(
                                                             EthTerm(`Vector2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
-                                                return_ty: FluffyTerm {
+                                                return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Ethereal(
+                                                    base: FlyTermBase::Ethereal(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
-                                                instantiation: FluffyInstantiation {
+                                                instantiation: FlyInstantiation {
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
@@ -3104,9 +3104,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -3114,9 +3114,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     30,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -3132,13 +3132,13 @@
                                     opr: Closed(
                                         Div,
                                     ),
-                                    dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyIndirections {
+                                    dispatch: FlyDynamicDispatch {
+                                        indirections: FlyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: SemaBinaryOprFluffySignature::Builtin,
+                                        signature: SemaBinaryOprFlySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         75,
@@ -3149,9 +3149,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -3159,9 +3159,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     31,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -3179,9 +3179,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -3189,9 +3189,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     32,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -3214,7 +3214,7 @@
                                         ExpectationOutcome::Coersion(
                                             ExpectCoersionOutcome {
                                                 coersion: Trivial(
-                                                    TrivialFluffyCoersion {
+                                                    TrivialFlyCoersion {
                                                         expectee_place: Transient,
                                                     },
                                                 ),
@@ -3227,9 +3227,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -3245,7 +3245,7 @@
                                         ExpectationOutcome::Coersion(
                                             ExpectCoersionOutcome {
                                                 coersion: Trivial(
-                                                    TrivialFluffyCoersion {
+                                                    TrivialFlyCoersion {
                                                         expectee_place: Transient,
                                                     },
                                                 ),
@@ -3258,9 +3258,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -3276,7 +3276,7 @@
                                         ExpectationOutcome::Coersion(
                                             ExpectCoersionOutcome {
                                                 coersion: Trivial(
-                                                    TrivialFluffyCoersion {
+                                                    TrivialFlyCoersion {
                                                         expectee_place: Transient,
                                                     },
                                                 ),
@@ -3289,9 +3289,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -3328,9 +3328,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -3385,9 +3385,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -3424,9 +3424,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -3463,9 +3463,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -3520,9 +3520,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -3545,7 +3545,7 @@
             syn_pattern_expr_ty_infos: [
                 PatternExprTypeInfo {
                     ty: Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 EntityPath(
@@ -3565,7 +3565,7 @@
                 },
                 PatternExprTypeInfo {
                     ty: Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 EntityPath(
@@ -3585,7 +3585,7 @@
                 },
                 PatternExprTypeInfo {
                     ty: Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 EntityPath(
@@ -3609,7 +3609,7 @@
                     Some(
                         PatternSymbolTypeInfo {
                             ty: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
                                     base: Ethereal(
                                         EntityPath(
@@ -3631,7 +3631,7 @@
                     Some(
                         PatternSymbolTypeInfo {
                             ty: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
                                     base: Ethereal(
                                         EntityPath(
@@ -3653,7 +3653,7 @@
                     Some(
                         PatternSymbolTypeInfo {
                             ty: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
                                     base: Ethereal(
                                         EntityPath(
@@ -3680,7 +3680,7 @@
                         10,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 Literal(
@@ -3701,7 +3701,7 @@
                         21,
                     ),
                     Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: None,
                             base: Ethereal(
                                 Literal(
@@ -3721,7 +3721,7 @@
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 StackPure {
                                     location: StackLocationIdx(
@@ -3731,7 +3731,7 @@
                                     ),
                                 },
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Point2d`),
                             ),
                         },
@@ -3739,7 +3739,7 @@
                 ],
                 current_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
                                     location: StackLocationIdx(
@@ -3749,13 +3749,13 @@
                                     ),
                                 },
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Vector2d`),
                             ),
                         },
                     ),
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
                                     location: StackLocationIdx(
@@ -3765,13 +3765,13 @@
                                     ),
                                 },
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Vector2d`),
                             ),
                         },
                     ),
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
                                     location: StackLocationIdx(
@@ -3781,7 +3781,7 @@
                                     ),
                                 },
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Vector2d`),
                             ),
                         },
@@ -3792,8 +3792,8 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -3805,7 +3805,7 @@
                 expectations: Expectations {
                     arena: Arena {
                         data: [
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -3815,7 +3815,7 @@
                                         syn_expr_idx: 1,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -3825,7 +3825,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`LineSegment`),
                                         ),
                                     },
@@ -3833,7 +3833,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -3843,9 +3843,9 @@
                                         syn_expr_idx: 2,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -3853,7 +3853,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -3863,7 +3863,7 @@
                                         syn_expr_idx: 3,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -3873,7 +3873,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`LineSegment`),
                                         ),
                                     },
@@ -3881,7 +3881,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -3891,7 +3891,7 @@
                                         syn_expr_idx: 4,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -3901,7 +3901,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Point2d`),
                                         ),
                                     },
@@ -3909,13 +3909,13 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`Point2d`),
                                             ),
                                         },
@@ -3927,7 +3927,7 @@
                                         syn_expr_idx: 5,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -3937,7 +3937,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Point2d`),
                                         ),
                                     },
@@ -3947,7 +3947,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: StackPure {
                                                                 location: StackLocationIdx(
                                                                     ShiftedU32(
@@ -3963,7 +3963,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -3973,9 +3973,9 @@
                                         syn_expr_idx: 6,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -3983,7 +3983,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -3993,7 +3993,7 @@
                                         syn_expr_idx: 7,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -4003,7 +4003,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -4011,13 +4011,13 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`Vector2d`),
                                             ),
                                         },
@@ -4029,7 +4029,7 @@
                                         syn_expr_idx: 8,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -4039,7 +4039,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -4049,7 +4049,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
                                                                 location: StackLocationIdx(
                                                                     ShiftedU32(
@@ -4065,7 +4065,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -4075,9 +4075,9 @@
                                         syn_expr_idx: 9,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -4085,13 +4085,13 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -4103,11 +4103,11 @@
                                         syn_expr_idx: 10,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -4117,7 +4117,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Const,
                                                         },
                                                     ),
@@ -4127,7 +4127,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ConditionType(
                                     ExpectConditionType,
                                 ),
@@ -4137,9 +4137,9 @@
                                         syn_expr_idx: 11,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -4155,7 +4155,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -4165,7 +4165,7 @@
                                         syn_expr_idx: 12,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -4175,7 +4175,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -4183,13 +4183,13 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -4201,9 +4201,9 @@
                                         syn_expr_idx: 13,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -4213,7 +4213,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -4223,7 +4223,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -4233,7 +4233,7 @@
                                         syn_expr_idx: 14,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -4243,7 +4243,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`LineSegment`),
                                         ),
                                     },
@@ -4251,7 +4251,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -4261,7 +4261,7 @@
                                         syn_expr_idx: 15,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -4271,7 +4271,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Point2d`),
                                         ),
                                     },
@@ -4279,13 +4279,13 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`Point2d`),
                                             ),
                                         },
@@ -4297,7 +4297,7 @@
                                         syn_expr_idx: 16,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -4307,7 +4307,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Point2d`),
                                         ),
                                     },
@@ -4317,7 +4317,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: StackPure {
                                                                 location: StackLocationIdx(
                                                                     ShiftedU32(
@@ -4333,7 +4333,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -4343,9 +4343,9 @@
                                         syn_expr_idx: 17,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -4353,7 +4353,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -4363,7 +4363,7 @@
                                         syn_expr_idx: 18,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -4373,7 +4373,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -4381,13 +4381,13 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`Vector2d`),
                                             ),
                                         },
@@ -4399,7 +4399,7 @@
                                         syn_expr_idx: 19,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -4409,7 +4409,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -4419,7 +4419,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
                                                                 location: StackLocationIdx(
                                                                     ShiftedU32(
@@ -4435,7 +4435,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -4445,9 +4445,9 @@
                                         syn_expr_idx: 20,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -4455,13 +4455,13 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -4473,11 +4473,11 @@
                                         syn_expr_idx: 21,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -4487,7 +4487,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Const,
                                                         },
                                                     ),
@@ -4497,7 +4497,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ConditionType(
                                     ExpectConditionType,
                                 ),
@@ -4507,9 +4507,9 @@
                                         syn_expr_idx: 22,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -4525,7 +4525,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -4535,7 +4535,7 @@
                                         syn_expr_idx: 23,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -4545,7 +4545,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -4553,13 +4553,13 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -4571,9 +4571,9 @@
                                         syn_expr_idx: 24,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -4583,7 +4583,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -4593,7 +4593,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -4603,7 +4603,7 @@
                                         syn_expr_idx: 25,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -4613,7 +4613,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -4621,13 +4621,13 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`Vector2d`),
                                             ),
                                         },
@@ -4639,7 +4639,7 @@
                                         syn_expr_idx: 26,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -4649,7 +4649,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -4659,7 +4659,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
                                                                 location: StackLocationIdx(
                                                                     ShiftedU32(
@@ -4675,7 +4675,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -4685,9 +4685,9 @@
                                         syn_expr_idx: 27,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -4695,7 +4695,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -4705,9 +4705,9 @@
                                         syn_expr_idx: 29,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -4715,7 +4715,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -4725,7 +4725,7 @@
                                         syn_expr_idx: 28,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
@@ -4735,7 +4735,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -4743,13 +4743,13 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -4761,9 +4761,9 @@
                                         syn_expr_idx: 30,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -4773,7 +4773,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -4783,13 +4783,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -4801,9 +4801,9 @@
                                         syn_expr_idx: 31,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -4813,7 +4813,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -4823,13 +4823,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -4841,9 +4841,9 @@
                                         syn_expr_idx: 32,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -4853,7 +4853,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),

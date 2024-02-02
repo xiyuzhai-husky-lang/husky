@@ -5,22 +5,22 @@ mod regular_index;
 use super::*;
 
 pub(super) fn ethereal_owner_ty_index_dispatch(
-    engine: &mut impl FluffyTermEngine,
+    engine: &mut impl FlyTermEngine,
     expr_idx: SynExprIdx,
     owner_ty: EthTerm,
-    index_ty: FluffyTerm,
-    indirections: FluffyIndirections,
-) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
+    index_ty: FlyTerm,
+    indirections: FlyIndirections,
+) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
     ethereal_owner_ty_index_dispatch_aux(engine, expr_idx, owner_ty, index_ty, indirections)
 }
 
 pub(super) fn ethereal_owner_ty_index_dispatch_aux(
-    engine: &mut impl FluffyTermEngine,
+    engine: &mut impl FlyTermEngine,
     expr_idx: SynExprIdx,
     owner_ty: EthTerm,
-    index_ty: FluffyTerm,
-    mut indirections: FluffyIndirections,
-) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
+    index_ty: FlyTerm,
+    mut indirections: FlyIndirections,
+) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
     let db = engine.db();
     let owner_ty_application_expansion = owner_ty.application_expansion(db);
     let TermFunctionReduced::TypeOntology(ty_path) = owner_ty_application_expansion.function()
@@ -40,10 +40,7 @@ pub(super) fn ethereal_owner_ty_index_dispatch_aux(
     )
     .into_result_option()?
     {
-        return JustOk(FluffyIndexDynamicDispatch::new(
-            indirections,
-            index_signature,
-        ));
+        return JustOk(FlyIndexDynamicDispatch::new(indirections, index_signature));
     };
     // indirections
     match refined_ty_path {
@@ -53,7 +50,7 @@ pub(super) fn ethereal_owner_ty_index_dispatch_aux(
                     PreludeIndirectionTypePath::Ref => todo!(),
                     PreludeIndirectionTypePath::RefMut => todo!(),
                     PreludeIndirectionTypePath::Leash => {
-                        indirections.add(FluffyIndirection::Leash);
+                        indirections.add(FlyIndirection::Leash);
                         if owner_ty_arguments.len() != 1 {
                             todo!()
                         }

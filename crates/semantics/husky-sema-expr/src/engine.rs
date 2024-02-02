@@ -41,9 +41,9 @@ pub(crate) struct SemaExprEngine<'a> {
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,
     pub(crate) sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
-    fluffy_term_region: FluffyTermRegion,
-    sema_expr_term_results: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
-    symbol_terms: SymbolMap<FluffyTerm>,
+    fluffy_term_region: FlyTermRegion,
+    sema_expr_term_results: VecPairMap<SemaExprIdx, SemaExprTermResult<FlyTerm>>,
+    symbol_terms: SymbolMap<FlyTerm>,
     symbol_tys: SymbolMap<SymbolType>,
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
@@ -52,13 +52,13 @@ pub(crate) struct SemaExprEngine<'a> {
     pub(crate) unveiler: Unveiler,
     self_ty: Option<EthTerm>,
     self_value: Option<SymbolEthTerm>,
-    self_value_ty: Option<FluffyTerm>,
+    self_value_ty: Option<FlyTerm>,
     self_lifetime: Option<SymbolEthTerm>,
     self_place: Option<SymbolEthTerm>,
     trai_in_use_items_table: TraitInUseItemsTable<'a>,
 }
 
-impl<'a> FluffyTermEngine<'a> for SemaExprEngine<'a> {
+impl<'a> FlyTermEngine<'a> for SemaExprEngine<'a> {
     fn db(&self) -> &'a ::salsa::Db {
         self.db
     }
@@ -67,11 +67,11 @@ impl<'a> FluffyTermEngine<'a> for SemaExprEngine<'a> {
         &mut self.stack_location_registry
     }
 
-    fn fluffy_term_region(&self) -> &FluffyTermRegion {
+    fn fluffy_term_region(&self) -> &FlyTermRegion {
         &self.fluffy_term_region
     }
 
-    fn fluffy_term_region_mut(&mut self) -> &mut FluffyTermRegion {
+    fn fluffy_term_region_mut(&mut self) -> &mut FlyTermRegion {
         &mut self.fluffy_term_region
     }
 
@@ -169,7 +169,7 @@ impl<'a> SemaExprEngine<'a> {
             sema_expr_arena: SemaExprArena::default(),
             sema_stmt_arena: SemaStmtArena::default(),
             sema_expr_roots: Default::default(),
-            fluffy_term_region: FluffyTermRegion::new(
+            fluffy_term_region: FlyTermRegion::new(
                 parent_sema_expr_region.map(|r| r.data(db).fluffy_term_region()),
             ),
             sema_expr_term_results: Default::default(),
@@ -210,8 +210,8 @@ impl<'a> SemaExprEngine<'a> {
     pub(crate) fn alloc_sema_expr(
         &mut self,
         data_result: Result<SemaExprData, SemaExprDataError>,
-        immediate_ty_result: Result<FluffyTerm, SemaExprTypeError>,
-        expectation_idx_and_ty: Option<(FluffyTermExpectationIdx, FluffyTerm)>,
+        immediate_ty_result: Result<FlyTerm, SemaExprTypeError>,
+        expectation_idx_and_ty: Option<(FlyTermExpectationIdx, FlyTerm)>,
     ) -> SemaExprIdx {
         let sema_expr_idx = self.sema_expr_arena.alloc_one(
             data_result,
@@ -293,7 +293,7 @@ impl<'a> SemaExprEngine<'a> {
         self.self_ty
     }
 
-    pub(crate) fn self_value_ty(&self) -> Option<FluffyTerm> {
+    pub(crate) fn self_value_ty(&self) -> Option<FlyTerm> {
         self.self_value_ty
     }
 }
@@ -304,7 +304,7 @@ fn calc_self_value_ty(
     self_place: Option<SymbolEthTerm>,
     db: &salsa::Db,
     registry: &mut StackLocationRegistry,
-) -> Option<FluffyTerm> {
+) -> Option<FlyTerm> {
     fn method_fn_self_value_modifier_from_self_value_parameter(
         self_value_parameter: &Option<SelfValueParameterSyndicate>,
     ) -> SymbolModifier {
@@ -313,7 +313,7 @@ fn calc_self_value_ty(
         };
         SymbolModifier::new(self_value_parameter.ephem_symbol_modifier_token_group())
     }
-    let self_ty: FluffyTerm = self_ty?.into();
+    let self_ty: FlyTerm = self_ty?.into();
     let modifier = match syn_expr_region_data.path() {
         SynNodeRegionPath::Snippet(_) => None, // ad hoc
         SynNodeRegionPath::Decl(syn_node_path) | SynNodeRegionPath::Defn(syn_node_path) => {
@@ -357,27 +357,27 @@ fn calc_self_value_ty(
         }
     }?;
     let place = match modifier {
-        SymbolModifier::Pure => FluffyPlace::StackPure {
+        SymbolModifier::Pure => FlyPlace::StackPure {
             location: registry.issue_new(),
         },
-        SymbolModifier::Owned => FluffyPlace::ImmutableStackOwned {
+        SymbolModifier::Owned => FlyPlace::ImmutableStackOwned {
             location: registry.issue_new(),
         },
-        SymbolModifier::Mut => FluffyPlace::MutableStackOwned {
+        SymbolModifier::Mut => FlyPlace::MutableStackOwned {
             location: registry.issue_new(),
         },
         SymbolModifier::Ref => todo!(),
         SymbolModifier::RefMut => todo!(),
         SymbolModifier::Const => todo!(),
-        SymbolModifier::Ambersand(_) => FluffyPlace::Ref {
+        SymbolModifier::Ambersand(_) => FlyPlace::Ref {
             guard: Left(registry.issue_new()),
         },
-        SymbolModifier::AmbersandMut(_) => FluffyPlace::RefMut {
+        SymbolModifier::AmbersandMut(_) => FlyPlace::RefMut {
             guard: Left(registry.issue_new()),
         },
-        SymbolModifier::Le => FluffyPlace::Leashed,
-        SymbolModifier::Tilde => FluffyPlace::Leashed,
-        SymbolModifier::At => FluffyPlace::EtherealSymbol(self_place?),
+        SymbolModifier::Le => FlyPlace::Leashed,
+        SymbolModifier::Tilde => FlyPlace::Leashed,
+        SymbolModifier::At => FlyPlace::EtherealSymbol(self_place?),
     };
     Some(self_ty.with_place(place))
 }

@@ -134,7 +134,7 @@ pub enum JarIndex {
     EntityPathJar,
     EtherealSignatureJar,
     EthTermJar,
-    FluffyTermJar,
+    FlyTermJar,
     TermPreludeJar,
     // lex
     TextJar,

@@ -2,19 +2,19 @@ use husky_ethereal_signature::helpers::trai_for_ty::trai_path_for_ty_term_impl_b
 
 use vec_like::SmallVecPairMap;
 
-use crate::method_fn::MethodFnFluffySignature;
+use crate::method_fn::MethodFnFlySignature;
 
 use super::*;
 
-impl HasFluffyTraitMethodDispatch for EthTerm {
+impl HasFlyTraitMethodDispatch for EthTerm {
     fn trai_method_dispatch_aux(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
-        mut indirections: FluffyIndirections,
-    ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+        mut indirections: FlyIndirections,
+    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
         let db = engine.db();
         let application_expansion = self.application_expansion(db);
         let arguments = application_expansion.arguments(db);
@@ -42,7 +42,7 @@ impl HasFluffyTraitMethodDispatch for EthTerm {
                         PreludeIndirectionTypePath::Ref => todo!(),
                         PreludeIndirectionTypePath::RefMut => todo!(),
                         PreludeIndirectionTypePath::Leash => {
-                            indirections.add(FluffyIndirection::Leash);
+                            indirections.add(FlyIndirection::Leash);
                             debug_assert_eq!(arguments.len(), 1);
                             let the_argument = arguments[0];
                             the_argument.trai_method_dispatch_aux(
@@ -77,8 +77,8 @@ impl HasFluffyTraitMethodDispatch for EthTerm {
                             todo!()
                         };
                         match method_signature_builder.try_finish(db) {
-                            Some(eth_sig) => JustOk(FluffyDynamicDispatch {
-                                signature: MethodFnFluffySignature::from_ethereal(
+                            Some(eth_sig) => JustOk(FlyDynamicDispatch {
+                                signature: MethodFnFlySignature::from_ethereal(
                                     indirections.final_place(),
                                     eth_sig,
                                 )

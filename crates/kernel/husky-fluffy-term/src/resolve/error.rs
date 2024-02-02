@@ -8,8 +8,8 @@ pub enum HollowTermResolveError {
     Derived(#[from] DerivedHollowTermResolveError),
 }
 
-pub type FluffyTermResolveResult<T> = Result<T, HollowTermResolveError>;
-pub type FluffyTermResolveResultRef<'a, T> = Result<T, &'a HollowTermResolveError>;
+pub type FlyTermResolveResult<T> = Result<T, HollowTermResolveError>;
+pub type FlyTermResolveResultRef<'a, T> = Result<T, &'a HollowTermResolveError>;
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalHollowTermResolveError {
@@ -21,6 +21,6 @@ pub enum OriginalHollowTermResolveError {
 pub enum DerivedHollowTermResolveError {
     #[error("duplication")]
     Duplication,
-    #[error("unresolved Fluffy term")]
-    UnresolvedFluffyTerm,
+    #[error("unresolved Fly term")]
+    UnresolvedFlyTerm,
 }

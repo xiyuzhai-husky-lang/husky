@@ -25,7 +25,7 @@ use std::panic::RefUnwindSafe;
     husky_declarative_signature::DecSignatureJar,
     husky_ethereal_term::EthTermJar,
     husky_ethereal_signature::EtherealSignatureJar,
-    husky_fluffy_term::FluffyTermJar,
+    husky_fluffy_term::FlyTermJar,
     husky_hir_ty::db::HirTypeJar,
     // lex
     husky_token_data::db::TokenDataJar,

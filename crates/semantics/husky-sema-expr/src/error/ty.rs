@@ -21,8 +21,8 @@ impl From<EthTermError> for SemaExprTypeError {
     }
 }
 
-impl From<FluffyTermError> for SemaExprTypeError {
-    fn from(e: FluffyTermError) -> Self {
+impl From<FlyTermError> for SemaExprTypeError {
+    fn from(e: FlyTermError) -> Self {
         SemaExprTypeError::Derived(e.into())
     }
 }
@@ -149,8 +149,8 @@ pub enum DerivedSemaExprTypeError {
     BitNotOperandTypeNotInferred,
     #[error("BinaryShiftRightOperandTypeNotInferred")]
     BinaryShiftRightOperandTypeNotInferred,
-    #[error("Fluffy term error")]
-    FluffyTermError(#[from] FluffyTermError),
+    #[error("Fly term error")]
+    FlyTermError(#[from] FlyTermError),
     #[error("SuffixOperandTypeNotInferred")]
     SuffixOperandTypeNotInferred,
     #[error("UnableToInferSuffixOperandType")]

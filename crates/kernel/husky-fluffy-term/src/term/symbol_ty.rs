@@ -5,16 +5,16 @@ use super::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct SymbolType(FluffyTerm);
+pub struct SymbolType(FlyTerm);
 
 impl SymbolType {
-    pub fn term(self) -> FluffyTerm {
+    pub fn term(self) -> FlyTerm {
         self.0
     }
 }
 
-impl Into<FluffyTerm> for SymbolType {
-    fn into(self) -> FluffyTerm {
+impl Into<FlyTerm> for SymbolType {
+    fn into(self) -> FlyTerm {
         self.term()
     }
 }
@@ -22,10 +22,10 @@ impl Into<FluffyTerm> for SymbolType {
 impl SymbolType {
     #[inline(always)]
     pub fn new_parameter_ty_from_signature(
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
         signature: SymbolSignature,
-    ) -> FluffyTermResult<Self> {
+    ) -> FlyTermResult<Self> {
         let ty = EthTerm::ty_from_declarative(engine.db(), signature.ty()?)?;
         Ok(Self::new_parameter_ty(
             engine,
@@ -36,24 +36,24 @@ impl SymbolType {
     }
 
     pub fn new_parameter_ty(
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
         modifier: SymbolModifier,
-        ty: FluffyTerm,
+        ty: FlyTerm,
     ) -> Self {
         let new_place = match modifier {
-            SymbolModifier::Pure => FluffyPlace::StackPure {
+            SymbolModifier::Pure => FlyPlace::StackPure {
                 location: engine.issue_new_stack_location_idx(),
             },
-            SymbolModifier::Owned => FluffyPlace::ImmutableStackOwned {
+            SymbolModifier::Owned => FlyPlace::ImmutableStackOwned {
                 location: engine.issue_new_stack_location_idx(),
             },
             SymbolModifier::Mut => todo!(),
             SymbolModifier::Ref => todo!(),
-            SymbolModifier::RefMut => FluffyPlace::RefMut {
+            SymbolModifier::RefMut => FlyPlace::RefMut {
                 guard: Left(engine.issue_new_stack_location_idx()),
             },
-            SymbolModifier::Const => FluffyPlace::Const,
+            SymbolModifier::Const => FlyPlace::Const,
             SymbolModifier::Ambersand(_) => todo!(),
             SymbolModifier::AmbersandMut(_) => todo!(),
             SymbolModifier::Le => todo!(),
@@ -64,44 +64,44 @@ impl SymbolType {
     }
 
     pub fn new_variable_ty(
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
         modifier: SymbolModifier,
-        ty: FluffyTerm,
-    ) -> FluffyTermResult<Self> {
+        ty: FlyTerm,
+    ) -> FlyTermResult<Self> {
         let new_place = match modifier {
             SymbolModifier::Pure => match ty.place {
-                Some(FluffyPlace::Transient) | None => FluffyPlace::ImmutableStackOwned {
+                Some(FlyPlace::Transient) | None => FlyPlace::ImmutableStackOwned {
                     location: engine.issue_new_stack_location_idx(),
                 },
                 Some(place) => match ty.is_always_copyable(engine.db(), engine.fluffy_terms())? {
-                    Some(true) => FluffyPlace::ImmutableStackOwned {
+                    Some(true) => FlyPlace::ImmutableStackOwned {
                         location: engine.issue_new_stack_location_idx(),
                     },
                     Some(false) => match place {
-                        FluffyPlace::Const => todo!(),
-                        FluffyPlace::StackPure { location }
-                        | FluffyPlace::ImmutableStackOwned { location }
-                        | FluffyPlace::MutableStackOwned { location } => FluffyPlace::Ref {
+                        FlyPlace::Const => todo!(),
+                        FlyPlace::StackPure { location }
+                        | FlyPlace::ImmutableStackOwned { location }
+                        | FlyPlace::MutableStackOwned { location } => FlyPlace::Ref {
                             guard: Left(location),
                         },
-                        FluffyPlace::Transient => unreachable!(),
-                        FluffyPlace::Ref { guard } => todo!(),
-                        FluffyPlace::RefMut { guard } => todo!(),
-                        FluffyPlace::Leashed => FluffyPlace::Leashed,
-                        FluffyPlace::Todo => todo!(),
-                        FluffyPlace::EtherealSymbol(_) => todo!(),
+                        FlyPlace::Transient => unreachable!(),
+                        FlyPlace::Ref { guard } => todo!(),
+                        FlyPlace::RefMut { guard } => todo!(),
+                        FlyPlace::Leashed => FlyPlace::Leashed,
+                        FlyPlace::Todo => todo!(),
+                        FlyPlace::EtherealSymbol(_) => todo!(),
                     },
                     None => todo!(),
                 },
             },
             SymbolModifier::Owned => todo!(),
             SymbolModifier::Mut => match ty.place {
-                Some(FluffyPlace::Transient) | None => FluffyPlace::MutableStackOwned {
+                Some(FlyPlace::Transient) | None => FlyPlace::MutableStackOwned {
                     location: engine.issue_new_stack_location_idx(),
                 },
                 Some(place) => match ty.is_always_copyable(engine.db(), engine.fluffy_terms())? {
-                    Some(true) => FluffyPlace::MutableStackOwned {
+                    Some(true) => FlyPlace::MutableStackOwned {
                         location: engine.issue_new_stack_location_idx(),
                     },
                     Some(false) => {
@@ -128,13 +128,13 @@ impl SymbolType {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct PlaceTypeData {
-    place: FluffyPlace,
+    place: FlyPlace,
     ty: EthTerm,
 }
 
 /// `PlaceQual` qualifies the place of a base type `T`
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum FluffyPlace {
+pub enum FlyPlace {
     Const,
     /// reduce to
     /// - ImmutableStackOwned if base type is known to be copyable
@@ -172,7 +172,7 @@ pub enum FluffyPlace {
         ///
         /// let `a` be a reference to `A<'b>`, then `a.x` is a valid for `'b` time,
         /// even if `a` is short lived.
-        guard: Either<StackLocationIdx, FluffyLifetime>,
+        guard: Either<StackLocationIdx, FlyLifetime>,
     },
     /// a place accessed through ref mut
     ///
@@ -202,7 +202,7 @@ pub enum FluffyPlace {
         ///
         /// If `a` is a mutable variable on stack of type `A<'b>`, then `a.x` is valid as long as `a` is valid,
         /// even if `b` is long lived. So we should only care about the stack location.
-        guard: Either<StackLocationIdx, FluffyLifetime>,
+        guard: Either<StackLocationIdx, FlyLifetime>,
     },
     /// stored in database
     /// always immutable
@@ -211,85 +211,85 @@ pub enum FluffyPlace {
     EtherealSymbol(SymbolEthTerm),
 }
 
-impl FluffyPlace {
-    pub(crate) fn bind(&self, contract: TermContract) -> FluffyPlaceResult<()> {
+impl FlyPlace {
+    pub(crate) fn bind(&self, contract: TermContract) -> FlyPlaceResult<()> {
         match (contract, self) {
-            (TermContract::Const, FluffyPlace::Const) => Ok(()),
-            (TermContract::Const, _) => Err(FluffyPlaceError::CannotConvertToConst),
-            (TermContract::Leash, FluffyPlace::Leashed) => Ok(()),
+            (TermContract::Const, FlyPlace::Const) => Ok(()),
+            (TermContract::Const, _) => Err(FlyPlaceError::CannotConvertToConst),
+            (TermContract::Leash, FlyPlace::Leashed) => Ok(()),
             (TermContract::Leash, _) => todo!("error"),
             (TermContract::Pure, _) => Ok(()),
-            (TermContract::Move, FluffyPlace::Const) => Ok(()),
-            (TermContract::Move, FluffyPlace::StackPure { location }) => Ok(()),
-            (TermContract::Move, FluffyPlace::ImmutableStackOwned { location }) => Ok(()),
-            (TermContract::Move, FluffyPlace::MutableStackOwned { location }) => Ok(()),
-            (TermContract::Move, FluffyPlace::Transient) => Ok(()),
-            (TermContract::Move, FluffyPlace::Ref { guard }) => Ok(()), // ad hoc
-            (TermContract::Move, FluffyPlace::RefMut { guard }) => todo!(),
-            (TermContract::Move, FluffyPlace::Leashed) => Ok(()),
-            (TermContract::Move, FluffyPlace::Todo) => todo!(),
-            (TermContract::Borrow, FluffyPlace::Const) => todo!(),
-            (TermContract::Borrow, FluffyPlace::StackPure { location }) => todo!(),
-            (TermContract::Borrow, FluffyPlace::ImmutableStackOwned { location }) => todo!(),
-            (TermContract::Borrow, FluffyPlace::MutableStackOwned { location }) => todo!(),
-            (TermContract::Borrow, FluffyPlace::Transient) => todo!(),
-            (TermContract::Borrow, FluffyPlace::Ref { guard }) => todo!(),
-            (TermContract::Borrow, FluffyPlace::RefMut { guard }) => todo!(),
-            (TermContract::Borrow, FluffyPlace::Leashed) => todo!(),
-            (TermContract::Borrow, FluffyPlace::Todo) => todo!(),
-            (TermContract::BorrowMut, FluffyPlace::Const) => todo!(),
-            (TermContract::BorrowMut, FluffyPlace::StackPure { location }) => todo!(),
-            (TermContract::BorrowMut, FluffyPlace::ImmutableStackOwned { location }) => todo!(),
-            (TermContract::BorrowMut, FluffyPlace::MutableStackOwned { location }) => todo!(),
-            (TermContract::BorrowMut, FluffyPlace::Transient) => Ok(()),
-            (TermContract::BorrowMut, FluffyPlace::Ref { guard }) => todo!(),
-            (TermContract::BorrowMut, FluffyPlace::RefMut { guard }) => Ok(()),
-            (TermContract::BorrowMut, FluffyPlace::Leashed) => todo!(),
-            (TermContract::BorrowMut, FluffyPlace::Todo) => todo!(),
-            (TermContract::At, FluffyPlace::Const) => todo!(),
-            (TermContract::At, FluffyPlace::StackPure { location }) => todo!(),
-            (TermContract::At, FluffyPlace::ImmutableStackOwned { location }) => todo!(),
-            (TermContract::At, FluffyPlace::MutableStackOwned { location }) => todo!(),
-            (TermContract::At, FluffyPlace::Transient) => todo!(),
-            (TermContract::At, FluffyPlace::Ref { guard }) => todo!(),
-            (TermContract::At, FluffyPlace::RefMut { guard }) => todo!(),
-            (TermContract::At, FluffyPlace::Leashed) => todo!(),
-            (TermContract::At, FluffyPlace::Todo) => todo!(),
-            (TermContract::Move, FluffyPlace::EtherealSymbol(_)) => todo!(),
-            (TermContract::Borrow, FluffyPlace::EtherealSymbol(_)) => todo!(),
-            (TermContract::BorrowMut, FluffyPlace::EtherealSymbol(_)) => todo!(),
-            (TermContract::At, FluffyPlace::EtherealSymbol(_)) => todo!(),
+            (TermContract::Move, FlyPlace::Const) => Ok(()),
+            (TermContract::Move, FlyPlace::StackPure { location }) => Ok(()),
+            (TermContract::Move, FlyPlace::ImmutableStackOwned { location }) => Ok(()),
+            (TermContract::Move, FlyPlace::MutableStackOwned { location }) => Ok(()),
+            (TermContract::Move, FlyPlace::Transient) => Ok(()),
+            (TermContract::Move, FlyPlace::Ref { guard }) => Ok(()), // ad hoc
+            (TermContract::Move, FlyPlace::RefMut { guard }) => todo!(),
+            (TermContract::Move, FlyPlace::Leashed) => Ok(()),
+            (TermContract::Move, FlyPlace::Todo) => todo!(),
+            (TermContract::Borrow, FlyPlace::Const) => todo!(),
+            (TermContract::Borrow, FlyPlace::StackPure { location }) => todo!(),
+            (TermContract::Borrow, FlyPlace::ImmutableStackOwned { location }) => todo!(),
+            (TermContract::Borrow, FlyPlace::MutableStackOwned { location }) => todo!(),
+            (TermContract::Borrow, FlyPlace::Transient) => todo!(),
+            (TermContract::Borrow, FlyPlace::Ref { guard }) => todo!(),
+            (TermContract::Borrow, FlyPlace::RefMut { guard }) => todo!(),
+            (TermContract::Borrow, FlyPlace::Leashed) => todo!(),
+            (TermContract::Borrow, FlyPlace::Todo) => todo!(),
+            (TermContract::BorrowMut, FlyPlace::Const) => todo!(),
+            (TermContract::BorrowMut, FlyPlace::StackPure { location }) => todo!(),
+            (TermContract::BorrowMut, FlyPlace::ImmutableStackOwned { location }) => todo!(),
+            (TermContract::BorrowMut, FlyPlace::MutableStackOwned { location }) => todo!(),
+            (TermContract::BorrowMut, FlyPlace::Transient) => Ok(()),
+            (TermContract::BorrowMut, FlyPlace::Ref { guard }) => todo!(),
+            (TermContract::BorrowMut, FlyPlace::RefMut { guard }) => Ok(()),
+            (TermContract::BorrowMut, FlyPlace::Leashed) => todo!(),
+            (TermContract::BorrowMut, FlyPlace::Todo) => todo!(),
+            (TermContract::At, FlyPlace::Const) => todo!(),
+            (TermContract::At, FlyPlace::StackPure { location }) => todo!(),
+            (TermContract::At, FlyPlace::ImmutableStackOwned { location }) => todo!(),
+            (TermContract::At, FlyPlace::MutableStackOwned { location }) => todo!(),
+            (TermContract::At, FlyPlace::Transient) => todo!(),
+            (TermContract::At, FlyPlace::Ref { guard }) => todo!(),
+            (TermContract::At, FlyPlace::RefMut { guard }) => todo!(),
+            (TermContract::At, FlyPlace::Leashed) => todo!(),
+            (TermContract::At, FlyPlace::Todo) => todo!(),
+            (TermContract::Move, FlyPlace::EtherealSymbol(_)) => todo!(),
+            (TermContract::Borrow, FlyPlace::EtherealSymbol(_)) => todo!(),
+            (TermContract::BorrowMut, FlyPlace::EtherealSymbol(_)) => todo!(),
+            (TermContract::At, FlyPlace::EtherealSymbol(_)) => todo!(),
         }
     }
 }
 
 #[derive(Debug, Error, Clone, Copy, PartialEq, Eq)]
-pub enum FluffyPlaceError {
+pub enum FlyPlaceError {
     #[error("cannot convert to const")]
     CannotConvertToConst,
 }
 
-pub type FluffyPlaceResult<T> = Result<T, FluffyPlaceError>;
+pub type FlyPlaceResult<T> = Result<T, FlyPlaceError>;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FluffyLifetime {
+pub enum FlyLifetime {
     StaticLifetime,
 }
 
-impl FluffyLifetime {
-    pub(crate) fn from_term(term: FluffyTerm, db: &::salsa::Db, terms: &mut FluffyTerms) -> Self {
+impl FlyLifetime {
+    pub(crate) fn from_term(term: FlyTerm, db: &::salsa::Db, terms: &mut FlyTerms) -> Self {
         match term.data_inner(db, terms) {
-            FluffyTermData::Literal(lit) => match lit {
-                TermLiteral::StaticLifetime => FluffyLifetime::StaticLifetime,
+            FlyTermData::Literal(lit) => match lit {
+                TermLiteral::StaticLifetime => FlyLifetime::StaticLifetime,
                 _ => todo!(),
             },
-            FluffyTermData::TypeOntology {
+            FlyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path,
                 ty_arguments,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::Curry {
+            FlyTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -298,28 +298,28 @@ impl FluffyLifetime {
                 return_ty,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie {
+            FlyTermData::Hole(_, _) => todo!(),
+            FlyTermData::Category(_) => todo!(),
+            FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            FluffyTermData::Symbol { term, ty } => todo!(),
-            FluffyTermData::Rune { .. } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::Symbol { term, ty } => todo!(),
+            FlyTermData::Rune { .. } => todo!(),
+            FlyTermData::TypeVariant { path } => todo!(),
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FluffyLifetimeIdx {}
+pub struct FlyLifetimeIdx {}
 
 // #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-// pub struct PlaceTypeIdx(FluffyTermIdx);
+// pub struct PlaceTypeIdx(FlyTermIdx);
 
-// impl Into<FluffyTerm> for PlaceTypeIdx {
-//     fn into(self) -> FluffyTerm {
+// impl Into<FlyTerm> for PlaceTypeIdx {
+//     fn into(self) -> FlyTerm {
 //         self.0.into()
 //     }
 // }

@@ -8,7 +8,7 @@ use husky_ethereal_signature::{helpers::trai_for_ty::is_ty_term_always_copyable,
 use husky_ethereal_term::{
     ApplicationEthTerm, EthTerm, EthTermSymbolIndexImpl, RitchieEthTerm, TermFunctionReduced,
 };
-use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
+use husky_fluffy_term::{FlyTerm, FlyTermBase, FlyTerms};
 
 use husky_term_prelude::ItemPathTerm;
 
@@ -56,17 +56,13 @@ impl HirType {
     }
 
     /// this will ignore the place
-    pub fn from_fluffy(
-        term: FluffyTerm,
-        db: &::salsa::Db,
-        fluffy_terms: &FluffyTerms,
-    ) -> Option<Self> {
+    pub fn from_fluffy(term: FlyTerm, db: &::salsa::Db, fluffy_terms: &FlyTerms) -> Option<Self> {
         // todo: consider place
         match term.base_resolved_inner(fluffy_terms) {
-            FluffyTermBase::Ethereal(term) => HirType::from_ethereal(term, db),
-            FluffyTermBase::Solid(_) => todo!(),
-            FluffyTermBase::Hollow(_) => todo!(),
-            FluffyTermBase::Place => todo!(),
+            FlyTermBase::Ethereal(term) => HirType::from_ethereal(term, db),
+            FlyTermBase::Solid(_) => todo!(),
+            FlyTermBase::Hollow(_) => todo!(),
+            FlyTermBase::Place => todo!(),
         }
     }
 

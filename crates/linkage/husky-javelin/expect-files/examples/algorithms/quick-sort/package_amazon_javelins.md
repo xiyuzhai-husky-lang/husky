@@ -2,10 +2,10 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::Fugitive(
+                path: JavPath::Fugitive(
                     FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                 ),
-                instantiation: JavelinInstantiation {
+                instantiation: JavInstantiation {
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -15,10 +15,10 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::Fugitive(
+                path: JavPath::Fugitive(
                     FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                 ),
-                instantiation: JavelinInstantiation {
+                instantiation: JavInstantiation {
                     symbol_resolutions: [],
                     separator: None,
                 },

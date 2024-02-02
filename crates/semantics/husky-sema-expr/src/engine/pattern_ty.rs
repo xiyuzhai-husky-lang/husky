@@ -5,7 +5,7 @@ impl<'a> SemaExprEngine<'a> {
     pub(crate) fn infer_variable_pattern_root_and_symbols_ty(
         &mut self,
         syn_pattern_root: impl Into<SynPatternExprRoot>,
-        ty: FluffyTerm,
+        ty: FlyTerm,
         symbols: CurrentSynSymbolIdxRange,
     ) {
         self.infer_pattern_ty(syn_pattern_root.into().syn_pattern_expr_idx(), ty);
@@ -15,14 +15,14 @@ impl<'a> SemaExprEngine<'a> {
     }
 
     /// the way type inference works for pattern expressions is dual to that of regular expression
-    fn infer_pattern_ty(&mut self, syn_pattern_expr_idx: SynPatternExprIdx, ty: FluffyTerm) {
+    fn infer_pattern_ty(&mut self, syn_pattern_expr_idx: SynPatternExprIdx, ty: FlyTerm) {
         self.pattern_expr_ty_infos
             .insert_new(syn_pattern_expr_idx, PatternExprTypeInfo::new(Ok(ty)));
         self.infer_subpattern_tys(syn_pattern_expr_idx, ty)
     }
 
     /// subpattern expressions get its type from its parent
-    fn infer_subpattern_tys(&mut self, pattern_expr_idx: SynPatternExprIdx, ty: FluffyTerm) {
+    fn infer_subpattern_tys(&mut self, pattern_expr_idx: SynPatternExprIdx, ty: FlyTerm) {
         match self.syn_expr_region_data[pattern_expr_idx] {
             SynPatternExprData::Literal { .. } => (), // there is no subpattern to infer
             SynPatternExprData::Ident { .. } => (),   // there is no subpattern to infer
@@ -87,7 +87,7 @@ impl<'a> SemaExprEngine<'a> {
     fn calc_new_current_syn_symbol_ty(
         &mut self,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-    ) -> Option<FluffyTerm> {
+    ) -> Option<FlyTerm> {
         match self.syn_expr_region_data[current_syn_symbol_idx].data() {
             CurrentSynSymbolData::TemplateParameter {
                 template_parameter_variant,
@@ -118,7 +118,7 @@ impl<'a> SemaExprEngine<'a> {
     fn infer_new_pattern_symbol_ty(
         &mut self,
         pattern_symbol_idx: SynPatternSymbolIdx,
-    ) -> Option<FluffyTerm> {
+    ) -> Option<FlyTerm> {
         let ty_result = self.calc_new_pattern_symbol_ty(pattern_symbol_idx);
         let ty = ty_result.as_ref().ok().copied();
         self.pattern_symbol_ty_infos
@@ -129,7 +129,7 @@ impl<'a> SemaExprEngine<'a> {
     fn calc_new_pattern_symbol_ty(
         &mut self,
         pattern_symbol_idx: SynPatternSymbolIdx,
-    ) -> PatternSymbolTypeResult<FluffyTerm> {
+    ) -> PatternSymbolTypeResult<FlyTerm> {
         match self.syn_expr_region_data[pattern_symbol_idx] {
             SynPatternSymbol::Atom(pattern_expr_idx) => self
                 .get_pattern_expr_ty(pattern_expr_idx)
@@ -137,7 +137,7 @@ impl<'a> SemaExprEngine<'a> {
         }
     }
 
-    fn get_pattern_expr_ty(&self, pattern_expr_idx: SynPatternExprIdx) -> Option<FluffyTerm> {
+    fn get_pattern_expr_ty(&self, pattern_expr_idx: SynPatternExprIdx) -> Option<FlyTerm> {
         self.pattern_expr_ty_infos
             .get(pattern_expr_idx)
             .map(|info| info.ty().ok().copied())

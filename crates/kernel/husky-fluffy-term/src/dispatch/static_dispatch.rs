@@ -9,23 +9,23 @@ use husky_ethereal_signature::{HasTypeItemTemplates, TypeItemEthTemplates};
 #[derive(Debug, PartialEq, Eq)]
 #[enum_class::from_variants]
 pub enum StaticDispatch {
-    AssociatedFn(AssociatedFnFluffySignature),
+    AssociatedFn(AssociatedFnFlySignature),
     AssociatedGn,
 }
 
-impl FluffyTerm {
+impl FlyTerm {
     pub fn static_dispatch(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         syn_expr_idx: SynExprIdx,
         ident: Ident,
         all_available_traits: &[()],
-    ) -> FluffyTermMaybeResult<StaticDispatch> {
+    ) -> FlyTermMaybeResult<StaticDispatch> {
         // todo: optimize for ethereal etc.
         let db = engine.db();
         match self.data(engine) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
+            FlyTermData::Literal(_) => todo!(),
+            FlyTermData::TypeOntology {
                 ty_path,
                 ty_arguments,
                 ..
@@ -52,7 +52,7 @@ impl FluffyTerm {
                             1 => {
                                 let mut signatures = signatures;
                                 let signature = signatures.pop().unwrap();
-                                let FluffyBaseTypeData::TypeOntology {
+                                let FlyBaseTypeData::TypeOntology {
                                     ty_arguments: src_ty_arguments,
                                     ..
                                 } = signature.self_ty().base_ty_data(engine)
@@ -83,17 +83,17 @@ impl FluffyTerm {
                 JustErr(_) => todo!(),
                 Nothing => todo!(),
             },
-            FluffyTermData::Curry { .. } => todo!(),
-            FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie {
+            FlyTermData::Curry { .. } => todo!(),
+            FlyTermData::Hole(_, _) => todo!(),
+            FlyTermData::Category(_) => todo!(),
+            FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { .. } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::Symbol { .. } => todo!(),
+            FlyTermData::Rune { .. } => todo!(),
+            FlyTermData::TypeVariant { path } => todo!(),
         }
     }
 }

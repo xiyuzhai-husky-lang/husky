@@ -2,19 +2,19 @@ use super::*;
 use husky_entity_tree::helpers::TraitInUseItemsTable;
 use husky_stack_location::{StackLocationIdx, StackLocationRegistry};
 
-pub trait FluffyTermEngine<'a>: Sized {
+pub trait FlyTermEngine<'a>: Sized {
     fn db(&self) -> &'a ::salsa::Db;
     fn trai_in_use_items_table(&self) -> TraitInUseItemsTable<'a>;
     fn stack_location_registry_mut(&mut self) -> &mut StackLocationRegistry;
     fn issue_new_stack_location_idx(&mut self) -> StackLocationIdx {
         self.stack_location_registry_mut().issue_new()
     }
-    fn fluffy_term_region(&self) -> &FluffyTermRegion;
-    fn fluffy_term_region_mut(&mut self) -> &mut FluffyTermRegion;
-    fn fluffy_terms(&self) -> &FluffyTerms {
+    fn fluffy_term_region(&self) -> &FlyTermRegion;
+    fn fluffy_term_region_mut(&mut self) -> &mut FlyTermRegion;
+    fn fluffy_terms(&self) -> &FlyTerms {
         self.fluffy_term_region().terms()
     }
-    fn fluffy_terms_mut(&mut self) -> &mut FluffyTerms {
+    fn fluffy_terms_mut(&mut self) -> &mut FlyTerms {
         self.fluffy_term_region_mut().terms_mut()
     }
     fn item_path_menu(&self) -> &'a ItemPathMenu;
@@ -25,24 +25,24 @@ pub trait FluffyTermEngine<'a>: Sized {
         &mut self,
         src: HoleSource,
         path: TypePath,
-        arguments: SmallVec<[FluffyTerm; 2]>,
-    ) -> FluffyTerm {
+        arguments: SmallVec<[FlyTerm; 2]>,
+    ) -> FlyTerm {
         todo!()
     }
 
-    fn new_hole(&mut self, src: impl Into<HoleSource>, hole_kind: HoleKind) -> FluffyTerm {
+    fn new_hole(&mut self, src: impl Into<HoleSource>, hole_kind: HoleKind) -> FlyTerm {
         HollowTerm::new_hole(self, src, hole_kind).into()
     }
 
     fn synthesize_function_application_expr_ty(
         &mut self,
         variance: Variance,
-        parameter_rune: Option<RuneFluffyTerm>,
-        parameter_ty: FluffyTerm,
-        return_ty: FluffyTerm,
-        argument_ty: FluffyTerm,
+        parameter_rune: Option<RuneFlyTerm>,
+        parameter_ty: FlyTerm,
+        return_ty: FlyTerm,
+        argument_ty: FlyTerm,
         shift: i8,
-    ) -> FluffyTermResult<FluffyTerm> {
+    ) -> FlyTermResult<FlyTerm> {
         debug_assert!(shift >= 0);
         if shift == 0 {
             return Ok(return_ty);
@@ -57,9 +57,9 @@ pub trait FluffyTermEngine<'a>: Sized {
         ) {
             (
                 None,
-                FluffyTermBase::Ethereal(parameter_ty),
-                FluffyTermBase::Ethereal(return_ty),
-                FluffyTermBase::Ethereal(argument_ty),
+                FlyTermBase::Ethereal(parameter_ty),
+                FlyTermBase::Ethereal(return_ty),
+                FlyTermBase::Ethereal(argument_ty),
             ) => {
                 return Ok(EthTerm::synthesize_function_application_expr_ty(
                     self.db(),
@@ -78,7 +78,7 @@ pub trait FluffyTermEngine<'a>: Sized {
             todo!()
         }
         match argument_ty.data(self) {
-            FluffyTermData::Curry {
+            FlyTermData::Curry {
                 curry_kind: argument_curry_kind,
                 variance: argument_variance,
                 parameter_rune: argument_parameter_variable,
@@ -98,7 +98,7 @@ pub trait FluffyTermEngine<'a>: Sized {
                     shift - 1,
                 );
                 todo!()
-                // FluffyTerm::new_curry()
+                // FlyTerm::new_curry()
             }
             _ => unreachable!(),
         }
@@ -111,16 +111,16 @@ pub trait FluffyTermEngine<'a>: Sized {
     fn add_expectation(
         &mut self,
         src: ExpectationSource,
-        expectee: FluffyTerm,
+        expectee: FlyTerm,
         expectation: impl Into<Expectation>,
-    ) -> (FluffyTermExpectationIdx, FluffyTerm) {
+    ) -> (FlyTermExpectationIdx, FlyTerm) {
         let db = self.db();
         self.fluffy_term_region_mut()
             .add_expectation(src, expectee, expectation, db)
     }
 }
 
-pub trait FluffyTermEngineMut<'a>: FluffyTermEngine<'a> {}
+pub trait FlyTermEngineMut<'a>: FlyTermEngine<'a> {}
 
 struct A {
     x: i32,

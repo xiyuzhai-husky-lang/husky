@@ -10,7 +10,7 @@ impl<'a> SemaExprEngine<'a> {
         rbox_regional_token_idx: RegionalTokenIdx,
     ) -> (
         SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let (owner_sema_expr_idx, owner_ty) =
             self.build_sema_expr_with_ty(owner, ExpectAnyOriginal);
@@ -27,7 +27,7 @@ impl<'a> SemaExprEngine<'a> {
             );
         };
         match owner_ty.data(self) {
-            FluffyTermData::Curry { .. } => todo!(),
+            FlyTermData::Curry { .. } => todo!(),
             _ => match self.calc_index_expr_ty(expr_idx, owner_ty, items) {
                 Ok((index_sema_list_items, index_dynamic_dispatch, ty_result)) => (
                     Ok(SemaExprData::Index {
@@ -50,15 +50,15 @@ impl<'a> SemaExprEngine<'a> {
     fn calc_index_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,
-        self_expr_ty: FluffyTerm,
+        self_expr_ty: FlyTerm,
         indices: &[SynCommaListItem],
     ) -> SemaExprDataResult<(
         SmallVec<[SemaCommaListItem; 2]>,
-        FluffyIndexDynamicDispatch,
-        SemaExprTypeResult<FluffyTerm>,
+        FlyIndexDynamicDispatch,
+        SemaExprTypeResult<FlyTerm>,
     )> {
         let mut index_sema_list_items: SmallVec<[SemaCommaListItem; 2]> = smallvec![];
-        let mut index_tys: SmallVec<[FluffyTerm; 2]> = smallvec![];
+        let mut index_tys: SmallVec<[FlyTerm; 2]> = smallvec![];
 
         for &index in indices {
             let (index_sema_list_item, index_ty) =
@@ -78,7 +78,7 @@ impl<'a> SemaExprEngine<'a> {
         let index_disambiguation = self_expr_ty
             .dispatch_index(self, expr_idx, index_ty_synthesized)
             .into_result_or(OriginalSemaExprDataError::CannotIndexIntoType { self_expr_ty })?;
-        let expr_ty_result: SemaExprTypeResult<FluffyTerm> =
+        let expr_ty_result: SemaExprTypeResult<FlyTerm> =
             index_disambiguation.expr_ty_result().map_err(Into::into);
         Ok((index_sema_list_items, index_disambiguation, expr_ty_result))
     }

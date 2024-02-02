@@ -1,16 +1,16 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum DerefFluffyCoersion {
+pub enum DerefFlyCoersion {
     Leash,
-    Ref { lifetime: FluffyLifetime },
+    Ref { lifetime: FlyLifetime },
 }
 
-impl DerefFluffyCoersion {
-    pub fn place_after_coersion(self) -> FluffyPlace {
+impl DerefFlyCoersion {
+    pub fn place_after_coersion(self) -> FlyPlace {
         match self {
-            DerefFluffyCoersion::Leash => FluffyPlace::Leashed,
-            DerefFluffyCoersion::Ref { lifetime } => FluffyPlace::Ref {
+            DerefFlyCoersion::Leash => FlyPlace::Leashed,
+            DerefFlyCoersion::Ref { lifetime } => FlyPlace::Ref {
                 guard: Right(lifetime),
             },
         }
@@ -21,13 +21,13 @@ impl ExpectCoersion {
     pub(super) fn resolve_deref(
         &self,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<FluffyTermEffect> {
+    ) -> AltOption<FlyTermEffect> {
         let expectee_base_ty_data = state.expectee().base_ty_data_inner(db, terms);
         // todo: check contract
         match expectee_base_ty_data {
-            FluffyBaseTypeData::TypeOntology {
+            FlyBaseTypeData::TypeOntology {
                 refined_ty_path: Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)),
                 ty_arguments: expectee_ty_arguments,
                 ..
@@ -38,8 +38,8 @@ impl ExpectCoersion {
                         self.try_finalize_coersion(
                             self.ty_expected,
                             expectee_ty_arguments[1],
-                            DerefFluffyCoersion::Ref {
-                                lifetime: FluffyLifetime::from_term(
+                            DerefFlyCoersion::Ref {
+                                lifetime: FlyLifetime::from_term(
                                     expectee_ty_arguments[0],
                                     db,
                                     terms,
@@ -57,7 +57,7 @@ impl ExpectCoersion {
                         self.try_finalize_coersion(
                             self.ty_expected,
                             expectee_ty_arguments[0],
-                            DerefFluffyCoersion::Leash,
+                            DerefFlyCoersion::Leash,
                             db,
                             terms,
                             state,

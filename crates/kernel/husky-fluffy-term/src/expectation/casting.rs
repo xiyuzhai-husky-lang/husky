@@ -4,17 +4,17 @@ use super::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[salsa::debug_with_db]
 pub struct ExpectCasting {
-    pub(crate) destination: FluffyTerm,
+    pub(crate) destination: FlyTerm,
 }
 
 impl ExpectCasting {
-    pub fn new(destination: FluffyTerm) -> Self {
+    pub fn new(destination: FlyTerm) -> Self {
         Self { destination }
     }
 
     pub(crate) fn try_substitute_unresolved_fluffy_term<'a>(
         &self,
-        fluffy_terms: &'a FluffyTerms,
+        fluffy_terms: &'a FlyTerms,
     ) -> Result<Option<Expectation>, &'a HollowTermResolveError> {
         todo!()
         // match fluffy_terms.try_reduce_fluffy_term(self.destination)? {
@@ -27,10 +27,10 @@ impl ExpectCasting {
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[salsa::debug_with_db]
 pub struct ExpectExplicitlyConvertibleOutcome {
-    destination: FluffyTerm,
+    destination: FlyTerm,
 }
 
-impl ExpectFluffyTerm for ExpectCasting {
+impl ExpectFlyTerm for ExpectCasting {
     type Outcome = ExpectExplicitlyConvertibleOutcome;
 
     #[inline(always)]
@@ -42,21 +42,21 @@ impl ExpectFluffyTerm for ExpectCasting {
     }
 
     #[inline(always)]
-    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination {
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FlyTerms) -> FinalDestination {
         todo!()
     }
 
     #[inline(always)]
-    fn destination(&self) -> Option<FluffyTerm> {
+    fn destination(&self) -> Option<FlyTerm> {
         Some(self.destination)
     }
 
     fn resolve(
         &self,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<FluffyTermEffect> {
+    ) -> AltOption<FlyTermEffect> {
         // todo
         AltOption::AltNone
     }

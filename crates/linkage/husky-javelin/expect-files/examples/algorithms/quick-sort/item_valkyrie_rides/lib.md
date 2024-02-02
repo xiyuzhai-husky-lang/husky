@@ -35,7 +35,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -71,7 +71,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::Fugitive(
+                        javelin_item_path: JavPath::Fugitive(
                             FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -144,7 +144,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::Fugitive(
+                        javelin_item_path: JavPath::Fugitive(
                             FugitivePath(`quick_sort::partition`, `FunctionFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -178,7 +178,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::Fugitive(
+                        javelin_item_path: JavPath::Fugitive(
                             FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -251,7 +251,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {

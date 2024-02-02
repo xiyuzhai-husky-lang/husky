@@ -33,7 +33,7 @@ pub enum JavelinConstant {
 impl JavelinConstant {
     pub(crate) fn from_hir(
         hir_constant: HirConstant,
-        _javelin_instantiation: &JavelinInstantiation,
+        _javelin_instantiation: &JavInstantiation,
     ) -> JavelinConstant {
         match hir_constant {
             HirConstant::Unit(value) => JavelinConstant::Unit(value),

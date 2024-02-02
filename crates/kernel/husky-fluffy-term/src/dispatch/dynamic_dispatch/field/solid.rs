@@ -3,11 +3,11 @@ use super::*;
 impl SolidTerm {
     pub(super) fn field_dispatch_aux(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-        mut indirections: FluffyIndirections,
-    ) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
+        mut indirections: FlyIndirections,
+    ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
         match self.data(engine) {
             SolidTermData::TypeOntology {
                 path,

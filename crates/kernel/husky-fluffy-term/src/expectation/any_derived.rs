@@ -6,7 +6,7 @@ pub struct ExpectAnyDerived;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ExpectAnyDerivedOutcome;
 
-impl ExpectFluffyTerm for ExpectAnyDerived {
+impl ExpectFlyTerm for ExpectAnyDerived {
     type Outcome = ExpectAnyDerivedOutcome;
 
     #[inline(always)]
@@ -15,21 +15,21 @@ impl ExpectFluffyTerm for ExpectAnyDerived {
     }
 
     #[inline(always)]
-    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination {
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FlyTerms) -> FinalDestination {
         FinalDestination::AnyDerived
     }
 
     #[inline(always)]
-    fn destination(&self) -> Option<FluffyTerm> {
+    fn destination(&self) -> Option<FlyTerm> {
         None
     }
 
     fn resolve(
         &self,
         db: &::salsa::Db,
-        fluffy_terms: &mut FluffyTerms,
+        fluffy_terms: &mut FlyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<FluffyTermEffect> {
+    ) -> AltOption<FlyTermEffect> {
         AltNone
     }
 }

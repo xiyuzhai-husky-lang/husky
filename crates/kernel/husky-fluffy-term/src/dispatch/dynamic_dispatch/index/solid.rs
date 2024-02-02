@@ -3,20 +3,20 @@ use super::*;
 impl SolidTerm {
     pub(super) fn disambiguate_index(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
-        index_ty: FluffyTerm,
-    ) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
-        self.disambiguate_index_aux(engine, expr_idx, index_ty, FluffyIndirections::new(todo!()))
+        index_ty: FlyTerm,
+    ) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
+        self.disambiguate_index_aux(engine, expr_idx, index_ty, FlyIndirections::new(todo!()))
     }
 
     pub(super) fn disambiguate_index_aux(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
-        index_ty: FluffyTerm,
-        mut indirections: FluffyIndirections,
-    ) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
+        index_ty: FlyTerm,
+        mut indirections: FlyIndirections,
+    ) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
         let db = engine.db();
         match self.data(engine) {
             SolidTermData::TypeOntology {

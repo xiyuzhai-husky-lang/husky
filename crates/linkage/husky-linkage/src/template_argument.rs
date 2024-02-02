@@ -2,32 +2,32 @@ pub mod constant;
 pub mod place;
 pub mod ty;
 
-use self::{constant::LinkageConstant, ty::*};
+use self::{constant::LinConstant, ty::*};
 use super::*;
-use crate::{instantiation::LinkageInstantiation, template_argument::place::LinkagePlace};
+use crate::{instantiation::LinkageInstantiation, template_argument::place::LinPlace};
 use husky_hir_ty::HirTemplateArgument;
-use husky_javelin::template_argument::JavelinTemplateArgument;
+use husky_javelin::template_argument::JavTemplateArgument;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum LinkageTemplateArgument {
+pub enum LinTemplateArgument {
     Vacant,
     Type(LinType),
-    Constant(LinkageConstant),
+    Constant(LinConstant),
     Lifetime,
-    Place(LinkagePlace),
+    Place(LinPlace),
 }
 
-impl LinkageTemplateArgument {
+impl LinTemplateArgument {
     pub(crate) fn from_hir_template_arguments(
         template_arguments: &[HirTemplateArgument],
         linkage_instantiation: Option<&LinkageInstantiation>,
         db: &::salsa::Db,
-    ) -> LinkageTemplateArguments {
+    ) -> LinTemplateArguments {
         template_arguments
             .iter()
             .map(|&template_argument| {
-                LinkageTemplateArgument::from_hir(template_argument, linkage_instantiation, db)
+                LinTemplateArgument::from_hir(template_argument, linkage_instantiation, db)
             })
             .collect()
     }
@@ -38,35 +38,35 @@ impl LinkageTemplateArgument {
         db: &::salsa::Db,
     ) -> Self {
         match arg {
-            HirTemplateArgument::Vacant => LinkageTemplateArgument::Vacant,
+            HirTemplateArgument::Vacant => LinTemplateArgument::Vacant,
             HirTemplateArgument::Type(hir_ty) => {
-                LinkageTemplateArgument::Type(LinType::from_hir(hir_ty, linkage_instantiation, db))
+                LinTemplateArgument::Type(LinType::from_hir(hir_ty, linkage_instantiation, db))
             }
-            HirTemplateArgument::Constant(hir_constant) => LinkageTemplateArgument::Constant(
-                LinkageConstant::from_hir(hir_constant, linkage_instantiation),
+            HirTemplateArgument::Constant(hir_constant) => LinTemplateArgument::Constant(
+                LinConstant::from_hir(hir_constant, linkage_instantiation),
             ),
-            HirTemplateArgument::Lifetime(_) => LinkageTemplateArgument::Lifetime,
-            HirTemplateArgument::Place(_) => LinkageTemplateArgument::Place(todo!()),
+            HirTemplateArgument::Lifetime(_) => LinTemplateArgument::Lifetime,
+            HirTemplateArgument::Place(_) => LinTemplateArgument::Place(todo!()),
         }
     }
 
     pub(crate) fn from_javelin(
-        arg: JavelinTemplateArgument,
+        arg: JavTemplateArgument,
         linkage_instantiation: &LinkageInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         match arg {
-            JavelinTemplateArgument::Vacant => todo!(),
-            JavelinTemplateArgument::Type(javelin_ty) => LinkageTemplateArgument::Type(
+            JavTemplateArgument::Vacant => todo!(),
+            JavTemplateArgument::Type(javelin_ty) => LinTemplateArgument::Type(
                 LinType::from_javelin(javelin_ty, linkage_instantiation, db),
             ),
-            JavelinTemplateArgument::Constant(constant) => {
-                LinkageTemplateArgument::Constant(LinkageConstant(constant))
+            JavTemplateArgument::Constant(constant) => {
+                LinTemplateArgument::Constant(LinConstant(constant))
             }
-            JavelinTemplateArgument::Lifetime => todo!(),
-            JavelinTemplateArgument::Place => todo!(),
+            JavTemplateArgument::Lifetime => todo!(),
+            JavTemplateArgument::Place => todo!(),
         }
     }
 }
 
-pub type LinkageTemplateArguments = smallvec::SmallVec<[LinkageTemplateArgument; 2]>;
+pub type LinTemplateArguments = smallvec::SmallVec<[LinTemplateArgument; 2]>;

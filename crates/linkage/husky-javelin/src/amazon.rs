@@ -1,6 +1,6 @@
 use super::*;
 use crate::{
-    instantiation::JavelinInstantiation, jar::JavelinJar, javelin::JavelinData, path::JavelinPath,
+    instantiation::JavInstantiation, jar::JavelinJar, javelin::JavelinData, path::JavPath,
 };
 use husky_entity_path::ItemPath;
 use husky_entity_tree::helpers::paths::{crate_module_paths, module_item_paths};
@@ -24,9 +24,9 @@ impl AmazonJavelin {
         Some(AmazonJavelin(Javelin::new(
             db,
             JavelinData::PathLeading {
-                path: JavelinPath::try_from_item_path(item_path, db)?,
+                path: JavPath::try_from_item_path(item_path, db)?,
                 // ad hoc consider places
-                instantiation: JavelinInstantiation::new_amazon(item_path),
+                instantiation: JavInstantiation::new_amazon(item_path),
             },
         )))
     }

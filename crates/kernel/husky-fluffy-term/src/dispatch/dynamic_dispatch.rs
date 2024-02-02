@@ -12,25 +12,25 @@ use super::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct FluffyDynamicDispatch<S: MemberSignature> {
-    indirections: FluffyIndirections,
+pub struct FlyDynamicDispatch<S: MemberSignature> {
+    indirections: FlyIndirections,
     signature: S,
 }
 
 /// members means dynamic associated items, i.e. those accessed through an instance
 pub trait MemberSignature {
-    fn expr_ty(&self, self_value_final_place: FluffyPlace) -> FluffyTermResult<FluffyTerm>;
+    fn expr_ty(&self, self_value_final_place: FlyPlace) -> FlyTermResult<FlyTerm>;
 }
 
-impl<S: MemberSignature> FluffyDynamicDispatch<S> {
-    pub fn new(indirections: FluffyIndirections, signature: S) -> Self {
+impl<S: MemberSignature> FlyDynamicDispatch<S> {
+    pub fn new(indirections: FlyIndirections, signature: S) -> Self {
         Self {
             indirections,
             signature,
         }
     }
 
-    pub fn indirections(&self) -> &FluffyIndirections {
+    pub fn indirections(&self) -> &FlyIndirections {
         &self.indirections
     }
 
@@ -38,46 +38,46 @@ impl<S: MemberSignature> FluffyDynamicDispatch<S> {
         &self.signature
     }
 
-    pub fn expr_ty_result(&self) -> FluffyTermResult<FluffyTerm> {
+    pub fn expr_ty_result(&self) -> FlyTermResult<FlyTerm> {
         self.signature.expr_ty(self.indirections.final_place)
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FluffyIndirection {
-    Place(FluffyPlace),
+pub enum FlyIndirection {
+    Place(FlyPlace),
     Leash,
 }
 
-impl FluffyIndirection {
-    fn act(self, initial_place: FluffyPlace) -> FluffyPlace {
+impl FlyIndirection {
+    fn act(self, initial_place: FlyPlace) -> FlyPlace {
         match self {
-            FluffyIndirection::Place(place) => match place {
-                FluffyPlace::Const => todo!(),
-                FluffyPlace::StackPure { location } => todo!(),
-                FluffyPlace::ImmutableStackOwned { location } => todo!(),
-                FluffyPlace::MutableStackOwned { location } => todo!(),
-                FluffyPlace::Transient => todo!(),
-                FluffyPlace::Ref { guard } => todo!(),
-                FluffyPlace::RefMut { guard } => todo!(),
-                FluffyPlace::Leashed => todo!(),
-                FluffyPlace::Todo => todo!(),
-                FluffyPlace::EtherealSymbol(_) => todo!(),
+            FlyIndirection::Place(place) => match place {
+                FlyPlace::Const => todo!(),
+                FlyPlace::StackPure { location } => todo!(),
+                FlyPlace::ImmutableStackOwned { location } => todo!(),
+                FlyPlace::MutableStackOwned { location } => todo!(),
+                FlyPlace::Transient => todo!(),
+                FlyPlace::Ref { guard } => todo!(),
+                FlyPlace::RefMut { guard } => todo!(),
+                FlyPlace::Leashed => todo!(),
+                FlyPlace::Todo => todo!(),
+                FlyPlace::EtherealSymbol(_) => todo!(),
             },
-            FluffyIndirection::Leash => FluffyPlace::Leashed,
+            FlyIndirection::Leash => FlyPlace::Leashed,
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct FluffyIndirections {
-    initial_place: FluffyPlace,
-    indirections: SmallVec<[FluffyIndirection; 2]>,
-    final_place: FluffyPlace,
+pub struct FlyIndirections {
+    initial_place: FlyPlace,
+    indirections: SmallVec<[FlyIndirection; 2]>,
+    final_place: FlyPlace,
 }
 
-impl FluffyIndirections {
-    pub(crate) fn new(initial_place: FluffyPlace) -> Self {
+impl FlyIndirections {
+    pub(crate) fn new(initial_place: FlyPlace) -> Self {
         Self {
             initial_place,
             indirections: smallvec![],
@@ -85,22 +85,22 @@ impl FluffyIndirections {
         }
     }
 
-    pub(crate) fn add(&mut self, indirection: FluffyIndirection) {
+    pub(crate) fn add(&mut self, indirection: FlyIndirection) {
         self.final_place = indirection.act(self.initial_place);
         self.indirections.push(indirection)
     }
 
-    pub fn initial_place(&self) -> FluffyPlace {
+    pub fn initial_place(&self) -> FlyPlace {
         self.initial_place
     }
 
-    pub fn final_place(&self) -> FluffyPlace {
+    pub fn final_place(&self) -> FlyPlace {
         self.final_place
     }
 }
 
-impl std::ops::Deref for FluffyIndirections {
-    type Target = [FluffyIndirection];
+impl std::ops::Deref for FlyIndirections {
+    type Target = [FlyIndirection];
 
     fn deref(&self) -> &Self::Target {
         &self.indirections

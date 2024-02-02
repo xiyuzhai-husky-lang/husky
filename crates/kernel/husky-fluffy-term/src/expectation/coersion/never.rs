@@ -4,17 +4,17 @@ impl ExpectCoersion {
     pub(super) fn resolve_never(
         &self,
         db: &::salsa::Db,
-        fluffy_terms: &mut FluffyTerms,
+        fluffy_terms: &mut FlyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<FluffyTermEffect> {
+    ) -> AltOption<FlyTermEffect> {
         match state.expectee().base_ty_data_inner(db, fluffy_terms) {
             // never can be coersed to any type
-            FluffyBaseTypeData::TypeOntology {
+            FlyBaseTypeData::TypeOntology {
                 refined_ty_path: Left(PreludeTypePath::NEVER),
                 ..
             } => state.set_ok(
                 ExpectCoersionOutcome {
-                    coersion: FluffyCoersion::Never,
+                    coersion: FlyCoersion::Never,
                 },
                 smallvec![],
             ),

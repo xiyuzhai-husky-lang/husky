@@ -8,7 +8,7 @@ pub enum SolidTermData {
         path: TypePath,
         refined_path: Either<PreludeTypePath, CustomTypePath>,
         // use fluffy term here because we don't want to recreate vectors when converting
-        arguments: SmallVec<[FluffyTerm; 2]>,
+        arguments: SmallVec<[FlyTerm; 2]>,
     },
     Curry {
         toolchain: Toolchain,
@@ -21,19 +21,19 @@ pub enum SolidTermData {
     Ritchie {
         ritchie_kind: RitchieKind,
         // use fluffy term here because we don't want to recreate vectors when converting
-        parameter_contracted_tys: SmallVec<[FluffyRitchieParameter; 2]>,
+        parameter_contracted_tys: SmallVec<[FlyRitchieParameter; 2]>,
         return_ty: SolidTerm,
     },
 }
 
-impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
+impl<'a> From<&'a SolidTermData> for FlyTermData<'a> {
     fn from(data: &'a SolidTermData) -> Self {
         match data {
             SolidTermData::TypeOntology {
                 path,
                 refined_path,
                 arguments: argument_tys,
-            } => FluffyTermData::TypeOntology {
+            } => FlyTermData::TypeOntology {
                 ty_path: *path,
                 refined_ty_path: *refined_path,
                 ty_arguments: argument_tys,
@@ -46,7 +46,7 @@ impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
                 parameter_rune,
                 parameter_ty,
                 return_ty,
-            } => FluffyTermData::Curry {
+            } => FlyTermData::Curry {
                 toolchain: *toolchain,
                 curry_kind: *curry_kind,
                 variance: *variance,
@@ -65,14 +65,14 @@ impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
     }
 }
 
-impl<'a> Into<FluffyBaseTypeData<'a>> for &'a SolidTermData {
-    fn into(self) -> FluffyBaseTypeData<'a> {
+impl<'a> Into<FlyBaseTypeData<'a>> for &'a SolidTermData {
+    fn into(self) -> FlyBaseTypeData<'a> {
         match self {
             SolidTermData::TypeOntology {
                 path,
                 refined_path,
                 arguments: argument_tys,
-            } => FluffyBaseTypeData::TypeOntology {
+            } => FlyBaseTypeData::TypeOntology {
                 ty_path: *path,
                 refined_ty_path: *refined_path,
                 ty_arguments: argument_tys,
@@ -85,7 +85,7 @@ impl<'a> Into<FluffyBaseTypeData<'a>> for &'a SolidTermData {
                 parameter_rune,
                 parameter_ty,
                 return_ty,
-            } => FluffyBaseTypeData::Curry {
+            } => FlyBaseTypeData::Curry {
                 curry_kind: *curry_kind,
                 variance: *variance,
                 parameter_rune: todo!(),

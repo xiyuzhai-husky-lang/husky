@@ -4,7 +4,7 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ExpectIntType;
 
-impl ExpectFluffyTerm for ExpectIntType {
+impl ExpectFlyTerm for ExpectIntType {
     type Outcome = ExpectIntTypeOutcome;
 
     #[inline(always)]
@@ -16,24 +16,24 @@ impl ExpectFluffyTerm for ExpectIntType {
     }
 
     #[inline(always)]
-    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination {
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FlyTerms) -> FinalDestination {
         todo!()
     }
 
     #[inline(always)]
-    fn destination(&self) -> Option<FluffyTerm> {
+    fn destination(&self) -> Option<FlyTerm> {
         None
     }
 
     fn resolve(
         &self,
         db: &::salsa::Db,
-        fluffy_terms: &mut FluffyTerms,
+        fluffy_terms: &mut FlyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<FluffyTermEffect> {
+    ) -> AltOption<FlyTermEffect> {
         match state.expectee().data_inner(db, fluffy_terms) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
+            FlyTermData::Literal(_) => todo!(),
+            FlyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path,
                 ty_arguments,
@@ -47,7 +47,7 @@ impl ExpectFluffyTerm for ExpectIntType {
                 ),
                 _ => todo!(),
             },
-            FluffyTermData::Curry {
+            FlyTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -56,20 +56,20 @@ impl ExpectFluffyTerm for ExpectIntType {
                 return_ty,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::Hole(hole_kind, _) => match hole_kind {
+            FlyTermData::Hole(hole_kind, _) => match hole_kind {
                 HoleKind::UnspecifiedIntegerType => AltNone,
                 HoleKind::UnspecifiedFloatType => todo!(),
                 HoleKind::ImplicitType => todo!(),
                 HoleKind::Any => todo!(),
             },
-            FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie {
+            FlyTermData::Category(_) => todo!(),
+            FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
                 ..
             } => todo!(),
-            // FluffyTermData::HoleAtPlace {
+            // FlyTermData::HoleAtPlace {
             //     place,
             //     hole_kind,
             //     hole,
@@ -83,9 +83,9 @@ impl ExpectFluffyTerm for ExpectIntType {
             //     HoleKind::ImplicitType => todo!(),
             //     HoleKind::Any => todo!(),
             // },
-            FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { .. } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::Symbol { .. } => todo!(),
+            FlyTermData::Rune { .. } => todo!(),
+            FlyTermData::TypeVariant { path } => todo!(),
         }
     }
 }
@@ -93,12 +93,12 @@ impl ExpectFluffyTerm for ExpectIntType {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ExpectIntTypeOutcome {
     /// guaranteed to be placeless
-    placeless_num_ty: FluffyTerm,
+    placeless_num_ty: FlyTerm,
 }
 
 impl ExpectIntTypeOutcome {
     /// guaranteed to be placeless
-    pub fn placeless_num_ty(&self) -> FluffyTerm {
+    pub fn placeless_num_ty(&self) -> FlyTerm {
         self.placeless_num_ty
     }
 }

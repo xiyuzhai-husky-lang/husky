@@ -1,14 +1,14 @@
 use super::*;
 use crate::signature::method::method_fn::ty_method_fluffy_signature;
 
-impl HasFluffyTypeMethodDispatch for EthTerm {
+impl HasFlyTypeMethodDispatch for EthTerm {
     fn ty_method_dispatch(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-        indirections: FluffyIndirections,
-    ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+        indirections: FlyIndirections,
+    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
         // todo: check scope
         match self {
             EthTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)) => {
@@ -33,22 +33,22 @@ impl HasFluffyTypeMethodDispatch for EthTerm {
 }
 
 fn ethereal_ty_ontology_path_ty_method_dispatch(
-    engine: &mut impl FluffyTermEngine,
+    engine: &mut impl FlyTermEngine,
     expr_idx: SynExprIdx,
     ty_path: TypePath,
     ident_token: IdentRegionalToken,
-    indirections: FluffyIndirections,
-) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+    indirections: FlyIndirections,
+) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
     ethereal_ty_method_dispatch_aux(engine, expr_idx, ty_path, &[], ident_token, indirections)
 }
 
 fn ethereal_term_application_ty_method_dispatch(
-    engine: &mut impl FluffyTermEngine,
+    engine: &mut impl FlyTermEngine,
     expr_idx: SynExprIdx,
     ty_term: ApplicationEthTerm,
     ident_token: IdentRegionalToken,
-    indirections: FluffyIndirections,
-) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+    indirections: FlyIndirections,
+) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
     let application_expansion = ty_term.application_expansion(engine.db());
     match application_expansion.function() {
         TermFunctionReduced::TypeOntology(ty_path) => ethereal_ty_method_dispatch_aux(
@@ -64,20 +64,20 @@ fn ethereal_term_application_ty_method_dispatch(
 }
 
 fn ethereal_ty_method_dispatch_aux(
-    engine: &mut impl FluffyTermEngine,
+    engine: &mut impl FlyTermEngine,
     expr_idx: SynExprIdx,
     ty_path: TypePath,
     arguments: &[EthTerm],
     ident_token: IdentRegionalToken,
-    mut indirections: FluffyIndirections,
-) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+    mut indirections: FlyIndirections,
+) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
     match ty_path.refine(engine.db()) {
         Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
             match prelude_indirection_ty_path {
                 PreludeIndirectionTypePath::Ref => todo!(),
                 PreludeIndirectionTypePath::RefMut => todo!(),
                 PreludeIndirectionTypePath::Leash => {
-                    indirections.add(FluffyIndirection::Leash);
+                    indirections.add(FlyIndirection::Leash);
                     if arguments.len() != 1 {
                         p!((&arguments).debug(engine.db()));
                         todo!()
@@ -105,7 +105,7 @@ fn ethereal_ty_method_dispatch_aux(
     )
     .into_result_option()?
     {
-        return JustOk(FluffyDynamicDispatch {
+        return JustOk(FlyDynamicDispatch {
             indirections,
             signature: signature.into(),
         });

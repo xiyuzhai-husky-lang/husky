@@ -31,7 +31,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -94,7 +94,7 @@
                         ),
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -169,7 +169,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -219,7 +219,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -322,7 +322,7 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -380,7 +380,7 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -438,7 +438,7 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {

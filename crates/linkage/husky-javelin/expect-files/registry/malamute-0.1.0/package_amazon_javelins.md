@@ -2,10 +2,10 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
+                path: JavPath::TypeConstructor(
                     TypePath(`malamute::OneVsAll`, `Enum`),
                 ),
-                instantiation: JavelinInstantiation {
+                instantiation: JavInstantiation {
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -15,10 +15,10 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
+                path: JavPath::TypeConstructor(
                     TypePath(`malamute::OneVsAllResult`, `Enum`),
                 ),
-                instantiation: JavelinInstantiation {
+                instantiation: JavInstantiation {
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -28,7 +28,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::TraitForTypeItem(
+                path: JavPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {
                             data: ItemPathData::AssociatedItem(
@@ -52,7 +52,7 @@
                         },
                     ),
                 ),
-                instantiation: JavelinInstantiation {
+                instantiation: JavInstantiation {
                     symbol_resolutions: [],
                     separator: Some(
                         0,
@@ -64,7 +64,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::TraitForTypeItem(
+                path: JavPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {
                             data: ItemPathData::AssociatedItem(
@@ -88,7 +88,7 @@
                         },
                     ),
                 ),
-                instantiation: JavelinInstantiation {
+                instantiation: JavInstantiation {
                     symbol_resolutions: [],
                     separator: Some(
                         0,
@@ -100,7 +100,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::TraitForTypeItem(
+                path: JavPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {
                             data: ItemPathData::AssociatedItem(
@@ -124,7 +124,7 @@
                         },
                     ),
                 ),
-                instantiation: JavelinInstantiation {
+                instantiation: JavInstantiation {
                     symbol_resolutions: [],
                     separator: Some(
                         0,

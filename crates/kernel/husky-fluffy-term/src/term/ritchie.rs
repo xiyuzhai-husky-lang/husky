@@ -9,13 +9,13 @@ pub use self::variadic::*;
 use super::*;
 use husky_coword::Ident;
 
-impl FluffyTerm {
+impl FlyTerm {
     pub fn new_ritchie(
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         ritchie_kind: RitchieKind,
-        params: Vec<FluffyRitchieParameter>,
-        return_ty: FluffyTerm,
-    ) -> FluffyTermResult<Self> {
+        params: Vec<FlyRitchieParameter>,
+        return_ty: FlyTerm,
+    ) -> FlyTermResult<Self> {
         Self::new_ritchie_inner(
             ritchie_kind,
             params,
@@ -27,17 +27,17 @@ impl FluffyTerm {
 
     pub fn new_ritchie_inner(
         ritchie_kind: RitchieKind,
-        params: Vec<FluffyRitchieParameter>,
-        return_ty: FluffyTerm,
+        params: Vec<FlyRitchieParameter>,
+        return_ty: FlyTerm,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
-    ) -> FluffyTermResult<Self> {
-        let mut merger = FluffyTermDataKindMerger::new(terms);
+        terms: &mut FlyTerms,
+    ) -> FlyTermResult<Self> {
+        let mut merger = FlyTermDataKindMerger::new(terms);
         merger.accept(params.iter().map(|param| param.ty()));
         merger.accept_one(return_ty);
         match merger.data_kind() {
-            FluffyTermDataKind::Err => todo!(),
-            FluffyTermDataKind::Ethereal => Ok(RitchieEthTerm::new(
+            FlyTermDataKind::Err => todo!(),
+            FlyTermDataKind::Ethereal => Ok(RitchieEthTerm::new(
                 db,
                 ritchie_kind,
                 params
@@ -46,8 +46,8 @@ impl FluffyTerm {
                 return_ty.resolve_as_ethereal(terms).expect("todo"),
             )?
             .into()),
-            FluffyTermDataKind::Solid => todo!(),
-            FluffyTermDataKind::Hollow => Ok(terms
+            FlyTermDataKind::Solid => todo!(),
+            FlyTermDataKind::Hollow => Ok(terms
                 .hollow_terms_mut()
                 .alloc_new(HollowTermData::Ritchie {
                     ritchie_kind,
@@ -62,47 +62,45 @@ impl FluffyTerm {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
-pub enum FluffyRitchieParameter {
-    Regular(FluffyRitchieRegularParameter),
-    Variadic(FluffyRitchieVariadicParameter),
-    Keyed(FluffyRitchieKeyedParameter),
+pub enum FlyRitchieParameter {
+    Regular(FlyRitchieRegularParameter),
+    Variadic(FlyRitchieVariadicParameter),
+    Keyed(FlyRitchieKeyedParameter),
 }
 
-impl FluffyRitchieParameter {
+impl FlyRitchieParameter {
     fn resolve_as_ethereal(
         self,
         terms: &impl std::borrow::Borrow<HollowTerms>,
     ) -> Option<EtherealRitchieParameter> {
         Some(match self {
-            FluffyRitchieParameter::Regular(param) => param.resolve_as_ethereal(terms)?.into(),
-            FluffyRitchieParameter::Variadic(param) => todo!(),
-            FluffyRitchieParameter::Keyed(param) => todo!(),
+            FlyRitchieParameter::Regular(param) => param.resolve_as_ethereal(terms)?.into(),
+            FlyRitchieParameter::Variadic(param) => todo!(),
+            FlyRitchieParameter::Keyed(param) => todo!(),
         })
     }
 }
 
-impl From<EtherealRitchieParameter> for FluffyRitchieParameter {
+impl From<EtherealRitchieParameter> for FlyRitchieParameter {
     fn from(param: EtherealRitchieParameter) -> Self {
         match param {
-            EtherealRitchieParameter::Regular(param) => {
-                FluffyRitchieParameter::Regular(param.into())
-            }
+            EtherealRitchieParameter::Regular(param) => FlyRitchieParameter::Regular(param.into()),
             EtherealRitchieParameter::Variadic(param) => {
-                FluffyRitchieParameter::Variadic(param.into())
+                FlyRitchieParameter::Variadic(param.into())
             }
-            EtherealRitchieParameter::Keyed(param) => FluffyRitchieParameter::Keyed(param.into()),
+            EtherealRitchieParameter::Keyed(param) => FlyRitchieParameter::Keyed(param.into()),
         }
     }
 }
 
-impl FluffyInstantiate for EtherealRitchieParameter {
-    type Target = FluffyRitchieParameter;
+impl FlyInstantiate for EtherealRitchieParameter {
+    type Target = FlyRitchieParameter;
 
     fn instantiate(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
-        instantiation: &FluffyInstantiation,
+        instantiation: &FlyInstantiation,
     ) -> Self::Target {
         match self {
             EtherealRitchieParameter::Regular(param) => {
@@ -118,20 +116,20 @@ impl FluffyInstantiate for EtherealRitchieParameter {
     }
 }
 
-impl FluffyRitchieParameter {
-    pub fn ty(&self) -> FluffyTerm {
+impl FlyRitchieParameter {
+    pub fn ty(&self) -> FlyTerm {
         match self {
-            FluffyRitchieParameter::Regular(param) => param.ty(),
-            FluffyRitchieParameter::Variadic(param) => param.ty(),
-            FluffyRitchieParameter::Keyed(param) => param.ty(),
+            FlyRitchieParameter::Regular(param) => param.ty(),
+            FlyRitchieParameter::Variadic(param) => param.ty(),
+            FlyRitchieParameter::Keyed(param) => param.ty(),
         }
     }
 
-    pub(crate) fn ty_mut(&mut self) -> &mut FluffyTerm {
+    pub(crate) fn ty_mut(&mut self) -> &mut FlyTerm {
         match self {
-            FluffyRitchieParameter::Regular(param) => param.ty_mut(),
-            FluffyRitchieParameter::Variadic(param) => param.ty_mut(),
-            FluffyRitchieParameter::Keyed(param) => param.ty_mut(),
+            FlyRitchieParameter::Regular(param) => param.ty_mut(),
+            FlyRitchieParameter::Variadic(param) => param.ty_mut(),
+            FlyRitchieParameter::Keyed(param) => param.ty_mut(),
         }
     }
 }

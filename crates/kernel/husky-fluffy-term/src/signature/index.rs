@@ -6,35 +6,35 @@ use super::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FluffyIndexSignature {
-    Int { element_ty: FluffyTerm },
-    Regular { element_ty: FluffyTerm },
-    Index { element_ty: FluffyTerm },
+pub enum FlyIndexSignature {
+    Int { element_ty: FlyTerm },
+    Regular { element_ty: FlyTerm },
+    Index { element_ty: FlyTerm },
 }
 
-impl MemberSignature for FluffyIndexSignature {
-    fn expr_ty(&self, self_value_final_place: FluffyPlace) -> FluffyTermResult<FluffyTerm> {
+impl MemberSignature for FlyIndexSignature {
+    fn expr_ty(&self, self_value_final_place: FlyPlace) -> FlyTermResult<FlyTerm> {
         match self {
-            FluffyIndexSignature::Int { element_ty } => {
+            FlyIndexSignature::Int { element_ty } => {
                 Ok(element_ty.with_place(self_value_final_place))
             }
-            FluffyIndexSignature::Regular { element_ty } => todo!(),
-            FluffyIndexSignature::Index { element_ty } => todo!(),
+            FlyIndexSignature::Regular { element_ty } => todo!(),
+            FlyIndexSignature::Index { element_ty } => todo!(),
         }
     }
 }
 
 // to: better name
 fn list_like_index_signature(
-    engine: &mut impl FluffyTermEngine,
+    engine: &mut impl FlyTermEngine,
     expr_idx: SynExprIdx,
-    element_ty: FluffyTerm,
-    index_ty: FluffyTerm,
-) -> FluffyTermMaybeResult<FluffyIndexSignature> {
+    element_ty: FlyTerm,
+    index_ty: FlyTerm,
+) -> FlyTermMaybeResult<FlyIndexSignature> {
     match index_ty.data(engine) {
-        FluffyTermData::Literal(_) => todo!(),
+        FlyTermData::Literal(_) => todo!(),
         // todo: is this correct?
-        FluffyTermData::TypeOntology {
+        FlyTermData::TypeOntology {
             ty_path,
             refined_ty_path,
             ty_arguments: arguments,
@@ -42,13 +42,13 @@ fn list_like_index_signature(
         } => match refined_ty_path {
             Left(prelude_ty_path) => match prelude_ty_path {
                 PreludeTypePath::Num(PreludeNumTypePath::Int(prelude_int_ty_path)) => {
-                    JustOk(FluffyIndexSignature::Int { element_ty })
+                    JustOk(FlyIndexSignature::Int { element_ty })
                 }
                 _ => todo!(),
             },
             Right(_) => todo!(),
         },
-        FluffyTermData::Curry {
+        FlyTermData::Curry {
             toolchain,
             curry_kind,
             variance,
@@ -57,7 +57,7 @@ fn list_like_index_signature(
             return_ty,
             ty_ethereal_term,
         } => todo!(),
-        FluffyTermData::Hole(hole_kind, _) => match hole_kind {
+        FlyTermData::Hole(hole_kind, _) => match hole_kind {
             HoleKind::UnspecifiedIntegerType => {
                 let expectation =
                     ExpectCoersion::new_pure(engine, engine.term_menu().usize_ty_ontology().into());
@@ -66,21 +66,21 @@ fn list_like_index_signature(
                     index_ty,
                     expectation,
                 );
-                JustOk(FluffyIndexSignature::Int { element_ty })
+                JustOk(FlyIndexSignature::Int { element_ty })
             }
             HoleKind::UnspecifiedFloatType => todo!(),
             HoleKind::ImplicitType => todo!(),
             HoleKind::Any => todo!(),
         },
-        FluffyTermData::Category(_) => todo!(),
-        FluffyTermData::Ritchie {
+        FlyTermData::Category(_) => todo!(),
+        FlyTermData::Ritchie {
             ritchie_kind,
             parameter_contracted_tys,
             return_ty,
             ..
         } => todo!(),
-        FluffyTermData::Symbol { .. } => todo!(),
-        FluffyTermData::Rune { .. } => todo!(),
-        FluffyTermData::TypeVariant { path } => todo!(),
+        FlyTermData::Symbol { .. } => todo!(),
+        FlyTermData::Rune { .. } => todo!(),
+        FlyTermData::TypeVariant { path } => todo!(),
     }
 }

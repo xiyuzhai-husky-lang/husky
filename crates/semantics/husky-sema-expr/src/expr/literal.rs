@@ -7,18 +7,18 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         literal_token_idx: RegionalTokenIdx,
-        expectation: &impl ExpectFluffyTerm,
-    ) -> SemaExprTypeResult<FluffyTerm> {
+        expectation: &impl ExpectFlyTerm,
+    ) -> SemaExprTypeResult<FlyTerm> {
         self.calc_literal_expr_ty_aux(expr_idx, literal_token_idx, expectation)
-            .map(|term| term.with_place(FluffyPlace::Const))
+            .map(|term| term.with_place(FlyPlace::Const))
     }
 
     fn calc_literal_expr_ty_aux(
         &mut self,
         expr_idx: SynExprIdx,
         literal_token_idx: RegionalTokenIdx,
-        expectation: &impl ExpectFluffyTerm,
-    ) -> SemaExprTypeResult<FluffyTerm> {
+        expectation: &impl ExpectFlyTerm,
+    ) -> SemaExprTypeResult<FlyTerm> {
         let literal_token: TokenData = self.token_data(literal_token_idx);
         match literal_token {
             TokenData::Literal(literal) => match literal {
@@ -33,7 +33,7 @@ impl<'a> SemaExprEngine<'a> {
                             .destination()
                             .map(|destination| destination.data(self))
                         {
-                            Some(FluffyTermData::TypeOntology {
+                            Some(FlyTermData::TypeOntology {
                                 refined_ty_path:
                                     Left(PreludeTypePath::Num(PreludeNumTypePath::Int(path))),
                                 ..
@@ -57,7 +57,7 @@ impl<'a> SemaExprEngine<'a> {
                                 PreludeIntTypePath::R128 => self.term_menu().r128_ty_ontology(),
                                 PreludeIntTypePath::RSize => self.term_menu().rsize_ty_ontology(),
                             },
-                            Some(FluffyTermData::Hole(
+                            Some(FlyTermData::Hole(
                                 HoleKind::UnspecifiedIntegerType,
                                 destination,
                             )) => return Ok(destination.into()),
@@ -130,7 +130,7 @@ impl<'a> SemaExprEngine<'a> {
                             .destination()
                             .map(|destination| destination.data(self))
                         {
-                            Some(FluffyTermData::TypeOntology {
+                            Some(FlyTermData::TypeOntology {
                                 refined_ty_path:
                                     Left(PreludeTypePath::Num(PreludeNumTypePath::Float(path))),
                                 ..
@@ -142,7 +142,7 @@ impl<'a> SemaExprEngine<'a> {
                                     Ok(self.term_menu().f64_ty_ontology().into())
                                 }
                             },
-                            Some(FluffyTermData::Hole(
+                            Some(FlyTermData::Hole(
                                 HoleKind::UnspecifiedFloatType,
                                 destination,
                             )) => return Ok(destination.into()),

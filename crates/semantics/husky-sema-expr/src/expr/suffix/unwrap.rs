@@ -3,10 +3,10 @@ use super::*;
 impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_unwrap_expr_ty_given_opd_ty(
         &mut self,
-        opd_ty: FluffyTerm,
+        opd_ty: FlyTerm,
     ) -> (
         SemaExprDataResult<SemaSuffixOpr>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         todo!()
     }
@@ -17,7 +17,7 @@ impl<'a> SemaExprEngine<'a> {
         opr_regional_token_idx: RegionalTokenIdx,
     ) -> (
         SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let (opd_sema_expr_idx, opd_ty) = self.build_sema_expr_with_ty(opd, ExpectAnyOriginal);
         let Some(opd_ty) = opd_ty else {
@@ -29,8 +29,8 @@ impl<'a> SemaExprEngine<'a> {
             );
         };
         match opd_ty.data(self) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
+            FlyTermData::Literal(_) => todo!(),
+            FlyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path,
                 ty_arguments,
@@ -47,7 +47,7 @@ impl<'a> SemaExprEngine<'a> {
                 ),
                 _ => return (todo!(), Err(OriginalSemaExprTypeError::CannotUnwrap.into())),
             },
-            FluffyTermData::Curry {
+            FlyTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -56,16 +56,16 @@ impl<'a> SemaExprEngine<'a> {
                 return_ty,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie {
+            FlyTermData::Hole(_, _) => todo!(),
+            FlyTermData::Category(_) => todo!(),
+            FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            FluffyTermData::Symbol { term, ty } => todo!(),
-            FluffyTermData::Rune { .. } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::Symbol { term, ty } => todo!(),
+            FlyTermData::Rune { .. } => todo!(),
+            FlyTermData::TypeVariant { path } => todo!(),
         }
     }
 }

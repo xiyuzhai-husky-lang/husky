@@ -11,7 +11,7 @@ impl<'a> SemaExprEngine<'a> {
         initial_value: SynExprIdx,
     ) -> (
         SemaExprDataResult<SemaStmtData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let (let_pattern_sema_obelisk, annotated_pattern_ty) =
             match let_pattern_syn_obelisk.as_ref() {

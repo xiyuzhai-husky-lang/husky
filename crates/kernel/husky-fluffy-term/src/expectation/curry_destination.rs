@@ -2,19 +2,19 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ExpectCurryDestination {
-    curry_destination: FluffyTerm,
+    curry_destination: FlyTerm,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ExpectCurryDestinationOutcome;
 
 impl ExpectCurryDestination {
-    pub fn new(curry_destination: FluffyTerm) -> Self {
+    pub fn new(curry_destination: FlyTerm) -> Self {
         Self { curry_destination }
     }
 }
 
-impl ExpectFluffyTerm for ExpectCurryDestination {
+impl ExpectFlyTerm for ExpectCurryDestination {
     type Outcome = ExpectCurryDestinationOutcome;
 
     #[inline(always)]
@@ -26,23 +26,23 @@ impl ExpectFluffyTerm for ExpectCurryDestination {
     fn final_destination_inner(
         &self,
         db: &::salsa::Db,
-        fluffy_terms: &FluffyTerms,
+        fluffy_terms: &FlyTerms,
     ) -> FinalDestination {
         self.curry_destination
             .final_destination_inner(db, fluffy_terms)
     }
 
     #[inline(always)]
-    fn destination(&self) -> Option<FluffyTerm> {
+    fn destination(&self) -> Option<FlyTerm> {
         None
     }
 
     fn resolve(
         &self,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<FluffyTermEffect> {
+    ) -> AltOption<FlyTermEffect> {
         AltNone
     }
 }

@@ -11,7 +11,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaBinaryOpr,
         SemaExprIdx,
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let (lopd_sema_expr_idx, lopd_ty) = self.build_sema_expr_with_ty(lopd, ExpectAnyOriginal);
         let ropd_sema_expr_idx = match lopd_ty {

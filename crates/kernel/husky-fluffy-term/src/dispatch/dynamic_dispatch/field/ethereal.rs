@@ -8,8 +8,8 @@ pub(super) fn ethereal_ty_field_dispatch(
     db: &::salsa::Db,
     ty_term: EthTerm,
     ident: Ident,
-    indirections: FluffyIndirections,
-) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
+    indirections: FlyIndirections,
+) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
     // divide into cases for memoization
     match ty_term {
         EthTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)) => {
@@ -26,8 +26,8 @@ pub(crate) fn ethereal_ty_ontology_path_ty_field_dispatch(
     db: &::salsa::Db,
     ty_path: TypePath,
     ident: Ident,
-    indirections: FluffyIndirections,
-) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
+    indirections: FlyIndirections,
+) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
     ethereal_ty_field_dispatch_aux(db, ty_path, &[], ident, indirections)
 }
 
@@ -35,8 +35,8 @@ pub(crate) fn ethereal_term_application_ty_field_dispatch(
     db: &::salsa::Db,
     ty_term: ApplicationEthTerm,
     ident: Ident,
-    indirections: FluffyIndirections,
-) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
+    indirections: FlyIndirections,
+) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
     let application_expansion = ty_term.application_expansion(db);
     match application_expansion.function() {
         TermFunctionReduced::TypeOntology(ty_path) => ethereal_ty_field_dispatch_aux(
@@ -55,15 +55,15 @@ fn ethereal_ty_field_dispatch_aux<'a>(
     ty_path: TypePath,
     arguments: &'a [EthTerm],
     ident: Ident,
-    mut indirections: FluffyIndirections,
-) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
+    mut indirections: FlyIndirections,
+) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
     match ty_path.refine(db) {
         Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
             match prelude_indirection_ty_path {
                 PreludeIndirectionTypePath::Ref => todo!(),
                 PreludeIndirectionTypePath::RefMut => todo!(),
                 PreludeIndirectionTypePath::Leash => {
-                    indirections.add(FluffyIndirection::Leash);
+                    indirections.add(FlyIndirection::Leash);
                     if arguments.len() != 1 {
                         todo!()
                     }
@@ -78,7 +78,7 @@ fn ethereal_ty_field_dispatch_aux<'a>(
         .props_field_ethereal_signature(db, arguments, ident)
         .into_result_option()?
     {
-        return JustOk(FluffyFieldDyanmicDispatch {
+        return JustOk(FlyFieldDyanmicDispatch {
             indirections,
             ty_path,
             signature: regular_field_ethereal_signature.into(),
@@ -89,7 +89,7 @@ fn ethereal_ty_field_dispatch_aux<'a>(
         .ty_memoized_field_ethereal_signature(db, arguments, ident)
         .into_result_option()?
     {
-        return JustOk(FluffyFieldDyanmicDispatch {
+        return JustOk(FlyFieldDyanmicDispatch {
             indirections,
             ty_path,
             signature: memoized_field_ethereal_signature.into(),

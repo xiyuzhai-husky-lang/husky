@@ -22,7 +22,7 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::PathLeading {
-                    path: JavelinPath::TypeVariantConstructor(
+                    path: JavPath::TypeVariantConstructor(
                         TypeVariantPath(
                             ItemPathId {
                                 data: ItemPathData::TypeVariant(
@@ -37,7 +37,7 @@ ValkyrieJavelinPantheon {
                             },
                         ),
                     ),
-                    instantiation: JavelinInstantiation {
+                    instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
                                 HirTemplateSymbol::Type(
@@ -49,8 +49,8 @@ ValkyrieJavelinPantheon {
                                         disambiguator: 0,
                                     },
                                 ),
-                                JavelinTermSymbolResolution::Explicit(
-                                    JavelinTemplateArgument::Type(
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
                                         JavelinType::PathLeading(
                                             JavelinTypePathLeading {
                                                 ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -70,8 +70,8 @@ ValkyrieJavelinPantheon {
                                         disambiguator: 1,
                                     },
                                 ),
-                                JavelinTermSymbolResolution::Explicit(
-                                    JavelinTemplateArgument::Type(
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
                                         JavelinType::PathLeading(
                                             JavelinTypePathLeading {
                                                 ty_path: TypePath(`core::basic::unit`, `Extern`),
@@ -108,7 +108,7 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::PathLeading {
-                    path: JavelinPath::TypeVariantConstructor(
+                    path: JavPath::TypeVariantConstructor(
                         TypeVariantPath(
                             ItemPathId {
                                 data: ItemPathData::TypeVariant(
@@ -123,7 +123,7 @@ ValkyrieJavelinPantheon {
                             },
                         ),
                     ),
-                    instantiation: JavelinInstantiation {
+                    instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
                                 HirTemplateSymbol::Type(
@@ -135,8 +135,8 @@ ValkyrieJavelinPantheon {
                                         disambiguator: 0,
                                     },
                                 ),
-                                JavelinTermSymbolResolution::Explicit(
-                                    JavelinTemplateArgument::Type(
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
                                         JavelinType::PathLeading(
                                             JavelinTypePathLeading {
                                                 ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -156,8 +156,8 @@ ValkyrieJavelinPantheon {
                                         disambiguator: 1,
                                     },
                                 ),
-                                JavelinTermSymbolResolution::Explicit(
-                                    JavelinTemplateArgument::Type(
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
                                         JavelinType::PathLeading(
                                             JavelinTypePathLeading {
                                                 ty_path: TypePath(`core::basic::unit`, `Extern`),
@@ -196,7 +196,7 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::PathLeading {
-                    path: JavelinPath::TypeVariantConstructor(
+                    path: JavPath::TypeVariantConstructor(
                         TypeVariantPath(
                             ItemPathId {
                                 data: ItemPathData::TypeVariant(
@@ -211,7 +211,7 @@ ValkyrieJavelinPantheon {
                             },
                         ),
                     ),
-                    instantiation: JavelinInstantiation {
+                    instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
                                 HirTemplateSymbol::Type(
@@ -223,8 +223,8 @@ ValkyrieJavelinPantheon {
                                         disambiguator: 0,
                                     },
                                 ),
-                                JavelinTermSymbolResolution::Explicit(
-                                    JavelinTemplateArgument::Type(
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
                                         JavelinType::PathLeading(
                                             JavelinTypePathLeading {
                                                 ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -244,8 +244,8 @@ ValkyrieJavelinPantheon {
                                         disambiguator: 1,
                                     },
                                 ),
-                                JavelinTermSymbolResolution::Explicit(
-                                    JavelinTemplateArgument::Type(
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
                                         JavelinType::PathLeading(
                                             JavelinTypePathLeading {
                                                 ty_path: TypePath(`core::basic::unit`, `Extern`),
@@ -264,7 +264,7 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::PathLeading {
-                    path: JavelinPath::TypeVariantConstructor(
+                    path: JavPath::TypeVariantConstructor(
                         TypeVariantPath(
                             ItemPathId {
                                 data: ItemPathData::TypeVariant(
@@ -279,7 +279,7 @@ ValkyrieJavelinPantheon {
                             },
                         ),
                     ),
-                    instantiation: JavelinInstantiation {
+                    instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
                                 HirTemplateSymbol::Type(
@@ -291,8 +291,8 @@ ValkyrieJavelinPantheon {
                                         disambiguator: 0,
                                     },
                                 ),
-                                JavelinTermSymbolResolution::Explicit(
-                                    JavelinTemplateArgument::Type(
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
                                         JavelinType::PathLeading(
                                             JavelinTypePathLeading {
                                                 ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -312,8 +312,8 @@ ValkyrieJavelinPantheon {
                                         disambiguator: 1,
                                     },
                                 ),
-                                JavelinTermSymbolResolution::Explicit(
-                                    JavelinTemplateArgument::Type(
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
                                         JavelinType::PathLeading(
                                             JavelinTypePathLeading {
                                                 ty_path: TypePath(`core::basic::unit`, `Extern`),

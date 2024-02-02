@@ -1,7 +1,7 @@
 use super::*;
 use husky_coword::Ident;
 use husky_ethereal_term::EthTerm;
-use husky_fluffy_term::FluffyTermBase;
+use husky_fluffy_term::FlyTermBase;
 use husky_hir_ty::HirTemplateSymbol;
 use husky_sema_expr::SemaExprRegionData;
 use husky_syn_expr::{
@@ -65,7 +65,7 @@ impl HirEagerComptimeSymbolRegionData {
             .symbol_terms()
             .inherited_syn_symbol_key_values()
         {
-            let FluffyTermBase::Ethereal(term) = fluffy_term.base_resolved_inner(terms) else {
+            let FlyTermBase::Ethereal(term) = fluffy_term.base_resolved_inner(terms) else {
                 unreachable!()
             };
             match term {
@@ -92,7 +92,7 @@ impl HirEagerComptimeSymbolRegionData {
             .symbol_terms()
             .current_syn_symbol_key_values()
         {
-            let FluffyTermBase::Ethereal(term) = fluffy_term.base_resolved_inner(terms) else {
+            let FlyTermBase::Ethereal(term) = fluffy_term.base_resolved_inner(terms) else {
                 unreachable!()
             };
             match term {

@@ -12,9 +12,9 @@ impl<'a> SemaExprEngine<'a> {
         ident_token: IdentRegionalToken,
     ) -> (
         SemaExprDataResult<StaticDispatch>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
-        let parent_term: FluffyTerm = match parent_path {
+        let parent_term: FlyTerm = match parent_path {
             MajorItemPath::Type(path) => {
                 // ad hoc
                 // should consider type template arguments

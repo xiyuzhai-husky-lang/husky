@@ -2,22 +2,22 @@ use husky_vfs::Toolchain;
 
 use super::*;
 
-impl FluffyTerm {
+impl FlyTerm {
     pub(crate) fn new_curry(
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         toolchain: Toolchain,
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_rune: Option<RuneFluffyTerm>,
-        parameter_ty: FluffyTerm,
-        return_ty: FluffyTerm,
+        parameter_rune: Option<RuneFlyTerm>,
+        parameter_ty: FlyTerm,
+        return_ty: FlyTerm,
     ) -> Self {
-        let mut merger = FluffyTermDataKindMerger::new(terms);
+        let mut merger = FlyTermDataKindMerger::new(terms);
         merger.accept(parameter_rune.map(|rune| *rune));
         merger.accept([parameter_ty, return_ty]);
         match merger.data_kind() {
-            FluffyTermDataKind::Ethereal => CurryEthTerm::new(
+            FlyTermDataKind::Ethereal => CurryEthTerm::new(
                 db,
                 toolchain,
                 curry_kind,
@@ -31,8 +31,8 @@ impl FluffyTerm {
                     .expect("guaranteed by merger"),
             )
             .into(),
-            FluffyTermDataKind::Solid => todo!(),
-            FluffyTermDataKind::Hollow => terms
+            FlyTermDataKind::Solid => todo!(),
+            FlyTermDataKind::Hollow => terms
                 .hollow_terms_mut()
                 .alloc_new(HollowTermData::Curry {
                     toolchain,
@@ -43,7 +43,7 @@ impl FluffyTerm {
                     return_ty,
                 })
                 .into(),
-            FluffyTermDataKind::Err => todo!(),
+            FlyTermDataKind::Err => todo!(),
         }
     }
 }

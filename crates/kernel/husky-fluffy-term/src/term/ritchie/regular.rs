@@ -2,12 +2,12 @@ use super::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FluffyRitchieRegularParameter {
+pub struct FlyRitchieRegularParameter {
     pub contract: TermContract,
-    pub ty: FluffyTerm,
+    pub ty: FlyTerm,
 }
 
-impl FluffyRitchieRegularParameter {
+impl FlyRitchieRegularParameter {
     pub(super) fn resolve_as_ethereal(
         self,
         terms: &impl std::borrow::Borrow<HollowTerms>,
@@ -19,7 +19,7 @@ impl FluffyRitchieRegularParameter {
     }
 }
 
-impl From<EtherealRitchieRegularParameter> for FluffyRitchieRegularParameter {
+impl From<EtherealRitchieRegularParameter> for FlyRitchieRegularParameter {
     fn from(param: EtherealRitchieRegularParameter) -> Self {
         Self {
             contract: param.contract(),
@@ -28,24 +28,24 @@ impl From<EtherealRitchieRegularParameter> for FluffyRitchieRegularParameter {
     }
 }
 
-impl FluffyInstantiate for EtherealRitchieRegularParameter {
-    type Target = FluffyRitchieRegularParameter;
+impl FlyInstantiate for EtherealRitchieRegularParameter {
+    type Target = FlyRitchieRegularParameter;
 
     fn instantiate(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
-        instantiation: &FluffyInstantiation,
+        instantiation: &FlyInstantiation,
     ) -> Self::Target {
-        FluffyRitchieRegularParameter {
+        FlyRitchieRegularParameter {
             contract: self.contract(),
             ty: self.ty().instantiate(engine, expr_idx, instantiation),
         }
     }
 }
 
-impl FluffyRitchieRegularParameter {
-    pub fn new(contract: TermContract, ty: FluffyTerm) -> Self {
+impl FlyRitchieRegularParameter {
+    pub fn new(contract: TermContract, ty: FlyTerm) -> Self {
         Self { contract, ty }
     }
 
@@ -53,11 +53,11 @@ impl FluffyRitchieRegularParameter {
         self.contract
     }
 
-    pub fn ty(&self) -> FluffyTerm {
+    pub fn ty(&self) -> FlyTerm {
         self.ty
     }
 
-    pub fn ty_mut(&mut self) -> &mut FluffyTerm {
+    pub fn ty_mut(&mut self) -> &mut FlyTerm {
         &mut self.ty
     }
 }

@@ -1,5 +1,5 @@
 use either::*;
-use husky_fluffy_term::{FluffyLifetime, FluffyPlace};
+use husky_fluffy_term::{FlyLifetime, FlyPlace};
 use husky_stack_location::StackLocationIdx;
 
 use crate::lifetime::HirLifetime;
@@ -82,24 +82,24 @@ pub enum HirPlace {
 }
 
 impl HirPlace {
-    pub fn from_fluffy(place: FluffyPlace) -> HirPlace {
+    pub fn from_fluffy(place: FlyPlace) -> HirPlace {
         match place {
-            FluffyPlace::Const => HirPlace::Const,
-            FluffyPlace::StackPure { location } => HirPlace::StackPure { location },
-            FluffyPlace::ImmutableStackOwned { location } => {
+            FlyPlace::Const => HirPlace::Const,
+            FlyPlace::StackPure { location } => HirPlace::StackPure { location },
+            FlyPlace::ImmutableStackOwned { location } => {
                 HirPlace::ImmutableStackOwned { location }
             }
-            FluffyPlace::MutableStackOwned { location } => HirPlace::MutableStackOwned { location },
-            FluffyPlace::Transient => HirPlace::Transient,
-            FluffyPlace::Ref { guard } => HirPlace::Ref {
+            FlyPlace::MutableStackOwned { location } => HirPlace::MutableStackOwned { location },
+            FlyPlace::Transient => HirPlace::Transient,
+            FlyPlace::Ref { guard } => HirPlace::Ref {
                 guard: hir_place_guard_from_fluffy(guard),
             },
-            FluffyPlace::RefMut { guard } => HirPlace::RefMut {
+            FlyPlace::RefMut { guard } => HirPlace::RefMut {
                 guard: hir_place_guard_from_fluffy(guard),
             },
-            FluffyPlace::Leashed => HirPlace::Leashed,
-            FluffyPlace::Todo => HirPlace::Todo,
-            FluffyPlace::EtherealSymbol(_) => todo!(),
+            FlyPlace::Leashed => HirPlace::Leashed,
+            FlyPlace::Todo => HirPlace::Todo,
+            FlyPlace::EtherealSymbol(_) => todo!(),
         }
     }
 
@@ -120,7 +120,7 @@ impl HirPlace {
 }
 
 fn hir_place_guard_from_fluffy(
-    guard: Either<StackLocationIdx, FluffyLifetime>,
+    guard: Either<StackLocationIdx, FlyLifetime>,
 ) -> Either<StackLocationIdx, HirLifetime> {
     match guard {
         Left(location) => Left(location),

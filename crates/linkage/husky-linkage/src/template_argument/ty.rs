@@ -32,21 +32,19 @@ impl LinkageInstantiate for HirType {
                 slf.ty_path(db),
                 slf.template_arguments(db)
                     .iter()
-                    .map(|&arg| {
-                        LinkageTemplateArgument::from_hir(arg, Some(linkage_instantiation), db)
-                    })
+                    .map(|&arg| LinTemplateArgument::from_hir(arg, Some(linkage_instantiation), db))
                     .collect(),
             )),
             HirType::Symbol(slf) => match linkage_instantiation.resolve(slf.into()) {
-                LinkageTermSymbolResolution::Explicit(arg) => match arg {
-                    LinkageTemplateArgument::Vacant => todo!(),
-                    LinkageTemplateArgument::Type(linkage_ty) => linkage_ty,
-                    LinkageTemplateArgument::Constant(_) => todo!(),
-                    LinkageTemplateArgument::Lifetime => todo!(),
-                    LinkageTemplateArgument::Place(_) => todo!(),
+                LinTermSymbolResolution::Explicit(arg) => match arg {
+                    LinTemplateArgument::Vacant => todo!(),
+                    LinTemplateArgument::Type(linkage_ty) => linkage_ty,
+                    LinTemplateArgument::Constant(_) => todo!(),
+                    LinTemplateArgument::Lifetime => todo!(),
+                    LinTemplateArgument::Place(_) => todo!(),
                 },
-                LinkageTermSymbolResolution::SelfLifetime => todo!(),
-                LinkageTermSymbolResolution::SelfPlace(_) => todo!(),
+                LinTermSymbolResolution::SelfLifetime => todo!(),
+                LinTermSymbolResolution::SelfPlace(_) => todo!(),
             },
             HirType::TypeAssociatedType(_) => todo!(),
             HirType::TraitAssociatedType(_) => todo!(),
@@ -60,7 +58,7 @@ pub struct LinTypePathLeading {
     pub ty_path: TypePath,
     /// phantom arguments are ignored
     #[return_ref]
-    pub template_arguments: LinkageTemplateArguments,
+    pub template_arguments: LinTemplateArguments,
 }
 
 #[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = new)]
@@ -120,7 +118,7 @@ impl LinType {
             HirType::PathLeading(hir_ty) => LinTypePathLeading::new(
                 db,
                 hir_ty.ty_path(db),
-                LinkageTemplateArgument::from_hir_template_arguments(
+                LinTemplateArgument::from_hir_template_arguments(
                     hir_ty.template_arguments(db),
                     linkage_instantiation,
                     db,
@@ -129,15 +127,15 @@ impl LinType {
             .into(),
             HirType::Symbol(symbol) => match linkage_instantiation {
                 Some(linkage_instantiation) => match linkage_instantiation.resolve(symbol.into()) {
-                    LinkageTermSymbolResolution::Explicit(arg) => match arg {
-                        LinkageTemplateArgument::Vacant => todo!(),
-                        LinkageTemplateArgument::Type(linkage_ty) => linkage_ty,
-                        LinkageTemplateArgument::Constant(_) => todo!(),
-                        LinkageTemplateArgument::Lifetime => todo!(),
-                        LinkageTemplateArgument::Place(_) => todo!(),
+                    LinTermSymbolResolution::Explicit(arg) => match arg {
+                        LinTemplateArgument::Vacant => todo!(),
+                        LinTemplateArgument::Type(linkage_ty) => linkage_ty,
+                        LinTemplateArgument::Constant(_) => todo!(),
+                        LinTemplateArgument::Lifetime => todo!(),
+                        LinTemplateArgument::Place(_) => todo!(),
                     },
-                    LinkageTermSymbolResolution::SelfLifetime => todo!(),
-                    LinkageTermSymbolResolution::SelfPlace(_) => todo!(),
+                    LinTermSymbolResolution::SelfLifetime => todo!(),
+                    LinTermSymbolResolution::SelfPlace(_) => todo!(),
                 },
                 None => todo!(),
             },
@@ -195,7 +193,7 @@ impl LinTypePathLeading {
             javelin_ty
                 .template_arguments(db)
                 .iter()
-                .map(|&arg| LinkageTemplateArgument::from_javelin(arg, linkage_instantiation, db))
+                .map(|&arg| LinTemplateArgument::from_javelin(arg, linkage_instantiation, db))
                 .collect(),
         )
     }

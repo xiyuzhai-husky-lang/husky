@@ -4,14 +4,14 @@ use self::int_index::*;
 use super::*;
 
 pub(crate) fn ethereal_owner_ty_index_signature(
-    engine: &mut impl FluffyTermEngine,
+    engine: &mut impl FlyTermEngine,
     syn_expr_idx: SynExprIdx,
     owner_ty: EthTerm,
     refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
     owner_ty_arguments: &[EthTerm],
-    index_ty: FluffyTerm,
-    final_place: FluffyPlace,
-) -> FluffyTermMaybeResult<FluffyIndexSignature> {
+    index_ty: FlyTerm,
+    final_place: FlyPlace,
+) -> FlyTermMaybeResult<FlyIndexSignature> {
     let db = engine.db();
     match refined_ty_path {
         Left(prelude_ty_path) => prelude_ethereal_owner_ty_index_signature(
@@ -47,12 +47,12 @@ pub(crate) fn ethereal_owner_ty_index_signature(
 /// handles common cases in a quick way
 /// option means confident or not
 fn prelude_ethereal_owner_ty_index_signature(
-    engine: &mut impl FluffyTermEngine,
+    engine: &mut impl FlyTermEngine,
     expr_idx: SynExprIdx,
     prelude_ty_path: PreludeTypePath,
     owner_ty_arguments: &[EthTerm],
-    index_ty: FluffyTerm,
-) -> FluffyTermMaybeResult<FluffyIndexSignature> {
+    index_ty: FlyTerm,
+) -> FlyTermMaybeResult<FlyIndexSignature> {
     let db = engine.db();
     match prelude_ty_path {
         PreludeTypePath::Basic(_) => todo!(),

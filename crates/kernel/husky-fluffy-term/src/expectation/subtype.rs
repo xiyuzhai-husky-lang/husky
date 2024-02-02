@@ -5,18 +5,18 @@ use husky_declarative_ty::variance::HasVariances;
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ExpectSubtype {
-    pub(crate) expected: FluffyTerm,
+    pub(crate) expected: FlyTerm,
 }
 
 impl ExpectSubtype {
-    pub fn new(destination: FluffyTerm) -> Self {
+    pub fn new(destination: FlyTerm) -> Self {
         Self {
             expected: destination,
         }
     }
 }
 
-impl ExpectFluffyTerm for ExpectSubtype {
+impl ExpectFlyTerm for ExpectSubtype {
     type Outcome = ExpectSubtypeOutcome;
 
     #[inline(always)]
@@ -28,12 +28,12 @@ impl ExpectFluffyTerm for ExpectSubtype {
     }
 
     #[inline(always)]
-    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination {
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FlyTerms) -> FinalDestination {
         self.expected.final_destination_inner(db, terms)
     }
 
     #[inline(always)]
-    fn destination(&self) -> Option<FluffyTerm> {
+    fn destination(&self) -> Option<FlyTerm> {
         Some(self.expected)
     }
 
@@ -41,9 +41,9 @@ impl ExpectFluffyTerm for ExpectSubtype {
     fn resolve(
         &self,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<FluffyTermEffect> {
+    ) -> AltOption<FlyTermEffect> {
         let expectee_data = state.expectee().data_inner(db, terms);
         if expectee_data == self.expected.data_inner(db, terms) {
             return state.set_ok(ExpectSubtypeOutcome {}, smallvec![]);
@@ -51,7 +51,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
         // todo: handle the case that expectee is a hole first, like
         // ```
         // match state.expectee().data_inner(db, terms) {
-        //     FluffyTermData::Hole(_, hole) => {
+        //     FlyTermData::Hole(_, hole) => {
         //         state.set_holed(hole, |state| HoleConstraint::CoercibleInto {
         //             target: self.expected,
         //         })
@@ -60,13 +60,13 @@ impl ExpectFluffyTerm for ExpectSubtype {
         // }
         // ```
         match self.expected.data_inner(db, terms) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
+            FlyTermData::Literal(_) => todo!(),
+            FlyTermData::TypeOntology {
                 ty_path: expected_ty_path,
                 ty_arguments: expected_ty_arguments,
                 ..
             } => match state.expectee().data_inner(db, terms) {
-                FluffyTermData::TypeOntology {
+                FlyTermData::TypeOntology {
                     ty_path: expectee_ty_path,
                     ty_arguments: expectee_ty_arguments,
                     ..
@@ -89,7 +89,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                                     match variance {
                                         // ad hoc
                                         Variance::Independent => {
-                                            FluffyTermResolveAction::AddExpectation {
+                                            FlyTermResolveAction::AddExpectation {
                                                 src: state.child_src(),
                                                 expectee: expectee_ty_argument,
                                                 expectation: ExpectSubtype {
@@ -99,7 +99,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                                             }
                                         }
                                         Variance::Covariant => {
-                                            FluffyTermResolveAction::AddExpectation {
+                                            FlyTermResolveAction::AddExpectation {
                                                 src: state.child_src(),
                                                 expectee: expectee_ty_argument,
                                                 expectation: ExpectSubtype {
@@ -109,7 +109,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                                             }
                                         }
                                         Variance::Contravariant => {
-                                            FluffyTermResolveAction::AddExpectation {
+                                            FlyTermResolveAction::AddExpectation {
                                                 src: state.child_src(),
                                                 expectee: expected_ty_argument,
                                                 expectation: ExpectSubtype {
@@ -126,7 +126,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                         )
                     } else {
                         state.set_err(
-                            OriginalFluffyTermExpectationError::TypePathMismatchForSubtyping {
+                            OriginalFlyTermExpectationError::TypePathMismatchForSubtyping {
                                 expected: self.expected,
                                 expectee: state.expectee(),
                                 expected_path: expected_ty_path,
@@ -136,7 +136,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                         )
                     }
                 }
-                FluffyTermData::Hole(_, hole) => {
+                FlyTermData::Hole(_, hole) => {
                     state.set_holed(hole, |state| HoleConstraint::CoercibleInto {
                         target: self.expected,
                     })
@@ -144,12 +144,12 @@ impl ExpectFluffyTerm for ExpectSubtype {
                 expectee_data => {
                     p!(self.expected.show(db, terms), expectee_data.debug(db));
                     todo!()
-                } // Some(FluffyTermExpectationEffect {
+                } // Some(FlyTermExpectationEffect {
                   //     result: Err(todo!()),
                   //     actions: smallvec![],
                   // }),
             },
-            FluffyTermData::Curry {
+            FlyTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -158,10 +158,10 @@ impl ExpectFluffyTerm for ExpectSubtype {
                 return_ty,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::Hole(_, hole) => {
+            FlyTermData::Hole(_, hole) => {
                 state.set_ok(
                     ExpectSubtypeOutcome {},
-                    smallvec![FluffyTermResolveAction::FillHole {
+                    smallvec![FlyTermResolveAction::FillHole {
                         // todo: check hole kind
                         hole,
                         // todo: check subtype
@@ -169,28 +169,28 @@ impl ExpectFluffyTerm for ExpectSubtype {
                     }],
                 )
             }
-            FluffyTermData::Category(_) => state.set_err(
-                OriginalFluffyTermExpectationError::ExpectedSubtype {
+            FlyTermData::Category(_) => state.set_err(
+                OriginalFlyTermExpectationError::ExpectedSubtype {
                     expectee: state.expectee(),
                 },
                 smallvec![],
             ),
-            FluffyTermData::Ritchie {
+            FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
                 ..
             } => todo!(),
-            FluffyTermData::Symbol {
+            FlyTermData::Symbol {
                 ty: expected_ty, ..
             } => match state.expectee().base_ty_data_inner(db, terms) {
-                FluffyBaseTypeData::TypeOntology {
+                FlyBaseTypeData::TypeOntology {
                     ty_path,
                     refined_ty_path,
                     ty_arguments,
                     ty_ethereal_term,
                 } => todo!(),
-                FluffyBaseTypeData::Curry {
+                FlyBaseTypeData::Curry {
                     curry_kind,
                     variance,
                     parameter_rune,
@@ -198,13 +198,13 @@ impl ExpectFluffyTerm for ExpectSubtype {
                     return_ty,
                     ty_ethereal_term,
                 } => todo!(),
-                FluffyBaseTypeData::Hole(hole_kind, hole) => match hole_kind {
+                FlyBaseTypeData::Hole(hole_kind, hole) => match hole_kind {
                     HoleKind::UnspecifiedIntegerType => todo!(),
                     HoleKind::UnspecifiedFloatType => todo!(),
                     HoleKind::ImplicitType => match expected_ty.base_resolved_inner(terms) {
-                        FluffyTermBase::Ethereal(EthTerm::Category(_)) => state.set_ok(
+                        FlyTermBase::Ethereal(EthTerm::Category(_)) => state.set_ok(
                             ExpectSubtypeOutcome {},
-                            smallvec![FluffyTermResolveAction::FillHole {
+                            smallvec![FlyTermResolveAction::FillHole {
                                 hole,
                                 term: self.expected
                             }],
@@ -213,31 +213,31 @@ impl ExpectFluffyTerm for ExpectSubtype {
                     },
                     HoleKind::Any => state.set_ok(
                         ExpectSubtypeOutcome {},
-                        smallvec![FluffyTermResolveAction::FillHole {
+                        smallvec![FlyTermResolveAction::FillHole {
                             hole,
                             term: self.expected
                         }],
                     ),
                 },
-                FluffyBaseTypeData::Category(_) => todo!(),
-                FluffyBaseTypeData::Ritchie {
+                FlyBaseTypeData::Category(_) => todo!(),
+                FlyBaseTypeData::Ritchie {
                     ritchie_kind,
                     parameter_contracted_tys,
                     return_ty,
                 } => todo!(),
-                FluffyBaseTypeData::Symbol { symbol } => todo!(),
-                FluffyBaseTypeData::Rune { rune } => todo!(),
+                FlyBaseTypeData::Symbol { symbol } => todo!(),
+                FlyBaseTypeData::Rune { rune } => todo!(),
             },
-            FluffyTermData::Rune { .. } => todo!(),
-            FluffyTermData::TypeVariant { path } => match state.expectee().data_inner(db, terms) {
-                FluffyTermData::Literal(_) => todo!(),
-                FluffyTermData::TypeOntology {
+            FlyTermData::Rune { .. } => todo!(),
+            FlyTermData::TypeVariant { path } => match state.expectee().data_inner(db, terms) {
+                FlyTermData::Literal(_) => todo!(),
+                FlyTermData::TypeOntology {
                     ty_path,
                     refined_ty_path,
                     ty_arguments: arguments,
                     ty_ethereal_term,
                 } => todo!(),
-                FluffyTermData::Curry {
+                FlyTermData::Curry {
                     toolchain,
                     curry_kind,
                     variance,
@@ -246,22 +246,22 @@ impl ExpectFluffyTerm for ExpectSubtype {
                     return_ty,
                     ty_ethereal_term,
                 } => todo!(),
-                FluffyTermData::Hole(_, hole) => state.set_ok(
+                FlyTermData::Hole(_, hole) => state.set_ok(
                     ExpectSubtypeOutcome {},
-                    smallvec![FluffyTermResolveAction::FillHole {
+                    smallvec![FlyTermResolveAction::FillHole {
                         hole,
                         term: self.expected,
                     }],
                 ),
-                FluffyTermData::Category(_) => todo!(),
-                FluffyTermData::Ritchie {
+                FlyTermData::Category(_) => todo!(),
+                FlyTermData::Ritchie {
                     ritchie_kind,
                     parameter_contracted_tys,
                     return_ty,
                 } => todo!(),
-                FluffyTermData::Symbol { term, ty } => todo!(),
-                FluffyTermData::Rune { .. } => todo!(),
-                FluffyTermData::TypeVariant { path } => todo!(),
+                FlyTermData::Symbol { term, ty } => todo!(),
+                FlyTermData::Rune { .. } => todo!(),
+                FlyTermData::TypeVariant { path } => todo!(),
             },
         }
     }
