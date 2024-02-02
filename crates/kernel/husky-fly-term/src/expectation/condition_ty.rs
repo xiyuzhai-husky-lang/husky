@@ -34,12 +34,8 @@ impl ExpectFlyTerm for ExpectConditionType {
         state: &mut ExpectationState,
     ) -> AltOption<FlyTermEffect> {
         match state.expectee().data_inner(db, terms) {
-            FlyTermData::Literal(_) => todo!(),
             FlyTermData::TypeOntology {
-                ty_path,
-                refined_ty_path,
-                ty_arguments,
-                ty_ethereal_term,
+                refined_ty_path, ..
             } => match refined_ty_path {
                 Left(PreludeTypePath::Num(PreludeNumTypePath::Int(prelude_ty_path))) => state
                     .set_ok(
@@ -56,25 +52,7 @@ impl ExpectFlyTerm for ExpectConditionType {
                 ),
                 _ => todo!(),
             },
-            FlyTermData::Curry {
-                toolchain,
-                curry_kind,
-                variance,
-                parameter_rune,
-                parameter_ty,
-                return_ty,
-                ty_ethereal_term,
-            } => todo!(),
-            FlyTermData::Hole(_, _) => todo!(),
-            FlyTermData::Category(_) => todo!(),
-            FlyTermData::Ritchie {
-                ritchie_kind,
-                parameter_contracted_tys,
-                return_ty,
-            } => todo!(),
-            FlyTermData::Symbol { term, ty } => todo!(),
-            FlyTermData::Rune { .. } => todo!(),
-            FlyTermData::TypeVariant { path } => todo!(),
+            _ => todo!(),
         }
     }
 }

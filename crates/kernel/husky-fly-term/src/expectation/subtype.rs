@@ -123,9 +123,3 @@ impl ExpectFlyTerm for ExpectSubtypeOrEqual {
 pub struct ExpectSubtypeOutcome {
     // todo: change this to option lifetime subtype constraint
 }
-
-impl ExpectSubtypeOutcome {
-    pub(crate) fn resolved(&self) -> Option<EthTerm> {
-        todo!()
-    }
-}
