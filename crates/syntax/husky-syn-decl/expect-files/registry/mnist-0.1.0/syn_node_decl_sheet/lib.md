@@ -1879,7 +1879,7 @@ SynNodeDeclSheet {
                                     ),
                                 },
                             ),
-                            generics: Ok(
+                            template_parameters: Ok(
                                 None,
                             ),
                             eq_token: Ok(
@@ -3573,7 +3573,7 @@ SynNodeDeclSheet {
                                     ),
                                 },
                             ),
-                            generics: Ok(
+                            template_parameters: Ok(
                                 None,
                             ),
                             eq_token: Ok(
