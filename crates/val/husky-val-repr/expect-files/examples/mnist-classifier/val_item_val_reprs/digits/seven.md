@@ -7,7 +7,7 @@
                 Linkage {
                     data: LinkageData::ValItem {
                         path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
-                        instantiation: LinkageInstantiation {
+                        instantiation: LinInstantiation {
                             symbol_resolutions: [],
                             separator: None,
                         },
@@ -29,7 +29,7 @@
                 Linkage {
                     data: LinkageData::ValItem {
                         path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
-                        instantiation: LinkageInstantiation {
+                        instantiation: LinInstantiation {
                             symbol_resolutions: [],
                             separator: None,
                         },
@@ -51,7 +51,7 @@
                 Linkage {
                     data: LinkageData::ValItem {
                         path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                        instantiation: LinkageInstantiation {
+                        instantiation: LinInstantiation {
                             symbol_resolutions: [],
                             separator: None,
                         },

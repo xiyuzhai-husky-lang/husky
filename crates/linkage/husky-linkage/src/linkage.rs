@@ -33,35 +33,35 @@ pub struct Linkage {
 pub enum LinkageData {
     FunctionFnItem {
         path: FugitivePath,
-        instantiation: LinkageInstantiation,
+        instantiation: LinInstantiation,
     },
     ValItem {
         path: FugitivePath,
-        instantiation: LinkageInstantiation,
+        instantiation: LinInstantiation,
     },
     MemoizedField {
         path: AssociatedItemPath,
-        instantiation: LinkageInstantiation,
+        instantiation: LinInstantiation,
     },
     MethodFn {
         path: AssociatedItemPath,
-        instantiation: LinkageInstantiation,
+        instantiation: LinInstantiation,
     },
     AssociatedFunctionFn {
         path: AssociatedItemPath,
-        instantiation: LinkageInstantiation,
+        instantiation: LinInstantiation,
     },
     UnveilAssociatedFunctionFn {
         path: TraitForTypeItemPath,
-        instantiation: LinkageInstantiation,
+        instantiation: LinInstantiation,
     },
     TypeConstructor {
         path: TypePath,
-        instantiation: LinkageInstantiation,
+        instantiation: LinInstantiation,
     },
     TypeVariantConstructor {
         path: TypeVariantPath,
-        instantiation: LinkageInstantiation,
+        instantiation: LinInstantiation,
     },
     StructField {
         self_ty: LinTypePathLeading,
@@ -70,7 +70,7 @@ pub enum LinkageData {
     Index,
     FunctionGnItem {
         path: FugitivePath,
-        instantiation: LinkageInstantiation,
+        instantiation: LinInstantiation,
     },
     VecConstructor {
         element_ty: LinType,
@@ -102,22 +102,21 @@ impl Linkage {
                 LinkageData::ValItem {
                     path,
                     // ad hoc
-                    instantiation: LinkageInstantiation::new_empty(false),
+                    instantiation: LinInstantiation::new_empty(false),
                 },
             )),
         }
     }
 
-    // todo: linkage_instantiation
+    // todo: lin_instantiation
     // todo: change to `JavelinType`
     pub fn new_props_struct_field(
         self_ty: HirType,
         ident: Ident,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        let LinType::PathLeading(self_ty) =
-            LinType::from_hir(self_ty, Some(linkage_instantiation), db)
+        let LinType::PathLeading(self_ty) = LinType::from_hir(self_ty, Some(lin_instantiation), db)
         else {
             unreachable!()
         };
@@ -128,22 +127,18 @@ impl Linkage {
         Self::new(db, data)
     }
 
-    // todo: linkage_instantiation
+    // todo: lin_instantiation
     pub fn new_memoized_field(
         path: AssociatedItemPath,
         hir_instantiation: &HirInstantiation,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         Self::new(
             db,
             LinkageData::MemoizedField {
                 path,
-                instantiation: LinkageInstantiation::from_hir(
-                    hir_instantiation,
-                    linkage_instantiation,
-                    db,
-                ),
+                instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
         )
     }
@@ -151,18 +146,14 @@ impl Linkage {
     pub fn new_method(
         path: AssociatedItemPath,
         hir_instantiation: &HirInstantiation,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         Self::new(
             db,
             LinkageData::MethodFn {
                 path,
-                instantiation: LinkageInstantiation::from_hir(
-                    hir_instantiation,
-                    linkage_instantiation,
-                    db,
-                ),
+                instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
         )
     }
@@ -174,18 +165,14 @@ impl Linkage {
     pub fn new_ty_constructor_fn(
         path: TypePath,
         hir_instantiation: &HirInstantiation,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         Self::new(
             db,
             LinkageData::TypeConstructor {
                 path,
-                instantiation: LinkageInstantiation::from_hir(
-                    hir_instantiation,
-                    linkage_instantiation,
-                    db,
-                ),
+                instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
         )
     }
@@ -193,31 +180,27 @@ impl Linkage {
     pub fn new_ty_variant_constructor_fn(
         path: TypeVariantPath,
         hir_instantiation: &HirInstantiation,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         Self::new(
             db,
             LinkageData::TypeVariantConstructor {
                 path,
-                instantiation: LinkageInstantiation::from_hir(
-                    hir_instantiation,
-                    linkage_instantiation,
-                    db,
-                ),
+                instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
         )
     }
 
     pub fn new_vec_constructor(
         element_ty: HirType,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         Self::new(
             db,
             LinkageData::VecConstructor {
-                element_ty: LinType::from_hir(element_ty, Some(linkage_instantiation), db),
+                element_ty: LinType::from_hir(element_ty, Some(lin_instantiation), db),
             },
         )
     }
@@ -225,7 +208,7 @@ impl Linkage {
     pub fn new_function_fn_item(
         path: FugitivePath,
         hir_instantiation: &HirInstantiation,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         debug_assert_eq!(path.fugitive_kind(db), FugitiveKind::FunctionFn);
@@ -233,11 +216,7 @@ impl Linkage {
             db,
             LinkageData::FunctionFnItem {
                 path,
-                instantiation: LinkageInstantiation::from_hir(
-                    hir_instantiation,
-                    linkage_instantiation,
-                    db,
-                ),
+                instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
         )
     }
@@ -245,7 +224,7 @@ impl Linkage {
     pub fn new_function_gn_item(
         path: FugitivePath,
         hir_instantiation: &HirInstantiation,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         debug_assert_eq!(path.fugitive_kind(db), FugitiveKind::FunctionGn);
@@ -253,11 +232,7 @@ impl Linkage {
             db,
             LinkageData::FunctionGnItem {
                 path,
-                instantiation: LinkageInstantiation::from_hir(
-                    hir_instantiation,
-                    linkage_instantiation,
-                    db,
-                ),
+                instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
         )
     }
@@ -265,18 +240,14 @@ impl Linkage {
     pub fn new_associated_function_fn_item(
         path: AssociatedItemPath,
         hir_instantiation: &HirInstantiation,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         Self::new(
             db,
             LinkageData::AssociatedFunctionFn {
                 path,
-                instantiation: LinkageInstantiation::from_hir(
-                    hir_instantiation,
-                    linkage_instantiation,
-                    db,
-                ),
+                instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
         )
     }
@@ -284,31 +255,27 @@ impl Linkage {
     pub fn new_unveil_associated_fn(
         path: TraitForTypeItemPath,
         hir_instantiation: &HirInstantiation,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         Self::new(
             db,
             LinkageData::UnveilAssociatedFunctionFn {
                 path,
-                instantiation: LinkageInstantiation::from_hir(
-                    hir_instantiation,
-                    linkage_instantiation,
-                    db,
-                ),
+                instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
         )
     }
 
     pub fn new_ty_default(
         ty: HirType,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         Self::new(
             db,
             LinkageData::TypeDefault {
-                ty: LinType::from_hir(ty, Some(linkage_instantiation), db),
+                ty: LinType::from_hir(ty, Some(lin_instantiation), db),
             },
         )
     }
@@ -327,10 +294,10 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
         } => {
             fn build(
                 instantiation: &JavInstantiation,
-                f: impl Fn(LinkageInstantiation) -> Linkage,
+                f: impl Fn(LinInstantiation) -> Linkage,
                 db: &::salsa::Db,
             ) -> SmallVec<[Linkage; 4]> {
-                LinkageInstantiation::from_javelin(instantiation, db)
+                LinInstantiation::from_javelin(instantiation, db)
                     .into_iter()
                     .map(f)
                     .collect()
@@ -376,7 +343,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             db,
                             LinkageData::ValItem {
                                 path,
-                                instantiation: LinkageInstantiation::new_empty(false),
+                                instantiation: LinInstantiation::new_empty(false),
                             }
                         )]
                     }
@@ -450,7 +417,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     TraitItemKind::AssociatedFunctionFn => {
                         match path.impl_block(db).trai_path(db).refine(db) {
                             Left(PreludeTraitPath::UNVEIL) => {
-                                LinkageInstantiation::from_javelin(instantiation, db)
+                                LinInstantiation::from_javelin(instantiation, db)
                                     .into_iter()
                                     .map(|instantiation| {
                                         [
@@ -517,7 +484,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                 TypeHirDecl::Union(_) => todo!(),
                                 _ => unreachable!(),
                             };
-                            LinkageInstantiation::from_javelin(instantiation, db)
+                            LinInstantiation::from_javelin(instantiation, db)
                                 .into_iter()
                                 .map(|instantiation| {
                                     let self_ty = LinTypePathLeading::new(
@@ -559,7 +526,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     }
                 }
                 JavPath::TypeVariantConstructor(path) => {
-                    LinkageInstantiation::from_javelin(instantiation, db)
+                    LinInstantiation::from_javelin(instantiation, db)
                         .into_iter()
                         .map(|instantiation| {
                             [Linkage::new(
@@ -586,7 +553,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                 element_ty: LinType::from_javelin(
                     element_ty,
                     // ad hoc
-                    &LinkageInstantiation::new_empty(false),
+                    &LinInstantiation::new_empty(false),
                     db
                 )
             },
@@ -597,7 +564,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                 ty: LinType::from_javelin(
                     ty,
                     // ad hoc
-                    &LinkageInstantiation::new_empty(false),
+                    &LinInstantiation::new_empty(false),
                     db
                 )
             },

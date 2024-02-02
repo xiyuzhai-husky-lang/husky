@@ -7,7 +7,7 @@
                 Linkage {
                     data: LinkageData::ValItem {
                         path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
-                        instantiation: LinkageInstantiation {
+                        instantiation: LinInstantiation {
                             symbol_resolutions: [],
                             separator: None,
                         },

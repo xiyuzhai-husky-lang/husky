@@ -16,12 +16,12 @@ use crate::template_argument::{
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct LinkageInstantiation {
+pub struct LinInstantiation {
     symbol_resolutions: SmallVecPairMap<HirTemplateSymbol, LinTermSymbolResolution, 4>,
     separator: Option<u8>,
 }
 
-impl std::ops::Deref for LinkageInstantiation {
+impl std::ops::Deref for LinInstantiation {
     type Target = [(HirTemplateSymbol, LinTermSymbolResolution)];
 
     fn deref(&self) -> &Self::Target {
@@ -36,9 +36,9 @@ pub enum LinTermSymbolResolution {
     SelfPlace(LinPlace),
 }
 
-impl LinkageInstantiation {
+impl LinInstantiation {
     pub fn new_empty(is_associated: bool) -> Self {
-        LinkageInstantiation {
+        LinInstantiation {
             symbol_resolutions: Default::default(),
             separator: is_associated.then_some(0),
         }
@@ -46,9 +46,9 @@ impl LinkageInstantiation {
 
     pub(crate) fn from_hir(
         hir_instantiation: &HirInstantiation,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
-    ) -> LinkageInstantiation {
+    ) -> LinInstantiation {
         let symbol_resolutions =
             SmallVecMap::from_iter(hir_instantiation.symbol_map().iter().filter_map(
                 |&(symbol, resolution)| {
@@ -62,7 +62,7 @@ impl LinkageInstantiation {
                     }
                     Some((
                         symbol,
-                        LinTermSymbolResolution::from_hir(resolution, linkage_instantiation, db),
+                        LinTermSymbolResolution::from_hir(resolution, lin_instantiation, db),
                     ))
                 },
             ));
@@ -70,7 +70,7 @@ impl LinkageInstantiation {
         if let Some(separator) = separator {
             debug_assert!((separator as usize) <= symbol_resolutions.len());
         }
-        LinkageInstantiation {
+        LinInstantiation {
             symbol_resolutions,
             separator,
         }
@@ -107,33 +107,33 @@ impl LinkageInstantiation {
     }
 }
 
-impl LinkageInstantiation {
+impl LinInstantiation {
     /// a nondeterminstic map basically
     pub(crate) fn from_javelin(
         javelin_instantiation: &JavInstantiation,
         db: &::salsa::Db,
     ) -> SmallVec<[Self; 4]> {
-        let mut linkage_instantiations = smallvec![];
+        let mut lin_instantiations = smallvec![];
         Self::from_javelin_aux(
             javelin_instantiation,
-            LinkageInstantiation {
+            LinInstantiation {
                 symbol_resolutions: Default::default(),
                 separator: javelin_instantiation.separator,
             },
-            &mut linkage_instantiations,
+            &mut lin_instantiations,
             db,
         );
-        linkage_instantiations
+        lin_instantiations
     }
 
     fn from_javelin_aux(
         javelin_instantiation: &JavInstantiation,
-        prefix: LinkageInstantiation,
-        linkage_instantiations: &mut SmallVec<[Self; 4]>,
+        prefix: LinInstantiation,
+        lin_instantiations: &mut SmallVec<[Self; 4]>,
         db: &::salsa::Db,
     ) {
         if prefix.len() == javelin_instantiation.len() {
-            linkage_instantiations.push(prefix);
+            lin_instantiations.push(prefix);
             return;
         }
         let (symbol, javelin_resolution) =
@@ -147,7 +147,7 @@ impl LinkageInstantiation {
                     .symbol_resolutions
                     .insert_new_unchecked((symbol, linkage_resolution))
             };
-            Self::from_javelin_aux(javelin_instantiation, prefix, linkage_instantiations, db)
+            Self::from_javelin_aux(javelin_instantiation, prefix, lin_instantiations, db)
         }
     }
 }
@@ -155,7 +155,7 @@ impl LinkageInstantiation {
 impl LinTermSymbolResolution {
     fn from_javelin(
         javelin_resolution: JavTermSymbolResolution,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> SmallVec<[Self; 4]> {
         match javelin_resolution {
@@ -165,7 +165,7 @@ impl LinTermSymbolResolution {
                     smallvec![LinTermSymbolResolution::Explicit(
                         LinTemplateArgument::Type(LinType::from_javelin(
                             javelin_ty,
-                            linkage_instantiation,
+                            lin_instantiation,
                             db
                         ))
                     )]
@@ -192,12 +192,12 @@ impl LinTermSymbolResolution {
 
     fn from_hir(
         resolution: HirTermSymbolResolution,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &salsa::Db,
     ) -> LinTermSymbolResolution {
         match resolution {
             HirTermSymbolResolution::Explicit(arg) => LinTermSymbolResolution::Explicit(
-                LinTemplateArgument::from_hir(arg, Some(linkage_instantiation), db),
+                LinTemplateArgument::from_hir(arg, Some(lin_instantiation), db),
             ),
             HirTermSymbolResolution::SelfLifetime => LinTermSymbolResolution::SelfLifetime,
             HirTermSymbolResolution::SelfPlace(_) => todo!(),
@@ -210,7 +210,7 @@ pub trait LinkageInstantiate {
 
     fn linkage_instantiate(
         self,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self::Output;
 }

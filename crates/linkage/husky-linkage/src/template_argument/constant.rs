@@ -1,7 +1,7 @@
 use husky_hir_ty::HirConstant;
 use husky_javelin::template_argument::constant::JavelinConstant;
 
-use crate::instantiation::LinkageInstantiation;
+use crate::instantiation::LinInstantiation;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct LinConstant(pub JavelinConstant);
@@ -17,7 +17,7 @@ impl std::ops::Deref for LinConstant {
 impl LinConstant {
     pub(crate) fn from_hir(
         hir_constant: HirConstant,
-        _javelin_instantiation: Option<&LinkageInstantiation>,
+        _javelin_instantiation: Option<&LinInstantiation>,
     ) -> Self {
         Self(match hir_constant {
             HirConstant::Unit(value) => JavelinConstant::Unit(value),

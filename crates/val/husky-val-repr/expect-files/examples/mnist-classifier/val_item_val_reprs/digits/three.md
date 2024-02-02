@@ -7,7 +7,7 @@
                 Linkage {
                     data: LinkageData::ValItem {
                         path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                        instantiation: LinkageInstantiation {
+                        instantiation: LinInstantiation {
                             symbol_resolutions: [],
                             separator: None,
                         },
@@ -29,7 +29,7 @@
                 Linkage {
                     data: LinkageData::ValItem {
                         path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                        instantiation: LinkageInstantiation {
+                        instantiation: LinInstantiation {
                             symbol_resolutions: [],
                             separator: None,
                         },

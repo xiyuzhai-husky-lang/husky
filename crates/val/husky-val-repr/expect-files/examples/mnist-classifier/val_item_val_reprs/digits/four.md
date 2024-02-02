@@ -7,7 +7,7 @@
                 Linkage {
                     data: LinkageData::ValItem {
                         path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
-                        instantiation: LinkageInstantiation {
+                        instantiation: LinInstantiation {
                             symbol_resolutions: [],
                             separator: None,
                         },
@@ -29,7 +29,7 @@
                 Linkage {
                     data: LinkageData::ValItem {
                         path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-                        instantiation: LinkageInstantiation {
+                        instantiation: LinInstantiation {
                             symbol_resolutions: [],
                             separator: None,
                         },
@@ -51,7 +51,7 @@
                 Linkage {
                     data: LinkageData::ValItem {
                         path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                        instantiation: LinkageInstantiation {
+                        instantiation: LinInstantiation {
                             symbol_resolutions: [],
                             separator: None,
                         },
@@ -73,7 +73,7 @@
                 Linkage {
                     data: LinkageData::ValItem {
                         path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
-                        instantiation: LinkageInstantiation {
+                        instantiation: LinInstantiation {
                             symbol_resolutions: [],
                             separator: None,
                         },

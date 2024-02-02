@@ -7,7 +7,7 @@
     Linkage {
         data: LinkageData::ValItem {
             path: FugitivePath(`mnist::input`, `Val`),
-            instantiation: LinkageInstantiation {
+            instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -18,7 +18,7 @@
             path: AssociatedItemPath::TypeItem(
                 TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
             ),
-            instantiation: LinkageInstantiation {
+            instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: Some(
                     0,
@@ -31,7 +31,7 @@
             path: AssociatedItemPath::TypeItem(
                 TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
             ),
-            instantiation: LinkageInstantiation {
+            instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: Some(
                     0,

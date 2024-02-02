@@ -23,7 +23,7 @@ impl LinkageInstantiate for HirType {
 
     fn linkage_instantiate(
         self,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &salsa::Db,
     ) -> Self::Output {
         match self {
@@ -32,10 +32,10 @@ impl LinkageInstantiate for HirType {
                 slf.ty_path(db),
                 slf.template_arguments(db)
                     .iter()
-                    .map(|&arg| LinTemplateArgument::from_hir(arg, Some(linkage_instantiation), db))
+                    .map(|&arg| LinTemplateArgument::from_hir(arg, Some(lin_instantiation), db))
                     .collect(),
             )),
-            HirType::Symbol(slf) => match linkage_instantiation.resolve(slf.into()) {
+            HirType::Symbol(slf) => match lin_instantiation.resolve(slf.into()) {
                 LinTermSymbolResolution::Explicit(arg) => match arg {
                     LinTemplateArgument::Vacant => todo!(),
                     LinTemplateArgument::Type(linkage_ty) => linkage_ty,
@@ -75,24 +75,24 @@ pub struct LinkageRitchieParameter {
 impl LinkageRitchieParameter {
     fn from_javelin(
         param: JavelinRitchieParameter,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &salsa::Db,
     ) -> Self {
         Self {
             contract: param.contract(),
-            parameter_ty: LinType::from_javelin(param.parameter_ty(), linkage_instantiation, db),
+            parameter_ty: LinType::from_javelin(param.parameter_ty(), lin_instantiation, db),
         }
     }
 
     fn from_hir(
         param: HirRitchieParameter,
-        linkage_instantiation: Option<&LinkageInstantiation>,
+        lin_instantiation: Option<&LinInstantiation>,
         db: &salsa::Db,
     ) -> Self {
         match param {
             HirRitchieParameter::Ordinary(param) => Self {
                 contract: param.contract(),
-                parameter_ty: LinType::from_hir(param.ty(), linkage_instantiation, db),
+                parameter_ty: LinType::from_hir(param.ty(), lin_instantiation, db),
             },
             HirRitchieParameter::Variadic(_) => todo!(),
             HirRitchieParameter::Keyed(_) => todo!(),
@@ -111,7 +111,7 @@ impl LinkageRitchieParameter {
 impl LinType {
     pub(crate) fn from_hir(
         hir_ty: HirType,
-        linkage_instantiation: Option<&LinkageInstantiation>,
+        lin_instantiation: Option<&LinInstantiation>,
         db: &::salsa::Db,
     ) -> Self {
         match hir_ty {
@@ -120,13 +120,13 @@ impl LinType {
                 hir_ty.ty_path(db),
                 LinTemplateArgument::from_hir_template_arguments(
                     hir_ty.template_arguments(db),
-                    linkage_instantiation,
+                    lin_instantiation,
                     db,
                 ),
             )
             .into(),
-            HirType::Symbol(symbol) => match linkage_instantiation {
-                Some(linkage_instantiation) => match linkage_instantiation.resolve(symbol.into()) {
+            HirType::Symbol(symbol) => match lin_instantiation {
+                Some(lin_instantiation) => match lin_instantiation.resolve(symbol.into()) {
                     LinTermSymbolResolution::Explicit(arg) => match arg {
                         LinTemplateArgument::Vacant => todo!(),
                         LinTemplateArgument::Type(linkage_ty) => linkage_ty,
@@ -146,11 +146,9 @@ impl LinType {
                 hir_ty
                     .parameters(db)
                     .iter()
-                    .map(|&param| {
-                        LinkageRitchieParameter::from_hir(param, linkage_instantiation, db)
-                    })
+                    .map(|&param| LinkageRitchieParameter::from_hir(param, lin_instantiation, db))
                     .collect(),
-                LinType::from_hir(hir_ty.return_ty(db), linkage_instantiation, db),
+                LinType::from_hir(hir_ty.return_ty(db), lin_instantiation, db),
             )
             .into(),
         }
@@ -158,12 +156,12 @@ impl LinType {
 
     pub(crate) fn from_javelin(
         javelin_ty: JavelinType,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         match javelin_ty {
             JavelinType::PathLeading(javelin_ty) => {
-                LinTypePathLeading::from_javelin(javelin_ty, linkage_instantiation, db).into()
+                LinTypePathLeading::from_javelin(javelin_ty, lin_instantiation, db).into()
             }
             JavelinType::Ritchie(javelin_ty) => LinkageRitchieType::new(
                 db,
@@ -171,10 +169,10 @@ impl LinType {
                     .parameters(db)
                     .iter()
                     .map(|&param| {
-                        LinkageRitchieParameter::from_javelin(param, linkage_instantiation, db)
+                        LinkageRitchieParameter::from_javelin(param, lin_instantiation, db)
                     })
                     .collect(),
-                LinType::from_javelin(javelin_ty.return_ty(db), linkage_instantiation, db),
+                LinType::from_javelin(javelin_ty.return_ty(db), lin_instantiation, db),
             )
             .into(),
         }
@@ -184,7 +182,7 @@ impl LinType {
 impl LinTypePathLeading {
     fn from_javelin(
         javelin_ty: JavelinTypePathLeading,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         LinTypePathLeading::new(
@@ -193,7 +191,7 @@ impl LinTypePathLeading {
             javelin_ty
                 .template_arguments(db)
                 .iter()
-                .map(|&arg| LinTemplateArgument::from_javelin(arg, linkage_instantiation, db))
+                .map(|&arg| LinTemplateArgument::from_javelin(arg, lin_instantiation, db))
                 .collect(),
         )
     }

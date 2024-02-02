@@ -7,7 +7,7 @@
                 Linkage {
                     data: LinkageData::ValItem {
                         path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
-                        instantiation: LinkageInstantiation {
+                        instantiation: LinInstantiation {
                             symbol_resolutions: [],
                             separator: None,
                         },
@@ -29,7 +29,7 @@
                 Linkage {
                     data: LinkageData::ValItem {
                         path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                        instantiation: LinkageInstantiation {
+                        instantiation: LinInstantiation {
                             symbol_resolutions: [],
                             separator: None,
                         },

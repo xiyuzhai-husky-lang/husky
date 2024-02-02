@@ -32,7 +32,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist::input`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
