@@ -1,5 +1,6 @@
 mod hir_ty;
 pub(crate) mod keyword;
+mod lin_ty;
 mod literal;
 mod macro_name;
 mod misc;

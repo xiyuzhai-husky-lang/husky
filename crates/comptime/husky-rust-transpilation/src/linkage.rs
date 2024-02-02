@@ -308,35 +308,6 @@ impl<E> TranspileToRustWith<E> for LinTemplateArgument {
     }
 }
 
-impl<E> TranspileToRustWith<E> for LinConstant {
-    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
-        match self.0 {
-            JavelinConstant::Unit(_) => todo!(),
-            JavelinConstant::Bool(_) => todo!(),
-            JavelinConstant::Char(_) => todo!(),
-            JavelinConstant::I8(_) => todo!(),
-            JavelinConstant::I16(_) => todo!(),
-            JavelinConstant::I32(_) => todo!(),
-            JavelinConstant::I64(_) => todo!(),
-            JavelinConstant::I128(_) => todo!(),
-            JavelinConstant::ISize(_) => todo!(),
-            JavelinConstant::U8(_) => todo!(),
-            JavelinConstant::U16(_) => todo!(),
-            JavelinConstant::U32(_) => todo!(),
-            JavelinConstant::U64(_) => todo!(),
-            JavelinConstant::U128(_) => todo!(),
-            JavelinConstant::USize(_) => todo!(),
-            JavelinConstant::R8(_) => todo!(),
-            JavelinConstant::R16(_) => todo!(),
-            JavelinConstant::R32(_) => todo!(),
-            JavelinConstant::R64(_) => todo!(),
-            JavelinConstant::R128(_) => todo!(),
-            JavelinConstant::RSize(_) => todo!(),
-            JavelinConstant::StaticLifetime => builder.static_lifetime(),
-        }
-    }
-}
-
 impl<E> TranspileToRustWith<E> for LinkageRitchieType {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
