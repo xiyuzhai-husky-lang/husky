@@ -62,7 +62,7 @@ impl EthTermSymbolIndex {
                 variance,
                 disambiguator,
             },
-            DecTermSymbolIndexImpl::Prop { disambiguator } => todo!(),
+            DecTermSymbolIndexImpl::Prop { disambiguator: _ } => todo!(),
             DecTermSymbolIndexImpl::ConstPathLeading {
                 attrs,
                 disambiguator,
@@ -80,8 +80,8 @@ impl EthTermSymbolIndex {
                 disambiguator,
             },
             DecTermSymbolIndexImpl::ConstErr {
-                attrs,
-                disambiguator,
+                attrs: _,
+                disambiguator: _,
             } => todo!(),
             DecTermSymbolIndexImpl::EphemPathLeading {
                 disambiguator,
@@ -90,13 +90,13 @@ impl EthTermSymbolIndex {
                 disambiguator,
                 ty_path,
             },
-            DecTermSymbolIndexImpl::EphemOther { disambiguator } => todo!(),
-            DecTermSymbolIndexImpl::EphemErr { disambiguator } => todo!(),
+            DecTermSymbolIndexImpl::EphemOther { disambiguator: _ } => todo!(),
+            DecTermSymbolIndexImpl::EphemErr { disambiguator: _ } => todo!(),
             DecTermSymbolIndexImpl::SelfType => EthTermSymbolIndexImpl::SelfType,
             DecTermSymbolIndexImpl::SelfValue => EthTermSymbolIndexImpl::SelfValue,
             DecTermSymbolIndexImpl::SelfLifetime => EthTermSymbolIndexImpl::SelfLifetime,
             DecTermSymbolIndexImpl::SelfPlace => EthTermSymbolIndexImpl::SelfPlace,
-            DecTermSymbolIndexImpl::AdHoc { disambiguator } => unreachable!(),
+            DecTermSymbolIndexImpl::AdHoc { disambiguator: _ } => unreachable!(),
         })
     }
 
