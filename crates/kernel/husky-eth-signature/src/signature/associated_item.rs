@@ -32,20 +32,11 @@ impl AssociatedItemEthTemplate {
 impl HasEthTemplate for AssociatedItemPath {
     type EthTemplate = AssociatedItemEthTemplate;
 
-    fn ethereal_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
         match self {
-            AssociatedItemPath::TypeItem(path) => {
-                path.ethereal_signature_template(db).map(Into::into)
-            }
-            AssociatedItemPath::TraitItem(path) => {
-                path.ethereal_signature_template(db).map(Into::into)
-            }
-            AssociatedItemPath::TraitForTypeItem(path) => {
-                path.ethereal_signature_template(db).map(Into::into)
-            }
+            AssociatedItemPath::TypeItem(path) => path.eth_template(db).map(Into::into),
+            AssociatedItemPath::TraitItem(path) => path.eth_template(db).map(Into::into),
+            AssociatedItemPath::TraitForTypeItem(path) => path.eth_template(db).map(Into::into),
         }
     }
 }

@@ -33,32 +33,30 @@ impl<'a> SemaExprEngine<'a> {
                             .map_err(Into::into),
                     ),
                     // for instance constructor, we need to fill in template parameters
-                    TypePathDisambiguation::InstanceConstructor => {
-                        match path.ethereal_signature_template(db) {
-                            Ok(tmpl) => {
-                                let instantiation = FlyInstantiation::from_template_parameters(
-                                    FlyInstantiationEnvironment::TypeOntologyConstructor,
-                                    syn_expr_idx,
-                                    tmpl.template_parameters(db),
-                                    None,
-                                    self.fluffy_terms_mut(),
-                                    db,
-                                );
-                                (
-                                    Ok(Some(instantiation)),
-                                    tmpl.instance_constructor_ty(db)
-                                        .ok_or(OriginalSemaExprTypeError::NoConstructor.into())
-                                        .map(Into::into),
-                                )
-                            }
-                            Err(_) => todo!(),
+                    TypePathDisambiguation::InstanceConstructor => match path.eth_template(db) {
+                        Ok(tmpl) => {
+                            let instantiation = FlyInstantiation::from_template_parameters(
+                                FlyInstantiationEnvironment::TypeOntologyConstructor,
+                                syn_expr_idx,
+                                tmpl.template_parameters(db),
+                                None,
+                                self.fluffy_terms_mut(),
+                                db,
+                            );
+                            (
+                                Ok(Some(instantiation)),
+                                tmpl.instance_constructor_ty(db)
+                                    .ok_or(OriginalSemaExprTypeError::NoConstructor.into())
+                                    .map(Into::into),
+                            )
                         }
-                    }
+                        Err(_) => todo!(),
+                    },
                 },
                 MajorItemPath::Trait(path) => {
                     (Ok(None), path.ty(db).map(Into::into).map_err(Into::into))
                 }
-                MajorItemPath::Fugitive(path) => match path.ethereal_signature_template(db) {
+                MajorItemPath::Fugitive(path) => match path.eth_template(db) {
                     Ok(tmpl) => {
                         let instantiation = FlyInstantiation::from_template_parameters(
                             FlyInstantiationEnvironment::TypeOntologyConstructor,
@@ -97,11 +95,11 @@ impl<'a> SemaExprEngine<'a> {
             },
             PrincipalEntityPath::TypeVariant(path) => {
                 let parent_ty_path = path.parent_ty_path(db);
-                let parent_ty_tmpl = match parent_ty_path.ethereal_signature_template(db) {
+                let parent_ty_tmpl = match parent_ty_path.eth_template(db) {
                     Ok(tmpl) => tmpl,
                     Err(_) => todo!(),
                 };
-                let tmpl = match path.ethereal_signature_template(db) {
+                let tmpl = match path.eth_template(db) {
                     Ok(tmpl) => tmpl,
                     Err(_) => todo!(),
                 };
@@ -131,7 +129,7 @@ impl<'a> SemaExprEngine<'a> {
     ) -> SemaExprTypeResult<FlyTerm> {
         let db = self.db();
         let parent_ty_path = path.parent_ty_path(db);
-        match path.ethereal_signature_template(db)? {
+        match path.eth_template(db)? {
             TypeVariantEthTemplate::Props(_) => todo!(),
             TypeVariantEthTemplate::Unit(_) => match expr_ty_expectation.destination() {
                 Some(destination) => match destination.data(self) {

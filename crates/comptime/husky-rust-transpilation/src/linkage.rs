@@ -195,10 +195,7 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
         let (path, lin_instantiation) = self;
         let db = builder.db;
         let self_ty = HirType::from_eth(
-            path.impl_block(db)
-                .ethereal_signature_template(db)
-                .unwrap()
-                .self_ty(db),
+            path.impl_block(db).eth_template(db).unwrap().self_ty(db),
             db,
         )
         .unwrap()
@@ -382,20 +379,14 @@ impl<E> TranspileToRustWith<E> for (TraitForTypeItemPath, &LinInstantiation) {
         let (path, lin_instantiation) = self;
         let db = builder.db;
         builder.bracketed(RustBracket::Angle, |builder| {
-            let trait_for_type_impl_block_ethereal_signature_template =
-                path.impl_block(db).ethereal_signature_template(db).unwrap();
-            let self_ty = HirType::from_eth(
-                trait_for_type_impl_block_ethereal_signature_template.self_ty(db),
-                db,
-            )
-            .unwrap()
-            .linkage_instantiate(lin_instantiation, db);
+            let trait_for_type_impl_block_eth_template =
+                path.impl_block(db).eth_template(db).unwrap();
+            let self_ty = HirType::from_eth(trait_for_type_impl_block_eth_template.self_ty(db), db)
+                .unwrap()
+                .linkage_instantiate(lin_instantiation, db);
             self_ty.transpile_to_rust(builder);
             builder.keyword(RustKeyword::As);
-            let trai = HirTrait::from_eth(
-                trait_for_type_impl_block_ethereal_signature_template.trai(db),
-                db,
-            );
+            let trai = HirTrait::from_eth(trait_for_type_impl_block_eth_template.trai(db), db);
             trai.linkage_instantiate(lin_instantiation, db)
                 .transpile_to_rust(builder)
         });

@@ -41,26 +41,20 @@ impl ItemEthTemplate {
 pub trait HasEthTemplate {
     type EthTemplate;
 
-    fn ethereal_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EthTemplate>;
+    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate>;
 }
 
 impl HasEthTemplate for ItemPath {
     type EthTemplate = ItemEthTemplate;
 
-    fn ethereal_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
         Ok(match self {
             ItemPath::Submodule(_, _) => ItemEthTemplate::Submodule,
-            ItemPath::MajorItem(path) => path.ethereal_signature_template(db)?.into(),
-            ItemPath::AssociatedItem(path) => path.ethereal_signature_template(db)?.into(),
-            ItemPath::TypeVariant(_, path) => path.ethereal_signature_template(db)?.into(),
-            ItemPath::ImplBlock(path) => path.ethereal_signature_template(db)?.into(),
-            ItemPath::Attr(_, path) => path.ethereal_signature_template(db)?.into(),
+            ItemPath::MajorItem(path) => path.eth_template(db)?.into(),
+            ItemPath::AssociatedItem(path) => path.eth_template(db)?.into(),
+            ItemPath::TypeVariant(_, path) => path.eth_template(db)?.into(),
+            ItemPath::ImplBlock(path) => path.eth_template(db)?.into(),
+            ItemPath::Attr(_, path) => path.eth_template(db)?.into(),
         })
     }
 }

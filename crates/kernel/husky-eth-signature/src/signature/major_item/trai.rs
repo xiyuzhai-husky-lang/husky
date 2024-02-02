@@ -10,16 +10,13 @@ pub struct TraitEthTemplate {
 impl HasEthTemplate for TraitPath {
     type EthTemplate = TraitEthTemplate;
 
-    fn ethereal_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EthTemplate> {
-        trai_ethereal_signature_template(db, self)
+    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+        trai_eth_template(db, self)
     }
 }
 
 #[salsa::tracked(jar = EtherealSignatureJar)]
-fn trai_ethereal_signature_template(
+fn trai_eth_template(
     db: &::salsa::Db,
     trai_path: TraitPath,
 ) -> EtherealSignatureResult<TraitEthTemplate> {

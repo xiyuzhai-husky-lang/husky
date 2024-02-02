@@ -26,15 +26,10 @@ impl ImplBlockEthTemplate {
 impl HasEthTemplate for ImplBlockPath {
     type EthTemplate = ImplBlockEthTemplate;
 
-    fn ethereal_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
         Ok(match self {
-            ImplBlockPath::TypeImplBlock(path) => path.ethereal_signature_template(db)?.into(),
-            ImplBlockPath::TraitForTypeImplBlock(path) => {
-                path.ethereal_signature_template(db)?.into()
-            }
+            ImplBlockPath::TypeImplBlock(path) => path.eth_template(db)?.into(),
+            ImplBlockPath::TraitForTypeImplBlock(path) => path.eth_template(db)?.into(),
         })
     }
 }

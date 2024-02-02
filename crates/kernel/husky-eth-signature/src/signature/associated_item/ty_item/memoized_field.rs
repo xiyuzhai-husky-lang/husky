@@ -19,7 +19,7 @@ impl TypeMemoizedFieldEthTemplate {
         path: TypeItemPath,
         declarative_signature: TypeMemoizedFieldDecTemplate,
     ) -> EtherealSignatureResult<TypeMemoizedFieldEthTemplate> {
-        let impl_block = path.impl_block(db).ethereal_signature_template(db)?;
+        let impl_block = path.impl_block(db).eth_template(db)?;
         let return_ty = EthTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
         Ok(TypeMemoizedFieldEthTemplate::new(
             db, path, impl_block, return_ty,
@@ -75,7 +75,7 @@ impl TypeMemoizedFieldEtherealSignature {
 }
 
 pub trait HasTypeMemoizedFieldEthTemplates: Copy {
-    fn ty_memoized_field_ethereal_signature_templates_map<'a>(
+    fn ty_memoized_field_eth_templates_map<'a>(
         self,
         db: &'a ::salsa::Db,
     ) -> EtherealSignatureResult<
@@ -85,14 +85,14 @@ pub trait HasTypeMemoizedFieldEthTemplates: Copy {
         )],
     >;
 
-    fn ty_memoized_field_ethereal_signature_templates<'a>(
+    fn ty_memoized_field_eth_templates<'a>(
         self,
         db: &'a ::salsa::Db,
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<&'a [TypeMemoizedFieldEthTemplate]> {
         use vec_like::VecMapGetEntry;
         match self
-            .ty_memoized_field_ethereal_signature_templates_map(db)?
+            .ty_memoized_field_eth_templates_map(db)?
             .get_entry(ident)
         {
             Some((_, Ok(templates))) => JustOk(templates),
@@ -118,8 +118,7 @@ impl HasTypeMemoizedFieldEtherealSignature for TypePath {
         arguments: &[EthTerm],
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature> {
-        let TypeItemEthTemplates::MemoizedField(tmpls) =
-            self.ty_item_ethereal_signature_templates(db, ident)?
+        let TypeItemEthTemplates::MemoizedField(tmpls) = self.ty_item_eth_templates(db, ident)?
         else {
             return Nothing;
         };

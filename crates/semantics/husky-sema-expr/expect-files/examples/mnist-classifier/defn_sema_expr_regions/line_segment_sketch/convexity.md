@@ -8948,7 +8948,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: None,
                                                         base: Eth(
                                                             EntityPath(
@@ -9859,7 +9859,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: None,
                                                         base: Eth(
                                                             EntityPath(

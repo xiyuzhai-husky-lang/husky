@@ -17,7 +17,7 @@ impl TypeAssociatedValHirDecl {
         let _builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         todo!()
         // let mut builder = HirEagerExprBuilder::new(db, syn_decl.expr_region(db));
-        // let return_ty = builder.hir_ty(ethereal_signature_template.return_ty(db), db);
+        // let return_ty = builder.hir_ty(eth_template.return_ty(db), db);
         // let hir_expr_region = builder.finish();
         // Self::new(db, path, return_ty, hir_expr_region)
     }

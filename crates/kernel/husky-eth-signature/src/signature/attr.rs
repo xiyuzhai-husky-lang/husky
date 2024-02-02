@@ -16,16 +16,13 @@ pub enum AttrEthTemplate {
 impl HasEthTemplate for AttrItemPath {
     type EthTemplate = AttrEthTemplate;
 
-    fn ethereal_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EthTemplate> {
-        attr_ethereal_signature_template(db, self)
+    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+        attr_eth_template(db, self)
     }
 }
 
 // #[salsa::tracked(jar = EtherealSignatureJar)]
-fn attr_ethereal_signature_template(
+fn attr_eth_template(
     db: &::salsa::Db,
     path: AttrItemPath,
 ) -> EtherealSignatureResult<AttrEthTemplate> {

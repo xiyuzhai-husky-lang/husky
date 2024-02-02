@@ -753,7 +753,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: None,
                                                         base: Eth(
                                                             EntityPath(
@@ -796,7 +796,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: None,
                                                         base: Eth(
                                                             EntityPath(
@@ -1566,7 +1566,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: Some(
                                                             StackPure {
                                                                 location: StackLocationIdx(
@@ -2547,7 +2547,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: None,
                                                         base: Eth(
                                                             EntityPath(
@@ -2590,7 +2590,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: None,
                                                         base: Eth(
                                                             EntityPath(
@@ -41951,7 +41951,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: None,
                                                         base: Hol(
                                                             HolTerm(
@@ -42418,7 +42418,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: None,
                                                         base: Hol(
                                                             HolTerm(
@@ -42513,7 +42513,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: None,
                                                         base: Hol(
                                                             HolTerm(
@@ -43178,7 +43178,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: None,
                                                         base: Eth(
                                                             EntityPath(
@@ -43221,7 +43221,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: None,
                                                         base: Eth(
                                                             EntityPath(
@@ -43408,7 +43408,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: None,
                                                         base: Hol(
                                                             HolTerm(
@@ -46026,7 +46026,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: Some(
                                                             MutableStackOwned {
                                                                 location: StackLocationIdx(
@@ -46079,7 +46079,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: Some(
                                                             Const,
                                                         ),
@@ -46126,7 +46126,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: Some(
                                                             Const,
                                                         ),
@@ -52418,8 +52418,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::AnyOriginal(
-                                    ExpectAnyOriginal,
+                                expectation: Expectation::NumType(
+                                    ExpectNumType,
                                 ),
                                 state: ExpectationState {
                                     idx: 299,
@@ -52444,7 +52444,22 @@
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::NumType(
+                                                ExpectNumTypeOutcome {
+                                                    placeless_num_ty: FlyTerm {
+                                                        place: None,
+                                                        base: Hol(
+                                                            HolTerm(
+                                                                9,
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -66140,7 +66155,7 @@
                                         Ok(
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
-                                                    placeless_num_ty: FlyTerm {
+                                                    placeless_int_ty: FlyTerm {
                                                         place: None,
                                                         base: Hol(
                                                             HolTerm(

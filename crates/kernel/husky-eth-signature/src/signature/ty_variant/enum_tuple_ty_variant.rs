@@ -12,8 +12,7 @@ impl EnumTupleVariantEthTemplate {
         path: TypeVariantPath,
         tmpl: EnumTupleVariantDecTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let TypeEthTemplate::Enum(parent_ty_template) =
-            path.parent_ty_path(db).ethereal_signature_template(db)?
+        let TypeEthTemplate::Enum(parent_ty_template) = path.parent_ty_path(db).eth_template(db)?
         else {
             unreachable!()
         };

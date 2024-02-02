@@ -9,53 +9,22 @@ impl<'a> SemaExprEngine<'a> {
         ritchie_parameters: &[FlyRitchieParameter],
         ritchie_arguments: impl Iterator<Item = SynCallListItem> + Clone,
     ) -> SemaExprDataResult<RitchieParameterArgumentMatches> {
-        match RitchieParameterArgumentMatcher::new(
-            ritchie_parameters,
-            ritchie_arguments.clone(),
-            self,
-        )
-        .match_all()
-        {
-            Ok(ritchie_matches) => {
-                // for ritchie_match in &ritchie_matches {
-                //     match ritchie_match {
-                //         RitchieParameterArgumentMatch::Regular(param, item) => self
-                //             .build_new_expr_ty_discarded(
-                //                 item.argument_expr_idx(),
-                //                 ExpectCoersion::new(param.contract(), param.ty()),
-                //             ),
-                //         RitchieParameterArgumentMatch::Variadic(param, items) => {
-                //             for item in items {
-                //                 self.build_new_expr_ty_discarded(
-                //                     item.argument_expr_idx(),
-                //                     ExpectCoersion::new(param.contract(), param.ty()),
-                //                 )
-                //             }
-                //         }
-                //         RitchieParameterArgumentMatch::Keyed(param, item) => self
-                //             .build_new_expr_ty_discarded(
-                //                 item.argument_expr_idx(),
-                //                 ExpectCoersion::new(param.contract(), param.ty()),
-                //             ),
-                //     }
-                // }
-                Ok(ritchie_matches)
-            }
-            Err(match_error) => {
-                let ritchie_arguments = ritchie_arguments
-                    .map(|ritchie_argument| {
-                        self.build_sema_expr(ritchie_argument.argument_expr_idx(), ExpectAnyDerived)
-                    })
-                    .collect();
-                Err(
-                    OriginalSemaExprDataError::RitchieParameterArgumentMismatch {
-                        match_error,
-                        ritchie_arguments,
-                    }
-                    .into(),
-                )
-            }
-        }
+        RitchieParameterArgumentMatcher::new(ritchie_parameters, ritchie_arguments.clone(), self)
+            .match_all()
+            .map_err(|match_error| {
+                OriginalSemaExprDataError::RitchieParameterArgumentMismatch {
+                    match_error,
+                    ritchie_arguments: ritchie_arguments
+                        .map(|ritchie_argument| {
+                            self.build_sema_expr(
+                                ritchie_argument.argument_expr_idx(),
+                                ExpectAnyDerived,
+                            )
+                        })
+                        .collect(),
+                }
+                .into()
+            })
     }
 }
 
