@@ -14,15 +14,6 @@ pub(crate) struct RangedPretoken {
     pub(crate) token: Pretoken,
 }
 
-impl RangedPretoken {
-    fn new(i: u32, start: u32, end: u32, token: Pretoken) -> Self {
-        RangedPretoken {
-            range: husky_text_protocol::range::new_same_line(i, start, end),
-            token,
-        }
-    }
-}
-
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) enum Pretoken {
@@ -402,14 +393,6 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         }
     }
 
-    fn take_buffer_parsed<T>(&mut self) -> T
-    where
-        T: FromStr,
-        <T as FromStr>::Err: std::fmt::Debug,
-    {
-        std::mem::take(&mut self.buffer).parse::<T>().unwrap()
-    }
-
     fn peek_char(&mut self) -> Option<char> {
         self.char_iter.peek()
     }
@@ -449,10 +432,6 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
 
     fn get_str_slice_with(&mut self, predicate: impl Fn(char) -> bool) -> &'b str {
         self.char_iter.get_str_slice_with(predicate)
-    }
-
-    fn ignore_char(&mut self) {
-        let _c = self.char_iter.next().expect("what");
     }
 
     fn next_punctuation(&mut self, c_start: char) -> Option<Pretoken> {

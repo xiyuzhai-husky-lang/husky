@@ -19,7 +19,6 @@ mod tokenize;
 pub use self::db::*;
 pub use self::helpers::*;
 pub use self::sheet::*;
-pub use self::snippet::*;
 pub use self::stream::*;
 pub use self::token_idx::*;
 pub use self::token_idx_range::*;
@@ -27,6 +26,7 @@ pub use self::token_idx_range::*;
 pub use self::token_group::*;
 pub use self::token_visibility::*;
 
+use self::snippet::*;
 #[cfg(test)]
 use self::tests::*;
 use self::tokenize::*;
