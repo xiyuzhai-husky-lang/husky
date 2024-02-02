@@ -32,7 +32,7 @@ pub(crate) struct SemaExprEngine<'a> {
     db: &'a ::salsa::Db,
     toolchain: Toolchain,
     item_path_menu: &'a ItemPathMenu,
-    term_menu: &'a EtherealTermMenu,
+    term_menu: &'a EthTermMenu,
     syn_expr_region: SynExprRegion,
     syn_expr_region_data: &'a SynExprRegionData,
     regional_tokens_data: RegionalTokensData<'a>,
@@ -48,13 +48,13 @@ pub(crate) struct SemaExprEngine<'a> {
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
     pattern_expr_contracts: SynPatternExprMap<TermContract>,
-    return_ty: Option<EtherealTerm>,
+    return_ty: Option<EthTerm>,
     pub(crate) unveiler: Unveiler,
-    self_ty: Option<EtherealTerm>,
-    self_value: Option<SymbolEtherealTerm>,
+    self_ty: Option<EthTerm>,
+    self_value: Option<SymbolEthTerm>,
     self_value_ty: Option<FluffyTerm>,
-    self_lifetime: Option<SymbolEtherealTerm>,
-    self_place: Option<SymbolEtherealTerm>,
+    self_lifetime: Option<SymbolEthTerm>,
+    self_place: Option<SymbolEthTerm>,
     trai_in_use_items_table: TraitInUseItemsTable<'a>,
 }
 
@@ -83,7 +83,7 @@ impl<'a> FluffyTermEngine<'a> for SemaExprEngine<'a> {
         self.item_path_menu
     }
 
-    fn term_menu(&self) -> &'a EtherealTermMenu {
+    fn term_menu(&self) -> &'a EthTermMenu {
         self.term_menu
     }
 
@@ -113,29 +113,29 @@ impl<'a> SemaExprEngine<'a> {
                     .ok()
             })
             .flatten()
-            .map(|term| EtherealTerm::ty_from_declarative(db, term).ok())
+            .map(|term| EthTerm::ty_from_declarative(db, term).ok())
             .flatten();
         let declarative_term_region = db.declarative_term_region(syn_expr_region);
         let self_ty = declarative_term_region
             .term_symbol_region()
             .self_ty()
-            .map(|self_ty| EtherealTerm::ty_from_declarative(db, self_ty).ok())
+            .map(|self_ty| EthTerm::ty_from_declarative(db, self_ty).ok())
             .flatten();
         let self_value = declarative_term_region
             .term_symbol_region()
             .self_value()
-            .map(|self_value| SymbolEtherealTerm::from_declarative(db, self_value).ok())
+            .map(|self_value| SymbolEthTerm::from_declarative(db, self_value).ok())
             .flatten();
         let mut stack_location_registry = Default::default();
         let self_lifetime = declarative_term_region
             .term_symbol_region()
             .self_lifetime()
-            .map(|self_lifetime| SymbolEtherealTerm::from_declarative(db, self_lifetime).ok())
+            .map(|self_lifetime| SymbolEthTerm::from_declarative(db, self_lifetime).ok())
             .flatten();
         let self_place = declarative_term_region
             .term_symbol_region()
             .self_place()
-            .map(|self_place| SymbolEtherealTerm::from_declarative(db, self_place).ok())
+            .map(|self_place| SymbolEthTerm::from_declarative(db, self_place).ok())
             .flatten();
         let self_value_ty = calc_self_value_ty(
             syn_expr_region_data,
@@ -239,7 +239,7 @@ impl<'a> SemaExprEngine<'a> {
         self.toolchain
     }
 
-    pub(crate) fn eth_term_menu(&self) -> &EtherealTermMenu {
+    pub(crate) fn eth_term_menu(&self) -> &EthTermMenu {
         self.term_menu
     }
 
@@ -281,7 +281,7 @@ impl<'a> SemaExprEngine<'a> {
         )
     }
 
-    pub(crate) fn return_ty(&self) -> Option<EtherealTerm> {
+    pub(crate) fn return_ty(&self) -> Option<EthTerm> {
         self.return_ty
     }
 
@@ -289,7 +289,7 @@ impl<'a> SemaExprEngine<'a> {
         &self.symbol_tys
     }
 
-    pub(crate) fn self_ty(&self) -> Option<EtherealTerm> {
+    pub(crate) fn self_ty(&self) -> Option<EthTerm> {
         self.self_ty
     }
 
@@ -300,8 +300,8 @@ impl<'a> SemaExprEngine<'a> {
 
 fn calc_self_value_ty(
     syn_expr_region_data: &SynExprRegionData,
-    self_ty: Option<EtherealTerm>,
-    self_place: Option<SymbolEtherealTerm>,
+    self_ty: Option<EthTerm>,
+    self_place: Option<SymbolEthTerm>,
     db: &salsa::Db,
     registry: &mut StackLocationRegistry,
 ) -> Option<FluffyTerm> {

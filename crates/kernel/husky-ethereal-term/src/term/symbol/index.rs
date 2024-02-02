@@ -3,13 +3,13 @@ use husky_term_prelude::template_symbol_class::TermTemplateSymbolClass;
 
 // todo: use bitmap?
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Default)]
-pub struct EtherealTemplateSymbolAttrs {
+pub struct EthTemplateSymbolAttrs {
     pub class: TermTemplateSymbolClass,
 }
 
-impl EtherealTemplateSymbolAttrs {
+impl EthTemplateSymbolAttrs {
     pub fn from_declarative(attrs: DeclarativeTemplateSymbolAttrs) -> Self {
-        EtherealTemplateSymbolAttrs { class: attrs.class }
+        EthTemplateSymbolAttrs { class: attrs.class }
     }
 
     pub fn phantom(self) -> bool {
@@ -17,30 +17,30 @@ impl EtherealTemplateSymbolAttrs {
     }
 }
 
-impl Into<DeclarativeTemplateSymbolAttrs> for EtherealTemplateSymbolAttrs {
+impl Into<DeclarativeTemplateSymbolAttrs> for EthTemplateSymbolAttrs {
     fn into(self) -> DeclarativeTemplateSymbolAttrs {
         unsafe { DeclarativeTemplateSymbolAttrs::new(self.class) }
     }
 }
 
-pub enum EtherealTemplateSymbolAttr {
+pub enum EthTemplateSymbolAttr {
     Phantom,
 }
 
 /// wrapper so such the construction is private
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct EtherealTermSymbolIndex(EtherealTermSymbolIndexImpl);
+pub struct EthTermSymbolIndex(EthTermSymbolIndexImpl);
 
-impl EtherealTermSymbolIndex {
+impl EthTermSymbolIndex {
     pub(super) fn from_declarative(index: DeclarativeTermSymbolIndex) -> Self {
-        EtherealTermSymbolIndex(match index.inner() {
+        EthTermSymbolIndex(match index.inner() {
             DeclarativeTermSymbolIndexImpl::ExplicitLifetime {
                 attrs,
                 variance,
                 disambiguator,
-            } => EtherealTermSymbolIndexImpl::ExplicitLifetime {
-                attrs: EtherealTemplateSymbolAttrs::from_declarative(attrs),
+            } => EthTermSymbolIndexImpl::ExplicitLifetime {
+                attrs: EthTemplateSymbolAttrs::from_declarative(attrs),
                 variance,
                 disambiguator,
             },
@@ -48,8 +48,8 @@ impl EtherealTermSymbolIndex {
                 attrs,
                 variance,
                 disambiguator,
-            } => EtherealTermSymbolIndexImpl::ExplicitPlace {
-                attrs: EtherealTemplateSymbolAttrs::from_declarative(attrs),
+            } => EthTermSymbolIndexImpl::ExplicitPlace {
+                attrs: EthTemplateSymbolAttrs::from_declarative(attrs),
                 variance,
                 disambiguator,
             },
@@ -57,8 +57,8 @@ impl EtherealTermSymbolIndex {
                 attrs,
                 variance,
                 disambiguator,
-            } => EtherealTermSymbolIndexImpl::Type {
-                attrs: EtherealTemplateSymbolAttrs::from_declarative(attrs),
+            } => EthTermSymbolIndexImpl::Type {
+                attrs: EthTemplateSymbolAttrs::from_declarative(attrs),
                 variance,
                 disambiguator,
             },
@@ -67,16 +67,16 @@ impl EtherealTermSymbolIndex {
                 attrs,
                 disambiguator,
                 ty_path,
-            } => EtherealTermSymbolIndexImpl::ConstPathLeading {
-                attrs: EtherealTemplateSymbolAttrs::from_declarative(attrs),
+            } => EthTermSymbolIndexImpl::ConstPathLeading {
+                attrs: EthTemplateSymbolAttrs::from_declarative(attrs),
                 disambiguator,
                 ty_path,
             },
             DeclarativeTermSymbolIndexImpl::ConstOther {
                 attrs,
                 disambiguator,
-            } => EtherealTermSymbolIndexImpl::ConstOther {
-                attrs: EtherealTemplateSymbolAttrs::from_declarative(attrs),
+            } => EthTermSymbolIndexImpl::ConstOther {
+                attrs: EthTemplateSymbolAttrs::from_declarative(attrs),
                 disambiguator,
             },
             DeclarativeTermSymbolIndexImpl::ConstErr {
@@ -86,33 +86,31 @@ impl EtherealTermSymbolIndex {
             DeclarativeTermSymbolIndexImpl::EphemPathLeading {
                 disambiguator,
                 ty_path,
-            } => EtherealTermSymbolIndexImpl::EphemPathLeading {
+            } => EthTermSymbolIndexImpl::EphemPathLeading {
                 disambiguator,
                 ty_path,
             },
             DeclarativeTermSymbolIndexImpl::EphemOther { disambiguator } => todo!(),
             DeclarativeTermSymbolIndexImpl::EphemErr { disambiguator } => todo!(),
-            DeclarativeTermSymbolIndexImpl::SelfType => EtherealTermSymbolIndexImpl::SelfType,
-            DeclarativeTermSymbolIndexImpl::SelfValue => EtherealTermSymbolIndexImpl::SelfValue,
-            DeclarativeTermSymbolIndexImpl::SelfLifetime => {
-                EtherealTermSymbolIndexImpl::SelfLifetime
-            }
-            DeclarativeTermSymbolIndexImpl::SelfPlace => EtherealTermSymbolIndexImpl::SelfPlace,
+            DeclarativeTermSymbolIndexImpl::SelfType => EthTermSymbolIndexImpl::SelfType,
+            DeclarativeTermSymbolIndexImpl::SelfValue => EthTermSymbolIndexImpl::SelfValue,
+            DeclarativeTermSymbolIndexImpl::SelfLifetime => EthTermSymbolIndexImpl::SelfLifetime,
+            DeclarativeTermSymbolIndexImpl::SelfPlace => EthTermSymbolIndexImpl::SelfPlace,
             DeclarativeTermSymbolIndexImpl::AdHoc { disambiguator } => unreachable!(),
         })
     }
 
-    pub fn inner(self) -> EtherealTermSymbolIndexImpl {
+    pub fn inner(self) -> EthTermSymbolIndexImpl {
         self.0
     }
 }
 
-impl Into<DeclarativeTermSymbolIndex> for EtherealTermSymbolIndex {
+impl Into<DeclarativeTermSymbolIndex> for EthTermSymbolIndex {
     #[inline(always)]
     fn into(self) -> DeclarativeTermSymbolIndex {
         unsafe {
             DeclarativeTermSymbolIndex::new(match self.inner() {
-                EtherealTermSymbolIndexImpl::ExplicitLifetime {
+                EthTermSymbolIndexImpl::ExplicitLifetime {
                     attrs,
                     variance,
                     disambiguator,
@@ -121,7 +119,7 @@ impl Into<DeclarativeTermSymbolIndex> for EtherealTermSymbolIndex {
                     variance,
                     disambiguator,
                 },
-                EtherealTermSymbolIndexImpl::ExplicitPlace {
+                EthTermSymbolIndexImpl::ExplicitPlace {
                     attrs,
                     variance,
                     disambiguator,
@@ -130,7 +128,7 @@ impl Into<DeclarativeTermSymbolIndex> for EtherealTermSymbolIndex {
                     variance,
                     disambiguator,
                 },
-                EtherealTermSymbolIndexImpl::Type {
+                EthTermSymbolIndexImpl::Type {
                     attrs,
                     variance,
                     disambiguator,
@@ -139,10 +137,10 @@ impl Into<DeclarativeTermSymbolIndex> for EtherealTermSymbolIndex {
                     variance,
                     disambiguator,
                 },
-                EtherealTermSymbolIndexImpl::Prop { disambiguator } => {
+                EthTermSymbolIndexImpl::Prop { disambiguator } => {
                     DeclarativeTermSymbolIndexImpl::Prop { disambiguator }
                 }
-                EtherealTermSymbolIndexImpl::ConstPathLeading {
+                EthTermSymbolIndexImpl::ConstPathLeading {
                     attrs,
                     disambiguator,
                     ty_path,
@@ -151,29 +149,29 @@ impl Into<DeclarativeTermSymbolIndex> for EtherealTermSymbolIndex {
                     disambiguator,
                     ty_path,
                 },
-                EtherealTermSymbolIndexImpl::ConstOther {
+                EthTermSymbolIndexImpl::ConstOther {
                     attrs,
                     disambiguator,
                 } => DeclarativeTermSymbolIndexImpl::ConstOther {
                     attrs: attrs.into(),
                     disambiguator,
                 },
-                EtherealTermSymbolIndexImpl::EphemPathLeading {
+                EthTermSymbolIndexImpl::EphemPathLeading {
                     disambiguator,
                     ty_path,
                 } => DeclarativeTermSymbolIndexImpl::EphemPathLeading {
                     disambiguator,
                     ty_path,
                 },
-                EtherealTermSymbolIndexImpl::EphemOther { disambiguator } => {
+                EthTermSymbolIndexImpl::EphemOther { disambiguator } => {
                     DeclarativeTermSymbolIndexImpl::EphemOther { disambiguator }
                 }
-                EtherealTermSymbolIndexImpl::SelfType => DeclarativeTermSymbolIndexImpl::SelfType,
-                EtherealTermSymbolIndexImpl::SelfValue => DeclarativeTermSymbolIndexImpl::SelfValue,
-                EtherealTermSymbolIndexImpl::SelfLifetime => {
+                EthTermSymbolIndexImpl::SelfType => DeclarativeTermSymbolIndexImpl::SelfType,
+                EthTermSymbolIndexImpl::SelfValue => DeclarativeTermSymbolIndexImpl::SelfValue,
+                EthTermSymbolIndexImpl::SelfLifetime => {
                     DeclarativeTermSymbolIndexImpl::SelfLifetime
                 }
-                EtherealTermSymbolIndexImpl::SelfPlace => DeclarativeTermSymbolIndexImpl::SelfPlace,
+                EthTermSymbolIndexImpl::SelfPlace => DeclarativeTermSymbolIndexImpl::SelfPlace,
             })
         }
     }
@@ -184,19 +182,19 @@ impl Into<DeclarativeTermSymbolIndex> for EtherealTermSymbolIndex {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[repr(u8)]
-pub enum EtherealTermSymbolIndexImpl {
+pub enum EthTermSymbolIndexImpl {
     ExplicitLifetime {
-        attrs: EtherealTemplateSymbolAttrs,
+        attrs: EthTemplateSymbolAttrs,
         variance: Option<Variance>,
         disambiguator: u8,
     },
     ExplicitPlace {
-        attrs: EtherealTemplateSymbolAttrs,
+        attrs: EthTemplateSymbolAttrs,
         variance: Option<Variance>,
         disambiguator: u8,
     },
     Type {
-        attrs: EtherealTemplateSymbolAttrs,
+        attrs: EthTemplateSymbolAttrs,
         variance: Option<Variance>,
         disambiguator: u8,
     },
@@ -204,12 +202,12 @@ pub enum EtherealTermSymbolIndexImpl {
         disambiguator: u8,
     },
     ConstPathLeading {
-        attrs: EtherealTemplateSymbolAttrs,
+        attrs: EthTemplateSymbolAttrs,
         disambiguator: u8,
         ty_path: TypePath,
     },
     ConstOther {
-        attrs: EtherealTemplateSymbolAttrs,
+        attrs: EthTemplateSymbolAttrs,
         disambiguator: u8,
     },
     EphemPathLeading {

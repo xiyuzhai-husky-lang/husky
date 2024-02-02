@@ -19,8 +19,8 @@
     },
     Linkage {
         data: LinkageData::VecConstructor {
-            element_ty: LinkageType::PathLeading(
-                LinkageTypePathLeading {
+            element_ty: LinType::PathLeading(
+                LinTypePathLeading {
                     ty_path: TypePath(`core::num::i32`, `Extern`),
                     template_arguments: [],
                 },
@@ -29,8 +29,8 @@
     },
     Linkage {
         data: LinkageData::VecConstructor {
-            element_ty: LinkageType::PathLeading(
-                LinkageTypePathLeading {
+            element_ty: LinType::PathLeading(
+                LinTypePathLeading {
                     ty_path: TypePath(`core::mem::Ref`, `Extern`),
                     template_arguments: [
                         LinkageTemplateArgument::Constant(
@@ -39,8 +39,8 @@
                             ),
                         ),
                         LinkageTemplateArgument::Type(
-                            LinkageType::PathLeading(
-                                LinkageTypePathLeading {
+                            LinType::PathLeading(
+                                LinTypePathLeading {
                                     ty_path: TypePath(`core::str::str`, `Extern`),
                                     template_arguments: [],
                                 },

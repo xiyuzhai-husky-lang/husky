@@ -9,8 +9,8 @@ pub enum SemaExprTermError {
     Derived(#[from] DerivedExprTermError),
 }
 
-impl From<EtherealTermError> for SemaExprTermError {
-    fn from(value: EtherealTermError) -> Self {
+impl From<EthTermError> for SemaExprTermError {
+    fn from(value: EthTermError) -> Self {
         todo!()
     }
 }
@@ -54,13 +54,13 @@ pub enum DerivedExprTermError {
     #[error("ambiguous tilde")]
     AmbiguousTilde,
     #[error("tilde application term error")]
-    TildeApplicationTerm(EtherealTermError),
+    TildeApplicationTerm(EthTermError),
     #[error("type path type error")]
     TypePathTypeError,
     #[error("option application term error")]
-    OptionApplicationTerm(EtherealTermError),
+    OptionApplicationTerm(EthTermError),
     #[error("explicit application term")]
-    ExplicitApplicationTerm(EtherealTermError),
+    ExplicitApplicationTerm(EthTermError),
     #[error("explicit application function term not inferred")]
     ExplicitApplicationFunctionTermNotInferred,
     #[error("explicit application argument term not inferred")]

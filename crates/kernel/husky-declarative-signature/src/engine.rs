@@ -29,7 +29,7 @@ pub(super) struct DeclarativeTermEngine<'a> {
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureJar, return_ref)]
+#[salsa::tracked(jar = DecSignatureJar, return_ref)]
 pub(crate) fn declarative_term_region(
     db: &::salsa::Db,
     syn_expr_region: SynExprRegion,

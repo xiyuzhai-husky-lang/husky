@@ -14,7 +14,7 @@ impl TermShowContext {
     pub(crate) fn fmt_symbol(
         &mut self,
         db: &::salsa::Db,
-        symbol: SymbolEtherealTerm,
+        symbol: SymbolEthTerm,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         if let Some(entry) = self.entries.get_entry(symbol) {
@@ -30,7 +30,7 @@ impl TermShowContext {
     pub(crate) fn fmt_variable(
         &mut self,
         _db: &::salsa::Db,
-        _rune: RuneEtherealTerm,
+        _rune: RuneEthTerm,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         // ad hoc
@@ -40,7 +40,7 @@ impl TermShowContext {
     pub(crate) fn fmt_with_symbol(
         &mut self,
         db: &::salsa::Db,
-        symbol: SymbolEtherealTerm,
+        symbol: SymbolEthTerm,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
         self.enter_block(db, symbol);
@@ -52,7 +52,7 @@ impl TermShowContext {
     pub(crate) fn fmt_with_variable(
         &mut self,
         _db: &::salsa::Db,
-        _variable: RuneEtherealTerm,
+        _variable: RuneEthTerm,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
         // ad hoc

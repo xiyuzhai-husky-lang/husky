@@ -1,6 +1,6 @@
 use crate::{path_leading::HirTypePathLeading, ritchie::HirRitchieType, *};
 use husky_ethereal_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
-use husky_ethereal_term::EtherealTerm;
+use husky_ethereal_term::EthTerm;
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
 use husky_term_prelude::ItemPathTerm;
 
@@ -39,12 +39,12 @@ impl From<HirTemplateSymbol> for HirTemplateArgument {
 pub type HirTemplateArguments = smallvec::SmallVec<[HirTemplateArgument; 2]>;
 
 impl HirTemplateArgument {
-    pub(crate) fn from_ethereal(argument: EtherealTerm, db: &::salsa::Db) -> Option<Self> {
+    pub(crate) fn from_ethereal(argument: EthTerm, db: &::salsa::Db) -> Option<Self> {
         Some(match argument {
-            EtherealTerm::Literal(lit) => HirConstant::from_term(lit, db).into(),
-            EtherealTerm::Symbol(symbol) => HirTemplateSymbol::from_ethereal(symbol, db)?.into(),
-            EtherealTerm::Rune(_) => todo!(),
-            EtherealTerm::EntityPath(path) => match path {
+            EthTerm::Literal(lit) => HirConstant::from_term(lit, db).into(),
+            EthTerm::Symbol(symbol) => HirTemplateSymbol::from_ethereal(symbol, db)?.into(),
+            EthTerm::Rune(_) => todo!(),
+            EthTerm::EntityPath(path) => match path {
                 ItemPathTerm::Fugitive(_path) => todo!(),
                 ItemPathTerm::Trait(_) => todo!(),
                 ItemPathTerm::TypeOntology(ty_path) => {
@@ -57,18 +57,18 @@ impl HirTemplateArgument {
                 ItemPathTerm::TypeInstance(_) => todo!(),
                 ItemPathTerm::TypeVariant(path) => HirTemplateArgument::Constant(path.into()),
             },
-            EtherealTerm::Category(_) => todo!(),
-            EtherealTerm::Universe(_) => todo!(),
-            EtherealTerm::Curry(_) => todo!(),
-            EtherealTerm::Ritchie(term) => {
+            EthTerm::Category(_) => todo!(),
+            EthTerm::Universe(_) => todo!(),
+            EthTerm::Curry(_) => todo!(),
+            EthTerm::Ritchie(term) => {
                 HirType::Ritchie(HirRitchieType::from_ethereal(term, db)).into()
             }
-            EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::Application(application) => {
+            EthTerm::Abstraction(_) => todo!(),
+            EthTerm::Application(application) => {
                 hir_ty_from_ethereal_term_application(db, application).into()
             }
-            EtherealTerm::TypeAsTraitItem(_) => todo!(),
-            EtherealTerm::TraitConstraint(_) => todo!(),
+            EthTerm::TypeAsTraitItem(_) => todo!(),
+            EthTerm::TraitConstraint(_) => todo!(),
         })
     }
 

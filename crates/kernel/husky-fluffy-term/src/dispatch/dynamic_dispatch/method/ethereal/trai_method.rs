@@ -6,7 +6,7 @@ use crate::method_fn::MethodFnFluffySignature;
 
 use super::*;
 
-impl HasFluffyTraitMethodDispatch for EtherealTerm {
+impl HasFluffyTraitMethodDispatch for EthTerm {
     fn trai_method_dispatch_aux(
         self,
         engine: &mut impl FluffyTermEngine,

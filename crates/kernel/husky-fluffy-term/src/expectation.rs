@@ -239,12 +239,9 @@ pub enum OriginalFluffyTermExpectationError {
 #[salsa::debug_with_db]
 pub enum DerivedFluffyTermExpectationError {
     #[error("{term:?} {error}")]
-    TermTypeError {
-        term: EtherealTerm,
-        error: EtherealTermError,
-    },
+    TermTypeError { term: EthTerm, error: EthTermError },
     #[error("{0}")]
-    Type(#[from] EtherealTermError),
+    Type(#[from] EthTermError),
     #[error("target substitution failure")]
     TargetSubstitutionFailure,
     #[error("duplication")]
@@ -254,6 +251,6 @@ pub enum DerivedFluffyTermExpectationError {
     #[error("type path {ty_path:?} type error {error}")]
     TypePathTypeError {
         ty_path: TypePath,
-        error: EtherealTermError,
+        error: EthTermError,
     },
 }

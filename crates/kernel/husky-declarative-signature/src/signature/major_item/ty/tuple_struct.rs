@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct TupleStructTypeDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
@@ -21,7 +21,7 @@ impl TupleStructTypeDecTemplate {
         db: &::salsa::Db,
         path: TypePath,
         decl: TupleStructTypeSynDecl,
-    ) -> DeclarativeSignatureResult<Self> {
+    ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let declarative_term_region = declarative_term_region(db, syn_expr_region);
         let declarative_term_menu = db
@@ -42,14 +42,14 @@ impl TupleStructTypeDecTemplate {
                     ty: match declarative_term_region.expr_term(field.ty()) {
                         Ok(ty) => ty,
                         Err(_) => {
-                            return Err(DeclarativeSignatureError::FieldTypeDeclarativeTermError(
+                            return Err(DecSignatureError::FieldTypeDeclarativeTermError(
                                 i.try_into().unwrap(),
                             ))
                         }
                     },
                 })
             })
-            .collect::<DeclarativeSignatureResult<SmallVec<_>>>()?;
+            .collect::<DecSignatureResult<SmallVec<_>>>()?;
         let instance_constructor_ritchie_ty = RitchieDeclarativeTerm::new(
             db,
             RitchieKind::RITCHIE_TYPE_FN,
@@ -82,4 +82,4 @@ impl TupleStructFieldDecTemplate {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
-pub struct TupleStructTypeDeclarativeSignature {}
+pub struct TupleStructTypeDecSignature {}

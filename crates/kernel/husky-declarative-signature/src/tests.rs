@@ -32,27 +32,27 @@ use husky_vfs::ModulePath;
     SynDeclJar,
     TermPreludeJar,
     DeclarativeTermJar,
-    DeclarativeSignatureJar
+    DecSignatureJar
 )]
 #[derive(Default)]
 pub(crate) struct DB;
 
-fn module_declarative_signature_templates(
+fn module_dec_templates(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> Vec<(ItemPath, DeclarativeSignatureResult<DecTemplate>)> {
+) -> Vec<(ItemPath, DecSignatureResult<DecTemplate>)> {
     syn_decl_sheet(db, module_path)
         .decls(db)
         .iter()
         .copied()
-        .map(|(path, _)| (path, path.declarative_signature_template(db)))
+        .map(|(path, _)| (path, path.dec_template(db)))
         .collect()
 }
 
 #[test]
-fn module_declarative_signature_templates_works() {
+fn module_dec_templates_works() {
     DB::ast_expect_test_debug_with_db(
-        |db, module_path| module_declarative_signature_templates(db, module_path),
+        |db, module_path| module_dec_templates(db, module_path),
         &AstTestConfig::new(
             "module_declarative_signature",
             FileExtensionConfig::Markdown,
@@ -62,7 +62,7 @@ fn module_declarative_signature_templates_works() {
 }
 
 #[test]
-fn menu_ty_declarative_signature_templates_works() {
+fn menu_ty_dec_templates_works() {
     let db = DB::default();
     let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();
@@ -82,9 +82,9 @@ fn menu_ty_declarative_signature_templates_works() {
 
     // Iterate over the type paths and assert that they are Ok
     for ty_path in ty_paths {
-        let ty_declarative_signature_template = ty_path.declarative_signature_template(db);
+        let ty_dec_template = ty_path.dec_template(db);
         assert!(
-            ty_declarative_signature_template.is_ok(),
+            ty_dec_template.is_ok(),
             "Failed for type path: {:?}",
             ty_path
         );

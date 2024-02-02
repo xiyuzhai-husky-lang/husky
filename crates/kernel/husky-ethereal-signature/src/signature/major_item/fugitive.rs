@@ -21,7 +21,7 @@ pub enum FugitiveEthTemplate {
 }
 
 impl FugitiveEthTemplate {
-    pub fn template_parameters(self, db: &::salsa::Db) -> &[EtherealTemplateParameter] {
+    pub fn template_parameters(self, db: &::salsa::Db) -> &[EthTemplateParameter] {
         match self {
             FugitiveEthTemplate::FunctionFn(template) => template.template_parameters(db),
             FugitiveEthTemplate::FunctionGn(template) => template.template_parameters(db),
@@ -47,21 +47,18 @@ fn fugitive_ethereal_signature_template(
     db: &::salsa::Db,
     path: FugitivePath,
 ) -> EtherealSignatureResult<FugitiveEthTemplate> {
-    Ok(match path.declarative_signature_template(db)? {
-        FugitiveDecTemplate::Fn(declarative_signature_template) => {
-            FunctionFnEthTemplate::from_declarative(db, path, declarative_signature_template)?
-                .into()
+    Ok(match path.dec_template(db)? {
+        FugitiveDecTemplate::Fn(dec_template) => {
+            FunctionFnEthTemplate::from_declarative(db, path, dec_template)?.into()
         }
-        FugitiveDecTemplate::Gn(declarative_signature_template) => {
-            GnFugitiveEthTemplate::from_declarative(db, path, declarative_signature_template)?
-                .into()
+        FugitiveDecTemplate::Gn(dec_template) => {
+            GnFugitiveEthTemplate::from_declarative(db, path, dec_template)?.into()
         }
-        FugitiveDecTemplate::TypeAlias(declarative_signature_template) => {
-            TypeAliasEthTemplate::from_declarative(db, path, declarative_signature_template)?.into()
+        FugitiveDecTemplate::TypeAlias(dec_template) => {
+            TypeAliasEthTemplate::from_declarative(db, path, dec_template)?.into()
         }
-        FugitiveDecTemplate::Val(declarative_signature_template) => {
-            ValFugitiveEthTemplate::from_declarative(db, path, declarative_signature_template)?
-                .into()
+        FugitiveDecTemplate::Val(dec_template) => {
+            ValFugitiveEthTemplate::from_declarative(db, path, dec_template)?.into()
         }
     })
 }

@@ -1,10 +1,10 @@
 use super::*;
 
-impl EtherealTerm {
+impl EthTerm {
     pub fn application_expansion(self, db: &::salsa::Db) -> ApplicationExpansion {
         match self {
-            EtherealTerm::Application(term) => term.application_expansion(db),
-            EtherealTerm::EntityPath(path) => match path {
+            EthTerm::Application(term) => term.application_expansion(db),
+            EthTerm::EntityPath(path) => match path {
                 ItemPathTerm::Fugitive(_) => todo!(),
                 ItemPathTerm::Trait(path) => ApplicationExpansion {
                     function: TermFunctionReduced::Trait(path),
@@ -25,16 +25,16 @@ impl EtherealTerm {
     }
 }
 
-impl ApplicationEtherealTerm {
+impl ApplicationEthTerm {
     pub fn application_expansion(self, db: &::salsa::Db) -> ApplicationExpansion {
         application_expansion_salsa(db, self)
     }
 }
 
-#[salsa::tracked(jar= EtherealTermJar)]
+#[salsa::tracked(jar= EthTermJar)]
 pub(crate) fn application_expansion_salsa(
     db: &::salsa::Db,
-    term: ApplicationEtherealTerm,
+    term: ApplicationEthTerm,
 ) -> ApplicationExpansion {
     let function = term.function(db);
     let argument = term.argument(db);
@@ -53,13 +53,13 @@ pub struct ApplicationExpansion {
 pub enum TermFunctionReduced {
     TypeOntology(TypePath),
     Trait(TraitPath),
-    Other(EtherealTerm),
+    Other(EthTerm),
 }
 
-#[salsa::tracked(db = EtherealTermDb, jar = EtherealTermJar)]
+#[salsa::tracked(db = EthTermDb, jar = EthTermJar)]
 pub(crate) struct EtherealApplicationArguments {
     #[return_ref]
-    data: Vec<EtherealTerm>,
+    data: Vec<EthTerm>,
 }
 
 impl ApplicationExpansion {
@@ -67,15 +67,15 @@ impl ApplicationExpansion {
         self.function
     }
 
-    pub fn opt_arguments<'a>(&self, db: &'a ::salsa::Db) -> Option<&'a [EtherealTerm]> {
+    pub fn opt_arguments<'a>(&self, db: &'a ::salsa::Db) -> Option<&'a [EthTerm]> {
         self.arguments.map(|arguments| arguments.data(db) as &[_])
     }
 
-    pub fn arguments<'a>(&self, db: &'a ::salsa::Db) -> &'a [EtherealTerm] {
+    pub fn arguments<'a>(&self, db: &'a ::salsa::Db) -> &'a [EthTerm] {
         self.opt_arguments(db).unwrap_or_default()
     }
 
-    fn apply(&self, db: &::salsa::Db, argument: EtherealTerm) -> Self {
+    fn apply(&self, db: &::salsa::Db, argument: EthTerm) -> Self {
         let arguments = self.arguments(db);
         let mut arguments = arguments.to_vec();
         arguments.push(argument);

@@ -4,13 +4,13 @@ use crate::*;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
-use husky_declarative_signature::DeclarativeSignatureJar;
+use husky_declarative_signature::DecSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
 use husky_declarative_ty::DeclarativeTypeJar;
 use husky_entity_path::{MajorItemPath, TypePath};
 use husky_entity_tree::{EntityTreeDb, EntityTreeJar};
 use husky_ethereal_signature::EtherealSignatureJar;
-use husky_ethereal_term::EtherealTermJar;
+use husky_ethereal_term::EthTermJar;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 use husky_print_utils::p;
@@ -41,9 +41,9 @@ use husky_vfs::*;
     SynDeclJar,
     TermPreludeJar,
     DeclarativeTermJar,
-    DeclarativeSignatureJar,
+    DecSignatureJar,
     husky_declarative_ty::db::DeclarativeTypeJar,
-    EtherealTermJar,
+    EthTermJar,
     EtherealSignatureJar,
     FluffyTermJar,
     SemaExprJar

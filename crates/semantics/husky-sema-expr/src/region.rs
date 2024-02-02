@@ -26,8 +26,8 @@ impl SemaExprRegion {
         symbol_tys: SymbolMap<SymbolType>,
         symbol_terms: SymbolMap<FluffyTerm>,
         fluffy_term_region: FluffyTermRegion,
-        return_ty: Option<EtherealTerm>,
-        self_ty: Option<EtherealTerm>,
+        return_ty: Option<EthTerm>,
+        self_ty: Option<EthTerm>,
         db: &::salsa::Db,
     ) -> Self {
         SemaExprRegion::new_inner(
@@ -65,8 +65,8 @@ pub struct SemaExprRegionData {
     symbol_tys: SymbolMap<SymbolType>,
     symbol_terms: SymbolMap<FluffyTerm>,
     fluffy_term_region: FluffyTermRegion,
-    return_ty: Option<EtherealTerm>,
-    self_ty: Option<EtherealTerm>,
+    return_ty: Option<EthTerm>,
+    self_ty: Option<EthTerm>,
 }
 
 impl SemaExprRegionData {
@@ -136,7 +136,7 @@ impl SemaExprRegionData {
         &self,
         syn_pattern_expr_idx: idx_arena::ArenaIdx<SynPatternExprData>,
         db: &::salsa::Db,
-    ) -> EtherealTerm {
+    ) -> EthTerm {
         match self.syn_pattern_expr_ty_infos[syn_pattern_expr_idx].ty {
             Ok(ty_term) => match ty_term.base_resolved_inner(self.fluffy_term_region.terms()) {
                 FluffyTermBase::Ethereal(ty_term) => ty_term,
@@ -148,7 +148,7 @@ impl SemaExprRegionData {
         }
     }
 
-    pub fn return_ty(&self) -> Option<EtherealTerm> {
+    pub fn return_ty(&self) -> Option<EthTerm> {
         self.return_ty
     }
 }

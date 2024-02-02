@@ -1,5 +1,5 @@
 use crate::*;
-use husky_declarative_signature::DeclarativeSignatureError;
+use husky_declarative_signature::DecSignatureError;
 use husky_declarative_term::term::DeclarativeTermSymbolTypeErrorKind;
 use husky_declarative_ty::DeclarativeTypeError;
 use husky_entity_path::{EntityPathError, ItemPath};
@@ -9,16 +9,16 @@ use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
-pub enum EtherealTermError {
-    #[error("EtherealTerm Error: term is not reduced")]
+pub enum EthTermError {
+    #[error("EthTerm Error: term is not reduced")]
     TermIsNotReduced,
-    #[error("EtherealTerm Error: term is not type")]
+    #[error("EthTerm Error: term is not type")]
     TermIsNotTy,
-    #[error("EtherealTerm Error: universe overflows")]
+    #[error("EthTerm Error: universe overflows")]
     UniverseOverflow,
-    #[error("EtherealTerm Error: monad is not input")]
+    #[error("EthTerm Error: monad is not input")]
     MonadIsNotInput,
-    #[error("EtherealTerm Error: no decl for item path")]
+    #[error("EthTerm Error: no decl for item path")]
     NoDeclForEntityPath { item_path: ItemPath },
     #[error("EntityPathError")]
     EntityPathError,
@@ -39,13 +39,13 @@ pub enum EtherealTermError {
     TermPreludeError(#[from] TermPreludeError),
     #[error("TermApplicationWrongArgumentType")]
     TermApplicationWrongArgumentType {
-        parameter_ty: EtherealTerm,
-        argument_ty: Either<EtherealTerm, PreludeTypePath>,
+        parameter_ty: EthTerm,
+        argument_ty: Either<EthTerm, PreludeTypePath>,
     },
     #[error("TypePathApplicationMethodFnDeclError")]
     TypePathApplicationMethodFnDeclError,
     #[error("SignatureError")]
-    SignatureError(#[from] DeclarativeSignatureError),
+    SignatureError(#[from] DecSignatureError),
     #[error("EntityTreeBundleError")]
     EntityTreeBundleError,
     #[error("ForDeriveArgument")]
@@ -58,18 +58,18 @@ pub enum EtherealTermError {
     ExpectedType { expectee: DeclarativeTerm },
 }
 
-impl From<EntityPathError> for EtherealTermError {
+impl From<EntityPathError> for EthTermError {
     fn from(_value: EntityPathError) -> Self {
-        EtherealTermError::EntityPathError
+        EthTermError::EntityPathError
     }
 }
 
-impl From<&EntityPathError> for EtherealTermError {
+impl From<&EntityPathError> for EthTermError {
     fn from(_value: &EntityPathError) -> Self {
-        EtherealTermError::EntityPathError
+        EthTermError::EntityPathError
     }
 }
 
-pub type EtherealTermResult<T> = Result<T, EtherealTermError>;
+pub type EthTermResult<T> = Result<T, EthTermError>;
 
-pub type EtherealTermMaybeResult<T> = MaybeResult<T, EtherealTermError>;
+pub type EthTermMaybeResult<T> = MaybeResult<T, EthTermError>;

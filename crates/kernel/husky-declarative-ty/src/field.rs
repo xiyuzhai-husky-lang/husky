@@ -6,7 +6,7 @@ pub fn ty_path_field_declarative_ty(
     path: TypePath,
     ident: Ident,
 ) -> DeclarativeTypeResult<Option<DeclarativeTerm>> {
-    let signature = match path.declarative_signature_template(db) {
+    let signature = match path.dec_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };

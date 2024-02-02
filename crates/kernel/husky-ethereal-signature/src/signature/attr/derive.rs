@@ -12,7 +12,7 @@ pub struct DeriveAttrEthTemplate {
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct DeriveAttrShardEthTemplate {
-    pub trai_term: EtherealTerm,
+    pub trai_term: EthTerm,
 }
 
 impl DeriveAttrEthTemplate {
@@ -36,7 +36,7 @@ impl DeriveAttrShardEthTemplate {
     ) -> EtherealSignatureResult<Self> {
         Ok(Self::new(
             db,
-            EtherealTerm::from_declarative(
+            EthTerm::from_declarative(
                 db,
                 declarative_template.trai_term(db),
                 TermTypeExpectation::Any,

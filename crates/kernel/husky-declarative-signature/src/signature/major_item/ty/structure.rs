@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::tracked(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::tracked(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct StructureTypeDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
@@ -11,7 +11,7 @@ impl StructureTypeDecTemplate {
         db: &::salsa::Db,
         path: TypePath,
         decl: StructureTypeSynDecl,
-    ) -> DeclarativeSignatureResult<Self> {
+    ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let declarative_term_region = declarative_term_region(db, syn_expr_region);
         let declarative_term_menu = db
@@ -28,4 +28,4 @@ impl StructureTypeDecTemplate {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
-pub struct StructureTypeDeclarativeSignature {}
+pub struct StructureTypeDecSignature {}

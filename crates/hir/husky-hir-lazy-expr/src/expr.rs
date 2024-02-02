@@ -142,7 +142,7 @@ impl ToHirLazy for SemaExprIdx {
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         let hir_lazy_expr = match *self.data(builder.sema_expr_arena_ref()) {
             SemaExprData::Literal(_, _) => {
-                let EtherealTerm::Literal(lit) = builder.expr_term(*self) else {
+                let EthTerm::Literal(lit) = builder.expr_term(*self) else {
                     unreachable!()
                 };
                 HirLazyExprData::Literal(lit)

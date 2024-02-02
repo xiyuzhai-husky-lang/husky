@@ -1,7 +1,7 @@
 use super::*;
 use either::*;
 use husky_ethereal_signature::{FugitiveEthTemplate, HasEthTemplate, TypeVariantEthTemplate};
-use husky_ethereal_term::instantiation::EtherealTermInstantiate;
+use husky_ethereal_term::instantiation::EthTermInstantiate;
 use husky_fluffy_term::instantiation::{
     FluffyInstantiate, FluffyInstantiation, FluffyInstantiationEnvironment,
     FluffyTermSymbolResolution,

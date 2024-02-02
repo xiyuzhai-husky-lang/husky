@@ -66,7 +66,7 @@
                                 Const,
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`Type`),
+                                EthTerm(`Type`),
                             ),
                         },
                     ),
@@ -78,7 +78,7 @@
                     FluffyTerm {
                         place: None,
                         base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`t`),
+                            EthTerm(`t`),
                         ),
                     },
                 ],
@@ -102,7 +102,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EtherealTerm(`Option t`),
+                EthTerm(`Option t`),
             ),
         },
     },

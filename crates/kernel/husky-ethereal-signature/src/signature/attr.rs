@@ -28,10 +28,9 @@ fn attr_ethereal_signature_template(
     db: &::salsa::Db,
     path: AttrItemPath,
 ) -> EtherealSignatureResult<AttrEthTemplate> {
-    match path.declarative_signature_template(db)? {
-        AttrDecTemplate::Derive(declarative_signature_template) => {
-            DeriveAttrEthTemplate::from_declarative(db, declarative_signature_template)
-                .map(Into::into)
+    match path.dec_template(db)? {
+        AttrDecTemplate::Derive(dec_template) => {
+            DeriveAttrEthTemplate::from_declarative(db, dec_template).map(Into::into)
         }
     }
 }

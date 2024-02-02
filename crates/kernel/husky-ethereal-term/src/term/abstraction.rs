@@ -1,30 +1,30 @@
 use super::*;
 use husky_declarative_term::term::abstraction::AbstractionDeclarativeTerm;
 
-#[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar)]
-pub struct AbstractionEtherealTerm {
-    x: RuneEtherealTerm,
-    m: EtherealTerm,
+#[salsa::interned(db = EthTermDb, jar = EthTermJar)]
+pub struct AbstractionEthTerm {
+    x: RuneEthTerm,
+    m: EthTerm,
 }
 
 #[test]
 fn term_abstraction_size_works() {
     assert_eq!(
-        std::mem::size_of::<AbstractionEtherealTerm>(),
+        std::mem::size_of::<AbstractionEthTerm>(),
         std::mem::size_of::<u32>()
     );
 }
 
-impl AbstractionEtherealTerm {
+impl AbstractionEthTerm {
     pub(crate) fn from_declarative(
         _db: &::salsa::Db,
         _precise_term: AbstractionDeclarativeTerm,
         _term_ty_expectation: TermTypeExpectation,
-    ) -> EtherealTermResult<Self> {
+    ) -> EthTermResult<Self> {
         todo!()
     }
 
-    pub fn ty(&self) -> EtherealTerm {
+    pub fn ty(&self) -> EthTerm {
         todo!()
     }
 
@@ -41,8 +41,8 @@ impl AbstractionEtherealTerm {
 
 /// # rewrite
 
-impl AbstractionEtherealTerm {
-    pub fn substitute(self, substitution: EtherealTermSubstitution, db: &::salsa::Db) -> Self {
+impl AbstractionEthTerm {
+    pub fn substitute(self, substitution: EthTermSubstitution, db: &::salsa::Db) -> Self {
         let old_x = self.x(db);
         let new_x = old_x.substitute_intact(substitution, db);
         let old_m = self.m(db);
@@ -54,8 +54,8 @@ impl AbstractionEtherealTerm {
     }
 }
 
-impl EtherealTermInstantiate for AbstractionEtherealTerm {
-    type Output = AbstractionEtherealTerm;
+impl EthTermInstantiate for AbstractionEthTerm {
+    type Output = AbstractionEthTerm;
 
     fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
         Self::new(
@@ -66,7 +66,7 @@ impl EtherealTermInstantiate for AbstractionEtherealTerm {
     }
 }
 
-impl salsa::DisplayWithDb for AbstractionEtherealTerm {
+impl salsa::DisplayWithDb for AbstractionEthTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

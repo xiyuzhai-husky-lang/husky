@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct MajorFnDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
@@ -13,7 +13,7 @@ impl MajorFnDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
         decl: FunctionMajorFnSynDecl,
-    ) -> DeclarativeSignatureResult<Self> {
+    ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let expr_region_data = syn_expr_region.data(db);
         let declarative_term_region = declarative_term_region(db, syn_expr_region);

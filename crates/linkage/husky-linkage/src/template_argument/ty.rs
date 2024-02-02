@@ -13,13 +13,13 @@ use smallvec::SmallVec;
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum LinkageType {
-    PathLeading(LinkageTypePathLeading),
+pub enum LinType {
+    PathLeading(LinTypePathLeading),
     Ritchie(LinkageRitchieType),
 }
 
 impl LinkageInstantiate for HirType {
-    type Output = LinkageType;
+    type Output = LinType;
 
     fn linkage_instantiate(
         self,
@@ -27,7 +27,7 @@ impl LinkageInstantiate for HirType {
         db: &salsa::Db,
     ) -> Self::Output {
         match self {
-            HirType::PathLeading(slf) => LinkageType::PathLeading(LinkageTypePathLeading::new(
+            HirType::PathLeading(slf) => LinType::PathLeading(LinTypePathLeading::new(
                 db,
                 slf.ty_path(db),
                 slf.template_arguments(db)
@@ -56,7 +56,7 @@ impl LinkageInstantiate for HirType {
 }
 
 #[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = pub(crate) new)]
-pub struct LinkageTypePathLeading {
+pub struct LinTypePathLeading {
     pub ty_path: TypePath,
     /// phantom arguments are ignored
     #[return_ref]
@@ -66,13 +66,13 @@ pub struct LinkageTypePathLeading {
 #[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = new)]
 pub struct LinkageRitchieType {
     pub parameters: SmallVec<[LinkageRitchieParameter; 4]>,
-    pub return_ty: LinkageType,
+    pub return_ty: LinType,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct LinkageRitchieParameter {
     contract: HirEagerContract,
-    parameter_ty: LinkageType,
+    parameter_ty: LinType,
 }
 impl LinkageRitchieParameter {
     fn from_javelin(
@@ -82,11 +82,7 @@ impl LinkageRitchieParameter {
     ) -> Self {
         Self {
             contract: param.contract(),
-            parameter_ty: LinkageType::from_javelin(
-                param.parameter_ty(),
-                linkage_instantiation,
-                db,
-            ),
+            parameter_ty: LinType::from_javelin(param.parameter_ty(), linkage_instantiation, db),
         }
     }
 
@@ -98,7 +94,7 @@ impl LinkageRitchieParameter {
         match param {
             HirRitchieParameter::Ordinary(param) => Self {
                 contract: param.contract(),
-                parameter_ty: LinkageType::from_hir(param.ty(), linkage_instantiation, db),
+                parameter_ty: LinType::from_hir(param.ty(), linkage_instantiation, db),
             },
             HirRitchieParameter::Variadic(_) => todo!(),
             HirRitchieParameter::Keyed(_) => todo!(),
@@ -109,19 +105,19 @@ impl LinkageRitchieParameter {
         self.contract
     }
 
-    pub fn parameter_ty(&self) -> LinkageType {
+    pub fn parameter_ty(&self) -> LinType {
         self.parameter_ty
     }
 }
 
-impl LinkageType {
+impl LinType {
     pub(crate) fn from_hir(
         hir_ty: HirType,
         linkage_instantiation: Option<&LinkageInstantiation>,
         db: &::salsa::Db,
     ) -> Self {
         match hir_ty {
-            HirType::PathLeading(hir_ty) => LinkageTypePathLeading::new(
+            HirType::PathLeading(hir_ty) => LinTypePathLeading::new(
                 db,
                 hir_ty.ty_path(db),
                 LinkageTemplateArgument::from_hir_template_arguments(
@@ -156,7 +152,7 @@ impl LinkageType {
                         LinkageRitchieParameter::from_hir(param, linkage_instantiation, db)
                     })
                     .collect(),
-                LinkageType::from_hir(hir_ty.return_ty(db), linkage_instantiation, db),
+                LinType::from_hir(hir_ty.return_ty(db), linkage_instantiation, db),
             )
             .into(),
         }
@@ -169,7 +165,7 @@ impl LinkageType {
     ) -> Self {
         match javelin_ty {
             JavelinType::PathLeading(javelin_ty) => {
-                LinkageTypePathLeading::from_javelin(javelin_ty, linkage_instantiation, db).into()
+                LinTypePathLeading::from_javelin(javelin_ty, linkage_instantiation, db).into()
             }
             JavelinType::Ritchie(javelin_ty) => LinkageRitchieType::new(
                 db,
@@ -180,20 +176,20 @@ impl LinkageType {
                         LinkageRitchieParameter::from_javelin(param, linkage_instantiation, db)
                     })
                     .collect(),
-                LinkageType::from_javelin(javelin_ty.return_ty(db), linkage_instantiation, db),
+                LinType::from_javelin(javelin_ty.return_ty(db), linkage_instantiation, db),
             )
             .into(),
         }
     }
 }
 
-impl LinkageTypePathLeading {
+impl LinTypePathLeading {
     fn from_javelin(
         javelin_ty: JavelinTypePathLeading,
         linkage_instantiation: &LinkageInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        LinkageTypePathLeading::new(
+        LinTypePathLeading::new(
             db,
             javelin_ty.ty_path(db),
             javelin_ty

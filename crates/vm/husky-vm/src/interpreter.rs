@@ -2,7 +2,7 @@ mod exec;
 mod query;
 
 use husky_coword::Ident;
-use husky_ethereal_term::EtherealTerm;
+use husky_ethereal_term::EthTerm;
 use husky_print_utils::ps;
 use indexmap::IndexMap;
 pub use query::InterpreterQueryGroup;
@@ -19,7 +19,7 @@ pub struct Interpreter<'a> {
     pub(crate) history: History,
     opt_snapshot_saved: Option<StackSnapshot>,
     pub(crate) frames: Vec<LoopFrameData>,
-    variable_mutations: IndexMap<VMStackIdx, (Ident, ModuleRange, EtherealTerm)>,
+    variable_mutations: IndexMap<VMStackIdx, (Ident, ModuleRange, EthTerm)>,
     vm_config: &'a VMConfig,
 }
 
@@ -107,7 +107,7 @@ impl<'temp> Interpreter<'temp> {
         stack_idx: VMStackIdx,
         varname: Ident,
         range: ModuleRange,
-        ty: EtherealTerm,
+        ty: EthTerm,
     ) {
         self.variable_mutations
             .insert(stack_idx, (varname, range, ty));

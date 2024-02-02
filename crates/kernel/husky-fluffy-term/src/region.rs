@@ -56,11 +56,7 @@ impl FluffyTermRegion {
         self.terms.hollow_terms_mut()
     }
 
-    pub fn finalize_unresolved_term_table(
-        &mut self,
-        db: &::salsa::Db,
-        term_menu: &EtherealTermMenu,
-    ) {
+    pub fn finalize_unresolved_term_table(&mut self, db: &::salsa::Db, term_menu: &EthTermMenu) {
         self.resolve_as_much_as_possible(db);
         self.terms.fill_all_holes(db, term_menu)
     }

@@ -6,9 +6,9 @@ use super::*;
 pub(crate) fn ethereal_owner_ty_index_signature(
     engine: &mut impl FluffyTermEngine,
     syn_expr_idx: SynExprIdx,
-    owner_ty: EtherealTerm,
+    owner_ty: EthTerm,
     refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
-    owner_ty_arguments: &[EtherealTerm],
+    owner_ty_arguments: &[EthTerm],
     index_ty: FluffyTerm,
     final_place: FluffyPlace,
 ) -> FluffyTermMaybeResult<FluffyIndexSignature> {
@@ -50,7 +50,7 @@ fn prelude_ethereal_owner_ty_index_signature(
     engine: &mut impl FluffyTermEngine,
     expr_idx: SynExprIdx,
     prelude_ty_path: PreludeTypePath,
-    owner_ty_arguments: &[EtherealTerm],
+    owner_ty_arguments: &[EthTerm],
     index_ty: FluffyTerm,
 ) -> FluffyTermMaybeResult<FluffyIndexSignature> {
     let db = engine.db();

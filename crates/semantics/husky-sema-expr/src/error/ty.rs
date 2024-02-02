@@ -15,8 +15,8 @@ impl From<EtherealSignatureError> for SemaExprTypeError {
     }
 }
 
-impl From<EtherealTermError> for SemaExprTypeError {
-    fn from(e: EtherealTermError) -> Self {
+impl From<EthTermError> for SemaExprTypeError {
+    fn from(e: EthTermError) -> Self {
         SemaExprTypeError::Derived(e.into())
     }
 }
@@ -76,11 +76,11 @@ impl OriginalError for OriginalSemaExprTypeError {
 #[salsa::debug_with_db]
 pub enum DerivedSemaExprTypeError {
     #[error("field type error {0}")]
-    FieldTypeTermError(EtherealTermError),
+    FieldTypeTermError(EthTermError),
     #[error("type method type error {0}")]
-    TypeMethodTypeError(EtherealTermError),
+    TypeMethodTypeError(EthTermError),
     #[error("type call type error {0}")]
-    TypeCallTypeError(EtherealTermError),
+    TypeCallTypeError(EthTermError),
     #[error("type info error")]
     TypeInfoError,
     #[error("expr error")]
@@ -108,7 +108,7 @@ pub enum DerivedSemaExprTypeError {
     #[error("term symbol type error")]
     TermSymbolTypeError,
     #[error("type error {0}")]
-    TypeError(#[from] EtherealTermError),
+    TypeError(#[from] EthTermError),
     #[error("bracketed item type error")]
     BracketedItemTypeError,
     #[error("current symbol type error")]
@@ -136,7 +136,7 @@ pub enum DerivedSemaExprTypeError {
     #[error("cannot disambiguate list expression")]
     AmbiguateListExpr,
     #[error("form path type error {0}")]
-    FugitivePathTypeError(EtherealTermError),
+    FugitivePathTypeError(EthTermError),
     #[error("ambiguous type path")]
     AmbiguousTypePath,
     #[error("explicit application function type not inferred")]

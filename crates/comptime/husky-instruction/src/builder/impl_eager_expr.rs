@@ -232,7 +232,7 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn method_call_instruction_variant(
         &self,
-        method_route: EtherealTerm,
+        method_route: EthTerm,
         return_ty: HirType,
         output_binding: Binding,
         nargs: u8,

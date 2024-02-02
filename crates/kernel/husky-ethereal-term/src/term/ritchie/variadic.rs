@@ -4,17 +4,17 @@ use super::*;
 #[salsa::debug_with_db]
 pub struct EtherealRitchieVariadicParameter {
     contract: TermContract,
-    ty: EtherealTerm,
+    ty: EthTerm,
 }
 
 impl EtherealRitchieVariadicParameter {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         param: DeclarativeRitchieVariadicParameter,
-    ) -> EtherealTermResult<Self> {
+    ) -> EthTermResult<Self> {
         Ok(EtherealRitchieVariadicParameter {
             contract: param.contract(),
-            ty: EtherealTerm::ty_from_declarative(db, param.ty())?,
+            ty: EthTerm::ty_from_declarative(db, param.ty())?,
         })
     }
 
@@ -48,7 +48,7 @@ impl salsa::DisplayWithDb for EtherealRitchieVariadicParameter {
 }
 
 impl EtherealRitchieVariadicParameter {
-    pub fn new(contract: TermContract, ty: EtherealTerm) -> Self {
+    pub fn new(contract: TermContract, ty: EthTerm) -> Self {
         Self { contract, ty }
     }
 
@@ -56,7 +56,7 @@ impl EtherealRitchieVariadicParameter {
         self.contract
     }
 
-    pub fn ty(&self) -> EtherealTerm {
+    pub fn ty(&self) -> EthTerm {
         self.ty
     }
 }

@@ -21,7 +21,7 @@ impl<Expectation: ExpectFluffyTerm> BranchTypeMerger<Expectation> {
         match new_block_ty {
             Some(new_block_ty)
                 if new_block_ty.base_resolved(engine)
-                    == FluffyTermBase::Ethereal(EtherealTerm::EntityPath(
+                    == FluffyTermBase::Ethereal(EthTerm::EntityPath(
                         ItemPathTerm::TypeOntology(engine.item_path_menu.never_ty_path()),
                     )) =>
             {
@@ -36,11 +36,7 @@ impl<Expectation: ExpectFluffyTerm> BranchTypeMerger<Expectation> {
         }
     }
 
-    pub(crate) fn merge(
-        self,
-        exhaustive: bool,
-        eth_term_menu: &EtherealTermMenu,
-    ) -> Option<FluffyTerm> {
+    pub(crate) fn merge(self, exhaustive: bool, eth_term_menu: &EthTermMenu) -> Option<FluffyTerm> {
         if let Some(ever_ty) = self.ever_ty {
             return ever_ty.into();
         }

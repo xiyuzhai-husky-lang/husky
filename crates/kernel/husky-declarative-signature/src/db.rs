@@ -2,11 +2,11 @@ use husky_syn_expr::SynExprRegion;
 
 use crate::*;
 
-pub trait DeclarativeSignatureDb {
+pub trait DecSignatureDb {
     fn declarative_term_region(&self, syn_expr_region: SynExprRegion) -> &DeclarativeTermRegion;
 }
 
-impl DeclarativeSignatureDb for ::salsa::Db {
+impl DecSignatureDb for ::salsa::Db {
     fn declarative_term_region(&self, syn_expr_region: SynExprRegion) -> &DeclarativeTermRegion {
         declarative_term_region(self, syn_expr_region)
     }
@@ -15,10 +15,10 @@ impl DeclarativeSignatureDb for ::salsa::Db {
 // todo: remove unnecessary tracked functions
 // replace them by associated functions
 #[salsa::jar]
-pub struct DeclarativeSignatureJar(
+pub struct DecSignatureJar(
     declarative_term_region,
     // type
-    ty_declarative_signature_template,
+    ty_dec_template,
     EnumTypeDecTemplate,
     UnitStructTypeDecTemplate,
     TupleStructTypeDecTemplate,
@@ -29,10 +29,10 @@ pub struct DeclarativeSignatureJar(
     UnionTypeDecTemplate,
     // trait
     TraitDecTemplate,
-    trai_syn_declarative_signature_template,
+    trai_syn_dec_template,
     // fugitive
     // fugitive_signature,
-    // fugitive_syn_declarative_signature_template,
+    // fugitive_syn_dec_template,
     MajorValDecTemplate,
     MajorFnDecTemplate,
     MajorGnDecTemplate,
@@ -40,18 +40,18 @@ pub struct DeclarativeSignatureJar(
     // impl block
     // impl_block_signature_from_decl,
     TypeImplBlockDecTemplate,
-    ty_impl_block_syn_declarative_signature_template,
+    ty_impl_block_syn_dec_template,
     TraitForTypeImplBlockDecTemplate,
-    trai_for_ty_impl_block_syn_declarative_signature_template,
+    trai_for_ty_impl_block_syn_dec_template,
     // type variant
-    ty_variant_syn_declarative_signature_template,
+    ty_variant_dec_template,
     EnumUnitTypeVariantDecTemplate,
     EnumPropsVariantDecTemplate,
     EnumTupleVariantDecTemplate,
     // associated items
     // associated_item_syn_declarative_signature_from_decl,
     // type item
-    // ty_item_syn_declarative_signature_template,
+    // ty_item_syn_dec_template,
     TypeAssociatedFnDecTemplate,
     TypeMethodFnDecTemplate,
     TypeMethodFunctionDecTemplate,
@@ -59,7 +59,7 @@ pub struct DeclarativeSignatureJar(
     TypeAssociatedValDecTemplate,
     TypeMemoizedFieldDecTemplate,
     // trait item
-    // trai_item_syn_declarative_signature_template,
+    // trai_item_syn_dec_template,
     TraitAssociatedFnDecTemplate,
     TraitMethodFnDecTemplate,
     TraitAssociatedTypeDecTemplate,
@@ -71,7 +71,7 @@ pub struct DeclarativeSignatureJar(
     TraitForTypeAssociatedTypeDecTemplate,
     TraitForTypeAssociatedValDecTemplate,
     // attr
-    // attr_declarative_signature_template,
+    // attr_dec_template,
     DeriveAttrDecTemplate,
     DeriveAttrShardDecTemplate,
 );

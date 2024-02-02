@@ -2,10 +2,10 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu2 {
-    static_str_ref: EtherealTerm,
-    ex_co_lifetime_to_ex_co_ty0_to_ty0: CurryEtherealTerm,
-    ex_co_lifetime_to_ex_ct_ty0_to_ty0: CurryEtherealTerm,
-    ex_co_lifetime_to_ex_inv_ty0_to_ty0: CurryEtherealTerm,
+    static_str_ref: EthTerm,
+    ex_co_lifetime_to_ex_co_ty0_to_ty0: CurryEthTerm,
+    ex_co_lifetime_to_ex_ct_ty0_to_ty0: CurryEthTerm,
+    ex_co_lifetime_to_ex_inv_ty0_to_ty0: CurryEthTerm,
     parent: TermMenu1,
 }
 
@@ -20,14 +20,14 @@ impl std::ops::Deref for TermMenu2 {
 impl TermMenu2 {
     pub(crate) fn new(db: &::salsa::Db, toolchain: Toolchain, menu1: TermMenu1) -> Self {
         TermMenu2 {
-            static_str_ref: ApplicationEtherealTerm::new(
+            static_str_ref: ApplicationEthTerm::new(
                 db,
                 menu1.static_ref_ty(),
                 menu1.str_ty_ontology(),
             )
             .expect("valid toolchain")
             .into(),
-            ex_co_lifetime_to_ex_co_ty0_to_ty0: CurryEtherealTerm::new(
+            ex_co_lifetime_to_ex_co_ty0_to_ty0: CurryEthTerm::new(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -36,7 +36,7 @@ impl TermMenu2 {
                 menu1.lifetime_ty().into(),
                 menu1.ex_co_ty0_to_ty0().into(),
             ),
-            ex_co_lifetime_to_ex_ct_ty0_to_ty0: CurryEtherealTerm::new(
+            ex_co_lifetime_to_ex_ct_ty0_to_ty0: CurryEthTerm::new(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -45,7 +45,7 @@ impl TermMenu2 {
                 menu1.lifetime_ty().into(),
                 menu1.explicit_contravariant_ty0_to_ty0().into(),
             ),
-            ex_co_lifetime_to_ex_inv_ty0_to_ty0: CurryEtherealTerm::new(
+            ex_co_lifetime_to_ex_inv_ty0_to_ty0: CurryEthTerm::new(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -58,19 +58,19 @@ impl TermMenu2 {
         }
     }
 
-    pub fn static_str_ref(&self) -> EtherealTerm {
+    pub fn static_str_ref(&self) -> EthTerm {
         self.static_str_ref
     }
 
-    pub fn ex_co_lifetime_to_ex_co_ty0_to_ty0(&self) -> CurryEtherealTerm {
+    pub fn ex_co_lifetime_to_ex_co_ty0_to_ty0(&self) -> CurryEthTerm {
         self.ex_co_lifetime_to_ex_co_ty0_to_ty0
     }
 
-    pub fn ex_co_lifetime_to_ex_ct_ty0_to_ty0(&self) -> CurryEtherealTerm {
+    pub fn ex_co_lifetime_to_ex_ct_ty0_to_ty0(&self) -> CurryEthTerm {
         self.ex_co_lifetime_to_ex_ct_ty0_to_ty0
     }
 
-    pub fn ex_co_lifetime_to_ex_inv_ty0_to_ty0(&self) -> CurryEtherealTerm {
+    pub fn ex_co_lifetime_to_ex_inv_ty0_to_ty0(&self) -> CurryEthTerm {
         self.ex_co_lifetime_to_ex_inv_ty0_to_ty0
     }
 }

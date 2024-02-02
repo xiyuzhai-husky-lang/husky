@@ -35,19 +35,16 @@ pub enum TraitItemDecTemplates {
 impl HasDecTemplate for TraitItemPath {
     type DecTemplate = TraitItemDecTemplate;
 
-    fn declarative_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
-        trai_item_syn_declarative_signature_template(db, self)
+    fn dec_template(self, db: &::salsa::Db) -> DecSignatureResult<Self::DecTemplate> {
+        trai_item_syn_dec_template(db, self)
     }
 }
 
-// #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub(crate) fn trai_item_syn_declarative_signature_template(
+// #[salsa::tracked(jar = DecSignatureJar)]
+pub(crate) fn trai_item_syn_dec_template(
     db: &::salsa::Db,
     path: TraitItemPath,
-) -> DeclarativeSignatureResult<TraitItemDecTemplate> {
+) -> DecSignatureResult<TraitItemDecTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
         TraitItemSynDecl::AssociatedFn(decl) => {

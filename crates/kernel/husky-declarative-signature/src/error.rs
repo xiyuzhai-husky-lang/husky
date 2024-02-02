@@ -5,7 +5,7 @@ use crate::*;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
-pub enum DeclarativeSignatureError {
+pub enum DecSignatureError {
     #[error("todo")]
     DeclarativeTermError,
     #[error("todo")]
@@ -25,45 +25,45 @@ pub enum DeclarativeSignatureError {
     SelfTypeNotInferred,
 }
 
-impl From<&DeclarativeSignatureError> for DeclarativeSignatureError {
-    fn from(e: &DeclarativeSignatureError) -> Self {
+impl From<&DecSignatureError> for DecSignatureError {
+    fn from(e: &DecSignatureError) -> Self {
         *e
     }
 }
 
-impl From<DeclarativeTermError2> for DeclarativeSignatureError {
+impl From<DeclarativeTermError2> for DecSignatureError {
     fn from(value: DeclarativeTermError2) -> Self {
         todo!()
     }
 }
 
-impl From<DeclError> for DeclarativeSignatureError {
+impl From<DeclError> for DecSignatureError {
     fn from(e: DeclError) -> Self {
-        DeclarativeSignatureError::DeclError(e)
+        DecSignatureError::DeclError(e)
     }
 }
 
-impl From<&SynNodeDeclError> for DeclarativeSignatureError {
+impl From<&SynNodeDeclError> for DecSignatureError {
     fn from(_: &SynNodeDeclError) -> Self {
-        DeclarativeSignatureError::NodeDeclError
+        DecSignatureError::NodeDeclError
     }
 }
-impl From<&SynExprError> for DeclarativeSignatureError {
+impl From<&SynExprError> for DecSignatureError {
     fn from(_: &SynExprError) -> Self {
-        DeclarativeSignatureError::ExprError
+        DecSignatureError::ExprError
     }
 }
 
-impl From<&DeclarativeTermError> for DeclarativeSignatureError {
+impl From<&DeclarativeTermError> for DecSignatureError {
     fn from(value: &DeclarativeTermError) -> Self {
-        DeclarativeSignatureError::DeclarativeTermError
+        DecSignatureError::DeclarativeTermError
     }
 }
 
-impl From<&DeclarativeTermError2> for DeclarativeSignatureError {
+impl From<&DeclarativeTermError2> for DecSignatureError {
     fn from(value: &DeclarativeTermError2) -> Self {
-        DeclarativeSignatureError::DeclarativeTermError
+        DecSignatureError::DeclarativeTermError
     }
 }
 
-pub type DeclarativeSignatureResult<T> = Result<T, DeclarativeSignatureError>;
+pub type DecSignatureResult<T> = Result<T, DecSignatureError>;

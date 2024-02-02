@@ -1,11 +1,11 @@
 use super::*;
 
-impl EtherealTerm {
+impl EthTerm {
     pub(super) fn from_literal_declarative_term(
         db: &::salsa::Db,
         literal: LiteralDeclarativeTerm,
         ty_expectation: TermTypeExpectation,
-    ) -> EtherealTermResult<Self> {
+    ) -> EthTermResult<Self> {
         Ok(match literal {
             LiteralDeclarativeTerm::Resolved(literal) => literal.into(),
             LiteralDeclarativeTerm::Unresolved(literal) => {
@@ -18,7 +18,7 @@ impl EtherealTerm {
         literal: UnresolvedTermLiteral,
         ty_expectation: TermTypeExpectation,
         db: &salsa::Db,
-    ) -> EtherealTerm {
+    ) -> EthTerm {
         match literal {
             UnresolvedTermLiteral::RegularInteger(i) => {
                 let TermTypeExpectation::FinalDestinationEqsNonSortTypePath(ty_path) =

@@ -4,7 +4,7 @@ use super::*;
 
 #[derive(Debug, Hash, PartialEq, Eq)]
 pub(crate) struct TermSymbolShowEntry {
-    symbol: SymbolEtherealTerm,
+    symbol: SymbolEthTerm,
     show_kind: TermSymbolShowKind,
     idx: u8,
     /// number of lambdas using this symbol
@@ -76,7 +76,7 @@ impl TermSymbolShowEntry {
 }
 
 impl AsVecMapEntry for TermSymbolShowEntry {
-    type K = SymbolEtherealTerm;
+    type K = SymbolEthTerm;
 
     fn key(&self) -> Self::K
     where
@@ -104,7 +104,7 @@ impl TermShowContext {
     pub(super) fn new_external_entry(
         &self,
         db: &::salsa::Db,
-        symbol: SymbolEtherealTerm,
+        symbol: SymbolEthTerm,
         external_symbol_ident: Option<Ident>,
     ) -> TermSymbolShowEntry {
         self.new_entry(db, symbol, 0, external_symbol_ident)
@@ -113,7 +113,7 @@ impl TermShowContext {
     pub(super) fn new_internal_entry(
         &self,
         db: &::salsa::Db,
-        symbol: SymbolEtherealTerm,
+        symbol: SymbolEthTerm,
     ) -> TermSymbolShowEntry {
         self.new_entry(db, symbol, 1, None)
     }
@@ -121,7 +121,7 @@ impl TermShowContext {
     fn new_entry(
         &self,
         db: &::salsa::Db,
-        symbol: SymbolEtherealTerm,
+        symbol: SymbolEthTerm,
         level: u8,
         external_symbol_ident: Option<Ident>,
     ) -> TermSymbolShowEntry {
@@ -151,7 +151,7 @@ impl TermShowContext {
     }
 
     // todo: put this into an internal table struct
-    pub(super) fn enter_block(&mut self, db: &::salsa::Db, symbol: SymbolEtherealTerm) {
+    pub(super) fn enter_block(&mut self, db: &::salsa::Db, symbol: SymbolEthTerm) {
         if let Some(entry) = self.entries.get_entry_mut(symbol) {
             entry.level += 1
         } else {
@@ -160,21 +160,19 @@ impl TermShowContext {
         }
     }
 
-    pub(super) fn exit_block(&mut self, symbol: SymbolEtherealTerm) {
+    pub(super) fn exit_block(&mut self, symbol: SymbolEthTerm) {
         self.entries.get_entry_mut(symbol).unwrap().level -= 1
     }
 }
 
-fn symbol_show_kind(symbol: SymbolEtherealTerm, db: &::salsa::Db) -> TermSymbolShowKind {
+fn symbol_show_kind(symbol: SymbolEthTerm, db: &::salsa::Db) -> TermSymbolShowKind {
     match symbol.ty(db) {
-        EtherealTerm::EntityPath(ItemPathTerm::TypeOntology(path))
-            if path.eqs_lifetime_ty_path(db) =>
-        {
+        EthTerm::EntityPath(ItemPathTerm::TypeOntology(path)) if path.eqs_lifetime_ty_path(db) => {
             TermSymbolShowKind::Lifetime
         }
-        EtherealTerm::Category(cat) if cat.universe().raw() == 0 => TermSymbolShowKind::Prop,
-        EtherealTerm::Category(cat) if cat.universe().raw() == 1 => TermSymbolShowKind::Type,
-        EtherealTerm::Category(_) => TermSymbolShowKind::Kind,
+        EthTerm::Category(cat) if cat.universe().raw() == 0 => TermSymbolShowKind::Prop,
+        EthTerm::Category(cat) if cat.universe().raw() == 1 => TermSymbolShowKind::Type,
+        EthTerm::Category(_) => TermSymbolShowKind::Kind,
         _ => TermSymbolShowKind::Other,
     }
 }

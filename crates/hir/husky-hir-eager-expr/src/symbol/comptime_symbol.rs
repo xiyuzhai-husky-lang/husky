@@ -1,6 +1,6 @@
 use super::*;
 use husky_coword::Ident;
-use husky_ethereal_term::EtherealTerm;
+use husky_ethereal_term::EthTerm;
 use husky_fluffy_term::FluffyTermBase;
 use husky_hir_ty::HirTemplateSymbol;
 use husky_sema_expr::SemaExprRegionData;
@@ -69,7 +69,7 @@ impl HirEagerComptimeSymbolRegionData {
                 unreachable!()
             };
             match term {
-                EtherealTerm::Symbol(term_symbol) => {
+                EthTerm::Symbol(term_symbol) => {
                     let Some(hir_comptime_symbol) =
                         HirTemplateSymbol::from_ethereal(term_symbol, db)
                     else {
@@ -96,7 +96,7 @@ impl HirEagerComptimeSymbolRegionData {
                 unreachable!()
             };
             match term {
-                EtherealTerm::Symbol(term_symbol) => {
+                EthTerm::Symbol(term_symbol) => {
                     let Some(hir_comptime_symbol) =
                         HirTemplateSymbol::from_ethereal(term_symbol, db)
                     else {

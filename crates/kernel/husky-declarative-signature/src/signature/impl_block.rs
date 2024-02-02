@@ -17,15 +17,10 @@ pub enum ImplBlockDecTemplate {
 impl HasDecTemplate for ImplBlockPath {
     type DecTemplate = ImplBlockDecTemplate;
 
-    fn declarative_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
+    fn dec_template(self, db: &::salsa::Db) -> DecSignatureResult<Self::DecTemplate> {
         Ok(match self {
-            ImplBlockPath::TypeImplBlock(path) => path.declarative_signature_template(db)?.into(),
-            ImplBlockPath::TraitForTypeImplBlock(path) => {
-                path.declarative_signature_template(db)?.into()
-            }
+            ImplBlockPath::TypeImplBlock(path) => path.dec_template(db)?.into(),
+            ImplBlockPath::TraitForTypeImplBlock(path) => path.dec_template(db)?.into(),
         })
     }
 }

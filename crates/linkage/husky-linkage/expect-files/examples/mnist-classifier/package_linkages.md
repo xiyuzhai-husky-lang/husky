@@ -19,7 +19,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                 template_arguments: [],
             },
@@ -36,7 +36,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                 template_arguments: [],
             },
@@ -53,7 +53,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                 template_arguments: [],
             },
@@ -70,7 +70,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                 template_arguments: [],
             },
@@ -96,7 +96,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                 template_arguments: [],
             },
@@ -131,7 +131,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                 template_arguments: [],
             },
@@ -305,7 +305,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                 template_arguments: [],
             },
@@ -322,7 +322,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                 template_arguments: [],
             },
@@ -407,7 +407,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                 template_arguments: [],
             },
@@ -424,7 +424,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                 template_arguments: [],
             },
@@ -533,7 +533,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                 template_arguments: [],
             },
@@ -550,7 +550,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                 template_arguments: [],
             },
@@ -576,7 +576,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                 template_arguments: [],
             },
@@ -593,7 +593,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                 template_arguments: [],
             },
@@ -619,7 +619,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                 template_arguments: [],
             },
@@ -636,7 +636,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                 template_arguments: [],
             },
@@ -662,7 +662,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                 template_arguments: [],
             },
@@ -679,7 +679,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                 template_arguments: [],
             },
@@ -705,7 +705,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                 template_arguments: [],
             },
@@ -722,7 +722,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                 template_arguments: [],
             },
@@ -748,7 +748,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                 template_arguments: [],
             },
@@ -765,7 +765,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                 template_arguments: [],
             },
@@ -1116,7 +1116,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                 template_arguments: [],
             },
@@ -1133,7 +1133,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                 template_arguments: [],
             },
@@ -1150,7 +1150,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                 template_arguments: [],
             },
@@ -1176,7 +1176,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                 template_arguments: [],
             },
@@ -1193,7 +1193,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                 template_arguments: [],
             },
@@ -1329,7 +1329,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                 template_arguments: [],
             },
@@ -1346,7 +1346,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                 template_arguments: [],
             },
@@ -1537,7 +1537,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                 template_arguments: [],
             },
@@ -1554,7 +1554,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                 template_arguments: [],
             },
@@ -1589,7 +1589,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                 template_arguments: [],
             },
@@ -1606,7 +1606,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                 template_arguments: [],
             },
@@ -1658,7 +1658,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                 template_arguments: [],
             },
@@ -1675,7 +1675,7 @@
     },
     Linkage {
         data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
+            self_ty: LinTypePathLeading {
                 ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                 template_arguments: [],
             },
@@ -2247,7 +2247,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 18,
                                         },
@@ -2302,7 +2302,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 18,
                                         },
@@ -2320,8 +2320,8 @@
     },
     Linkage {
         data: LinkageData::VecConstructor {
-            element_ty: LinkageType::PathLeading(
-                LinkageTypePathLeading {
+            element_ty: LinType::PathLeading(
+                LinTypePathLeading {
                     ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                     template_arguments: [],
                 },
@@ -2361,7 +2361,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 19,
                                         },
@@ -2397,7 +2397,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 3,
                                         },
@@ -2439,7 +2439,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 4,
                                         },
@@ -2457,18 +2457,18 @@
     },
     Linkage {
         data: LinkageData::VecConstructor {
-            element_ty: LinkageType::PathLeading(
-                LinkageTypePathLeading {
+            element_ty: LinType::PathLeading(
+                LinTypePathLeading {
                     ty_path: TypePath(`core::option::Option`, `Enum`),
                     template_arguments: [
                         LinkageTemplateArgument::Type(
-                            LinkageType::PathLeading(
-                                LinkageTypePathLeading {
+                            LinType::PathLeading(
+                                LinTypePathLeading {
                                     ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                     template_arguments: [
                                         LinkageTemplateArgument::Type(
-                                            LinkageType::PathLeading(
-                                                LinkageTypePathLeading {
+                                            LinType::PathLeading(
+                                                LinTypePathLeading {
                                                     ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     template_arguments: [],
                                                 },
@@ -2503,7 +2503,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 20,
                                         },
@@ -2545,7 +2545,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 21,
                                         },
@@ -2587,7 +2587,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 4,
                                         },
@@ -2623,7 +2623,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 6,
                                         },
@@ -2641,8 +2641,8 @@
     },
     Linkage {
         data: LinkageData::VecConstructor {
-            element_ty: LinkageType::PathLeading(
-                LinkageTypePathLeading {
+            element_ty: LinType::PathLeading(
+                LinTypePathLeading {
                     ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     template_arguments: [],
                 },
@@ -2651,8 +2651,8 @@
     },
     Linkage {
         data: LinkageData::VecConstructor {
-            element_ty: LinkageType::PathLeading(
-                LinkageTypePathLeading {
+            element_ty: LinType::PathLeading(
+                LinTypePathLeading {
                     ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                     template_arguments: [],
                 },
@@ -2679,7 +2679,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 6,
                                         },
@@ -2723,7 +2723,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 6,
                                         },
@@ -2767,7 +2767,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 6,
                                         },
@@ -2809,7 +2809,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 6,
                                         },
@@ -2851,7 +2851,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 4,
                                         },
@@ -2893,7 +2893,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 6,
                                         },
@@ -2942,7 +2942,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 6,
                                         },
@@ -2978,7 +2978,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 6,
                                         },
@@ -2996,8 +2996,8 @@
     },
     Linkage {
         data: LinkageData::VecConstructor {
-            element_ty: LinkageType::PathLeading(
-                LinkageTypePathLeading {
+            element_ty: LinType::PathLeading(
+                LinTypePathLeading {
                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     template_arguments: [],
                 },
@@ -3024,7 +3024,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 12,
                                         },
@@ -3060,7 +3060,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 12,
                                         },
@@ -3104,7 +3104,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 12,
                                         },
@@ -3148,7 +3148,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 6,
                                         },
@@ -3184,7 +3184,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 12,
                                         },
@@ -3226,7 +3226,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 6,
                                         },
@@ -3262,7 +3262,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 12,
                                         },
@@ -3304,7 +3304,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 12,
                                         },
@@ -3348,7 +3348,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 12,
                                         },
@@ -3392,7 +3392,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 6,
                                         },
@@ -3410,8 +3410,8 @@
     },
     Linkage {
         data: LinkageData::VecConstructor {
-            element_ty: LinkageType::PathLeading(
-                LinkageTypePathLeading {
+            element_ty: LinType::PathLeading(
+                LinTypePathLeading {
                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                     template_arguments: [],
                 },
@@ -3438,7 +3438,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 12,
                                         },
@@ -3474,7 +3474,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 14,
                                         },
@@ -3516,7 +3516,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 12,
                                         },
@@ -3552,7 +3552,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 12,
                                         },
@@ -3588,7 +3588,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 12,
                                         },
@@ -3624,7 +3624,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 12,
                                         },
@@ -3660,7 +3660,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 14,
                                         },
@@ -3678,18 +3678,18 @@
     },
     Linkage {
         data: LinkageData::VecConstructor {
-            element_ty: LinkageType::PathLeading(
-                LinkageTypePathLeading {
+            element_ty: LinType::PathLeading(
+                LinTypePathLeading {
                     ty_path: TypePath(`core::option::Option`, `Enum`),
                     template_arguments: [
                         LinkageTemplateArgument::Type(
-                            LinkageType::PathLeading(
-                                LinkageTypePathLeading {
+                            LinType::PathLeading(
+                                LinTypePathLeading {
                                     ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                     template_arguments: [
                                         LinkageTemplateArgument::Type(
-                                            LinkageType::PathLeading(
-                                                LinkageTypePathLeading {
+                                            LinType::PathLeading(
+                                                LinTypePathLeading {
                                                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     template_arguments: [],
                                                 },
@@ -3760,7 +3760,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 22,
                                         },
@@ -3802,7 +3802,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 23,
                                         },
@@ -3844,7 +3844,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 22,
                                         },
@@ -3862,13 +3862,13 @@
     },
     Linkage {
         data: LinkageData::VecConstructor {
-            element_ty: LinkageType::Ritchie(
+            element_ty: LinType::Ritchie(
                 LinkageRitchieType {
                     parameters: [
                         LinkageRitchieParameter {
                             contract: Pure,
                             parameter_ty: PathLeading(
-                                LinkageTypePathLeading(
+                                LinTypePathLeading(
                                     Id {
                                         value: 22,
                                     },
@@ -3876,13 +3876,13 @@
                             ),
                         },
                     ],
-                    return_ty: LinkageType::PathLeading(
-                        LinkageTypePathLeading {
+                    return_ty: LinType::PathLeading(
+                        LinTypePathLeading {
                             ty_path: TypePath(`core::option::Option`, `Enum`),
                             template_arguments: [
                                 LinkageTemplateArgument::Type(
-                                    LinkageType::PathLeading(
-                                        LinkageTypePathLeading {
+                                    LinType::PathLeading(
+                                        LinTypePathLeading {
                                             ty_path: TypePath(`core::num::f32`, `Extern`),
                                             template_arguments: [],
                                         },
@@ -3915,7 +3915,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 3,
                                         },
@@ -3949,7 +3949,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 18,
                                         },
@@ -3965,8 +3965,8 @@
     },
     Linkage {
         data: LinkageData::TypeDefault {
-            ty: LinkageType::PathLeading(
-                LinkageTypePathLeading {
+            ty: LinType::PathLeading(
+                LinTypePathLeading {
                     ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                     template_arguments: [],
                 },
@@ -3993,7 +3993,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 14,
                                         },
@@ -4039,7 +4039,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 24,
                                         },
@@ -4083,7 +4083,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 18,
                                         },
@@ -4127,7 +4127,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 27,
                                         },
@@ -4149,7 +4149,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 28,
                                         },
@@ -4193,7 +4193,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 27,
                                         },
@@ -4215,7 +4215,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 28,
                                         },

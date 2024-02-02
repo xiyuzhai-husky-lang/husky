@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ethereal_term::EtherealTerm;
+use husky_ethereal_term::EthTerm;
 use husky_syn_expr::{SynPatternExprData, SynPatternExprIdx, SynPatternExprRoot};
 use husky_term_prelude::literal::TermLiteral;
 use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData};
@@ -74,7 +74,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                     LiteralTokenData::String(_) => todo!(),
                     LiteralTokenData::Integer(literal) => match literal {
                         IntegerLikeLiteralTokenData::UnspecifiedRegular(value) => {
-                            let EtherealTerm::EntityPath(ItemPathTerm::TypeOntology(path)) =
+                            let EthTerm::EntityPath(ItemPathTerm::TypeOntology(path)) =
                                 self.syn_pattern_expr_ty(syn_pattern_expr_idx)
                             else {
                                 unreachable!()

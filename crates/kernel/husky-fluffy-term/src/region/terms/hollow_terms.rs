@@ -131,7 +131,7 @@ impl HollowTerms {
                     p!(path.debug(db));
                     todo!()
                 } else {
-                    self.entries[idx].resolve_progress = match EtherealTerm::new_ty_ontology(
+                    self.entries[idx].resolve_progress = match EthTerm::new_ty_ontology(
                         db,
                         path,
                         arguments
@@ -167,7 +167,7 @@ impl HollowTerms {
                         let return_ty = return_ty.resolve_as_ethereal(self).unwrap();
                         self.entries[idx].resolve_progress =
                             HollowTermResolveProgressBuf::ResolvedEthereal(
-                                CurryEtherealTerm::new(
+                                CurryEthTerm::new(
                                     db,
                                     toolchain,
                                     curry_kind,
@@ -248,7 +248,7 @@ impl HollowTerms {
                         _ => unreachable!(),
                     };
                     self.entries[idx].resolve_progress =
-                        match RitchieEtherealTerm::new(db, ritchie_kind, params, return_ty) {
+                        match RitchieEthTerm::new(db, ritchie_kind, params, return_ty) {
                             Ok(term) => HollowTermResolveProgressBuf::ResolvedEthereal(term.into()),
                             Err(_) => todo!(),
                         }
@@ -288,7 +288,7 @@ impl FluffyTerms {
         &mut self,
         hole: Hole,
         db: &::salsa::Db,
-        term_menu: &EtherealTermMenu,
+        term_menu: &EthTermMenu,
     ) {
         let mut hole_entry = &mut self.hollow_terms.entries[hole.idx()];
         let HollowTermData::Hole {
@@ -311,11 +311,7 @@ impl FluffyTerms {
         self.fill_hole(db, hole, term)
     }
 
-    pub(in crate::region) fn fill_all_holes(
-        &mut self,
-        db: &::salsa::Db,
-        term_menu: &EtherealTermMenu,
-    ) {
+    pub(in crate::region) fn fill_all_holes(&mut self, db: &::salsa::Db, term_menu: &EthTermMenu) {
         // we know that no new holes are generated
         for idx in 0..self.hollow_terms.entries.len() {
             match self.hollow_terms.entries[idx].data {
@@ -358,7 +354,7 @@ impl FluffyTerm {
     pub(crate) fn resolve_as_ethereal(
         self,
         terms: &impl std::borrow::Borrow<HollowTerms>,
-    ) -> Option<EtherealTerm> {
+    ) -> Option<EthTerm> {
         match self.resolve_progress(terms) {
             TermResolveProgress::ResolvedEthereal(term) => Some(term),
             _ => None,
@@ -390,7 +386,7 @@ impl HollowTermEntry {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum TermResolveProgress {
     UnresolvedHollow,
-    ResolvedEthereal(EtherealTerm),
+    ResolvedEthereal(EthTerm),
     ResolvedSolid(SolidTerm),
     Err,
 }
@@ -414,7 +410,7 @@ impl HollowTermResolveProgressBuf {
 #[derive(Debug, PartialEq, Eq)]
 pub enum HollowTermResolveProgressBuf {
     Unresolved,
-    ResolvedEthereal(EtherealTerm),
+    ResolvedEthereal(EthTerm),
     ResolvedSolid(SolidTerm),
     Err(HollowTermResolveError),
 }

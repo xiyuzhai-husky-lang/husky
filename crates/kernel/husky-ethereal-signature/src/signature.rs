@@ -26,7 +26,7 @@ pub enum ItemEthTemplate {
 }
 
 impl ItemEthTemplate {
-    pub fn self_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
+    pub fn self_ty(self, db: &::salsa::Db) -> Option<EthTerm> {
         match self {
             ItemEthTemplate::Submodule => None,
             ItemEthTemplate::MajorItem(_) => None,

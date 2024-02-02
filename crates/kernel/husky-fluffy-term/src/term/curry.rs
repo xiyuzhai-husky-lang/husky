@@ -17,7 +17,7 @@ impl FluffyTerm {
         merger.accept(parameter_rune.map(|rune| *rune));
         merger.accept([parameter_ty, return_ty]);
         match merger.data_kind() {
-            FluffyTermDataKind::Ethereal => CurryEtherealTerm::new(
+            FluffyTermDataKind::Ethereal => CurryEthTerm::new(
                 db,
                 toolchain,
                 curry_kind,

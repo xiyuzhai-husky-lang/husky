@@ -1,4 +1,4 @@
-use husky_ethereal_term::EtherealTerm;
+use husky_ethereal_term::EthTerm;
 use husky_fluffy_term::FluffyTermBase;
 use husky_hir_eager_expr::{HirEagerExprIdx, HirEagerPatternExprIdx};
 use husky_hir_expr::{
@@ -111,7 +111,7 @@ impl<'a> HirDeclBuilder<'a> {
     pub(crate) fn current_syn_symbol_term(
         &self,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-    ) -> EtherealTerm {
+    ) -> EthTerm {
         match self.sema_expr_region_data.symbol_terms()[current_syn_symbol_idx]
             .base_resolved_inner(self.sema_expr_region_data.fluffy_term_region())
         {

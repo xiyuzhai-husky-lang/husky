@@ -29,7 +29,7 @@ pub fn ty_ontology_path_declarative_ty(
     path: TypePath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
-    let signature = match path.declarative_signature_template(db) {
+    let signature = match path.dec_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
@@ -77,7 +77,7 @@ pub fn trai_path_declarative_ty(
     let Ok(variances) = trai_item_variances(db, path) else {
         todo!()
     };
-    let signature = match path.declarative_signature_template(db) {
+    let signature = match path.dec_template(db) {
         Ok(signature) => signature,
         Err(_) => todo!(),
     };

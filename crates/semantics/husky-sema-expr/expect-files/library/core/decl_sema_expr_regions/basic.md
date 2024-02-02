@@ -84,7 +84,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EtherealTerm(`bool`),
+                EthTerm(`bool`),
             ),
         },
     },
@@ -173,7 +173,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EtherealTerm(`never`),
+                EthTerm(`never`),
             ),
         },
     },
@@ -262,7 +262,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EtherealTerm(`unit`),
+                EthTerm(`unit`),
             ),
         },
     },
@@ -351,7 +351,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EtherealTerm(`Trait`),
+                EthTerm(`Trait`),
             ),
         },
     },
@@ -440,7 +440,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EtherealTerm(`Module`),
+                EthTerm(`Module`),
             ),
         },
     },
@@ -529,7 +529,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EtherealTerm(`Lifetime`),
+                EthTerm(`Lifetime`),
             ),
         },
     },
@@ -618,7 +618,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EtherealTerm(`Place`),
+                EthTerm(`Place`),
             ),
         },
     },
@@ -707,7 +707,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EtherealTerm(`Universe`),
+                EthTerm(`Universe`),
             ),
         },
     },

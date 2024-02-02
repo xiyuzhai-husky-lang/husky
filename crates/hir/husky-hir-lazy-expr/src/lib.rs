@@ -20,7 +20,7 @@ use self::builder::*;
 use self::db::*;
 use self::variable::*;
 use husky_coword::*;
-use husky_ethereal_term::EtherealTerm;
+use husky_ethereal_term::EthTerm;
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use smallvec::*;
 

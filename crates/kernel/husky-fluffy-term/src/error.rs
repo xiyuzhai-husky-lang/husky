@@ -10,7 +10,7 @@ pub enum FluffyTermError {
     #[error("ethereal signature")]
     EtherealSignature(EtherealSignatureError),
     #[error("ethereal term")]
-    EtherealTerm(EtherealTermError),
+    EthTerm(EthTermError),
 }
 
 impl From<EtherealSignatureError> for FluffyTermError {
@@ -19,9 +19,9 @@ impl From<EtherealSignatureError> for FluffyTermError {
     }
 }
 
-impl From<EtherealTermError> for FluffyTermError {
-    fn from(e: EtherealTermError) -> Self {
-        FluffyTermError::EtherealTerm(e)
+impl From<EthTermError> for FluffyTermError {
+    fn from(e: EthTermError) -> Self {
+        FluffyTermError::EthTerm(e)
     }
 }
 

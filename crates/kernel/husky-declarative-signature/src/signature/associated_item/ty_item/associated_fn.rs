@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct TypeAssociatedFnDecTemplate {
     pub path: TypeItemPath,
     /// the term for `Self`
@@ -20,17 +20,14 @@ impl TypeAssociatedFnDecTemplate {
         db: &::salsa::Db,
         path: TypeItemPath,
         decl: TypeAssociatedFnSynDecl,
-    ) -> DeclarativeSignatureResult<Self> {
+    ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let expr_region_data = syn_expr_region.data(db);
         let declarative_term_region = declarative_term_region(db, syn_expr_region);
         let declarative_term_menu = db
             .declarative_term_menu(syn_expr_region.toolchain(db))
             .unwrap();
-        let impl_block = decl
-            .path(db)
-            .impl_block(db)
-            .declarative_signature_template(db)?;
+        let impl_block = decl.path(db).impl_block(db).dec_template(db)?;
         let self_ty = impl_block.ty(db);
         let template_parameters = DeclarativeTemplateParameterTemplates::from_decl(
             decl.template_parameters(db),

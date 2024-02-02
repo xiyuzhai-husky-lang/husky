@@ -5,13 +5,13 @@ use vec_like::SmallVecPairMap;
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EtherealInstantiation {
-    symbol_map: SmallVecPairMap<SymbolEtherealTerm, EtherealTerm, 4>,
+    symbol_map: SmallVecPairMap<SymbolEthTerm, EthTerm, 4>,
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
 }
 
 impl EtherealInstantiation {
-    pub fn symbol_map(&self) -> &[(SymbolEtherealTerm, EtherealTerm)] {
+    pub fn symbol_map(&self) -> &[(SymbolEthTerm, EthTerm)] {
         self.symbol_map.as_ref()
     }
 
@@ -21,7 +21,7 @@ impl EtherealInstantiation {
 
     /// assume that symbol is in symbol_map
     /// panic otherwise
-    pub fn symbol_instantiation(&self, symbol: SymbolEtherealTerm) -> EtherealTerm {
+    pub fn symbol_instantiation(&self, symbol: SymbolEthTerm) -> EthTerm {
         *self
             .symbol_map
             .get_value(symbol)
@@ -31,8 +31,8 @@ impl EtherealInstantiation {
     pub fn symbol_map_splitted(
         &self,
     ) -> (
-        &[(SymbolEtherealTerm, EtherealTerm)],
-        Option<&[(SymbolEtherealTerm, EtherealTerm)]>,
+        &[(SymbolEthTerm, EthTerm)],
+        Option<&[(SymbolEthTerm, EthTerm)]>,
     ) {
         let symbol_map: &[_] = self.symbol_map.as_ref();
         match self.separator {
@@ -45,15 +45,15 @@ impl EtherealInstantiation {
     }
 }
 
-pub trait EtherealTermInstantiate: Copy {
+pub trait EthTermInstantiate: Copy {
     type Output;
 
     fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output;
 }
 
-impl<T> EtherealTermInstantiate for Option<T>
+impl<T> EthTermInstantiate for Option<T>
 where
-    T: EtherealTermInstantiate,
+    T: EthTermInstantiate,
 {
     type Output = Option<T::Output>;
 
@@ -62,9 +62,9 @@ where
     }
 }
 
-impl<T> EtherealTermInstantiate for &[T]
+impl<T> EthTermInstantiate for &[T]
 where
-    T: EtherealTermInstantiate,
+    T: EthTermInstantiate,
 {
     type Output = Vec<T::Output>;
 
@@ -76,7 +76,7 @@ where
     }
 }
 
-pub trait EtherealTermInstantiateRef {
+pub trait EthTermInstantiateRef {
     type Target;
 
     fn instantiate(&self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Target;
@@ -85,18 +85,15 @@ pub trait EtherealTermInstantiateRef {
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EtherealInstantiationBuilder {
-    symbol_map: SmallVecPairMap<SymbolEtherealTerm, Option<EtherealTerm>, 4>,
+    symbol_map: SmallVecPairMap<SymbolEthTerm, Option<EthTerm>, 4>,
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
 }
 
 impl EtherealInstantiationBuilder {
     /// symbols must be unique
-    pub(crate) fn new(
-        symbols: impl Iterator<Item = SymbolEtherealTerm>,
-        is_associated: bool,
-    ) -> Self {
-        let symbol_map: SmallVecPairMap<SymbolEtherealTerm, Option<EtherealTerm>, 4> =
+    pub(crate) fn new(symbols: impl Iterator<Item = SymbolEthTerm>, is_associated: bool) -> Self {
+        let symbol_map: SmallVecPairMap<SymbolEthTerm, Option<EthTerm>, 4> =
             symbols.map(|symbol| (symbol, None)).collect();
         Self {
             separator: is_associated.then_some(symbol_map.len().try_into().unwrap()),
@@ -111,10 +108,10 @@ impl EtherealInstantiationBuilder {
     /// `JustErr(e)` means something is wrong.
     pub fn try_add_rules_from_application(
         &mut self,
-        src: EtherealTerm,
-        dst_arguments: &[EtherealTerm],
+        src: EthTerm,
+        dst_arguments: &[EthTerm],
         db: &::salsa::Db,
-    ) -> EtherealTermMaybeResult<()> {
+    ) -> EthTermMaybeResult<()> {
         let src_application_expansion = src.application_expansion(db);
         if src_application_expansion.arguments(db).len() != dst_arguments.len() {
             todo!()
@@ -134,16 +131,16 @@ impl EtherealInstantiationBuilder {
     /// `JustErr(e)` means something is wrong.
     pub fn try_add_rule(
         &mut self,
-        src: EtherealTerm,
-        dst: EtherealTerm,
+        src: EthTerm,
+        dst: EthTerm,
         db: &::salsa::Db,
-    ) -> EtherealTermMaybeResult<()> {
+    ) -> EthTermMaybeResult<()> {
         if src == dst {
             return JustOk(());
         }
         match src {
-            EtherealTerm::Symbol(symbol) => self.try_add_symbol_rule(symbol, dst),
-            EtherealTerm::Application(_) => {
+            EthTerm::Symbol(symbol) => self.try_add_symbol_rule(symbol, dst),
+            EthTerm::Application(_) => {
                 let src_application_expansion = src.application_expansion(db);
                 let dst_application_expansion = dst.application_expansion(db);
                 if src_application_expansion.function() != dst_application_expansion.function() {
@@ -165,24 +162,24 @@ impl EtherealInstantiationBuilder {
                 }
                 JustOk(())
             }
-            EtherealTerm::Literal(_)
-            | EtherealTerm::Rune(_)
-            | EtherealTerm::EntityPath(_)
-            | EtherealTerm::Category(_)
-            | EtherealTerm::Universe(_) => Nothing,
-            EtherealTerm::Curry(_) => todo!(),
-            EtherealTerm::Ritchie(_) => todo!(),
-            EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::TypeAsTraitItem(_) => todo!(),
-            EtherealTerm::TraitConstraint(_) => todo!(),
+            EthTerm::Literal(_)
+            | EthTerm::Rune(_)
+            | EthTerm::EntityPath(_)
+            | EthTerm::Category(_)
+            | EthTerm::Universe(_) => Nothing,
+            EthTerm::Curry(_) => todo!(),
+            EthTerm::Ritchie(_) => todo!(),
+            EthTerm::Abstraction(_) => todo!(),
+            EthTerm::TypeAsTraitItem(_) => todo!(),
+            EthTerm::TraitConstraint(_) => todo!(),
         }
     }
 
     pub fn try_add_symbol_rule(
         &mut self,
-        symbol: SymbolEtherealTerm,
-        dst: EtherealTerm,
-    ) -> EtherealTermMaybeResult<()> {
+        symbol: SymbolEthTerm,
+        dst: EthTerm,
+    ) -> EthTermMaybeResult<()> {
         if let Some((_, opt_dst0)) = self.symbol_map.get_entry_mut(symbol) {
             match opt_dst0 {
                 Some(dst0) => {
@@ -203,7 +200,7 @@ impl EtherealInstantiationBuilder {
     }
 
     pub fn try_into_instantiation(&self) -> Option<EtherealInstantiation> {
-        let mut symbol_map = SmallVecPairMap::<SymbolEtherealTerm, EtherealTerm, 4>::default();
+        let mut symbol_map = SmallVecPairMap::<SymbolEthTerm, EthTerm, 4>::default();
         for (symbol, mapped) in self.symbol_map.iter() {
             let mapped = (*mapped)?;
             unsafe { symbol_map.insert_new_unchecked((*symbol, mapped)) }
@@ -216,7 +213,7 @@ impl EtherealInstantiationBuilder {
 
     pub fn merge_with_item_template_parameters(
         &self,
-        template_parameters: &EtherealTemplateParameters,
+        template_parameters: &EthTemplateParameters,
     ) -> Self {
         let mut symbol_map = self.symbol_map.clone();
         let len = symbol_map.len().try_into().unwrap();

@@ -5,7 +5,7 @@ pub use self::call_list::*;
 pub use self::html::*;
 
 use crate::{symbol::runtime_symbol::HirEagerRuntimeSymbolIdx, *};
-use husky_ethereal_term::EtherealTerm;
+use husky_ethereal_term::EthTerm;
 use husky_fluffy_term::{
     dispatch::StaticDispatch,
     signature::{FluffyFieldSignature, MethodFluffySignature},
@@ -146,7 +146,7 @@ impl ToHirEager for SemaExprIdx {
         let data = match *self.data(builder.sema_expr_arena_ref()) {
             SemaExprData::Literal(_, _) => {
                 HirEagerExprData::Literal(match builder.expr_term(*self) {
-                    EtherealTerm::Literal(lit) => lit,
+                    EthTerm::Literal(lit) => lit,
                     _ => unreachable!(),
                 })
             }

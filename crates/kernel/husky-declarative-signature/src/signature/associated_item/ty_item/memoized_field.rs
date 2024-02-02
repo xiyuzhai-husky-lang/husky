@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct TypeMemoizedFieldDecTemplate {
     pub path: TypeItemPath,
     pub impl_block: TypeImplBlockDecTemplate,
@@ -12,10 +12,8 @@ impl TypeMemoizedFieldDecTemplate {
         db: &::salsa::Db,
         path: TypeItemPath,
         decl: TypeMemoizedFieldSynDecl,
-    ) -> DeclarativeSignatureResult<TypeMemoizedFieldDecTemplate> {
-        let impl_block_syn_declarative_signature_template = decl
-            .impl_block_path(db)
-            .declarative_signature_template(db)?;
+    ) -> DecSignatureResult<TypeMemoizedFieldDecTemplate> {
+        let impl_block_syn_dec_template = decl.impl_block_path(db).dec_template(db)?;
         let syn_expr_region = decl.syn_expr_region(db);
         let declarative_term_region = declarative_term_region(db, syn_expr_region);
         let declarative_term_menu = db
@@ -28,32 +26,32 @@ impl TypeMemoizedFieldDecTemplate {
         Ok(TypeMemoizedFieldDecTemplate::new(
             db,
             path,
-            impl_block_syn_declarative_signature_template,
+            impl_block_syn_dec_template,
             return_ty,
         ))
     }
 }
 
 // pub trait HasTypeMemoizedFieldDecTemplates: Copy {
-//     fn ty_memoized_field_declarative_signature_templates_map<'a>(
+//     fn ty_memoized_field_dec_templates_map<'a>(
 //         self,
 //         db: &'a ::salsa::Db,
-//     ) -> DeclarativeSignatureResult<
+//     ) -> DecSignatureResult<
 //         &'a [(
 //             Ident,
-//             DeclarativeSignatureResult<SmallVecImpl<TypeMemoizedFieldDecTemplate>>,
+//             DecSignatureResult<SmallVecImpl<TypeMemoizedFieldDecTemplate>>,
 //         )],
 //     >;
 
-//     fn ty_memoized_field_declarative_signature_templates<'a>(
+//     fn ty_memoized_field_dec_templates<'a>(
 //         self,
 //         db: &'a ::salsa::Db,
 //         ident: Ident,
-//     ) -> DeclarativeSignatureResult<Option<&'a [TypeMemoizedFieldDecTemplate]>>
+//     ) -> DecSignatureResult<Option<&'a [TypeMemoizedFieldDecTemplate]>>
 //     {
 //         use vec_like::VecMapGetEntry;
 //         match self
-//             .ty_memoized_field_declarative_signature_templates_map(db)?
+//             .ty_memoized_field_dec_templates_map(db)?
 //             .get_entry(ident)
 //         {
 //             Some((_, Ok(templates))) => Ok(Some(templates)),
@@ -64,29 +62,29 @@ impl TypeMemoizedFieldDecTemplate {
 // }
 
 // impl HasTypeMemoizedFieldDecTemplates for TypePath {
-//     fn ty_memoized_field_declarative_signature_templates_map<'a>(
+//     fn ty_memoized_field_dec_templates_map<'a>(
 //         self,
 //         db: &'a ::salsa::Db,
-//     ) -> DeclarativeSignatureResult<
+//     ) -> DecSignatureResult<
 //         &'a [(
 //             Ident,
-//             DeclarativeSignatureResult<SmallVecImpl<TypeMemoizedFieldDecTemplate>>,
+//             DecSignatureResult<SmallVecImpl<TypeMemoizedFieldDecTemplate>>,
 //         )],
 //     > {
-//         ty_memoized_field_declarative_signature_templates_map(db, self)
+//         ty_memoized_field_dec_templates_map(db, self)
 //             .as_ref()
 //             .map(|v| v as &[_])
 //             .map_err(|e| *e)
 //     }
 // }
 
-// #[salsa::tracked(jar = DeclarativeSignatureJar, return_ref)]
-// pub(crate) fn ty_memoized_field_declarative_signature_templates_map(
+// #[salsa::tracked(jar = DecSignatureJar, return_ref)]
+// pub(crate) fn ty_memoized_field_dec_templates_map(
 //     db: &::salsa::Db,
 //     ty_path: TypePath,
-// ) -> DeclarativeSignatureResult<
+// ) -> DecSignatureResult<
 //     IdentPairMap<
-//         DeclarativeSignatureResult<SmallVecImpl<TypeMemoizedFieldDecTemplate>>,
+//         DecSignatureResult<SmallVecImpl<TypeMemoizedFieldDecTemplate>>,
 //     >,
 // > {
 //     let item_syn_decls_map = ty_path.item_syn_decls_map(db)?;
@@ -99,11 +97,11 @@ impl TypeMemoizedFieldDecTemplate {
 //                         decls
 //                             .iter()
 //                             .copied()
-//                             .map(|decl| decl.declarative_signature_template(db))
-//                             .collect::<DeclarativeSignatureResult<SmallVecImpl<_>>>(),
+//                             .map(|decl| decl.dec_template(db))
+//                             .collect::<DecSignatureResult<SmallVecImpl<_>>>(),
 //                     )),
 //                     Ok(_) => None,
-//                     Err(_) => Some((*ident, Err(DeclarativeSignatureError::DeclError))),
+//                     Err(_) => Some((*ident, Err(DecSignatureError::DeclError))),
 //                 }
 //             },
 //         ))

@@ -18,7 +18,7 @@ pub trait FluffyTermEngine<'a>: Sized {
         self.fluffy_term_region_mut().terms_mut()
     }
     fn item_path_menu(&self) -> &'a ItemPathMenu;
-    fn term_menu(&self) -> &'a EtherealTermMenu;
+    fn term_menu(&self) -> &'a EthTermMenu;
     fn expr_region_data(&self) -> &'a SynExprRegionData;
 
     fn new_ty_ontology_application(
@@ -61,7 +61,7 @@ pub trait FluffyTermEngine<'a>: Sized {
                 FluffyTermBase::Ethereal(return_ty),
                 FluffyTermBase::Ethereal(argument_ty),
             ) => {
-                return Ok(EtherealTerm::synthesize_function_application_expr_ty(
+                return Ok(EthTerm::synthesize_function_application_expr_ty(
                     self.db(),
                     variance,
                     None,

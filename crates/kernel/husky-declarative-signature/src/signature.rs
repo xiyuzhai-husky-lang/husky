@@ -27,25 +27,19 @@ pub enum DecTemplate {
 pub trait HasDecTemplate: Copy {
     type DecTemplate;
 
-    fn declarative_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DecTemplate>;
+    fn dec_template(self, db: &::salsa::Db) -> DecSignatureResult<Self::DecTemplate>;
 }
 
 impl HasDecTemplate for ItemPath {
     type DecTemplate = DecTemplate;
 
-    fn declarative_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
+    fn dec_template(self, db: &::salsa::Db) -> DecSignatureResult<Self::DecTemplate> {
         Ok(match self {
             ItemPath::Submodule(_, _) => DecTemplate::Submodule,
-            ItemPath::MajorItem(path) => path.declarative_signature_template(db)?.into(),
-            ItemPath::AssociatedItem(path) => path.declarative_signature_template(db)?.into(),
-            ItemPath::TypeVariant(_, path) => path.declarative_signature_template(db)?.into(),
-            ItemPath::ImplBlock(path) => path.declarative_signature_template(db)?.into(),
+            ItemPath::MajorItem(path) => path.dec_template(db)?.into(),
+            ItemPath::AssociatedItem(path) => path.dec_template(db)?.into(),
+            ItemPath::TypeVariant(_, path) => path.dec_template(db)?.into(),
+            ItemPath::ImplBlock(path) => path.dec_template(db)?.into(),
             ItemPath::Attr(_, _) => todo!(),
         })
     }

@@ -4,22 +4,19 @@ use super::*;
 pub struct TraitForTypeAssociatedTypeEthTemplate {
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
-    pub associated_ty: EtherealTerm,
+    pub template_parameters: EthTemplateParameters,
+    pub associated_ty: EthTerm,
 }
 
 impl TraitForTypeAssociatedTypeEthTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         path: TraitForTypeItemPath,
-        declarative_signature_template: TraitForTypeAssociatedTypeDecTemplate,
+        dec_template: TraitForTypeAssociatedTypeDecTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let template_parameters = EtherealTemplateParameters::from_declarative(
-            db,
-            declarative_signature_template.template_parameters(db),
-        )?;
-        let ty_term =
-            EtherealTerm::ty_from_declarative(db, declarative_signature_template.ty_term(db))?;
+        let template_parameters =
+            EthTemplateParameters::from_declarative(db, dec_template.template_parameters(db))?;
+        let ty_term = EthTerm::ty_from_declarative(db, dec_template.ty_term(db))?;
         Ok(Self::new(db, path, template_parameters, ty_term))
     }
 
@@ -72,7 +69,7 @@ fn trai_for_ty_associated_ty_ethereal_signature_signature_builder_try_into_signa
 pub struct TraitForTypeAssociatedTypeEtherealSignature {
     path: TraitForTypeItemPath,
     instantiation: EtherealInstantiation,
-    ty_term: EtherealTerm,
+    ty_term: EthTerm,
 }
 
 impl TraitForTypeAssociatedTypeEtherealSignature {
@@ -80,7 +77,7 @@ impl TraitForTypeAssociatedTypeEtherealSignature {
         self.path
     }
 
-    pub fn ty_term(&self) -> EtherealTerm {
+    pub fn ty_term(&self) -> EthTerm {
         self.ty_term
     }
 

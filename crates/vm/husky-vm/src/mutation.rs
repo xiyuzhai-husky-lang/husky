@@ -1,5 +1,5 @@
 use husky_coword::Ident;
-use husky_ethereal_term::EtherealTerm;
+use husky_ethereal_term::EthTerm;
 
 use crate::*;
 
@@ -10,7 +10,7 @@ type ModuleRange = ();
 pub struct MutationData {
     pub range: ModuleRange,
     pub kind: MutationDataVariant,
-    pub ty: EtherealTerm,
+    pub ty: EthTerm,
     pub before: Option<RegularValue>,
     pub after: RegularValue,
 }

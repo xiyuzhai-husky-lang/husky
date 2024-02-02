@@ -154,7 +154,7 @@
                                                 Explicit(
                                                     Type(
                                                         PathLeading(
-                                                            LinkageTypePathLeading(
+                                                            LinTypePathLeading(
                                                                 Id {
                                                                     value: 12,
                                                                 },
@@ -501,7 +501,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
-                                    self_ty: LinkageTypePathLeading {
+                                    self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         template_arguments: [],
                                     },
@@ -669,7 +669,7 @@
                                                 Explicit(
                                                     Type(
                                                         PathLeading(
-                                                            LinkageTypePathLeading(
+                                                            LinTypePathLeading(
                                                                 Id {
                                                                     value: 13,
                                                                 },
@@ -825,7 +825,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
-                                    self_ty: LinkageTypePathLeading {
+                                    self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         template_arguments: [],
                                     },
@@ -1296,13 +1296,13 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::VecConstructor {
-                                    element_ty: LinkageType::Ritchie(
+                                    element_ty: LinType::Ritchie(
                                         LinkageRitchieType {
                                             parameters: [
                                                 LinkageRitchieParameter {
                                                     contract: Pure,
                                                     parameter_ty: PathLeading(
-                                                        LinkageTypePathLeading(
+                                                        LinTypePathLeading(
                                                             Id {
                                                                 value: 3,
                                                             },
@@ -1310,13 +1310,13 @@
                                                     ),
                                                 },
                                             ],
-                                            return_ty: LinkageType::PathLeading(
-                                                LinkageTypePathLeading {
+                                            return_ty: LinType::PathLeading(
+                                                LinTypePathLeading {
                                                     ty_path: TypePath(`core::option::Option`, `Enum`),
                                                     template_arguments: [
                                                         LinkageTemplateArgument::Type(
-                                                            LinkageType::PathLeading(
-                                                                LinkageTypePathLeading {
+                                                            LinType::PathLeading(
+                                                                LinTypePathLeading {
                                                                     ty_path: TypePath(`core::num::f32`, `Extern`),
                                                                     template_arguments: [],
                                                                 },
@@ -1786,7 +1786,7 @@
                                                 Explicit(
                                                     Type(
                                                         PathLeading(
-                                                            LinkageTypePathLeading(
+                                                            LinTypePathLeading(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -2200,7 +2200,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
-                                    self_ty: LinkageTypePathLeading {
+                                    self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                         template_arguments: [],
                                     },
@@ -2400,7 +2400,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
-                                    self_ty: LinkageTypePathLeading {
+                                    self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                         template_arguments: [],
                                     },
@@ -2600,7 +2600,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
-                                    self_ty: LinkageTypePathLeading {
+                                    self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                         template_arguments: [],
                                     },

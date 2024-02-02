@@ -14,19 +14,13 @@ pub enum AttrDecTemplate {
 impl HasDecTemplate for AttrItemPath {
     type DecTemplate = AttrDecTemplate;
 
-    fn declarative_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
-        attr_declarative_signature_template(db, self)
+    fn dec_template(self, db: &::salsa::Db) -> DecSignatureResult<Self::DecTemplate> {
+        attr_dec_template(db, self)
     }
 }
 
-// #[salsa::tracked(jar = DeclarativeSignatureJar)]
-fn attr_declarative_signature_template(
-    db: &::salsa::Db,
-    path: AttrItemPath,
-) -> DeclarativeSignatureResult<AttrDecTemplate> {
+// #[salsa::tracked(jar = DecSignatureJar)]
+fn attr_dec_template(db: &::salsa::Db, path: AttrItemPath) -> DecSignatureResult<AttrDecTemplate> {
     match path.syn_decl(db)? {
         AttrSynDecl::Derive(decl) => DeriveAttrDecTemplate::from_decl(decl, db).map(Into::into),
     }

@@ -13,7 +13,7 @@ pub struct HirRitchieType {
 }
 
 impl HirRitchieType {
-    pub fn from_ethereal(term: RitchieEtherealTerm, db: &::salsa::Db) -> Self {
+    pub fn from_ethereal(term: RitchieEthTerm, db: &::salsa::Db) -> Self {
         hir_ty_from_ethereal_term_ritchie(db, term)
     }
 }
@@ -21,7 +21,7 @@ impl HirRitchieType {
 #[salsa::tracked(jar = HirTypeJar)]
 fn hir_ty_from_ethereal_term_ritchie(
     db: &::salsa::Db,
-    term_ritchie: RitchieEtherealTerm,
+    term_ritchie: RitchieEthTerm,
 ) -> HirRitchieType {
     HirRitchieType::new(
         db,

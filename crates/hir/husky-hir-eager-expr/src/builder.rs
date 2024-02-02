@@ -5,7 +5,7 @@ use crate::{
     },
     *,
 };
-use husky_ethereal_term::EtherealTerm;
+use husky_ethereal_term::EthTerm;
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
 use husky_hir_ty::HirType;
 use husky_sema_expr::{
@@ -181,7 +181,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         sema_expr_idx.ty(self.sema_expr_region_data.sema_expr_arena2())
     }
 
-    pub(crate) fn expr_term(&self, sema_expr_idx: SemaExprIdx) -> EtherealTerm {
+    pub(crate) fn expr_term(&self, sema_expr_idx: SemaExprIdx) -> EthTerm {
         // ad hoc
         match self
             .sema_expr_region_data
@@ -251,7 +251,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub(crate) fn syn_pattern_expr_ty(
         &self,
         syn_pattern_expr_idx: ArenaIdx<husky_syn_expr::SynPatternExprData>,
-    ) -> EtherealTerm {
+    ) -> EthTerm {
         self.sema_expr_region_data
             .syn_pattern_expr_ty(syn_pattern_expr_idx, self.db)
     }

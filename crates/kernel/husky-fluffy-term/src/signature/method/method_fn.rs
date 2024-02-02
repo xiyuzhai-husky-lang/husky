@@ -137,41 +137,39 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     let mut method_template_argument_iter = method_template_arguments.iter();
     for template_parameter in template.template_parameters(db).iter() {
         match template_parameter.symbol().index(db).inner() {
-            EtherealTermSymbolIndexImpl::ExplicitLifetime {
+            EthTermSymbolIndexImpl::ExplicitLifetime {
                 attrs,
                 variance,
                 disambiguator,
             } => todo!(),
-            EtherealTermSymbolIndexImpl::ExplicitPlace {
+            EthTermSymbolIndexImpl::ExplicitPlace {
                 attrs,
                 variance,
                 disambiguator,
             } => todo!(),
-            EtherealTermSymbolIndexImpl::Type {
+            EthTermSymbolIndexImpl::Type {
                 attrs,
                 variance,
                 disambiguator,
             } => todo!(),
-            EtherealTermSymbolIndexImpl::Prop { disambiguator } => todo!(),
-            EtherealTermSymbolIndexImpl::ConstPathLeading {
+            EthTermSymbolIndexImpl::Prop { disambiguator } => todo!(),
+            EthTermSymbolIndexImpl::ConstPathLeading {
                 attrs,
                 disambiguator,
                 ty_path,
             } => todo!(),
-            EtherealTermSymbolIndexImpl::ConstOther {
+            EthTermSymbolIndexImpl::ConstOther {
                 attrs,
                 disambiguator,
             } => todo!(),
-            EtherealTermSymbolIndexImpl::EphemPathLeading {
+            EthTermSymbolIndexImpl::EphemPathLeading {
                 disambiguator,
                 ty_path,
             } => todo!(),
-            EtherealTermSymbolIndexImpl::EphemOther { disambiguator } => todo!(),
-            EtherealTermSymbolIndexImpl::SelfType => unreachable!(),
-            EtherealTermSymbolIndexImpl::SelfValue => todo!(),
-            EtherealTermSymbolIndexImpl::SelfLifetime | EtherealTermSymbolIndexImpl::SelfPlace => {
-                continue
-            }
+            EthTermSymbolIndexImpl::EphemOther { disambiguator } => todo!(),
+            EthTermSymbolIndexImpl::SelfType => unreachable!(),
+            EthTermSymbolIndexImpl::SelfValue => todo!(),
+            EthTermSymbolIndexImpl::SelfLifetime | EthTermSymbolIndexImpl::SelfPlace => continue,
         }
     }
     if let Some(_) = method_template_argument_iter.next() {

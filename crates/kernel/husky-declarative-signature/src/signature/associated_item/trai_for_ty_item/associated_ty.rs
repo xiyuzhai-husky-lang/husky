@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct TraitForTypeAssociatedTypeDecTemplate {
     pub path: TraitForTypeItemPath,
     #[return_ref]
@@ -13,7 +13,7 @@ impl TraitForTypeAssociatedTypeDecTemplate {
         db: &::salsa::Db,
         path: TraitForTypeItemPath,
         decl: TraitForTypeAssociatedTypeSynDecl,
-    ) -> DeclarativeSignatureResult<Self> {
+    ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let declarative_term_region = declarative_term_region(db, syn_expr_region);
         let declarative_term_menu = db

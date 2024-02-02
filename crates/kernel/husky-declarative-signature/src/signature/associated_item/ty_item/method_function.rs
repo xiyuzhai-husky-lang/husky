@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct TypeMethodFunctionDecTemplate {
     pub path: TypeItemPath,
     // todo: formal method, method that is not a function pointer
@@ -17,7 +17,7 @@ impl TypeMethodFunctionDecTemplate {
         db: &::salsa::Db,
         path: TypeItemPath,
         decl: TypeMethodFnSynDecl,
-    ) -> DeclarativeSignatureResult<Self> {
+    ) -> DecSignatureResult<Self> {
         // todo: overhaul
         // the following is blindly copied from method fn
         let syn_expr_region = decl.syn_expr_region(db);
@@ -28,9 +28,7 @@ impl TypeMethodFunctionDecTemplate {
                 Some(self_value_parameter) => todo!(),
                 None => TermContract::Pure,
             },
-            decl.impl_block_path(db)
-                .declarative_signature_template(db)?
-                .ty(db),
+            decl.impl_block_path(db).dec_template(db)?.ty(db),
         );
         let declarative_term_menu = db
             .declarative_term_menu(syn_expr_region.toolchain(db))

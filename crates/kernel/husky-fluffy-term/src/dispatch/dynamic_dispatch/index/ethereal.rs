@@ -7,7 +7,7 @@ use super::*;
 pub(super) fn ethereal_owner_ty_index_dispatch(
     engine: &mut impl FluffyTermEngine,
     expr_idx: SynExprIdx,
-    owner_ty: EtherealTerm,
+    owner_ty: EthTerm,
     index_ty: FluffyTerm,
     indirections: FluffyIndirections,
 ) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
@@ -17,7 +17,7 @@ pub(super) fn ethereal_owner_ty_index_dispatch(
 pub(super) fn ethereal_owner_ty_index_dispatch_aux(
     engine: &mut impl FluffyTermEngine,
     expr_idx: SynExprIdx,
-    owner_ty: EtherealTerm,
+    owner_ty: EthTerm,
     index_ty: FluffyTerm,
     mut indirections: FluffyIndirections,
 ) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {

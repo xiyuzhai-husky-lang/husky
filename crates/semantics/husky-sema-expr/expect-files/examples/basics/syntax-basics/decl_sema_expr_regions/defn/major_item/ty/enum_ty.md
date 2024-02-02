@@ -84,7 +84,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EtherealTerm(`A`),
+                EthTerm(`A`),
             ),
         },
     },

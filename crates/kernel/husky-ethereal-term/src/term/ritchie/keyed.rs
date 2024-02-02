@@ -1,16 +1,16 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-// #[salsa::derive_debug_with_db(db = EtherealTermDb)]
+// #[salsa::derive_debug_with_db(db = EthTermDb)]
 pub struct EtherealRitchieKeyedParameter {
     key: Ident,
     contract: TermContract,
-    ty: EtherealTerm,
+    ty: EthTerm,
     has_default: bool,
 }
 
 impl EtherealRitchieKeyedParameter {
-    pub fn new(key: Ident, contract: TermContract, ty: EtherealTerm, has_default: bool) -> Self {
+    pub fn new(key: Ident, contract: TermContract, ty: EthTerm, has_default: bool) -> Self {
         Self {
             key,
             contract,
@@ -22,8 +22,8 @@ impl EtherealRitchieKeyedParameter {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         param: DeclarativeRitchieKeyedParameter,
-    ) -> EtherealTermResult<Self> {
-        let ty = EtherealTerm::ty_from_declarative(db, param.ty())?;
+    ) -> EthTermResult<Self> {
+        let ty = EthTerm::ty_from_declarative(db, param.ty())?;
         let has_default = param.has_default();
         Ok(EtherealRitchieKeyedParameter {
             key: param.key(),
@@ -41,7 +41,7 @@ impl EtherealRitchieKeyedParameter {
         self.contract
     }
 
-    pub fn ty(&self) -> EtherealTerm {
+    pub fn ty(&self) -> EthTerm {
         self.ty
     }
 

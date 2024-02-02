@@ -7,19 +7,16 @@ use husky_declarative_ty::principal_item_path::{
 use husky_vfs::Toolchain;
 
 pub trait HasType: Copy {
-    fn ty(self, db: &::salsa::Db) -> EtherealTermResult<EtherealTerm>;
+    fn ty(self, db: &::salsa::Db) -> EthTermResult<EthTerm>;
 }
 
 pub trait HasTypeGivenToolchain: Copy {
-    fn ty(self, db: &::salsa::Db, toolchain: Toolchain) -> EtherealTermResult<EtherealTerm>;
+    fn ty(self, db: &::salsa::Db, toolchain: Toolchain) -> EthTermResult<EthTerm>;
 }
 
 pub trait HasTypeGivenDisambiguation: Copy {
-    fn ty(
-        self,
-        db: &::salsa::Db,
-        disambiguation: TypePathDisambiguation,
-    ) -> EtherealTermResult<EtherealTerm>;
+    fn ty(self, db: &::salsa::Db, disambiguation: TypePathDisambiguation)
+        -> EthTermResult<EthTerm>;
 }
 
 impl HasTypeGivenDisambiguation for PrincipalEntityPath {
@@ -27,7 +24,7 @@ impl HasTypeGivenDisambiguation for PrincipalEntityPath {
         self,
         db: &::salsa::Db,
         disambiguation: TypePathDisambiguation,
-    ) -> EtherealTermResult<EtherealTerm> {
+    ) -> EthTermResult<EthTerm> {
         match self {
             PrincipalEntityPath::Module(path) => Ok(db
                 .ethereal_term_menu(path.toolchain(db))
@@ -43,7 +40,7 @@ impl HasTypeGivenDisambiguation for MajorItemPath {
         self,
         db: &::salsa::Db,
         disambiguation: TypePathDisambiguation,
-    ) -> EtherealTermResult<EtherealTerm> {
+    ) -> EthTermResult<EthTerm> {
         match self {
             MajorItemPath::Type(path) => path.ty(db, disambiguation),
             MajorItemPath::Trait(path) => path.ty(db),
@@ -53,14 +50,14 @@ impl HasTypeGivenDisambiguation for MajorItemPath {
 }
 
 impl HasType for TraitPath {
-    fn ty(self, db: &::salsa::Db) -> EtherealTermResult<EtherealTerm> {
-        EtherealTerm::ty_from_declarative(db, trai_path_declarative_ty(db, self)?)
+    fn ty(self, db: &::salsa::Db) -> EthTermResult<EthTerm> {
+        EthTerm::ty_from_declarative(db, trai_path_declarative_ty(db, self)?)
     }
 }
 
 impl HasType for FugitivePath {
-    fn ty(self, db: &::salsa::Db) -> EtherealTermResult<EtherealTerm> {
-        EtherealTerm::ty_from_declarative(db, fugitive_path_declarative_ty(db, self)?)
+    fn ty(self, db: &::salsa::Db) -> EthTermResult<EthTerm> {
+        EthTerm::ty_from_declarative(db, fugitive_path_declarative_ty(db, self)?)
     }
 }
 
@@ -69,12 +66,12 @@ impl HasTypeGivenDisambiguation for TypePath {
         self,
         db: &::salsa::Db,
         disambiguation: TypePathDisambiguation,
-    ) -> EtherealTermResult<EtherealTerm> {
+    ) -> EthTermResult<EthTerm> {
         match disambiguation {
             TypePathDisambiguation::OntologyConstructor => {
-                EtherealTerm::ty_from_declarative(db, ty_ontology_path_declarative_ty(db, self)?)
+                EthTerm::ty_from_declarative(db, ty_ontology_path_declarative_ty(db, self)?)
             }
-            TypePathDisambiguation::InstanceConstructor => EtherealTerm::ty_from_declarative(
+            TypePathDisambiguation::InstanceConstructor => EthTerm::ty_from_declarative(
                 db,
                 ty_instance_constructor_path_declarative_ty(db, self)?,
             ),
@@ -83,13 +80,13 @@ impl HasTypeGivenDisambiguation for TypePath {
 }
 
 impl HasType for TypeVariantPath {
-    fn ty(self, db: &::salsa::Db) -> EtherealTermResult<EtherealTerm> {
-        EtherealTerm::ty_from_declarative(db, ty_variant_path_declarative_ty(db, self)?)
+    fn ty(self, db: &::salsa::Db) -> EthTermResult<EthTerm> {
+        EthTerm::ty_from_declarative(db, ty_variant_path_declarative_ty(db, self)?)
     }
 }
 
-impl HasTypeGivenToolchain for EtherealTerm {
-    fn ty(self, _db: &::salsa::Db, _toolchain: Toolchain) -> EtherealTermResult<EtherealTerm> {
+impl HasTypeGivenToolchain for EthTerm {
+    fn ty(self, _db: &::salsa::Db, _toolchain: Toolchain) -> EthTermResult<EthTerm> {
         todo!()
         // self.ty_unchecked(db)?.checked(db)
     }
@@ -103,13 +100,10 @@ pub enum RawType {
     Declarative(DeclarativeTerm),
 }
 
-impl EtherealTerm {
-    pub fn ty_unchecked(
-        self,
-        db: &::salsa::Db,
-    ) -> EtherealTermResult<Either<EtherealTerm, PreludeTypePath>> {
+impl EthTerm {
+    pub fn ty_unchecked(self, db: &::salsa::Db) -> EthTermResult<Either<EthTerm, PreludeTypePath>> {
         Ok(match self.raw_ty(db)? {
-            RawType::Declarative(declarative_ty) => Left(EtherealTerm::from_declarative(
+            RawType::Declarative(declarative_ty) => Left(EthTerm::from_declarative(
                 db,
                 declarative_ty,
                 TermTypeExpectation::FinalDestinationEqsSort,
@@ -118,12 +112,12 @@ impl EtherealTerm {
         })
     }
 
-    pub fn raw_ty(self, db: &::salsa::Db) -> EtherealTermResult<RawType> {
+    pub fn raw_ty(self, db: &::salsa::Db) -> EthTermResult<RawType> {
         Ok(match self {
-            EtherealTerm::Literal(slf) => RawType::Prelude(slf.ty()),
-            EtherealTerm::Symbol(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
-            EtherealTerm::Rune(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
-            EtherealTerm::EntityPath(slf) => match slf {
+            EthTerm::Literal(slf) => RawType::Prelude(slf.ty()),
+            EthTerm::Symbol(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
+            EthTerm::Rune(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
+            EthTerm::EntityPath(slf) => match slf {
                 ItemPathTerm::Fugitive(path) => todo!(),
                 ItemPathTerm::Trait(path) => {
                     RawType::Declarative(trai_path_declarative_ty(db, path)?)
@@ -138,21 +132,19 @@ impl EtherealTerm {
                     RawType::Declarative(ty_variant_path_declarative_ty(db, path)?)
                 }
             },
-            EtherealTerm::Category(slf) => RawType::Declarative(slf.ty()?.into()),
-            EtherealTerm::Universe(_) => RawType::Prelude(PreludeTypePath::UNIVERSE),
-            EtherealTerm::Curry(slf) => slf.raw_ty(db),
-            EtherealTerm::Ritchie(_) => {
-                DeclarativeTerm::Category(CategoryTerm::new(1.into())).into()
-            }
-            EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::Application(term) => RawType::Declarative(term.declarative_ty(db)?),
-            EtherealTerm::TypeAsTraitItem(_) => todo!(),
-            EtherealTerm::TraitConstraint(_) => todo!(),
+            EthTerm::Category(slf) => RawType::Declarative(slf.ty()?.into()),
+            EthTerm::Universe(_) => RawType::Prelude(PreludeTypePath::UNIVERSE),
+            EthTerm::Curry(slf) => slf.raw_ty(db),
+            EthTerm::Ritchie(_) => DeclarativeTerm::Category(CategoryTerm::new(1.into())).into(),
+            EthTerm::Abstraction(_) => todo!(),
+            EthTerm::Application(term) => RawType::Declarative(term.declarative_ty(db)?),
+            EthTerm::TypeAsTraitItem(_) => todo!(),
+            EthTerm::TraitConstraint(_) => todo!(),
         })
     }
 }
 
-impl CurryEtherealTerm {
+impl CurryEthTerm {
     fn raw_ty(self, db: &salsa::Db) -> RawType {
         let Ok(RawType::Declarative(DeclarativeTerm::Category(parameter_ty_cat))) =
             self.parameter_ty(db).raw_ty(db)

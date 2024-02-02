@@ -1,7 +1,7 @@
 use super::*;
 use husky_entity_path::{SubmoduleItemPath, TraitPath};
 use husky_hir_defn::{HasHirDefn, TypeHirDefn};
-use husky_linkage::template_argument::ty::LinkageType;
+use husky_linkage::template_argument::ty::LinType;
 use husky_manifest::PackageDependency;
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
@@ -183,7 +183,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.result += "v"
     }
 
-    pub(crate) fn vec_ty(&mut self, element_ty: LinkageType) {
+    pub(crate) fn vec_ty(&mut self, element_ty: LinType) {
         self.result += "Vec";
         self.bracketed(RustBracket::Angle, |builder| {
             element_ty.transpile_to_rust(builder)

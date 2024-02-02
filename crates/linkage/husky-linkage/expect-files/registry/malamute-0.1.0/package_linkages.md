@@ -139,7 +139,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 1,
                                         },
@@ -161,7 +161,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 2,
                                         },
@@ -205,7 +205,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 1,
                                         },
@@ -227,7 +227,7 @@
                         Explicit(
                             Type(
                                 PathLeading(
-                                    LinkageTypePathLeading(
+                                    LinTypePathLeading(
                                         Id {
                                             value: 2,
                                         },

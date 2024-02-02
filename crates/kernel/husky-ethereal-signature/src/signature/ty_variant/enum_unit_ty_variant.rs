@@ -3,11 +3,11 @@ use super::*;
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct EnumUnitTypeVariantEthTemplate {
     pub parent_ty_template: EnumTypeEthTemplate,
-    pub self_ty: EtherealTerm,
+    pub self_ty: EthTerm,
 }
 
 impl EnumUnitTypeVariantEthTemplate {
-    pub fn instance_constructor_ty(self, db: &::salsa::Db) -> EtherealTerm {
+    pub fn instance_constructor_ty(self, db: &::salsa::Db) -> EthTerm {
         self.self_ty(db)
     }
 
@@ -21,7 +21,7 @@ impl EnumUnitTypeVariantEthTemplate {
         else {
             unreachable!()
         };
-        let self_ty = EtherealTerm::ty_from_declarative(db, tmpl.self_ty(db))?;
+        let self_ty = EthTerm::ty_from_declarative(db, tmpl.self_ty(db))?;
         Ok(Self::new(db, parent_ty_template, self_ty))
     }
 }

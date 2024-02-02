@@ -8,7 +8,7 @@ pub fn fugitive_path_declarative_ty(
     db: &::salsa::Db,
     path: FugitivePath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    let signature = match path.declarative_signature_template(db) {
+    let signature = match path.dec_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };

@@ -59,7 +59,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`covariant Type -> Type`),
+                                        EthTerm(`covariant Type -> Type`),
                                     ),
                                 },
                             ),
@@ -69,7 +69,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`covariant Type -> Type`),
+                                            EthTerm(`covariant Type -> Type`),
                                         ),
                                     },
                                 ),
@@ -92,7 +92,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
+                                        EthTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -102,7 +102,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Type`),
+                                            EthTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -123,7 +123,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Type`),
+                                        EthTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -133,7 +133,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Type`),
+                                            EthTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -149,7 +149,7 @@
                                     element_ty: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     rbox_regional_token_idx: RegionalTokenIdx(
@@ -161,7 +161,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vec ConcaveComponent`),
+                                        EthTerm(`Vec ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -171,7 +171,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vec ConcaveComponent`),
+                                            EthTerm(`Vec ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -202,7 +202,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash LineSegmentSketch`),
+                                        EthTerm(`Leash LineSegmentSketch`),
                                     ),
                                 },
                             ),
@@ -220,7 +220,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentSketch`),
+                                            EthTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                 ),
@@ -243,7 +243,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentSketch`),
+                                            EthTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -274,7 +274,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Vec LineSegmentStroke`),
+                                                    EthTerm(`Vec LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -287,7 +287,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vec LineSegmentStroke`),
+                                        EthTerm(`Vec LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -299,7 +299,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vec LineSegmentStroke`),
+                                            EthTerm(`Vec LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -337,7 +337,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Vec LineSegmentStroke`),
+                                                            EthTerm(`Vec LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -345,7 +345,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`i32`),
+                                                        EthTerm(`i32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -354,7 +354,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -400,7 +400,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -410,7 +410,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -576,7 +576,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -594,7 +594,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -624,7 +624,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -642,7 +642,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -677,7 +677,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`bool`),
+                                        EthTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -687,7 +687,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -716,7 +716,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
+                                        EthTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
                                     ),
                                 },
                             ),
@@ -726,7 +726,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
+                                            EthTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
                                         ),
                                     },
                                 ),
@@ -757,7 +757,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash LineSegmentSketch`),
+                                        EthTerm(`Leash LineSegmentSketch`),
                                     ),
                                 },
                             ),
@@ -775,7 +775,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentSketch`),
+                                            EthTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                 ),
@@ -851,7 +851,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`LineSegmentSketch`),
+                                                        EthTerm(`LineSegmentSketch`),
                                                     ),
                                                 },
                                             },
@@ -879,7 +879,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`i32`),
+                                                        EthTerm(`i32`),
                                                     ),
                                                 },
                                             },
@@ -915,7 +915,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`bool`),
+                                        EthTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -925,7 +925,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -947,7 +947,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`bool`),
+                                        EthTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -957,7 +957,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -992,7 +992,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`bool`),
+                                        EthTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -1002,7 +1002,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -1077,7 +1077,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -1087,7 +1087,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -1277,7 +1277,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -1295,7 +1295,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -1330,7 +1330,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -1340,7 +1340,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -1375,7 +1375,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`bool`),
+                                        EthTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -1385,7 +1385,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -1522,7 +1522,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -1540,7 +1540,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -1575,7 +1575,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -1585,7 +1585,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -1620,7 +1620,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`bool`),
+                                        EthTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -1630,7 +1630,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -1659,7 +1659,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
+                                        EthTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
                                     ),
                                 },
                             ),
@@ -1669,7 +1669,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
+                                            EthTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
                                         ),
                                     },
                                 ),
@@ -1700,7 +1700,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash LineSegmentSketch`),
+                                        EthTerm(`Leash LineSegmentSketch`),
                                     ),
                                 },
                             ),
@@ -1718,7 +1718,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentSketch`),
+                                            EthTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                 ),
@@ -1794,7 +1794,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`LineSegmentSketch`),
+                                                        EthTerm(`LineSegmentSketch`),
                                                     ),
                                                 },
                                             },
@@ -1822,7 +1822,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`i32`),
+                                                        EthTerm(`i32`),
                                                     ),
                                                 },
                                             },
@@ -1858,7 +1858,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`bool`),
+                                        EthTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -1868,7 +1868,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -1890,7 +1890,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`bool`),
+                                        EthTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -1900,7 +1900,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -1935,7 +1935,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`bool`),
+                                        EthTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -1945,7 +1945,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -2020,7 +2020,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -2030,7 +2030,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -2161,7 +2161,7 @@
                                         Const,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -2173,7 +2173,7 @@
                                             Const,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -2208,7 +2208,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -2218,7 +2218,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -2253,7 +2253,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`bool`),
+                                        EthTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -2263,7 +2263,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -2294,7 +2294,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vec ConcaveComponent`),
+                                        EthTerm(`Vec ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -2312,7 +2312,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vec ConcaveComponent`),
+                                            EthTerm(`Vec ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -2341,7 +2341,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`fn((move  Leash LineSegmentSketch, move  Leash CyclicSlice LineSegmentStroke) -> ConcaveComponent`),
+                                        EthTerm(`fn((move  Leash LineSegmentSketch, move  Leash CyclicSlice LineSegmentStroke) -> ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -2351,7 +2351,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`fn((move  Leash LineSegmentSketch, move  Leash CyclicSlice LineSegmentStroke) -> ConcaveComponent`),
+                                            EthTerm(`fn((move  Leash LineSegmentSketch, move  Leash CyclicSlice LineSegmentStroke) -> ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -2382,7 +2382,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash LineSegmentSketch`),
+                                        EthTerm(`Leash LineSegmentSketch`),
                                     ),
                                 },
                             ),
@@ -2400,7 +2400,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentSketch`),
+                                            EthTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                 ),
@@ -2431,7 +2431,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash LineSegmentSketch`),
+                                        EthTerm(`Leash LineSegmentSketch`),
                                     ),
                                 },
                             ),
@@ -2449,7 +2449,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentSketch`),
+                                            EthTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                 ),
@@ -2472,7 +2472,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentSketch`),
+                                            EthTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -2503,7 +2503,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Vec LineSegmentStroke`),
+                                                    EthTerm(`Vec LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -2516,7 +2516,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vec LineSegmentStroke`),
+                                        EthTerm(`Vec LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -2528,7 +2528,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vec LineSegmentStroke`),
+                                            EthTerm(`Vec LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -2672,7 +2672,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Vec LineSegmentStroke`),
+                                                            EthTerm(`Vec LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -2683,7 +2683,7 @@
                                                             ty: FluffyTerm {
                                                                 place: None,
                                                                 base: FluffyTermBase::Ethereal(
-                                                                    EtherealTerm(`i32`),
+                                                                    EthTerm(`i32`),
                                                                 ),
                                                             },
                                                         },
@@ -2694,7 +2694,7 @@
                                                             ty: FluffyTerm {
                                                                 place: None,
                                                                 base: FluffyTermBase::Ethereal(
-                                                                    EtherealTerm(`i32`),
+                                                                    EthTerm(`i32`),
                                                                 ),
                                                             },
                                                         },
@@ -2703,7 +2703,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -2712,7 +2712,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -2755,7 +2755,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`i32`),
+                                                        EthTerm(`i32`),
                                                     ),
                                                 },
                                             },
@@ -2791,7 +2791,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`i32`),
+                                                        EthTerm(`i32`),
                                                     ),
                                                 },
                                             },
@@ -2827,7 +2827,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -2837,7 +2837,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -2860,7 +2860,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Leash LineSegmentSketch`),
+                                                        EthTerm(`Leash LineSegmentSketch`),
                                                     ),
                                                 },
                                             },
@@ -2896,7 +2896,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                     ),
                                                 },
                                             },
@@ -2926,7 +2926,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -2936,7 +2936,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -2986,7 +2986,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Vec ConcaveComponent`),
+                                                            EthTerm(`Vec ConcaveComponent`),
                                                         ),
                                                     },
                                                 },
@@ -2997,7 +2997,7 @@
                                                             ty: FluffyTerm {
                                                                 place: None,
                                                                 base: FluffyTermBase::Ethereal(
-                                                                    EtherealTerm(`ConcaveComponent`),
+                                                                    EthTerm(`ConcaveComponent`),
                                                                 ),
                                                             },
                                                         },
@@ -3006,7 +3006,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`unit`),
+                                                        EthTerm(`unit`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -3021,7 +3021,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -3046,7 +3046,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 4,
                                                                 },
@@ -3072,7 +3072,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`ConcaveComponent`),
+                                                        EthTerm(`ConcaveComponent`),
                                                     ),
                                                 },
                                             },
@@ -3102,7 +3102,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -3112,7 +3112,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -3251,7 +3251,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -3261,7 +3261,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -3392,7 +3392,7 @@
                                         Const,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -3404,7 +3404,7 @@
                                             Const,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -3439,7 +3439,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -3449,7 +3449,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -3482,7 +3482,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -3492,7 +3492,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -3523,7 +3523,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vec ConcaveComponent`),
+                                        EthTerm(`Vec ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -3541,7 +3541,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vec ConcaveComponent`),
+                                            EthTerm(`Vec ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -3561,7 +3561,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`never`),
+                                        EthTerm(`never`),
                                     ),
                                 },
                             ),
@@ -3571,7 +3571,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`never`),
+                                            EthTerm(`never`),
                                         ),
                                     },
                                 ),
@@ -3609,7 +3609,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -3640,7 +3640,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -3671,7 +3671,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -3708,7 +3708,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -3747,7 +3747,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -3778,7 +3778,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -3809,7 +3809,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -3866,7 +3866,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -3905,7 +3905,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -3944,7 +3944,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -3983,7 +3983,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -4020,7 +4020,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -4059,7 +4059,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -4096,7 +4096,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -4133,7 +4133,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`never`),
+                                        EthTerm(`never`),
                                     ),
                                 },
                             ),
@@ -4159,7 +4159,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    ApplicationEtherealTerm(
+                                    ApplicationEthTerm(
                                         Id {
                                             value: 43,
                                         },
@@ -4247,7 +4247,7 @@
                                     place: None,
                                     base: Ethereal(
                                         Application(
-                                            ApplicationEtherealTerm(
+                                            ApplicationEthTerm(
                                                 Id {
                                                     value: 43,
                                                 },
@@ -4392,7 +4392,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    ApplicationEtherealTerm(
+                                    ApplicationEthTerm(
                                         Id {
                                             value: 43,
                                         },
@@ -4485,7 +4485,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`Leash LineSegmentSketch`),
+                                EthTerm(`Leash LineSegmentSketch`),
                             ),
                         },
                     ),
@@ -4503,7 +4503,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`Vec ConcaveComponent`),
+                                EthTerm(`Vec ConcaveComponent`),
                             ),
                         },
                     ),
@@ -4519,7 +4519,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`i32`),
+                                EthTerm(`i32`),
                             ),
                         },
                     ),
@@ -4608,7 +4608,7 @@
                                                 },
                                             ),
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`i32`),
+                                                EthTerm(`i32`),
                                             ),
                                         },
                                     ),
@@ -4625,14 +4625,14 @@
                                                     },
                                                 ),
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`i32`),
+                                                    EthTerm(`i32`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`i32`),
+                                    EthTerm(`i32`),
                                 ),
                             },
                             HollowTermEntry {
@@ -4645,7 +4645,7 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`i32`),
+                                                EthTerm(`i32`),
                                             ),
                                         },
                                     ),
@@ -4654,14 +4654,14 @@
                                             target: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`i32`),
+                                                    EthTerm(`i32`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`i32`),
+                                    EthTerm(`i32`),
                                 ),
                             },
                         ],
@@ -4686,7 +4686,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`covariant Type -> Type`),
+                                            EthTerm(`covariant Type -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -4697,7 +4697,7 @@
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Type`),
+                                                            EthTerm(`Type`),
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::Curry {
@@ -4706,13 +4706,13 @@
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
                                                             base: FluffyTermBase::Ethereal(
-                                                                EtherealTerm(`Type`),
+                                                                EthTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
                                                             base: FluffyTermBase::Ethereal(
-                                                                EtherealTerm(`Type`),
+                                                                EthTerm(`Type`),
                                                             ),
                                                         },
                                                     },
@@ -4748,7 +4748,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Type`),
+                                            EthTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -4772,7 +4772,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Type`),
+                                            EthTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -4794,7 +4794,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Vec ConcaveComponent`),
+                                                EthTerm(`Vec ConcaveComponent`),
                                             ),
                                         },
                                     },
@@ -4808,7 +4808,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vec ConcaveComponent`),
+                                            EthTerm(`Vec ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -4848,7 +4848,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentSketch`),
+                                            EthTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -4870,7 +4870,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vec LineSegmentStroke`),
+                                            EthTerm(`Vec LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -4890,7 +4890,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -4996,7 +4996,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -5042,7 +5042,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -5074,7 +5074,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`bool`),
+                                                EthTerm(`bool`),
                                             ),
                                         },
                                     },
@@ -5088,7 +5088,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -5122,7 +5122,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
+                                            EthTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -5133,7 +5133,7 @@
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`bool`),
+                                                            EthTerm(`bool`),
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
@@ -5147,7 +5147,7 @@
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: FluffyTermBase::Ethereal(
-                                                                            EtherealTerm(`LineSegmentSketch`),
+                                                                            EthTerm(`LineSegmentSketch`),
                                                                         ),
                                                                     },
                                                                 },
@@ -5158,7 +5158,7 @@
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: FluffyTermBase::Ethereal(
-                                                                            EtherealTerm(`i32`),
+                                                                            EthTerm(`i32`),
                                                                         ),
                                                                     },
                                                                 },
@@ -5178,7 +5178,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`LineSegmentSketch`),
+                                                EthTerm(`LineSegmentSketch`),
                                             ),
                                         },
                                     },
@@ -5200,7 +5200,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentSketch`),
+                                            EthTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -5224,7 +5224,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`i32`),
+                                                EthTerm(`i32`),
                                             ),
                                         },
                                     },
@@ -5286,7 +5286,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -5308,7 +5308,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`bool`),
+                                                EthTerm(`bool`),
                                             ),
                                         },
                                     },
@@ -5322,7 +5322,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -5354,7 +5354,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -5406,7 +5406,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -5420,7 +5420,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -5568,7 +5568,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -5624,7 +5624,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -5656,7 +5656,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -5770,7 +5770,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -5826,7 +5826,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -5852,7 +5852,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`bool`),
+                                                EthTerm(`bool`),
                                             ),
                                         },
                                     },
@@ -5866,7 +5866,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -5900,7 +5900,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
+                                            EthTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -5911,7 +5911,7 @@
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`bool`),
+                                                            EthTerm(`bool`),
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
@@ -5925,7 +5925,7 @@
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: FluffyTermBase::Ethereal(
-                                                                            EtherealTerm(`LineSegmentSketch`),
+                                                                            EthTerm(`LineSegmentSketch`),
                                                                         ),
                                                                     },
                                                                 },
@@ -5936,7 +5936,7 @@
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: FluffyTermBase::Ethereal(
-                                                                            EtherealTerm(`i32`),
+                                                                            EthTerm(`i32`),
                                                                         ),
                                                                     },
                                                                 },
@@ -5956,7 +5956,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`LineSegmentSketch`),
+                                                EthTerm(`LineSegmentSketch`),
                                             ),
                                         },
                                     },
@@ -5978,7 +5978,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentSketch`),
+                                            EthTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -6002,7 +6002,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`i32`),
+                                                EthTerm(`i32`),
                                             ),
                                         },
                                     },
@@ -6064,7 +6064,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -6086,7 +6086,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`bool`),
+                                                EthTerm(`bool`),
                                             ),
                                         },
                                     },
@@ -6100,7 +6100,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -6132,7 +6132,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -6184,7 +6184,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -6198,7 +6198,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -6310,7 +6310,7 @@
                                             Const,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -6360,7 +6360,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -6392,7 +6392,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -6428,7 +6428,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vec ConcaveComponent`),
+                                            EthTerm(`Vec ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -6450,7 +6450,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`fn((move  Leash LineSegmentSketch, move  Leash CyclicSlice LineSegmentStroke) -> ConcaveComponent`),
+                                            EthTerm(`fn((move  Leash LineSegmentSketch, move  Leash CyclicSlice LineSegmentStroke) -> ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -6461,7 +6461,7 @@
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`ConcaveComponent`),
+                                                            EthTerm(`ConcaveComponent`),
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
@@ -6475,7 +6475,7 @@
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: FluffyTermBase::Ethereal(
-                                                                            EtherealTerm(`Leash LineSegmentSketch`),
+                                                                            EthTerm(`Leash LineSegmentSketch`),
                                                                         ),
                                                                     },
                                                                 },
@@ -6486,7 +6486,7 @@
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: FluffyTermBase::Ethereal(
-                                                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                                         ),
                                                                     },
                                                                 },
@@ -6506,7 +6506,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Leash LineSegmentSketch`),
+                                                EthTerm(`Leash LineSegmentSketch`),
                                             ),
                                         },
                                     },
@@ -6528,7 +6528,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentSketch`),
+                                            EthTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -6574,7 +6574,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentSketch`),
+                                            EthTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -6596,7 +6596,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vec LineSegmentStroke`),
+                                            EthTerm(`Vec LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -6610,7 +6610,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`i32`),
+                                                EthTerm(`i32`),
                                             ),
                                         },
                                     },
@@ -6666,7 +6666,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`i32`),
+                                                EthTerm(`i32`),
                                             ),
                                         },
                                     },
@@ -6722,7 +6722,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                             ),
                                         },
                                     },
@@ -6736,7 +6736,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -6762,7 +6762,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`ConcaveComponent`),
+                                                EthTerm(`ConcaveComponent`),
                                             ),
                                         },
                                     },
@@ -6776,7 +6776,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -6802,7 +6802,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -6816,7 +6816,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -6902,7 +6902,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -6916,7 +6916,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -7028,7 +7028,7 @@
                                             Const,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -7060,7 +7060,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -7074,7 +7074,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -7088,7 +7088,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -7114,7 +7114,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Vec ConcaveComponent`),
+                                                EthTerm(`Vec ConcaveComponent`),
                                             ),
                                         },
                                     },
@@ -7136,7 +7136,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vec ConcaveComponent`),
+                                            EthTerm(`Vec ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -7168,7 +7168,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Vec ConcaveComponent`),
+                                                EthTerm(`Vec ConcaveComponent`),
                                             ),
                                         },
                                     },
@@ -7182,7 +7182,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`never`),
+                                            EthTerm(`never`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -7203,7 +7203,7 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`Vec ConcaveComponent`),
+                EthTerm(`Vec ConcaveComponent`),
             ),
             self_ty: None,
         },
@@ -7315,7 +7315,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -7333,7 +7333,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -7356,7 +7356,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -7391,7 +7391,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -7410,7 +7410,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -7428,7 +7428,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -7493,7 +7493,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -7501,7 +7501,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Visual`),
+                                                        EthTerm(`Visual`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -7510,7 +7510,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 3,
                                                                 },
@@ -7520,7 +7520,7 @@
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Application(
-                                                                            ApplicationEtherealTerm(
+                                                                            ApplicationEthTerm(
                                                                                 Id {
                                                                                     value: 50,
                                                                                 },
@@ -7552,7 +7552,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Visual`),
+                                        EthTerm(`Visual`),
                                     ),
                                 },
                             ),
@@ -7562,7 +7562,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Visual`),
+                                            EthTerm(`Visual`),
                                         ),
                                     },
                                 ),
@@ -7582,7 +7582,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Visual`),
+                                        EthTerm(`Visual`),
                                     ),
                                 },
                             ),
@@ -7592,7 +7592,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Visual`),
+                                            EthTerm(`Visual`),
                                         ),
                                     },
                                 ),
@@ -7630,7 +7630,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Visual`),
+                                        EthTerm(`Visual`),
                                     ),
                                 },
                             ),
@@ -7696,7 +7696,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -7724,7 +7724,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -7738,7 +7738,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Visual`),
+                                                EthTerm(`Visual`),
                                             ),
                                         },
                                     },
@@ -7752,7 +7752,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Visual`),
+                                            EthTerm(`Visual`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -7778,7 +7778,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Visual`),
+                                                EthTerm(`Visual`),
                                             ),
                                         },
                                     },
@@ -7792,7 +7792,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Visual`),
+                                            EthTerm(`Visual`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -7817,10 +7817,10 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`Visual`),
+                EthTerm(`Visual`),
             ),
             self_ty: Some(
-                EtherealTerm(`ConcaveComponent`),
+                EthTerm(`ConcaveComponent`),
             ),
         },
     },
@@ -7883,7 +7883,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -7895,7 +7895,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -7912,7 +7912,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -7935,7 +7935,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`f32`),
+                                                    EthTerm(`f32`),
                                                 ),
                                             },
                                             path: AssociatedItemPath::TypeItem(
@@ -7958,7 +7958,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -7970,7 +7970,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -7992,7 +7992,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -8004,7 +8004,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -8044,7 +8044,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -8104,7 +8104,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -8118,7 +8118,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -8134,7 +8134,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -8160,7 +8160,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -8176,7 +8176,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -8201,10 +8201,10 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`f32`),
+                EthTerm(`f32`),
             ),
             self_ty: Some(
-                EtherealTerm(`ConcaveComponent`),
+                EthTerm(`ConcaveComponent`),
             ),
         },
     },
@@ -8267,7 +8267,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -8279,7 +8279,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -8296,7 +8296,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -8319,7 +8319,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`f32`),
+                                                    EthTerm(`f32`),
                                                 ),
                                             },
                                             path: AssociatedItemPath::TypeItem(
@@ -8342,7 +8342,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -8354,7 +8354,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -8374,7 +8374,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -8386,7 +8386,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -8424,7 +8424,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`ConcaveComponent`),
+                                                            EthTerm(`ConcaveComponent`),
                                                         ),
                                                     },
                                                 },
@@ -8432,7 +8432,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Vector2d`),
+                                                        EthTerm(`Vector2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -8461,7 +8461,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -8471,7 +8471,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                 ),
@@ -8509,7 +8509,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Vector2d`),
+                                                            EthTerm(`Vector2d`),
                                                         ),
                                                     },
                                                 },
@@ -8517,7 +8517,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`f32`),
+                                                        EthTerm(`f32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -8546,7 +8546,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -8556,7 +8556,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -8591,7 +8591,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -8601,7 +8601,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -8621,7 +8621,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -8631,7 +8631,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -8669,7 +8669,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -8729,7 +8729,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -8751,7 +8751,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -8773,7 +8773,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -8793,7 +8793,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -8809,7 +8809,7 @@
                                                 Leashed,
                                             ),
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -8823,7 +8823,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -8849,7 +8849,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -8863,7 +8863,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -8889,7 +8889,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -8903,7 +8903,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -8928,10 +8928,10 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`f32`),
+                EthTerm(`f32`),
             ),
             self_ty: Some(
-                EtherealTerm(`ConcaveComponent`),
+                EthTerm(`ConcaveComponent`),
             ),
         },
     },
@@ -9039,7 +9039,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -9051,7 +9051,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -9068,7 +9068,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -9091,7 +9091,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -9104,7 +9104,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -9116,7 +9116,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -9156,7 +9156,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -9164,7 +9164,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                                        EthTerm(`Option Leash LineSegmentStroke`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -9173,7 +9173,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -9219,7 +9219,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                        EthTerm(`Option Leash LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -9229,7 +9229,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Option Leash LineSegmentStroke`),
+                                            EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -9250,7 +9250,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                        EthTerm(`Leash LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -9260,7 +9260,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -9275,7 +9275,7 @@
                                     owner_ty: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -9300,7 +9300,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Point2d`),
+                                                    EthTerm(`Point2d`),
                                                 ),
                                             },
                                         },
@@ -9313,7 +9313,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -9325,7 +9325,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -9345,7 +9345,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -9357,7 +9357,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -9395,7 +9395,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`ConcaveComponent`),
+                                                            EthTerm(`ConcaveComponent`),
                                                         ),
                                                     },
                                                 },
@@ -9403,7 +9403,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`LineSegment`),
+                                                        EthTerm(`LineSegment`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -9432,7 +9432,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`LineSegment`),
+                                        EthTerm(`LineSegment`),
                                     ),
                                 },
                             ),
@@ -9442,7 +9442,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegment`),
+                                            EthTerm(`LineSegment`),
                                         ),
                                     },
                                 ),
@@ -9473,7 +9473,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`LineSegment`),
+                                        EthTerm(`LineSegment`),
                                     ),
                                 },
                             ),
@@ -9491,7 +9491,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegment`),
+                                            EthTerm(`LineSegment`),
                                         ),
                                     },
                                 ),
@@ -9541,7 +9541,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`LineSegment`),
+                                                            EthTerm(`LineSegment`),
                                                         ),
                                                     },
                                                 },
@@ -9549,7 +9549,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Vector2d`),
+                                                        EthTerm(`Vector2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -9584,7 +9584,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -9594,7 +9594,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                 ),
@@ -9632,7 +9632,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Vector2d`),
+                                                            EthTerm(`Vector2d`),
                                                         ),
                                                     },
                                                 },
@@ -9640,7 +9640,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`f32`),
+                                                        EthTerm(`f32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -9669,7 +9669,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -9679,7 +9679,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -9699,7 +9699,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -9711,7 +9711,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -9728,7 +9728,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -9751,7 +9751,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -9764,7 +9764,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -9776,7 +9776,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -9816,7 +9816,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -9824,7 +9824,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`i32`),
+                                                        EthTerm(`i32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -9833,7 +9833,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -9879,7 +9879,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -9889,7 +9889,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -9909,7 +9909,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -9921,7 +9921,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -9938,7 +9938,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -9961,7 +9961,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -9974,7 +9974,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -9986,7 +9986,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -10026,7 +10026,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -10034,7 +10034,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`i32`),
+                                                        EthTerm(`i32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -10043,7 +10043,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -10089,7 +10089,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -10099,7 +10099,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -10130,7 +10130,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -10148,7 +10148,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -10168,7 +10168,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -10180,7 +10180,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -10197,7 +10197,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -10220,7 +10220,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -10233,7 +10233,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -10245,7 +10245,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -10276,7 +10276,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -10294,7 +10294,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -10332,7 +10332,7 @@
                                             element_ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`LineSegmentStroke`),
+                                                    EthTerm(`LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -10345,7 +10345,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`LineSegmentStroke`),
+                                        EthTerm(`LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -10357,7 +10357,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegmentStroke`),
+                                            EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -10374,7 +10374,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegmentStroke`),
+                                            EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -10397,7 +10397,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Point2d`),
+                                                    EthTerm(`Point2d`),
                                                 ),
                                             },
                                         },
@@ -10410,7 +10410,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -10422,7 +10422,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -10453,7 +10453,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`LineSegment`),
+                                        EthTerm(`LineSegment`),
                                     ),
                                 },
                             ),
@@ -10471,7 +10471,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegment`),
+                                            EthTerm(`LineSegment`),
                                         ),
                                     },
                                 ),
@@ -10496,7 +10496,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -10508,7 +10508,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -10558,7 +10558,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`LineSegment`),
+                                                            EthTerm(`LineSegment`),
                                                         ),
                                                     },
                                                 },
@@ -10569,7 +10569,7 @@
                                                             ty: FluffyTerm {
                                                                 place: None,
                                                                 base: FluffyTermBase::Ethereal(
-                                                                    EtherealTerm(`Point2d`),
+                                                                    EthTerm(`Point2d`),
                                                                 ),
                                                             },
                                                         },
@@ -10578,7 +10578,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`f32`),
+                                                        EthTerm(`f32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -10610,7 +10610,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Point2d`),
+                                                        EthTerm(`Point2d`),
                                                     ),
                                                 },
                                             },
@@ -10640,7 +10640,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -10650,7 +10650,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -10681,7 +10681,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -10699,7 +10699,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -10787,7 +10787,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`bool`),
+                                        EthTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -10797,7 +10797,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -10881,7 +10881,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -10899,7 +10899,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -10932,7 +10932,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -10942,7 +10942,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -11015,7 +11015,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`never`),
+                                        EthTerm(`never`),
                                     ),
                                 },
                             ),
@@ -11025,7 +11025,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`never`),
+                                            EthTerm(`never`),
                                         ),
                                     },
                                 ),
@@ -11063,7 +11063,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -11102,7 +11102,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -11141,7 +11141,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -11180,7 +11180,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -11219,7 +11219,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -11258,7 +11258,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -11297,7 +11297,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -11336,7 +11336,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -11398,7 +11398,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -11435,7 +11435,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`never`),
+                                        EthTerm(`never`),
                                     ),
                                 },
                             ),
@@ -11758,7 +11758,7 @@
                                 Leashed,
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`Point2d`),
+                                EthTerm(`Point2d`),
                             ),
                         },
                     ),
@@ -11774,7 +11774,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`LineSegment`),
+                                EthTerm(`LineSegment`),
                             ),
                         },
                     ),
@@ -11790,7 +11790,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`f32`),
+                                EthTerm(`f32`),
                             ),
                         },
                     ),
@@ -11806,7 +11806,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`i32`),
+                                EthTerm(`i32`),
                             ),
                         },
                     ),
@@ -11816,7 +11816,7 @@
                                 Leashed,
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`Point2d`),
+                                EthTerm(`Point2d`),
                             ),
                         },
                     ),
@@ -11832,7 +11832,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`f32`),
+                                EthTerm(`f32`),
                             ),
                         },
                     ),
@@ -11867,7 +11867,7 @@
                                                 },
                                             ),
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     ),
@@ -11884,14 +11884,14 @@
                                                     },
                                                 ),
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`f32`),
+                                                    EthTerm(`f32`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`f32`),
+                                    EthTerm(`f32`),
                                 ),
                             },
                         ],
@@ -11940,7 +11940,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -11962,7 +11962,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -11982,7 +11982,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Option Leash LineSegmentStroke`),
+                                            EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12002,7 +12002,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12024,7 +12024,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12046,7 +12046,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12066,7 +12066,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegment`),
+                                            EthTerm(`LineSegment`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12094,7 +12094,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegment`),
+                                            EthTerm(`LineSegment`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12114,7 +12114,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12134,7 +12134,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12156,7 +12156,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12178,7 +12178,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12198,7 +12198,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12243,7 +12243,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12265,7 +12265,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12279,7 +12279,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`i32`),
+                                                EthTerm(`i32`),
                                             ),
                                         },
                                     },
@@ -12293,7 +12293,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12327,7 +12327,7 @@
                                                 },
                                             ),
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`i32`),
+                                                EthTerm(`i32`),
                                             ),
                                         },
                                     },
@@ -12349,7 +12349,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12389,7 +12389,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12411,7 +12411,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12439,7 +12439,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12461,7 +12461,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegmentStroke`),
+                                            EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12483,7 +12483,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12511,7 +12511,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegment`),
+                                            EthTerm(`LineSegment`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12525,7 +12525,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Point2d`),
+                                                EthTerm(`Point2d`),
                                             ),
                                         },
                                     },
@@ -12541,7 +12541,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12573,7 +12573,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12601,7 +12601,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12623,7 +12623,7 @@
                                                 },
                                             ),
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -12685,7 +12685,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12751,7 +12751,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12765,7 +12765,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -12779,7 +12779,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12805,7 +12805,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -12861,7 +12861,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -12875,7 +12875,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`never`),
+                                            EthTerm(`never`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -12896,10 +12896,10 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`f32`),
+                EthTerm(`f32`),
             ),
             self_ty: Some(
-                EtherealTerm(`ConcaveComponent`),
+                EthTerm(`ConcaveComponent`),
             ),
         },
     },
@@ -13007,7 +13007,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -13019,7 +13019,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -13036,7 +13036,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -13059,7 +13059,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -13072,7 +13072,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -13084,7 +13084,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -13104,7 +13104,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -13116,7 +13116,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -13133,7 +13133,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -13156,7 +13156,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -13169,7 +13169,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -13181,7 +13181,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -13221,7 +13221,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -13229,7 +13229,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`i32`),
+                                                        EthTerm(`i32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -13238,7 +13238,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -13284,7 +13284,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -13294,7 +13294,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -13332,7 +13332,7 @@
                                             element_ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`LineSegmentStroke`),
+                                                    EthTerm(`LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -13345,7 +13345,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`LineSegmentStroke`),
+                                        EthTerm(`LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -13357,7 +13357,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegmentStroke`),
+                                            EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -13395,7 +13395,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`LineSegmentStroke`),
+                                                            EthTerm(`LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -13403,7 +13403,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Vector2d`),
+                                                        EthTerm(`Vector2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -13432,7 +13432,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -13442,7 +13442,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                 ),
@@ -13462,7 +13462,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -13474,7 +13474,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -13491,7 +13491,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -13514,7 +13514,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -13527,7 +13527,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -13539,7 +13539,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -13579,7 +13579,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -13587,7 +13587,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`i32`),
+                                                        EthTerm(`i32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -13596,7 +13596,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -13642,7 +13642,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -13652,7 +13652,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -13672,7 +13672,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -13684,7 +13684,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -13701,7 +13701,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -13724,7 +13724,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -13737,7 +13737,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -13749,7 +13749,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -13789,7 +13789,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -13797,7 +13797,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`i32`),
+                                                        EthTerm(`i32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -13806,7 +13806,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -13852,7 +13852,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -13862,7 +13862,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -13893,7 +13893,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -13911,7 +13911,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -13931,7 +13931,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -13943,7 +13943,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -13960,7 +13960,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -13983,7 +13983,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -13996,7 +13996,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -14008,7 +14008,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -14039,7 +14039,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -14057,7 +14057,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -14095,7 +14095,7 @@
                                             element_ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`LineSegmentStroke`),
+                                                    EthTerm(`LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -14108,7 +14108,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`LineSegmentStroke`),
+                                        EthTerm(`LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -14120,7 +14120,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegmentStroke`),
+                                            EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -14158,7 +14158,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`LineSegmentStroke`),
+                                                            EthTerm(`LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -14166,7 +14166,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Vector2d`),
+                                                        EthTerm(`Vector2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -14195,7 +14195,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -14205,7 +14205,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                 ),
@@ -14289,7 +14289,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -14307,7 +14307,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                 ),
@@ -14338,7 +14338,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -14356,7 +14356,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                 ),
@@ -14379,7 +14379,7 @@
                                         Const,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`bool`),
+                                        EthTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -14391,7 +14391,7 @@
                                             Const,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -14441,7 +14441,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Vector2d`),
+                                                            EthTerm(`Vector2d`),
                                                         ),
                                                     },
                                                 },
@@ -14452,7 +14452,7 @@
                                                             ty: FluffyTerm {
                                                                 place: None,
                                                                 base: FluffyTermBase::Ethereal(
-                                                                    EtherealTerm(`Vector2d`),
+                                                                    EthTerm(`Vector2d`),
                                                                 ),
                                                             },
                                                         },
@@ -14463,7 +14463,7 @@
                                                             ty: FluffyTerm {
                                                                 place: None,
                                                                 base: FluffyTermBase::Ethereal(
-                                                                    EtherealTerm(`bool`),
+                                                                    EthTerm(`bool`),
                                                                 ),
                                                             },
                                                         },
@@ -14472,7 +14472,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`f32`),
+                                                        EthTerm(`f32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -14504,7 +14504,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Vector2d`),
+                                                        EthTerm(`Vector2d`),
                                                     ),
                                                 },
                                             },
@@ -14540,7 +14540,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`bool`),
+                                                        EthTerm(`bool`),
                                                     ),
                                                 },
                                             },
@@ -14570,7 +14570,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -14580,7 +14580,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -14615,7 +14615,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -14625,7 +14625,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -14656,7 +14656,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -14674,7 +14674,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                 ),
@@ -14705,7 +14705,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -14723,7 +14723,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                 ),
@@ -14756,7 +14756,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -14766,7 +14766,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -14839,7 +14839,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`never`),
+                                        EthTerm(`never`),
                                     ),
                                 },
                             ),
@@ -14849,7 +14849,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`never`),
+                                            EthTerm(`never`),
                                         ),
                                     },
                                 ),
@@ -14895,7 +14895,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -14926,7 +14926,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -14957,7 +14957,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -14996,7 +14996,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -15035,7 +15035,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -15097,7 +15097,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -15134,7 +15134,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`never`),
+                                        EthTerm(`never`),
                                     ),
                                 },
                             ),
@@ -15346,7 +15346,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`Vector2d`),
+                                EthTerm(`Vector2d`),
                             ),
                         },
                     ),
@@ -15362,7 +15362,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`i32`),
+                                EthTerm(`i32`),
                             ),
                         },
                     ),
@@ -15378,7 +15378,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`Vector2d`),
+                                EthTerm(`Vector2d`),
                             ),
                         },
                     ),
@@ -15405,7 +15405,7 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     ),
@@ -15414,14 +15414,14 @@
                                             target: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`f32`),
+                                                    EthTerm(`f32`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`f32`),
+                                    EthTerm(`f32`),
                                 ),
                             },
                         ],
@@ -15470,7 +15470,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15492,7 +15492,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15514,7 +15514,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15536,7 +15536,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15556,7 +15556,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15578,7 +15578,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegmentStroke`),
+                                            EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15598,7 +15598,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15620,7 +15620,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15642,7 +15642,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15662,7 +15662,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15707,7 +15707,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15729,7 +15729,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15743,7 +15743,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`i32`),
+                                                EthTerm(`i32`),
                                             ),
                                         },
                                     },
@@ -15757,7 +15757,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15791,7 +15791,7 @@
                                                 },
                                             ),
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`i32`),
+                                                EthTerm(`i32`),
                                             ),
                                         },
                                     },
@@ -15813,7 +15813,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15853,7 +15853,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15875,7 +15875,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15903,7 +15903,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15925,7 +15925,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegmentStroke`),
+                                            EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -15945,7 +15945,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -16003,7 +16003,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -16017,7 +16017,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Vector2d`),
+                                                EthTerm(`Vector2d`),
                                             ),
                                         },
                                     },
@@ -16039,7 +16039,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -16071,7 +16071,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`bool`),
+                                                EthTerm(`bool`),
                                             ),
                                         },
                                     },
@@ -16087,7 +16087,7 @@
                                             Const,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
+                                            EthTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -16137,7 +16137,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -16163,7 +16163,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -16177,7 +16177,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -16217,7 +16217,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -16245,7 +16245,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -16259,7 +16259,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -16273,7 +16273,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -16299,7 +16299,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -16355,7 +16355,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -16369,7 +16369,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`never`),
+                                            EthTerm(`never`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -16390,10 +16390,10 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`f32`),
+                EthTerm(`f32`),
             ),
             self_ty: Some(
-                EtherealTerm(`ConcaveComponent`),
+                EthTerm(`ConcaveComponent`),
             ),
         },
     },
@@ -16456,7 +16456,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -16468,7 +16468,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -16485,7 +16485,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -16508,7 +16508,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -16521,7 +16521,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -16533,7 +16533,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -16573,7 +16573,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -16581,7 +16581,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                                        EthTerm(`Option Leash LineSegmentStroke`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -16590,7 +16590,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -16636,7 +16636,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                        EthTerm(`Option Leash LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -16646,7 +16646,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Option Leash LineSegmentStroke`),
+                                            EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -16667,7 +16667,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                        EthTerm(`Leash LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -16677,7 +16677,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -16692,7 +16692,7 @@
                                     owner_ty: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -16717,7 +16717,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Point2d`),
+                                                    EthTerm(`Point2d`),
                                                 ),
                                             },
                                         },
@@ -16730,7 +16730,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -16742,7 +16742,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -16767,7 +16767,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -16779,7 +16779,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -16796,7 +16796,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -16819,7 +16819,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`f32`),
+                                                    EthTerm(`f32`),
                                                 ),
                                             },
                                         },
@@ -16832,7 +16832,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -16844,7 +16844,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -16869,7 +16869,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -16881,7 +16881,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -16898,7 +16898,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -16921,7 +16921,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`f32`),
+                                                    EthTerm(`f32`),
                                                 ),
                                             },
                                         },
@@ -16934,7 +16934,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -16946,7 +16946,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -16971,7 +16971,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -16983,7 +16983,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -17000,7 +17000,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -17023,7 +17023,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`f32`),
+                                                    EthTerm(`f32`),
                                                 ),
                                             },
                                         },
@@ -17036,7 +17036,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -17048,7 +17048,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -17073,7 +17073,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -17085,7 +17085,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -17102,7 +17102,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -17125,7 +17125,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`f32`),
+                                                    EthTerm(`f32`),
                                                 ),
                                             },
                                         },
@@ -17138,7 +17138,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -17150,7 +17150,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -17170,7 +17170,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -17182,7 +17182,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -17199,7 +17199,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -17222,7 +17222,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -17235,7 +17235,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -17247,7 +17247,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -17287,7 +17287,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -17295,7 +17295,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`i32`),
+                                                        EthTerm(`i32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -17304,7 +17304,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -17350,7 +17350,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -17360,7 +17360,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -17380,7 +17380,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -17392,7 +17392,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -17409,7 +17409,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -17432,7 +17432,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -17445,7 +17445,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -17457,7 +17457,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -17497,7 +17497,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -17505,7 +17505,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`i32`),
+                                                        EthTerm(`i32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -17514,7 +17514,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -17560,7 +17560,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -17570,7 +17570,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -17601,7 +17601,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -17619,7 +17619,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -17639,7 +17639,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -17651,7 +17651,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -17668,7 +17668,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -17691,7 +17691,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -17704,7 +17704,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -17716,7 +17716,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -17747,7 +17747,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`i32`),
+                                        EthTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -17765,7 +17765,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -17803,7 +17803,7 @@
                                             element_ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`LineSegmentStroke`),
+                                                    EthTerm(`LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -17816,7 +17816,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`LineSegmentStroke`),
+                                        EthTerm(`LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -17828,7 +17828,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegmentStroke`),
+                                            EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -17845,7 +17845,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegmentStroke`),
+                                            EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -17868,7 +17868,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Point2d`),
+                                                    EthTerm(`Point2d`),
                                                 ),
                                             },
                                         },
@@ -17881,7 +17881,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -17893,7 +17893,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -17924,7 +17924,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -17942,7 +17942,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -17973,7 +17973,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -17991,7 +17991,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -18016,7 +18016,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -18028,7 +18028,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -18045,7 +18045,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -18068,7 +18068,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`f32`),
+                                                    EthTerm(`f32`),
                                                 ),
                                             },
                                         },
@@ -18081,7 +18081,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -18093,7 +18093,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -18143,7 +18143,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`f32`),
+                                                            EthTerm(`f32`),
                                                         ),
                                                     },
                                                 },
@@ -18154,7 +18154,7 @@
                                                             ty: FluffyTerm {
                                                                 place: None,
                                                                 base: FluffyTermBase::Ethereal(
-                                                                    EtherealTerm(`f32`),
+                                                                    EthTerm(`f32`),
                                                                 ),
                                                             },
                                                         },
@@ -18163,7 +18163,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`f32`),
+                                                        EthTerm(`f32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -18195,7 +18195,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`f32`),
+                                                        EthTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -18225,7 +18225,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -18235,7 +18235,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -18268,7 +18268,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -18278,7 +18278,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -18309,7 +18309,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -18327,7 +18327,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -18358,7 +18358,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -18376,7 +18376,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -18401,7 +18401,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -18413,7 +18413,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -18430,7 +18430,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -18453,7 +18453,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`f32`),
+                                                    EthTerm(`f32`),
                                                 ),
                                             },
                                         },
@@ -18466,7 +18466,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -18478,7 +18478,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -18528,7 +18528,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`f32`),
+                                                            EthTerm(`f32`),
                                                         ),
                                                     },
                                                 },
@@ -18539,7 +18539,7 @@
                                                             ty: FluffyTerm {
                                                                 place: None,
                                                                 base: FluffyTermBase::Ethereal(
-                                                                    EtherealTerm(`f32`),
+                                                                    EthTerm(`f32`),
                                                                 ),
                                                             },
                                                         },
@@ -18548,7 +18548,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`f32`),
+                                                        EthTerm(`f32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -18580,7 +18580,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`f32`),
+                                                        EthTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -18610,7 +18610,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -18620,7 +18620,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -18653,7 +18653,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -18663,7 +18663,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -18694,7 +18694,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -18712,7 +18712,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -18743,7 +18743,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -18761,7 +18761,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -18786,7 +18786,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -18798,7 +18798,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -18815,7 +18815,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -18838,7 +18838,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`f32`),
+                                                    EthTerm(`f32`),
                                                 ),
                                             },
                                         },
@@ -18851,7 +18851,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -18863,7 +18863,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -18913,7 +18913,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`f32`),
+                                                            EthTerm(`f32`),
                                                         ),
                                                     },
                                                 },
@@ -18924,7 +18924,7 @@
                                                             ty: FluffyTerm {
                                                                 place: None,
                                                                 base: FluffyTermBase::Ethereal(
-                                                                    EtherealTerm(`f32`),
+                                                                    EthTerm(`f32`),
                                                                 ),
                                                             },
                                                         },
@@ -18933,7 +18933,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`f32`),
+                                                        EthTerm(`f32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -18965,7 +18965,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`f32`),
+                                                        EthTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -18995,7 +18995,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -19005,7 +19005,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -19038,7 +19038,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -19048,7 +19048,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -19079,7 +19079,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -19097,7 +19097,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -19128,7 +19128,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -19146,7 +19146,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -19171,7 +19171,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -19183,7 +19183,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -19200,7 +19200,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -19223,7 +19223,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`f32`),
+                                                    EthTerm(`f32`),
                                                 ),
                                             },
                                         },
@@ -19236,7 +19236,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -19248,7 +19248,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -19298,7 +19298,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`f32`),
+                                                            EthTerm(`f32`),
                                                         ),
                                                     },
                                                 },
@@ -19309,7 +19309,7 @@
                                                             ty: FluffyTerm {
                                                                 place: None,
                                                                 base: FluffyTermBase::Ethereal(
-                                                                    EtherealTerm(`f32`),
+                                                                    EthTerm(`f32`),
                                                                 ),
                                                             },
                                                         },
@@ -19318,7 +19318,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`f32`),
+                                                        EthTerm(`f32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -19350,7 +19350,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`f32`),
+                                                        EthTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -19380,7 +19380,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -19390,7 +19390,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -19423,7 +19423,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -19433,7 +19433,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -19462,7 +19462,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`fn((move  ClosedRange, move  ClosedRange) -> BoundingBox`),
+                                        EthTerm(`fn((move  ClosedRange, move  ClosedRange) -> BoundingBox`),
                                     ),
                                 },
                             ),
@@ -19472,7 +19472,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`fn((move  ClosedRange, move  ClosedRange) -> BoundingBox`),
+                                            EthTerm(`fn((move  ClosedRange, move  ClosedRange) -> BoundingBox`),
                                         ),
                                     },
                                 ),
@@ -19501,7 +19501,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`fn((move  f32, move  f32) -> ClosedRange`),
+                                        EthTerm(`fn((move  f32, move  f32) -> ClosedRange`),
                                     ),
                                 },
                             ),
@@ -19511,7 +19511,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`fn((move  f32, move  f32) -> ClosedRange`),
+                                            EthTerm(`fn((move  f32, move  f32) -> ClosedRange`),
                                         ),
                                     },
                                 ),
@@ -19542,7 +19542,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -19560,7 +19560,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -19591,7 +19591,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -19609,7 +19609,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -19632,7 +19632,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`f32`),
+                                                        EthTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -19668,7 +19668,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`f32`),
+                                                        EthTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -19704,7 +19704,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ClosedRange`),
+                                        EthTerm(`ClosedRange`),
                                     ),
                                 },
                             ),
@@ -19714,7 +19714,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ClosedRange`),
+                                            EthTerm(`ClosedRange`),
                                         ),
                                     },
                                 ),
@@ -19743,7 +19743,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`fn((move  f32, move  f32) -> ClosedRange`),
+                                        EthTerm(`fn((move  f32, move  f32) -> ClosedRange`),
                                     ),
                                 },
                             ),
@@ -19753,7 +19753,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`fn((move  f32, move  f32) -> ClosedRange`),
+                                            EthTerm(`fn((move  f32, move  f32) -> ClosedRange`),
                                         ),
                                     },
                                 ),
@@ -19784,7 +19784,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -19802,7 +19802,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -19833,7 +19833,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`f32`),
+                                        EthTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -19851,7 +19851,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -19874,7 +19874,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`f32`),
+                                                        EthTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -19910,7 +19910,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`f32`),
+                                                        EthTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -19946,7 +19946,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ClosedRange`),
+                                        EthTerm(`ClosedRange`),
                                     ),
                                 },
                             ),
@@ -19956,7 +19956,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ClosedRange`),
+                                            EthTerm(`ClosedRange`),
                                         ),
                                     },
                                 ),
@@ -19979,7 +19979,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`ClosedRange`),
+                                                        EthTerm(`ClosedRange`),
                                                     ),
                                                 },
                                             },
@@ -20009,7 +20009,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`ClosedRange`),
+                                                        EthTerm(`ClosedRange`),
                                                     ),
                                                 },
                                             },
@@ -20043,7 +20043,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`BoundingBox`),
+                                        EthTerm(`BoundingBox`),
                                     ),
                                 },
                             ),
@@ -20053,7 +20053,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`BoundingBox`),
+                                            EthTerm(`BoundingBox`),
                                         ),
                                     },
                                 ),
@@ -20073,7 +20073,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`never`),
+                                        EthTerm(`never`),
                                     ),
                                 },
                             ),
@@ -20083,7 +20083,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`never`),
+                                            EthTerm(`never`),
                                         ),
                                     },
                                 ),
@@ -20129,7 +20129,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -20160,7 +20160,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -20191,7 +20191,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -20222,7 +20222,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -20253,7 +20253,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -20292,7 +20292,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -20331,7 +20331,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -20370,7 +20370,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -20409,7 +20409,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -20448,7 +20448,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -20510,7 +20510,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -20541,7 +20541,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`never`),
+                                        EthTerm(`never`),
                                     ),
                                 },
                             ),
@@ -20852,7 +20852,7 @@
                                 Leashed,
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`Point2d`),
+                                EthTerm(`Point2d`),
                             ),
                         },
                     ),
@@ -20868,7 +20868,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`f32`),
+                                EthTerm(`f32`),
                             ),
                         },
                     ),
@@ -20884,7 +20884,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`f32`),
+                                EthTerm(`f32`),
                             ),
                         },
                     ),
@@ -20900,7 +20900,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`f32`),
+                                EthTerm(`f32`),
                             ),
                         },
                     ),
@@ -20916,7 +20916,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`f32`),
+                                EthTerm(`f32`),
                             ),
                         },
                     ),
@@ -20932,7 +20932,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`i32`),
+                                EthTerm(`i32`),
                             ),
                         },
                     ),
@@ -20942,7 +20942,7 @@
                                 Leashed,
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`Point2d`),
+                                EthTerm(`Point2d`),
                             ),
                         },
                     ),
@@ -20980,7 +20980,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21002,7 +21002,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21022,7 +21022,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Option Leash LineSegmentStroke`),
+                                            EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21042,7 +21042,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21064,7 +21064,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21086,7 +21086,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21108,7 +21108,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21130,7 +21130,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21152,7 +21152,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21174,7 +21174,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21196,7 +21196,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21218,7 +21218,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21240,7 +21240,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21262,7 +21262,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21284,7 +21284,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21304,7 +21304,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21349,7 +21349,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21371,7 +21371,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21385,7 +21385,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`i32`),
+                                                EthTerm(`i32`),
                                             ),
                                         },
                                     },
@@ -21399,7 +21399,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21433,7 +21433,7 @@
                                                 },
                                             ),
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`i32`),
+                                                EthTerm(`i32`),
                                             ),
                                         },
                                     },
@@ -21455,7 +21455,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21495,7 +21495,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21517,7 +21517,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21545,7 +21545,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`i32`),
+                                            EthTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21567,7 +21567,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegmentStroke`),
+                                            EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21589,7 +21589,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21617,7 +21617,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21645,7 +21645,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21667,7 +21667,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21681,7 +21681,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -21697,7 +21697,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21729,7 +21729,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21743,7 +21743,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -21757,7 +21757,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21797,7 +21797,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21825,7 +21825,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21847,7 +21847,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21861,7 +21861,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -21877,7 +21877,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21909,7 +21909,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21923,7 +21923,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -21937,7 +21937,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -21977,7 +21977,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22005,7 +22005,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22027,7 +22027,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22041,7 +22041,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -22057,7 +22057,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22089,7 +22089,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22103,7 +22103,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -22117,7 +22117,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22157,7 +22157,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22185,7 +22185,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22207,7 +22207,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22221,7 +22221,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -22237,7 +22237,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22269,7 +22269,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22283,7 +22283,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -22297,7 +22297,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22331,7 +22331,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`fn((move  ClosedRange, move  ClosedRange) -> BoundingBox`),
+                                            EthTerm(`fn((move  ClosedRange, move  ClosedRange) -> BoundingBox`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22342,7 +22342,7 @@
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`BoundingBox`),
+                                                            EthTerm(`BoundingBox`),
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
@@ -22356,7 +22356,7 @@
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: FluffyTermBase::Ethereal(
-                                                                            EtherealTerm(`ClosedRange`),
+                                                                            EthTerm(`ClosedRange`),
                                                                         ),
                                                                     },
                                                                 },
@@ -22367,7 +22367,7 @@
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: FluffyTermBase::Ethereal(
-                                                                            EtherealTerm(`ClosedRange`),
+                                                                            EthTerm(`ClosedRange`),
                                                                         ),
                                                                     },
                                                                 },
@@ -22395,7 +22395,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`fn((move  f32, move  f32) -> ClosedRange`),
+                                            EthTerm(`fn((move  f32, move  f32) -> ClosedRange`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22406,7 +22406,7 @@
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`ClosedRange`),
+                                                            EthTerm(`ClosedRange`),
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
@@ -22420,7 +22420,7 @@
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: FluffyTermBase::Ethereal(
-                                                                            EtherealTerm(`f32`),
+                                                                            EthTerm(`f32`),
                                                                         ),
                                                                     },
                                                                 },
@@ -22431,7 +22431,7 @@
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: FluffyTermBase::Ethereal(
-                                                                            EtherealTerm(`f32`),
+                                                                            EthTerm(`f32`),
                                                                         ),
                                                                     },
                                                                 },
@@ -22451,7 +22451,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -22473,7 +22473,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22505,7 +22505,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -22527,7 +22527,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22559,7 +22559,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`ClosedRange`),
+                                                EthTerm(`ClosedRange`),
                                             ),
                                         },
                                     },
@@ -22573,7 +22573,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ClosedRange`),
+                                            EthTerm(`ClosedRange`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22607,7 +22607,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`fn((move  f32, move  f32) -> ClosedRange`),
+                                            EthTerm(`fn((move  f32, move  f32) -> ClosedRange`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22618,7 +22618,7 @@
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`ClosedRange`),
+                                                            EthTerm(`ClosedRange`),
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
@@ -22632,7 +22632,7 @@
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: FluffyTermBase::Ethereal(
-                                                                            EtherealTerm(`f32`),
+                                                                            EthTerm(`f32`),
                                                                         ),
                                                                     },
                                                                 },
@@ -22643,7 +22643,7 @@
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: FluffyTermBase::Ethereal(
-                                                                            EtherealTerm(`f32`),
+                                                                            EthTerm(`f32`),
                                                                         ),
                                                                     },
                                                                 },
@@ -22663,7 +22663,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -22685,7 +22685,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22717,7 +22717,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`f32`),
+                                                EthTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -22739,7 +22739,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`f32`),
+                                            EthTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22771,7 +22771,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`ClosedRange`),
+                                                EthTerm(`ClosedRange`),
                                             ),
                                         },
                                     },
@@ -22785,7 +22785,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ClosedRange`),
+                                            EthTerm(`ClosedRange`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22811,7 +22811,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`BoundingBox`),
+                                                EthTerm(`BoundingBox`),
                                             ),
                                         },
                                     },
@@ -22825,7 +22825,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`BoundingBox`),
+                                            EthTerm(`BoundingBox`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22851,7 +22851,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`BoundingBox`),
+                                                EthTerm(`BoundingBox`),
                                             ),
                                         },
                                     },
@@ -22865,7 +22865,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`never`),
+                                            EthTerm(`never`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -22886,10 +22886,10 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`BoundingBox`),
+                EthTerm(`BoundingBox`),
             ),
             self_ty: Some(
-                EtherealTerm(`ConcaveComponent`),
+                EthTerm(`ConcaveComponent`),
             ),
         },
     },
@@ -22952,7 +22952,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -22964,7 +22964,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -22981,7 +22981,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -23004,7 +23004,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash LineSegmentSketch`),
+                                                    EthTerm(`Leash LineSegmentSketch`),
                                                 ),
                                             },
                                         },
@@ -23017,7 +23017,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash LineSegmentSketch`),
+                                        EthTerm(`Leash LineSegmentSketch`),
                                     ),
                                 },
                             ),
@@ -23029,7 +23029,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentSketch`),
+                                            EthTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                 ),
@@ -23046,7 +23046,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentSketch`),
+                                            EthTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -23071,7 +23071,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`BoundingBox`),
+                                                    EthTerm(`BoundingBox`),
                                                 ),
                                             },
                                             path: AssociatedItemPath::TypeItem(
@@ -23094,7 +23094,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`BoundingBox`),
+                                        EthTerm(`BoundingBox`),
                                     ),
                                 },
                             ),
@@ -23106,7 +23106,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`BoundingBox`),
+                                            EthTerm(`BoundingBox`),
                                         ),
                                     },
                                 ),
@@ -23126,7 +23126,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -23138,7 +23138,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -23155,7 +23155,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -23178,7 +23178,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`BoundingBox`),
+                                                    EthTerm(`BoundingBox`),
                                                 ),
                                             },
                                             path: AssociatedItemPath::TypeItem(
@@ -23201,7 +23201,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`BoundingBox`),
+                                        EthTerm(`BoundingBox`),
                                     ),
                                 },
                             ),
@@ -23213,7 +23213,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`BoundingBox`),
+                                            EthTerm(`BoundingBox`),
                                         ),
                                     },
                                 ),
@@ -23251,7 +23251,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`BoundingBox`),
+                                                            EthTerm(`BoundingBox`),
                                                         ),
                                                     },
                                                 },
@@ -23262,7 +23262,7 @@
                                                             ty: FluffyTerm {
                                                                 place: None,
                                                                 base: FluffyTermBase::Ethereal(
-                                                                    EtherealTerm(`BoundingBox`),
+                                                                    EthTerm(`BoundingBox`),
                                                                 ),
                                                             },
                                                         },
@@ -23271,7 +23271,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`RelativeBoundingBox`),
+                                                        EthTerm(`RelativeBoundingBox`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -23297,7 +23297,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`BoundingBox`),
+                                                        EthTerm(`BoundingBox`),
                                                     ),
                                                 },
                                             },
@@ -23327,7 +23327,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`RelativeBoundingBox`),
+                                        EthTerm(`RelativeBoundingBox`),
                                     ),
                                 },
                             ),
@@ -23337,7 +23337,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`RelativeBoundingBox`),
+                                            EthTerm(`RelativeBoundingBox`),
                                         ),
                                     },
                                 ),
@@ -23357,7 +23357,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`RelativeBoundingBox`),
+                                        EthTerm(`RelativeBoundingBox`),
                                     ),
                                 },
                             ),
@@ -23367,7 +23367,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`RelativeBoundingBox`),
+                                            EthTerm(`RelativeBoundingBox`),
                                         ),
                                     },
                                 ),
@@ -23405,7 +23405,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`RelativeBoundingBox`),
+                                        EthTerm(`RelativeBoundingBox`),
                                     ),
                                 },
                             ),
@@ -23465,7 +23465,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -23487,7 +23487,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentSketch`),
+                                            EthTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -23509,7 +23509,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`BoundingBox`),
+                                            EthTerm(`BoundingBox`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -23531,7 +23531,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -23545,7 +23545,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`BoundingBox`),
+                                                EthTerm(`BoundingBox`),
                                             ),
                                         },
                                     },
@@ -23561,7 +23561,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`BoundingBox`),
+                                            EthTerm(`BoundingBox`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -23587,7 +23587,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`RelativeBoundingBox`),
+                                                EthTerm(`RelativeBoundingBox`),
                                             ),
                                         },
                                     },
@@ -23601,7 +23601,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`RelativeBoundingBox`),
+                                            EthTerm(`RelativeBoundingBox`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -23627,7 +23627,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`RelativeBoundingBox`),
+                                                EthTerm(`RelativeBoundingBox`),
                                             ),
                                         },
                                     },
@@ -23641,7 +23641,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`RelativeBoundingBox`),
+                                            EthTerm(`RelativeBoundingBox`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -23666,10 +23666,10 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`RelativeBoundingBox`),
+                EthTerm(`RelativeBoundingBox`),
             ),
             self_ty: Some(
-                EtherealTerm(`ConcaveComponent`),
+                EthTerm(`ConcaveComponent`),
             ),
         },
     },
@@ -23741,7 +23741,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`fn((move  Point2d, move  Point2d) -> LineSegment`),
+                                        EthTerm(`fn((move  Point2d, move  Point2d) -> LineSegment`),
                                     ),
                                 },
                             ),
@@ -23751,7 +23751,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`fn((move  Point2d, move  Point2d) -> LineSegment`),
+                                            EthTerm(`fn((move  Point2d, move  Point2d) -> LineSegment`),
                                         ),
                                     },
                                 ),
@@ -23777,7 +23777,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -23795,7 +23795,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -23818,7 +23818,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -23853,7 +23853,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -23872,7 +23872,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -23890,7 +23890,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -23936,7 +23936,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -23944,7 +23944,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                                        EthTerm(`Option Leash LineSegmentStroke`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -23953,7 +23953,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -23999,7 +23999,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                        EthTerm(`Option Leash LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -24009,7 +24009,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Option Leash LineSegmentStroke`),
+                                            EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -24030,7 +24030,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                        EthTerm(`Leash LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -24040,7 +24040,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -24055,7 +24055,7 @@
                                     owner_ty: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -24080,7 +24080,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Point2d`),
+                                                    EthTerm(`Point2d`),
                                                 ),
                                             },
                                         },
@@ -24093,7 +24093,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -24105,7 +24105,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -24162,7 +24162,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Point2d`),
+                                                            EthTerm(`Point2d`),
                                                         ),
                                                     },
                                                 },
@@ -24170,7 +24170,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Point2d`),
+                                                        EthTerm(`Point2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -24179,7 +24179,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 3,
                                                                 },
@@ -24225,7 +24225,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -24235,7 +24235,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -24261,7 +24261,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -24279,7 +24279,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -24302,7 +24302,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -24337,7 +24337,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -24356,7 +24356,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -24374,7 +24374,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -24420,7 +24420,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -24428,7 +24428,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                                        EthTerm(`Option Leash LineSegmentStroke`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -24437,7 +24437,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -24483,7 +24483,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                        EthTerm(`Option Leash LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -24493,7 +24493,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Option Leash LineSegmentStroke`),
+                                            EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -24514,7 +24514,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                        EthTerm(`Leash LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -24524,7 +24524,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -24539,7 +24539,7 @@
                                     owner_ty: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -24564,7 +24564,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Point2d`),
+                                                    EthTerm(`Point2d`),
                                                 ),
                                             },
                                         },
@@ -24577,7 +24577,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -24589,7 +24589,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -24646,7 +24646,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Point2d`),
+                                                            EthTerm(`Point2d`),
                                                         ),
                                                     },
                                                 },
@@ -24654,7 +24654,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Point2d`),
+                                                        EthTerm(`Point2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -24663,7 +24663,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 3,
                                                                 },
@@ -24709,7 +24709,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -24719,7 +24719,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -24742,7 +24742,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Point2d`),
+                                                        EthTerm(`Point2d`),
                                                     ),
                                                 },
                                             },
@@ -24772,7 +24772,7 @@
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Point2d`),
+                                                        EthTerm(`Point2d`),
                                                     ),
                                                 },
                                             },
@@ -24802,7 +24802,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`LineSegment`),
+                                        EthTerm(`LineSegment`),
                                     ),
                                 },
                             ),
@@ -24812,7 +24812,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegment`),
+                                            EthTerm(`LineSegment`),
                                         ),
                                     },
                                 ),
@@ -24832,7 +24832,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`LineSegment`),
+                                        EthTerm(`LineSegment`),
                                     ),
                                 },
                             ),
@@ -24842,7 +24842,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegment`),
+                                            EthTerm(`LineSegment`),
                                         ),
                                     },
                                 ),
@@ -24880,7 +24880,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`LineSegment`),
+                                        EthTerm(`LineSegment`),
                                     ),
                                 },
                             ),
@@ -24940,7 +24940,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`fn((move  Point2d, move  Point2d) -> LineSegment`),
+                                            EthTerm(`fn((move  Point2d, move  Point2d) -> LineSegment`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -24951,7 +24951,7 @@
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`LineSegment`),
+                                                            EthTerm(`LineSegment`),
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
@@ -24965,7 +24965,7 @@
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: FluffyTermBase::Ethereal(
-                                                                            EtherealTerm(`Point2d`),
+                                                                            EthTerm(`Point2d`),
                                                                         ),
                                                                     },
                                                                 },
@@ -24976,7 +24976,7 @@
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: FluffyTermBase::Ethereal(
-                                                                            EtherealTerm(`Point2d`),
+                                                                            EthTerm(`Point2d`),
                                                                         ),
                                                                     },
                                                                 },
@@ -25010,7 +25010,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -25038,7 +25038,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -25058,7 +25058,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Option Leash LineSegmentStroke`),
+                                            EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -25078,7 +25078,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -25100,7 +25100,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -25114,7 +25114,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Point2d`),
+                                                EthTerm(`Point2d`),
                                             ),
                                         },
                                     },
@@ -25128,7 +25128,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -25168,7 +25168,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -25196,7 +25196,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -25216,7 +25216,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Option Leash LineSegmentStroke`),
+                                            EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -25236,7 +25236,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -25258,7 +25258,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -25272,7 +25272,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Point2d`),
+                                                EthTerm(`Point2d`),
                                             ),
                                         },
                                     },
@@ -25286,7 +25286,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -25312,7 +25312,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`LineSegment`),
+                                                EthTerm(`LineSegment`),
                                             ),
                                         },
                                     },
@@ -25326,7 +25326,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegment`),
+                                            EthTerm(`LineSegment`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -25352,7 +25352,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`LineSegment`),
+                                                EthTerm(`LineSegment`),
                                             ),
                                         },
                                     },
@@ -25366,7 +25366,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegment`),
+                                            EthTerm(`LineSegment`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -25391,10 +25391,10 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`LineSegment`),
+                EthTerm(`LineSegment`),
             ),
             self_ty: Some(
-                EtherealTerm(`ConcaveComponent`),
+                EthTerm(`ConcaveComponent`),
             ),
         },
     },
@@ -25463,7 +25463,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -25481,7 +25481,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -25504,7 +25504,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -25539,7 +25539,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -25558,7 +25558,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -25576,7 +25576,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -25622,7 +25622,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -25630,7 +25630,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                                        EthTerm(`Option Leash LineSegmentStroke`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -25639,7 +25639,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -25685,7 +25685,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                        EthTerm(`Option Leash LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -25695,7 +25695,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Option Leash LineSegmentStroke`),
+                                            EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -25716,7 +25716,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                        EthTerm(`Leash LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -25726,7 +25726,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -25741,7 +25741,7 @@
                                     owner_ty: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -25766,7 +25766,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Point2d`),
+                                                    EthTerm(`Point2d`),
                                                 ),
                                             },
                                         },
@@ -25779,7 +25779,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -25791,7 +25791,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -25848,7 +25848,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Point2d`),
+                                                            EthTerm(`Point2d`),
                                                         ),
                                                     },
                                                 },
@@ -25856,7 +25856,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Point2d`),
+                                                        EthTerm(`Point2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -25865,7 +25865,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 3,
                                                                 },
@@ -25911,7 +25911,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -25921,7 +25921,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -25941,7 +25941,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -25951,7 +25951,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -25989,7 +25989,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -26055,7 +26055,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -26083,7 +26083,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -26103,7 +26103,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Option Leash LineSegmentStroke`),
+                                            EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -26123,7 +26123,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -26145,7 +26145,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -26159,7 +26159,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Point2d`),
+                                                EthTerm(`Point2d`),
                                             ),
                                         },
                                     },
@@ -26173,7 +26173,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -26199,7 +26199,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Point2d`),
+                                                EthTerm(`Point2d`),
                                             ),
                                         },
                                     },
@@ -26213,7 +26213,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -26238,10 +26238,10 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`Point2d`),
+                EthTerm(`Point2d`),
             ),
             self_ty: Some(
-                EtherealTerm(`ConcaveComponent`),
+                EthTerm(`ConcaveComponent`),
             ),
         },
     },
@@ -26310,7 +26310,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -26328,7 +26328,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -26351,7 +26351,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -26386,7 +26386,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -26405,7 +26405,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -26423,7 +26423,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -26469,7 +26469,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -26477,7 +26477,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                                        EthTerm(`Option Leash LineSegmentStroke`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -26486,7 +26486,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -26532,7 +26532,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                        EthTerm(`Option Leash LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -26542,7 +26542,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Option Leash LineSegmentStroke`),
+                                            EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -26563,7 +26563,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                        EthTerm(`Leash LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -26573,7 +26573,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -26588,7 +26588,7 @@
                                     owner_ty: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -26613,7 +26613,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Point2d`),
+                                                    EthTerm(`Point2d`),
                                                 ),
                                             },
                                         },
@@ -26626,7 +26626,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -26638,7 +26638,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -26695,7 +26695,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`Point2d`),
+                                                            EthTerm(`Point2d`),
                                                         ),
                                                     },
                                                 },
@@ -26703,7 +26703,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Point2d`),
+                                                        EthTerm(`Point2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -26712,7 +26712,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 3,
                                                                 },
@@ -26758,7 +26758,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -26768,7 +26768,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -26788,7 +26788,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -26798,7 +26798,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                 ),
@@ -26836,7 +26836,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Point2d`),
+                                        EthTerm(`Point2d`),
                                     ),
                                 },
                             ),
@@ -26902,7 +26902,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -26930,7 +26930,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -26950,7 +26950,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Option Leash LineSegmentStroke`),
+                                            EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -26970,7 +26970,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -26992,7 +26992,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -27006,7 +27006,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Point2d`),
+                                                EthTerm(`Point2d`),
                                             ),
                                         },
                                     },
@@ -27020,7 +27020,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -27046,7 +27046,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Point2d`),
+                                                EthTerm(`Point2d`),
                                             ),
                                         },
                                     },
@@ -27060,7 +27060,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Point2d`),
+                                            EthTerm(`Point2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -27085,10 +27085,10 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`Point2d`),
+                EthTerm(`Point2d`),
             ),
             self_ty: Some(
-                EtherealTerm(`ConcaveComponent`),
+                EthTerm(`ConcaveComponent`),
             ),
         },
     },
@@ -27157,7 +27157,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -27175,7 +27175,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -27225,7 +27225,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`ConcaveComponent`),
+                                                            EthTerm(`ConcaveComponent`),
                                                         ),
                                                     },
                                                 },
@@ -27233,7 +27233,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`LineSegment`),
+                                                        EthTerm(`LineSegment`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -27268,7 +27268,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`LineSegment`),
+                                        EthTerm(`LineSegment`),
                                     ),
                                 },
                             ),
@@ -27278,7 +27278,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegment`),
+                                            EthTerm(`LineSegment`),
                                         ),
                                     },
                                 ),
@@ -27316,7 +27316,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`LineSegment`),
+                                                            EthTerm(`LineSegment`),
                                                         ),
                                                     },
                                                 },
@@ -27324,7 +27324,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Vector2d`),
+                                                        EthTerm(`Vector2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -27353,7 +27353,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -27363,7 +27363,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                 ),
@@ -27383,7 +27383,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -27393,7 +27393,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                 ),
@@ -27431,7 +27431,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -27497,7 +27497,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -27517,7 +27517,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`LineSegment`),
+                                            EthTerm(`LineSegment`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -27531,7 +27531,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Vector2d`),
+                                                EthTerm(`Vector2d`),
                                             ),
                                         },
                                     },
@@ -27545,7 +27545,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -27571,7 +27571,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Vector2d`),
+                                                EthTerm(`Vector2d`),
                                             ),
                                         },
                                     },
@@ -27585,7 +27585,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -27610,10 +27610,10 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`Vector2d`),
+                EthTerm(`Vector2d`),
             ),
             self_ty: Some(
-                EtherealTerm(`ConcaveComponent`),
+                EthTerm(`ConcaveComponent`),
             ),
         },
     },
@@ -27682,7 +27682,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -27700,7 +27700,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -27723,7 +27723,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -27758,7 +27758,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -27777,7 +27777,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -27795,7 +27795,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -27841,7 +27841,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -27849,7 +27849,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                                        EthTerm(`Option Leash LineSegmentStroke`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -27858,7 +27858,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -27904,7 +27904,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                        EthTerm(`Option Leash LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -27914,7 +27914,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Option Leash LineSegmentStroke`),
+                                            EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -27935,7 +27935,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                        EthTerm(`Leash LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -27945,7 +27945,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -27985,7 +27985,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`LineSegmentStroke`),
+                                                            EthTerm(`LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -27993,7 +27993,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Vector2d`),
+                                                        EthTerm(`Vector2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -28022,7 +28022,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -28032,7 +28032,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                 ),
@@ -28052,7 +28052,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -28062,7 +28062,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                 ),
@@ -28100,7 +28100,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -28166,7 +28166,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -28194,7 +28194,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -28214,7 +28214,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Option Leash LineSegmentStroke`),
+                                            EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -28234,7 +28234,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -28248,7 +28248,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Vector2d`),
+                                                EthTerm(`Vector2d`),
                                             ),
                                         },
                                     },
@@ -28262,7 +28262,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -28288,7 +28288,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Vector2d`),
+                                                EthTerm(`Vector2d`),
                                             ),
                                         },
                                     },
@@ -28302,7 +28302,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -28327,10 +28327,10 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`Vector2d`),
+                EthTerm(`Vector2d`),
             ),
             self_ty: Some(
-                EtherealTerm(`ConcaveComponent`),
+                EthTerm(`ConcaveComponent`),
             ),
         },
     },
@@ -28399,7 +28399,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`ConcaveComponent`),
+                                        EthTerm(`ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -28417,7 +28417,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -28440,7 +28440,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -28475,7 +28475,7 @@
                                             ty: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                                    EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -28494,7 +28494,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                        EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -28512,7 +28512,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -28558,7 +28558,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -28566,7 +28566,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                                        EthTerm(`Option Leash LineSegmentStroke`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -28575,7 +28575,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEtherealTerm(
+                                                            SymbolEthTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -28621,7 +28621,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                        EthTerm(`Option Leash LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -28631,7 +28631,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Option Leash LineSegmentStroke`),
+                                            EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -28652,7 +28652,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                        EthTerm(`Leash LineSegmentStroke`),
                                     ),
                                 },
                             ),
@@ -28662,7 +28662,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                 ),
@@ -28702,7 +28702,7 @@
                                                     ty: FluffyTerm {
                                                         place: None,
                                                         base: FluffyTermBase::Ethereal(
-                                                            EtherealTerm(`LineSegmentStroke`),
+                                                            EthTerm(`LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
@@ -28710,7 +28710,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`Vector2d`),
+                                                        EthTerm(`Vector2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -28739,7 +28739,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -28749,7 +28749,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                 ),
@@ -28769,7 +28769,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -28779,7 +28779,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                 ),
@@ -28817,7 +28817,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Vector2d`),
+                                        EthTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -28883,7 +28883,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`ConcaveComponent`),
+                                            EthTerm(`ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -28911,7 +28911,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                            EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -28931,7 +28931,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Option Leash LineSegmentStroke`),
+                                            EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -28951,7 +28951,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash LineSegmentStroke`),
+                                            EthTerm(`Leash LineSegmentStroke`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -28965,7 +28965,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Vector2d`),
+                                                EthTerm(`Vector2d`),
                                             ),
                                         },
                                     },
@@ -28979,7 +28979,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -29005,7 +29005,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Vector2d`),
+                                                EthTerm(`Vector2d`),
                                             ),
                                         },
                                     },
@@ -29019,7 +29019,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Vector2d`),
+                                            EthTerm(`Vector2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -29044,10 +29044,10 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`Vector2d`),
+                EthTerm(`Vector2d`),
             ),
             self_ty: Some(
-                EtherealTerm(`ConcaveComponent`),
+                EthTerm(`ConcaveComponent`),
             ),
         },
     },

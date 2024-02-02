@@ -15,7 +15,7 @@ impl<'a> SemaExprEngine<'a> {
                 return;
             };
             if let Some(symbol) = signature.term_symbol() {
-                if let Ok(symbol) = SymbolEtherealTerm::from_declarative(self.db, symbol) {
+                if let Ok(symbol) = SymbolEthTerm::from_declarative(self.db, symbol) {
                     self.symbol_terms
                         .insert_new(current_syn_symbol_idx, symbol.into())
                 }
@@ -29,7 +29,7 @@ impl<'a> SemaExprEngine<'a> {
         }
     }
 
-    // fn parameter_pattern_ty(&self, pattern_expr_idx: SynPatternExprIdx) -> EtherealTerm {
+    // fn parameter_pattern_ty(&self, pattern_expr_idx: SynPatternExprIdx) -> EthTerm {
     //     match self
     //         .expr_region_data
     //         .symbol_region()

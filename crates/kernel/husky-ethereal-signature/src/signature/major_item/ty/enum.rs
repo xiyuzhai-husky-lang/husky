@@ -5,19 +5,17 @@ use husky_declarative_signature::EnumTypeDecTemplate;
 pub struct EnumTypeEthTemplate {
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
+    pub template_parameters: EthTemplateParameters,
 }
 
 impl EnumTypeEthTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         path: TypePath,
-        declarative_signature_template: EnumTypeDecTemplate,
+        dec_template: EnumTypeDecTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let template_parameters = EtherealTemplateParameters::from_declarative(
-            db,
-            declarative_signature_template.template_parameters(db),
-        )?;
+        let template_parameters =
+            EthTemplateParameters::from_declarative(db, dec_template.template_parameters(db))?;
         Ok(Self::new(db, path, template_parameters))
     }
 }

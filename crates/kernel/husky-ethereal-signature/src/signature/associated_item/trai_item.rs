@@ -16,7 +16,7 @@ pub enum TraitItemEthTemplate {
 }
 
 impl TraitItemEthTemplate {
-    pub fn self_ty(self, _db: &::salsa::Db) -> Option<EtherealTerm> {
+    pub fn self_ty(self, _db: &::salsa::Db) -> Option<EthTerm> {
         match self {
             TraitItemEthTemplate::AssociatedFn(_) => None,
         }

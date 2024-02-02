@@ -4,19 +4,17 @@ use super::*;
 pub struct TypeAliasEthTemplate {
     pub path: FugitivePath,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
+    pub template_parameters: EthTemplateParameters,
 }
 
 impl TypeAliasEthTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         path: FugitivePath,
-        declarative_signature_template: TypeAliasDecTemplate,
+        dec_template: TypeAliasDecTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let template_parameters = EtherealTemplateParameters::from_declarative(
-            db,
-            declarative_signature_template.template_parameters(db),
-        )?;
+        let template_parameters =
+            EthTemplateParameters::from_declarative(db, dec_template.template_parameters(db))?;
         Ok(Self::new(db, path, template_parameters))
     }
 }

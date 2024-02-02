@@ -46,13 +46,13 @@ pub enum InstructionData {
         stack_idx: VMStackIdx,
         binding: Binding,
         range: TextRange,
-        ty: EtherealTerm,
+        ty: EthTerm,
         varname: Ident,
         explicit: bool,
     },
     PushLiteralValue {
         // value: PrimitiveValue,
-        ty: EtherealTerm,
+        ty: EthTerm,
         explicit: bool,
     },
     WrapInSome {
@@ -61,22 +61,22 @@ pub enum InstructionData {
     CallRoutine {
         resolved_linkage: __ResolvedLinkage,
         nargs: u8,
-        return_ty: EtherealTerm,
+        return_ty: EthTerm,
         discard: bool,
     },
     CallInterpreted {
         routine_uid: EntityUid,
         nargs: u8,
-        return_ty: EtherealTerm,
+        return_ty: EthTerm,
         discard: bool,
     },
     VirtualStructField {
         field_idx: u8,
         field_binding: Binding,
-        field_ty: EtherealTerm,
+        field_ty: EthTerm,
     },
     NewVirtualStruct {
-        ty: EtherealTerm,
+        ty: EthTerm,
         fields: Vec<Ident>,
     },
     Loop {
@@ -84,7 +84,7 @@ pub enum InstructionData {
         loop_kind: VMLoopKind,
     },
     Return {
-        return_ty: EtherealTerm,
+        return_ty: EthTerm,
     },
     BreakIfFalse,
     Break,
@@ -98,11 +98,11 @@ pub enum InstructionData {
     },
     EntityFeature {
         feature_uid: EntityUid,
-        ty: EtherealTerm,
+        ty: EthTerm,
     },
     PushEntityFp {
         opt_linkage: Option<__LinkageGroup>,
-        ty: EtherealTerm,
+        ty: EthTerm,
         opt_instruction_sheet: Option<Instructions>,
     },
 }
