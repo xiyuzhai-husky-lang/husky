@@ -141,7 +141,7 @@ impl EthTerm {
                     ty_expectation,
                 )?
             }
-            DecTerm::AssociatedItem(declarative_term) => {
+            DecTerm::AssociatedItem(_declarative_term) => {
                 todo!()
                 // EthTermSubitem::from_declarative(db, declarative_term, ty_expectation)?
             }
@@ -260,7 +260,7 @@ pub(crate) fn ethereal_term_from_application_or_ritchie_call_declarative_term(
                 term_ty_expectation,
             )
         }
-        RawType::Declarative(DecTerm::Ritchie(ritchie)) => {
+        RawType::Declarative(DecTerm::Ritchie(_ritchie)) => {
             todo!()
         }
         _ => todo!(),
@@ -402,7 +402,7 @@ impl EthTerm {
             | EthTerm::EntityPath(_)
             | EthTerm::Category(_)
             | EthTerm::Universe(_) => self,
-            EthTerm::Symbol(symbol) => todo!(),
+            EthTerm::Symbol(_symbol) => todo!(),
             EthTerm::Rune(slf) => slf.substitute(substitution, db),
             EthTerm::Curry(slf) => slf.substitute(substitution, db).into(),
             EthTerm::Abstraction(slf) => slf.substitute(substitution, db).into(),

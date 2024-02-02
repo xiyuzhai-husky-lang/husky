@@ -1,7 +1,7 @@
 pub mod domain;
 pub mod extension;
 
-pub use self::domain::*;
+
 pub use self::extension::*;
 
 use super::*;

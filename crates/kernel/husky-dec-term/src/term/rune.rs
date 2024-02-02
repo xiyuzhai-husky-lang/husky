@@ -68,7 +68,7 @@ impl RuneDecTerm {
 }
 
 impl DecTermRewriteCopy for RuneDecTerm {
-    fn substitute_copy(self, _db: &::salsa::Db, substitution: &DecTermSubstitution) -> Self {
+    fn substitute_copy(self, _db: &::salsa::Db, _substitution: &DecTermSubstitution) -> Self {
         todo!()
     }
 }

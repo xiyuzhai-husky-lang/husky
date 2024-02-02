@@ -264,7 +264,7 @@ impl RitchieEthTerm {
 impl<'a> EthTermSubstitute<'a> for EtherealRitchieParameter {
     type Output = EtherealRitchieParameter;
 
-    fn substitute(self, substitution: EthTermSubstitution, db: &'a salsa::Db) -> Self::Output {
+    fn substitute(self, _substitution: EthTermSubstitution, _db: &'a salsa::Db) -> Self::Output {
         todo!()
     }
 }

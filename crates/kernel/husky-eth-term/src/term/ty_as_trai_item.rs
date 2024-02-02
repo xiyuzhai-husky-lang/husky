@@ -39,7 +39,7 @@ impl TypeAsTraitItemEthTerm {
 /// # rewrite
 
 impl TypeAsTraitItemEthTerm {
-    pub fn substitute(self, substitution: EthTermSubstitution, _db: &::salsa::Db) -> EthTerm
+    pub fn substitute(self, _substitution: EthTermSubstitution, _db: &::salsa::Db) -> EthTerm
     where
         Self: Copy,
     {
