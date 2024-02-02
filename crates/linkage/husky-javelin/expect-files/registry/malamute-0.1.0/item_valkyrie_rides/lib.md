@@ -345,7 +345,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeVariantConstructor(
+                        javelin_item_path: JavPath::TypeVariantConstructor(
                             TypeVariantPath(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
@@ -391,7 +391,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeVariantConstructor(
+                        javelin_item_path: JavPath::TypeVariantConstructor(
                             TypeVariantPath(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
@@ -469,7 +469,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeVariantConstructor(
+                        javelin_item_path: JavPath::TypeVariantConstructor(
                             TypeVariantPath(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
@@ -650,7 +650,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeVariantConstructor(
+                        javelin_item_path: JavPath::TypeVariantConstructor(
                             TypeVariantPath(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
@@ -716,7 +716,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeVariantConstructor(
+                        javelin_item_path: JavPath::TypeVariantConstructor(
                             TypeVariantPath(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(

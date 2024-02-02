@@ -1,6 +1,6 @@
 use crate::{
-    amazon::package_amazon_javelins, instantiation::JavelinInstantiation, javelin::JavelinData,
-    path::JavelinPath, template_argument::ty::JavelinType, *,
+    amazon::package_amazon_javelins, instantiation::JavInstantiation, javelin::JavelinData,
+    path::JavPath, template_argument::ty::JavelinType, *,
 };
 use fxhash::FxHashMap;
 use husky_entity_path::{ItemPathId, MajorItemPath, PrincipalEntityPath};
@@ -36,12 +36,12 @@ impl ValkyrieJavelin {
     }
 }
 
-/// can be instantiated to a path leading javelin given JavelinInstantiation
+/// can be instantiated to a path leading javelin given JavInstantiation
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum ValkyrieRide {
     PathLeading {
-        javelin_item_path: JavelinPath,
+        javelin_item_path: JavPath,
         hir_instantiation: HirInstantiation,
     },
     VecConstructor {
@@ -55,7 +55,7 @@ pub enum ValkyrieRide {
 impl ValkyrieRide {
     fn to_javelin(
         &self,
-        javelin_instantiation: &JavelinInstantiation,
+        javelin_instantiation: &JavInstantiation,
         db: &::salsa::Db,
     ) -> ValkyrieJavelin {
         match *self {
@@ -68,7 +68,7 @@ impl ValkyrieRide {
                     db,
                     JavelinData::PathLeading {
                         path: javelin_item_path,
-                        instantiation: JavelinInstantiation::from_hir(
+                        instantiation: JavInstantiation::from_hir(
                             hir_instantiation,
                             javelin_instantiation,
                             db,
@@ -168,7 +168,7 @@ impl ValkyrieRides {
                     ref instantiation,
                     ..
                 } => {
-                    if let Some(javelin_path) = JavelinPath::try_from_item_path(path.into(), db) {
+                    if let Some(javelin_path) = JavPath::try_from_item_path(path.into(), db) {
                         self.try_add_path_leading_ride(javelin_path, instantiation)
                     }
                 }
@@ -191,7 +191,7 @@ impl ValkyrieRides {
                     ref instantiation,
                     ..
                 } => {
-                    if let Some(javelin_path) = JavelinPath::try_from_item_path(path.into(), db) {
+                    if let Some(javelin_path) = JavPath::try_from_item_path(path.into(), db) {
                         self.try_add_path_leading_ride(javelin_path, instantiation)
                     }
                 }
@@ -209,7 +209,7 @@ impl ValkyrieRides {
                     ..
                 } => {
                     if let Some(javelin_path) =
-                        JavelinPath::try_from_item_path(unveil_associated_fn_path.into(), db)
+                        JavPath::try_from_item_path(unveil_associated_fn_path.into(), db)
                     {
                         self.try_add_path_leading_ride(javelin_path, instantiation)
                     } else {
@@ -283,7 +283,7 @@ impl ValkyrieRides {
                     ref instantiation,
                     ..
                 } => {
-                    if let Some(javelin_path) = JavelinPath::try_from_item_path(path.into(), db) {
+                    if let Some(javelin_path) = JavPath::try_from_item_path(path.into(), db) {
                         self.try_add_path_leading_ride(javelin_path, instantiation)
                     }
                 }
@@ -295,7 +295,7 @@ impl ValkyrieRides {
                     indirections: _,
                     ref instantiation,
                 } => {
-                    if let Some(javelin_path) = JavelinPath::try_from_item_path(path.into(), db) {
+                    if let Some(javelin_path) = JavPath::try_from_item_path(path.into(), db) {
                         self.try_add_path_leading_ride(javelin_path, instantiation)
                     }
                 }
@@ -304,7 +304,7 @@ impl ValkyrieRides {
                     ref instantiation,
                     ..
                 } => {
-                    if let Some(javelin_path) = JavelinPath::try_from_item_path(path.into(), db) {
+                    if let Some(javelin_path) = JavPath::try_from_item_path(path.into(), db) {
                         self.try_add_path_leading_ride(javelin_path, instantiation)
                     }
                 }
@@ -342,7 +342,7 @@ impl ValkyrieRides {
 
     fn try_add_path_leading_ride(
         &mut self,
-        javelin_path: JavelinPath,
+        javelin_path: JavPath,
         instantiation: &HirInstantiation,
     ) {
         if !instantiation.is_univalent_for_javelin() {

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_fluffy_term::FluffyTermBase;
+use husky_fluffy_term::FlyTermBase;
 use husky_hir_ty::trai::HirTrait;
 
 use husky_syn_expr::{
@@ -64,10 +64,10 @@ impl HirTemplateParameter {
                                 .expect("ok")
                                 .base_resolved_inner(terms)
                             {
-                                FluffyTermBase::Ethereal(trai_term) => trai_term,
-                                FluffyTermBase::Solid(_) => todo!(),
-                                FluffyTermBase::Hollow(_) => todo!(),
-                                FluffyTermBase::Place => todo!(),
+                                FlyTermBase::Ethereal(trai_term) => trai_term,
+                                FlyTermBase::Solid(_) => todo!(),
+                                FlyTermBase::Hollow(_) => todo!(),
+                                FlyTermBase::Place => todo!(),
                             };
                             HirTrait::from_ethereal(trai_term, db)
                         })

@@ -22,7 +22,7 @@ impl<'a> SemaExprEngine<'a> {
     pub(crate) fn build_case_pattern_sema_obelisk(
         &mut self,
         case_pattern_syn_obelisk: &CasePatternSyndicate,
-        match_target_ty: FluffyTerm,
+        match_target_ty: FlyTerm,
     ) -> CasePatternSemaSyndicate {
         self.infer_variable_pattern_root_and_symbols_ty(
             case_pattern_syn_obelisk.syn_pattern_root(),

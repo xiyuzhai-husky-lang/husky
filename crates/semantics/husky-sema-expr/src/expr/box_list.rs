@@ -5,9 +5,9 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         items: SynExprIdxRange,
-    ) -> SemaExprTypeResult<FluffyTerm> {
+    ) -> SemaExprTypeResult<FlyTerm> {
         todo!()
-        // let element_ty: FluffyTerm = self
+        // let element_ty: FlyTerm = self
         //     .fluffy_term_region
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType)
         //     .into();

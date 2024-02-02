@@ -12,7 +12,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaBinaryOpr,
         SemaExprIdx,
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         // let expr_eval_lifetime = self
         //     .fluffy_term_region
@@ -23,30 +23,30 @@ impl<'a> SemaExprEngine<'a> {
                 let lopd_base_ty = lopd_ty.base_ty_data(self);
                 match lopd_ty.place() {
                     Some(lopd_place) => match lopd_place {
-                        FluffyPlace::Const => {
+                        FlyPlace::Const => {
                             // ad hoc
                             // should return err
                             ()
                         }
-                        FluffyPlace::StackPure { location } => todo!(),
-                        FluffyPlace::ImmutableStackOwned { location } => todo!(),
-                        FluffyPlace::MutableStackOwned { .. } => (),
-                        FluffyPlace::Transient => {
+                        FlyPlace::StackPure { location } => todo!(),
+                        FlyPlace::ImmutableStackOwned { location } => todo!(),
+                        FlyPlace::MutableStackOwned { .. } => (),
+                        FlyPlace::Transient => {
                             // ad hoc
                             // should return err
                             ()
                         }
-                        FluffyPlace::Ref { guard } => todo!(),
-                        FluffyPlace::RefMut { guard } => todo!(),
-                        FluffyPlace::Leashed => todo!(),
-                        FluffyPlace::Todo => todo!(),
-                        FluffyPlace::EtherealSymbol(_) => todo!(),
+                        FlyPlace::Ref { guard } => todo!(),
+                        FlyPlace::RefMut { guard } => todo!(),
+                        FlyPlace::Leashed => todo!(),
+                        FlyPlace::Todo => todo!(),
+                        FlyPlace::EtherealSymbol(_) => todo!(),
                     },
                     // ad hoc
                     None => (), // todo!(),
                 };
-                let ropd_ty_expected: FluffyTerm = match lopd_base_ty {
-                    FluffyBaseTypeData::TypeOntology {
+                let ropd_ty_expected: FlyTerm = match lopd_base_ty {
+                    FlyBaseTypeData::TypeOntology {
                         ty_path,
                         refined_ty_path,
                         ty_arguments,
@@ -55,7 +55,7 @@ impl<'a> SemaExprEngine<'a> {
                         Some(ty_ethereal_term) => ty_ethereal_term.into(),
                         None => todo!(),
                     },
-                    FluffyBaseTypeData::Curry {
+                    FlyBaseTypeData::Curry {
                         curry_kind,
                         variance,
                         parameter_rune,
@@ -63,15 +63,15 @@ impl<'a> SemaExprEngine<'a> {
                         return_ty,
                         ty_ethereal_term,
                     } => todo!(),
-                    FluffyBaseTypeData::Hole(_, _) => lopd_ty, // ad hoc
-                    FluffyBaseTypeData::Category(_) => todo!(),
-                    FluffyBaseTypeData::Ritchie {
+                    FlyBaseTypeData::Hole(_, _) => lopd_ty, // ad hoc
+                    FlyBaseTypeData::Category(_) => todo!(),
+                    FlyBaseTypeData::Ritchie {
                         ritchie_kind,
                         parameter_contracted_tys,
                         return_ty,
                     } => todo!(),
-                    FluffyBaseTypeData::Symbol { symbol } => todo!(),
-                    FluffyBaseTypeData::Rune { rune } => todo!(),
+                    FlyBaseTypeData::Symbol { symbol } => todo!(),
+                    FlyBaseTypeData::Rune { rune } => todo!(),
                 };
                 self.build_sema_expr(
                     ropd,

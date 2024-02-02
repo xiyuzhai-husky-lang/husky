@@ -1,14 +1,14 @@
 use super::*;
 
-impl HasFluffyTraitMethodDispatch for SolidTerm {
+impl HasFlyTraitMethodDispatch for SolidTerm {
     fn trai_method_dispatch_aux(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
-        indirections: FluffyIndirections,
-    ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+        indirections: FlyIndirections,
+    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
         match self.data(engine) {
             SolidTermData::TypeOntology {
                 path,

@@ -40,7 +40,7 @@ use husky_vfs::VfsJar;
     husky_declarative_ty::db::DeclarativeTypeJar,
     EthTermJar,
     EtherealSignatureJar,
-    FluffyTermJar
+    FlyTermJar
 )]
 #[derive(Default)]
 pub(crate) struct DB;

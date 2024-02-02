@@ -10,7 +10,7 @@ use husky_entity_path::{
     AssociatedItemPath, FugitivePath, MajorItemPath, PrincipalEntityPath, TraitForTypeItemPath,
     TypePath, TypeVariantPath,
 };
-use husky_fluffy_term::signature::{FluffyFieldSignature, MethodFluffySignature};
+use husky_fluffy_term::signature::{FlyFieldSignature, MethodFlySignature};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
     indirections::HirIndirections, instantiation::HirInstantiation, HirConstSymbol, HirType,
@@ -328,7 +328,7 @@ impl ToHirLazy for SemaExprIdx {
                 ref dispatch,
                 ..
             } => match *dispatch.signature() {
-                FluffyFieldSignature::PropsStruct { ty: _ } => HirLazyExprData::PropsStructField {
+                FlyFieldSignature::PropsStruct { ty: _ } => HirLazyExprData::PropsStructField {
                     owner: owner_sema_expr_idx.to_hir_lazy(builder),
                     owner_base_ty: HirType::from_fluffy(
                         owner_ty,
@@ -338,7 +338,7 @@ impl ToHirLazy for SemaExprIdx {
                     .unwrap(),
                     ident: ident_token.ident(),
                 },
-                FluffyFieldSignature::Memoized {
+                FlyFieldSignature::Memoized {
                     ty: _,
                     path,
                     ref instantiation,
@@ -375,7 +375,7 @@ impl ToHirLazy for SemaExprIdx {
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
-                let MethodFluffySignature::MethodFn(signature) = dispatch.signature() else {
+                let MethodFlySignature::MethodFn(signature) = dispatch.signature() else {
                     unreachable!()
                 };
                 HirLazyExprData::MethodFnCall {

@@ -1,7 +1,7 @@
 use super::*;
 
 use husky_ethereal_term::{EtherealRitchieParameter, EtherealRitchieRegularParameter};
-use husky_fluffy_term::FluffyRitchieRegularParameter;
+use husky_fluffy_term::FlyRitchieRegularParameter;
 use husky_term_prelude::{RitchieTypeKind, TermContract};
 
 #[salsa::interned(db = HirTypeDb, jar = HirTypeJar, constructor = new)]
@@ -130,9 +130,9 @@ impl HirRitchieRegularParameter {
     }
 
     pub fn from_fluffy(
-        param: &FluffyRitchieRegularParameter,
+        param: &FlyRitchieRegularParameter,
         db: &::salsa::Db,
-        fluffy_terms: &FluffyTerms,
+        fluffy_terms: &FlyTerms,
     ) -> Self {
         Self {
             contract: HirEagerContract::from_term(param.contract),

@@ -25,7 +25,7 @@ impl ExpectEqsCategory {
     }
 }
 
-impl ExpectFluffyTerm for ExpectEqsCategory {
+impl ExpectFlyTerm for ExpectEqsCategory {
     type Outcome = UniverseTerm;
 
     #[inline(always)]
@@ -37,23 +37,23 @@ impl ExpectFluffyTerm for ExpectEqsCategory {
     }
 
     #[inline(always)]
-    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination {
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FlyTerms) -> FinalDestination {
         FinalDestination::Sort
     }
 
     #[inline(always)]
-    fn destination(&self) -> Option<FluffyTerm> {
+    fn destination(&self) -> Option<FlyTerm> {
         None
     }
 
     fn resolve(
         &self,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<FluffyTermEffect> {
+    ) -> AltOption<FlyTermEffect> {
         match state.expectee().base_resolved_inner(terms) {
-            FluffyTermBase::Ethereal(EthTerm::Category(cat)) => {
+            FlyTermBase::Ethereal(EthTerm::Category(cat)) => {
                 match cat.universe() >= self.smallest_universe {
                     true => state.set_ok(ExpectationOutcome::EqsSort(cat.universe()), smallvec![]),
                     false => todo!(),
@@ -61,7 +61,7 @@ impl ExpectFluffyTerm for ExpectEqsCategory {
                 }
             }
             _ => state.set_err(
-                OriginalFluffyTermExpectationError::ExpectedCategory {
+                OriginalFlyTermExpectationError::ExpectedCategory {
                     expectee: state.expectee(),
                 },
                 smallvec![],

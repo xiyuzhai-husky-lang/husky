@@ -2,14 +2,14 @@ use super::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FluffyRitchieKeyedParameter {
+pub struct FlyRitchieKeyedParameter {
     key: Ident,
     contract: TermContract,
-    ty: FluffyTerm,
+    ty: FlyTerm,
     has_default: bool,
 }
 
-impl From<EtherealRitchieKeyedParameter> for FluffyRitchieKeyedParameter {
+impl From<EtherealRitchieKeyedParameter> for FlyRitchieKeyedParameter {
     #[inline(always)]
     fn from(param: EtherealRitchieKeyedParameter) -> Self {
         Self {
@@ -21,16 +21,16 @@ impl From<EtherealRitchieKeyedParameter> for FluffyRitchieKeyedParameter {
     }
 }
 
-impl FluffyInstantiate for EtherealRitchieKeyedParameter {
-    type Target = FluffyRitchieKeyedParameter;
+impl FlyInstantiate for EtherealRitchieKeyedParameter {
+    type Target = FlyRitchieKeyedParameter;
 
     fn instantiate(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
-        instantiation: &FluffyInstantiation,
+        instantiation: &FlyInstantiation,
     ) -> Self::Target {
-        FluffyRitchieKeyedParameter {
+        FlyRitchieKeyedParameter {
             contract: self.contract(),
             ty: self.ty().instantiate(engine, expr_idx, instantiation),
             key: self.key(),
@@ -39,7 +39,7 @@ impl FluffyInstantiate for EtherealRitchieKeyedParameter {
     }
 }
 
-impl FluffyRitchieKeyedParameter {
+impl FlyRitchieKeyedParameter {
     #[inline(always)]
     pub fn key(&self) -> Ident {
         self.key
@@ -51,12 +51,12 @@ impl FluffyRitchieKeyedParameter {
     }
 
     #[inline(always)]
-    pub fn ty(&self) -> FluffyTerm {
+    pub fn ty(&self) -> FlyTerm {
         self.ty
     }
 
     #[inline(always)]
-    pub fn ty_mut(&mut self) -> &mut FluffyTerm {
+    pub fn ty_mut(&mut self) -> &mut FlyTerm {
         &mut self.ty
     }
 

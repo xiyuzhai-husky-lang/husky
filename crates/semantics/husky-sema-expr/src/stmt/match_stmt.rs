@@ -17,10 +17,10 @@ impl<'a> SemaExprEngine<'a> {
         match_target_syn_expr_idx_result: &'a SynExprResult<SynExprIdx>,
         eol_with_token_result: &'a SynExprResult<EolWithRegionalToken>,
         syn_case_branches: &'a [SynCaseBranch],
-        expr_expectation: impl ExpectFluffyTerm,
+        expr_expectation: impl ExpectFlyTerm,
     ) -> (
         SemaExprDataResult<SemaStmtData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let &Ok(match_target_syn_expr_idx) = match_target_syn_expr_idx_result else {
             todo!()
@@ -59,10 +59,10 @@ impl<'a> SemaExprEngine<'a> {
         )
     }
 
-    fn build_sema_case_branch<Expectation: ExpectFluffyTerm>(
+    fn build_sema_case_branch<Expectation: ExpectFlyTerm>(
         &mut self,
         syn_case_branch: &'a SynCaseBranch,
-        match_target_ty: FluffyTerm,
+        match_target_ty: FlyTerm,
         merger: &mut BranchTypeMerger<Expectation>,
     ) -> SynExprResultRef<'a, SemaCaseBranch> {
         let case_pattern_sema_obelisk = self.build_case_pattern_sema_obelisk(

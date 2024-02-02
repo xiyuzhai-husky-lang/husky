@@ -1,5 +1,5 @@
 use crate::place::HirPlace;
-use husky_fluffy_term::dispatch::{FluffyIndirection, FluffyIndirections};
+use husky_fluffy_term::dispatch::{FlyIndirection, FlyIndirections};
 use smallvec::SmallVec;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -24,7 +24,7 @@ impl std::ops::Deref for HirIndirections {
 }
 
 impl HirIndirections {
-    pub fn from_fluffy(indirections: &FluffyIndirections) -> Self {
+    pub fn from_fluffy(indirections: &FlyIndirections) -> Self {
         HirIndirections {
             initial_place: HirPlace::from_fluffy(indirections.initial_place()),
             indirections: indirections
@@ -37,10 +37,10 @@ impl HirIndirections {
 }
 
 impl HirIndirection {
-    fn from_fluffy(indiretion: FluffyIndirection) -> Self {
+    fn from_fluffy(indiretion: FlyIndirection) -> Self {
         match indiretion {
-            FluffyIndirection::Place(place) => HirIndirection::Place(HirPlace::from_fluffy(place)),
-            FluffyIndirection::Leash => HirIndirection::Leash,
+            FlyIndirection::Place(place) => HirIndirection::Place(HirPlace::from_fluffy(place)),
+            FlyIndirection::Leash => HirIndirection::Leash,
         }
     }
 }

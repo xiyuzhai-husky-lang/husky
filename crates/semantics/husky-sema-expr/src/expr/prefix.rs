@@ -11,7 +11,7 @@ impl<'a> SemaExprEngine<'a> {
         final_destination: FinalDestination,
     ) -> (
         SemaExprDataResult<(SemaExprIdx, SemaPrefixOpr)>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         match opr {
             SynPrefixOpr::Minus => {
@@ -24,8 +24,8 @@ impl<'a> SemaExprEngine<'a> {
                     );
                 };
                 match opd_ty.data(self) {
-                    FluffyTermData::Literal(_) => todo!(),
-                    FluffyTermData::TypeOntology {
+                    FlyTermData::Literal(_) => todo!(),
+                    FlyTermData::TypeOntology {
                         ty_path,
                         refined_ty_path,
                         ty_arguments: arguments,
@@ -36,7 +36,7 @@ impl<'a> SemaExprEngine<'a> {
                         }
                         _ => todo!(),
                     },
-                    FluffyTermData::Curry {
+                    FlyTermData::Curry {
                         toolchain,
                         curry_kind,
                         variance,
@@ -45,23 +45,23 @@ impl<'a> SemaExprEngine<'a> {
                         return_ty,
                         ty_ethereal_term,
                     } => todo!(),
-                    FluffyTermData::Hole(hole_kind, _) => match hole_kind {
+                    FlyTermData::Hole(hole_kind, _) => match hole_kind {
                         HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => {
                             (Ok((opd_sema_expr_idx, SemaPrefixOpr::Minus)), Ok(opd_ty))
                         }
                         HoleKind::ImplicitType => todo!(),
                         HoleKind::Any => todo!(),
                     },
-                    FluffyTermData::Category(_) => todo!(),
-                    FluffyTermData::Ritchie {
+                    FlyTermData::Category(_) => todo!(),
+                    FlyTermData::Ritchie {
                         ritchie_kind,
                         parameter_contracted_tys,
                         return_ty,
                         ..
                     } => todo!(),
-                    FluffyTermData::Symbol { .. } => todo!(),
-                    FluffyTermData::Rune { .. } => todo!(),
-                    FluffyTermData::TypeVariant { path } => todo!(),
+                    FlyTermData::Symbol { .. } => todo!(),
+                    FlyTermData::Rune { .. } => todo!(),
+                    FlyTermData::TypeVariant { path } => todo!(),
                 }
             }
             SynPrefixOpr::Not => {
@@ -116,13 +116,10 @@ impl<'a> SemaExprEngine<'a> {
         }
     }
 
-    fn calc_bitnot_expr_ty(
-        &mut self,
-        opd_ty: Option<FluffyTerm>,
-    ) -> SemaExprTypeResult<FluffyTerm> {
+    fn calc_bitnot_expr_ty(&mut self, opd_ty: Option<FlyTerm>) -> SemaExprTypeResult<FlyTerm> {
         let opd_ty = opd_ty.ok_or(DerivedSemaExprTypeError::BitNotOperandTypeNotInferred)?;
         match opd_ty.data(self) {
-            FluffyTermData::TypeOntology {
+            FlyTermData::TypeOntology {
                 refined_ty_path: Left(prelude_ty_path),
                 ..
             } => match prelude_ty_path {

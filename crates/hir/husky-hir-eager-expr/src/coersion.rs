@@ -1,8 +1,6 @@
 use crate::*;
 use either::*;
-use husky_fluffy_term::{
-    deref::DerefFluffyCoersion, trival::TrivialFluffyCoersion, FluffyCoersion,
-};
+use husky_fluffy_term::{deref::DerefFlyCoersion, trival::TrivialFlyCoersion, FlyCoersion};
 use husky_hir_ty::{lifetime::HirLifetime, place::HirPlace};
 
 #[enum_class::from_variants]
@@ -57,21 +55,21 @@ impl DerefHirEagerCoersion {
     }
 }
 
-impl ToHirEager for FluffyCoersion {
+impl ToHirEager for FlyCoersion {
     type Output = HirEagerCoersion;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         match self {
-            FluffyCoersion::Trivial(slf) => HirEagerCoersion::Trivial(slf.to_hir_eager(builder)),
-            FluffyCoersion::Never => HirEagerCoersion::Never,
-            FluffyCoersion::WrapInSome => HirEagerCoersion::WrapInSome,
-            FluffyCoersion::PlaceToLeash => HirEagerCoersion::PlaceToLeash,
-            FluffyCoersion::Deref(slf) => HirEagerCoersion::Deref(slf.to_hir_eager(builder)),
+            FlyCoersion::Trivial(slf) => HirEagerCoersion::Trivial(slf.to_hir_eager(builder)),
+            FlyCoersion::Never => HirEagerCoersion::Never,
+            FlyCoersion::WrapInSome => HirEagerCoersion::WrapInSome,
+            FlyCoersion::PlaceToLeash => HirEagerCoersion::PlaceToLeash,
+            FlyCoersion::Deref(slf) => HirEagerCoersion::Deref(slf.to_hir_eager(builder)),
         }
     }
 }
 
-impl ToHirEager for TrivialFluffyCoersion {
+impl ToHirEager for TrivialFlyCoersion {
     type Output = TrivialHirEagerCoersion;
 
     fn to_hir_eager(&self, _builder: &mut HirEagerExprBuilder) -> Self::Output {
@@ -81,13 +79,13 @@ impl ToHirEager for TrivialFluffyCoersion {
     }
 }
 
-impl ToHirEager for DerefFluffyCoersion {
+impl ToHirEager for DerefFlyCoersion {
     type Output = DerefHirEagerCoersion;
 
     fn to_hir_eager(&self, _builder: &mut HirEagerExprBuilder) -> Self::Output {
         match *self {
-            DerefFluffyCoersion::Leash => DerefHirEagerCoersion::Leash,
-            DerefFluffyCoersion::Ref { lifetime } => DerefHirEagerCoersion::Ref {
+            DerefFlyCoersion::Leash => DerefHirEagerCoersion::Leash,
+            DerefFlyCoersion::Ref { lifetime } => DerefHirEagerCoersion::Ref {
                 lifetime: HirLifetime::from_fluffy(lifetime),
             },
         }

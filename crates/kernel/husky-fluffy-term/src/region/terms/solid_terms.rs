@@ -37,7 +37,7 @@ impl SolidTerm {
         solid_terms.intern_new(data)
     }
 
-    pub(crate) fn data(self, engine: &impl FluffyTermEngine) -> &SolidTermData {
+    pub(crate) fn data(self, engine: &impl FlyTermEngine) -> &SolidTermData {
         self.data_inner(&engine.fluffy_terms().solid_terms())
     }
 
@@ -71,5 +71,5 @@ impl SolidTerm {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-// #[salsa::derive_debug_with_db(db = FluffyTermDb)]
+// #[salsa::derive_debug_with_db(db = FlyTermDb)]
 pub enum SolidTermSource {}

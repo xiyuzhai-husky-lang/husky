@@ -2,10 +2,10 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
+                path: JavPath::TypeConstructor(
                     TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                 ),
-                instantiation: JavelinInstantiation {
+                instantiation: JavInstantiation {
                     symbol_resolutions: [],
                     separator: None,
                 },

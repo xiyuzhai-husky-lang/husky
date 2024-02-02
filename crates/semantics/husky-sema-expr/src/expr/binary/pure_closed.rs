@@ -12,7 +12,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaBinaryOpr,
         SemaExprIdx,
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let (lopd, lopd_ty) = self.build_sema_expr_with_ty(lopd, ExpectAnyOriginal);
         let Some(lopd_ty) = lopd_ty else {
@@ -27,19 +27,19 @@ impl<'a> SemaExprEngine<'a> {
         };
         let ropd = self.build_sema_expr(ropd, ExpectCoersion::new_pure(self, lopd_ty));
         let ty_result = match lopd_ty.data(self) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
+            FlyTermData::Literal(_) => todo!(),
+            FlyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path: Left(PreludeTypePath::Num(_)),
                 ..
             } => Ok(ItemPathTerm::TypeOntology(ty_path).into()),
-            FluffyTermData::TypeOntology {
+            FlyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
                 ty_arguments: arguments,
                 ..
             } => todo!(),
-            FluffyTermData::Curry {
+            FlyTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -48,21 +48,21 @@ impl<'a> SemaExprEngine<'a> {
                 return_ty,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::Hole(hole_kind, _) => match hole_kind {
+            FlyTermData::Hole(hole_kind, _) => match hole_kind {
                 HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => Ok(lopd_ty),
                 HoleKind::ImplicitType => todo!(),
                 HoleKind::Any => todo!(),
             },
-            FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie {
+            FlyTermData::Category(_) => todo!(),
+            FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
                 ..
             } => todo!(),
-            FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { .. } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::Symbol { .. } => todo!(),
+            FlyTermData::Rune { .. } => todo!(),
+            FlyTermData::TypeVariant { path } => todo!(),
         };
         (
             lopd,

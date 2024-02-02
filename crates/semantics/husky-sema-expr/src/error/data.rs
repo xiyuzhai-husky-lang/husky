@@ -19,18 +19,18 @@ pub enum OriginalSemaExprDataError {
     },
     #[error("no such field")]
     NoSuchField {
-        owner_ty: FluffyTerm,
+        owner_ty: FlyTerm,
         ident_token: IdentRegionalToken,
     },
     #[error("no such method")]
     NoSuchMethod {
-        self_expr_ty: FluffyTerm,
+        self_expr_ty: FlyTerm,
         ident_token: IdentRegionalToken,
     },
     #[error("expected indices")]
     ExpectedIndices,
     #[error("CannotIndexIntoType")]
-    CannotIndexIntoType { self_expr_ty: FluffyTerm },
+    CannotIndexIntoType { self_expr_ty: FlyTerm },
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -62,8 +62,8 @@ impl From<&SynExprError> for SemaExprDataError {
     }
 }
 
-impl From<FluffyTermError> for SemaExprDataError {
-    fn from(value: FluffyTermError) -> Self {
+impl From<FlyTermError> for SemaExprDataError {
+    fn from(value: FlyTermError) -> Self {
         todo!()
     }
 }

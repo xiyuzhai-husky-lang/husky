@@ -1,7 +1,7 @@
 use crate::{
     template_argument::{
         ty::{LinType, LinTypePathLeading, LinkageRitchieType},
-        LinkageTemplateArgument, LinkageTemplateArguments,
+        LinTemplateArgument, LinTemplateArguments,
     },
     *,
 };
@@ -201,28 +201,28 @@ impl<'a> LinkageVersionStampBuilder<'a> {
         }
     }
 
-    fn add_symbol_resolution(&mut self, res: LinkageTermSymbolResolution) {
+    fn add_symbol_resolution(&mut self, res: LinTermSymbolResolution) {
         match res {
-            LinkageTermSymbolResolution::Explicit(arg) => self.add_template_argument(arg),
-            LinkageTermSymbolResolution::SelfLifetime => (),
-            LinkageTermSymbolResolution::SelfPlace(_) => (),
+            LinTermSymbolResolution::Explicit(arg) => self.add_template_argument(arg),
+            LinTermSymbolResolution::SelfLifetime => (),
+            LinTermSymbolResolution::SelfPlace(_) => (),
         }
     }
 
-    fn add_template_arguments(&mut self, args: &LinkageTemplateArguments) {
+    fn add_template_arguments(&mut self, args: &LinTemplateArguments) {
         for &arg in args {
             self.add_template_argument(arg);
         }
     }
 
     // todo: consider trait implementation
-    fn add_template_argument(&mut self, arg: LinkageTemplateArgument) {
+    fn add_template_argument(&mut self, arg: LinTemplateArgument) {
         match arg {
-            LinkageTemplateArgument::Vacant => (),
-            LinkageTemplateArgument::Type(linkage_ty) => self.add(linkage_ty),
-            LinkageTemplateArgument::Constant(_) => (),
-            LinkageTemplateArgument::Lifetime => (),
-            LinkageTemplateArgument::Place(_) => (),
+            LinTemplateArgument::Vacant => (),
+            LinTemplateArgument::Type(linkage_ty) => self.add(linkage_ty),
+            LinTemplateArgument::Constant(_) => (),
+            LinTemplateArgument::Lifetime => (),
+            LinTemplateArgument::Place(_) => (),
         }
     }
 

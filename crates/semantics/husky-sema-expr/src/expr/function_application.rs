@@ -9,7 +9,7 @@ impl<'a> SemaExprEngine<'a> {
         final_destination: FinalDestination,
     ) -> (
         SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let (function_sema_expr_idx, function_ty_outcome) = self.build_sema_expr_with_outcome(
             function_syn_expr_idx,
@@ -69,11 +69,11 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         syn_expr_idx: SynExprIdx,
         variance: Variance,
-        parameter_rune: Option<RuneFluffyTerm>,
-        parameter_ty: FluffyTerm,
-        return_ty: FluffyTerm,
+        parameter_rune: Option<RuneFlyTerm>,
+        parameter_ty: FlyTerm,
+        return_ty: FlyTerm,
         argument_syn_expr_idx: SynExprIdx,
-    ) -> (SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
+    ) -> (SemaExprIdx, SemaExprTypeResult<FlyTerm>) {
         let (argument_sema_expr_idx, argument_ty) = self.build_sema_expr_with_ty(
             argument_syn_expr_idx,
             ExpectCurryDestination::new(parameter_ty),

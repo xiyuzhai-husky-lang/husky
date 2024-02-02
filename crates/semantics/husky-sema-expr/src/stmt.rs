@@ -101,7 +101,7 @@ pub enum SemaStmtData {
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaStmtEntry {
     data_result: SemaExprDataResult<SemaStmtData>,
-    ty_result: SemaExprTypeResult<FluffyTerm>,
+    ty_result: SemaExprTypeResult<FlyTerm>,
 }
 
 #[salsa::debug_with_db]
@@ -115,7 +115,7 @@ impl SemaStmtBatch {
         &mut self,
         (data_result, ty_result): (
             SemaExprDataResult<SemaStmtData>,
-            SemaExprTypeResult<FluffyTerm>,
+            SemaExprTypeResult<FlyTerm>,
         ),
     ) {
         self.entries.push(SemaStmtEntry {

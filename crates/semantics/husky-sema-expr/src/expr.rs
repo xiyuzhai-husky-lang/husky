@@ -29,10 +29,10 @@ use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_ethereal_signature::TraitForTypeAssociatedTypeEtherealSignature;
 use husky_fluffy_term::{
     dispatch::{
-        dynamic_dispatch::binary_opr::SemaBinaryOprDynamicDispatch, FluffyFieldDyanmicDispatch,
-        FluffyIndexDynamicDispatch, FluffyMethodDynamicDispatch, StaticDispatch,
+        dynamic_dispatch::binary_opr::SemaBinaryOprDynamicDispatch, FlyFieldDyanmicDispatch,
+        FlyIndexDynamicDispatch, FlyMethodDynamicDispatch, StaticDispatch,
     },
-    instantiation::FluffyInstantiation,
+    instantiation::FlyInstantiation,
 };
 use husky_opr::*;
 use husky_regional_token::{
@@ -67,7 +67,7 @@ pub enum SemaExprData {
         path: PrincipalEntityPath,
         ty_path_disambiguation: TypePathDisambiguation,
         /// only None if `path` is an ontology constructor
-        instantiation: Option<FluffyInstantiation>,
+        instantiation: Option<FlyInstantiation>,
     },
     AssociatedItem {
         parent_expr_idx: SynPrincipalEntityPathExprIdx,
@@ -129,7 +129,7 @@ pub enum SemaExprData {
         opd_sema_expr_idx: SemaExprIdx,
         opr_regional_token_idx: RegionalTokenIdx,
         // unwrap_method_path: TraitForTypeItemPath,
-        // instantiation: FluffyInstantiation,
+        // instantiation: FlyInstantiation,
     },
     FunctionApplication {
         function_sema_expr_idx: SemaExprIdx,
@@ -156,10 +156,10 @@ pub enum SemaExprData {
     },
     Field {
         owner_sema_expr_idx: SemaExprIdx,
-        owner_ty: FluffyTerm,
+        owner_ty: FlyTerm,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
-        dispatch: FluffyFieldDyanmicDispatch,
+        dispatch: FlyFieldDyanmicDispatch,
     },
     MethodApplication {
         self_argument: SemaExprIdx,
@@ -175,8 +175,8 @@ pub enum SemaExprData {
         self_contract: TermContract,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
-        // todo: change to FluffyMethodFnDynamicDispatch
-        dispatch: FluffyMethodDynamicDispatch,
+        // todo: change to FlyMethodFnDynamicDispatch
+        dispatch: FlyMethodDynamicDispatch,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
         ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,
@@ -186,7 +186,7 @@ pub enum SemaExprData {
         self_argument_sema_expr_idx: SemaExprIdx,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
-        method_dynamic_dispatch: FluffyMethodDynamicDispatch,
+        method_dynamic_dispatch: FlyMethodDynamicDispatch,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
         ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,
@@ -220,7 +220,7 @@ pub enum SemaExprData {
         lbox_regional_token_idx: RegionalTokenIdx,
         index_sema_list_items: SmallVec<[SemaCommaListItem; 2]>,
         rbox_regional_token_idx: RegionalTokenIdx,
-        index_dynamic_dispatch: FluffyIndexDynamicDispatch,
+        index_dynamic_dispatch: FlyIndexDynamicDispatch,
     },
     CompositionWithList {
         owner: SemaExprIdx,
@@ -231,7 +231,7 @@ pub enum SemaExprData {
     NewList {
         lbox_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SemaCommaListItem; 4]>,
-        element_ty: FluffyTerm,
+        element_ty: FlyTerm,
         // todo: disambiguate Vec, SmallList, Array, etc.
         rbox_regional_token_idx: RegionalTokenIdx,
     },
@@ -280,8 +280,8 @@ pub enum SemaExprData {
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaExprEntry {
     data_result: SemaExprDataResult<SemaExprData>,
-    immediate_ty_result: SemaExprTypeResult<FluffyTerm>,
-    expectation_idx_and_ty: Option<(FluffyTermExpectationIdx, FluffyTerm)>,
+    immediate_ty_result: SemaExprTypeResult<FlyTerm>,
+    expectation_idx_and_ty: Option<(FlyTermExpectationIdx, FlyTerm)>,
 }
 
 impl SemaExprEntry {
@@ -301,7 +301,7 @@ impl SemaExprEntry {
         self.data_result.as_ref()
     }
 
-    fn ty(&self) -> Option<FluffyTerm> {
+    fn ty(&self) -> Option<FlyTerm> {
         self.expectation_idx_and_ty.map(|(_, ty)| ty)
     }
 
@@ -328,8 +328,8 @@ impl SemaExprArena {
     pub(crate) fn alloc_one(
         &mut self,
         data_result: SemaExprDataResult<SemaExprData>,
-        immediate_ty_result: SemaExprTypeResult<FluffyTerm>,
-        expectation_idx_and_ty: Option<(FluffyTermExpectationIdx, FluffyTerm)>,
+        immediate_ty_result: SemaExprTypeResult<FlyTerm>,
+        expectation_idx_and_ty: Option<(FlyTermExpectationIdx, FlyTerm)>,
     ) -> SemaExprIdx {
         SemaExprIdx(self.0.alloc_one(SemaExprEntry {
             data_result,
@@ -404,11 +404,11 @@ impl SemaExprIdx {
         arena[self].data_result()
     }
 
-    pub fn ty<'a>(self, arena: &'a SemaExprArena) -> FluffyTerm {
+    pub fn ty<'a>(self, arena: &'a SemaExprArena) -> FlyTerm {
         arena[self].ty().unwrap()
     }
 
-    pub(crate) fn ok_ty<'a>(self, arena: &'a SemaExprArena) -> Option<FluffyTerm> {
+    pub(crate) fn ok_ty<'a>(self, arena: &'a SemaExprArena) -> Option<FlyTerm> {
         arena[self].ty()
     }
 
@@ -450,7 +450,7 @@ impl<V> std::ops::Index<SemaExprIdx> for SemaExprMap<V> {
     }
 }
 
-pub(crate) enum ExprTypeResolveProgress<E: ExpectFluffyTerm> {
+pub(crate) enum ExprTypeResolveProgress<E: ExpectFlyTerm> {
     Unresolved,
     Outcome(E::Outcome),
     ResolvedErr,
@@ -513,21 +513,21 @@ impl<'a> SemaExprEngine<'a> {
         }
     }
 
-    pub(crate) fn build_sema_expr_with_ty<E: ExpectFluffyTerm>(
+    pub(crate) fn build_sema_expr_with_ty<E: ExpectFlyTerm>(
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
-    ) -> (SemaExprIdx, Option<FluffyTerm>) {
+    ) -> (SemaExprIdx, Option<FlyTerm>) {
         let (sema_expr_idx, expectation_idx_and_ty) =
             self.build_sema_expr_aux(expr_idx, expr_ty_expectation);
         (sema_expr_idx, expectation_idx_and_ty.map(|(_, ty)| ty))
     }
 
-    pub(crate) fn build_sema_expr_with_ty_and_outcome<E: ExpectFluffyTerm>(
+    pub(crate) fn build_sema_expr_with_ty_and_outcome<E: ExpectFlyTerm>(
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
-    ) -> (SemaExprIdx, Option<FluffyTerm>, Option<ExpectationOutcome>) {
+    ) -> (SemaExprIdx, Option<FlyTerm>, Option<ExpectationOutcome>) {
         let (sema_expr_idx, expectation_idx_and_ty) =
             self.build_sema_expr_aux(expr_idx, expr_ty_expectation);
         let (ty, outcome) = match expectation_idx_and_ty {
@@ -544,7 +544,7 @@ impl<'a> SemaExprEngine<'a> {
     }
 
     /// infer the type of a new expression but don't need the result for now
-    pub(crate) fn build_sema_expr<E: ExpectFluffyTerm>(
+    pub(crate) fn build_sema_expr<E: ExpectFlyTerm>(
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
@@ -554,7 +554,7 @@ impl<'a> SemaExprEngine<'a> {
     }
 
     #[inline(always)]
-    pub(crate) fn build_sema_expr_with_outcome<E: ExpectFluffyTerm>(
+    pub(crate) fn build_sema_expr_with_outcome<E: ExpectFlyTerm>(
         &mut self,
         syn_expr_idx: SynExprIdx,
         expr_ty_expectation: E,
@@ -575,11 +575,11 @@ impl<'a> SemaExprEngine<'a> {
     }
 
     #[inline(always)]
-    fn build_sema_expr_aux<E: ExpectFluffyTerm>(
+    fn build_sema_expr_aux<E: ExpectFlyTerm>(
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
-    ) -> (SemaExprIdx, Option<(FluffyTermExpectationIdx, FluffyTerm)>) {
+    ) -> (SemaExprIdx, Option<(FlyTermExpectationIdx, FlyTerm)>) {
         let (data_result, immediate_ty_result) =
             self.build_sema_expr_data_and_ty_result(expr_idx, &expr_ty_expectation);
         let expectation_idx_and_ty = match immediate_ty_result {
@@ -595,7 +595,7 @@ impl<'a> SemaExprEngine<'a> {
         (sema_expr_idx, expectation_idx_and_ty)
     }
 
-    pub(crate) fn build_unit_sema_expr<E: ExpectFluffyTerm>(
+    pub(crate) fn build_unit_sema_expr<E: ExpectFlyTerm>(
         &mut self,
         expr_idx: SynExprIdx,
         lpar_regional_token_idx: RegionalTokenIdx,
@@ -628,10 +628,10 @@ impl<'a> SemaExprEngine<'a> {
     fn build_sema_expr_data_and_ty_result(
         &mut self,
         syn_expr_idx: SynExprIdx,
-        expr_ty_expectation: &impl ExpectFluffyTerm,
+        expr_ty_expectation: &impl ExpectFlyTerm,
     ) -> (
         SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         match self.syn_expr_region_data()[syn_expr_idx] {
             SynExprData::Literal(literal_token_idx, literal_data) => (
@@ -1004,12 +1004,12 @@ impl<'a> SemaExprEngine<'a> {
                         }
                     }
                     TypePathDisambiguation::InstanceConstructor => {
-                        let element_ty: FluffyTerm = match expr_ty_expectation
+                        let element_ty: FlyTerm = match expr_ty_expectation
                             .destination_term_data(self.db(), self.fluffy_term_region().terms())
                         {
                             Some(ty_pattern) => match ty_pattern {
-                                FluffyTermData::Literal(_) => todo!(),
-                                FluffyTermData::TypeOntology {
+                                FlyTermData::Literal(_) => todo!(),
+                                FlyTermData::TypeOntology {
                                     refined_ty_path,
                                     ty_arguments,
                                     ..
@@ -1024,7 +1024,7 @@ impl<'a> SemaExprEngine<'a> {
                                     }
                                     _ => todo!(),
                                 },
-                                FluffyTermData::Curry {
+                                FlyTermData::Curry {
                                     toolchain,
                                     curry_kind,
                                     variance,
@@ -1033,17 +1033,17 @@ impl<'a> SemaExprEngine<'a> {
                                     return_ty,
                                     ty_ethereal_term,
                                 } => todo!(),
-                                FluffyTermData::Hole(_, _) => todo!(),
-                                FluffyTermData::Category(_) => todo!(),
-                                FluffyTermData::Ritchie {
+                                FlyTermData::Hole(_, _) => todo!(),
+                                FlyTermData::Category(_) => todo!(),
+                                FlyTermData::Ritchie {
                                     ritchie_kind,
                                     parameter_contracted_tys,
                                     return_ty,
                                     ..
                                 } => todo!(),
-                                FluffyTermData::Symbol { .. } => todo!(),
-                                FluffyTermData::Rune { .. } => todo!(),
-                                FluffyTermData::TypeVariant { path } => todo!(),
+                                FlyTermData::Symbol { .. } => todo!(),
+                                FlyTermData::Rune { .. } => todo!(),
+                                FlyTermData::TypeVariant { path } => todo!(),
                             },
                             None => self.new_hole(syn_expr_idx, HoleKind::Any).into(),
                         };
@@ -1062,7 +1062,7 @@ impl<'a> SemaExprEngine<'a> {
                                 element_ty,
                                 rbox_regional_token_idx,
                             }),
-                            FluffyTerm::new_application(
+                            FlyTerm::new_application(
                                 self,
                                 self.term_menu().list_ty_ontology(),
                                 element_ty,
@@ -1179,7 +1179,7 @@ impl<'a> SemaExprEngine<'a> {
         final_destination: FinalDestination,
     ) -> (
         SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         self.calc_function_application_expr_ty(
             expr_idx,

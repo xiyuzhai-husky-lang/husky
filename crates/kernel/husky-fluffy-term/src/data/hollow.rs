@@ -8,26 +8,26 @@ pub enum HollowTermData {
     TypeOntology {
         path: TypePath,
         refined_path: Either<PreludeTypePath, CustomTypePath>,
-        arguments: SmallVec<[FluffyTerm; 2]>,
+        arguments: SmallVec<[FlyTerm; 2]>,
     },
     Curry {
         toolchain: Toolchain,
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_rune: Option<RuneFluffyTerm>,
-        parameter_ty: FluffyTerm,
-        return_ty: FluffyTerm,
+        parameter_rune: Option<RuneFlyTerm>,
+        parameter_ty: FlyTerm,
+        return_ty: FlyTerm,
     },
     Hole {
         hole_source: HoleSource,
         hole_kind: HoleKind,
-        fill: Option<FluffyTerm>,
+        fill: Option<FlyTerm>,
         constraints: SmallVec<[HoleConstraint; 2]>,
     },
     Ritchie {
         ritchie_kind: RitchieKind,
-        params: Vec<FluffyRitchieParameter>,
-        return_ty: FluffyTerm,
+        params: Vec<FlyRitchieParameter>,
+        return_ty: FlyTerm,
     },
 }
 
@@ -54,8 +54,8 @@ impl Into<HollowTerm> for Hole {
     }
 }
 
-impl Into<FluffyTerm> for Hole {
-    fn into(self) -> FluffyTerm {
+impl Into<FlyTerm> for Hole {
+    fn into(self) -> FlyTerm {
         self.0.into()
     }
 }
@@ -64,8 +64,8 @@ impl HollowTerm {
     pub(crate) fn fluffy_data<'a>(
         self,
         db: &'a ::salsa::Db,
-        fluffy_terms: &'a FluffyTerms,
-    ) -> FluffyTermData<'a> {
+        fluffy_terms: &'a FlyTerms,
+    ) -> FlyTermData<'a> {
         match self.resolve_progress(fluffy_terms) {
             TermResolveProgress::UnresolvedHollow => self.fluffy_data_aux(db, fluffy_terms),
             TermResolveProgress::ResolvedEthereal(term) => ethereal_term_data(db, term),
@@ -78,14 +78,14 @@ impl HollowTerm {
     pub(crate) fn fluffy_data_aux<'a>(
         self,
         db: &'a ::salsa::Db,
-        fluffy_terms: &'a FluffyTerms,
-    ) -> FluffyTermData<'a> {
+        fluffy_terms: &'a FlyTerms,
+    ) -> FlyTermData<'a> {
         match fluffy_terms.hollow_terms().hollow_term_data(self) {
             HollowTermData::TypeOntology {
                 path,
                 refined_path,
                 arguments: argument_tys,
-            } => FluffyTermData::TypeOntology {
+            } => FlyTermData::TypeOntology {
                 ty_path: *path,
                 refined_ty_path: *refined_path,
                 ty_arguments: argument_tys,
@@ -98,7 +98,7 @@ impl HollowTerm {
                 parameter_rune,
                 parameter_ty,
                 return_ty,
-            } => FluffyTermData::Curry {
+            } => FlyTermData::Curry {
                 toolchain: *toolchain,
                 curry_kind: *curry_kind,
                 variance: *variance,
@@ -114,12 +114,12 @@ impl HollowTerm {
                 hole_kind,
                 fill: None,
                 ..
-            } => FluffyTermData::Hole(*hole_kind, Hole(self)),
+            } => FlyTermData::Hole(*hole_kind, Hole(self)),
             HollowTermData::Ritchie {
                 ritchie_kind,
                 params: parameter_contracted_tys,
                 return_ty,
-            } => FluffyTermData::Ritchie {
+            } => FlyTermData::Ritchie {
                 ritchie_kind: *ritchie_kind,
                 parameter_contracted_tys,
                 return_ty: *return_ty,
@@ -130,8 +130,8 @@ impl HollowTerm {
     pub(crate) fn fluffy_base_ty_data<'a>(
         self,
         db: &'a ::salsa::Db,
-        fluffy_terms: &'a FluffyTerms,
-    ) -> FluffyBaseTypeData<'a> {
+        fluffy_terms: &'a FlyTerms,
+    ) -> FlyBaseTypeData<'a> {
         match self.resolve_progress(fluffy_terms) {
             TermResolveProgress::UnresolvedHollow => self.fluffy_base_ty_data_aux(db, fluffy_terms),
             TermResolveProgress::ResolvedEthereal(term) => {
@@ -147,14 +147,14 @@ impl HollowTerm {
     pub(crate) fn fluffy_base_ty_data_aux<'a>(
         self,
         db: &'a ::salsa::Db,
-        fluffy_terms: &'a FluffyTerms,
-    ) -> FluffyBaseTypeData<'a> {
+        fluffy_terms: &'a FlyTerms,
+    ) -> FlyBaseTypeData<'a> {
         match fluffy_terms.hollow_terms().hollow_term_data(self) {
             HollowTermData::TypeOntology {
                 path,
                 refined_path,
                 arguments: argument_tys,
-            } => FluffyBaseTypeData::TypeOntology {
+            } => FlyBaseTypeData::TypeOntology {
                 ty_path: *path,
                 refined_ty_path: *refined_path,
                 ty_arguments: argument_tys,
@@ -167,7 +167,7 @@ impl HollowTerm {
                 parameter_rune,
                 parameter_ty,
                 return_ty,
-            } => FluffyBaseTypeData::Curry {
+            } => FlyBaseTypeData::Curry {
                 curry_kind: *curry_kind,
                 variance: *variance,
                 parameter_rune: parameter_rune.map(Into::into),
@@ -182,12 +182,12 @@ impl HollowTerm {
                 hole_kind,
                 fill: None,
                 ..
-            } => FluffyBaseTypeData::Hole(*hole_kind, Hole(self)),
+            } => FlyBaseTypeData::Hole(*hole_kind, Hole(self)),
             HollowTermData::Ritchie {
                 ritchie_kind,
                 params: parameter_contracted_tys,
                 return_ty,
-            } => FluffyBaseTypeData::Ritchie {
+            } => FlyBaseTypeData::Ritchie {
                 ritchie_kind: *ritchie_kind,
                 parameter_contracted_tys,
                 return_ty: *return_ty,

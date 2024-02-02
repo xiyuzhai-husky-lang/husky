@@ -107,7 +107,7 @@
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
-                                        FluffyInstantiation {
+                                        FlyInstantiation {
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -117,7 +117,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -134,7 +134,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -151,9 +151,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             2,
                                         ),
@@ -163,9 +163,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     1,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -185,9 +185,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             2,
                                         ),
@@ -197,9 +197,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     4,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -224,7 +224,7 @@
                                         ExpectationOutcome::Coersion(
                                             ExpectCoersionOutcome {
                                                 coersion: Trivial(
-                                                    TrivialFluffyCoersion {
+                                                    TrivialFlyCoersion {
                                                         expectee_place: Transient,
                                                     },
                                                 ),
@@ -237,9 +237,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             2,
                                         ),
@@ -269,21 +269,21 @@
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
                     ),
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`t`),
                             ),
                         },
@@ -293,23 +293,23 @@
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`a`),
                         ),
                     },
                 ],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -322,9 +322,9 @@
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`t`),
                                             ),
                                         },
@@ -342,9 +342,9 @@
                                     ),
                                     hole_kind: Any,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`a`),
                                             ),
                                         },
@@ -364,17 +364,17 @@
                                         ),
                                     ),
                                     arguments: [
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     0,
                                                 ),
                                             ),
                                         },
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     1,
                                                 ),
@@ -393,13 +393,13 @@
                 expectations: Expectations {
                     arena: Arena {
                         data: [
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`OneVsAll t a`),
                                             ),
                                         },
@@ -411,9 +411,9 @@
                                         syn_expr_idx: 1,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -425,7 +425,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -435,12 +435,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`t`),
                                             ),
                                         },
@@ -454,9 +454,9 @@
                                             1,
                                         ),
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 0,
                                             ),
@@ -472,12 +472,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`a`),
                                             ),
                                         },
@@ -491,9 +491,9 @@
                                             1,
                                         ),
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 1,
                                             ),
@@ -509,13 +509,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`OneVsAll t a`),
                                             ),
                                         },
@@ -527,9 +527,9 @@
                                         syn_expr_idx: 2,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -541,7 +541,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -665,7 +665,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         StackPure {
                                             location: StackLocationIdx(
@@ -675,7 +675,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`OneVsAll t a`),
                                     ),
                                 },
@@ -683,7 +683,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     1,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -693,7 +693,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`OneVsAll t a`),
                                         ),
                                     },
@@ -721,7 +721,7 @@
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
-                                        FluffyInstantiation {
+                                        FlyInstantiation {
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -731,7 +731,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -748,7 +748,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -765,9 +765,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             3,
                                         ),
@@ -777,9 +777,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     2,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 3,
                                             ),
@@ -809,7 +809,7 @@
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
-                                        FluffyInstantiation {
+                                        FlyInstantiation {
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -819,7 +819,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -836,9 +836,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             6,
                                         ),
@@ -848,9 +848,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     3,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 6,
                                             ),
@@ -875,11 +875,11 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`t`),
                                     ),
                                 },
@@ -887,11 +887,11 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     4,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`t`),
                                         ),
                                     },
@@ -910,11 +910,11 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FluffyRitchieRegularParameter {
+                                            FlyRitchieRegularParameter {
                                                 contract: Move,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Hollow(
+                                                    base: FlyTermBase::Hollow(
                                                         HollowTerm(
                                                             4,
                                                         ),
@@ -928,7 +928,7 @@
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
-                                                            TrivialFluffyCoersion {
+                                                            TrivialFlyCoersion {
                                                                 expectee_place: Const,
                                                             },
                                                         ),
@@ -944,9 +944,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             5,
                                         ),
@@ -956,9 +956,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     5,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 5,
                                             ),
@@ -979,11 +979,11 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FluffyRitchieRegularParameter {
+                                            FlyRitchieRegularParameter {
                                                 contract: Move,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Hollow(
+                                                    base: FlyTermBase::Hollow(
                                                         HollowTerm(
                                                             0,
                                                         ),
@@ -997,7 +997,7 @@
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
-                                                            TrivialFluffyCoersion {
+                                                            TrivialFlyCoersion {
                                                                 expectee_place: Transient,
                                                             },
                                                         ),
@@ -1013,9 +1013,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             2,
                                         ),
@@ -1025,9 +1025,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     6,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -1057,7 +1057,7 @@
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
-                                        FluffyInstantiation {
+                                        FlyInstantiation {
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -1067,7 +1067,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -1084,7 +1084,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -1101,9 +1101,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             10,
                                         ),
@@ -1113,9 +1113,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     9,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 10,
                                             ),
@@ -1136,9 +1136,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -1146,9 +1146,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     10,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -1167,11 +1167,11 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FluffyRitchieRegularParameter {
+                                            FlyRitchieRegularParameter {
                                                 contract: Move,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Hollow(
+                                                    base: FlyTermBase::Hollow(
                                                         HollowTerm(
                                                             8,
                                                         ),
@@ -1185,7 +1185,7 @@
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
-                                                            TrivialFluffyCoersion {
+                                                            TrivialFlyCoersion {
                                                                 expectee_place: Transient,
                                                             },
                                                         ),
@@ -1201,9 +1201,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             9,
                                         ),
@@ -1213,9 +1213,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     11,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 9,
                                             ),
@@ -1235,9 +1235,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             2,
                                         ),
@@ -1247,9 +1247,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     14,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -1274,7 +1274,7 @@
                                         ExpectationOutcome::Coersion(
                                             ExpectCoersionOutcome {
                                                 coersion: Trivial(
-                                                    TrivialFluffyCoersion {
+                                                    TrivialFlyCoersion {
                                                         expectee_place: Transient,
                                                     },
                                                 ),
@@ -1287,9 +1287,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             2,
                                         ),
@@ -1307,7 +1307,7 @@
                                         ExpectationOutcome::Coersion(
                                             ExpectCoersionOutcome {
                                                 coersion: Trivial(
-                                                    TrivialFluffyCoersion {
+                                                    TrivialFlyCoersion {
                                                         expectee_place: Transient,
                                                     },
                                                 ),
@@ -1320,9 +1320,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             9,
                                         ),
@@ -1401,9 +1401,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             2,
                                         ),
@@ -1428,7 +1428,7 @@
             syn_pattern_expr_ty_infos: [
                 PatternExprTypeInfo {
                     ty: Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 StackPure {
                                     location: StackLocationIdx(
@@ -1452,7 +1452,7 @@
                 },
                 PatternExprTypeInfo {
                     ty: Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 StackPure {
                                     location: StackLocationIdx(
@@ -1482,27 +1482,27 @@
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
                     ),
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`t`),
                             ),
                         },
                     ),
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 StackPure {
                                     location: StackLocationIdx(
@@ -1512,7 +1512,7 @@
                                     ),
                                 },
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`OneVsAll t a`),
                             ),
                         },
@@ -1522,23 +1522,23 @@
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`a`),
                         ),
                     },
                 ],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -1551,9 +1551,9 @@
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     5,
                                                 ),
@@ -1562,9 +1562,9 @@
                                     ),
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
-                                            target: FluffyTerm {
+                                            target: FlyTerm {
                                                 place: None,
-                                                base: FluffyTermBase::Hollow(
+                                                base: FlyTermBase::Hollow(
                                                     HollowTerm(
                                                         5,
                                                     ),
@@ -1584,18 +1584,18 @@
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`unit`),
                                             ),
                                         },
                                     ),
                                     constraints: [
                                         HoleConstraint::CoercibleInto {
-                                            target: FluffyTerm {
+                                            target: FlyTerm {
                                                 place: None,
-                                                base: FluffyTermBase::Ethereal(
+                                                base: FlyTermBase::Ethereal(
                                                     EthTerm(`unit`),
                                                 ),
                                             },
@@ -1615,17 +1615,17 @@
                                         ),
                                     ),
                                     arguments: [
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     0,
                                                 ),
                                             ),
                                         },
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     1,
                                                 ),
@@ -1643,12 +1643,12 @@
                                         Fn,
                                     ),
                                     params: [
-                                        FluffyRitchieParameter::Regular(
-                                            FluffyRitchieRegularParameter {
+                                        FlyRitchieParameter::Regular(
+                                            FlyRitchieRegularParameter {
                                                 contract: Move,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Hollow(
+                                                    base: FlyTermBase::Hollow(
                                                         HollowTerm(
                                                             0,
                                                         ),
@@ -1657,9 +1657,9 @@
                                             },
                                         ),
                                     ],
-                                    return_ty: FluffyTerm {
+                                    return_ty: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -1677,22 +1677,22 @@
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: Some(
                                                 Const,
                                             ),
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`t`),
                                             ),
                                         },
                                     ),
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
-                                            target: FluffyTerm {
+                                            target: FlyTerm {
                                                 place: Some(
                                                     Const,
                                                 ),
-                                                base: FluffyTermBase::Ethereal(
+                                                base: FlyTermBase::Ethereal(
                                                     EthTerm(`t`),
                                                 ),
                                             },
@@ -1712,9 +1712,9 @@
                                         ),
                                     ),
                                     arguments: [
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     4,
                                                 ),
@@ -1732,12 +1732,12 @@
                                         Fn,
                                     ),
                                     params: [
-                                        FluffyRitchieParameter::Regular(
-                                            FluffyRitchieRegularParameter {
+                                        FlyRitchieParameter::Regular(
+                                            FlyRitchieRegularParameter {
                                                 contract: Move,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Hollow(
+                                                    base: FlyTermBase::Hollow(
                                                         HollowTerm(
                                                             4,
                                                         ),
@@ -1746,9 +1746,9 @@
                                             },
                                         ),
                                     ],
-                                    return_ty: FluffyTerm {
+                                    return_ty: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 5,
                                             ),
@@ -1766,18 +1766,18 @@
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`Class t`),
                                             ),
                                         },
                                     ),
                                     constraints: [
                                         HoleConstraint::CoercibleInto {
-                                            target: FluffyTerm {
+                                            target: FlyTerm {
                                                 place: None,
-                                                base: FluffyTermBase::Ethereal(
+                                                base: FlyTermBase::Ethereal(
                                                     EthTerm(`Class t`),
                                                 ),
                                             },
@@ -1795,18 +1795,18 @@
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`unit`),
                                             ),
                                         },
                                     ),
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
-                                            target: FluffyTerm {
+                                            target: FlyTerm {
                                                 place: None,
-                                                base: FluffyTermBase::Ethereal(
+                                                base: FlyTermBase::Ethereal(
                                                     EthTerm(`unit`),
                                                 ),
                                             },
@@ -1826,17 +1826,17 @@
                                         ),
                                     ),
                                     arguments: [
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     7,
                                                 ),
                                             ),
                                         },
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     8,
                                                 ),
@@ -1854,12 +1854,12 @@
                                         Fn,
                                     ),
                                     params: [
-                                        FluffyRitchieParameter::Regular(
-                                            FluffyRitchieRegularParameter {
+                                        FlyRitchieParameter::Regular(
+                                            FlyRitchieRegularParameter {
                                                 contract: Move,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Hollow(
+                                                    base: FlyTermBase::Hollow(
                                                         HollowTerm(
                                                             8,
                                                         ),
@@ -1868,9 +1868,9 @@
                                             },
                                         ),
                                     ],
-                                    return_ty: FluffyTerm {
+                                    return_ty: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 9,
                                             ),
@@ -1888,7 +1888,7 @@
                 expectations: Expectations {
                     arena: Arena {
                         data: [
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -1898,7 +1898,7 @@
                                         syn_expr_idx: 1,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -1908,7 +1908,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`OneVsAll t a`),
                                         ),
                                     },
@@ -1916,7 +1916,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
                                         final_destination: FinalDestination::TypeOntology,
@@ -1928,9 +1928,9 @@
                                         syn_expr_idx: 2,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 3,
                                             ),
@@ -1941,9 +1941,9 @@
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    return_ty: FluffyTerm {
+                                                    return_ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Hollow(
+                                                        base: FlyTermBase::Hollow(
                                                             HollowTerm(
                                                                 2,
                                                             ),
@@ -1954,12 +1954,12 @@
                                                             Fn,
                                                         ),
                                                         parameter_contracted_tys: [
-                                                            FluffyRitchieParameter::Regular(
-                                                                FluffyRitchieRegularParameter {
+                                                            FlyRitchieParameter::Regular(
+                                                                FlyRitchieRegularParameter {
                                                                     contract: Move,
-                                                                    ty: FluffyTerm {
+                                                                    ty: FlyTerm {
                                                                         place: None,
-                                                                        base: FluffyTermBase::Hollow(
+                                                                        base: FlyTermBase::Hollow(
                                                                             HollowTerm(
                                                                                 0,
                                                                             ),
@@ -1975,7 +1975,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
                                         final_destination: FinalDestination::TypeOntology,
@@ -1987,9 +1987,9 @@
                                         syn_expr_idx: 3,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 6,
                                             ),
@@ -2000,9 +2000,9 @@
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    return_ty: FluffyTerm {
+                                                    return_ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Hollow(
+                                                        base: FlyTermBase::Hollow(
                                                             HollowTerm(
                                                                 5,
                                                             ),
@@ -2013,12 +2013,12 @@
                                                             Fn,
                                                         ),
                                                         parameter_contracted_tys: [
-                                                            FluffyRitchieParameter::Regular(
-                                                                FluffyRitchieRegularParameter {
+                                                            FlyRitchieParameter::Regular(
+                                                                FlyRitchieRegularParameter {
                                                                     contract: Move,
-                                                                    ty: FluffyTerm {
+                                                                    ty: FlyTerm {
                                                                         place: None,
-                                                                        base: FluffyTermBase::Hollow(
+                                                                        base: FlyTermBase::Hollow(
                                                                             HollowTerm(
                                                                                 4,
                                                                             ),
@@ -2034,13 +2034,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     4,
                                                 ),
@@ -2054,11 +2054,11 @@
                                         syn_expr_idx: 4,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`t`),
                                         ),
                                     },
@@ -2068,7 +2068,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Const,
                                                         },
                                                     ),
@@ -2078,13 +2078,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     0,
                                                 ),
@@ -2098,9 +2098,9 @@
                                         syn_expr_idx: 5,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 5,
                                             ),
@@ -2112,7 +2112,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -2122,13 +2122,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`ControlFlow Class t unit`),
                                             ),
                                         },
@@ -2140,9 +2140,9 @@
                                         syn_expr_idx: 6,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -2154,7 +2154,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -2164,12 +2164,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`Class t`),
                                             ),
                                         },
@@ -2183,9 +2183,9 @@
                                             6,
                                         ),
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 0,
                                             ),
@@ -2201,12 +2201,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -2220,9 +2220,9 @@
                                             6,
                                         ),
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 1,
                                             ),
@@ -2238,7 +2238,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
                                         final_destination: FinalDestination::TypeOntology,
@@ -2250,9 +2250,9 @@
                                         syn_expr_idx: 7,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 10,
                                             ),
@@ -2263,9 +2263,9 @@
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    return_ty: FluffyTerm {
+                                                    return_ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Hollow(
+                                                        base: FlyTermBase::Hollow(
                                                             HollowTerm(
                                                                 9,
                                                             ),
@@ -2276,12 +2276,12 @@
                                                             Fn,
                                                         ),
                                                         parameter_contracted_tys: [
-                                                            FluffyRitchieParameter::Regular(
-                                                                FluffyRitchieRegularParameter {
+                                                            FlyRitchieParameter::Regular(
+                                                                FlyRitchieRegularParameter {
                                                                     contract: Move,
-                                                                    ty: FluffyTerm {
+                                                                    ty: FlyTerm {
                                                                         place: None,
-                                                                        base: FluffyTermBase::Hollow(
+                                                                        base: FlyTermBase::Hollow(
                                                                             HollowTerm(
                                                                                 8,
                                                                             ),
@@ -2297,13 +2297,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     8,
                                                 ),
@@ -2317,9 +2317,9 @@
                                         syn_expr_idx: 8,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -2329,7 +2329,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -2339,13 +2339,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`ControlFlow Class t unit`),
                                             ),
                                         },
@@ -2357,9 +2357,9 @@
                                         syn_expr_idx: 9,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 9,
                                             ),
@@ -2371,7 +2371,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -2381,12 +2381,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`Class t`),
                                             ),
                                         },
@@ -2400,9 +2400,9 @@
                                             11,
                                         ),
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 7,
                                             ),
@@ -2418,12 +2418,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -2437,9 +2437,9 @@
                                             11,
                                         ),
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 8,
                                             ),
@@ -2455,13 +2455,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`ControlFlow Class t unit`),
                                             ),
                                         },
@@ -2473,9 +2473,9 @@
                                         syn_expr_idx: 10,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -2487,7 +2487,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -2611,7 +2611,7 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: Some(
                                         StackPure {
                                             location: StackLocationIdx(
@@ -2621,7 +2621,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`OneVsAllResult t a`),
                                     ),
                                 },
@@ -2629,7 +2629,7 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     1,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -2639,7 +2639,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`OneVsAllResult t a`),
                                         ),
                                     },
@@ -2667,7 +2667,7 @@
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
-                                        FluffyInstantiation {
+                                        FlyInstantiation {
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2677,7 +2677,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -2694,7 +2694,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -2711,9 +2711,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             3,
                                         ),
@@ -2723,9 +2723,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     2,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 3,
                                             ),
@@ -2755,7 +2755,7 @@
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
-                                        FluffyInstantiation {
+                                        FlyInstantiation {
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2765,7 +2765,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -2782,7 +2782,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -2799,9 +2799,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             6,
                                         ),
@@ -2811,9 +2811,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     3,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 6,
                                             ),
@@ -2834,11 +2834,11 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FluffyRitchieRegularParameter {
+                                            FlyRitchieRegularParameter {
                                                 contract: Move,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Hollow(
+                                                    base: FlyTermBase::Hollow(
                                                         HollowTerm(
                                                             0,
                                                         ),
@@ -2852,7 +2852,7 @@
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
-                                                            TrivialFluffyCoersion {
+                                                            TrivialFlyCoersion {
                                                                 expectee_place: Transient,
                                                             },
                                                         ),
@@ -2868,9 +2868,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             2,
                                         ),
@@ -2880,9 +2880,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     4,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -2912,7 +2912,7 @@
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
-                                        FluffyInstantiation {
+                                        FlyInstantiation {
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2922,7 +2922,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -2939,7 +2939,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -2956,9 +2956,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             10,
                                         ),
@@ -2968,9 +2968,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     9,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 10,
                                             ),
@@ -3000,7 +3000,7 @@
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
-                                        FluffyInstantiation {
+                                        FlyInstantiation {
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -3010,7 +3010,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -3027,7 +3027,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -3044,9 +3044,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             13,
                                         ),
@@ -3056,9 +3056,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     10,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 13,
                                             ),
@@ -3079,11 +3079,11 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FluffyRitchieRegularParameter {
+                                            FlyRitchieRegularParameter {
                                                 contract: Move,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Hollow(
+                                                    base: FlyTermBase::Hollow(
                                                         HollowTerm(
                                                             7,
                                                         ),
@@ -3097,7 +3097,7 @@
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
-                                                            TrivialFluffyCoersion {
+                                                            TrivialFlyCoersion {
                                                                 expectee_place: Transient,
                                                             },
                                                         ),
@@ -3113,9 +3113,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             9,
                                         ),
@@ -3125,9 +3125,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     11,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 9,
                                             ),
@@ -3157,7 +3157,7 @@
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
-                                        FluffyInstantiation {
+                                        FlyInstantiation {
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -3167,7 +3167,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -3184,7 +3184,7 @@
                                                         },
                                                     ),
                                                     Explicit(
-                                                        FluffyTerm {
+                                                        FlyTerm {
                                                             place: None,
                                                             base: Hollow(
                                                                 HollowTerm(
@@ -3201,9 +3201,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             17,
                                         ),
@@ -3213,9 +3213,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     16,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 17,
                                             ),
@@ -3236,9 +3236,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Ethereal(
+                                    base: FlyTermBase::Ethereal(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -3246,9 +3246,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     17,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -3267,11 +3267,11 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FluffyRitchieRegularParameter {
+                                            FlyRitchieRegularParameter {
                                                 contract: Move,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Hollow(
+                                                    base: FlyTermBase::Hollow(
                                                         HollowTerm(
                                                             15,
                                                         ),
@@ -3285,7 +3285,7 @@
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
-                                                            TrivialFluffyCoersion {
+                                                            TrivialFlyCoersion {
                                                                 expectee_place: Transient,
                                                             },
                                                         ),
@@ -3301,9 +3301,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             16,
                                         ),
@@ -3313,9 +3313,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     18,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 16,
                                             ),
@@ -3335,9 +3335,9 @@
                                 },
                             ),
                             immediate_ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             2,
                                         ),
@@ -3347,9 +3347,9 @@
                             expectation_idx_and_ty: Some(
                                 (
                                     21,
-                                    FluffyTerm {
+                                    FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -3374,7 +3374,7 @@
                                         ExpectationOutcome::Coersion(
                                             ExpectCoersionOutcome {
                                                 coersion: Trivial(
-                                                    TrivialFluffyCoersion {
+                                                    TrivialFlyCoersion {
                                                         expectee_place: Transient,
                                                     },
                                                 ),
@@ -3387,9 +3387,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             2,
                                         ),
@@ -3407,7 +3407,7 @@
                                         ExpectationOutcome::Coersion(
                                             ExpectCoersionOutcome {
                                                 coersion: Trivial(
-                                                    TrivialFluffyCoersion {
+                                                    TrivialFlyCoersion {
                                                         expectee_place: Transient,
                                                     },
                                                 ),
@@ -3420,9 +3420,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             9,
                                         ),
@@ -3440,7 +3440,7 @@
                                         ExpectationOutcome::Coersion(
                                             ExpectCoersionOutcome {
                                                 coersion: Trivial(
-                                                    TrivialFluffyCoersion {
+                                                    TrivialFlyCoersion {
                                                         expectee_place: Transient,
                                                     },
                                                 ),
@@ -3453,9 +3453,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             16,
                                         ),
@@ -3559,9 +3559,9 @@
                                 },
                             ),
                             ty_result: Ok(
-                                FluffyTerm {
+                                FlyTerm {
                                     place: None,
-                                    base: FluffyTermBase::Hollow(
+                                    base: FlyTermBase::Hollow(
                                         HollowTerm(
                                             2,
                                         ),
@@ -3586,7 +3586,7 @@
             syn_pattern_expr_ty_infos: [
                 PatternExprTypeInfo {
                     ty: Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 StackPure {
                                     location: StackLocationIdx(
@@ -3610,7 +3610,7 @@
                 },
                 PatternExprTypeInfo {
                     ty: Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 StackPure {
                                     location: StackLocationIdx(
@@ -3634,7 +3634,7 @@
                 },
                 PatternExprTypeInfo {
                     ty: Ok(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 StackPure {
                                     location: StackLocationIdx(
@@ -3664,27 +3664,27 @@
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`Type`),
                             ),
                         },
                     ),
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 Const,
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`t`),
                             ),
                         },
                     ),
                     SymbolType(
-                        FluffyTerm {
+                        FlyTerm {
                             place: Some(
                                 StackPure {
                                     location: StackLocationIdx(
@@ -3694,7 +3694,7 @@
                                     ),
                                 },
                             ),
-                            base: FluffyTermBase::Ethereal(
+                            base: FlyTermBase::Ethereal(
                                 EthTerm(`OneVsAllResult t a`),
                             ),
                         },
@@ -3704,23 +3704,23 @@
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`t`),
                         ),
                     },
-                    FluffyTerm {
+                    FlyTerm {
                         place: None,
-                        base: FluffyTermBase::Ethereal(
+                        base: FlyTermBase::Ethereal(
                             EthTerm(`a`),
                         ),
                     },
                 ],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
+            fluffy_term_region: FlyTermRegion {
+                terms: FlyTerms {
                     solid_terms: SolidTerms {
                         entries: [],
                     },
@@ -3733,9 +3733,9 @@
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     6,
                                                 ),
@@ -3744,9 +3744,9 @@
                                     ),
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
-                                            target: FluffyTerm {
+                                            target: FlyTerm {
                                                 place: None,
-                                                base: FluffyTermBase::Hollow(
+                                                base: FlyTermBase::Hollow(
                                                     HollowTerm(
                                                         6,
                                                     ),
@@ -3766,18 +3766,18 @@
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`unit`),
                                             ),
                                         },
                                     ),
                                     constraints: [
                                         HoleConstraint::CoercibleInto {
-                                            target: FluffyTerm {
+                                            target: FlyTerm {
                                                 place: None,
-                                                base: FluffyTermBase::Ethereal(
+                                                base: FlyTermBase::Ethereal(
                                                     EthTerm(`unit`),
                                                 ),
                                             },
@@ -3797,17 +3797,17 @@
                                         ),
                                     ),
                                     arguments: [
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     0,
                                                 ),
                                             ),
                                         },
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     1,
                                                 ),
@@ -3825,12 +3825,12 @@
                                         Fn,
                                     ),
                                     params: [
-                                        FluffyRitchieParameter::Regular(
-                                            FluffyRitchieRegularParameter {
+                                        FlyRitchieParameter::Regular(
+                                            FlyRitchieRegularParameter {
                                                 contract: Move,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Hollow(
+                                                    base: FlyTermBase::Hollow(
                                                         HollowTerm(
                                                             0,
                                                         ),
@@ -3839,9 +3839,9 @@
                                             },
                                         ),
                                     ],
-                                    return_ty: FluffyTerm {
+                                    return_ty: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -3859,9 +3859,9 @@
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`t`),
                                             ),
                                         },
@@ -3879,9 +3879,9 @@
                                     ),
                                     hole_kind: Any,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`a`),
                                             ),
                                         },
@@ -3901,17 +3901,17 @@
                                         ),
                                     ),
                                     arguments: [
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     4,
                                                 ),
                                             ),
                                         },
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     5,
                                                 ),
@@ -3930,9 +3930,9 @@
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     13,
                                                 ),
@@ -3941,9 +3941,9 @@
                                     ),
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
-                                            target: FluffyTerm {
+                                            target: FlyTerm {
                                                 place: None,
-                                                base: FluffyTermBase::Hollow(
+                                                base: FlyTermBase::Hollow(
                                                     HollowTerm(
                                                         13,
                                                     ),
@@ -3963,18 +3963,18 @@
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`unit`),
                                             ),
                                         },
                                     ),
                                     constraints: [
                                         HoleConstraint::CoercibleInto {
-                                            target: FluffyTerm {
+                                            target: FlyTerm {
                                                 place: None,
-                                                base: FluffyTermBase::Ethereal(
+                                                base: FlyTermBase::Ethereal(
                                                     EthTerm(`unit`),
                                                 ),
                                             },
@@ -3994,17 +3994,17 @@
                                         ),
                                     ),
                                     arguments: [
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     7,
                                                 ),
                                             ),
                                         },
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     8,
                                                 ),
@@ -4022,12 +4022,12 @@
                                         Fn,
                                     ),
                                     params: [
-                                        FluffyRitchieParameter::Regular(
-                                            FluffyRitchieRegularParameter {
+                                        FlyRitchieParameter::Regular(
+                                            FlyRitchieRegularParameter {
                                                 contract: Move,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Hollow(
+                                                    base: FlyTermBase::Hollow(
                                                         HollowTerm(
                                                             7,
                                                         ),
@@ -4036,9 +4036,9 @@
                                             },
                                         ),
                                     ],
-                                    return_ty: FluffyTerm {
+                                    return_ty: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 9,
                                             ),
@@ -4056,9 +4056,9 @@
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`t`),
                                             ),
                                         },
@@ -4076,9 +4076,9 @@
                                     ),
                                     hole_kind: Any,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`a`),
                                             ),
                                         },
@@ -4098,17 +4098,17 @@
                                         ),
                                     ),
                                     arguments: [
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     11,
                                                 ),
                                             ),
                                         },
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     12,
                                                 ),
@@ -4127,18 +4127,18 @@
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`OneVsAll t a`),
                                             ),
                                         },
                                     ),
                                     constraints: [
                                         HoleConstraint::CoercibleInto {
-                                            target: FluffyTerm {
+                                            target: FlyTerm {
                                                 place: None,
-                                                base: FluffyTermBase::Ethereal(
+                                                base: FlyTermBase::Ethereal(
                                                     EthTerm(`OneVsAll t a`),
                                                 ),
                                             },
@@ -4156,18 +4156,18 @@
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`unit`),
                                             ),
                                         },
                                     ),
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
-                                            target: FluffyTerm {
+                                            target: FlyTerm {
                                                 place: None,
-                                                base: FluffyTermBase::Ethereal(
+                                                base: FlyTermBase::Ethereal(
                                                     EthTerm(`unit`),
                                                 ),
                                             },
@@ -4187,17 +4187,17 @@
                                         ),
                                     ),
                                     arguments: [
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     14,
                                                 ),
                                             ),
                                         },
-                                        FluffyTerm {
+                                        FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     15,
                                                 ),
@@ -4215,12 +4215,12 @@
                                         Fn,
                                     ),
                                     params: [
-                                        FluffyRitchieParameter::Regular(
-                                            FluffyRitchieRegularParameter {
+                                        FlyRitchieParameter::Regular(
+                                            FlyRitchieRegularParameter {
                                                 contract: Move,
-                                                ty: FluffyTerm {
+                                                ty: FlyTerm {
                                                     place: None,
-                                                    base: FluffyTermBase::Hollow(
+                                                    base: FlyTermBase::Hollow(
                                                         HollowTerm(
                                                             15,
                                                         ),
@@ -4229,9 +4229,9 @@
                                             },
                                         ),
                                     ],
-                                    return_ty: FluffyTerm {
+                                    return_ty: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 16,
                                             ),
@@ -4249,7 +4249,7 @@
                 expectations: Expectations {
                     arena: Arena {
                         data: [
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
@@ -4259,7 +4259,7 @@
                                         syn_expr_idx: 1,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
                                                 location: StackLocationIdx(
@@ -4269,7 +4269,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`OneVsAllResult t a`),
                                         ),
                                     },
@@ -4277,7 +4277,7 @@
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
                                         final_destination: FinalDestination::TypeOntology,
@@ -4289,9 +4289,9 @@
                                         syn_expr_idx: 2,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 3,
                                             ),
@@ -4302,9 +4302,9 @@
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    return_ty: FluffyTerm {
+                                                    return_ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Hollow(
+                                                        base: FlyTermBase::Hollow(
                                                             HollowTerm(
                                                                 2,
                                                             ),
@@ -4315,12 +4315,12 @@
                                                             Fn,
                                                         ),
                                                         parameter_contracted_tys: [
-                                                            FluffyRitchieParameter::Regular(
-                                                                FluffyRitchieRegularParameter {
+                                                            FlyRitchieParameter::Regular(
+                                                                FlyRitchieRegularParameter {
                                                                     contract: Move,
-                                                                    ty: FluffyTerm {
+                                                                    ty: FlyTerm {
                                                                         place: None,
-                                                                        base: FluffyTermBase::Hollow(
+                                                                        base: FlyTermBase::Hollow(
                                                                             HollowTerm(
                                                                                 0,
                                                                             ),
@@ -4336,13 +4336,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     0,
                                                 ),
@@ -4356,9 +4356,9 @@
                                         syn_expr_idx: 3,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 6,
                                             ),
@@ -4370,7 +4370,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -4380,13 +4380,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`ControlFlow OneVsAll t a unit`),
                                             ),
                                         },
@@ -4398,9 +4398,9 @@
                                         syn_expr_idx: 4,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -4412,7 +4412,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -4422,12 +4422,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`OneVsAll t a`),
                                             ),
                                         },
@@ -4441,9 +4441,9 @@
                                             4,
                                         ),
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 0,
                                             ),
@@ -4459,12 +4459,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -4478,9 +4478,9 @@
                                             4,
                                         ),
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 1,
                                             ),
@@ -4496,12 +4496,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`t`),
                                             ),
                                         },
@@ -4515,9 +4515,9 @@
                                             5,
                                         ),
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 4,
                                             ),
@@ -4533,12 +4533,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`a`),
                                             ),
                                         },
@@ -4552,9 +4552,9 @@
                                             5,
                                         ),
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 5,
                                             ),
@@ -4570,7 +4570,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
                                         final_destination: FinalDestination::TypeOntology,
@@ -4582,9 +4582,9 @@
                                         syn_expr_idx: 5,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 10,
                                             ),
@@ -4595,9 +4595,9 @@
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    return_ty: FluffyTerm {
+                                                    return_ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Hollow(
+                                                        base: FlyTermBase::Hollow(
                                                             HollowTerm(
                                                                 9,
                                                             ),
@@ -4608,12 +4608,12 @@
                                                             Fn,
                                                         ),
                                                         parameter_contracted_tys: [
-                                                            FluffyRitchieParameter::Regular(
-                                                                FluffyRitchieRegularParameter {
+                                                            FlyRitchieParameter::Regular(
+                                                                FlyRitchieRegularParameter {
                                                                     contract: Move,
-                                                                    ty: FluffyTerm {
+                                                                    ty: FlyTerm {
                                                                         place: None,
-                                                                        base: FluffyTermBase::Hollow(
+                                                                        base: FlyTermBase::Hollow(
                                                                             HollowTerm(
                                                                                 7,
                                                                             ),
@@ -4629,13 +4629,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     7,
                                                 ),
@@ -4649,9 +4649,9 @@
                                         syn_expr_idx: 6,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 13,
                                             ),
@@ -4663,7 +4663,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -4673,13 +4673,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`ControlFlow OneVsAll t a unit`),
                                             ),
                                         },
@@ -4691,9 +4691,9 @@
                                         syn_expr_idx: 7,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 9,
                                             ),
@@ -4705,7 +4705,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -4715,12 +4715,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`OneVsAll t a`),
                                             ),
                                         },
@@ -4734,9 +4734,9 @@
                                             11,
                                         ),
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 7,
                                             ),
@@ -4752,12 +4752,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -4771,9 +4771,9 @@
                                             11,
                                         ),
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 8,
                                             ),
@@ -4789,12 +4789,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`t`),
                                             ),
                                         },
@@ -4808,9 +4808,9 @@
                                             12,
                                         ),
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 11,
                                             ),
@@ -4826,12 +4826,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`a`),
                                             ),
                                         },
@@ -4845,9 +4845,9 @@
                                             12,
                                         ),
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 12,
                                             ),
@@ -4863,7 +4863,7 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
                                         final_destination: FinalDestination::TypeOntology,
@@ -4875,9 +4875,9 @@
                                         syn_expr_idx: 8,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 17,
                                             ),
@@ -4888,9 +4888,9 @@
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    return_ty: FluffyTerm {
+                                                    return_ty: FlyTerm {
                                                         place: None,
-                                                        base: FluffyTermBase::Hollow(
+                                                        base: FlyTermBase::Hollow(
                                                             HollowTerm(
                                                                 16,
                                                             ),
@@ -4901,12 +4901,12 @@
                                                             Fn,
                                                         ),
                                                         parameter_contracted_tys: [
-                                                            FluffyRitchieParameter::Regular(
-                                                                FluffyRitchieRegularParameter {
+                                                            FlyRitchieParameter::Regular(
+                                                                FlyRitchieRegularParameter {
                                                                     contract: Move,
-                                                                    ty: FluffyTerm {
+                                                                    ty: FlyTerm {
                                                                         place: None,
-                                                                        base: FluffyTermBase::Hollow(
+                                                                        base: FlyTermBase::Hollow(
                                                                             HollowTerm(
                                                                                 15,
                                                                             ),
@@ -4922,13 +4922,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Hollow(
+                                            base: FlyTermBase::Hollow(
                                                 HollowTerm(
                                                     15,
                                                 ),
@@ -4942,9 +4942,9 @@
                                         syn_expr_idx: 9,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Ethereal(
+                                        base: FlyTermBase::Ethereal(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -4954,7 +4954,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -4964,13 +4964,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`ControlFlow OneVsAll t a unit`),
                                             ),
                                         },
@@ -4982,9 +4982,9 @@
                                         syn_expr_idx: 10,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 16,
                                             ),
@@ -4996,7 +4996,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),
@@ -5006,12 +5006,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`OneVsAll t a`),
                                             ),
                                         },
@@ -5025,9 +5025,9 @@
                                             18,
                                         ),
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 14,
                                             ),
@@ -5043,12 +5043,12 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
-                                        expected: FluffyTerm {
+                                        expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -5062,9 +5062,9 @@
                                             18,
                                         ),
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 15,
                                             ),
@@ -5080,13 +5080,13 @@
                                     ),
                                 },
                             },
-                            FluffyTermExpectationEntry {
+                            FlyTermExpectationEntry {
                                 expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
-                                        ty_expected: FluffyTerm {
+                                        ty_expected: FlyTerm {
                                             place: None,
-                                            base: FluffyTermBase::Ethereal(
+                                            base: FlyTermBase::Ethereal(
                                                 EthTerm(`ControlFlow OneVsAll t a unit`),
                                             ),
                                         },
@@ -5098,9 +5098,9 @@
                                         syn_expr_idx: 11,
                                         kind: Expr,
                                     },
-                                    expectee: FluffyTerm {
+                                    expectee: FlyTerm {
                                         place: None,
-                                        base: FluffyTermBase::Hollow(
+                                        base: FlyTermBase::Hollow(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -5112,7 +5112,7 @@
                                             ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
-                                                        TrivialFluffyCoersion {
+                                                        TrivialFlyCoersion {
                                                             expectee_place: Transient,
                                                         },
                                                     ),

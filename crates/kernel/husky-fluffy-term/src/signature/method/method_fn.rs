@@ -3,23 +3,23 @@ use husky_regional_token::IdentRegionalToken;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct MethodFnFluffySignature {
+pub struct MethodFnFlySignature {
     pub path: AssociatedItemPath,
-    pub self_value_parameter: FluffyRitchieRegularParameter,
-    pub parenate_parameters: SmallVec<[FluffyRitchieParameter; 4]>,
-    pub return_ty: FluffyTerm,
-    pub instantiation: FluffyInstantiation,
+    pub self_value_parameter: FlyRitchieRegularParameter,
+    pub parenate_parameters: SmallVec<[FlyRitchieParameter; 4]>,
+    pub return_ty: FlyTerm,
+    pub instantiation: FlyInstantiation,
 }
 
-impl MemberSignature for MethodFnFluffySignature {
-    fn expr_ty(&self, self_value_final_place: FluffyPlace) -> FluffyTermResult<FluffyTerm> {
+impl MemberSignature for MethodFnFlySignature {
+    fn expr_ty(&self, self_value_final_place: FlyPlace) -> FlyTermResult<FlyTerm> {
         todo!()
     }
 }
 
-impl MethodFnFluffySignature {
+impl MethodFnFlySignature {
     pub(crate) fn from_ethereal(
-        self_place: FluffyPlace,
+        self_place: FlyPlace,
         eth_sig: &TraitForTypeMethodFnEtherealSignature,
     ) -> Self {
         Self {
@@ -31,24 +31,24 @@ impl MethodFnFluffySignature {
                 .map(|&param| param.into())
                 .collect(),
             return_ty: eth_sig.return_ty().into(),
-            instantiation: FluffyInstantiation::from_ethereal(
-                FluffyInstantiationEnvironment::MethodFn { self_place },
+            instantiation: FlyInstantiation::from_ethereal(
+                FlyInstantiationEnvironment::MethodFn { self_place },
                 eth_sig.instantiation(),
             ),
         }
     }
 
-    pub fn instantiation(&self) -> &FluffyInstantiation {
+    pub fn instantiation(&self) -> &FlyInstantiation {
         &self.instantiation
     }
 }
 
-impl MethodFnFluffySignature {
-    pub fn nonself_parameter_contracted_tys(&self) -> &[FluffyRitchieParameter] {
+impl MethodFnFlySignature {
+    pub fn nonself_parameter_contracted_tys(&self) -> &[FlyRitchieParameter] {
         &self.parenate_parameters
     }
 
-    pub fn return_ty(&self) -> FluffyTerm {
+    pub fn return_ty(&self) -> FlyTerm {
         self.return_ty
     }
 
@@ -58,17 +58,17 @@ impl MethodFnFluffySignature {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct MethodFunctionFluffySignature {}
+pub struct MethodFunctionFlySignature {}
 
-pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
-    engine: &mut impl FluffyTermEngine,
+pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FlyTerm>>(
+    engine: &mut impl FlyTermEngine,
     expr_idx: SynExprIdx,
     ty_path: TypePath,
     ty_template_arguments: &[Term],
-    method_template_arguments: &[FluffyTerm],
+    method_template_arguments: &[FlyTerm],
     ident_token: IdentRegionalToken,
-    self_place: FluffyPlace,
-) -> FluffyTermMaybeResult<MethodFnFluffySignature> {
+    self_place: FlyPlace,
+) -> FlyTermMaybeResult<MethodFnFlySignature> {
     let ident = ident_token.ident();
     match ty_path.ty_item_ethereal_signature_templates(engine.db(), ident)? {
         TypeItemEthTemplates::MethodFn(templates) => {
@@ -104,21 +104,21 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     }
 }
 
-fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
-    engine: &mut impl FluffyTermEngine,
+fn ty_method_fn_fluffy_signature<Term: Copy + Into<FlyTerm>>(
+    engine: &mut impl FlyTermEngine,
     expr_idx: SynExprIdx,
     template: TypeMethodFnEthTemplate,
     ty_template_arguments: &[Term],
-    method_template_arguments: &[FluffyTerm],
-    self_place: FluffyPlace,
-) -> FluffyTermMaybeResult<MethodFnFluffySignature> {
+    method_template_arguments: &[FlyTerm],
+    self_place: FlyPlace,
+) -> FlyTermMaybeResult<MethodFnFlySignature> {
     let db = engine.db();
     let self_ty_application_expansion = template.self_ty(db).application_expansion(db);
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
         todo!()
     }
-    let mut instantiation_builder = FluffyTermInstantiationBuilder::new_associated(
-        FluffyInstantiationEnvironment::MethodFn { self_place },
+    let mut instantiation_builder = FlyTermInstantiationBuilder::new_associated(
+        FlyInstantiationEnvironment::MethodFn { self_place },
         template
             .path(db)
             .impl_block(db)
@@ -127,7 +127,7 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
         template.template_parameters(db),
         db,
     );
-    // FluffyInstantiation::new(FluffyInstantiationEnvironment::MethodFn { self_place });
+    // FlyInstantiation::new(FlyInstantiationEnvironment::MethodFn { self_place });
     // initialize pattern matcher
     std::iter::zip(
         self_ty_application_expansion.arguments(db).iter().copied(),
@@ -176,7 +176,7 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
         todo!()
     }
     let instantiation = instantiation_builder.finish(db);
-    JustOk(MethodFnFluffySignature {
+    JustOk(MethodFnFlySignature {
         path: template.path(db).into(),
         self_value_parameter: template.self_value_parameter(db).instantiate(
             engine,
@@ -195,11 +195,11 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     })
 }
 
-fn ty_method_function_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
-    engine: &mut impl FluffyTermEngine,
+fn ty_method_function_fluffy_signature<Term: Copy + Into<FlyTerm>>(
+    engine: &mut impl FlyTermEngine,
     template: &TypeMethodFunctionEthTemplate,
     ty_template_arguments: &[Term],
-    method_template_arguments: &[FluffyTerm],
-) -> FluffyTermMaybeResult<MethodFnFluffySignature> {
+    method_template_arguments: &[FlyTerm],
+) -> FlyTermMaybeResult<MethodFnFlySignature> {
     todo!()
 }

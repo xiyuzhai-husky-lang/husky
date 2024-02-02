@@ -1,13 +1,13 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct TrivialFluffyCoersion {
-    pub expectee_place: FluffyPlace,
+pub struct TrivialFlyCoersion {
+    pub expectee_place: FlyPlace,
 }
 
-impl TrivialFluffyCoersion {
+impl TrivialFlyCoersion {
     /// equal to expectee's place because it's trivial
-    pub fn place_after_coersion(self) -> FluffyPlace {
+    pub fn place_after_coersion(self) -> FlyPlace {
         self.expectee_place
     }
 }
@@ -16,14 +16,14 @@ impl ExpectCoersion {
     pub(super) fn resolve_trivial(
         &self,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<FluffyTermEffect> {
+    ) -> AltOption<FlyTermEffect> {
         self.try_finalize_coersion(
             state.expectee(),
             self.ty_expected,
-            TrivialFluffyCoersion {
-                expectee_place: state.expectee().place().unwrap_or(FluffyPlace::Transient),
+            TrivialFlyCoersion {
+                expectee_place: state.expectee().place().unwrap_or(FlyPlace::Transient),
             },
             db,
             terms,

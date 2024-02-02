@@ -14,36 +14,36 @@ use husky_vfs::Toolchain;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub enum FluffyTermData<'a> {
+pub enum FlyTermData<'a> {
     Literal(TermLiteral),
     TypeOntology {
         ty_path: TypePath,
         refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
-        ty_arguments: &'a [FluffyTerm],
+        ty_arguments: &'a [FlyTerm],
         ty_ethereal_term: Option<EthTerm>,
     },
     Curry {
         toolchain: Toolchain,
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_rune: Option<RuneFluffyTerm>,
-        parameter_ty: FluffyTerm,
-        return_ty: FluffyTerm,
+        parameter_rune: Option<RuneFlyTerm>,
+        parameter_ty: FlyTerm,
+        return_ty: FlyTerm,
         ty_ethereal_term: Option<CurryEthTerm>,
     },
     Hole(HoleKind, Hole),
     Category(CategoryTerm),
     Ritchie {
         ritchie_kind: RitchieKind,
-        parameter_contracted_tys: &'a [FluffyRitchieParameter],
-        return_ty: FluffyTerm,
+        parameter_contracted_tys: &'a [FlyRitchieParameter],
+        return_ty: FlyTerm,
     },
     Symbol {
         term: SymbolEthTerm,
-        ty: FluffyTerm,
+        ty: FlyTerm,
     },
     Rune {
-        ty: FluffyTerm,
+        ty: FlyTerm,
         index: RuneIndex,
     },
     TypeVariant {
@@ -51,14 +51,14 @@ pub enum FluffyTermData<'a> {
     },
 }
 
-impl<'a> FluffyTermData<'a> {
+impl<'a> FlyTermData<'a> {
     // todo: change to using show_aux
     #[inline(never)]
-    pub fn show(&self, db: &::salsa::Db, terms: &FluffyTerms) -> String {
+    pub fn show(&self, db: &::salsa::Db, terms: &FlyTerms) -> String {
         use salsa::DisplayWithDb;
         match self {
-            FluffyTermData::Literal(lit) => format!("{}", lit.display(db)),
-            FluffyTermData::TypeOntology {
+            FlyTermData::Literal(lit) => format!("{}", lit.display(db)),
+            FlyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path,
                 ty_arguments,
@@ -75,7 +75,7 @@ impl<'a> FluffyTermData<'a> {
                     s
                 }
             },
-            FluffyTermData::Curry {
+            FlyTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -99,14 +99,14 @@ impl<'a> FluffyTermData<'a> {
                     )
                 }
             }
-            FluffyTermData::Hole(hole_kind, _) => match hole_kind {
+            FlyTermData::Hole(hole_kind, _) => match hole_kind {
                 HoleKind::UnspecifiedIntegerType => "_i".to_string(),
                 HoleKind::UnspecifiedFloatType => "_f".to_string(),
                 HoleKind::ImplicitType => "_t".to_string(),
                 HoleKind::Any => "_a".to_string(),
             },
-            FluffyTermData::Category(_) => "Type".to_string(),
-            FluffyTermData::Ritchie {
+            FlyTermData::Category(_) => "Type".to_string(),
+            FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
@@ -115,11 +115,11 @@ impl<'a> FluffyTermData<'a> {
                     RitchieTypeKind::Fn => {
                         // for param in parameter_contracted_tys.iter() {
                         //     match param {
-                        //         FluffyRitchieParameter::Regular(param) => {
+                        //         FlyRitchieParameter::Regular(param) => {
                         //             p!(param.ty().show(db, terms))
                         //         }
-                        //         FluffyRitchieParameter::Variadic(_) => (),
-                        //         FluffyRitchieParameter::Keyed(_) => todo!(),
+                        //         FlyRitchieParameter::Variadic(_) => (),
+                        //         FlyRitchieParameter::Keyed(_) => todo!(),
                         //     }
                         // }
                         format!("fn(...) -> {}", return_ty.show(db, terms))
@@ -130,38 +130,38 @@ impl<'a> FluffyTermData<'a> {
                 },
                 RitchieKind::Trait(_) => todo!(),
             },
-            FluffyTermData::Symbol { term, ty } => format!("symbol({})", ty.show(db, terms)),
-            FluffyTermData::Rune { ty, index: idx } => {
+            FlyTermData::Symbol { term, ty } => format!("symbol({})", ty.show(db, terms)),
+            FlyTermData::Rune { ty, index: idx } => {
                 format!("rune({idx}, {})", ty.show(db, terms))
             }
-            FluffyTermData::TypeVariant { path } => format!("{:?}", path.debug(db)),
+            FlyTermData::TypeVariant { path } => format!("{:?}", path.debug(db)),
         }
     }
 }
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub enum FluffyBaseTypeData<'a> {
+pub enum FlyBaseTypeData<'a> {
     TypeOntology {
         ty_path: TypePath,
         refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
-        ty_arguments: &'a [FluffyTerm],
+        ty_arguments: &'a [FlyTerm],
         ty_ethereal_term: Option<EthTerm>,
     },
     Curry {
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_rune: Option<RuneFluffyTerm>,
-        parameter_ty: FluffyTerm,
-        return_ty: FluffyTerm,
+        parameter_rune: Option<RuneFlyTerm>,
+        parameter_ty: FlyTerm,
+        return_ty: FlyTerm,
         ty_ethereal_term: Option<CurryEthTerm>,
     },
     Hole(HoleKind, Hole),
     Category(CategoryTerm),
     Ritchie {
         ritchie_kind: RitchieKind,
-        parameter_contracted_tys: &'a [FluffyRitchieParameter],
-        return_ty: FluffyTerm,
+        parameter_contracted_tys: &'a [FlyRitchieParameter],
+        return_ty: FlyTerm,
     },
     Symbol {
         symbol: SymbolEthTerm,
@@ -171,27 +171,24 @@ pub enum FluffyBaseTypeData<'a> {
     },
 }
 
-impl FluffyTerm {
-    pub fn data<'a, 'b>(self, engine: &'a impl FluffyTermEngine<'b>) -> FluffyTermData<'a>
+impl FlyTerm {
+    pub fn data<'a, 'b>(self, engine: &'a impl FlyTermEngine<'b>) -> FlyTermData<'a>
     where
         'b: 'a,
     {
         self.data_inner(engine.db(), engine.fluffy_terms())
     }
 
-    pub fn data_inner<'a>(self, db: &'a ::salsa::Db, terms: &'a FluffyTerms) -> FluffyTermData<'a> {
+    pub fn data_inner<'a>(self, db: &'a ::salsa::Db, terms: &'a FlyTerms) -> FlyTermData<'a> {
         match self.base_resolved_inner(terms) {
-            FluffyTermBase::Ethereal(term) => ethereal_term_data(db, term),
-            FluffyTermBase::Solid(term) => term.data_inner(terms.solid_terms()).into(),
-            FluffyTermBase::Hollow(term) => term.fluffy_data(db, terms),
-            FluffyTermBase::Place => todo!(),
+            FlyTermBase::Ethereal(term) => ethereal_term_data(db, term),
+            FlyTermBase::Solid(term) => term.data_inner(terms.solid_terms()).into(),
+            FlyTermBase::Hollow(term) => term.fluffy_data(db, terms),
+            FlyTermBase::Place => todo!(),
         }
     }
 
-    pub fn base_ty_data<'a, 'b>(
-        self,
-        engine: &'a impl FluffyTermEngine<'b>,
-    ) -> FluffyBaseTypeData<'a>
+    pub fn base_ty_data<'a, 'b>(self, engine: &'a impl FlyTermEngine<'b>) -> FlyBaseTypeData<'a>
     where
         'b: 'a,
     {
@@ -201,13 +198,13 @@ impl FluffyTerm {
     pub fn base_ty_data_inner<'a>(
         self,
         db: &'a ::salsa::Db,
-        terms: &'a FluffyTerms,
-    ) -> FluffyBaseTypeData<'a> {
+        terms: &'a FlyTerms,
+    ) -> FlyBaseTypeData<'a> {
         match self.base_resolved_inner(terms) {
-            FluffyTermBase::Ethereal(term) => ethereal_term_fluffy_base_ty_data(db, term),
-            FluffyTermBase::Solid(term) => term.data_inner(terms.solid_terms()).into(),
-            FluffyTermBase::Hollow(term) => term.fluffy_base_ty_data(db, terms),
-            FluffyTermBase::Place => todo!(),
+            FlyTermBase::Ethereal(term) => ethereal_term_fluffy_base_ty_data(db, term),
+            FlyTermBase::Solid(term) => term.data_inner(terms.solid_terms()).into(),
+            FlyTermBase::Hollow(term) => term.fluffy_base_ty_data(db, terms),
+            FlyTermBase::Place => todo!(),
         }
     }
 
@@ -217,10 +214,10 @@ impl FluffyTerm {
     pub fn is_always_copyable(
         self,
         db: &::salsa::Db,
-        terms: &FluffyTerms,
-    ) -> FluffyTermResult<Option<bool>> {
+        terms: &FlyTerms,
+    ) -> FlyTermResult<Option<bool>> {
         match self.base_ty_data_inner(db, terms) {
-            FluffyBaseTypeData::TypeOntology {
+            FlyBaseTypeData::TypeOntology {
                 ty_path,
                 refined_ty_path,
                 ty_arguments,
@@ -236,7 +233,7 @@ impl FluffyTerm {
                     Ok(Some(false))
                 }
             },
-            FluffyBaseTypeData::Curry {
+            FlyBaseTypeData::Curry {
                 curry_kind,
                 variance,
                 parameter_rune,
@@ -244,13 +241,13 @@ impl FluffyTerm {
                 return_ty,
                 ty_ethereal_term,
             } => Ok(None),
-            FluffyBaseTypeData::Hole(hole_kind, _) => match hole_kind {
+            FlyBaseTypeData::Hole(hole_kind, _) => match hole_kind {
                 HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => Ok(Some(true)),
                 HoleKind::ImplicitType => todo!(),
                 HoleKind::Any => todo!(),
             },
-            FluffyBaseTypeData::Category(_) => Ok(None),
-            FluffyBaseTypeData::Ritchie {
+            FlyBaseTypeData::Category(_) => Ok(None),
+            FlyBaseTypeData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
@@ -261,20 +258,20 @@ impl FluffyTerm {
                 },
                 RitchieKind::Trait(_) => todo!(),
             },
-            FluffyBaseTypeData::Symbol { symbol: term } => Ok(Some(false)),
-            FluffyBaseTypeData::Rune { rune } => todo!(), // ad hoc
+            FlyBaseTypeData::Symbol { symbol: term } => Ok(Some(false)),
+            FlyBaseTypeData::Rune { rune } => todo!(), // ad hoc
         }
     }
 }
 
-pub(crate) struct FluffyTermDataKindMerger<'a> {
+pub(crate) struct FlyTermDataKindMerger<'a> {
     has_err: bool,
     has_hollow: bool,
     has_solid: bool,
     hollow_terms: &'a HollowTerms,
 }
 
-impl<'a> FluffyTermDataKindMerger<'a> {
+impl<'a> FlyTermDataKindMerger<'a> {
     pub(crate) fn new(hollow_terms: &'a impl std::borrow::Borrow<HollowTerms>) -> Self {
         Self {
             has_err: false,
@@ -284,7 +281,7 @@ impl<'a> FluffyTermDataKindMerger<'a> {
         }
     }
 
-    pub(crate) fn accept_one(&mut self, term: FluffyTerm) {
+    pub(crate) fn accept_one(&mut self, term: FlyTerm) {
         if term.place().is_some() {
             self.has_solid = true
         }
@@ -296,26 +293,26 @@ impl<'a> FluffyTermDataKindMerger<'a> {
         }
     }
 
-    pub(crate) fn accept(&mut self, terms: impl IntoIterator<Item = FluffyTerm>) {
+    pub(crate) fn accept(&mut self, terms: impl IntoIterator<Item = FlyTerm>) {
         for term in terms {
             self.accept_one(term)
         }
     }
 
-    pub(crate) fn data_kind(self) -> FluffyTermDataKind {
+    pub(crate) fn data_kind(self) -> FlyTermDataKind {
         if self.has_err {
             todo!()
         } else if self.has_hollow {
-            FluffyTermDataKind::Hollow
+            FlyTermDataKind::Hollow
         } else if self.has_solid {
-            FluffyTermDataKind::Solid
+            FlyTermDataKind::Solid
         } else {
-            FluffyTermDataKind::Ethereal
+            FlyTermDataKind::Ethereal
         }
     }
 }
 
-pub(crate) enum FluffyTermDataKind {
+pub(crate) enum FlyTermDataKind {
     Err,
     Ethereal,
     Solid,

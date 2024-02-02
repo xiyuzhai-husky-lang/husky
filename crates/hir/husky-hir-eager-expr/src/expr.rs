@@ -8,7 +8,7 @@ use crate::{symbol::runtime_symbol::HirEagerRuntimeSymbolIdx, *};
 use husky_ethereal_term::EthTerm;
 use husky_fluffy_term::{
     dispatch::StaticDispatch,
-    signature::{FluffyFieldSignature, MethodFluffySignature},
+    signature::{FlyFieldSignature, MethodFlySignature},
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
@@ -346,13 +346,13 @@ impl ToHirEager for SemaExprIdx {
                 ref dispatch,
                 ..
             } => match *dispatch.signature() {
-                FluffyFieldSignature::PropsStruct { ty } => HirEagerExprData::PropsStructField {
+                FlyFieldSignature::PropsStruct { ty } => HirEagerExprData::PropsStructField {
                     owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
                     ident: ident_token.ident(),
                     field_ty: HirType::from_fluffy(ty, builder.db(), builder.fluffy_terms())
                         .unwrap(),
                 },
-                FluffyFieldSignature::Memoized {
+                FlyFieldSignature::Memoized {
                     ty: _,
                     path,
                     ref instantiation,
@@ -375,7 +375,7 @@ impl ToHirEager for SemaExprIdx {
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
-                let MethodFluffySignature::MethodFn(signature) = dispatch.signature() else {
+                let MethodFlySignature::MethodFn(signature) = dispatch.signature() else {
                     unreachable!()
                 };
                 HirEagerExprData::MethodFnCall {

@@ -5,7 +5,7 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         function: SemaExprIdx,
         argument: SemaExprIdx,
-    ) -> SemaExprTermResult<FluffyTerm> {
+    ) -> SemaExprTermResult<FlyTerm> {
         // todo: implicit arguments
         let function = self
             .infer_expr_term(function)
@@ -13,7 +13,7 @@ impl<'a> SemaExprEngine<'a> {
         let argument = self
             .infer_expr_term(argument)
             .ok_or(DerivedExprTermError::ExplicitApplicationArgumentTermNotInferred)?;
-        FluffyTerm::new_application(self, function, argument)
+        FlyTerm::new_application(self, function, argument)
             .map_err(|e| DerivedExprTermError::ExplicitApplicationTerm(e).into())
     }
 }

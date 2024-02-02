@@ -2,10 +2,10 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
+                path: JavPath::TypeConstructor(
                     TypePath(`mnist::MnistLabel`, `Enum`),
                 ),
-                instantiation: JavelinInstantiation {
+                instantiation: JavInstantiation {
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -15,10 +15,10 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::Fugitive(
+                path: JavPath::Fugitive(
                     FugitivePath(`mnist::input`, `Val`),
                 ),
-                instantiation: JavelinInstantiation {
+                instantiation: JavInstantiation {
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -28,10 +28,10 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
+                path: JavPath::TypeItem(
                     TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
                 ),
-                instantiation: JavelinInstantiation {
+                instantiation: JavInstantiation {
                     symbol_resolutions: [],
                     separator: Some(
                         0,
@@ -43,7 +43,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::TraitForTypeItem(
+                path: JavPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {
                             data: ItemPathData::AssociatedItem(
@@ -67,7 +67,7 @@
                         },
                     ),
                 ),
-                instantiation: JavelinInstantiation {
+                instantiation: JavInstantiation {
                     symbol_resolutions: [],
                     separator: Some(
                         0,
@@ -79,10 +79,10 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
+                path: JavPath::TypeItem(
                     TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
                 ),
-                instantiation: JavelinInstantiation {
+                instantiation: JavInstantiation {
                     symbol_resolutions: [],
                     separator: Some(
                         0,
@@ -94,7 +94,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::TraitForTypeItem(
+                path: JavPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {
                             data: ItemPathData::AssociatedItem(
@@ -118,7 +118,7 @@
                         },
                     ),
                 ),
-                instantiation: JavelinInstantiation {
+                instantiation: JavInstantiation {
                     symbol_resolutions: [],
                     separator: Some(
                         0,

@@ -8,8 +8,8 @@ pub use self::level::*;
 
 use crate::*;
 
-impl FluffyTermRegion {
-    fn next_effect(&mut self, db: &::salsa::Db) -> AltOption<FluffyTermEffect> {
+impl FlyTermRegion {
+    fn next_effect(&mut self, db: &::salsa::Db) -> AltOption<FlyTermEffect> {
         for expectation in self.expectations.unresolved_expectation_iter_mut() {
             expectation.resolve(db, &mut self.terms)?
         }
@@ -21,20 +21,20 @@ impl FluffyTermRegion {
             for constraint in constraints {
                 match constraint {
                     HoleConstraint::CoercibleFrom { target } => {
-                        debug_assert_ne!(Into::<FluffyTerm>::into(hole), *target);
+                        debug_assert_ne!(Into::<FlyTerm>::into(hole), *target);
                         // todo: check HoleKind?
-                        return AltSome(FluffyTermEffect {
-                            subsequent_actions: smallvec![FluffyTermResolveAction::FillHole {
+                        return AltSome(FlyTermEffect {
+                            subsequent_actions: smallvec![FlyTermResolveAction::FillHole {
                                 hole,
                                 term: *target
                             }],
                         });
                     }
                     HoleConstraint::CoercibleInto { target } => {
-                        debug_assert_ne!(Into::<FluffyTerm>::into(hole), *target);
+                        debug_assert_ne!(Into::<FlyTerm>::into(hole), *target);
                         // todo: check HoleKind?
-                        return AltSome(FluffyTermEffect {
-                            subsequent_actions: smallvec![FluffyTermResolveAction::FillHole {
+                        return AltSome(FlyTermEffect {
+                            subsequent_actions: smallvec![FlyTermResolveAction::FillHole {
                                 hole,
                                 term: *target
                             }],
@@ -55,17 +55,17 @@ impl FluffyTermRegion {
         while let AltOption::AltSome(effect) = self.next_effect(db) {
             for action in effect.take_subsequent_actions() {
                 match action {
-                    FluffyTermResolveAction::AddExpectation {
+                    FlyTermResolveAction::AddExpectation {
                         src,
                         expectee,
                         expectation,
                     } => {
                         self.add_expectation(src, expectee, expectation, db);
                     }
-                    FluffyTermResolveAction::FillHole { hole, term } => {
+                    FlyTermResolveAction::FillHole { hole, term } => {
                         self.terms_mut().fill_hole(db, hole, term)
                     }
-                    FluffyTermResolveAction::AddHoleConstraint {
+                    FlyTermResolveAction::AddHoleConstraint {
                         hole,
                         hole_constraint,
                     } => self

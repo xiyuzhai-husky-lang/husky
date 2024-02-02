@@ -1,1 +1,1 @@
-pub type FluffyTermInstantiationMaybeResult<T> = MaybeResult<T, FluffyTermError>;
+pub type FlyTermInstantiationMaybeResult<T> = MaybeResult<T, FlyTermError>;

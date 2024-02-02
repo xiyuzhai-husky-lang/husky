@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ast::{AstSheet, HasAstSheet};
 use husky_entity_tree::SynNodeRegionPath;
-use husky_fluffy_term::FluffyTermRegion;
+use husky_fluffy_term::FlyTermRegion;
 use husky_regional_token::{RegionalTokenIdxBase, RegionalTokenIdxRange, RegionalTokenStreamState};
 use husky_sema_expr::*;
 use husky_syn_expr::{SynExprDb, SynExprIdx, SynExprRangeRegion, SynExprRegion};
@@ -95,7 +95,7 @@ impl<'a> RegionDiagnosticsContext<'a> {
         self.sema_expr_region_data
     }
 
-    pub(crate) fn fluffy_term_region(&self) -> &FluffyTermRegion {
+    pub(crate) fn fluffy_term_region(&self) -> &FlyTermRegion {
         self.sema_expr_region_data.fluffy_term_region()
     }
 

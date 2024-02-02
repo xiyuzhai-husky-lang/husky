@@ -7,7 +7,7 @@ mod shift;
 
 use husky_fluffy_term::{
     dispatch::dynamic_dispatch::binary_opr::SemaBinaryOprDynamicDispatch,
-    signature::binary_opr::SemaBinaryOprFluffySignature,
+    signature::binary_opr::SemaBinaryOprFlySignature,
 };
 use husky_sema_opr::binary::SemaBinaryOpr;
 use husky_syn_opr::SynBinaryOpr;
@@ -31,7 +31,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaBinaryOpr,
         SemaExprIdx,
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let menu = self.term_menu();
         match opr {
@@ -69,7 +69,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaBinaryOpr,
         SemaExprIdx,
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         // todo: indirections
         let lopd_sema_expr_idx = self.build_sema_expr(lopd, self.expect_argument_ty_bool());
@@ -92,7 +92,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaBinaryOpr,
         SemaExprIdx,
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let (ropd_sema_expr_idx, ropd_ty) = self.build_sema_expr_with_ty(ropd, ExpectAnyOriginal);
         let Some(ropd_ty) = ropd_ty else {
@@ -139,7 +139,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaBinaryOpr,
         SemaExprIdx,
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let ropd_sema_expr_idx = self.build_sema_expr(ropd, ExpectEqsCategory::new_any_sort());
         let Some(ropd_term) = self.infer_expr_term(ropd_sema_expr_idx) else {
@@ -171,7 +171,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaBinaryOpr,
         SemaExprIdx,
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let expect_any_sort = ExpectEqsCategory::new_any_sort();
         let (lopd_sema_expr_idx, lopd_universe) =
@@ -211,7 +211,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaBinaryOpr,
         SemaExprIdx,
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         todo!()
         // let expr_eval_lifetime = self
@@ -226,38 +226,38 @@ impl<'a> SemaExprEngine<'a> {
         // Ok(self.term_menu().unit().into())
     }
 
-    fn infer_basic_assign_ropd_ty(&mut self, lopd_ty: FluffyTerm, ropd: SynExprIdx) {
+    fn infer_basic_assign_ropd_ty(&mut self, lopd_ty: FlyTerm, ropd: SynExprIdx) {
         let (ropd_sema_expr_idx, ropd_ty) = self.build_sema_expr_with_ty(ropd, ExpectAnyOriginal);
         let Some(ropd_ty) = ropd_ty else { return };
         todo!()
         // let lopd_ty = match lopd_ty {
-        //     FluffyTerm::EthTerm(lopd_ty) => match lopd_ty {
+        //     FlyTerm::EthTerm(lopd_ty) => match lopd_ty {
         //         EthTerm::Application(lopd_ty) => todo!(),
         //         _ => todo!(),
         //     },
-        //     FluffyTerm::Unresolved(lopd_ty) => {
+        //     FlyTerm::Unresolved(lopd_ty) => {
         //         match self.fluffy_term_region[lopd_ty].unresolved_term() {
-        //             FluffyTermData::ImplicitSymbol(_) => todo!(),
-        //             FluffyTermData::TypeOntology(_) => {
+        //             FlyTermData::ImplicitSymbol(_) => todo!(),
+        //             FlyTermData::TypeOntology(_) => {
         //                 todo!()
         //             }
-        //             FluffyTermData::Ritchie(_) => todo!(),
-        //             FluffyTermData::PlaceType { .. } => todo!(),
+        //             FlyTermData::Ritchie(_) => todo!(),
+        //             FlyTermData::PlaceType { .. } => todo!(),
         //         }
         //     }
         //     _ => todo!(),
         // };
         // let ropd_ty = match ropd_ty {
-        //     FluffyTerm::EthTerm(ropd_ty) => todo!(),
+        //     FlyTerm::EthTerm(ropd_ty) => todo!(),
         //     // self.db.intrinsic_ty(ropd_ty).reduced_term(),
-        //     FluffyTerm::Unresolved(_) => todo!(),
+        //     FlyTerm::Unresolved(_) => todo!(),
         //     _ => todo!(),
         // };
     }
 
     fn infer_composite_assign_ropd_ty(
         &mut self,
-        lopd_ty: FluffyTerm,
+        lopd_ty: FlyTerm,
         opr: BinaryClosedOpr,
         ropd: SynExprIdx,
     ) {

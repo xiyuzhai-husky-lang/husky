@@ -1,11 +1,11 @@
 use super::*;
 
-impl FluffyTerm {
+impl FlyTerm {
     #[inline(always)]
     pub fn new_application(
-        engine: &mut impl FluffyTermEngine,
-        function: impl Into<FluffyTerm>,
-        argument: impl Into<FluffyTerm>,
+        engine: &mut impl FlyTermEngine,
+        function: impl Into<FlyTerm>,
+        argument: impl Into<FlyTerm>,
     ) -> EthTermResult<Self> {
         let db = engine.db();
         let function = function.into();
@@ -14,18 +14,18 @@ impl FluffyTerm {
             function.base_resolved(engine),
             argument.base_resolved(engine),
         ) {
-            (FluffyTermBase::Ethereal(function), FluffyTermBase::Ethereal(argument)) => {
+            (FlyTermBase::Ethereal(function), FlyTermBase::Ethereal(argument)) => {
                 Ok(ApplicationEthTerm::new(db, function, argument)?.into())
             }
             (
-                FluffyTermBase::Ethereal(_) | FluffyTermBase::Solid(_),
-                FluffyTermBase::Ethereal(_) | FluffyTermBase::Solid(_),
+                FlyTermBase::Ethereal(_) | FlyTermBase::Solid(_),
+                FlyTermBase::Ethereal(_) | FlyTermBase::Solid(_),
             ) => {
                 todo!()
             }
             _ => {
                 let data = match function.data(engine) {
-                    FluffyTermData::TypeOntology {
+                    FlyTermData::TypeOntology {
                         ty_path: path,
                         refined_ty_path: refined_path,
                         ty_arguments: arguments,
@@ -39,39 +39,39 @@ impl FluffyTerm {
                             arguments,
                         }
                     }
-                    FluffyTermData::Hole(_, _) => todo!(),
-                    FluffyTermData::Symbol { .. } => todo!(),
-                    FluffyTermData::Rune { .. } => todo!(),
-                    FluffyTermData::TypeVariant { .. } => todo!(),
-                    FluffyTermData::Category(_)
-                    | FluffyTermData::Literal(_)
-                    | FluffyTermData::Curry { .. }
-                    | FluffyTermData::Ritchie { .. } => unreachable!(),
+                    FlyTermData::Hole(_, _) => todo!(),
+                    FlyTermData::Symbol { .. } => todo!(),
+                    FlyTermData::Rune { .. } => todo!(),
+                    FlyTermData::TypeVariant { .. } => todo!(),
+                    FlyTermData::Category(_)
+                    | FlyTermData::Literal(_)
+                    | FlyTermData::Curry { .. }
+                    | FlyTermData::Ritchie { .. } => unreachable!(),
                 };
                 Ok(HollowTerm::new(engine, data).into())
             }
         }
     }
 
-    pub fn new_leashed(engine: &mut impl FluffyTermEngine, ty: FluffyTerm) -> EthTermResult<Self> {
-        let function: FluffyTerm = engine.term_menu().leash_ty_ontology().into();
+    pub fn new_leashed(engine: &mut impl FlyTermEngine, ty: FlyTerm) -> EthTermResult<Self> {
+        let function: FlyTerm = engine.term_menu().leash_ty_ontology().into();
         Self::new_application(engine, function, ty)
     }
 
     pub fn new_ty_ontology(
         db: &::salsa::Db,
-        fluffy_terms: &mut FluffyTerms,
+        fluffy_terms: &mut FlyTerms,
         path: TypePath,
         refined_path: Either<PreludeTypePath, CustomTypePath>,
-        arguments: SmallVec<[FluffyTerm; 2]>,
+        arguments: SmallVec<[FlyTerm; 2]>,
     ) -> Self {
         if arguments.len() == 0 {
             ItemPathTerm::TypeOntology(path).into()
         } else {
-            let mut merger = FluffyTermDataKindMerger::new(fluffy_terms);
+            let mut merger = FlyTermDataKindMerger::new(fluffy_terms);
             merger.accept(arguments.iter().copied());
             match merger.data_kind() {
-                FluffyTermDataKind::Ethereal => {
+                FlyTermDataKind::Ethereal => {
                     match EthTerm::new_ty_ontology(
                         db,
                         path,
@@ -86,7 +86,7 @@ impl FluffyTerm {
                         Err(_) => todo!(),
                     }
                 }
-                FluffyTermDataKind::Solid => fluffy_terms
+                FlyTermDataKind::Solid => fluffy_terms
                     .solid_terms_mut()
                     .intern_new(SolidTermData::TypeOntology {
                         path,
@@ -94,7 +94,7 @@ impl FluffyTerm {
                         arguments,
                     })
                     .into(),
-                FluffyTermDataKind::Hollow => fluffy_terms
+                FlyTermDataKind::Hollow => fluffy_terms
                     .hollow_terms_mut()
                     .alloc_new(HollowTermData::TypeOntology {
                         path,
@@ -102,7 +102,7 @@ impl FluffyTerm {
                         arguments,
                     })
                     .into(),
-                FluffyTermDataKind::Err => todo!(),
+                FlyTermDataKind::Err => todo!(),
             }
         }
     }

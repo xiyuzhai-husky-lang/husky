@@ -129,7 +129,7 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TraitForTypeItem(
+                        javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
                                     data: ItemPathData::AssociatedItem(
@@ -218,7 +218,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TraitForTypeItem(
+                        javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
                                     data: ItemPathData::AssociatedItem(
@@ -307,7 +307,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TraitForTypeItem(
+                        javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
                                     data: ItemPathData::AssociatedItem(
@@ -396,7 +396,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TraitForTypeItem(
+                        javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
                                     data: ItemPathData::AssociatedItem(
@@ -485,7 +485,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TraitForTypeItem(
+                        javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
                                     data: ItemPathData::AssociatedItem(
@@ -574,7 +574,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TraitForTypeItem(
+                        javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
                                     data: ItemPathData::AssociatedItem(
@@ -663,7 +663,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TraitForTypeItem(
+                        javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
                                     data: ItemPathData::AssociatedItem(
@@ -752,7 +752,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TraitForTypeItem(
+                        javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
                                     data: ItemPathData::AssociatedItem(
@@ -841,7 +841,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TraitForTypeItem(
+                        javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
                                     data: ItemPathData::AssociatedItem(

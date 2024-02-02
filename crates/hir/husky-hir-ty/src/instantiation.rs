@@ -2,8 +2,8 @@ use super::*;
 use crate::place::HirPlace;
 use husky_ethereal_term::instantiation::EtherealInstantiation;
 use husky_fluffy_term::{
-    instantiation::{FluffyInstantiation, FluffyTermSymbolResolution},
-    FluffyTerms,
+    instantiation::{FlyInstantiation, FlyTermSymbolResolution},
+    FlyTerms,
 };
 use vec_like::{SmallVecMap, SmallVecPairMap};
 
@@ -59,24 +59,20 @@ impl HirInstantiation {
     }
 
     pub fn from_fluffy(
-        instantiation: &FluffyInstantiation,
+        instantiation: &FlyInstantiation,
         db: &::salsa::Db,
-        terms: &FluffyTerms,
+        terms: &FlyTerms,
     ) -> Self {
         let (symbol_map0, symbol_map1) = &instantiation.symbol_map_splitted();
         let t = |&(symbol, resolution)| match HirTemplateSymbol::from_ethereal(symbol, db) {
             Some(symbol) => Some((
                 symbol,
                 match resolution {
-                    FluffyTermSymbolResolution::Explicit(term) => {
-                        HirTermSymbolResolution::Explicit(
-                            HirTemplateArgument::from_fluffy(term, db, terms).expect("some"),
-                        )
-                    }
-                    FluffyTermSymbolResolution::SelfLifetime => {
-                        HirTermSymbolResolution::SelfLifetime
-                    }
-                    FluffyTermSymbolResolution::SelfPlace(place) => {
+                    FlyTermSymbolResolution::Explicit(term) => HirTermSymbolResolution::Explicit(
+                        HirTemplateArgument::from_fluffy(term, db, terms).expect("some"),
+                    ),
+                    FlyTermSymbolResolution::SelfLifetime => HirTermSymbolResolution::SelfLifetime,
+                    FlyTermSymbolResolution::SelfPlace(place) => {
                         HirTermSymbolResolution::SelfPlace(HirPlace::from_fluffy(place))
                     }
                 },

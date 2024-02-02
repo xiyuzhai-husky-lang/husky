@@ -33,12 +33,12 @@
                 LinTypePathLeading {
                     ty_path: TypePath(`core::mem::Ref`, `Extern`),
                     template_arguments: [
-                        LinkageTemplateArgument::Constant(
-                            LinkageConstant(
+                        LinTemplateArgument::Constant(
+                            LinConstant(
                                 StaticLifetime,
                             ),
                         ),
-                        LinkageTemplateArgument::Type(
+                        LinTemplateArgument::Type(
                             LinType::PathLeading(
                                 LinTypePathLeading {
                                     ty_path: TypePath(`core::str::str`, `Extern`),

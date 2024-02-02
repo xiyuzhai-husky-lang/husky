@@ -1,15 +1,15 @@
 use super::*;
 
-impl HasFluffyTypeMethodDispatch for HollowTerm {
+impl HasFlyTypeMethodDispatch for HollowTerm {
     fn ty_method_dispatch(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-        indirections: FluffyIndirections,
-    ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+        indirections: FlyIndirections,
+    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
         match self.fluffy_base_ty_data(engine.db(), engine.fluffy_terms()) {
-            FluffyBaseTypeData::TypeOntology {
+            FlyBaseTypeData::TypeOntology {
                 ty_path,
                 refined_ty_path,
                 ty_arguments,
@@ -20,7 +20,7 @@ impl HasFluffyTypeMethodDispatch for HollowTerm {
                     .debug(engine.db()));
                 todo!()
             }
-            FluffyBaseTypeData::Curry {
+            FlyBaseTypeData::Curry {
                 curry_kind,
                 variance,
                 parameter_rune,
@@ -28,7 +28,7 @@ impl HasFluffyTypeMethodDispatch for HollowTerm {
                 return_ty,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyBaseTypeData::Hole(hole_kind, hole) => {
+            FlyBaseTypeData::Hole(hole_kind, hole) => {
                 let db = engine.db();
                 let term_menu = engine.term_menu();
                 engine
@@ -36,21 +36,21 @@ impl HasFluffyTypeMethodDispatch for HollowTerm {
                     .terms
                     .fill_hole_by_force(hole, db, term_menu);
                 // ad hoc, needs improvement
-                Into::<FluffyTerm>::into(self).ty_method_dispatch(
+                Into::<FlyTerm>::into(self).ty_method_dispatch(
                     engine,
                     expr_idx,
                     ident_token,
                     indirections,
                 )
             }
-            FluffyBaseTypeData::Category(_) => todo!(),
-            FluffyBaseTypeData::Ritchie {
+            FlyBaseTypeData::Category(_) => todo!(),
+            FlyBaseTypeData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            FluffyBaseTypeData::Symbol { symbol: term } => todo!(),
-            FluffyBaseTypeData::Rune { rune } => todo!(),
+            FlyBaseTypeData::Symbol { symbol: term } => todo!(),
+            FlyBaseTypeData::Rune { rune } => todo!(),
         }
     }
 }

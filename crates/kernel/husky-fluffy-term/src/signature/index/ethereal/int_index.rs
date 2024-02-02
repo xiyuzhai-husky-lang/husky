@@ -2,14 +2,14 @@ use super::*;
 use husky_ethereal_signature::helpers::trai_for_ty::ty_side_trai_for_ty_impl_block_signature_templates;
 
 pub(super) fn ethereal_owner_ty_int_index_signature(
-    engine: &mut impl FluffyTermEngine,
+    engine: &mut impl FlyTermEngine,
     syn_expr_idx: SynExprIdx,
     owner_ty: EthTerm,
     custom_ty_path: CustomTypePath,
     owner_ty_arguments: &[EthTerm],
-    index_ty: FluffyTerm,
-    final_place: FluffyPlace,
-) -> FluffyTermMaybeResult<FluffyIndexSignature> {
+    index_ty: FlyTerm,
+    final_place: FlyPlace,
+) -> FlyTermMaybeResult<FlyIndexSignature> {
     if !coersible_to_int(engine, index_ty) {
         return Nothing;
     };
@@ -30,35 +30,35 @@ pub(super) fn ethereal_owner_ty_int_index_signature(
     .try_into_signature(db)
     .expect("fully instantiated")
     .ty_term();
-    JustOk(FluffyIndexSignature::Int {
-        element_ty: FluffyTerm::new_ethereal(final_place, element_ty),
+    JustOk(FlyIndexSignature::Int {
+        element_ty: FlyTerm::new_ethereal(final_place, element_ty),
     })
 }
 
-fn coersible_to_int(engine: &mut impl FluffyTermEngine, index_ty: FluffyTerm) -> bool {
+fn coersible_to_int(engine: &mut impl FlyTermEngine, index_ty: FlyTerm) -> bool {
     match index_ty.data(engine) {
-        FluffyTermData::Literal(_) => unreachable!(),
-        FluffyTermData::TypeOntology {
+        FlyTermData::Literal(_) => unreachable!(),
+        FlyTermData::TypeOntology {
             refined_ty_path, ..
         } => match refined_ty_path {
             Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))) => true,
             _ => false,
         },
-        FluffyTermData::Curry { .. } => false,
-        FluffyTermData::Hole(hole_kind, _) => match hole_kind {
+        FlyTermData::Curry { .. } => false,
+        FlyTermData::Hole(hole_kind, _) => match hole_kind {
             HoleKind::UnspecifiedIntegerType => true,
             HoleKind::UnspecifiedFloatType => false,
             HoleKind::ImplicitType => false,
             HoleKind::Any => false,
         },
-        FluffyTermData::Category(_) => false,
-        FluffyTermData::Ritchie {
+        FlyTermData::Category(_) => false,
+        FlyTermData::Ritchie {
             ritchie_kind,
             parameter_contracted_tys,
             return_ty,
         } => false,
-        FluffyTermData::Symbol { term, ty } => false,
-        FluffyTermData::Rune { .. } => unreachable!(),
-        FluffyTermData::TypeVariant { path } => unreachable!(),
+        FlyTermData::Symbol { term, ty } => false,
+        FlyTermData::Rune { .. } => unreachable!(),
+        FlyTermData::TypeVariant { path } => unreachable!(),
     }
 }

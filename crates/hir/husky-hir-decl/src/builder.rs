@@ -1,5 +1,5 @@
 use husky_ethereal_term::EthTerm;
-use husky_fluffy_term::FluffyTermBase;
+use husky_fluffy_term::FlyTermBase;
 use husky_hir_eager_expr::{HirEagerExprIdx, HirEagerPatternExprIdx};
 use husky_hir_expr::{
     helpers::hir_expr_region_with_source_map, source_map::HirExprSourceMap, HirExprRegion,
@@ -76,10 +76,10 @@ impl<'a> HirDeclBuilder<'a> {
                     .fluffy_term_region()
                     .hollow_terms(),
             ) {
-            FluffyTermBase::Ethereal(term) => HirType::from_ethereal(term, self.db),
-            FluffyTermBase::Solid(_) => todo!(),
-            FluffyTermBase::Hollow(_) => todo!(),
-            FluffyTermBase::Place => todo!(),
+            FlyTermBase::Ethereal(term) => HirType::from_ethereal(term, self.db),
+            FlyTermBase::Solid(_) => todo!(),
+            FlyTermBase::Hollow(_) => todo!(),
+            FlyTermBase::Place => todo!(),
         }
     }
 
@@ -97,10 +97,10 @@ impl<'a> HirDeclBuilder<'a> {
                     .fluffy_term_region()
                     .hollow_terms(),
             ) {
-            FluffyTermBase::Ethereal(term) => HirTrait::from_ethereal(term, self.db),
-            FluffyTermBase::Solid(_) => todo!(),
-            FluffyTermBase::Hollow(_) => todo!(),
-            FluffyTermBase::Place => todo!(),
+            FlyTermBase::Ethereal(term) => HirTrait::from_ethereal(term, self.db),
+            FlyTermBase::Solid(_) => todo!(),
+            FlyTermBase::Hollow(_) => todo!(),
+            FlyTermBase::Place => todo!(),
         }
     }
 
@@ -115,10 +115,10 @@ impl<'a> HirDeclBuilder<'a> {
         match self.sema_expr_region_data.symbol_terms()[current_syn_symbol_idx]
             .base_resolved_inner(self.sema_expr_region_data.fluffy_term_region())
         {
-            FluffyTermBase::Ethereal(symbol_term) => symbol_term,
-            FluffyTermBase::Solid(_) => todo!(),
-            FluffyTermBase::Hollow(_) => todo!(),
-            FluffyTermBase::Place => todo!(),
+            FlyTermBase::Ethereal(symbol_term) => symbol_term,
+            FlyTermBase::Solid(_) => todo!(),
+            FlyTermBase::Hollow(_) => todo!(),
+            FlyTermBase::Place => todo!(),
         }
     }
 

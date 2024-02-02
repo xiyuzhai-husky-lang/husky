@@ -9,13 +9,13 @@ use husky_ethereal_signature::signature::HasEthTemplate;
 use husky_hir_ty::{ritchie::HirEagerContract, trai::HirTrait, HirType};
 use husky_javelin::template_argument::constant::JavelinConstant;
 use husky_linkage::{
-    instantiation::{LinkageInstantiate, LinkageInstantiation, LinkageTermSymbolResolution},
+    instantiation::{LinTermSymbolResolution, LinkageInstantiate, LinkageInstantiation},
     linkage::LinkageStructField,
     template_argument::{
-        constant::LinkageConstant,
+        constant::LinConstant,
         place,
         ty::{LinType, LinkageRitchieParameter, LinkageRitchieType},
-        LinkageTemplateArgument,
+        LinTemplateArgument,
     },
     trai::LinkageTrait,
 };
@@ -174,9 +174,9 @@ fn turbo_fish_instantiation<E>(
         builder.bracketed_comma_list(
             RustBracket::TurboFish,
             instantiation.iter().map(|&(_, res)| match res {
-                LinkageTermSymbolResolution::Explicit(arg) => arg,
-                LinkageTermSymbolResolution::SelfLifetime => todo!(),
-                LinkageTermSymbolResolution::SelfPlace(_) => todo!(),
+                LinTermSymbolResolution::Explicit(arg) => arg,
+                LinTermSymbolResolution::SelfLifetime => todo!(),
+                LinTermSymbolResolution::SelfPlace(_) => todo!(),
             }),
         )
     }
@@ -238,13 +238,13 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinkageInstantiation) {
             1 => {
                 let (_symbol, place) = places[0];
                 match place {
-                    LinkageTermSymbolResolution::Explicit(LinkageTemplateArgument::Place(_)) => {
+                    LinTermSymbolResolution::Explicit(LinTemplateArgument::Place(_)) => {
                         todo!()
                     }
-                    LinkageTermSymbolResolution::SelfPlace(place) => match place {
-                        place::LinkagePlace::Ref => ident.transpile_to_rust(builder),
-                        place::LinkagePlace::RefMut => builder.method_fn_ident_mut(ident),
-                        place::LinkagePlace::Transient => todo!(),
+                    LinTermSymbolResolution::SelfPlace(place) => match place {
+                        place::LinPlace::Ref => ident.transpile_to_rust(builder),
+                        place::LinPlace::RefMut => builder.method_fn_ident_mut(ident),
+                        place::LinPlace::Transient => todo!(),
                     },
                     _ => unreachable!(),
                 }
@@ -299,19 +299,19 @@ impl<E> TranspileToRustWith<E> for LinTypePathLeading {
     }
 }
 
-impl<E> TranspileToRustWith<E> for LinkageTemplateArgument {
+impl<E> TranspileToRustWith<E> for LinTemplateArgument {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         match self {
-            LinkageTemplateArgument::Vacant => todo!(),
-            LinkageTemplateArgument::Type(linkage_ty) => linkage_ty.transpile_to_rust(builder),
-            LinkageTemplateArgument::Constant(constant) => constant.transpile_to_rust(builder),
-            LinkageTemplateArgument::Lifetime => todo!(),
-            LinkageTemplateArgument::Place(_) => todo!(),
+            LinTemplateArgument::Vacant => todo!(),
+            LinTemplateArgument::Type(linkage_ty) => linkage_ty.transpile_to_rust(builder),
+            LinTemplateArgument::Constant(constant) => constant.transpile_to_rust(builder),
+            LinTemplateArgument::Lifetime => todo!(),
+            LinTemplateArgument::Place(_) => todo!(),
         }
     }
 }
 
-impl<E> TranspileToRustWith<E> for LinkageConstant {
+impl<E> TranspileToRustWith<E> for LinConstant {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         match self.0 {
             JavelinConstant::Unit(_) => todo!(),

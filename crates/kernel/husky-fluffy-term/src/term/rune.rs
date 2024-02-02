@@ -1,33 +1,33 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct RuneFluffyTerm(FluffyTerm);
+pub struct RuneFlyTerm(FlyTerm);
 
-impl std::ops::Deref for RuneFluffyTerm {
-    type Target = FluffyTerm;
+impl std::ops::Deref for RuneFlyTerm {
+    type Target = FlyTerm;
 
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
 
-impl RuneFluffyTerm {
+impl RuneFlyTerm {
     pub(crate) fn rewrite_inner(
         self,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         src: HoleSource,
-        substitution_rules: &[FluffyTermSubstitution],
+        substitution_rules: &[FlyTermSubstitution],
     ) -> Self {
         let slf = (*self).rewrite_inner(db, terms, src, substitution_rules);
         match slf.base_ty_data_inner(db, terms) {
-            FluffyBaseTypeData::TypeOntology {
+            FlyBaseTypeData::TypeOntology {
                 ty_path,
                 refined_ty_path,
                 ty_arguments,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyBaseTypeData::Curry {
+            FlyBaseTypeData::Curry {
                 curry_kind,
                 variance,
                 parameter_rune,
@@ -35,22 +35,22 @@ impl RuneFluffyTerm {
                 return_ty,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyBaseTypeData::Hole(_, _) => todo!(),
-            FluffyBaseTypeData::Category(_) => todo!(),
-            FluffyBaseTypeData::Ritchie {
+            FlyBaseTypeData::Hole(_, _) => todo!(),
+            FlyBaseTypeData::Category(_) => todo!(),
+            FlyBaseTypeData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            FluffyBaseTypeData::Symbol { symbol } => todo!(),
-            FluffyBaseTypeData::Rune { rune } => (),
+            FlyBaseTypeData::Symbol { symbol } => todo!(),
+            FlyBaseTypeData::Rune { rune } => (),
         }
         Self(slf)
     }
 }
 
-impl From<RuneEthTerm> for RuneFluffyTerm {
+impl From<RuneEthTerm> for RuneFlyTerm {
     fn from(value: RuneEthTerm) -> Self {
-        RuneFluffyTerm(value.into())
+        RuneFlyTerm(value.into())
     }
 }

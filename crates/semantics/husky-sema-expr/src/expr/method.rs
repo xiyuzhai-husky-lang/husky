@@ -1,5 +1,5 @@
 use super::*;
-use husky_fluffy_term::{dispatch::HasFluffyMethodDispatch, signature::MethodFluffySignature};
+use husky_fluffy_term::{dispatch::HasFlyMethodDispatch, signature::MethodFlySignature};
 use husky_regional_token::IdentRegionalToken;
 
 impl<'a> SemaExprEngine<'a> {
@@ -15,7 +15,7 @@ impl<'a> SemaExprEngine<'a> {
         rpar_regional_token_idx: RegionalTokenIdx,
     ) -> (
         SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let (self_argument_sema_expr_idx, self_argument_ty, outcome) =
             self.build_sema_expr_with_ty_and_outcome(self_argument, ExpectAnyOriginal);
@@ -46,7 +46,7 @@ impl<'a> SemaExprEngine<'a> {
             Err(e) => return (Err(e), Err(todo!())),
         };
         match method_dynamic_dispatch.signature() {
-            MethodFluffySignature::MethodFn(signature) => {
+            MethodFlySignature::MethodFn(signature) => {
                 let return_ty = signature.return_ty();
                 let ritchie_parameter_argument_matches = match self.calc_ritchie_arguments_ty(
                     expr_idx,
@@ -71,7 +71,7 @@ impl<'a> SemaExprEngine<'a> {
                     Ok(return_ty),
                 )
             }
-            MethodFluffySignature::MethodGn => todo!(),
+            MethodFlySignature::MethodGn => todo!(),
         }
     }
 }

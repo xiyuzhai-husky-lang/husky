@@ -4,9 +4,9 @@ use husky_javelin::template_argument::constant::JavelinConstant;
 use crate::instantiation::LinkageInstantiation;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct LinkageConstant(pub JavelinConstant);
+pub struct LinConstant(pub JavelinConstant);
 
-impl std::ops::Deref for LinkageConstant {
+impl std::ops::Deref for LinConstant {
     type Target = JavelinConstant;
 
     fn deref(&self) -> &Self::Target {
@@ -14,7 +14,7 @@ impl std::ops::Deref for LinkageConstant {
     }
 }
 
-impl LinkageConstant {
+impl LinConstant {
     pub(crate) fn from_hir(
         hir_constant: HirConstant,
         _javelin_instantiation: Option<&LinkageInstantiation>,

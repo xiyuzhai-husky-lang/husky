@@ -5,7 +5,7 @@ use self::condition::SemaCondition;
 use super::*;
 
 impl<'a> SemaExprEngine<'a> {
-    pub(crate) fn build_sema_branch<Expectation: ExpectFluffyTerm>(
+    pub(crate) fn build_sema_branch<Expectation: ExpectFlyTerm>(
         &mut self,
         stmts: SynStmtIdxRange,
         merger: &mut BranchTypeMerger<Expectation>,
@@ -19,7 +19,7 @@ impl<'a> SemaExprEngine<'a> {
     pub(crate) fn build_sema_block(
         &mut self,
         stmts: SynStmtIdxRange,
-        block_ty_expectation: impl ExpectFluffyTerm,
+        block_ty_expectation: impl ExpectFlyTerm,
     ) -> SemaStmtIdxRange {
         let mut batch = SemaStmtBatch::default();
         for stmt in stmts.start()..(stmts.end() - 1) {
@@ -32,8 +32,8 @@ impl<'a> SemaExprEngine<'a> {
     pub(crate) fn build_sema_block_with_its_ty_returned(
         &mut self,
         stmts: SynStmtIdxRange,
-        block_ty_expectation: impl ExpectFluffyTerm,
-    ) -> (SemaStmtIdxRange, Option<FluffyTerm>) {
+        block_ty_expectation: impl ExpectFlyTerm,
+    ) -> (SemaStmtIdxRange, Option<FlyTerm>) {
         let mut batch = SemaStmtBatch::default();
         for stmt in stmts.start()..(stmts.end() - 1) {
             batch.add(self.infer_new_nonlast_stmt(stmt));
@@ -49,7 +49,7 @@ impl<'a> SemaExprEngine<'a> {
         stmt_idx: SynStmtIdx,
     ) -> (
         SemaExprDataResult<SemaStmtData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let expect_unit = self.expect_unit();
         self.build_sema_stmt(stmt_idx, expect_unit)
@@ -58,10 +58,10 @@ impl<'a> SemaExprEngine<'a> {
     fn build_sema_stmt(
         &mut self,
         stmt_idx: SynStmtIdx,
-        stmt_ty_expectation: impl ExpectFluffyTerm,
+        stmt_ty_expectation: impl ExpectFlyTerm,
     ) -> (
         SemaExprDataResult<SemaStmtData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         match self.syn_expr_region_data[stmt_idx] {
             SynStmtData::Let {
@@ -138,7 +138,7 @@ impl<'a> SemaExprEngine<'a> {
                             self.build_sema_expr_with_ty_and_outcome(expr_idx, ExpectAnyOriginal);
                         let ty_result = match expr_ty {
                             Some(ty) => match ty.base_resolved(self) {
-                                FluffyTermBase::Ethereal(ty) if ty == self.term_menu.never() => {
+                                FlyTermBase::Ethereal(ty) if ty == self.term_menu.never() => {
                                     Some(self.term_menu.never().into())
                                 }
                                 _ => Some(self.term_menu.unit_ty_ontology().into()),

@@ -1,17 +1,17 @@
 use super::*;
 
 #[derive(Debug)]
-pub enum FluffyTermResolveAction {
+pub enum FlyTermResolveAction {
     AddExpectation {
         src: ExpectationSource,
-        expectee: FluffyTerm,
+        expectee: FlyTerm,
         expectation: Expectation,
     },
     #[deprecated(note = "use AddHoleConstraint instead unless necessary")]
-    FillHole { hole: Hole, term: FluffyTerm },
+    FillHole { hole: Hole, term: FlyTerm },
     AddHoleConstraint {
         hole: Hole,
         hole_constraint: HoleConstraint,
     },
 }
-pub type FluffyTermResolveActions = SmallVec<[FluffyTermResolveAction; 2]>;
+pub type FlyTermResolveActions = SmallVec<[FlyTermResolveAction; 2]>;

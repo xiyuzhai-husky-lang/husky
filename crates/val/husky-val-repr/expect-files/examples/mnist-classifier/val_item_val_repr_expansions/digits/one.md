@@ -427,7 +427,7 @@
                                                 LinTypePathLeading {
                                                     ty_path: TypePath(`core::option::Option`, `Enum`),
                                                     template_arguments: [
-                                                        LinkageTemplateArgument::Type(
+                                                        LinTemplateArgument::Type(
                                                             LinType::PathLeading(
                                                                 LinTypePathLeading {
                                                                     ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -3101,7 +3101,7 @@
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
-                                            LinkageTemplateArgument::Type(
+                                            LinTemplateArgument::Type(
                                                 LinType::PathLeading(
                                                     LinTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -3319,7 +3319,7 @@
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
-                                            LinkageTemplateArgument::Type(
+                                            LinTemplateArgument::Type(
                                                 LinType::PathLeading(
                                                     LinTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -5029,7 +5029,7 @@
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
-                                            LinkageTemplateArgument::Type(
+                                            LinTemplateArgument::Type(
                                                 LinType::PathLeading(
                                                     LinTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -5247,7 +5247,7 @@
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
-                                            LinkageTemplateArgument::Type(
+                                            LinTemplateArgument::Type(
                                                 LinType::PathLeading(
                                                     LinTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -5591,7 +5591,7 @@
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
-                                            LinkageTemplateArgument::Type(
+                                            LinTemplateArgument::Type(
                                                 LinType::PathLeading(
                                                     LinTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -5733,7 +5733,7 @@
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
-                                            LinkageTemplateArgument::Type(
+                                            LinTemplateArgument::Type(
                                                 LinType::PathLeading(
                                                     LinTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -8701,7 +8701,7 @@
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
-                                            LinkageTemplateArgument::Type(
+                                            LinTemplateArgument::Type(
                                                 LinType::PathLeading(
                                                     LinTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -8843,7 +8843,7 @@
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
-                                            LinkageTemplateArgument::Type(
+                                            LinTemplateArgument::Type(
                                                 LinType::PathLeading(
                                                     LinTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -9200,7 +9200,7 @@
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
-                                            LinkageTemplateArgument::Type(
+                                            LinTemplateArgument::Type(
                                                 LinType::PathLeading(
                                                     LinTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -9342,7 +9342,7 @@
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
-                                            LinkageTemplateArgument::Type(
+                                            LinTemplateArgument::Type(
                                                 LinType::PathLeading(
                                                     LinTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),

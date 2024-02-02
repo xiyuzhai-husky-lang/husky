@@ -15,8 +15,8 @@ impl From<EthTermError> for SemaExprTermError {
     }
 }
 
-impl From<FluffyTermError> for SemaExprTermError {
-    fn from(value: FluffyTermError) -> Self {
+impl From<FlyTermError> for SemaExprTermError {
+    fn from(value: FlyTermError) -> Self {
         todo!()
     }
 }

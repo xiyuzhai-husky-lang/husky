@@ -12,7 +12,7 @@ impl ExpectEqsFunctionType {
     }
 }
 
-impl ExpectFluffyTerm for ExpectEqsFunctionType {
+impl ExpectFlyTerm for ExpectEqsFunctionType {
     type Outcome = ExpectEqsFunctionTypeOutcome;
 
     #[inline(always)]
@@ -24,33 +24,33 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
     }
 
     #[inline(always)]
-    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination {
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FlyTerms) -> FinalDestination {
         self.final_destination
     }
 
     #[inline(always)]
-    fn destination(&self) -> Option<FluffyTerm> {
+    fn destination(&self) -> Option<FlyTerm> {
         None
     }
 
     fn resolve(
         &self,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<FluffyTermEffect> {
+    ) -> AltOption<FlyTermEffect> {
         match state.expectee().data_inner(db, terms) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
+            FlyTermData::Literal(_) => todo!(),
+            FlyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
                 ty_arguments: arguments,
                 ..
             } => state.set_err(
-                OriginalFluffyTermExpectationError::ExpectedFunctionType,
+                OriginalFlyTermExpectationError::ExpectedFunctionType,
                 smallvec![],
             ),
-            FluffyTermData::Curry {
+            FlyTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -70,12 +70,12 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
                 },
                 smallvec![],
             ),
-            FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => state.set_err(
-                OriginalFluffyTermExpectationError::ExpectedFunctionType,
+            FlyTermData::Hole(_, _) => todo!(),
+            FlyTermData::Category(_) => state.set_err(
+                OriginalFlyTermExpectationError::ExpectedFunctionType,
                 smallvec![],
             ),
-            FluffyTermData::Ritchie {
+            FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
@@ -90,9 +90,9 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
                 },
                 smallvec![],
             ),
-            FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { .. } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::Symbol { .. } => todo!(),
+            FlyTermData::Rune { .. } => todo!(),
+            FlyTermData::TypeVariant { path } => todo!(),
         }
     }
 }
@@ -100,7 +100,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ExpectEqsFunctionTypeOutcome {
-    pub(crate) return_ty: FluffyTerm,
+    pub(crate) return_ty: FlyTerm,
     pub(crate) variant: ExpectEqsFunctionTypeOutcomeData,
 }
 
@@ -109,7 +109,7 @@ impl ExpectEqsFunctionTypeOutcome {
         &self.variant
     }
 
-    pub fn return_ty(&self) -> FluffyTerm {
+    pub fn return_ty(&self) -> FlyTerm {
         self.return_ty
     }
 }
@@ -119,12 +119,12 @@ impl ExpectEqsFunctionTypeOutcome {
 pub enum ExpectEqsFunctionTypeOutcomeData {
     Ritchie {
         ritchie_kind: RitchieKind,
-        parameter_contracted_tys: Vec<FluffyRitchieParameter>,
+        parameter_contracted_tys: Vec<FlyRitchieParameter>,
     },
     Curry {
         variance: Variance,
-        parameter_rune: Option<RuneFluffyTerm>,
-        parameter_ty: FluffyTerm,
-        return_ty: FluffyTerm,
+        parameter_rune: Option<RuneFlyTerm>,
+        parameter_ty: FlyTerm,
+        return_ty: FlyTerm,
     },
 }

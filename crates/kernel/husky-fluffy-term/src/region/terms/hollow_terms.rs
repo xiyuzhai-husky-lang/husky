@@ -11,8 +11,8 @@ pub struct HollowTerms {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum HoleConstraint {
-    CoercibleFrom { target: FluffyTerm },
-    CoercibleInto { target: FluffyTerm },
+    CoercibleFrom { target: FlyTerm },
+    CoercibleInto { target: FlyTerm },
 }
 
 impl HollowTerms {
@@ -109,7 +109,7 @@ impl HollowTerms {
             | HollowTermResolveProgressBuf::ResolvedSolid(_) => return,
             _ => (),
         }
-        let mut merger = FluffyTermDataKindMerger::new(self);
+        let mut merger = FlyTermDataKindMerger::new(self);
         match self.entries[idx].data {
             HollowTermData::TypeOntology {
                 path,
@@ -158,8 +158,8 @@ impl HollowTerms {
                 merger.accept_one(parameter_ty);
                 merger.accept_one(return_ty);
                 match merger.data_kind() {
-                    FluffyTermDataKind::Err => todo!(),
-                    FluffyTermDataKind::Ethereal => {
+                    FlyTermDataKind::Err => todo!(),
+                    FlyTermDataKind::Ethereal => {
                         let parameter_rune = parameter_rune.map(|parameter_rune| {
                             parameter_rune.resolve_as_ethereal(self).unwrap().rune()
                         });
@@ -179,8 +179,8 @@ impl HollowTerms {
                                 .into(),
                             )
                     }
-                    FluffyTermDataKind::Solid => todo!(),
-                    FluffyTermDataKind::Hollow => return,
+                    FlyTermDataKind::Solid => todo!(),
+                    FlyTermDataKind::Hollow => return,
                 }
             }
             HollowTermData::Hole { fill, .. } => match fill {
@@ -226,13 +226,13 @@ impl HollowTerms {
                             unreachable!()
                         };
                         match param {
-                            FluffyRitchieParameter::Regular(param) => {
+                            FlyRitchieParameter::Regular(param) => {
                                 EtherealRitchieRegularParameter::new(param.contract(), ty).into()
                             }
-                            FluffyRitchieParameter::Variadic(param) => {
+                            FlyRitchieParameter::Variadic(param) => {
                                 EtherealRitchieVariadicParameter::new(param.contract(), ty).into()
                             }
-                            FluffyRitchieParameter::Keyed(param) => {
+                            FlyRitchieParameter::Keyed(param) => {
                                 EtherealRitchieKeyedParameter::new(
                                     param.key(),
                                     param.contract(),
@@ -258,12 +258,12 @@ impl HollowTerms {
     }
 }
 
-impl FluffyTerms {
-    pub(crate) fn fill_hole(&mut self, db: &::salsa::Db, hole: Hole, term: FluffyTerm) {
+impl FlyTerms {
+    pub(crate) fn fill_hole(&mut self, db: &::salsa::Db, hole: Hole, term: FlyTerm) {
         self.fill_hole_aux(hole.idx(), term, db)
     }
 
-    fn fill_hole_aux(&mut self, hole_idx: usize, term: FluffyTerm, db: &::salsa::Db) {
+    fn fill_hole_aux(&mut self, hole_idx: usize, term: FlyTerm, db: &::salsa::Db) {
         let mut hole_entry = &mut self.hollow_terms.entries[hole_idx];
         match hole_entry.data {
             HollowTermData::Hole { fill: Some(_), .. } => unreachable!(),
@@ -272,14 +272,14 @@ impl FluffyTerms {
         }
         // update progress if term is resolved
         match term.base() {
-            FluffyTermBase::Ethereal(term) => {
+            FlyTermBase::Ethereal(term) => {
                 hole_entry.resolve_progress = HollowTermResolveProgressBuf::ResolvedEthereal(term)
             }
-            FluffyTermBase::Solid(term) => {
+            FlyTermBase::Solid(term) => {
                 hole_entry.resolve_progress = HollowTermResolveProgressBuf::ResolvedSolid(term)
             }
-            FluffyTermBase::Hollow(_) => (),
-            FluffyTermBase::Place => todo!(),
+            FlyTermBase::Hollow(_) => (),
+            FlyTermBase::Place => todo!(),
         }
         self.hollow_terms.update_entries(db, &mut self.solid_terms)
     }
@@ -338,16 +338,16 @@ impl HollowTerm {
     }
 }
 
-impl FluffyTerm {
+impl FlyTerm {
     pub(crate) fn resolve_progress(
         self,
         terms: &impl std::borrow::Borrow<HollowTerms>,
     ) -> TermResolveProgress {
         match self.base_resolved_inner(terms) {
-            FluffyTermBase::Ethereal(term) => TermResolveProgress::ResolvedEthereal(term),
-            FluffyTermBase::Solid(term) => TermResolveProgress::ResolvedSolid(term),
-            FluffyTermBase::Hollow(term) => term.resolve_progress(terms.borrow()),
-            FluffyTermBase::Place => todo!(),
+            FlyTermBase::Ethereal(term) => TermResolveProgress::ResolvedEthereal(term),
+            FlyTermBase::Solid(term) => TermResolveProgress::ResolvedSolid(term),
+            FlyTermBase::Hollow(term) => term.resolve_progress(terms.borrow()),
+            FlyTermBase::Place => todo!(),
         }
     }
 

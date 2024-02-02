@@ -9,30 +9,30 @@ use crate::*;
 // `Default` is not implemented because we might need to initialize `terms` from the parent
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct FluffyTermRegion {
-    pub(crate) terms: FluffyTerms,
+pub struct FlyTermRegion {
+    pub(crate) terms: FlyTerms,
     pub(crate) expectations: Expectations,
 }
 
-impl std::borrow::Borrow<HollowTerms> for FluffyTermRegion {
+impl std::borrow::Borrow<HollowTerms> for FlyTermRegion {
     fn borrow(&self) -> &HollowTerms {
         self.terms.borrow()
     }
 }
 
-impl FluffyTermRegion {
+impl FlyTermRegion {
     pub fn new(parent: Option<&Self>) -> Self {
         Self {
-            terms: FluffyTerms::new(parent.map(|parent| &parent.terms)),
+            terms: FlyTerms::new(parent.map(|parent| &parent.terms)),
             expectations: Default::default(),
         }
     }
 
-    pub fn terms(&self) -> &FluffyTerms {
+    pub fn terms(&self) -> &FlyTerms {
         &self.terms
     }
 
-    pub(crate) fn terms_mut(&mut self) -> &mut FluffyTerms {
+    pub(crate) fn terms_mut(&mut self) -> &mut FlyTerms {
         &mut self.terms
     }
 
@@ -62,10 +62,10 @@ impl FluffyTermRegion {
     }
 }
 
-impl std::ops::Index<FluffyTermExpectationIdx> for FluffyTermRegion {
-    type Output = FluffyTermExpectationEntry;
+impl std::ops::Index<FlyTermExpectationIdx> for FlyTermRegion {
+    type Output = FlyTermExpectationEntry;
 
-    fn index(&self, index: FluffyTermExpectationIdx) -> &Self::Output {
+    fn index(&self, index: FlyTermExpectationIdx) -> &Self::Output {
         &self.expectations[index]
     }
 }

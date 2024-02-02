@@ -2,15 +2,15 @@ use crate::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FluffyTermSubstitution {
-    rune: RuneFluffyTerm,
-    substitute: FluffyTerm,
+pub struct FlyTermSubstitution {
+    rune: RuneFlyTerm,
+    substitute: FlyTerm,
 }
 
-pub type ImplicitParameterSubstitutions = SmallVec<[FluffyTermSubstitution; 2]>;
+pub type ImplicitParameterSubstitutions = SmallVec<[FlyTermSubstitution; 2]>;
 
-impl FluffyTermSubstitution {
-    fn new(rune: RuneFluffyTerm, substitute: impl Into<FluffyTerm>) -> Self {
+impl FlyTermSubstitution {
+    fn new(rune: RuneFlyTerm, substitute: impl Into<FlyTerm>) -> Self {
         Self {
             rune,
             substitute: substitute.into(),
@@ -19,23 +19,23 @@ impl FluffyTermSubstitution {
 
     /// this will collect implicit parameters and give rules that replace them with holes
     pub(crate) fn from_expectee(
-        expectee: FluffyTerm,
+        expectee: FlyTerm,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
-        idx: FluffyTermExpectationIdx,
-    ) -> (FluffyTerm, ImplicitParameterSubstitutions) {
+        terms: &mut FlyTerms,
+        idx: FlyTermExpectationIdx,
+    ) -> (FlyTerm, ImplicitParameterSubstitutions) {
         Self::from_expectee_aux(expectee, db, terms, idx, smallvec![])
     }
 
     fn from_expectee_aux(
-        expectee: FluffyTerm,
+        expectee: FlyTerm,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
-        idx: FluffyTermExpectationIdx,
+        terms: &mut FlyTerms,
+        idx: FlyTermExpectationIdx,
         mut template_parameter_substitutions: ImplicitParameterSubstitutions,
-    ) -> (FluffyTerm, ImplicitParameterSubstitutions) {
+    ) -> (FlyTerm, ImplicitParameterSubstitutions) {
         match expectee.data_inner(db, terms) {
-            FluffyTermData::Curry {
+            FlyTermData::Curry {
                 toolchain,
                 curry_kind: CurryKind::Implicit,
                 variance,
@@ -52,7 +52,7 @@ impl FluffyTermSubstitution {
                     parameter_rune,
                 );
                 template_parameter_substitutions
-                    .push(FluffyTermSubstitution::new(parameter_rune, implicit_symbol));
+                    .push(FlyTermSubstitution::new(parameter_rune, implicit_symbol));
                 let expectee = return_ty.rewrite_inner(
                     db,
                     terms,
@@ -66,28 +66,28 @@ impl FluffyTermSubstitution {
     }
 }
 
-impl FluffyTerm {
+impl FlyTerm {
     pub fn substitute_rune(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         src: HoleSource,
-        rune: RuneFluffyTerm,
-        substitute: FluffyTerm,
+        rune: RuneFlyTerm,
+        substitute: FlyTerm,
     ) -> Self {
         self.rewrite_inner(
             engine.db(),
             engine.fluffy_terms_mut(),
             src,
-            &[FluffyTermSubstitution::new(rune, substitute)],
+            &[FlyTermSubstitution::new(rune, substitute)],
         )
     }
 
     pub(crate) fn rewrite_inner(
         self,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         src: HoleSource,
-        substitution_rules: &[FluffyTermSubstitution],
+        substitution_rules: &[FlyTermSubstitution],
     ) -> Self {
         if substitution_rules.len() == 0 {
             return self;
@@ -98,27 +98,27 @@ impl FluffyTerm {
     fn rewrite_aux(
         self,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         src: HoleSource,
-        substitution_rules: &[FluffyTermSubstitution],
-    ) -> FluffyTerm {
+        substitution_rules: &[FlyTermSubstitution],
+    ) -> FlyTerm {
         assert!(substitution_rules.len() > 0);
         match self.data_inner(db, terms) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
+            FlyTermData::Literal(_) => todo!(),
+            FlyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path,
                 ty_arguments: arguments,
                 ..
             } => {
-                let arguments: SmallVec<[FluffyTerm; 2]> = arguments.to_smallvec();
+                let arguments: SmallVec<[FlyTerm; 2]> = arguments.to_smallvec();
                 let arguments = arguments
                     .into_iter()
                     .map(|argument| argument.rewrite_inner(db, terms, src, substitution_rules))
                     .collect();
-                FluffyTerm::new_ty_ontology(db, terms, path, refined_ty_path, arguments)
+                FlyTerm::new_ty_ontology(db, terms, path, refined_ty_path, arguments)
             }
-            FluffyTermData::Curry {
+            FlyTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -131,7 +131,7 @@ impl FluffyTerm {
                     parameter_rune.map(|v| v.rewrite_inner(db, terms, src, substitution_rules));
                 let parameter_ty = parameter_ty.rewrite_inner(db, terms, src, substitution_rules);
                 let return_ty = return_ty.rewrite_inner(db, terms, src, substitution_rules);
-                FluffyTerm::new_curry(
+                FlyTerm::new_curry(
                     db,
                     terms,
                     toolchain,
@@ -142,9 +142,9 @@ impl FluffyTerm {
                     return_ty,
                 )
             }
-            FluffyTermData::Hole(_, _) => self,
-            FluffyTermData::Category(_) => self,
-            FluffyTermData::Ritchie {
+            FlyTermData::Hole(_, _) => self,
+            FlyTermData::Category(_) => self,
+            FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
@@ -159,7 +159,7 @@ impl FluffyTerm {
                     );
                 }
                 let return_ty = return_ty.rewrite_inner(db, terms, src, substitution_rules);
-                FluffyTerm::new_ritchie_inner(
+                FlyTerm::new_ritchie_inner(
                     ritchie_kind,
                     parameter_contracted_tys,
                     return_ty,
@@ -168,14 +168,14 @@ impl FluffyTerm {
                 )
                 .unwrap()
             }
-            FluffyTermData::Symbol { .. } => todo!(),
+            FlyTermData::Symbol { .. } => todo!(),
             // todo: this is wrong
-            FluffyTermData::Rune { .. } => substitution_rules
+            FlyTermData::Rune { .. } => substitution_rules
                 .iter()
                 .copied()
                 .find_map(|rule| (*rule.rune == self).then_some(rule.substitute))
                 .unwrap_or(self),
-            FluffyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::TypeVariant { path } => todo!(),
         }
     }
 }

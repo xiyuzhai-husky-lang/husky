@@ -9,18 +9,18 @@ use super::*;
 // `Default` is not implemented because we might need to initialize `solid_terms` from the parent
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct FluffyTerms {
+pub struct FlyTerms {
     solid_terms: SolidTerms,
     hollow_terms: HollowTerms,
 }
 
-impl std::borrow::Borrow<HollowTerms> for FluffyTerms {
+impl std::borrow::Borrow<HollowTerms> for FlyTerms {
     fn borrow(&self) -> &HollowTerms {
         &self.hollow_terms
     }
 }
 
-impl FluffyTerms {
+impl FlyTerms {
     pub(crate) fn new(terms: Option<&Self>) -> Self {
         Self {
             solid_terms: SolidTerms::new(terms.map(|terms| &terms.solid_terms)),
@@ -68,17 +68,17 @@ impl FluffyTerms {
         &mut self,
         db: &::salsa::Db,
         hole_source: HoleSource,
-        parameter_rune: RuneFluffyTerm,
+        parameter_rune: RuneFlyTerm,
     ) -> HollowTerm {
         let hole_kind = match parameter_rune.data_inner(db, self) {
-            FluffyTermData::Rune { ty, .. } => match ty.data_inner(db, self) {
-                FluffyTermData::TypeOntology {
+            FlyTermData::Rune { ty, .. } => match ty.data_inner(db, self) {
+                FlyTermData::TypeOntology {
                     ty_path: path,
                     refined_ty_path: refined_path,
                     ty_arguments: arguments,
                     ty_ethereal_term,
                 } => todo!(),
-                FluffyTermData::Curry {
+                FlyTermData::Curry {
                     toolchain,
                     curry_kind,
                     variance,
@@ -87,29 +87,29 @@ impl FluffyTerms {
                     return_ty,
                     ty_ethereal_term,
                 } => todo!(),
-                FluffyTermData::Hole(_, _) => todo!(),
-                FluffyTermData::Category(cat) => {
+                FlyTermData::Hole(_, _) => todo!(),
+                FlyTermData::Category(cat) => {
                     if cat.universe().raw() != 1 {
                         // maybe we need to consider universe
                         todo!()
                     }
                     HoleKind::ImplicitType
                 }
-                FluffyTermData::Ritchie {
+                FlyTermData::Ritchie {
                     ritchie_kind,
                     parameter_contracted_tys,
                     return_ty,
                 } => todo!(),
-                FluffyTermData::Symbol { .. } => HoleKind::Any,
-                FluffyTermData::Rune { .. } => todo!(),
+                FlyTermData::Symbol { .. } => HoleKind::Any,
+                FlyTermData::Rune { .. } => todo!(),
                 _ => unreachable!(),
             },
-            FluffyTermData::Hole(_, _) => todo!(),
+            FlyTermData::Hole(_, _) => todo!(),
             // match parameter_symbol.base() {
-            //     FluffyTermBase::Ethereal(_) => todo!(),
-            //     FluffyTermBase::Solid(_) => todo!(),
-            //     FluffyTermBase::Hollow(hole_term) => return hole_term,
-            //     FluffyTermBase::Place => todo!(),
+            //     FlyTermBase::Ethereal(_) => todo!(),
+            //     FlyTermBase::Solid(_) => todo!(),
+            //     FlyTermBase::Hollow(hole_term) => return hole_term,
+            //     FlyTermBase::Place => todo!(),
             // },
             _ => {
                 p!(parameter_rune.data_inner(db, self).debug(db));

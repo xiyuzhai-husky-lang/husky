@@ -16,7 +16,7 @@ impl<'a> SemaExprEngine<'a> {
         opr_regional_token_idx: RegionalTokenIdx,
     ) -> (
         SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         let db = self.db();
         self.unveiler.initialize_if_not(self.return_ty(), db);
@@ -52,8 +52,8 @@ impl<'a> SemaExprEngine<'a> {
                     // p!(self.syn_expr_region_data[opd_syn_expr_idx].debug(db));
                     todo!()
                 };
-                let reduced_opd_ty: FluffyTerm = match opd_ty.base_ty_data(self) {
-                    FluffyBaseTypeData::TypeOntology {
+                let reduced_opd_ty: FlyTerm = match opd_ty.base_ty_data(self) {
+                    FlyBaseTypeData::TypeOntology {
                         ty_path,
                         refined_ty_path: Left(PreludeTypePath::Indirection(indirection_path)),
                         ty_arguments,
@@ -73,7 +73,7 @@ impl<'a> SemaExprEngine<'a> {
                     _ => opd_ty,
                 };
                 match reduced_opd_ty.base_resolved(self) {
-                    FluffyTermBase::Ethereal(opd_ty) => {
+                    FlyTermBase::Ethereal(opd_ty) => {
                         match template.instantiate_trai(&[opd_ty], db) {
                             JustOk(template) => {
                                 let associated_output_template =
@@ -114,9 +114,9 @@ impl<'a> SemaExprEngine<'a> {
                             Nothing => todo!(),
                         }
                     }
-                    FluffyTermBase::Solid(_) => todo!(),
-                    FluffyTermBase::Hollow(_) => todo!(),
-                    FluffyTermBase::Place => todo!(),
+                    FlyTermBase::Solid(_) => todo!(),
+                    FlyTermBase::Hollow(_) => todo!(),
+                    FlyTermBase::Place => todo!(),
                 }
             }
             Unveiler::Nothing => (
@@ -134,10 +134,10 @@ impl<'a> SemaExprEngine<'a> {
 
     pub(super) fn calc_unveil_expr_ty_given_opd_ty(
         &mut self,
-        opd_ty: FluffyTerm,
+        opd_ty: FlyTerm,
     ) -> (
         SemaExprDataResult<SemaSuffixOpr>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         todo!()
     }

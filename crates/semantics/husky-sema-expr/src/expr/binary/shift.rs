@@ -12,7 +12,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaBinaryOpr,
         SemaExprIdx,
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         // todo: don't use resolved
         let (lopd_sema_expr_idx, lopd_ty) = self.build_sema_expr_with_ty(lopd, ExpectAnyOriginal);
@@ -38,11 +38,11 @@ impl<'a> SemaExprEngine<'a> {
             );
         };
         match lopd_ty.data(self) {
-            FluffyTermData::TypeOntology {
+            FlyTermData::TypeOntology {
                 refined_ty_path: Left(PreludeTypePath::Num(_)),
                 ..
             }
-            | FluffyTermData::Hole(HoleKind::UnspecifiedIntegerType, _) => {
+            | FlyTermData::Hole(HoleKind::UnspecifiedIntegerType, _) => {
                 let ropd_sema_expr_idx = self.build_sema_expr(ropd, ExpectIntType);
                 (
                     lopd_sema_expr_idx,
@@ -52,8 +52,8 @@ impl<'a> SemaExprEngine<'a> {
                     Ok(lopd_ty),
                 )
             }
-            FluffyTermData::Hole(HoleKind::UnspecifiedFloatType, _) => todo!(),
-            // FluffyTermData::TypeOntologyAtPlace {
+            FlyTermData::Hole(HoleKind::UnspecifiedFloatType, _) => todo!(),
+            // FlyTermData::TypeOntologyAtPlace {
             //     place,
             //     ty_path: path,
             //     refined_ty_path: Left(PreludeTypePath::Num(_)),
@@ -62,15 +62,15 @@ impl<'a> SemaExprEngine<'a> {
             //     self.calc_num_ty_binary_shift_ropd_ty(ropd)?;
             //     Ok(TermEntityPath::TypeOntology(path).into())
             // }
-            FluffyTermData::TypeOntology { .. }
-            | FluffyTermData::Hole(_, _)
-            | FluffyTermData::Literal(_)
-            | FluffyTermData::Curry { .. }
-            | FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie { .. } => todo!(),
-            FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { .. } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::TypeOntology { .. }
+            | FlyTermData::Hole(_, _)
+            | FlyTermData::Literal(_)
+            | FlyTermData::Curry { .. }
+            | FlyTermData::Category(_) => todo!(),
+            FlyTermData::Ritchie { .. } => todo!(),
+            FlyTermData::Symbol { .. } => todo!(),
+            FlyTermData::Rune { .. } => todo!(),
+            FlyTermData::TypeVariant { path } => todo!(),
         }
     }
 
@@ -79,20 +79,20 @@ impl<'a> SemaExprEngine<'a> {
     //     ropd: SynExprIdx,
     // ) -> SemaExprTypeResult<()> {
     //     match ropd_ty.data(self) {
-    //         FluffyTermData::Literal(_) => todo!(),
-    //         FluffyTermData::TypeOntology {
+    //         FlyTermData::Literal(_) => todo!(),
+    //         FlyTermData::TypeOntology {
     //             refined_ty_path: Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
     //             ..
     //         }
-    //         | FluffyTermData::Hole(HoleKind::UnspecifiedIntegerType, _) => Ok(()),
-    //         FluffyTermData::TypeOntology { .. } => todo!(),
-    //         FluffyTermData::Curry { .. } => todo!(),
-    //         FluffyTermData::Hole(_, _) => todo!(),
-    //         FluffyTermData::Category(_) => todo!(),
-    //         FluffyTermData::Ritchie { .. } => todo!(),
-    //         FluffyTermData::Symbol { .. } => todo!(),
-    //         FluffyTermData::Variable { ty } => todo!(),
-    //         FluffyTermData::TypeVariant { path } => todo!(),
+    //         | FlyTermData::Hole(HoleKind::UnspecifiedIntegerType, _) => Ok(()),
+    //         FlyTermData::TypeOntology { .. } => todo!(),
+    //         FlyTermData::Curry { .. } => todo!(),
+    //         FlyTermData::Hole(_, _) => todo!(),
+    //         FlyTermData::Category(_) => todo!(),
+    //         FlyTermData::Ritchie { .. } => todo!(),
+    //         FlyTermData::Symbol { .. } => todo!(),
+    //         FlyTermData::Variable { ty } => todo!(),
+    //         FlyTermData::TypeVariant { path } => todo!(),
     //     }
     // }
 }

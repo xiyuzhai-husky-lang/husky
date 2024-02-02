@@ -9,7 +9,7 @@ pub struct ExpectConditionTypeOutcome {
     pub conversion: ConditionConversion,
 }
 
-impl ExpectFluffyTerm for ExpectConditionType {
+impl ExpectFlyTerm for ExpectConditionType {
     type Outcome = ExpectConditionTypeOutcome;
 
     fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
@@ -19,23 +19,23 @@ impl ExpectFluffyTerm for ExpectConditionType {
         }
     }
 
-    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination {
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FlyTerms) -> FinalDestination {
         FinalDestination::TypeOntology
     }
 
-    fn destination(&self) -> Option<FluffyTerm> {
+    fn destination(&self) -> Option<FlyTerm> {
         todo!()
     }
 
     fn resolve(
         &self,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<FluffyTermEffect> {
+    ) -> AltOption<FlyTermEffect> {
         match state.expectee().data_inner(db, terms) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
+            FlyTermData::Literal(_) => todo!(),
+            FlyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path,
                 ty_arguments,
@@ -56,7 +56,7 @@ impl ExpectFluffyTerm for ExpectConditionType {
                 ),
                 _ => todo!(),
             },
-            FluffyTermData::Curry {
+            FlyTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -65,16 +65,16 @@ impl ExpectFluffyTerm for ExpectConditionType {
                 return_ty,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie {
+            FlyTermData::Hole(_, _) => todo!(),
+            FlyTermData::Category(_) => todo!(),
+            FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            FluffyTermData::Symbol { term, ty } => todo!(),
-            FluffyTermData::Rune { .. } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::Symbol { term, ty } => todo!(),
+            FlyTermData::Rune { .. } => todo!(),
+            FlyTermData::TypeVariant { path } => todo!(),
         }
     }
 }

@@ -21,7 +21,7 @@ impl<'a> SemaExprEngine<'a> {
         final_destination: FinalDestination,
     ) -> (
         SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FluffyTerm>,
+        SemaExprTypeResult<FlyTerm>,
     ) {
         match opr {
             SynSuffixOpr::Incr => {
@@ -69,12 +69,12 @@ impl<'a> SemaExprEngine<'a> {
 
     fn calc_incr_or_decr_expr_ty(
         &mut self,
-        opd_ty: Option<FluffyTerm>,
-    ) -> SemaExprTypeResult<FluffyTerm> {
+        opd_ty: Option<FlyTerm>,
+    ) -> SemaExprTypeResult<FlyTerm> {
         let opd_ty = opd_ty.ok_or(DerivedSemaExprTypeError::SuffixOperandTypeNotInferred)?;
         match opd_ty.data(self) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
+            FlyTermData::Literal(_) => todo!(),
+            FlyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path,
                 ty_arguments,
@@ -83,7 +83,7 @@ impl<'a> SemaExprEngine<'a> {
                 Left(PreludeTypePath::Num(_)) => (),
                 _ => todo!(),
             },
-            FluffyTermData::Curry {
+            FlyTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -92,22 +92,22 @@ impl<'a> SemaExprEngine<'a> {
                 return_ty,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::Hole(hole_kind, _) => match hole_kind {
+            FlyTermData::Hole(hole_kind, _) => match hole_kind {
                 HoleKind::UnspecifiedIntegerType => (),
                 HoleKind::UnspecifiedFloatType => todo!(),
                 HoleKind::ImplicitType => todo!(),
                 HoleKind::Any => todo!(),
             },
-            FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie {
+            FlyTermData::Category(_) => todo!(),
+            FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
                 ..
             } => todo!(),
-            FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { .. } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::Symbol { .. } => todo!(),
+            FlyTermData::Rune { .. } => todo!(),
+            FlyTermData::TypeVariant { path } => todo!(),
         }
         Ok(self.term_menu().unit_ty_ontology().into())
     }

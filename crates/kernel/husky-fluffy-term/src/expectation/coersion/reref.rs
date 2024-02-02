@@ -7,12 +7,12 @@ impl ExpectCoersion {
     pub(super) fn resolve_reref(
         &self,
         db: &::salsa::Db,
-        terms: &mut FluffyTerms,
+        terms: &mut FlyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<FluffyTermEffect> {
+    ) -> AltOption<FlyTermEffect> {
         let expected_base_ty_data = self.ty_expected.base_ty_data_inner(db, terms);
         match expected_base_ty_data {
-            FluffyBaseTypeData::TypeOntology {
+            FlyBaseTypeData::TypeOntology {
                 ty_path,
                 refined_ty_path: Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)),
                 ty_arguments: expected_ty_arguments,
@@ -26,7 +26,7 @@ impl ExpectCoersion {
                     self.try_finalize_coersion(
                         state.expectee(),
                         expected_ty_arguments[0],
-                        FluffyCoersion::PlaceToLeash,
+                        FlyCoersion::PlaceToLeash,
                         db,
                         terms,
                         state,

@@ -74,7 +74,7 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::Fugitive(
+                        javelin_item_path: JavPath::Fugitive(
                             FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -190,7 +190,7 @@
                         ),
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -224,7 +224,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {

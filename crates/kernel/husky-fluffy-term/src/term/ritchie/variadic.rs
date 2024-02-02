@@ -2,12 +2,12 @@ use super::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FluffyRitchieVariadicParameter {
+pub struct FlyRitchieVariadicParameter {
     contract: TermContract,
-    ty: FluffyTerm,
+    ty: FlyTerm,
 }
 
-impl From<EtherealRitchieVariadicParameter> for FluffyRitchieVariadicParameter {
+impl From<EtherealRitchieVariadicParameter> for FlyRitchieVariadicParameter {
     fn from(param: EtherealRitchieVariadicParameter) -> Self {
         Self {
             contract: param.contract(),
@@ -16,24 +16,24 @@ impl From<EtherealRitchieVariadicParameter> for FluffyRitchieVariadicParameter {
     }
 }
 
-impl FluffyInstantiate for EtherealRitchieVariadicParameter {
-    type Target = FluffyRitchieVariadicParameter;
+impl FlyInstantiate for EtherealRitchieVariadicParameter {
+    type Target = FlyRitchieVariadicParameter;
 
     fn instantiate(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
-        instantiation: &FluffyInstantiation,
+        instantiation: &FlyInstantiation,
     ) -> Self::Target {
-        FluffyRitchieVariadicParameter {
+        FlyRitchieVariadicParameter {
             contract: self.contract(),
             ty: self.ty().instantiate(engine, expr_idx, instantiation),
         }
     }
 }
 
-impl FluffyRitchieVariadicParameter {
-    pub fn new(contract: TermContract, ty: FluffyTerm) -> Self {
+impl FlyRitchieVariadicParameter {
+    pub fn new(contract: TermContract, ty: FlyTerm) -> Self {
         Self { contract, ty }
     }
 
@@ -41,11 +41,11 @@ impl FluffyRitchieVariadicParameter {
         self.contract
     }
 
-    pub fn ty(&self) -> FluffyTerm {
+    pub fn ty(&self) -> FlyTerm {
         self.ty
     }
 
-    pub fn ty_mut(&mut self) -> &mut FluffyTerm {
+    pub fn ty_mut(&mut self) -> &mut FlyTerm {
         &mut self.ty
     }
 }

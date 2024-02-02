@@ -3,7 +3,7 @@ mod list;
 mod prefix;
 
 use husky_fluffy_term::{
-    instantiation::FluffyInstantiation, signature::binary_opr::SemaBinaryOprFluffySignature,
+    instantiation::FlyInstantiation, signature::binary_opr::SemaBinaryOprFlySignature,
 };
 use husky_term_prelude::literal::{
     float::TermF32Literal,
@@ -16,7 +16,7 @@ use super::*;
 
 impl<'a> SemaExprEngine<'a> {
     /// perform this during finish stage
-    pub(crate) fn infer_expr_term(&mut self, sema_expr_idx: SemaExprIdx) -> Option<FluffyTerm> {
+    pub(crate) fn infer_expr_term(&mut self, sema_expr_idx: SemaExprIdx) -> Option<FlyTerm> {
         if let Some(term_result) = self.sema_expr_term_results.get_value(sema_expr_idx) {
             return term_result.as_ref().ok().copied();
         }
@@ -51,14 +51,14 @@ impl<'a> SemaExprEngine<'a> {
     fn save_new_expr_term(
         &mut self,
         expr_idx: SemaExprIdx,
-        term_result: SemaExprTermResult<FluffyTerm>,
+        term_result: SemaExprTermResult<FlyTerm>,
     ) {
         self.sema_expr_term_results
             .insert_new((expr_idx, term_result))
             .expect("todo")
     }
 
-    fn calc_expr_term(&mut self, sema_expr_idx: SemaExprIdx) -> SemaExprTermResult<FluffyTerm> {
+    fn calc_expr_term(&mut self, sema_expr_idx: SemaExprIdx) -> SemaExprTermResult<FlyTerm> {
         let data = sema_expr_idx.data_result(&self.sema_expr_arena)?;
         match data {
             SemaExprData::Literal(regional_token_idx, lit) => {
@@ -75,7 +75,7 @@ impl<'a> SemaExprEngine<'a> {
                                     .ok_or(DerivedExprTermError::LiteralTypeNotInferred)?;
                                 let base_ty = ty.base_ty_data(self);
                                 match base_ty {
-                                    FluffyBaseTypeData::TypeOntology {
+                                    FlyBaseTypeData::TypeOntology {
                                         ty_path,
                                         refined_ty_path:
                                             Left(PreludeTypePath::Num(PreludeNumTypePath::Int(
@@ -122,7 +122,7 @@ impl<'a> SemaExprEngine<'a> {
                                         .ok_ty(&self.sema_expr_arena)
                                         .ok_or(DerivedExprTermError::LiteralTypeNotInferred)?;
                                     match ty.base_resolved(self) {
-                                        FluffyTermBase::Ethereal(EthTerm::EntityPath(
+                                        FlyTermBase::Ethereal(EthTerm::EntityPath(
                                             ItemPathTerm::TypeOntology(ty_path),
                                         )) => {
                                             match ty_path.prelude_ty_path(self.db) {
@@ -232,7 +232,7 @@ impl<'a> SemaExprEngine<'a> {
             },
             SemaExprData::SelfValue(_) => todo!(),
             SemaExprData::Binary { dispatch, .. } => match dispatch.signature() {
-                SemaBinaryOprFluffySignature::Builtin => todo!(),
+                SemaBinaryOprFlySignature::Builtin => todo!(),
             },
             SemaExprData::Be { .. } => todo!(),
             SemaExprData::Prefix {
@@ -329,11 +329,11 @@ impl<'a> SemaExprEngine<'a> {
                 return_ty_sema_expr_idx,
                 ..
             } => {
-                let mut params: Vec<FluffyRitchieParameter> = vec![];
+                let mut params: Vec<FlyRitchieParameter> = vec![];
                 for item in parameter_ty_items.clone() {
                     match self.infer_expr_term(item.sema_expr_idx) {
                         Some(ty_term) => params.push(
-                            FluffyRitchieRegularParameter::new(TermContract::Pure, ty_term).into(),
+                            FlyRitchieRegularParameter::new(TermContract::Pure, ty_term).into(),
                         ),
                         None => todo!("err"),
                     }
@@ -347,7 +347,7 @@ impl<'a> SemaExprEngine<'a> {
                     }
                     None => self.eth_term_menu().unit_ty_ontology().into(),
                 };
-                FluffyTerm::new_ritchie(self, ritchie_kind, params, return_ty).map_err(Into::into)
+                FlyTerm::new_ritchie(self, ritchie_kind, params, return_ty).map_err(Into::into)
             }
             SemaExprData::Sorry { regional_token_idx } => todo!(),
             SemaExprData::Todo { regional_token_idx } => todo!(),
@@ -366,12 +366,8 @@ impl<'a> SemaExprEngine<'a> {
                     let Some(size) = self.infer_expr_term(items[0].sema_expr_idx) else {
                         todo!()
                     };
-                    FluffyTerm::new_application(
-                        self,
-                        self.eth_term_menu().array_ty_ontology(),
-                        size,
-                    )
-                    .map_err(Into::into)
+                    FlyTerm::new_application(self, self.eth_term_menu().array_ty_ontology(), size)
+                        .map_err(Into::into)
                 }
                 _ => todo!(),
             },
@@ -385,8 +381,8 @@ impl<'a> SemaExprEngine<'a> {
         &self,
         path: PrincipalEntityPath,
         ty_path_disambiguation: TypePathDisambiguation,
-        instantiation: Option<&FluffyInstantiation>,
-    ) -> FluffyTerm {
+        instantiation: Option<&FlyInstantiation>,
+    ) -> FlyTerm {
         let mut term = match path {
             PrincipalEntityPath::Module(_) => todo!(),
             PrincipalEntityPath::MajorItem(path) => match path {

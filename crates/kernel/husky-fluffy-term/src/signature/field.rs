@@ -2,52 +2,50 @@ use super::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum FluffyFieldSignature {
+pub enum FlyFieldSignature {
     PropsStruct {
-        ty: FluffyTerm,
+        ty: FlyTerm,
     },
     Memoized {
-        ty: FluffyTerm,
+        ty: FlyTerm,
         path: AssociatedItemPath,
-        instantiation: FluffyInstantiation,
+        instantiation: FlyInstantiation,
     },
 }
 
-impl FluffyFieldSignature {
-    pub fn return_ty(&self) -> FluffyTerm {
+impl FlyFieldSignature {
+    pub fn return_ty(&self) -> FlyTerm {
         match *self {
-            FluffyFieldSignature::PropsStruct { ty } => ty,
-            FluffyFieldSignature::Memoized { ty, .. } => ty,
+            FlyFieldSignature::PropsStruct { ty } => ty,
+            FlyFieldSignature::Memoized { ty, .. } => ty,
         }
     }
 }
 
-impl MemberSignature for FluffyFieldSignature {
-    fn expr_ty(&self, self_value_final_place: FluffyPlace) -> FluffyTermResult<FluffyTerm> {
+impl MemberSignature for FlyFieldSignature {
+    fn expr_ty(&self, self_value_final_place: FlyPlace) -> FlyTermResult<FlyTerm> {
         todo!()
     }
 }
 
-impl From<PropsFieldEtherealSignature> for FluffyFieldSignature {
+impl From<PropsFieldEtherealSignature> for FlyFieldSignature {
     fn from(signature: PropsFieldEtherealSignature) -> Self {
         match signature {
-            PropsFieldEtherealSignature::PropsStruct(signature) => {
-                FluffyFieldSignature::PropsStruct {
-                    ty: signature.ty().into(),
-                }
-            }
+            PropsFieldEtherealSignature::PropsStruct(signature) => FlyFieldSignature::PropsStruct {
+                ty: signature.ty().into(),
+            },
         }
     }
 }
 
-impl From<TypeMemoizedFieldEtherealSignature> for FluffyFieldSignature {
+impl From<TypeMemoizedFieldEtherealSignature> for FlyFieldSignature {
     fn from(signature: TypeMemoizedFieldEtherealSignature) -> Self {
-        FluffyFieldSignature::Memoized {
+        FlyFieldSignature::Memoized {
             // ad hoc
             ty: signature.return_ty().into(),
             path: signature.path().into(),
-            instantiation: FluffyInstantiation::from_ethereal(
-                FluffyInstantiationEnvironment::MemoizedField,
+            instantiation: FlyInstantiation::from_ethereal(
+                FlyInstantiationEnvironment::MemoizedField,
                 signature.instantiation(),
             ),
         }

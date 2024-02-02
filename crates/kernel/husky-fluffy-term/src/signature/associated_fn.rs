@@ -2,21 +2,21 @@ use super::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct AssociatedFnFluffySignature {
+pub struct AssociatedFnFlySignature {
     path: AssociatedItemPath,
-    parenate_parameters: SmallVec<[FluffyRitchieParameter; 4]>,
-    return_ty: FluffyTerm,
-    ty: FluffyTerm,
-    instantiation: FluffyInstantiation,
-    self_ty: FluffyTerm,
+    parenate_parameters: SmallVec<[FlyRitchieParameter; 4]>,
+    return_ty: FlyTerm,
+    ty: FlyTerm,
+    instantiation: FlyInstantiation,
+    self_ty: FlyTerm,
 }
 
-impl AssociatedFnFluffySignature {
-    pub fn parenate_parameter_contracted_tys(&self) -> &[FluffyRitchieParameter] {
+impl AssociatedFnFlySignature {
+    pub fn parenate_parameter_contracted_tys(&self) -> &[FlyRitchieParameter] {
         &self.parenate_parameters
     }
 
-    pub fn ty(&self) -> FluffyTerm {
+    pub fn ty(&self) -> FlyTerm {
         self.ty
     }
 
@@ -24,29 +24,29 @@ impl AssociatedFnFluffySignature {
         self.path
     }
 
-    pub fn instantiation(&self) -> &FluffyInstantiation {
+    pub fn instantiation(&self) -> &FlyInstantiation {
         &self.instantiation
     }
 
-    pub fn self_ty(&self) -> FluffyTerm {
+    pub fn self_ty(&self) -> FlyTerm {
         self.self_ty
     }
 }
 
-pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
-    engine: &mut impl FluffyTermEngine,
+pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FlyTerm>>(
+    engine: &mut impl FlyTermEngine,
     expr_idx: SynExprIdx,
     template: TypeAssociatedFnEthTemplate,
     ty_template_arguments: &[Term],
-    associated_fn_template_arguments: &[FluffyTerm],
-) -> FluffyTermMaybeResult<AssociatedFnFluffySignature> {
+    associated_fn_template_arguments: &[FlyTerm],
+) -> FlyTermMaybeResult<AssociatedFnFlySignature> {
     let db = engine.db();
     let self_ty_application_expansion = template.self_ty(db).application_expansion(db);
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
         todo!()
     }
-    let mut instantiation_builder = FluffyTermInstantiationBuilder::new_associated(
-        FluffyInstantiationEnvironment::AssociatedFn,
+    let mut instantiation_builder = FlyTermInstantiationBuilder::new_associated(
+        FlyInstantiationEnvironment::AssociatedFn,
         template
             .path(db)
             .impl_block(db)
@@ -68,7 +68,7 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
         instantiation_builder.try_add_rule(src.symbol().into(), dst.into())
     })?;
     let instantiation = instantiation_builder.finish(db);
-    JustOk(AssociatedFnFluffySignature {
+    JustOk(AssociatedFnFlySignature {
         path: template.path(db).into(),
         parenate_parameters: template
             .parenate_parameters(db)

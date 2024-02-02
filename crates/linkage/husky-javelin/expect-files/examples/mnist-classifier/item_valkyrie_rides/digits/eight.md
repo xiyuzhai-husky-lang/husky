@@ -91,7 +91,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TypeItem(
+                        javelin_item_path: JavPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {

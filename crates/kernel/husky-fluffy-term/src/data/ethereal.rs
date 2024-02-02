@@ -1,31 +1,31 @@
 use super::*;
 
-pub(super) fn ethereal_term_data<'a>(db: &'a ::salsa::Db, term: EthTerm) -> FluffyTermData<'a> {
+pub(super) fn ethereal_term_data<'a>(db: &'a ::salsa::Db, term: EthTerm) -> FlyTermData<'a> {
     match term {
-        EthTerm::Literal(lit) => FluffyTermData::Literal(lit),
-        EthTerm::Symbol(term) => FluffyTermData::Symbol {
+        EthTerm::Literal(lit) => FlyTermData::Literal(lit),
+        EthTerm::Symbol(term) => FlyTermData::Symbol {
             term,
             ty: term.ty(db).into(),
         },
-        EthTerm::Rune(term) => FluffyTermData::Rune {
+        EthTerm::Rune(term) => FlyTermData::Rune {
             ty: term.ty(db).into(),
             index: term.index(db),
         },
         EthTerm::EntityPath(path) => match path {
             ItemPathTerm::Fugitive(_) => todo!(),
             ItemPathTerm::Trait(_) => todo!(),
-            ItemPathTerm::TypeOntology(ty_path) => FluffyTermData::TypeOntology {
+            ItemPathTerm::TypeOntology(ty_path) => FlyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path: ty_path.refine(db),
                 ty_arguments: &[],
                 ty_ethereal_term: Some(path.into()),
             },
             ItemPathTerm::TypeInstance(_) => todo!(),
-            ItemPathTerm::TypeVariant(path) => FluffyTermData::TypeVariant { path },
+            ItemPathTerm::TypeVariant(path) => FlyTermData::TypeVariant { path },
         },
-        EthTerm::Category(term) => FluffyTermData::Category(term),
+        EthTerm::Category(term) => FlyTermData::Category(term),
         EthTerm::Universe(_) => todo!(),
-        EthTerm::Curry(term) => FluffyTermData::Curry {
+        EthTerm::Curry(term) => FlyTermData::Curry {
             toolchain: term.toolchain(db),
             curry_kind: term.curry_kind(db),
             variance: term.variance(db),
@@ -43,25 +43,25 @@ pub(super) fn ethereal_term_data<'a>(db: &'a ::salsa::Db, term: EthTerm) -> Fluf
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct TermRitchieFluffyData {
+pub struct TermRitchieFlyData {
     ritchie_kind: RitchieKind,
-    parameter_contracted_tys: SmallVec<[FluffyRitchieParameter; 2]>,
+    parameter_contracted_tys: SmallVec<[FlyRitchieParameter; 2]>,
     variadics: (),
     keyed_parameter_contracted_tys: (),
     return_ty: EthTerm,
 }
 
-impl TermRitchieFluffyData {
-    fn as_ref<'a>(&'a self) -> FluffyTermData<'a> {
-        FluffyTermData::Ritchie {
+impl TermRitchieFlyData {
+    fn as_ref<'a>(&'a self) -> FlyTermData<'a> {
+        FlyTermData::Ritchie {
             ritchie_kind: self.ritchie_kind,
             parameter_contracted_tys: &self.parameter_contracted_tys,
             return_ty: self.return_ty.into(),
         }
     }
 
-    fn as_ref2<'a>(&'a self) -> FluffyBaseTypeData<'a> {
-        FluffyBaseTypeData::Ritchie {
+    fn as_ref2<'a>(&'a self) -> FlyBaseTypeData<'a> {
+        FlyBaseTypeData::Ritchie {
             ritchie_kind: self.ritchie_kind,
             parameter_contracted_tys: &self.parameter_contracted_tys,
             return_ty: self.return_ty.into(),
@@ -69,12 +69,12 @@ impl TermRitchieFluffyData {
     }
 }
 
-#[salsa::tracked(jar = FluffyTermJar, return_ref)]
+#[salsa::tracked(jar = FlyTermJar, return_ref)]
 pub(crate) fn term_ritchie_fluffy_data(
     db: &::salsa::Db,
     term: RitchieEthTerm,
-) -> TermRitchieFluffyData {
-    TermRitchieFluffyData {
+) -> TermRitchieFlyData {
+    TermRitchieFlyData {
         ritchie_kind: term.ritchie_kind(db),
         parameter_contracted_tys: term
             .parameter_contracted_tys(db)
@@ -89,24 +89,24 @@ pub(crate) fn term_ritchie_fluffy_data(
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub(crate) enum TermApplicationFluffyData {
+pub(crate) enum TermApplicationFlyData {
     TypeOntology {
         path: TypePath,
         refined_path: Either<PreludeTypePath, CustomTypePath>,
-        arguments: SmallVec<[FluffyTerm; 2]>,
+        arguments: SmallVec<[FlyTerm; 2]>,
         ty_ethereal_term: EthTerm,
     },
 }
 
-/// can't directly return FluffyTermData<'_> because of lifetime
-#[salsa::tracked(jar = FluffyTermJar, return_ref)]
+/// can't directly return FlyTermData<'_> because of lifetime
+#[salsa::tracked(jar = FlyTermJar, return_ref)]
 pub(crate) fn term_application_fluffy_data(
     db: &::salsa::Db,
     term: ApplicationEthTerm,
-) -> TermApplicationFluffyData {
+) -> TermApplicationFlyData {
     let expansion = term.application_expansion(db);
     match expansion.function() {
-        TermFunctionReduced::TypeOntology(path) => TermApplicationFluffyData::TypeOntology {
+        TermFunctionReduced::TypeOntology(path) => TermApplicationFlyData::TypeOntology {
             path,
             refined_path: path.refine(db),
             arguments: expansion
@@ -122,15 +122,15 @@ pub(crate) fn term_application_fluffy_data(
     }
 }
 
-impl TermApplicationFluffyData {
-    fn as_ref<'a>(&'a self) -> FluffyTermData<'a> {
+impl TermApplicationFlyData {
+    fn as_ref<'a>(&'a self) -> FlyTermData<'a> {
         match self {
-            TermApplicationFluffyData::TypeOntology {
+            TermApplicationFlyData::TypeOntology {
                 path,
                 refined_path,
                 arguments,
                 ty_ethereal_term,
-            } => FluffyTermData::TypeOntology {
+            } => FlyTermData::TypeOntology {
                 ty_path: *path,
                 refined_ty_path: *refined_path,
                 ty_arguments: arguments,
@@ -139,14 +139,14 @@ impl TermApplicationFluffyData {
         }
     }
 
-    fn as_ref2<'a>(&'a self) -> FluffyBaseTypeData<'a> {
+    fn as_ref2<'a>(&'a self) -> FlyBaseTypeData<'a> {
         match self {
-            TermApplicationFluffyData::TypeOntology {
+            TermApplicationFlyData::TypeOntology {
                 path,
                 refined_path,
                 arguments,
                 ty_ethereal_term,
-            } => FluffyBaseTypeData::TypeOntology {
+            } => FlyBaseTypeData::TypeOntology {
                 ty_path: *path,
                 refined_ty_path: *refined_path,
                 ty_arguments: arguments,
@@ -159,15 +159,15 @@ impl TermApplicationFluffyData {
 pub(super) fn ethereal_term_fluffy_base_ty_data<'a>(
     db: &'a ::salsa::Db,
     term: EthTerm,
-) -> FluffyBaseTypeData<'a> {
+) -> FlyBaseTypeData<'a> {
     match term {
         EthTerm::Literal(_) => todo!(),
-        EthTerm::Symbol(symbol) => FluffyBaseTypeData::Symbol { symbol },
-        EthTerm::Rune(rune) => FluffyBaseTypeData::Rune { rune },
+        EthTerm::Symbol(symbol) => FlyBaseTypeData::Symbol { symbol },
+        EthTerm::Rune(rune) => FlyBaseTypeData::Rune { rune },
         EthTerm::EntityPath(path) => match path {
             ItemPathTerm::Fugitive(_) => todo!(),
             ItemPathTerm::Trait(_) => todo!(),
-            ItemPathTerm::TypeOntology(ty_path) => FluffyBaseTypeData::TypeOntology {
+            ItemPathTerm::TypeOntology(ty_path) => FlyBaseTypeData::TypeOntology {
                 ty_path,
                 refined_ty_path: ty_path.refine(db),
                 ty_arguments: &[],
@@ -176,9 +176,9 @@ pub(super) fn ethereal_term_fluffy_base_ty_data<'a>(
             ItemPathTerm::TypeInstance(_) => todo!(),
             ItemPathTerm::TypeVariant(path) => unreachable!(),
         },
-        EthTerm::Category(term) => FluffyBaseTypeData::Category(term),
+        EthTerm::Category(term) => FlyBaseTypeData::Category(term),
         EthTerm::Universe(_) => todo!(),
-        EthTerm::Curry(term) => FluffyBaseTypeData::Curry {
+        EthTerm::Curry(term) => FlyBaseTypeData::Curry {
             curry_kind: term.curry_kind(db),
             variance: term.variance(db),
             parameter_rune: term.parameter_rune(db).map(Into::into),

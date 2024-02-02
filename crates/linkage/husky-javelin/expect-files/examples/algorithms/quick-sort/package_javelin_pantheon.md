@@ -26,10 +26,10 @@ ValkyrieJavelinPantheon {
                         JavelinTypePathLeading {
                             ty_path: TypePath(`core::mem::Ref`, `Extern`),
                             template_arguments: [
-                                JavelinTemplateArgument::Constant(
+                                JavTemplateArgument::Constant(
                                     JavelinConstant::StaticLifetime,
                                 ),
-                                JavelinTemplateArgument::Type(
+                                JavTemplateArgument::Type(
                                     JavelinType::PathLeading(
                                         JavelinTypePathLeading {
                                             ty_path: TypePath(`core::str::str`, `Extern`),
@@ -112,10 +112,10 @@ ValkyrieJavelinPantheon {
                         JavelinTypePathLeading {
                             ty_path: TypePath(`core::mem::Ref`, `Extern`),
                             template_arguments: [
-                                JavelinTemplateArgument::Constant(
+                                JavTemplateArgument::Constant(
                                     JavelinConstant::StaticLifetime,
                                 ),
-                                JavelinTemplateArgument::Type(
+                                JavTemplateArgument::Type(
                                     JavelinType::PathLeading(
                                         JavelinTypePathLeading {
                                             ty_path: TypePath(`core::str::str`, `Extern`),

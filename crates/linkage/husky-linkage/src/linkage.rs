@@ -13,9 +13,9 @@ use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
 use husky_hir_expr::HirExprIdx;
 use husky_hir_ty::{instantiation::HirInstantiation, HirType};
 use husky_javelin::{
-    instantiation::JavelinInstantiation,
+    instantiation::JavInstantiation,
     javelin::{package_javelins, Javelin, JavelinData},
-    path::JavelinPath,
+    path::JavPath,
 };
 use husky_print_utils::p;
 use husky_vfs::PackagePath;
@@ -326,7 +326,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
             ref instantiation,
         } => {
             fn build(
-                instantiation: &JavelinInstantiation,
+                instantiation: &JavInstantiation,
                 f: impl Fn(LinkageInstantiation) -> Linkage,
                 db: &::salsa::Db,
             ) -> SmallVec<[Linkage; 4]> {
@@ -336,7 +336,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     .collect()
             }
             match path {
-                JavelinPath::Fugitive(path) => match path.fugitive_kind(db) {
+                JavPath::Fugitive(path) => match path.fugitive_kind(db) {
                     FugitiveKind::FunctionFn => build(
                         instantiation,
                         |instantiation| {
@@ -383,7 +383,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     FugitiveKind::Const => todo!(),
                     FugitiveKind::AliasType | FugitiveKind::Formal => unreachable!(),
                 },
-                JavelinPath::TypeItem(path) => match path.item_kind(db) {
+                JavPath::TypeItem(path) => match path.item_kind(db) {
                     TypeItemKind::MethodFn => build(
                         instantiation,
                         |instantiation| {
@@ -429,8 +429,8 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     TypeItemKind::AssociatedFormal => todo!(),
                     TypeItemKind::AssociatedConst => todo!(),
                 },
-                JavelinPath::TraitItem(_) => todo!(),
-                JavelinPath::TraitForTypeItem(path) => match path.item_kind(db) {
+                JavPath::TraitItem(_) => todo!(),
+                JavPath::TraitForTypeItem(path) => match path.item_kind(db) {
                     TraitItemKind::MemoizedField => todo!(),
                     TraitItemKind::MethodFn => build(
                         instantiation,
@@ -492,73 +492,73 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     TraitItemKind::AssociatedFormal => todo!(),
                     TraitItemKind::AssociatedConst => todo!(),
                 },
-                JavelinPath::TypeConstructor(path) => match path.ty_kind(db) {
-                    TypeKind::Enum => {
-                        if enum_ty_has_only_unit_variants(db, path) {
-                            smallvec![Linkage::new_enum_u8_presenter(path, db)]
-                        } else {
-                            smallvec![]
+                JavPath::TypeConstructor(path) => {
+                    match path.ty_kind(db) {
+                        TypeKind::Enum => {
+                            if enum_ty_has_only_unit_variants(db, path) {
+                                smallvec![Linkage::new_enum_u8_presenter(path, db)]
+                            } else {
+                                smallvec![]
+                            }
                         }
-                    }
-                    TypeKind::Inductive => unreachable!(),
-                    TypeKind::Record => unreachable!(),
-                    TypeKind::Struct => {
-                        let fields: Vec<LinkageStructField> = match path.hir_decl(db).unwrap() {
-                            TypeHirDecl::PropsStruct(hir_decl) => hir_decl
-                                .fields(db)
-                                .iter()
-                                .map(|field| LinkageStructField::Props {
-                                    ident: field.ident(),
-                                })
-                                .collect(),
-                            TypeHirDecl::UnitStruct(_) => vec![],
-                            TypeHirDecl::TupleStruct(_) => todo!(),
-                            TypeHirDecl::Union(_) => todo!(),
-                            _ => unreachable!(),
-                        };
-                        LinkageInstantiation::from_javelin(instantiation, db)
-                            .into_iter()
-                            .map(|instantiation| {
-                                let self_ty = LinTypePathLeading::new(
-                                    db,
-                                    path,
-                                    instantiation
-                                        .symbol_resolutions()
-                                        .iter()
-                                        .map(|(_, res)| match *res {
-                                            LinkageTermSymbolResolution::Explicit(arg) => arg,
-                                            LinkageTermSymbolResolution::SelfLifetime => todo!(),
-                                            LinkageTermSymbolResolution::SelfPlace(_) => todo!(),
-                                        })
-                                        .collect(),
-                                );
-                                [Linkage::new(
-                                    db,
-                                    LinkageData::TypeConstructor {
-                                        path,
-                                        instantiation,
-                                    },
-                                )]
+                        TypeKind::Inductive => unreachable!(),
+                        TypeKind::Record => unreachable!(),
+                        TypeKind::Struct => {
+                            let fields: Vec<LinkageStructField> = match path.hir_decl(db).unwrap() {
+                                TypeHirDecl::PropsStruct(hir_decl) => hir_decl
+                                    .fields(db)
+                                    .iter()
+                                    .map(|field| LinkageStructField::Props {
+                                        ident: field.ident(),
+                                    })
+                                    .collect(),
+                                TypeHirDecl::UnitStruct(_) => vec![],
+                                TypeHirDecl::TupleStruct(_) => todo!(),
+                                TypeHirDecl::Union(_) => todo!(),
+                                _ => unreachable!(),
+                            };
+                            LinkageInstantiation::from_javelin(instantiation, db)
                                 .into_iter()
-                                .chain(fields.iter().map(
-                                    move |&field| {
+                                .map(|instantiation| {
+                                    let self_ty = LinTypePathLeading::new(
+                                        db,
+                                        path,
+                                        instantiation
+                                            .symbol_resolutions()
+                                            .iter()
+                                            .map(|(_, res)| match *res {
+                                                LinTermSymbolResolution::Explicit(arg) => arg,
+                                                LinTermSymbolResolution::SelfLifetime => todo!(),
+                                                LinTermSymbolResolution::SelfPlace(_) => todo!(),
+                                            })
+                                            .collect(),
+                                    );
+                                    [Linkage::new(
+                                        db,
+                                        LinkageData::TypeConstructor {
+                                            path,
+                                            instantiation,
+                                        },
+                                    )]
+                                    .into_iter()
+                                    .chain(fields.iter().map(move |&field| {
                                         Linkage::new(
                                             db,
                                             LinkageData::StructField { self_ty, field },
                                         )
-                                    },
-                                ))
-                            })
-                            .flatten()
-                            .collect()
+                                    }))
+                                })
+                                .flatten()
+                                .collect()
+                        }
+                        TypeKind::Structure => unreachable!(),
+                        TypeKind::Extern => {
+                            p!(path.debug(db));
+                            unreachable!()
+                        }
                     }
-                    TypeKind::Structure => unreachable!(),
-                    TypeKind::Extern => {
-                        p!(path.debug(db));
-                        unreachable!()
-                    }
-                },
-                JavelinPath::TypeVariantConstructor(path) => {
+                }
+                JavPath::TypeVariantConstructor(path) => {
                     LinkageInstantiation::from_javelin(instantiation, db)
                         .into_iter()
                         .map(|instantiation| {

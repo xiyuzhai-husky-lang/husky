@@ -1,13 +1,13 @@
 use super::*;
 
-impl HasFluffyTypeMethodDispatch for SolidTerm {
+impl HasFlyTypeMethodDispatch for SolidTerm {
     fn ty_method_dispatch(
         self,
-        engine: &mut impl FluffyTermEngine,
+        engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-        indirections: FluffyIndirections,
-    ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
+        indirections: FlyIndirections,
+    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
         match self.data(engine) {
             SolidTermData::TypeOntology {
                 path,
@@ -22,7 +22,7 @@ impl HasFluffyTypeMethodDispatch for SolidTerm {
             //     base_ty_term,
             // } => match base_ty_term.as_ref() {
             //     Some(&base_ty_term) => {
-            //         indirections.push(FluffyTermDynamicDispatchIndirection::Place(*place));
+            //         indirections.push(FlyTermDynamicDispatchIndirection::Place(*place));
             //         JustOk(
             //             base_ty_term
             //                 .ty_method_dispatch(engine, expr_idx, ident_token)?

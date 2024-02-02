@@ -5,7 +5,7 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-    ) -> SemaExprTypeResult<FluffyTerm> {
+    ) -> SemaExprTypeResult<FlyTerm> {
         Ok(self
             .symbol_tys()
             .current_syn_symbol_map()

@@ -1,14 +1,14 @@
 use super::*;
 
-pub(crate) struct BranchTypeMerger<Expectation: ExpectFluffyTerm> {
+pub(crate) struct BranchTypeMerger<Expectation: ExpectFlyTerm> {
     /// this is true if the type of one of the branches cannot be inferred
     has_error: bool,
     /// this is true if the type of one of the branches is inferred to be not never
-    ever_ty: Option<FluffyTerm>,
+    ever_ty: Option<FlyTerm>,
     expr_expectation: Expectation,
 }
 
-impl<Expectation: ExpectFluffyTerm> BranchTypeMerger<Expectation> {
+impl<Expectation: ExpectFlyTerm> BranchTypeMerger<Expectation> {
     pub(crate) fn new(expr_expectation: Expectation) -> Self {
         Self {
             has_error: false,
@@ -17,13 +17,13 @@ impl<Expectation: ExpectFluffyTerm> BranchTypeMerger<Expectation> {
         }
     }
 
-    pub(crate) fn add(&mut self, engine: &SemaExprEngine, new_block_ty: Option<FluffyTerm>) {
+    pub(crate) fn add(&mut self, engine: &SemaExprEngine, new_block_ty: Option<FlyTerm>) {
         match new_block_ty {
             Some(new_block_ty)
                 if new_block_ty.base_resolved(engine)
-                    == FluffyTermBase::Ethereal(EthTerm::EntityPath(
-                        ItemPathTerm::TypeOntology(engine.item_path_menu.never_ty_path()),
-                    )) =>
+                    == FlyTermBase::Ethereal(EthTerm::EntityPath(ItemPathTerm::TypeOntology(
+                        engine.item_path_menu.never_ty_path(),
+                    ))) =>
             {
                 ()
             }
@@ -36,7 +36,7 @@ impl<Expectation: ExpectFluffyTerm> BranchTypeMerger<Expectation> {
         }
     }
 
-    pub(crate) fn merge(self, exhaustive: bool, eth_term_menu: &EthTermMenu) -> Option<FluffyTerm> {
+    pub(crate) fn merge(self, exhaustive: bool, eth_term_menu: &EthTermMenu) -> Option<FlyTerm> {
         if let Some(ever_ty) = self.ever_ty {
             return ever_ty.into();
         }
