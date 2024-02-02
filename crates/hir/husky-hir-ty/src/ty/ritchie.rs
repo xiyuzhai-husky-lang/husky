@@ -13,13 +13,13 @@ pub struct HirRitchieType {
 }
 
 impl HirRitchieType {
-    pub fn from_eth(term: RitchieEthTerm, db: &::salsa::Db) -> Self {
+    pub fn from_eth(term: EthRitchie, db: &::salsa::Db) -> Self {
         hir_ty_from_eth_term_ritchie(db, term)
     }
 }
 
 #[salsa::tracked(jar = HirTypeJar)]
-fn hir_ty_from_eth_term_ritchie(db: &::salsa::Db, term_ritchie: RitchieEthTerm) -> HirRitchieType {
+fn hir_ty_from_eth_term_ritchie(db: &::salsa::Db, term_ritchie: EthRitchie) -> HirRitchieType {
     HirRitchieType::new(
         db,
         term_ritchie

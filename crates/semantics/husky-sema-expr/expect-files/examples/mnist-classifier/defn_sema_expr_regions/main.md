@@ -122,7 +122,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -146,7 +146,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -298,7 +298,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -322,7 +322,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -474,7 +474,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -498,7 +498,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -650,7 +650,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -674,7 +674,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -826,7 +826,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -850,7 +850,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1002,7 +1002,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1026,7 +1026,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1178,7 +1178,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1202,7 +1202,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1354,7 +1354,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1378,7 +1378,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1530,7 +1530,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1554,7 +1554,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1653,7 +1653,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEthTerm(
+                                                    EthSymbol(
                                                         Id {
                                                             value: 1,
                                                         },

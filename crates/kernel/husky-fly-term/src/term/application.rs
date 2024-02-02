@@ -15,7 +15,7 @@ impl FlyTerm {
             argument.base_resolved(engine),
         ) {
             (FlyTermBase::Eth(function), FlyTermBase::Eth(argument)) => {
-                Ok(ApplicationEthTerm::new(db, function, argument)?.into())
+                Ok(EthApplication::new(db, function, argument)?.into())
             }
             (
                 FlyTermBase::Eth(_) | FlyTermBase::Sol(_),

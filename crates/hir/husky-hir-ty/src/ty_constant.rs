@@ -1,5 +1,5 @@
 use crate::*;
-use husky_term_prelude::literal::TermLiteral;
+use husky_term_prelude::literal::Literal;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum HirConstant {
@@ -40,33 +40,33 @@ impl From<TypeVariantPath> for HirConstant {
 }
 
 impl HirConstant {
-    pub fn from_term(term_lit: TermLiteral, db: &::salsa::Db) -> Self {
+    pub fn from_term(term_lit: Literal, db: &::salsa::Db) -> Self {
         match term_lit {
-            TermLiteral::Unit(()) => todo!(),
-            TermLiteral::Bool(_) => todo!(),
-            TermLiteral::I8(_) => todo!(),
-            TermLiteral::I16(_) => todo!(),
-            TermLiteral::I32(_) => todo!(),
-            TermLiteral::I64(_) => todo!(),
-            TermLiteral::I128(_) => todo!(),
-            TermLiteral::ISize(_) => todo!(),
-            TermLiteral::U8(_) => todo!(),
-            TermLiteral::U16(_) => todo!(),
-            TermLiteral::U32(_) => todo!(),
-            TermLiteral::U64(_) => todo!(),
-            TermLiteral::U128(_) => todo!(),
-            TermLiteral::USize(val) => HirConstant::USize(val.value(db) as usize), // ad hoc
-            TermLiteral::R8(_) => todo!(),
-            TermLiteral::R16(_) => todo!(),
-            TermLiteral::R32(_) => todo!(),
-            TermLiteral::R64(_) => todo!(),
-            TermLiteral::R128(_) => todo!(),
-            TermLiteral::RSize(_) => todo!(),
-            TermLiteral::Nat(_) => todo!(),
-            TermLiteral::F32(_) => todo!(),
-            TermLiteral::F64(_) => todo!(),
-            TermLiteral::String(_) => todo!(),
-            TermLiteral::StaticLifetime => HirConstant::StaticLifetime,
+            Literal::Unit(()) => todo!(),
+            Literal::Bool(_) => todo!(),
+            Literal::I8(_) => todo!(),
+            Literal::I16(_) => todo!(),
+            Literal::I32(_) => todo!(),
+            Literal::I64(_) => todo!(),
+            Literal::I128(_) => todo!(),
+            Literal::ISize(_) => todo!(),
+            Literal::U8(_) => todo!(),
+            Literal::U16(_) => todo!(),
+            Literal::U32(_) => todo!(),
+            Literal::U64(_) => todo!(),
+            Literal::U128(_) => todo!(),
+            Literal::USize(val) => HirConstant::USize(val.value(db) as usize), // ad hoc
+            Literal::R8(_) => todo!(),
+            Literal::R16(_) => todo!(),
+            Literal::R32(_) => todo!(),
+            Literal::R64(_) => todo!(),
+            Literal::R128(_) => todo!(),
+            Literal::RSize(_) => todo!(),
+            Literal::Nat(_) => todo!(),
+            Literal::F32(_) => todo!(),
+            Literal::F64(_) => todo!(),
+            Literal::String(_) => todo!(),
+            Literal::StaticLifetime => HirConstant::StaticLifetime,
         }
     }
 }

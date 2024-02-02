@@ -8,7 +8,7 @@ use ordered_float::OrderedFloat;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
-pub enum TermLiteral {
+pub enum Literal {
     /// unit literal
     Unit(()),
     // todo: /// char literal
@@ -71,47 +71,44 @@ pub struct StringLiteralTokenData {
 
 #[test]
 fn term_literal_size_works() {
-    assert_eq!(
-        std::mem::size_of::<TermLiteral>(),
-        std::mem::size_of::<u64>()
-    )
+    assert_eq!(std::mem::size_of::<Literal>(), std::mem::size_of::<u64>())
 }
 
-impl From<()> for TermLiteral {
+impl From<()> for Literal {
     fn from((): ()) -> Self {
-        TermLiteral::Unit(())
+        Literal::Unit(())
     }
 }
 
-impl TermLiteral {
+impl Literal {
     pub fn ty(self) -> PreludeTypePath {
         match self {
-            TermLiteral::Unit(()) => PreludeBasicTypePath::Unit.into(),
-            TermLiteral::Bool(_) => PreludeBasicTypePath::Bool.into(),
-            TermLiteral::I8(_) => PreludeIntTypePath::I8.into(),
-            TermLiteral::I16(_) => PreludeIntTypePath::I16.into(),
-            TermLiteral::I32(_) => PreludeIntTypePath::I32.into(),
-            TermLiteral::I64(_) => PreludeIntTypePath::I64.into(),
-            TermLiteral::I128(_) => PreludeIntTypePath::I128.into(),
-            TermLiteral::ISize(_) => PreludeIntTypePath::ISize.into(),
-            TermLiteral::U8(_) => PreludeIntTypePath::U8.into(),
-            TermLiteral::U16(_) => PreludeIntTypePath::U16.into(),
-            TermLiteral::U32(_) => PreludeIntTypePath::U32.into(),
-            TermLiteral::U64(_) => PreludeIntTypePath::U64.into(),
-            TermLiteral::U128(_) => PreludeIntTypePath::U128.into(),
-            TermLiteral::USize(_) => PreludeIntTypePath::USize.into(),
-            TermLiteral::R8(_) => PreludeIntTypePath::R8.into(),
-            TermLiteral::R16(_) => PreludeIntTypePath::R16.into(),
-            TermLiteral::R32(_) => PreludeIntTypePath::R32.into(),
-            TermLiteral::R64(_) => PreludeIntTypePath::R64.into(),
-            TermLiteral::R128(_) => PreludeIntTypePath::R128.into(),
-            TermLiteral::RSize(_) => PreludeIntTypePath::RSize.into(),
-            TermLiteral::Nat(_) => todo!(),
+            Literal::Unit(()) => PreludeBasicTypePath::Unit.into(),
+            Literal::Bool(_) => PreludeBasicTypePath::Bool.into(),
+            Literal::I8(_) => PreludeIntTypePath::I8.into(),
+            Literal::I16(_) => PreludeIntTypePath::I16.into(),
+            Literal::I32(_) => PreludeIntTypePath::I32.into(),
+            Literal::I64(_) => PreludeIntTypePath::I64.into(),
+            Literal::I128(_) => PreludeIntTypePath::I128.into(),
+            Literal::ISize(_) => PreludeIntTypePath::ISize.into(),
+            Literal::U8(_) => PreludeIntTypePath::U8.into(),
+            Literal::U16(_) => PreludeIntTypePath::U16.into(),
+            Literal::U32(_) => PreludeIntTypePath::U32.into(),
+            Literal::U64(_) => PreludeIntTypePath::U64.into(),
+            Literal::U128(_) => PreludeIntTypePath::U128.into(),
+            Literal::USize(_) => PreludeIntTypePath::USize.into(),
+            Literal::R8(_) => PreludeIntTypePath::R8.into(),
+            Literal::R16(_) => PreludeIntTypePath::R16.into(),
+            Literal::R32(_) => PreludeIntTypePath::R32.into(),
+            Literal::R64(_) => PreludeIntTypePath::R64.into(),
+            Literal::R128(_) => PreludeIntTypePath::R128.into(),
+            Literal::RSize(_) => PreludeIntTypePath::RSize.into(),
+            Literal::Nat(_) => todo!(),
             // PreludeIntegerTypePath::Nat.into(),
-            TermLiteral::F32(_) => PreludeFloatTypePath::F32.into(),
-            TermLiteral::F64(_) => PreludeFloatTypePath::F64.into(),
-            TermLiteral::String(_) => PreludeTypePath::StringLiteral,
-            TermLiteral::StaticLifetime => PreludeTypePath::Lifetime,
+            Literal::F32(_) => PreludeFloatTypePath::F32.into(),
+            Literal::F64(_) => PreludeFloatTypePath::F64.into(),
+            Literal::String(_) => PreludeTypePath::StringLiteral,
+            Literal::StaticLifetime => PreludeTypePath::Lifetime,
         }
     }
 
@@ -122,31 +119,31 @@ impl TermLiteral {
     ) -> std::fmt::Result {
         use std::fmt::Display;
         match self {
-            TermLiteral::Unit(()) => f.write_str("unit"),
-            TermLiteral::I8(val) => f.write_fmt(format_args!("{}", val)),
-            TermLiteral::I16(val) => f.write_fmt(format_args!("{}", val)),
-            TermLiteral::I32(val) => f.write_fmt(format_args!("{}", val)),
-            TermLiteral::I64(val) => f.write_fmt(format_args!("{}", val.value(db))),
-            TermLiteral::I128(val) => f.write_fmt(format_args!("{}", val.value(db))),
-            TermLiteral::ISize(val) => f.write_fmt(format_args!("{}", val.value(db))),
-            TermLiteral::Nat(_) => todo!(),
-            TermLiteral::F32(val) => f.write_fmt(format_args!("{}", val.text(db))),
-            TermLiteral::F64(val) => f.write_fmt(format_args!("{}", val.text(db))),
-            TermLiteral::Bool(val) => f.write_fmt(format_args!("{}", val)),
-            TermLiteral::String(val) => f.write_fmt(format_args!("{:?}", val.data(db))),
-            TermLiteral::StaticLifetime => f.write_str("'static"),
-            TermLiteral::U8(val) => f.write_fmt(format_args!("{}", val)),
-            TermLiteral::U16(val) => f.write_fmt(format_args!("{}", val)),
-            TermLiteral::U32(val) => f.write_fmt(format_args!("{}", val)),
-            TermLiteral::U64(val) => f.write_fmt(format_args!("{}", val.value(db))),
-            TermLiteral::U128(val) => f.write_fmt(format_args!("{}", val.value(db))),
-            TermLiteral::USize(lit) => lit.value(db).fmt(f),
-            TermLiteral::R8(val) => f.write_fmt(format_args!("{}r8", val)),
-            TermLiteral::R16(val) => f.write_fmt(format_args!("{}r16", val)),
-            TermLiteral::R32(val) => f.write_fmt(format_args!("{}r32", val)),
-            TermLiteral::R64(val) => f.write_fmt(format_args!("{}", val.value(db))),
-            TermLiteral::R128(val) => f.write_fmt(format_args!("{}", val.value(db))),
-            TermLiteral::RSize(val) => f.write_fmt(format_args!("{}", val.value(db))),
+            Literal::Unit(()) => f.write_str("unit"),
+            Literal::I8(val) => f.write_fmt(format_args!("{}", val)),
+            Literal::I16(val) => f.write_fmt(format_args!("{}", val)),
+            Literal::I32(val) => f.write_fmt(format_args!("{}", val)),
+            Literal::I64(val) => f.write_fmt(format_args!("{}", val.value(db))),
+            Literal::I128(val) => f.write_fmt(format_args!("{}", val.value(db))),
+            Literal::ISize(val) => f.write_fmt(format_args!("{}", val.value(db))),
+            Literal::Nat(_) => todo!(),
+            Literal::F32(val) => f.write_fmt(format_args!("{}", val.text(db))),
+            Literal::F64(val) => f.write_fmt(format_args!("{}", val.text(db))),
+            Literal::Bool(val) => f.write_fmt(format_args!("{}", val)),
+            Literal::String(val) => f.write_fmt(format_args!("{:?}", val.data(db))),
+            Literal::StaticLifetime => f.write_str("'static"),
+            Literal::U8(val) => f.write_fmt(format_args!("{}", val)),
+            Literal::U16(val) => f.write_fmt(format_args!("{}", val)),
+            Literal::U32(val) => f.write_fmt(format_args!("{}", val)),
+            Literal::U64(val) => f.write_fmt(format_args!("{}", val.value(db))),
+            Literal::U128(val) => f.write_fmt(format_args!("{}", val.value(db))),
+            Literal::USize(lit) => lit.value(db).fmt(f),
+            Literal::R8(val) => f.write_fmt(format_args!("{}r8", val)),
+            Literal::R16(val) => f.write_fmt(format_args!("{}r16", val)),
+            Literal::R32(val) => f.write_fmt(format_args!("{}r32", val)),
+            Literal::R64(val) => f.write_fmt(format_args!("{}", val.value(db))),
+            Literal::R128(val) => f.write_fmt(format_args!("{}", val.value(db))),
+            Literal::RSize(val) => f.write_fmt(format_args!("{}", val.value(db))),
         }
     }
 }
@@ -157,7 +154,7 @@ pub struct TermNatLiteral {
     pub bits: Vec<usize>,
 }
 
-impl salsa::DisplayWithDb for TermLiteral {
+impl salsa::DisplayWithDb for Literal {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,

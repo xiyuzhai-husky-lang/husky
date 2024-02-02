@@ -17,7 +17,7 @@ use husky_hir_ty::{
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
 use husky_sema_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::{InheritedSynSymbolKind, InheritedTemplateParameterSynSymbol};
-use husky_term_prelude::literal::TermLiteral;
+use husky_term_prelude::literal::Literal;
 use vec_like::VecMap;
 
 pub type HirEagerExprArena = Arena<HirEagerExprEntry>;
@@ -36,7 +36,7 @@ pub struct HirEagerExprEntry {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db]
 pub enum HirEagerExprData {
-    Literal(TermLiteral),
+    Literal(Literal),
     PrincipalEntityPath(PrincipalEntityPath),
     AssociatedFn {
         associated_item_path: AssociatedItemPath,
@@ -396,7 +396,7 @@ impl ToHirEager for SemaExprIdx {
             }
             SemaExprData::TemplateInstantiation { .. } => todo!(),
             SemaExprData::At { .. } => todo!(),
-            SemaExprData::Unit { .. } => HirEagerExprData::Literal(TermLiteral::Unit(())),
+            SemaExprData::Unit { .. } => HirEagerExprData::Literal(Literal::Unit(())),
             SemaExprData::Bracketed { item, .. } => return item.to_hir_eager(builder),
             SemaExprData::NewTuple { .. } => todo!(),
             SemaExprData::Index {

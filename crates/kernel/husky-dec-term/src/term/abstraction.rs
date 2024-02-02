@@ -1,12 +1,12 @@
 use super::*;
 
 #[salsa::interned(db = DecTermDb, jar = DecTermJar)]
-pub struct AbstractionDecTerm {
-    pub x: RuneDecTerm,
+pub struct DecAbstraction {
+    pub x: DecRune,
     pub m: DecTerm,
 }
 
-impl AbstractionDecTerm {
+impl DecAbstraction {
     pub fn ty(&self) -> DecTerm {
         todo!()
     }
@@ -22,7 +22,7 @@ impl AbstractionDecTerm {
     }
 }
 
-impl DecTermRewriteCopy for AbstractionDecTerm {
+impl DecTermRewriteCopy for DecAbstraction {
     fn substitute_copy(self, _db: &::salsa::Db, _substitution: &DecTermSubstitution) -> Self {
         todo!()
     }

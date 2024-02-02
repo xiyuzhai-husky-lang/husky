@@ -14,7 +14,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 3,
                                             },
@@ -29,7 +29,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: BorrowMut,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 3,
                                                     },
@@ -71,7 +71,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 3,
                                             },
@@ -86,7 +86,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: BorrowMut,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 3,
                                                     },
@@ -160,7 +160,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 3,
                                             },
@@ -175,7 +175,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: BorrowMut,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 3,
                                                     },

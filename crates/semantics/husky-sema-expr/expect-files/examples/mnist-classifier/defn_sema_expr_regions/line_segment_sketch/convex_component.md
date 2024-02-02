@@ -301,7 +301,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 3,
                                                                 },
@@ -311,7 +311,7 @@
                                                                     place: None,
                                                                     base: Eth(
                                                                         Application(
-                                                                            ApplicationEthTerm(
+                                                                            EthApplication(
                                                                                 Id {
                                                                                     value: 50,
                                                                                 },

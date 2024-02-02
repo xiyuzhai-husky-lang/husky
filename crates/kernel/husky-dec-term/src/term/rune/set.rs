@@ -10,12 +10,12 @@ use vec_like::VecSet;
 pub struct DecTermRunes {
     /// unaccounted means the rune is not declared within this term
     #[return_ref]
-    pub unaccounted_runes: VecSet<RuneDecTerm>,
+    pub unaccounted_runes: VecSet<DecRune>,
 }
 
 impl DecTermRunes {
     #[inline(always)]
-    pub(crate) fn contains(self, db: &::salsa::Db, rune: RuneDecTerm) -> bool {
+    pub(crate) fn contains(self, db: &::salsa::Db, rune: DecRune) -> bool {
         self.unaccounted_runes(db).has(rune)
     }
 
@@ -32,16 +32,13 @@ impl DecTermRunes {
     }
 
     #[inline(always)]
-    fn remove(
-        runes: impl Into<Option<Self>>,
-        _rune: impl Into<Option<RuneDecTerm>>,
-    ) -> Option<Self> {
+    fn remove(runes: impl Into<Option<Self>>, _rune: impl Into<Option<DecRune>>) -> Option<Self> {
         let _runes = runes.into()?;
         todo!()
     }
 }
 impl DecTerm {
-    pub fn contains_rune(self, db: &::salsa::Db, rune: RuneDecTerm) -> bool {
+    pub fn contains_rune(self, db: &::salsa::Db, rune: DecRune) -> bool {
         self.runes(db)
             .map(|declarative_term_runes| declarative_term_runes.contains(db, rune))
             .unwrap_or_default()
@@ -53,9 +50,9 @@ impl DecTerm {
             DecTerm::Rune(rune) => Some(DecTermRunes::new(db, VecSet::new_one_elem_set(rune))),
             DecTerm::Symbol(_symbol) => None,
             DecTerm::EntityPath(path) => match path {
-                ItemPathDecTerm::Fugitive(_) => todo!(),
-                ItemPathDecTerm::Trait(_) | ItemPathDecTerm::Type(_) => None,
-                ItemPathDecTerm::TypeVariant(_) => todo!(),
+                DecItemPath::Fugitive(_) => todo!(),
+                DecItemPath::Trait(_) | DecItemPath::Type(_) => None,
+                DecItemPath::TypeVariant(_) => todo!(),
             },
             DecTerm::Category(_) => None,
             DecTerm::Universe(_) => None,
@@ -83,7 +80,7 @@ impl DecTerm {
 #[salsa::tracked(jar = DecTermJar)]
 pub(crate) fn declarative_term_curry_placeholders(
     db: &::salsa::Db,
-    term: CurryDecTerm,
+    term: DecCurry,
 ) -> Option<DecTermRunes> {
     let parameter_ty_runes = term.parameter_ty(db).runes(db);
     let return_ty_runes = term.return_ty(db).runes(db);
@@ -96,7 +93,7 @@ pub(crate) fn declarative_term_curry_placeholders(
 #[salsa::tracked(jar = DecTermJar)]
 pub(crate) fn declarative_term_ritchie_runes(
     db: &::salsa::Db,
-    term: RitchieDecTerm,
+    term: DecRitchie,
 ) -> Option<DecTermRunes> {
     let mut runes: Option<DecTermRunes> = None;
     for param in term.params(db) {
@@ -108,7 +105,7 @@ pub(crate) fn declarative_term_ritchie_runes(
 #[salsa::tracked(jar = DecTermJar)]
 pub(crate) fn declarative_term_application_runes(
     db: &::salsa::Db,
-    term: ApplicationDecTerm,
+    term: DecApplication,
 ) -> Option<DecTermRunes> {
     DecTermRunes::merge(term.function(db).runes(db), term.argument(db).runes(db))
 }

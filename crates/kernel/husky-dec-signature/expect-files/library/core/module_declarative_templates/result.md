@@ -14,7 +14,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 10,
                                             },
@@ -23,7 +23,7 @@
                                     },
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 11,
                                             },
@@ -33,7 +33,7 @@
                                 ],
                             },
                             self_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 30,
                                     },
@@ -68,7 +68,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDecTerm(
+                                    symbol: DecSymbol(
                                         Id {
                                             value: 10,
                                         },
@@ -77,7 +77,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDecTerm(
+                                    symbol: DecSymbol(
                                         Id {
                                             value: 11,
                                         },
@@ -86,7 +86,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDecTerm(
+                                    symbol: DecSymbol(
                                         Id {
                                             value: 12,
                                         },
@@ -95,7 +95,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDecTerm(
+                                    symbol: DecSymbol(
                                         Id {
                                             value: 13,
                                         },
@@ -105,7 +105,7 @@
                             ],
                         },
                         trai: Application(
-                            ApplicationDecTerm(
+                            DecApplication(
                                 Id {
                                     value: 33,
                                 },
@@ -113,7 +113,7 @@
                         ),
                         self_ty: DeclarativeSelfType::Path(
                             Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 34,
                                     },
@@ -183,7 +183,7 @@
                                 data: [],
                             },
                             ty_term: Symbol(
-                                SymbolDecTerm(
+                                DecSymbol(
                                     Id {
                                         value: 13,
                                     },
@@ -228,7 +228,7 @@
                     TraitForTypeItemDecTemplate::AssociatedFn(
                         TraitForTypeAssociatedFnDecTemplate {
                             self_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 34,
                                     },
@@ -243,7 +243,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 36,
                                                     },
@@ -254,7 +254,7 @@
                                 ],
                             },
                             return_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 34,
                                     },

@@ -70,10 +70,7 @@ impl TermRitchieFlyData {
 }
 
 #[salsa::tracked(jar = FlyTermJar, return_ref)]
-pub(crate) fn term_ritchie_fluffy_data(
-    db: &::salsa::Db,
-    term: RitchieEthTerm,
-) -> TermRitchieFlyData {
+pub(crate) fn term_ritchie_fluffy_data(db: &::salsa::Db, term: EthRitchie) -> TermRitchieFlyData {
     TermRitchieFlyData {
         ritchie_kind: term.ritchie_kind(db),
         parameter_contracted_tys: term
@@ -102,7 +99,7 @@ pub(crate) enum TermApplicationFlyData {
 #[salsa::tracked(jar = FlyTermJar, return_ref)]
 pub(crate) fn term_application_fluffy_data(
     db: &::salsa::Db,
-    term: ApplicationEthTerm,
+    term: EthApplication,
 ) -> TermApplicationFlyData {
     let expansion = term.application_expansion(db);
     match expansion.function() {

@@ -46,7 +46,7 @@ pub(crate) fn fn_path_declarative_ty(
         CurryKind::Implicit,
         variances,
         signature.template_parameters(db),
-        RitchieDecTerm::new(
+        DecRitchie::new(
             db,
             TypeRitchieKind::Fn.into(),
             parenate_parameters,
@@ -69,7 +69,7 @@ pub(crate) fn gn_path_declarative_ty(
         CurryKind::Implicit,
         variances,
         signature.template_parameters(db),
-        RitchieDecTerm::new(
+        DecRitchie::new(
             db,
             TypeRitchieKind::Fn.into(),
             param_declarative_tys,

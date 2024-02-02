@@ -169,7 +169,7 @@ impl HolTerms {
                         let return_ty = return_ty.resolve_as_ethereal(self).unwrap();
                         self.entries[idx].resolve_progress =
                             HolTermResolveProgressBuf::ResolvedEthereal(
-                                CurryEthTerm::new(
+                                EthCurry::new(
                                     db,
                                     toolchain,
                                     curry_kind,
@@ -250,7 +250,7 @@ impl HolTerms {
                         _ => unreachable!(),
                     };
                     self.entries[idx].resolve_progress =
-                        match RitchieEthTerm::new(db, ritchie_kind, params, return_ty) {
+                        match EthRitchie::new(db, ritchie_kind, params, return_ty) {
                             Ok(term) => HolTermResolveProgressBuf::ResolvedEthereal(term.into()),
                             Err(_) => todo!(),
                         }

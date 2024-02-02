@@ -6,22 +6,22 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum ItemPathDecTerm {
+pub enum DecItemPath {
     Fugitive(FugitivePath),
     Trait(TraitPath),
     Type(TypePath),
     TypeVariant(TypeVariantPath),
 }
 
-impl From<ItemPathTerm> for ItemPathDecTerm {
+impl From<ItemPathTerm> for DecItemPath {
     fn from(path: ItemPathTerm) -> Self {
         match path {
-            ItemPathTerm::Fugitive(path) => ItemPathDecTerm::Fugitive(path),
-            ItemPathTerm::Trait(path) => ItemPathDecTerm::Trait(path),
+            ItemPathTerm::Fugitive(path) => DecItemPath::Fugitive(path),
+            ItemPathTerm::Trait(path) => DecItemPath::Trait(path),
             ItemPathTerm::TypeOntology(path) | ItemPathTerm::TypeInstance(path) => {
-                ItemPathDecTerm::Type(path)
+                DecItemPath::Type(path)
             }
-            ItemPathTerm::TypeVariant(path) => ItemPathDecTerm::TypeVariant(path),
+            ItemPathTerm::TypeVariant(path) => DecItemPath::TypeVariant(path),
         }
     }
 }
@@ -32,13 +32,11 @@ impl From<ItemPathTerm> for DecTerm {
     }
 }
 
-impl ItemPathDecTerm {
+impl DecItemPath {
     pub fn ty_path(self) -> Option<TypePath> {
         match self {
-            ItemPathDecTerm::Type(path) => Some(path),
-            ItemPathDecTerm::Fugitive(_)
-            | ItemPathDecTerm::Trait(_)
-            | ItemPathDecTerm::TypeVariant(_) => None,
+            DecItemPath::Type(path) => Some(path),
+            DecItemPath::Fugitive(_) | DecItemPath::Trait(_) | DecItemPath::TypeVariant(_) => None,
         }
     }
 }
@@ -60,7 +58,7 @@ impl From<TypePath> for DecTerm {
     }
 }
 
-impl ItemPathDecTerm {
+impl DecItemPath {
     #[inline(never)]
     pub(crate) fn display_fmt_with_db_and_ctx(
         self,
@@ -69,10 +67,10 @@ impl ItemPathDecTerm {
         _ctx: &SymbolDecTermNameMap,
     ) -> std::fmt::Result {
         match self {
-            ItemPathDecTerm::Fugitive(path) => path.display_fmt_with_db(f, db),
-            ItemPathDecTerm::Trait(path) => path.display_fmt_with_db(f, db),
-            ItemPathDecTerm::Type(path) => path.display_fmt_with_db(f, db),
-            ItemPathDecTerm::TypeVariant(path) => path.display_fmt_with_db(f, db),
+            DecItemPath::Fugitive(path) => path.display_fmt_with_db(f, db),
+            DecItemPath::Trait(path) => path.display_fmt_with_db(f, db),
+            DecItemPath::Type(path) => path.display_fmt_with_db(f, db),
+            DecItemPath::TypeVariant(path) => path.display_fmt_with_db(f, db),
         }
     }
 }

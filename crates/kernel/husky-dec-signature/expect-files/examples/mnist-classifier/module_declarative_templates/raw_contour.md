@@ -28,7 +28,7 @@
                                 PropsStructFieldDecTemplate {
                                     ident: `cc`,
                                     ty: Application(
-                                        ApplicationDecTerm(
+                                        DecApplication(
                                             Id {
                                                 value: 37,
                                             },
@@ -39,7 +39,7 @@
                                 PropsStructFieldDecTemplate {
                                     ident: `points`,
                                     ty: Application(
-                                        ApplicationDecTerm(
+                                        DecApplication(
                                             Id {
                                                 value: 42,
                                             },
@@ -48,7 +48,7 @@
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDecTerm {
+                            instance_constructor_ritchie_ty: DecRitchie {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -57,7 +57,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 37,
                                                     },
@@ -69,7 +69,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 42,
                                                     },
@@ -634,7 +634,7 @@
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDecTerm {
+                            instance_constructor_ritchie_ty: DecRitchie {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -710,7 +710,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 43,
                                                     },
@@ -757,7 +757,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 37,
                                                     },
@@ -768,7 +768,7 @@
                                 ],
                             },
                             return_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 44,
                                     },

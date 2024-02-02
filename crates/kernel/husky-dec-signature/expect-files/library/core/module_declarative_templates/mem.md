@@ -16,7 +16,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 7,
                                             },
@@ -27,7 +27,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 4,
                                             },
@@ -59,7 +59,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 7,
                                             },
@@ -70,7 +70,7 @@
                                         annotated_variance: Some(
                                             Invariant,
                                         ),
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 8,
                                             },
@@ -102,7 +102,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 4,
                                             },
@@ -132,7 +132,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 9,
                                             },
@@ -141,7 +141,7 @@
                                     },
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 10,
                                             },
@@ -179,7 +179,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDecTerm(
+                                    symbol: DecSymbol(
                                         Id {
                                             value: 10,
                                         },
@@ -201,7 +201,7 @@
                         ),
                         self_ty: DeclarativeSelfType::Path(
                             Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 12,
                                     },

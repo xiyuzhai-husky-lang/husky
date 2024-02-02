@@ -512,7 +512,7 @@
                             data: [],
                         },
                         trai: Application(
-                            ApplicationDecTerm(
+                            DecApplication(
                                 Id {
                                     value: 13,
                                 },
@@ -866,7 +866,7 @@
                             data: [],
                         },
                         trai: Application(
-                            ApplicationDecTerm(
+                            DecApplication(
                                 Id {
                                     value: 14,
                                 },
@@ -1313,7 +1313,7 @@
                             data: [],
                         },
                         trai: Application(
-                            ApplicationDecTerm(
+                            DecApplication(
                                 Id {
                                     value: 14,
                                 },
@@ -1574,7 +1574,7 @@
                             data: [],
                         },
                         trai: Application(
-                            ApplicationDecTerm(
+                            DecApplication(
                                 Id {
                                     value: 15,
                                 },
@@ -1835,7 +1835,7 @@
                             data: [],
                         },
                         trai: Application(
-                            ApplicationDecTerm(
+                            DecApplication(
                                 Id {
                                     value: 16,
                                 },
@@ -2096,7 +2096,7 @@
                             data: [],
                         },
                         trai: Application(
-                            ApplicationDecTerm(
+                            DecApplication(
                                 Id {
                                     value: 17,
                                 },
@@ -2357,7 +2357,7 @@
                             data: [],
                         },
                         trai: Application(
-                            ApplicationDecTerm(
+                            DecApplication(
                                 Id {
                                     value: 18,
                                 },
@@ -2618,7 +2618,7 @@
                             data: [],
                         },
                         trai: Application(
-                            ApplicationDecTerm(
+                            DecApplication(
                                 Id {
                                     value: 19,
                                 },
@@ -2879,7 +2879,7 @@
                             data: [],
                         },
                         trai: Application(
-                            ApplicationDecTerm(
+                            DecApplication(
                                 Id {
                                     value: 20,
                                 },
@@ -3140,7 +3140,7 @@
                             data: [],
                         },
                         trai: Application(
-                            ApplicationDecTerm(
+                            DecApplication(
                                 Id {
                                     value: 21,
                                 },
@@ -3401,7 +3401,7 @@
                             data: [],
                         },
                         trai: Application(
-                            ApplicationDecTerm(
+                            DecApplication(
                                 Id {
                                     value: 22,
                                 },
@@ -3662,7 +3662,7 @@
                             data: [],
                         },
                         trai: Application(
-                            ApplicationDecTerm(
+                            DecApplication(
                                 Id {
                                     value: 23,
                                 },
@@ -4489,7 +4489,7 @@
                             data: [],
                         },
                         trai: Application(
-                            ApplicationDecTerm(
+                            DecApplication(
                                 Id {
                                     value: 24,
                                 },
@@ -4826,7 +4826,7 @@
                             data: [],
                         },
                         trai: Application(
-                            ApplicationDecTerm(
+                            DecApplication(
                                 Id {
                                     value: 25,
                                 },

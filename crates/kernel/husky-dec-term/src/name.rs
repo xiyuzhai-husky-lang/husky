@@ -5,19 +5,19 @@ use vec_like::VecPairMap;
 #[salsa::debug_with_db]
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
 pub struct SymbolDecTermNameMap {
-    data: VecPairMap<SymbolDecTerm, SymbolName>,
+    data: VecPairMap<DecSymbol, SymbolName>,
 }
 
 impl SymbolDecTermNameMap {
-    pub fn add(&mut self, symbol: SymbolDecTerm, name: SymbolName) {
+    pub fn add(&mut self, symbol: DecSymbol, name: SymbolName) {
         self.data.insert((symbol, name))
     }
 }
 
-impl std::ops::Index<SymbolDecTerm> for SymbolDecTermNameMap {
+impl std::ops::Index<DecSymbol> for SymbolDecTermNameMap {
     type Output = SymbolName;
 
-    fn index(&self, index: SymbolDecTerm) -> &Self::Output {
+    fn index(&self, index: DecSymbol) -> &Self::Output {
         &self.data[index].1
     }
 }

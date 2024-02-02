@@ -69,7 +69,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEthTerm(
+                                                    EthSymbol(
                                                         Id {
                                                             value: 7,
                                                         },
@@ -86,7 +86,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    SymbolEthTerm(
+                                                    EthSymbol(
                                                         Id {
                                                             value: 8,
                                                         },

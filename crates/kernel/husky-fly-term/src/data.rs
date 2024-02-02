@@ -9,13 +9,13 @@ pub(crate) use self::solid::*;
 use crate::*;
 use husky_dec_term::term::RuneIndex;
 use husky_eth_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
-use husky_term_prelude::literal::TermLiteral;
+use husky_term_prelude::literal::Literal;
 use husky_vfs::Toolchain;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum FlyTermData<'a> {
-    Literal(TermLiteral),
+    Literal(Literal),
     TypeOntology {
         ty_path: TypePath,
         refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
@@ -29,17 +29,17 @@ pub enum FlyTermData<'a> {
         parameter_rune: Option<RuneFlyTerm>,
         parameter_ty: FlyTerm,
         return_ty: FlyTerm,
-        ty_ethereal_term: Option<CurryEthTerm>,
+        ty_ethereal_term: Option<EthCurry>,
     },
     Hole(HoleKind, Hole),
-    Category(CategoryTerm),
+    Category(Category),
     Ritchie {
         ritchie_kind: RitchieKind,
         parameter_contracted_tys: &'a [FlyRitchieParameter],
         return_ty: FlyTerm,
     },
     Symbol {
-        term: SymbolEthTerm,
+        term: EthSymbol,
         ty: FlyTerm,
     },
     Rune {
@@ -154,20 +154,20 @@ pub enum FlyBaseTypeData<'a> {
         parameter_rune: Option<RuneFlyTerm>,
         parameter_ty: FlyTerm,
         return_ty: FlyTerm,
-        ty_ethereal_term: Option<CurryEthTerm>,
+        ty_ethereal_term: Option<EthCurry>,
     },
     Hole(HoleKind, Hole),
-    Category(CategoryTerm),
+    Category(Category),
     Ritchie {
         ritchie_kind: RitchieKind,
         parameter_contracted_tys: &'a [FlyRitchieParameter],
         return_ty: FlyTerm,
     },
     Symbol {
-        symbol: SymbolEthTerm,
+        symbol: EthSymbol,
     },
     Rune {
-        rune: RuneEthTerm,
+        rune: EthRune,
     },
 }
 

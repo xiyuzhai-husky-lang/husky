@@ -100,7 +100,7 @@ fn construct_self_ty(
 ) -> DecTerm {
     let mut self_ty: DecTerm = path.into();
     for template_parameter in template_parameters {
-        self_ty = ApplicationDecTerm::new(db, self_ty, template_parameter.symbol().into()).into()
+        self_ty = DecApplication::new(db, self_ty, template_parameter.symbol().into()).into()
     }
     self_ty
 }

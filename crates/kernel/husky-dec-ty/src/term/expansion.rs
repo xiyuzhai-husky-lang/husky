@@ -13,7 +13,7 @@ fn application_expansion_aux(db: &::salsa::Db, declarative_term: DecTerm) -> App
 #[salsa::tracked(jar=DeclarativeTypeJar)]
 pub(crate) fn application_expansion_salsa(
     db: &::salsa::Db,
-    declarative_term: ApplicationDecTerm,
+    declarative_term: DecApplication,
 ) -> ApplicationExpansion {
     let function = declarative_term.function(db);
     let argument = declarative_term.argument(db);

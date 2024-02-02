@@ -1,16 +1,16 @@
 use husky_entity_path::item_path_menu;
-use husky_term_prelude::literal::TermLiteral;
+use husky_term_prelude::literal::Literal;
 use husky_vfs::VfsDb;
 
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct DecTermMenu0 {
-    universe0: UniverseTerm,
-    universe1: UniverseTerm,
-    prop: CategoryTerm,
-    ty0: CategoryTerm,
-    static_lifetime: LiteralDecTerm,
+    universe0: Universe,
+    universe1: Universe,
+    prop: Category,
+    ty0: Category,
+    static_lifetime: DecLiteral,
     unit: DecTerm,
     never: DecTerm,
     // core::ops::Add	The addition operator +.
@@ -46,7 +46,7 @@ pub struct DecTermMenu0 {
     str_ty_path: DecTerm,
     ref_ty_path: DecTerm,
     at_ty_path: DecTerm,
-    leash_ty_path: ItemPathDecTerm,
+    leash_ty_path: DecItemPath,
     vec_ty: DecTerm,
     i8: DecTerm,
     i16: DecTerm,
@@ -69,14 +69,14 @@ impl DecTermMenu0 {
         // let universe1 = db.it_term(DecTermAtom::new_universe(1).into());
         let _vfs_path_menu = db.vfs_path_menu(toolchain);
         let item_path_menu = item_path_menu(db, toolchain);
-        let universe0 = UniverseTerm::new(0);
-        let universe1 = UniverseTerm::new(1);
+        let universe0 = Universe::new(0);
+        let universe1 = Universe::new(1);
         DecTermMenu0 {
-            static_lifetime: TermLiteral::StaticLifetime.into(),
+            static_lifetime: Literal::StaticLifetime.into(),
             universe0,
             universe1,
-            prop: CategoryTerm::new(universe0),
-            ty0: CategoryTerm::new(universe1),
+            prop: Category::new(universe0),
+            ty0: Category::new(universe1),
             core_ops_add: DecTerm::EntityPath(item_path_menu.add_trai_path().into()),
             // start here
             // DecTerm::Entity(item_path_menu.core_ops_())
@@ -99,46 +99,46 @@ impl DecTermMenu0 {
             core_ops_mul_assign: DecTerm::EntityPath(item_path_menu.mul_assign_trai_path().into()),
             core_ops_neg: DecTerm::EntityPath(item_path_menu.neg_trai_path().into()),
             core_ops_not: DecTerm::EntityPath(item_path_menu.not_trai_path().into()),
-            option_ty_path: ItemPathDecTerm::Type(item_path_menu.option_ty_path()).into(),
-            slice_ty_path: ItemPathDecTerm::Type(item_path_menu.slice_ty_path()).into(),
-            str_ty_path: ItemPathDecTerm::Type(item_path_menu.str_ty_path()).into(),
+            option_ty_path: DecItemPath::Type(item_path_menu.option_ty_path()).into(),
+            slice_ty_path: DecItemPath::Type(item_path_menu.slice_ty_path()).into(),
+            str_ty_path: DecItemPath::Type(item_path_menu.str_ty_path()).into(),
             ref_ty_path: item_path_menu.ref_ty_path().into(),
             at_ty_path: item_path_menu.at_ty_path().into(),
-            vec_ty: ItemPathDecTerm::Type(item_path_menu.vec_ty_path()).into(),
-            unit: ItemPathDecTerm::Type(item_path_menu.unit_ty_path()).into(),
-            never: ItemPathDecTerm::Type(item_path_menu.never_ty_path()).into(),
-            bool: ItemPathDecTerm::Type(item_path_menu.bool_ty_path()).into(),
-            trai_ty: ItemPathDecTerm::Type(item_path_menu.trai_ty_path()).into(),
+            vec_ty: DecItemPath::Type(item_path_menu.vec_ty_path()).into(),
+            unit: DecItemPath::Type(item_path_menu.unit_ty_path()).into(),
+            never: DecItemPath::Type(item_path_menu.never_ty_path()).into(),
+            bool: DecItemPath::Type(item_path_menu.bool_ty_path()).into(),
+            trai_ty: DecItemPath::Type(item_path_menu.trai_ty_path()).into(),
             leash_ty_path: item_path_menu.leash_ty_path().into(),
-            lifetime_ty: ItemPathDecTerm::Type(item_path_menu.lifetime_ty_path()).into(),
-            place_ty: ItemPathDecTerm::Type(item_path_menu.place_ty_path()).into(),
-            module: ItemPathDecTerm::Type(item_path_menu.module_ty_path()).into(),
-            i8: ItemPathDecTerm::Type(item_path_menu.i8_ty_path()).into(),
-            i16: ItemPathDecTerm::Type(item_path_menu.i16_ty_path()).into(),
-            i32: ItemPathDecTerm::Type(item_path_menu.i32_ty_path()).into(),
-            i64: ItemPathDecTerm::Type(item_path_menu.i64_ty_path()).into(),
-            f32: ItemPathDecTerm::Type(item_path_menu.f32_ty_path()).into(),
-            f64: ItemPathDecTerm::Type(item_path_menu.f64_ty_path()).into(),
-            r32: ItemPathDecTerm::Type(item_path_menu.r32_ty_path()).into(),
-            r64: ItemPathDecTerm::Type(item_path_menu.r64_ty_path()).into(),
+            lifetime_ty: DecItemPath::Type(item_path_menu.lifetime_ty_path()).into(),
+            place_ty: DecItemPath::Type(item_path_menu.place_ty_path()).into(),
+            module: DecItemPath::Type(item_path_menu.module_ty_path()).into(),
+            i8: DecItemPath::Type(item_path_menu.i8_ty_path()).into(),
+            i16: DecItemPath::Type(item_path_menu.i16_ty_path()).into(),
+            i32: DecItemPath::Type(item_path_menu.i32_ty_path()).into(),
+            i64: DecItemPath::Type(item_path_menu.i64_ty_path()).into(),
+            f32: DecItemPath::Type(item_path_menu.f32_ty_path()).into(),
+            f64: DecItemPath::Type(item_path_menu.f64_ty_path()).into(),
+            r32: DecItemPath::Type(item_path_menu.r32_ty_path()).into(),
+            r64: DecItemPath::Type(item_path_menu.r64_ty_path()).into(),
         }
     }
 
-    pub fn universe0(&self) -> UniverseTerm {
+    pub fn universe0(&self) -> Universe {
         self.universe0
     }
 
-    pub fn universe1(&self) -> UniverseTerm {
+    pub fn universe1(&self) -> Universe {
         self.universe1
     }
 
     /// `Prop`
-    pub fn prop(&self) -> CategoryTerm {
+    pub fn prop(&self) -> Category {
         self.prop
     }
 
     /// `Type`
-    pub fn ty0(&self) -> CategoryTerm {
+    pub fn ty0(&self) -> Category {
         self.ty0
     }
 
@@ -231,7 +231,7 @@ impl DecTermMenu0 {
         self.ref_ty_path
     }
 
-    pub fn leash_ty_path(&self) -> ItemPathDecTerm {
+    pub fn leash_ty_path(&self) -> DecItemPath {
         self.leash_ty_path
     }
 

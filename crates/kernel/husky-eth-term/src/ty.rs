@@ -106,7 +106,7 @@ impl EthTerm {
             RawType::Declarative(declarative_ty) => Left(EthTerm::from_declarative(
                 db,
                 declarative_ty,
-                TermTypeExpectation::FinalDestinationEqsSort,
+                TypeFinalDestinationExpectation::EqsSort,
             )?),
             RawType::Prelude(prelude_ty_path) => Right(prelude_ty_path),
         })
@@ -135,7 +135,7 @@ impl EthTerm {
             EthTerm::Category(slf) => RawType::Declarative(slf.ty()?.into()),
             EthTerm::Universe(_) => RawType::Prelude(PreludeTypePath::UNIVERSE),
             EthTerm::Curry(slf) => slf.raw_ty(db),
-            EthTerm::Ritchie(_) => DecTerm::Category(CategoryTerm::new(1.into())).into(),
+            EthTerm::Ritchie(_) => DecTerm::Category(Category::new(1.into())).into(),
             EthTerm::Abstraction(_) => todo!(),
             EthTerm::Application(term) => RawType::Declarative(term.declarative_ty(db)?),
             EthTerm::TypeAsTraitItem(_) => todo!(),
@@ -144,7 +144,7 @@ impl EthTerm {
     }
 }
 
-impl CurryEthTerm {
+impl EthCurry {
     fn raw_ty(self, db: &salsa::Db) -> RawType {
         let Ok(RawType::Declarative(DecTerm::Category(parameter_ty_cat))) =
             self.parameter_ty(db).raw_ty(db)

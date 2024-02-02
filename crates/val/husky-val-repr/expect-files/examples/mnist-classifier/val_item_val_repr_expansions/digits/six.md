@@ -149,7 +149,7 @@
                     ValRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::Literal(
-                            TermLiteral::USize(
+                            Literal::USize(
                                 TermUSizeLiteral {
                                     value: 0,
                                 },
@@ -615,7 +615,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::USize(
+                            Literal::USize(
                                 TermUSizeLiteral {
                                     value: 0,
                                 },
@@ -830,7 +830,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::I32(
+                            Literal::I32(
                                 5,
                             ),
                         ),
@@ -1101,7 +1101,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::USize(
+                            Literal::USize(
                                 TermUSizeLiteral {
                                     value: 1,
                                 },
@@ -1739,7 +1739,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::F32(
+                            Literal::F32(
                                 TermF32Literal {
                                     value: OrderedFloat(
                                         1.8,
@@ -1920,7 +1920,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::F32(
+                            Literal::F32(
                                 TermF32Literal {
                                     value: OrderedFloat(
                                         2.5,
@@ -2061,7 +2061,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::F32(
+                            Literal::F32(
                                 TermF32Literal {
                                     value: OrderedFloat(
                                         30.0,
@@ -2199,7 +2199,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::I32(
+                            Literal::I32(
                                 15,
                             ),
                         ),
@@ -2828,7 +2828,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::I32(
+                            Literal::I32(
                                 6,
                             ),
                         ),
@@ -2920,7 +2920,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::I32(
+                            Literal::I32(
                                 15,
                             ),
                         ),
@@ -3242,7 +3242,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::F32(
+                            Literal::F32(
                                 TermF32Literal {
                                     value: OrderedFloat(
                                         0.7,
@@ -3479,7 +3479,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::I32(
+                            Literal::I32(
                                 5,
                             ),
                         ),
@@ -3741,7 +3741,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::F32(
+                            Literal::F32(
                                 TermF32Literal {
                                     value: OrderedFloat(
                                         1.8,
@@ -3894,7 +3894,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::F32(
+                            Literal::F32(
                                 TermF32Literal {
                                     value: OrderedFloat(
                                         1.8,
@@ -4082,7 +4082,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::USize(
+                            Literal::USize(
                                 TermUSizeLiteral {
                                     value: 0,
                                 },
@@ -4298,7 +4298,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::F32(
+                            Literal::F32(
                                 TermF32Literal {
                                     value: OrderedFloat(
                                         0.75,
@@ -4486,7 +4486,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::USize(
+                            Literal::USize(
                                 TermUSizeLiteral {
                                     value: 1,
                                 },
@@ -4667,7 +4667,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::USize(
+                            Literal::USize(
                                 TermUSizeLiteral {
                                     value: 1,
                                 },
@@ -4883,7 +4883,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::F32(
+                            Literal::F32(
                                 TermF32Literal {
                                     value: OrderedFloat(
                                         0.75,
@@ -5014,7 +5014,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::F32(
+                            Literal::F32(
                                 TermF32Literal {
                                     value: OrderedFloat(
                                         15.0,

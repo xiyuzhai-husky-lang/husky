@@ -1,6 +1,6 @@
 use crate::*;
 use husky_eth_signature::HasEthTemplate;
-use husky_eth_term::{ApplicationEthTerm, EthTerm, EthTermSymbolIndexImpl, TermFunctionReduced};
+use husky_eth_term::{EthApplication, EthTerm, EthTermSymbolIndexImpl, TermFunctionReduced};
 use husky_term_prelude::ItemPathTerm;
 
 #[salsa::interned(jar = HirTypeJar)]
@@ -37,7 +37,7 @@ impl HirTrait {
 }
 
 #[salsa::tracked(jar = HirTypeJar)]
-fn hir_trai_from_eth_term_application(db: &::salsa::Db, trai_term: ApplicationEthTerm) -> HirTrait {
+fn hir_trai_from_eth_term_application(db: &::salsa::Db, trai_term: EthApplication) -> HirTrait {
     let application_expansion = trai_term.application_expansion(db);
     match application_expansion.function() {
         TermFunctionReduced::TypeOntology(_) => todo!(),

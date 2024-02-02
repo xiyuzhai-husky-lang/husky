@@ -155,7 +155,7 @@ pub type FlyTermExpectationIdx = ArenaIdx<FlyTermExpectationEntry>;
 pub enum ExpectationOutcome {
     ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
     Coersion(ExpectCoersionOutcome),
-    EqsSort(UniverseTerm),
+    EqsSort(Universe),
     Subtype(ExpectSubtypeOutcome),
     EqsFunctionCallType(ExpectEqsFunctionTypeOutcome),
     EqsRitchieCallType(ExpectEqsRitchieTypeOutcome),

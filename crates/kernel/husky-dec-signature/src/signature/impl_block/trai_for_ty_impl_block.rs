@@ -13,7 +13,7 @@ pub struct TraitForTypeImplBlockDecTemplate {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum DeclarativeSelfType {
     Path(DecTerm),
-    DerivedAny(SymbolDecTerm),
+    DerivedAny(DecSymbol),
 }
 
 impl DeclarativeSelfType {

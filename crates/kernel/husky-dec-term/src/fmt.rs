@@ -3,11 +3,11 @@ use crate::*;
 use salsa::DisplayWithDb;
 
 pub trait ShowSymbolDecTerm {
-    fn show_symbol(&self, symbol: SymbolDecTerm) -> &str;
+    fn show_symbol(&self, symbol: DecSymbol) -> &str;
 }
 
 impl ShowSymbolDecTerm for () {
-    fn show_symbol(&self, symbol: SymbolDecTerm) -> &str {
+    fn show_symbol(&self, symbol: DecSymbol) -> &str {
         todo!()
     }
 }

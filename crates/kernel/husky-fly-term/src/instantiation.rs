@@ -6,14 +6,14 @@ use vec_like::SmallVecPairMap;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FlyInstantiation {
     env: FlyInstantiationEnvironment,
-    symbol_map: SmallVecPairMap<SymbolEthTerm, FlyTermSymbolResolution, 4>,
+    symbol_map: SmallVecPairMap<EthSymbol, FlyTermSymbolResolution, 4>,
     separator: Option<u8>,
 }
 
-impl std::ops::Index<SymbolEthTerm> for FlyInstantiation {
+impl std::ops::Index<EthSymbol> for FlyInstantiation {
     type Output = FlyTermSymbolResolution;
 
-    fn index(&self, index: SymbolEthTerm) -> &Self::Output {
+    fn index(&self, index: EthSymbol) -> &Self::Output {
         &self.symbol_map[index].1
     }
 }
@@ -86,7 +86,7 @@ impl FlyInstantiation {
         }
     }
 
-    pub fn symbol_map(&self) -> &[(SymbolEthTerm, FlyTermSymbolResolution)] {
+    pub fn symbol_map(&self) -> &[(EthSymbol, FlyTermSymbolResolution)] {
         self.symbol_map.as_ref()
     }
 
@@ -97,8 +97,8 @@ impl FlyInstantiation {
     pub fn symbol_map_splitted(
         &self,
     ) -> (
-        &[(SymbolEthTerm, FlyTermSymbolResolution)],
-        Option<&[(SymbolEthTerm, FlyTermSymbolResolution)]>,
+        &[(EthSymbol, FlyTermSymbolResolution)],
+        Option<&[(EthSymbol, FlyTermSymbolResolution)]>,
     ) {
         let symbol_map: &[_] = self.symbol_map.as_ref();
         match self.separator {
@@ -159,14 +159,14 @@ pub(crate) trait FlyInstantiateRef {
 
 pub struct FlyTermInstantiationBuilder {
     env: FlyInstantiationEnvironment,
-    symbol_map: SmallVecPairMap<SymbolEthTerm, Option<FlyTermSymbolResolution>, 4>,
+    symbol_map: SmallVecPairMap<EthSymbol, Option<FlyTermSymbolResolution>, 4>,
     separator: Option<u8>,
 }
 
-impl std::ops::Index<SymbolEthTerm> for FlyTermInstantiationBuilder {
+impl std::ops::Index<EthSymbol> for FlyTermInstantiationBuilder {
     type Output = Option<FlyTermSymbolResolution>;
 
-    fn index(&self, index: SymbolEthTerm) -> &Self::Output {
+    fn index(&self, index: EthSymbol) -> &Self::Output {
         &self.symbol_map[index].1
     }
 }
@@ -301,7 +301,7 @@ impl FlyInstantiate for EthTerm {
     }
 }
 
-impl FlyInstantiate for ApplicationEthTerm {
+impl FlyInstantiate for EthApplication {
     type Target = FlyTerm;
 
     fn instantiate(
@@ -362,7 +362,7 @@ impl FlyInstantiate for ApplicationEthTerm {
     }
 }
 
-impl FlyInstantiate for RitchieEthTerm {
+impl FlyInstantiate for EthRitchie {
     type Target = FlyTerm;
 
     fn instantiate(

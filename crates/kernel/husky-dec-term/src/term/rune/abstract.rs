@@ -26,12 +26,12 @@ impl DecTerm {
     pub(in crate::term) fn create_rune(
         self,
         db: &::salsa::Db,
-        symbol: SymbolDecTerm,
-    ) -> (Self, Option<RuneDecTerm>) {
+        symbol: DecSymbol,
+    ) -> (Self, Option<DecRune>) {
         let Some(idx) = self.new_variable_idx(db, symbol) else {
             return (self, None);
         };
-        let variable = RuneDecTerm::new(symbol.ty(db), idx, db);
+        let variable = DecRune::new(symbol.ty(db), idx, db);
         (
             self.substitute_symbol_with_variable(db, symbol, variable),
             Some(variable),
@@ -45,7 +45,7 @@ impl DecTerm {
     /// returns the variable idx if turning this symbol into variable
     /// returns None if symbol is not present
     #[inline(always)]
-    fn new_variable_idx(self, db: &::salsa::Db, symbol: SymbolDecTerm) -> Option<u8> {
+    fn new_variable_idx(self, db: &::salsa::Db, symbol: DecSymbol) -> Option<u8> {
         self.new_variable_idx_with_ty_family(db, symbol, symbol.ty_family(db))
     }
 
@@ -54,7 +54,7 @@ impl DecTerm {
     fn new_variable_idx_with_ty_family(
         self,
         db: &::salsa::Db,
-        symbol: SymbolDecTerm,
+        symbol: DecSymbol,
         symbol_ty_family: DecTermFamily,
     ) -> Option<u8> {
         self.contains_symbol(db, symbol).then(|| {
@@ -66,7 +66,7 @@ impl DecTerm {
     fn new_variable_disambiguator_if_symbol_is_present(
         self,
         db: &::salsa::Db,
-        symbol: SymbolDecTerm,
+        symbol: DecSymbol,
         symbol_ty_family: DecTermFamily,
     ) -> u8 {
         let mut disambiguator = match self {
@@ -140,8 +140,8 @@ impl DecTerm {
     pub(in crate::term) fn substitute_symbol_with_variable(
         self,
         db: &::salsa::Db,
-        symbol: SymbolDecTerm,
-        variable: RuneDecTerm,
+        symbol: DecSymbol,
+        variable: DecRune,
     ) -> Self {
         if !self.contains_symbol(db, symbol) {
             return self;
@@ -152,7 +152,7 @@ impl DecTerm {
             DecTerm::Curry(term) => term
                 .substitute_symbol_with_variable(db, symbol, variable)
                 .into(),
-            DecTerm::Ritchie(term) => RitchieDecTerm::new(
+            DecTerm::Ritchie(term) => DecRitchie::new(
                 db,
                 term.ritchie_kind(db),
                 term.params(db)
@@ -171,7 +171,7 @@ impl DecTerm {
                 let x = term.x(db);
                 // should be equal by the choice of variable idx and the fact that m contains the symbol
                 debug_assert_ne!(x, variable);
-                AbstractionDecTerm::new(
+                DecAbstraction::new(
                     db,
                     x,
                     term.m(db)
@@ -179,7 +179,7 @@ impl DecTerm {
                 )
                 .into()
             }
-            DecTerm::Application(term) => ApplicationDecTerm::new(
+            DecTerm::Application(term) => DecApplication::new(
                 db,
                 term.function(db)
                     .substitute_symbol_with_variable(db, symbol, variable),

@@ -255,7 +255,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -2534,7 +2534,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -2702,7 +2702,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -3063,7 +3063,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -4548,7 +4548,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -4716,7 +4716,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -5077,7 +5077,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -7040,7 +7040,7 @@
                             ),
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 56,
                                         },
@@ -7098,7 +7098,7 @@
                             ),
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 56,
                                         },
@@ -7250,7 +7250,7 @@
                                     ),
                                     base: Eth(
                                         Application(
-                                            ApplicationEthTerm(
+                                            EthApplication(
                                                 Id {
                                                     value: 56,
                                                 },
@@ -7314,7 +7314,7 @@
                                     ),
                                     base: Eth(
                                         Application(
-                                            ApplicationEthTerm(
+                                            EthApplication(
                                                 Id {
                                                     value: 56,
                                                 },

@@ -7,7 +7,7 @@ use super::*;
 use thiserror::Error;
 
 #[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = pub new_inner)]
-pub struct SymbolEthTerm {
+pub struct EthSymbol {
     pub toolchain: Toolchain,
     pub ty: EthTerm,
     /// this is the index for all symbols with the same type
@@ -18,17 +18,14 @@ pub struct SymbolEthTerm {
 
 #[test]
 fn term_symbol_size_works() {
-    assert_eq!(
-        std::mem::size_of::<SymbolEthTerm>(),
-        std::mem::size_of::<u32>()
-    );
+    assert_eq!(std::mem::size_of::<EthSymbol>(), std::mem::size_of::<u32>());
 }
 
-impl SymbolEthTerm {
+impl EthSymbol {
     #[inline(always)]
     pub fn from_declarative(
         db: &::salsa::Db,
-        declarative_term_symbol: SymbolDecTerm,
+        declarative_term_symbol: DecSymbol,
     ) -> EthTermResult<Self> {
         let ty = declarative_term_symbol.ty(db)?;
         let ty = EthTerm::ty_from_declarative(db, ty)?;
@@ -60,7 +57,7 @@ pub enum TermSymbolTypeErrorKind {
 }
 pub type TermSymbolTypeResult<T> = Result<T, TermSymbolTypeErrorKind>;
 
-impl salsa::DisplayWithDb for SymbolEthTerm {
+impl salsa::DisplayWithDb for EthSymbol {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -71,7 +68,7 @@ impl salsa::DisplayWithDb for SymbolEthTerm {
     }
 }
 
-impl EthTermInstantiate for SymbolEthTerm {
+impl EthTermInstantiate for EthSymbol {
     type Output = EthTerm;
 
     fn instantiate(self, _db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {

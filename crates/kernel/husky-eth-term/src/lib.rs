@@ -40,21 +40,21 @@ use smallvec::*;
 #[salsa::jar]
 pub struct EthTermJar(
     // symbol
-    SymbolEthTerm,
+    EthSymbol,
     // rune
-    RuneEthTerm,
+    EthRune,
     // curry
-    CurryEthTerm,
+    EthCurry,
     term_curry_from_declarative,
     crate::term::curry::curry_parameter_count,
     // curry_parameter_count,
     // ritchie
-    RitchieEthTerm,
+    EthRitchie,
     ethereal_term_ritchie_from_declarative_term_ritchie,
     // abstraction
-    AbstractionEthTerm,
+    EthAbstraction,
     // application
-    ApplicationEthTerm,
+    EthApplication,
     application_expansion_salsa,
     ethereal_term_from_declarative_term_application,
     ethereal_term_application_declarative_ty,
@@ -63,9 +63,9 @@ pub struct EthTermJar(
     // - application expansion
     EtherealApplicationArguments,
     // ty as trait associated item
-    TypeAsTraitItemEthTerm,
+    EthTypeAsTraitItem,
     // trait constraint
-    TraitConstraintEthTerm,
+    EthTraitConstraint,
     term_menu,
     // other
     ethereal_term_from_application_or_ritchie_call_declarative_term,

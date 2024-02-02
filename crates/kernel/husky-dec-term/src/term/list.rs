@@ -1,13 +1,13 @@
 use super::*;
 
 #[salsa::tracked(db = DecTermDb, jar = DecTermJar)]
-pub struct ListDecTerm {
+pub struct DecList {
     pub toolchain: Toolchain,
     #[return_ref]
     pub items: Vec<DecTerm>,
 }
 
-impl ListDecTerm {
+impl DecList {
     pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,

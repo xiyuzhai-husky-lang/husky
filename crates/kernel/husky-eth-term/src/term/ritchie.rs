@@ -10,7 +10,7 @@ use super::*;
 
 /// representing term `x -> y`
 #[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = new_inner)]
-pub struct RitchieEthTerm {
+pub struct EthRitchie {
     pub ritchie_kind: RitchieKind,
     #[return_ref]
     pub parameter_contracted_tys: Vec<EtherealRitchieParameter>,
@@ -20,12 +20,12 @@ pub struct RitchieEthTerm {
 #[test]
 fn term_ritchie_size_works() {
     assert_eq!(
-        std::mem::size_of::<RitchieEthTerm>(),
+        std::mem::size_of::<EthRitchie>(),
         std::mem::size_of::<u32>()
     );
 }
 
-impl RitchieEthTerm {
+impl EthRitchie {
     //// this constructor guarantees that the result is reduced and first-order valid
     /// returns EthTerm instead of EthTermApplication because it might reduce to a non application term
     pub fn new(
@@ -33,7 +33,7 @@ impl RitchieEthTerm {
         ritchie_kind: RitchieKind,
         parameter_contracted_tys: impl IntoIterator<Item = EtherealRitchieParameter>,
         return_ty: EthTerm,
-    ) -> EthTermResult<RitchieEthTerm> {
+    ) -> EthTermResult<EthRitchie> {
         // todo!("check_application_validity(db, function, argument, shift)?");
         Ok(Self::new_unchecked(
             db,
@@ -51,7 +51,7 @@ impl RitchieEthTerm {
         ritchie_kind: RitchieKind,
         parameter_tys: impl IntoIterator<Item = EtherealRitchieParameter>,
         return_ty: EthTerm,
-    ) -> RitchieEthTerm {
+    ) -> EthRitchie {
         Self::new_inner(
             db,
             ritchie_kind,
@@ -70,7 +70,7 @@ impl RitchieEthTerm {
         ritchie_kind: RitchieKind,
         parameter_tys: impl IntoIterator<Item = Result<EtherealRitchieParameter, E>>,
         return_ty: EthTerm,
-    ) -> EthTermResult<RitchieEthTerm>
+    ) -> EthTermResult<EthRitchie>
     where
         EthTermError: From<E>,
     {
@@ -85,7 +85,7 @@ impl RitchieEthTerm {
         ))
     }
 
-    pub(super) fn reduce(self, _db: &::salsa::Db) -> RitchieEthTerm {
+    pub(super) fn reduce(self, _db: &::salsa::Db) -> EthRitchie {
         // ad hoc
         self
     }
@@ -93,7 +93,7 @@ impl RitchieEthTerm {
     #[inline(always)]
     pub fn from_declarative(
         db: &::salsa::Db,
-        declarative_term_ritchie: RitchieDecTerm,
+        declarative_term_ritchie: DecRitchie,
     ) -> EthTermResult<Self> {
         ethereal_term_ritchie_from_declarative_term_ritchie(db, declarative_term_ritchie)
     }
@@ -121,9 +121,9 @@ impl RitchieEthTerm {
 #[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn ethereal_term_ritchie_from_declarative_term_ritchie(
     db: &::salsa::Db,
-    declarative_term_ritchie: RitchieDecTerm,
-) -> EthTermResult<RitchieEthTerm> {
-    RitchieEthTerm::new_unchecked2(
+    declarative_term_ritchie: DecRitchie,
+) -> EthTermResult<EthRitchie> {
+    EthRitchie::new_unchecked2(
         db,
         declarative_term_ritchie.ritchie_kind(db),
         declarative_term_ritchie
@@ -167,7 +167,7 @@ impl EthTermInstantiate for EtherealRitchieParameter {
     }
 }
 
-impl salsa::DisplayWithDb for RitchieEthTerm {
+impl salsa::DisplayWithDb for EthRitchie {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -248,12 +248,12 @@ impl EtherealRitchieParameter {
 
 /// # rewrite
 
-impl RitchieEthTerm {
+impl EthRitchie {
     pub(super) fn substitute(
         self,
         substitution: EthTermSubstitution,
         db: &::salsa::Db,
-    ) -> RitchieEthTerm {
+    ) -> EthRitchie {
         Self::new_inner(
             db,
             self.ritchie_kind(db),
@@ -273,7 +273,7 @@ impl<'a> EthTermSubstitute<'a> for EtherealRitchieParameter {
     }
 }
 
-impl EthTermInstantiate for RitchieEthTerm {
+impl EthTermInstantiate for EthRitchie {
     type Output = Self;
 
     fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {

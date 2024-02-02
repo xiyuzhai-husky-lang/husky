@@ -4,7 +4,7 @@ use super::*;
 ///
 /// we treat them separately because we need to apply special reduction and avoid toolchain
 #[salsa::interned(db = DecTermDb, jar = DecTermJar, constructor = new)]
-pub struct WrapperDecTerm {
+pub struct DecWrapper {
     pub kind: DecTermWrapperKind,
     pub inner_ty: DecTerm,
 }
@@ -16,11 +16,11 @@ pub enum DecTermWrapperKind {
 
 impl DecTerm {
     pub fn leashed_ty(self, db: &::salsa::Db) -> Self {
-        WrapperDecTerm::new(db, DecTermWrapperKind::ValReturnType, self).into()
+        DecWrapper::new(db, DecTermWrapperKind::ValReturnType, self).into()
     }
 }
 
-impl WrapperDecTerm {
+impl DecWrapper {
     #[inline(never)]
     pub(crate) fn display_fmt_with_db_and_ctx(
         self,

@@ -1376,7 +1376,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::Unit(
+                                                Literal::Unit(
                                                     (),
                                                 ),
                                             ),
@@ -2264,7 +2264,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::Unit(
+                                                Literal::Unit(
                                                     (),
                                                 ),
                                             ),

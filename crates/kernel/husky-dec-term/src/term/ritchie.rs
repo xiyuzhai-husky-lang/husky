@@ -11,7 +11,7 @@ use smallvec::SmallVec;
 
 /// representing declarative_term `x -> y`
 #[salsa::interned(db = DecTermDb, jar = DecTermJar)]
-pub struct RitchieDecTerm {
+pub struct DecRitchie {
     pub ritchie_kind: RitchieKind,
     #[return_ref]
     pub params: SmallVec<[DeclarativeRitchieParameter; 2]>,
@@ -19,7 +19,7 @@ pub struct RitchieDecTerm {
     // ty: DecTerm,
 }
 
-impl RitchieDecTerm {
+impl DecRitchie {
     #[inline(never)]
     pub(crate) fn display_fmt_with_db_and_ctx(
         self,
@@ -86,7 +86,7 @@ impl DeclarativeRitchieParameter {
     }
 }
 
-impl DecTermRewriteCopy for RitchieDecTerm {
+impl DecTermRewriteCopy for DecRitchie {
     fn substitute_copy(self, _db: &::salsa::Db, _substitution: &DecTermSubstitution) -> Self {
         todo!()
     }

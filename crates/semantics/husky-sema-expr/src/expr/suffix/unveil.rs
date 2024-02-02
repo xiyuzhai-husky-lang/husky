@@ -274,7 +274,7 @@ fn ty_ontology_path_unveil_impl_block_signature_templates(
 #[salsa::tracked(jar = SemaExprJar, return_ref)]
 fn ty_ontology_application_unveil_impl_block_signature_templates(
     db: &::salsa::Db,
-    ty_target: ApplicationEthTerm,
+    ty_target: EthApplication,
 ) -> EtherealSignatureMaybeResult<SmallVec<[TraitForTypeImplBlockEtherealSignatureBuilder; 2]>> {
     let application_expansion = ty_target.application_expansion(db);
     let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {

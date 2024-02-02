@@ -1,6 +1,6 @@
 use super::*;
 
-impl ApplicationEthTerm {
+impl EthApplication {
     pub(in crate::term) fn reduce(self, db: &::salsa::Db) -> EthTerm {
         reduce_term_application(db, self)
     }
@@ -9,7 +9,7 @@ impl ApplicationEthTerm {
 #[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn reduce_term_application(
     db: &::salsa::Db,
-    term_application: ApplicationEthTerm,
+    term_application: EthApplication,
 ) -> EthTerm {
     let function = term_application.function(db).reduce(db);
     let argument = term_application.argument(db).reduce(db);
@@ -22,10 +22,10 @@ pub(crate) fn reduce_term_application(
             if let function_shift = function_term_application.shift(db)
                 && function_shift > 0 =>
         {
-            ApplicationEthTerm::new_reduced(
+            EthApplication::new_reduced(
                 db,
                 function_term_application.function(db),
-                ApplicationEthTerm::new_reduced(
+                EthApplication::new_reduced(
                     db,
                     function_term_application.argument(db),
                     argument,
@@ -34,6 +34,6 @@ pub(crate) fn reduce_term_application(
                 function_shift + shift - 1,
             )
         }
-        _ => ApplicationEthTerm::new_inner(db, function, argument, shift).into(),
+        _ => EthApplication::new_inner(db, function, argument, shift).into(),
     }
 }

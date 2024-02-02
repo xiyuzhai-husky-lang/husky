@@ -13,7 +13,7 @@ use super::*;
 /// variables are externalized symbols, derived from symbols, and defined in a bottom-up manner
 ///
 #[salsa::interned(db = DecTermDb, jar = DecTermJar, constructor = new_inner)]
-pub struct RuneDecTerm {
+pub struct DecRune {
     pub ty: DecTermSymbolTypeResult<DecTerm>,
     /// this is the index to disambiguate it from all other symbols with the same type
     /// so that we have better cache hits
@@ -43,7 +43,7 @@ impl std::fmt::Display for RuneIndex {
     }
 }
 
-impl salsa::DisplayWithDb for RuneDecTerm {
+impl salsa::DisplayWithDb for DecRune {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -53,7 +53,7 @@ impl salsa::DisplayWithDb for RuneDecTerm {
     }
 }
 
-impl RuneDecTerm {
+impl DecRune {
     pub fn new(ty: DecTermSymbolTypeResult<DecTerm>, disambiguator: u8, db: &::salsa::Db) -> Self {
         Self::new_inner(
             db,
@@ -69,7 +69,7 @@ impl RuneDecTerm {
     }
 }
 
-impl DecTermRewriteCopy for RuneDecTerm {
+impl DecTermRewriteCopy for DecRune {
     fn substitute_copy(self, _db: &::salsa::Db, _substitution: &DecTermSubstitution) -> Self {
         todo!()
     }

@@ -12,7 +12,7 @@ pub use self::rune::*;
 pub use self::symbol_ty::*;
 
 use crate::*;
-use husky_term_prelude::literal::TermLiteral;
+use husky_term_prelude::literal::Literal;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -66,8 +66,8 @@ impl From<EthTerm> for FlyTerm {
     }
 }
 
-impl From<TermLiteral> for FlyTerm {
-    fn from(value: TermLiteral) -> Self {
+impl From<Literal> for FlyTerm {
+    fn from(value: Literal) -> Self {
         Into::<EthTerm>::into(value).into()
     }
 }
@@ -78,38 +78,38 @@ impl From<ItemPathTerm> for FlyTerm {
     }
 }
 
-impl From<ApplicationEthTerm> for FlyTerm {
-    fn from(value: ApplicationEthTerm) -> Self {
+impl From<EthApplication> for FlyTerm {
+    fn from(value: EthApplication) -> Self {
         Into::<EthTerm>::into(value).into()
     }
 }
 
-impl From<CurryEthTerm> for FlyTerm {
-    fn from(value: CurryEthTerm) -> Self {
+impl From<EthCurry> for FlyTerm {
+    fn from(value: EthCurry) -> Self {
         Into::<EthTerm>::into(value).into()
     }
 }
 
-impl From<CategoryTerm> for FlyTerm {
-    fn from(value: CategoryTerm) -> Self {
+impl From<Category> for FlyTerm {
+    fn from(value: Category) -> Self {
         Into::<EthTerm>::into(value).into()
     }
 }
 
-impl From<SymbolEthTerm> for FlyTerm {
-    fn from(value: SymbolEthTerm) -> Self {
+impl From<EthSymbol> for FlyTerm {
+    fn from(value: EthSymbol) -> Self {
         Into::<EthTerm>::into(value).into()
     }
 }
 
-impl From<RuneEthTerm> for FlyTerm {
-    fn from(value: RuneEthTerm) -> Self {
+impl From<EthRune> for FlyTerm {
+    fn from(value: EthRune) -> Self {
         Into::<EthTerm>::into(value).into()
     }
 }
 
-impl From<RitchieEthTerm> for FlyTerm {
-    fn from(value: RitchieEthTerm) -> Self {
+impl From<EthRitchie> for FlyTerm {
+    fn from(value: EthRitchie) -> Self {
         Into::<EthTerm>::into(value).into()
     }
 }
@@ -145,7 +145,7 @@ fn term_to_fluffy_term_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let term_menu = db.ethereal_term_menu(toolchain);
-    t(TermLiteral::I8(1))
+    t(Literal::I8(1))
 }
 
 impl FlyTerm {

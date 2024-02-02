@@ -4487,7 +4487,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -10050,7 +10050,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEthTerm(
+                                                    EthSymbol(
                                                         Id {
                                                             value: 7,
                                                         },
@@ -10067,7 +10067,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    SymbolEthTerm(
+                                                    EthSymbol(
                                                         Id {
                                                             value: 8,
                                                         },
@@ -11327,7 +11327,7 @@
                             ),
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 41,
                                         },
@@ -11345,7 +11345,7 @@
                             ),
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 58,
                                         },
@@ -11363,7 +11363,7 @@
                             ),
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 58,
                                         },
@@ -11381,7 +11381,7 @@
                             ),
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 58,
                                         },
@@ -11425,7 +11425,7 @@
                             ),
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 58,
                                         },
@@ -11449,7 +11449,7 @@
                             ),
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 58,
                                         },
@@ -11679,7 +11679,7 @@
                             ),
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 58,
                                         },
@@ -11703,7 +11703,7 @@
                             ),
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 58,
                                         },
@@ -11727,7 +11727,7 @@
                             ),
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 58,
                                         },
@@ -11817,7 +11817,7 @@
                                     ),
                                     base: Eth(
                                         Application(
-                                            ApplicationEthTerm(
+                                            EthApplication(
                                                 Id {
                                                     value: 58,
                                                 },
@@ -11837,7 +11837,7 @@
                                     ),
                                     base: Eth(
                                         Application(
-                                            ApplicationEthTerm(
+                                            EthApplication(
                                                 Id {
                                                     value: 58,
                                                 },
@@ -11857,7 +11857,7 @@
                                     ),
                                     base: Eth(
                                         Application(
-                                            ApplicationEthTerm(
+                                            EthApplication(
                                                 Id {
                                                     value: 58,
                                                 },

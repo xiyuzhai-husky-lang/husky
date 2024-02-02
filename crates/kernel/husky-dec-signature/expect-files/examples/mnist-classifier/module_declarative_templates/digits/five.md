@@ -11,7 +11,7 @@
                     FugitiveDecTemplate::Val(
                         MajorValDecTemplate {
                             return_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 13,
                                     },

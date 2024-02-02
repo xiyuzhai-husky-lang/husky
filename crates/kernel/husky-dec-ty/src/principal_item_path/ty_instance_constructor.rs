@@ -50,7 +50,7 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
         .filter_map(PropsStructFieldDecTemplate::into_ritchie_parameter_contracted_ty)
         .collect();
     let instance_constructor_ty =
-        RitchieDecTerm::new(db, TypeRitchieKind::Fn.into(), parameter_tys, self_ty);
+        DecRitchie::new(db, TypeRitchieKind::Fn.into(), parameter_tys, self_ty);
     curry_from_template_parameters(
         db,
         path.toolchain(db),
@@ -75,8 +75,7 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
         .copied()
         .map(TupleStructFieldDecTemplate::into_ritchie_parameter_contracted_ty)
         .collect();
-    let constructor_ty =
-        RitchieDecTerm::new(db, TypeRitchieKind::Fn.into(), parameter_tys, self_ty);
+    let constructor_ty = DecRitchie::new(db, TypeRitchieKind::Fn.into(), parameter_tys, self_ty);
     curry_from_template_parameters(
         db,
         path.toolchain(db),

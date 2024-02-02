@@ -3,7 +3,7 @@ use crate::*;
 use husky_entity_path::{FugitivePath, TypeVariantPath};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_linkage::linkage::Linkage;
-use husky_term_prelude::literal::TermLiteral;
+use husky_term_prelude::literal::Literal;
 use smallvec::SmallVec;
 
 #[salsa::interned(db = ValDb, jar = ValJar)]
@@ -73,7 +73,7 @@ pub enum ValOpn {
     Binary(HirBinaryOpr),
     Linkage(Linkage),
     EvalDiscarded,
-    Literal(TermLiteral),
+    Literal(Literal),
     Branches,
     TypeVariant(TypeVariantPath),
     /// use pattern_data instead of pattern for efficiency

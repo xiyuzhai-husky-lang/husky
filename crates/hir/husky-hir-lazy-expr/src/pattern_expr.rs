@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_path::PatternPath;
 use husky_syn_expr::{SynPatternExprData, SynPatternExprIdx, SynPatternExprRoot};
-use husky_term_prelude::literal::TermLiteral;
+use husky_term_prelude::literal::Literal;
 use idx_arena::ArenaRef;
 
 #[salsa::debug_with_db]
@@ -9,7 +9,7 @@ use idx_arena::ArenaRef;
 pub enum HirLazyPatternExpr {
     /// example: `1`
     /// todo: change this to primitive value data
-    Literal(TermLiteral),
+    Literal(Literal),
     /// example: `a`
     Ident {
         // symbol_modifier: Option<EphemSymbolModifier>,

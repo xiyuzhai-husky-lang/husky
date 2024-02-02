@@ -24,7 +24,7 @@ impl SymbolType {
     pub fn new_parameter_ty_from_signature(
         engine: &mut impl FlyTermEngine,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-        signature: SymbolDecSignature,
+        signature: DecSymbolSignature,
     ) -> FlyTermResult<Self> {
         let ty = EthTerm::ty_from_declarative(engine.db(), signature.ty()?)?;
         Ok(Self::new_parameter_ty(
@@ -208,7 +208,7 @@ pub enum FlyPlace {
     /// always immutable
     Leashed,
     Todo,
-    EtherealSymbol(SymbolEthTerm),
+    EtherealSymbol(EthSymbol),
 }
 
 impl FlyPlace {
@@ -280,7 +280,7 @@ impl FlyLifetime {
     pub(crate) fn from_term(term: FlyTerm, db: &::salsa::Db, terms: &mut FlyTerms) -> Self {
         match term.data_inner(db, terms) {
             FlyTermData::Literal(lit) => match lit {
-                TermLiteral::StaticLifetime => FlyLifetime::StaticLifetime,
+                Literal::StaticLifetime => FlyLifetime::StaticLifetime,
                 _ => todo!(),
             },
             FlyTermData::TypeOntology {

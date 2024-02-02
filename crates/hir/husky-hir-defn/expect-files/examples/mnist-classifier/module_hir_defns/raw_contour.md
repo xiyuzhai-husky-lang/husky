@@ -280,7 +280,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -317,7 +317,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::R32(
+                                                Literal::R32(
                                                     3,
                                                 ),
                                             ),
@@ -548,7 +548,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::R32(
+                                                Literal::R32(
                                                     1,
                                                 ),
                                             ),
@@ -762,7 +762,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -799,7 +799,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::R32(
+                                                Literal::R32(
                                                     1,
                                                 ),
                                             ),
@@ -1690,17 +1690,17 @@
                                             ident: `pixel_pair_below`,
                                         },
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 0,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 1,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 3,
                                             ),
                                         ),
@@ -1710,7 +1710,7 @@
                                             ),
                                         },
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 2,
                                             ),
                                         ),
@@ -1719,27 +1719,27 @@
                                             ident: `_`,
                                         },
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 1,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 2,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 0,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 1,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 3,
                                             ),
                                         ),
@@ -1749,7 +1749,7 @@
                                             ),
                                         },
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 2,
                                             ),
                                         ),
@@ -1758,17 +1758,17 @@
                                             ident: `_`,
                                         },
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 3,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 0,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 1,
                                             ),
                                         ),
@@ -1778,7 +1778,7 @@
                                             ),
                                         },
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 2,
                                             ),
                                         ),
@@ -2054,7 +2054,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     2,
                                                 ),
                                             ),
@@ -2141,7 +2141,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -2244,17 +2244,17 @@
                                             ident: `raw_angle_change`,
                                         },
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 0,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 1,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 2,
                                             ),
                                         ),
@@ -2264,7 +2264,7 @@
                                             ),
                                         },
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 3,
                                             ),
                                         ),
@@ -3429,22 +3429,22 @@
                                             ident: `pixel_pair_below`,
                                         },
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 0,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 1,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 2,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 3,
                                             ),
                                         ),
@@ -3458,22 +3458,22 @@
                                             ident: `_`,
                                         },
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 1,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 0,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 1,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 2,
                                             ),
                                         ),
@@ -3516,7 +3516,7 @@
                                             ident: `_`,
                                         },
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 3,
                                             ),
                                         ),
@@ -3525,22 +3525,22 @@
                                             ident: `_`,
                                         },
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 2,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 0,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 2,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 3,
                                             ),
                                         ),
@@ -3550,7 +3550,7 @@
                                             ),
                                         },
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 1,
                                             ),
                                         ),
@@ -3597,17 +3597,17 @@
                                             ident: `_`,
                                         },
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 3,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 0,
                                             ),
                                         ),
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 2,
                                             ),
                                         ),
@@ -3617,7 +3617,7 @@
                                             ),
                                         },
                                         HirEagerPatternExpr::Literal(
-                                            TermLiteral::R32(
+                                            Literal::R32(
                                                 1,
                                             ),
                                         ),
@@ -3989,7 +3989,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     2,
                                                 ),
                                             ),
@@ -4051,7 +4051,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -4174,7 +4174,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::F32(
+                                                Literal::F32(
                                                     TermF32Literal {
                                                         value: OrderedFloat(
                                                             2.0,
@@ -4286,7 +4286,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::F32(
+                                                Literal::F32(
                                                     TermF32Literal {
                                                         value: OrderedFloat(
                                                             2.0,
@@ -4609,7 +4609,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -4618,7 +4618,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     29,
                                                 ),
                                             ),
@@ -4668,7 +4668,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -4768,7 +4768,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -4807,7 +4807,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -5073,7 +5073,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -5082,7 +5082,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     29,
                                                 ),
                                             ),
@@ -5262,7 +5262,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -5512,7 +5512,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     0,
                                                 ),
                                             ),
@@ -5521,7 +5521,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     0,
                                                 ),
                                             ),
@@ -5530,7 +5530,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     0,
                                                 ),
                                             ),
@@ -5539,7 +5539,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -5556,7 +5556,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -5573,7 +5573,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -6063,7 +6063,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::R32(
+                                                Literal::R32(
                                                     1,
                                                 ),
                                             ),
@@ -6150,7 +6150,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -6191,7 +6191,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -6243,7 +6243,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -6287,7 +6287,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -6339,7 +6339,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -6695,7 +6695,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -6734,7 +6734,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -6773,7 +6773,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -6814,7 +6814,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     0,
                                                 ),
                                             ),
@@ -6858,7 +6858,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -7154,7 +7154,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -7195,7 +7195,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     0,
                                                 ),
                                             ),
@@ -7239,7 +7239,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -7283,7 +7283,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -7509,7 +7509,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -7548,7 +7548,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -7828,7 +7828,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     0,
                                                 ),
                                             ),
@@ -7955,7 +7955,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -8073,7 +8073,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -8138,7 +8138,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -8301,7 +8301,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -8356,7 +8356,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -8433,7 +8433,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -8495,7 +8495,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -8536,7 +8536,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -8580,7 +8580,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     0,
                                                 ),
                                             ),
@@ -10491,7 +10491,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::F32(
+                                                Literal::F32(
                                                     TermF32Literal {
                                                         value: OrderedFloat(
                                                             1.4,
@@ -10704,7 +10704,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::USize(
+                                                Literal::USize(
                                                     TermUSizeLiteral {
                                                         value: 0,
                                                     },
@@ -11905,7 +11905,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::USize(
+                                                Literal::USize(
                                                     TermUSizeLiteral {
                                                         value: 0,
                                                     },
@@ -12111,7 +12111,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::F32(
+                                                Literal::F32(
                                                     TermF32Literal {
                                                         value: OrderedFloat(
                                                             0.0,
@@ -12125,7 +12125,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     0,
                                                 ),
                                             ),
@@ -12253,7 +12253,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -12627,7 +12627,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::I32(
+                                                Literal::I32(
                                                     1,
                                                 ),
                                             ),
@@ -12689,7 +12689,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
-                                                TermLiteral::USize(
+                                                Literal::USize(
                                                     TermUSizeLiteral {
                                                         value: 0,
                                                     },
