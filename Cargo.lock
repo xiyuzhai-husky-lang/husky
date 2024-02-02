@@ -3707,13 +3707,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9a3a5bfb195931eeb336b2a7b4d761daec841b97f947d34394601737a7bba5e4"
 
 [[package]]
-name = "husky"
-version = "0.1.0"
-dependencies = [
- "clap 3.2.25",
-]
-
-[[package]]
 name = "husky-aarch64"
 version = "0.1.0"
 
@@ -5082,15 +5075,6 @@ dependencies = [
  "husky-devtime",
  "husky-graphics2d-visual-protocol",
  "husky-ml-task",
-]
-
-[[package]]
-name = "husky-mnist-classifier-developer-mock-client"
-version = "0.1.0"
-dependencies = [
- "husky-print-utils",
- "tokio",
- "tokio-tungstenite",
 ]
 
 [[package]]

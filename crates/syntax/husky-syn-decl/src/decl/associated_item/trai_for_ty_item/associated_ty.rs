@@ -5,10 +5,9 @@ pub struct TraitForTypeAssociatedTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
     #[return_ref]
-    pub generics: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
+    pub template_parameters: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
     #[return_ref]
     pub eq_token: SynNodeDeclResult<EqRegionalToken>,
-    // todo: change this to NodeDeclResult??
     pub ty_term_expr_idx: SynExprIdx,
     pub syn_expr_region: SynExprRegion,
 }
@@ -16,7 +15,7 @@ pub struct TraitForTypeAssociatedTypeSynNodeDecl {
 impl TraitForTypeAssociatedTypeSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
-            self.generics(db)
+            self.template_parameters(db)
                 .as_ref()
                 .err()
                 .into_iter()
@@ -74,7 +73,7 @@ impl TraitForTypeAssociatedTypeSynDecl {
         syn_node_decl: TraitForTypeAssociatedTypeSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameters = syn_node_decl
-            .generics(db)
+            .template_parameters(db)
             .as_ref()?
             .as_ref()
             .map(|list| {
