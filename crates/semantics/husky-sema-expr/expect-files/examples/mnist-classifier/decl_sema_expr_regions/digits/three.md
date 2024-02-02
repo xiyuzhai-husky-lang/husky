@@ -591,7 +591,7 @@
                                                             EthTerm(`independent variable_ad_hoc_fmt -> Type`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Independent,
                                                         parameter_rune: Some(
                                                             RuneFlyTerm(
@@ -690,7 +690,7 @@
                                                             EthTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {

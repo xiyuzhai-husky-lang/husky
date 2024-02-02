@@ -1,5 +1,3 @@
-use husky_coword::{IdentMap, IdentPairMap};
-
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -41,43 +39,20 @@ impl ExpectFlyTerm for ExpectEqsRitchieType {
         terms: &mut FlyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FlyTermEffect> {
-        match state.expectee().data_inner(db, terms) {
-            FlyTermData::Literal(_) => todo!(),
-            FlyTermData::TypeOntology {
-                ty_path: path,
-                refined_ty_path: refined_path,
-                ty_arguments: arguments,
-                ..
-            } => todo!(),
-            FlyTermData::Curry {
-                toolchain,
-                curry_kind,
-                variance,
-                parameter_rune,
-                parameter_ty,
-                return_ty,
-                ty_ethereal_term,
-            } => {
-                p!(curry_kind);
-                todo!()
-            }
-            FlyTermData::Hole(_, _) => todo!(),
-            FlyTermData::Category(_) => todo!(),
-            FlyTermData::Ritchie {
-                ritchie_kind,
+        match state.expectee().base_ty_data_inner(db, terms) {
+            FlyBaseTypeData::Ritchie {
+                ritchie_kind: RitchieKind::Type(ritchie_ty_kind),
                 parameter_contracted_tys,
                 return_ty,
             } => state.set_ok(
                 ExpectEqsRitchieTypeOutcome {
-                    ritchie_kind,
+                    ritchie_ty_kind,
                     parameter_contracted_tys: parameter_contracted_tys.to_smallvec(),
                     return_ty,
                 },
                 Default::default(),
             ),
-            FlyTermData::Symbol { .. } => todo!(),
-            FlyTermData::Rune { .. } => todo!(),
-            FlyTermData::TypeVariant { path } => todo!(),
+            _ => todo!(),
         }
     }
 }
@@ -85,7 +60,7 @@ impl ExpectFlyTerm for ExpectEqsRitchieType {
 #[derive(Debug, PartialEq, Eq, Clone)]
 // #[salsa::derive_debug_with_db(db = FlyTermDb)]
 pub struct ExpectEqsRitchieTypeOutcome {
-    pub(crate) ritchie_kind: RitchieKind,
+    pub(crate) ritchie_ty_kind: TypeRitchieKind,
     pub(crate) parameter_contracted_tys: SmallVec<[FlyRitchieParameter; 2]>,
     pub(crate) return_ty: FlyTerm,
 }
@@ -99,7 +74,7 @@ impl ExpectEqsRitchieTypeOutcome {
         self.return_ty
     }
 
-    pub fn ritchie_kind(&self) -> RitchieKind {
-        self.ritchie_kind
+    pub fn ritchie_ty_kind(&self) -> TypeRitchieKind {
+        self.ritchie_ty_kind
     }
 }

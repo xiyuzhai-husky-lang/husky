@@ -45,30 +45,30 @@ pub struct TermPreludeJar(
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum RitchieKind {
-    Type(RitchieTypeKind),
-    Trait(RitchieTraitKind),
+    Type(TypeRitchieKind),
+    Trait(TraitRitchieKind),
 }
 
 impl RitchieKind {
-    pub const RITCHIE_TYPE_FN: Self = RitchieKind::Type(RitchieTypeKind::Fn);
-    pub const RITCHIE_TYPE_GN: Self = RitchieKind::Type(RitchieTypeKind::Gn);
+    pub const RITCHIE_TYPE_FN: Self = RitchieKind::Type(TypeRitchieKind::Fn);
+    pub const RITCHIE_TYPE_GN: Self = RitchieKind::Type(TypeRitchieKind::Gn);
 
     pub fn code(self) -> &'static str {
         match self {
             RitchieKind::Type(ritchie_ty_kind) => match ritchie_ty_kind {
-                RitchieTypeKind::Fn => "fn(",
-                RitchieTypeKind::Gn => "gn(",
+                TypeRitchieKind::Fn => "fn(",
+                TypeRitchieKind::Gn => "gn(",
             },
             RitchieKind::Trait(ritchie_trai_kind) => match ritchie_trai_kind {
-                RitchieTraitKind::Fn => "Fn(",
-                RitchieTraitKind::FnMut => "FnMut(",
-                RitchieTraitKind::FnOnce => "FnOnce(",
-                RitchieTraitKind::Gn => "Gn(",
+                TraitRitchieKind::Fn => "Fn(",
+                TraitRitchieKind::FnMut => "FnMut(",
+                TraitRitchieKind::FnOnce => "FnOnce(",
+                TraitRitchieKind::Gn => "Gn(",
             },
         }
     }
 
-    pub fn ritchie_ty_kind(self) -> Option<RitchieTypeKind> {
+    pub fn ritchie_ty_kind(self) -> Option<TypeRitchieKind> {
         match self {
             RitchieKind::Type(ritchie_ty_kind) => Some(ritchie_ty_kind),
             RitchieKind::Trait(_) => None,
@@ -77,13 +77,13 @@ impl RitchieKind {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum RitchieTypeKind {
+pub enum TypeRitchieKind {
     Fn,
     Gn,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum RitchieTraitKind {
+pub enum TraitRitchieKind {
     Fn,
     FnMut,
     FnOnce,

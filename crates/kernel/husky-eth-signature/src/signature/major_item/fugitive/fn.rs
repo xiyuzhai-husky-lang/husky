@@ -1,4 +1,4 @@
-use husky_term_prelude::{RitchieKind, RitchieTypeKind};
+use husky_term_prelude::{RitchieKind, TypeRitchieKind};
 
 use super::*;
 
@@ -26,7 +26,7 @@ impl FunctionFnEthTemplate {
         let return_ty = EthTerm::ty_from_declarative(db, tmpl.return_ty(db))?;
         let ritchie_ty = RitchieEthTerm::new(
             db,
-            RitchieKind::Type(RitchieTypeKind::Fn),
+            RitchieKind::Type(TypeRitchieKind::Fn),
             ritchie_params,
             return_ty,
         )?;

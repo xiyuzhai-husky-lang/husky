@@ -55,7 +55,7 @@ where
                     PronounKeyword::Super => todo!(),
                 },
                 Keyword::Fugitive(FugitiveKeyword::Fn) => {
-                    DisambiguatedTokenData::Ritchie(regional_token_idx, RitchieTypeKind::Fn.into())
+                    DisambiguatedTokenData::Ritchie(regional_token_idx, TypeRitchieKind::Fn.into())
                 }
                 Keyword::Sorry => DisambiguatedTokenData::Sorry { regional_token_idx },
                 Keyword::Todo => DisambiguatedTokenData::Todo { regional_token_idx },

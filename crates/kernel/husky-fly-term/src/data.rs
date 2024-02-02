@@ -112,7 +112,7 @@ impl<'a> FlyTermData<'a> {
                 return_ty,
             } => match ritchie_kind {
                 RitchieKind::Type(ritchi_ty_kind) => match ritchi_ty_kind {
-                    RitchieTypeKind::Fn => {
+                    TypeRitchieKind::Fn => {
                         // for param in parameter_contracted_tys.iter() {
                         //     match param {
                         //         FlyRitchieParameter::Regular(param) => {
@@ -124,7 +124,7 @@ impl<'a> FlyTermData<'a> {
                         // }
                         format!("fn(...) -> {}", return_ty.show(db, terms))
                     }
-                    RitchieTypeKind::Gn => {
+                    TypeRitchieKind::Gn => {
                         format!("fn(...) -> {}", return_ty.show(db, terms))
                     }
                 },
@@ -253,8 +253,8 @@ impl FlyTerm {
                 return_ty,
             } => match ritchie_kind {
                 RitchieKind::Type(ritchie_ty_kind) => match ritchie_ty_kind {
-                    RitchieTypeKind::Fn => Ok(Some(true)),
-                    RitchieTypeKind::Gn => Ok(Some(true)),
+                    TypeRitchieKind::Fn => Ok(Some(true)),
+                    TypeRitchieKind::Gn => Ok(Some(true)),
                 },
                 RitchieKind::Trait(_) => todo!(),
             },

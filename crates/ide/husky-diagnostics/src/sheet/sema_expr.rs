@@ -291,6 +291,7 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFlyTermExpectationError) {
                 expectee_path.display(ctx.db())
             ),
             OriginalFlyTermExpectationError::Place(e) => format!("place error {}", e),
+            OriginalFlyTermExpectationError::ExpectedIntType {..} => todo!(),
         }
     }
 

@@ -5,7 +5,7 @@ use husky_entity_tree::{
     helpers::trai_side_path_leading_trai_for_ty_impl_block_paths_map,
     helpers::ty_side_trai_for_ty_impl_block_paths_map,
 };
-use husky_term_prelude::{RitchieKind, RitchieTypeKind};
+use husky_term_prelude::{RitchieKind, TypeRitchieKind};
 
 pub struct TraitForTypeImplBlockEthTemplates<'a> {
     trai_side_derive_any: &'a [TraitForTypeImplBlockEthTemplate],
@@ -84,7 +84,7 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
         EthTerm::Rune(_) => todo!(),
         EthTerm::Ritchie(ritchie) => match ritchie.ritchie_kind(db) {
             RitchieKind::Type(ritchie_ty_kind) => match ritchie_ty_kind {
-                RitchieTypeKind::Fn => match trai_path.refine(db) {
+                TypeRitchieKind::Fn => match trai_path.refine(db) {
                     Left(prelude_trai_path) => {
                         return Ok(match prelude_trai_path {
                             PreludeTraitPath::Clone | PreludeTraitPath::Copy => true,
@@ -93,7 +93,7 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
                     }
                     Right(_) => todo!(),
                 },
-                RitchieTypeKind::Gn => todo!(),
+                TypeRitchieKind::Gn => todo!(),
             },
             RitchieKind::Trait(_) => todo!(),
         },
