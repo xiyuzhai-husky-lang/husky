@@ -11,4 +11,4 @@
 
 // use self::db::*;
 // use husky_coword::*;
-// use husky_ethereal_term::*;
+// use husky_eth_term::*;

@@ -1,7 +1,7 @@
 use super::*;
 use crate::place::HirPlace;
-use husky_ethereal_term::instantiation::EtherealInstantiation;
-use husky_fluffy_term::{
+use husky_eth_term::instantiation::EtherealInstantiation;
+use husky_fly_term::{
     instantiation::{FlyInstantiation, FlyTermSymbolResolution},
     FlyTerms,
 };

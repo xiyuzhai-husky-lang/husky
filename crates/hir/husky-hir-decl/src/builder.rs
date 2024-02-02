@@ -1,5 +1,5 @@
-use husky_ethereal_term::EthTerm;
-use husky_fluffy_term::FlyTermBase;
+use husky_eth_term::EthTerm;
+use husky_fly_term::FlyTermBase;
 use husky_hir_eager_expr::{HirEagerExprIdx, HirEagerPatternExprIdx};
 use husky_hir_expr::{
     helpers::hir_expr_region_with_source_map, source_map::HirExprSourceMap, HirExprRegion,

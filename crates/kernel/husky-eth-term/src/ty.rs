@@ -1,0 +1,161 @@
+use crate::*;
+use husky_dec_ty::principal_item_path::{
+    fugitive_path_declarative_ty, trai_path_declarative_ty,
+    ty_instance_constructor_path_declarative_ty, ty_ontology_path_declarative_ty,
+    ty_variant::ty_variant_path_declarative_ty,
+};
+use husky_vfs::Toolchain;
+
+pub trait HasType: Copy {
+    fn ty(self, db: &::salsa::Db) -> EthTermResult<EthTerm>;
+}
+
+pub trait HasTypeGivenToolchain: Copy {
+    fn ty(self, db: &::salsa::Db, toolchain: Toolchain) -> EthTermResult<EthTerm>;
+}
+
+pub trait HasTypeGivenDisambiguation: Copy {
+    fn ty(self, db: &::salsa::Db, disambiguation: TypePathDisambiguation)
+        -> EthTermResult<EthTerm>;
+}
+
+impl HasTypeGivenDisambiguation for PrincipalEntityPath {
+    fn ty(
+        self,
+        db: &::salsa::Db,
+        disambiguation: TypePathDisambiguation,
+    ) -> EthTermResult<EthTerm> {
+        match self {
+            PrincipalEntityPath::Module(path) => Ok(db
+                .ethereal_term_menu(path.toolchain(db))
+                .module_ty_ontology()),
+            PrincipalEntityPath::MajorItem(path) => path.ty(db, disambiguation),
+            PrincipalEntityPath::TypeVariant(path) => path.ty(db),
+        }
+    }
+}
+
+impl HasTypeGivenDisambiguation for MajorItemPath {
+    fn ty(
+        self,
+        db: &::salsa::Db,
+        disambiguation: TypePathDisambiguation,
+    ) -> EthTermResult<EthTerm> {
+        match self {
+            MajorItemPath::Type(path) => path.ty(db, disambiguation),
+            MajorItemPath::Trait(path) => path.ty(db),
+            MajorItemPath::Fugitive(path) => path.ty(db),
+        }
+    }
+}
+
+impl HasType for TraitPath {
+    fn ty(self, db: &::salsa::Db) -> EthTermResult<EthTerm> {
+        EthTerm::ty_from_declarative(db, trai_path_declarative_ty(db, self)?)
+    }
+}
+
+impl HasType for FugitivePath {
+    fn ty(self, db: &::salsa::Db) -> EthTermResult<EthTerm> {
+        EthTerm::ty_from_declarative(db, fugitive_path_declarative_ty(db, self)?)
+    }
+}
+
+impl HasTypeGivenDisambiguation for TypePath {
+    fn ty(
+        self,
+        db: &::salsa::Db,
+        disambiguation: TypePathDisambiguation,
+    ) -> EthTermResult<EthTerm> {
+        match disambiguation {
+            TypePathDisambiguation::OntologyConstructor => {
+                EthTerm::ty_from_declarative(db, ty_ontology_path_declarative_ty(db, self)?)
+            }
+            TypePathDisambiguation::InstanceConstructor => EthTerm::ty_from_declarative(
+                db,
+                ty_instance_constructor_path_declarative_ty(db, self)?,
+            ),
+        }
+    }
+}
+
+impl HasType for TypeVariantPath {
+    fn ty(self, db: &::salsa::Db) -> EthTermResult<EthTerm> {
+        EthTerm::ty_from_declarative(db, ty_variant_path_declarative_ty(db, self)?)
+    }
+}
+
+impl HasTypeGivenToolchain for EthTerm {
+    fn ty(self, _db: &::salsa::Db, _toolchain: Toolchain) -> EthTermResult<EthTerm> {
+        todo!()
+        // self.ty_unchecked(db)?.checked(db)
+    }
+}
+
+#[salsa::debug_with_db]
+#[enum_class::from_variants]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum RawType {
+    Prelude(PreludeTypePath),
+    Declarative(DeclarativeTerm),
+}
+
+impl EthTerm {
+    pub fn ty_unchecked(self, db: &::salsa::Db) -> EthTermResult<Either<EthTerm, PreludeTypePath>> {
+        Ok(match self.raw_ty(db)? {
+            RawType::Declarative(declarative_ty) => Left(EthTerm::from_declarative(
+                db,
+                declarative_ty,
+                TermTypeExpectation::FinalDestinationEqsSort,
+            )?),
+            RawType::Prelude(prelude_ty_path) => Right(prelude_ty_path),
+        })
+    }
+
+    pub fn raw_ty(self, db: &::salsa::Db) -> EthTermResult<RawType> {
+        Ok(match self {
+            EthTerm::Literal(slf) => RawType::Prelude(slf.ty()),
+            EthTerm::Symbol(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
+            EthTerm::Rune(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
+            EthTerm::EntityPath(slf) => match slf {
+                ItemPathTerm::Fugitive(path) => todo!(),
+                ItemPathTerm::Trait(path) => {
+                    RawType::Declarative(trai_path_declarative_ty(db, path)?)
+                }
+                ItemPathTerm::TypeOntology(path) => {
+                    RawType::Declarative(ty_ontology_path_declarative_ty(db, path)?)
+                }
+                ItemPathTerm::TypeInstance(path) => {
+                    RawType::Declarative(ty_instance_constructor_path_declarative_ty(db, path)?)
+                }
+                ItemPathTerm::TypeVariant(path) => {
+                    RawType::Declarative(ty_variant_path_declarative_ty(db, path)?)
+                }
+            },
+            EthTerm::Category(slf) => RawType::Declarative(slf.ty()?.into()),
+            EthTerm::Universe(_) => RawType::Prelude(PreludeTypePath::UNIVERSE),
+            EthTerm::Curry(slf) => slf.raw_ty(db),
+            EthTerm::Ritchie(_) => DeclarativeTerm::Category(CategoryTerm::new(1.into())).into(),
+            EthTerm::Abstraction(_) => todo!(),
+            EthTerm::Application(term) => RawType::Declarative(term.declarative_ty(db)?),
+            EthTerm::TypeAsTraitItem(_) => todo!(),
+            EthTerm::TraitConstraint(_) => todo!(),
+        })
+    }
+}
+
+impl CurryEthTerm {
+    fn raw_ty(self, db: &salsa::Db) -> RawType {
+        let Ok(RawType::Declarative(DeclarativeTerm::Category(parameter_ty_cat))) =
+            self.parameter_ty(db).raw_ty(db)
+        else {
+            unreachable!()
+        };
+        let Ok(RawType::Declarative(DeclarativeTerm::Category(return_ty_cat))) =
+            self.return_ty(db).raw_ty(db)
+        else {
+            unreachable!()
+        };
+        RawType::Declarative(parameter_ty_cat.max(return_ty_cat).into())
+    }
+}

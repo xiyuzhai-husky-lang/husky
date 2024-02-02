@@ -4,11 +4,11 @@ pub mod ritchie;
 use self::{path_leading::HirTypePathLeading, ritchie::HirRitchieType};
 use crate::*;
 use either::*;
-use husky_ethereal_signature::{helpers::trai_for_ty::is_ty_term_always_copyable, HasEthTemplate};
-use husky_ethereal_term::{
+use husky_eth_signature::{helpers::trai_for_ty::is_ty_term_always_copyable, HasEthTemplate};
+use husky_eth_term::{
     ApplicationEthTerm, EthTerm, EthTermSymbolIndexImpl, RitchieEthTerm, TermFunctionReduced,
 };
-use husky_fluffy_term::{FlyTerm, FlyTermBase, FlyTerms};
+use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
 
 use husky_term_prelude::ItemPathTerm;
 

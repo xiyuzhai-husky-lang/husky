@@ -8,4 +8,4 @@ husky-term
 
 husky-ty
 
-husky-fluffy-term
+husky-fly-term

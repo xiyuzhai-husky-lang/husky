@@ -24,7 +24,7 @@ mod linkage;
 // pub use husky_vm_interface::*;
 // pub use stack_idx::*;
 
-// use husky_ethereal_term::EntityRoutePtr;
+// use husky_eth_term::EntityRoutePtr;
 // use husky_print_utils::p;
 // use serde::Serialize;
 // use std::{

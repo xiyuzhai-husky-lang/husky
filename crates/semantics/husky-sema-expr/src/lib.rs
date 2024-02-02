@@ -24,12 +24,12 @@ pub use self::region::*;
 pub use self::stmt::*;
 
 use either::*;
-use husky_declarative_signature::*;
+use husky_dec_signature::*;
 use husky_entity_kind::*;
 use husky_entity_path::*;
 use husky_entity_tree::*;
-use husky_ethereal_term::*;
-use husky_fluffy_term::*;
+use husky_eth_term::*;
+use husky_fly_term::*;
 use husky_syn_defn::*;
 use husky_syn_expr::*;
 use husky_term_prelude::*;

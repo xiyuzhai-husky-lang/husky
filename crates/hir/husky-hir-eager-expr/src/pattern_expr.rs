@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ethereal_term::EthTerm;
+use husky_eth_term::EthTerm;
 use husky_syn_expr::{SynPatternExprData, SynPatternExprIdx, SynPatternExprRoot};
 use husky_term_prelude::literal::TermLiteral;
 use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData};

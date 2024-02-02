@@ -1,5 +1,5 @@
 use super::*;
-use husky_fluffy_term::{dispatch::HasFlyMethodDispatch, signature::MethodFlySignature};
+use husky_fly_term::{dispatch::HasFlyMethodDispatch, signature::MethodFlySignature};
 use husky_regional_token::IdentRegionalToken;
 
 impl<'a> SemaExprEngine<'a> {

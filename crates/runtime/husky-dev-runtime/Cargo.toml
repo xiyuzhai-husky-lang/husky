@@ -22,9 +22,9 @@ husky-hir-opr.workspace = true
 husky-coword.workspace = true
 husky-entity-kind.workspace = true
 husky-entity-path.workspace = true
-husky-ethereal-term.workspace = true
-husky-ethereal-signature.workspace = true
-husky-fluffy-term.workspace = true
+husky-eth-term.workspace = true
+husky-eth-signature.workspace = true
+husky-fly-term.workspace = true
 # ad hoc
 husky-term-prelude.workspace = true
 # lex

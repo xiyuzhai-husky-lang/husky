@@ -1,5 +1,5 @@
 use crate::*;
-use husky_fluffy_term::FlyTermBase;
+use husky_fly_term::FlyTermBase;
 use husky_hir_ty::trai::HirTrait;
 
 use husky_syn_expr::{

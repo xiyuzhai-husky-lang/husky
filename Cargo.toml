@@ -159,15 +159,15 @@ husky-token-info = { path = "crates/ide/husky-token-info" }
 husky-syn-fmt = { path = "crates/ide/husky-syn-fmt" }
 # kernel
 husky-coword = { path = "crates/kernel/husky-coword" }
-husky-declarative-term = { path = "crates/kernel/husky-declarative-term" }
-husky-declarative-ty = { path = "crates/kernel/husky-declarative-ty" }
-husky-declarative-signature = { path = "crates/kernel/husky-declarative-signature" }
+husky-dec-term = { path = "crates/kernel/husky-dec-term" }
+husky-dec-ty = { path = "crates/kernel/husky-dec-ty" }
+husky-dec-signature = { path = "crates/kernel/husky-dec-signature" }
 husky-entity-kind = { path = "crates/kernel/husky-entity-kind" }
 husky-entity-path = { path = "crates/kernel/husky-entity-path" }
-husky-ethereal-term = { path = "crates/kernel/husky-ethereal-term" }
-husky-ethereal-signature = { path = "crates/kernel/husky-ethereal-signature" }
+husky-eth-term = { path = "crates/kernel/husky-eth-term" }
+husky-eth-signature = { path = "crates/kernel/husky-eth-signature" }
 husky-expr = { path = "crates/kernel/husky-expr" }
-husky-fluffy-term = { path = "crates/kernel/husky-fluffy-term" }
+husky-fly-term = { path = "crates/kernel/husky-fly-term" }
 husky-opr = { path = "crates/kernel/husky-opr" }
 husky-scope = { path = "crates/kernel/husky-scope" }
 husky-stack-location = { path = "crates/kernel/husky-stack-location" }

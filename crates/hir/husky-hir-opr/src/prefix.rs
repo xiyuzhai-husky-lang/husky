@@ -1,7 +1,7 @@
 use either::*;
 use husky_entity_path::{PreludeNumTypePath, PreludeTypePath};
-use husky_fluffy_term::FlyTerm;
-use husky_fluffy_term::FlyTerms;
+use husky_fly_term::FlyTerm;
+use husky_fly_term::FlyTerms;
 use husky_sema_opr::prefix::SemaPrefixOpr;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -24,7 +24,7 @@ impl HirPrefixOpr {
         match opr {
             SemaPrefixOpr::Minus => HirPrefixOpr::Minus,
             SemaPrefixOpr::Not => match opd_ty.base_ty_data_inner(db, fluffy_terms) {
-                husky_fluffy_term::FlyBaseTypeData::TypeOntology {
+                husky_fly_term::FlyBaseTypeData::TypeOntology {
                     ty_path: _,
                     refined_ty_path: Left(prelude_ty_path),
                     ty_arguments: _,

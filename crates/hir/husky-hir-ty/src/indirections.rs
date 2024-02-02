@@ -1,5 +1,5 @@
 use crate::place::HirPlace;
-use husky_fluffy_term::dispatch::{FlyIndirection, FlyIndirections};
+use husky_fly_term::dispatch::{FlyIndirection, FlyIndirections};
 use smallvec::SmallVec;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]

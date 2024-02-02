@@ -15,8 +15,8 @@ vec-like.workspace = true
 enum-class.workspace = true
 # kernel
 husky-coword.workspace = true
-husky-ethereal-term.workspace = true
-husky-ethereal-signature.workspace = true
+husky-eth-term.workspace = true
+husky-eth-signature.workspace = true
 husky-standard-value = { workspace = true, features = ["vm_support"] }
 # syntax
 husky-syn-expr.workspace = true
