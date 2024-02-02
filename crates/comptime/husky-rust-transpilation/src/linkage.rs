@@ -9,7 +9,7 @@ use husky_ethereal_signature::signature::HasEthTemplate;
 use husky_hir_ty::{ritchie::HirEagerContract, trai::HirTrait, HirType};
 use husky_javelin::template_argument::constant::JavelinConstant;
 use husky_linkage::{
-    instantiation::{LinTermSymbolResolution, LinkageInstantiate, LinkageInstantiation},
+    instantiation::{LinInstantiation, LinTermSymbolResolution, LinkageInstantiate},
     linkage::LinkageStructField,
     template_argument::{
         constant::LinConstant,
@@ -145,7 +145,7 @@ impl TranspileToRustWith<()> for Linkage {
     }
 }
 
-impl<E> TranspileToRustWith<E> for (AssociatedItemPath, &LinkageInstantiation) {
+impl<E> TranspileToRustWith<E> for (AssociatedItemPath, &LinInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let (path, instantiation) = self;
         match path {
@@ -158,7 +158,7 @@ impl<E> TranspileToRustWith<E> for (AssociatedItemPath, &LinkageInstantiation) {
     }
 }
 
-impl<E> TranspileToRustWith<E> for (FugitivePath, &LinkageInstantiation) {
+impl<E> TranspileToRustWith<E> for (FugitivePath, &LinInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let (path, instantiation) = self;
         path.transpile_to_rust(builder);
@@ -167,7 +167,7 @@ impl<E> TranspileToRustWith<E> for (FugitivePath, &LinkageInstantiation) {
 }
 
 fn turbo_fish_instantiation<E>(
-    instantiation: &LinkageInstantiation,
+    instantiation: &LinInstantiation,
     builder: &mut RustTranspilationBuilder<'_, '_, E>,
 ) {
     if !instantiation.is_empty() {
@@ -182,7 +182,7 @@ fn turbo_fish_instantiation<E>(
     }
 }
 
-impl<E> TranspileToRustWith<E> for (TypeVariantPath, &LinkageInstantiation) {
+impl<E> TranspileToRustWith<E> for (TypeVariantPath, &LinInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let (path, instantiation) = self;
         path.transpile_to_rust(builder);
@@ -190,9 +190,9 @@ impl<E> TranspileToRustWith<E> for (TypeVariantPath, &LinkageInstantiation) {
     }
 }
 
-impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinkageInstantiation) {
+impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
-        let (path, linkage_instantiation) = self;
+        let (path, lin_instantiation) = self;
         let db = builder.db;
         let self_ty = HirType::from_ethereal(
             path.impl_block(db)
@@ -202,7 +202,7 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinkageInstantiation) {
             db,
         )
         .unwrap()
-        .linkage_instantiate(linkage_instantiation, db);
+        .linkage_instantiate(lin_instantiation, db);
         let ident = path.ident(db).unwrap();
         builder.bracketed(RustBracket::Angle, |builder| {
             match self_ty {
@@ -232,7 +232,7 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinkageInstantiation) {
             self_ty.transpile_to_rust(builder)
         });
         builder.punctuation(RustPunctuation::ColonColon);
-        let places = linkage_instantiation.places();
+        let places = lin_instantiation.places();
         match places.len() {
             0 => ident.transpile_to_rust(builder),
             1 => {
@@ -367,7 +367,7 @@ impl<E> TranspileToRustWith<E> for LinkageRitchieParameter {
     }
 }
 
-impl<E> TranspileToRustWith<E> for (TraitItemPath, &LinkageInstantiation) {
+impl<E> TranspileToRustWith<E> for (TraitItemPath, &LinInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let (path, _instantiation) = self;
         let db = builder.db;
@@ -377,9 +377,9 @@ impl<E> TranspileToRustWith<E> for (TraitItemPath, &LinkageInstantiation) {
     }
 }
 
-impl<E> TranspileToRustWith<E> for (TraitForTypeItemPath, &LinkageInstantiation) {
+impl<E> TranspileToRustWith<E> for (TraitForTypeItemPath, &LinInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
-        let (path, linkage_instantiation) = self;
+        let (path, lin_instantiation) = self;
         let db = builder.db;
         builder.bracketed(RustBracket::Angle, |builder| {
             let trait_for_type_impl_block_ethereal_signature_template =
@@ -389,14 +389,14 @@ impl<E> TranspileToRustWith<E> for (TraitForTypeItemPath, &LinkageInstantiation)
                 db,
             )
             .unwrap()
-            .linkage_instantiate(linkage_instantiation, db);
+            .linkage_instantiate(lin_instantiation, db);
             self_ty.transpile_to_rust(builder);
             builder.keyword(RustKeyword::As);
             let trai = HirTrait::from_ethereal(
                 trait_for_type_impl_block_ethereal_signature_template.trai(db),
                 db,
             );
-            trai.linkage_instantiate(linkage_instantiation, db)
+            trai.linkage_instantiate(lin_instantiation, db)
                 .transpile_to_rust(builder)
         });
         builder.punctuation(RustPunctuation::ColonColon);

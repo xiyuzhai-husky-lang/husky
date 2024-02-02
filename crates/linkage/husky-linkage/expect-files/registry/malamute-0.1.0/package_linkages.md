@@ -35,7 +35,7 @@
                     },
                 ),
             ),
-            instantiation: LinkageInstantiation {
+            instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: Some(
                     0,
@@ -69,7 +69,7 @@
                     },
                 ),
             ),
-            instantiation: LinkageInstantiation {
+            instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: Some(
                     0,
@@ -101,7 +101,7 @@
                     ),
                 },
             ),
-            instantiation: LinkageInstantiation {
+            instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: Some(
                     0,
@@ -124,7 +124,7 @@
                     ),
                 },
             ),
-            instantiation: LinkageInstantiation {
+            instantiation: LinInstantiation {
                 symbol_resolutions: [
                     (
                         Type(
@@ -190,7 +190,7 @@
                     ),
                 },
             ),
-            instantiation: LinkageInstantiation {
+            instantiation: LinInstantiation {
                 symbol_resolutions: [
                     (
                         Type(

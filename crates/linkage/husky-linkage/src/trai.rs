@@ -1,5 +1,5 @@
 use crate::{
-    instantiation::{LinkageInstantiate, LinkageInstantiation},
+    instantiation::{LinInstantiation, LinkageInstantiate},
     jar::LinkageJar,
     template_argument::{LinTemplateArgument, LinTemplateArguments},
 };
@@ -19,13 +19,13 @@ impl LinkageInstantiate for HirTrait {
 
     fn linkage_instantiate(
         self,
-        linkage_instantiation: &LinkageInstantiation,
+        lin_instantiation: &LinInstantiation,
         db: &salsa::Db,
     ) -> Self::Output {
         let trai_path = self.trai_path(db);
         let template_arguments = LinTemplateArgument::from_hir_template_arguments(
             self.template_arguments(db),
-            Some(linkage_instantiation),
+            Some(lin_instantiation),
             db,
         );
         LinkageTrait::new(db, trai_path, template_arguments)

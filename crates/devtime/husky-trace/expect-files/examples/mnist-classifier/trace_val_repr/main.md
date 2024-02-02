@@ -98,7 +98,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -256,7 +256,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -1158,7 +1158,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -1233,7 +1233,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -1331,7 +1331,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [
                                     (
                                         Type(
@@ -1568,7 +1568,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -1647,7 +1647,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -1726,7 +1726,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -1887,7 +1887,7 @@
                     Linkage {
                         data: LinkageData::FunctionGnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [
                                     (
                                         Type(
@@ -2040,7 +2040,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -2152,7 +2152,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -2254,7 +2254,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -2366,7 +2366,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -2468,7 +2468,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -2580,7 +2580,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -2682,7 +2682,7 @@
                     Linkage {
                         data: LinkageData::FunctionGnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [
                                     (
                                         Type(
@@ -2930,7 +2930,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -3042,7 +3042,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -3208,7 +3208,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -3289,7 +3289,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -3563,7 +3563,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -3644,7 +3644,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -3932,7 +3932,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -4013,7 +4013,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -4431,7 +4431,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -4535,7 +4535,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -4739,7 +4739,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -4843,7 +4843,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -5026,7 +5026,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -5107,7 +5107,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -5211,7 +5211,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -5285,7 +5285,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -5366,7 +5366,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -5470,7 +5470,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -6191,7 +6191,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -6303,7 +6303,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -6458,7 +6458,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -6616,7 +6616,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -6841,7 +6841,7 @@
                     Linkage {
                         data: LinkageData::FunctionGnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [
                                     (
                                         Type(
@@ -6958,7 +6958,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -7033,7 +7033,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -7104,7 +7104,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -7177,7 +7177,7 @@
                     Linkage {
                         data: LinkageData::FunctionGnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [
                                     (
                                         Type(
@@ -7434,7 +7434,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -7513,7 +7513,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -7592,7 +7592,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -8139,7 +8139,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -8251,7 +8251,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -10611,7 +10611,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -10769,7 +10769,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -10878,7 +10878,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -11036,7 +11036,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -11294,7 +11294,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -11733,7 +11733,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -11814,7 +11814,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -11994,7 +11994,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -12075,7 +12075,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -12146,7 +12146,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -12227,7 +12227,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -13397,7 +13397,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -13658,7 +13658,7 @@
                     Linkage {
                         data: LinkageData::FunctionGnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [
                                     (
                                         Type(
@@ -13770,7 +13770,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -13851,7 +13851,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -13953,7 +13953,7 @@
                     Linkage {
                         data: LinkageData::FunctionGnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [
                                     (
                                         Type(
@@ -14281,7 +14281,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -14362,7 +14362,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -14561,7 +14561,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -14773,7 +14773,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -14877,7 +14877,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -15200,7 +15200,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -15659,7 +15659,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -15817,7 +15817,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -15926,7 +15926,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -16023,7 +16023,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -16181,7 +16181,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -16391,7 +16391,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -16601,7 +16601,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -16811,7 +16811,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -18655,7 +18655,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -19017,7 +19017,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -19175,7 +19175,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -19284,7 +19284,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -19442,7 +19442,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -19551,7 +19551,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -19709,7 +19709,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -19818,7 +19818,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -19915,7 +19915,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -20073,7 +20073,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -20283,7 +20283,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -20664,7 +20664,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -21268,7 +21268,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -21377,7 +21377,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -22551,7 +22551,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -22681,7 +22681,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -22839,7 +22839,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -22948,7 +22948,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -23106,7 +23106,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -23215,7 +23215,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -23312,7 +23312,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -23522,7 +23522,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -24291,7 +24291,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -24501,7 +24501,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -24741,7 +24741,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -24899,7 +24899,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -25008,7 +25008,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -25157,7 +25157,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -25266,7 +25266,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -25554,7 +25554,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -25806,7 +25806,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -25964,7 +25964,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -26073,7 +26073,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -26231,7 +26231,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -26340,7 +26340,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -26489,7 +26489,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -26870,7 +26870,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -27474,7 +27474,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -27583,7 +27583,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -28757,7 +28757,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -28915,7 +28915,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -29024,7 +29024,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -29173,7 +29173,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -29383,7 +29383,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -29764,7 +29764,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -29974,7 +29974,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -30184,7 +30184,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -30504,7 +30504,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -30613,7 +30613,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -32097,7 +32097,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -32355,7 +32355,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist::input`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -32564,7 +32564,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -32982,7 +32982,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -33496,7 +33496,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -33755,7 +33755,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -33913,7 +33913,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -34239,7 +34239,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -34468,7 +34468,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -34788,7 +34788,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -35111,7 +35111,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -35208,7 +35208,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -35531,7 +35531,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -35628,7 +35628,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -35951,7 +35951,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -36048,7 +36048,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -36206,7 +36206,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -36303,7 +36303,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -36461,7 +36461,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::main`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -36674,7 +36674,7 @@
                     Linkage {
                         data: LinkageData::FunctionGnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [
                                     (
                                         Type(
@@ -36791,7 +36791,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -36866,7 +36866,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -36937,7 +36937,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -37010,7 +37010,7 @@
                     Linkage {
                         data: LinkageData::FunctionGnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [
                                     (
                                         Type(
@@ -37267,7 +37267,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -37346,7 +37346,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -37425,7 +37425,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -37972,7 +37972,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -38084,7 +38084,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -40609,7 +40609,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -41048,7 +41048,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -41129,7 +41129,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -41309,7 +41309,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -41390,7 +41390,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -41461,7 +41461,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -41542,7 +41542,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -42712,7 +42712,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -42973,7 +42973,7 @@
                     Linkage {
                         data: LinkageData::FunctionGnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [
                                     (
                                         Type(
@@ -43085,7 +43085,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -43166,7 +43166,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -43268,7 +43268,7 @@
                     Linkage {
                         data: LinkageData::FunctionGnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [
                                     (
                                         Type(
@@ -43596,7 +43596,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -43677,7 +43677,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -43876,7 +43876,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -44088,7 +44088,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -44192,7 +44192,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -44515,7 +44515,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -45783,7 +45783,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -45858,7 +45858,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -45956,7 +45956,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [
                                     (
                                         Type(
@@ -46193,7 +46193,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -46272,7 +46272,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -46351,7 +46351,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -46512,7 +46512,7 @@
                     Linkage {
                         data: LinkageData::FunctionGnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [
                                     (
                                         Type(
@@ -46665,7 +46665,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -46777,7 +46777,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -46879,7 +46879,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -46991,7 +46991,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -47093,7 +47093,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -47205,7 +47205,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -47307,7 +47307,7 @@
                     Linkage {
                         data: LinkageData::FunctionGnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [
                                     (
                                         Type(
@@ -47555,7 +47555,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -47667,7 +47667,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -47833,7 +47833,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -47914,7 +47914,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -48188,7 +48188,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -48269,7 +48269,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -48557,7 +48557,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -48638,7 +48638,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -49056,7 +49056,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -49160,7 +49160,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -49364,7 +49364,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -49468,7 +49468,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -49651,7 +49651,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -49732,7 +49732,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -49836,7 +49836,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -49910,7 +49910,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -49991,7 +49991,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -50095,7 +50095,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -50816,7 +50816,7 @@
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -50928,7 +50928,7 @@
                             path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: Some(
                                     0,
@@ -51099,7 +51099,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -51196,7 +51196,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -51406,7 +51406,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -52175,7 +52175,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -52385,7 +52385,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -52641,7 +52641,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -52790,7 +52790,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -52899,7 +52899,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -53187,7 +53187,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -53455,7 +53455,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -53552,7 +53552,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -53710,7 +53710,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -53920,7 +53920,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -54130,7 +54130,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -54340,7 +54340,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -56184,7 +56184,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -56562,7 +56562,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -56711,7 +56711,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -57092,7 +57092,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -57696,7 +57696,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -57805,7 +57805,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -58995,7 +58995,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -59141,7 +59141,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -59290,7 +59290,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -59500,7 +59500,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -59881,7 +59881,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -60091,7 +60091,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -60301,7 +60301,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -60621,7 +60621,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },
@@ -60730,7 +60730,7 @@
                     Linkage {
                         data: LinkageData::ValItem {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            instantiation: LinkageInstantiation {
+                            instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
                             },

@@ -195,7 +195,7 @@ impl<'a> LinkageVersionStampBuilder<'a> {
         self.add(hir_defn);
     }
 
-    fn add_instantiation(&mut self, instantiation: &LinkageInstantiation) {
+    fn add_instantiation(&mut self, instantiation: &LinInstantiation) {
         for &(_, res) in &**instantiation {
             self.add_symbol_resolution(res);
         }
