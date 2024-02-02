@@ -4,10 +4,10 @@ use crate::*;
 pub struct TermMenu1 {
     parent: TermMenu0,
     static_ref_ty: EthTerm,
-    explicit_invariant_ty0_to_trai_ty: CurryEthTerm,
-    explicit_covariant_ty0_to_ty0: CurryEthTerm,
-    explicit_contravariant_ty0_to_ty0: CurryEthTerm,
-    explicit_invariant_ty0_to_ty0: CurryEthTerm,
+    explicit_invariant_ty0_to_trai_ty: EthCurry,
+    explicit_covariant_ty0_to_ty0: EthCurry,
+    explicit_contravariant_ty0_to_ty0: EthCurry,
+    explicit_invariant_ty0_to_ty0: EthCurry,
 }
 
 impl std::ops::Deref for TermMenu1 {
@@ -22,14 +22,14 @@ impl TermMenu1 {
     pub fn new(db: &::salsa::Db, toolchain: Toolchain, menu0: TermMenu0) -> Self {
         // todo!()
         Self {
-            static_ref_ty: ApplicationEthTerm::new(
+            static_ref_ty: EthApplication::new(
                 db,
                 menu0.ref_ty_path().into(),
                 menu0.static_lifetime().into(),
             )
             .unwrap()
             .into(),
-            explicit_invariant_ty0_to_trai_ty: CurryEthTerm::new(
+            explicit_invariant_ty0_to_trai_ty: EthCurry::new(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -38,7 +38,7 @@ impl TermMenu1 {
                 menu0.ty0().into(),
                 menu0.trai_ty_ontology().into(),
             ),
-            explicit_covariant_ty0_to_ty0: CurryEthTerm::new(
+            explicit_covariant_ty0_to_ty0: EthCurry::new(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -47,7 +47,7 @@ impl TermMenu1 {
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),
-            explicit_contravariant_ty0_to_ty0: CurryEthTerm::new(
+            explicit_contravariant_ty0_to_ty0: EthCurry::new(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -56,7 +56,7 @@ impl TermMenu1 {
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),
-            explicit_invariant_ty0_to_ty0: CurryEthTerm::new(
+            explicit_invariant_ty0_to_ty0: EthCurry::new(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -73,19 +73,19 @@ impl TermMenu1 {
         self.static_ref_ty
     }
 
-    pub fn ex_inv_ty0_to_trai_ty(&self) -> CurryEthTerm {
+    pub fn ex_inv_ty0_to_trai_ty(&self) -> EthCurry {
         self.explicit_invariant_ty0_to_trai_ty
     }
 
-    pub fn ex_co_ty0_to_ty0(&self) -> CurryEthTerm {
+    pub fn ex_co_ty0_to_ty0(&self) -> EthCurry {
         self.explicit_covariant_ty0_to_ty0
     }
 
-    pub fn explicit_contravariant_ty0_to_ty0(&self) -> CurryEthTerm {
+    pub fn explicit_contravariant_ty0_to_ty0(&self) -> EthCurry {
         self.explicit_contravariant_ty0_to_ty0
     }
 
-    pub fn ex_inv_ty0_to_ty0(&self) -> CurryEthTerm {
+    pub fn ex_inv_ty0_to_ty0(&self) -> EthCurry {
         self.explicit_invariant_ty0_to_ty0
     }
 }

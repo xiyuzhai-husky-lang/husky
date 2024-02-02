@@ -17,7 +17,7 @@ use husky_hir_ty::{
 };
 use husky_sema_expr::{SemaExprData, SemaExprIdx};
 use husky_sema_opr::binary::SemaBinaryOpr;
-use husky_term_prelude::literal::TermLiteral;
+use husky_term_prelude::literal::Literal;
 use idx_arena::ArenaRef;
 
 pub type HirLazyExprArena = Arena<HirLazyExprData>;
@@ -29,7 +29,7 @@ pub type HirLazyExprMap<V> = ArenaMap<HirLazyExprData, V>;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db]
 pub enum HirLazyExprData {
-    Literal(TermLiteral),
+    Literal(Literal),
     PrincipalEntityPath(PrincipalEntityPath),
     ConstSymbol(HirConstSymbol),
     Variable(HirLazyVariableIdx),

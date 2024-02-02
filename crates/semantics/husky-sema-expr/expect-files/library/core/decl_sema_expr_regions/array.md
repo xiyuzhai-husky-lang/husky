@@ -183,7 +183,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: UniverseTerm(
+                                        smallest_universe: Universe(
                                             1,
                                         ),
                                     },
@@ -204,7 +204,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                UniverseTerm(
+                                                Universe(
                                                     1,
                                                 ),
                                             ),

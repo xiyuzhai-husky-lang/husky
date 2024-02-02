@@ -32,7 +32,7 @@ impl FlyTerms {
     pub(crate) fn new_hole_from_template_parameter_symbol(
         &mut self,
         hole_source: HoleSource,
-        template_parameter_symbol: SymbolEthTerm,
+        template_parameter_symbol: EthSymbol,
         db: &::salsa::Db,
     ) -> HolTerm {
         let hole_kind = match template_parameter_symbol.ty(db) {

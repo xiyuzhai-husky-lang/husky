@@ -5,7 +5,7 @@ pub struct EnumPropsVariantDecTemplate {
     pub parent_ty_template: EnumTypeDecTemplate,
     pub field_tys: SmallVec<[EnumPropsVariantFieldDecTemplate; 4]>,
     pub return_ty: DecTerm,
-    pub instance_constructor_ty: RitchieDecTerm,
+    pub instance_constructor_ty: DecRitchie,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -37,7 +37,7 @@ impl EnumPropsVariantDecTemplate {
             .collect::<DecSignatureResult<SmallVec<_>>>()?;
         // todo: GADT can override return_ty
         let return_ty = parent_ty_template.self_ty(db);
-        let instance_constructor_ty = RitchieDecTerm::new(
+        let instance_constructor_ty = DecRitchie::new(
             db,
             TypeRitchieKind::Fn.into(),
             fields

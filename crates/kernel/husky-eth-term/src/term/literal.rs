@@ -3,12 +3,12 @@ use super::*;
 impl EthTerm {
     pub(super) fn from_literal_declarative_term(
         db: &::salsa::Db,
-        literal: LiteralDecTerm,
-        ty_expectation: TermTypeExpectation,
+        literal: DecLiteral,
+        ty_expectation: TypeFinalDestinationExpectation,
     ) -> EthTermResult<Self> {
         Ok(match literal {
-            LiteralDecTerm::Resolved(literal) => literal.into(),
-            LiteralDecTerm::Unresolved(literal) => {
+            DecLiteral::Resolved(literal) => literal.into(),
+            DecLiteral::Unresolved(literal) => {
                 Self::from_unresolved_literal_declarative_term(literal, ty_expectation, db)
             }
         })
@@ -16,13 +16,12 @@ impl EthTerm {
 
     fn from_unresolved_literal_declarative_term(
         literal: UnresolvedTermLiteral,
-        ty_expectation: TermTypeExpectation,
+        ty_expectation: TypeFinalDestinationExpectation,
         db: &salsa::Db,
     ) -> EthTerm {
         match literal {
             UnresolvedTermLiteral::RegularInteger(i) => {
-                let TermTypeExpectation::FinalDestinationEqsNonSortTypePath(ty_path) =
-                    ty_expectation
+                let TypeFinalDestinationExpectation::EqsNonSortTypePath(ty_path) = ty_expectation
                 else {
                     todo!()
                 };
@@ -31,7 +30,7 @@ impl EthTerm {
                 else {
                     todo!()
                 };
-                TermLiteral::from_unspecified_int(int_ty_path, i, db).into()
+                Literal::from_unspecified_int(int_ty_path, i, db).into()
             }
         }
     }

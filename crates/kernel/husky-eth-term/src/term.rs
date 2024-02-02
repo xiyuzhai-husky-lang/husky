@@ -23,7 +23,7 @@ use crate::instantiation::*;
 use crate::*;
 use husky_coword::Ident;
 use husky_dec_term::term::DecTerm;
-use husky_term_prelude::literal::TermLiteral;
+use husky_term_prelude::literal::Literal;
 use salsa::DisplayWithDb;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -32,20 +32,20 @@ pub enum EthTerm {
     /// atoms
     ///
     /// literal: 1,1.0, true, false; variable, itemPath
-    Literal(TermLiteral),
-    Symbol(SymbolEthTerm),
+    Literal(Literal),
+    Symbol(EthSymbol),
     /// the name `rune` is to be distinguishable from runtime variable
-    Rune(RuneEthTerm),
+    Rune(EthRune),
     EntityPath(ItemPathTerm),
-    Category(CategoryTerm),
-    Universe(UniverseTerm),
+    Category(Category),
+    Universe(Universe),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
-    Curry(CurryEthTerm),
+    Curry(EthCurry),
     /// in memory of Dennis M.Ritchie
     /// a type or trait
-    Ritchie(RitchieEthTerm),
+    Ritchie(EthRitchie),
     /// lambda x => expr
-    Abstraction(AbstractionEthTerm),
+    Abstraction(EthAbstraction),
 
     /// in husky, application is generalized to include composition as a special case;
     ///
@@ -60,11 +60,11 @@ pub enum EthTerm {
     /// then apply function to the result,
     ///
     /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-    Application(ApplicationEthTerm),
+    Application(EthApplication),
     /// (<type> as <trait>)::<ident>
-    TypeAsTraitItem(TypeAsTraitItemEthTerm),
+    TypeAsTraitItem(EthTypeAsTraitItem),
     /// <type> : <trait>
-    TraitConstraint(TraitConstraintEthTerm),
+    TraitConstraint(EthTraitConstraint),
 }
 
 impl EthTerm {
@@ -73,7 +73,7 @@ impl EthTerm {
         let ty_term = Self::from_declarative(
             db,
             declarative_term,
-            TermTypeExpectation::FinalDestinationEqsSort,
+            TypeFinalDestinationExpectation::EqsSort,
         )?;
         match ty_term.raw_ty(db)? {
             RawType::Declarative(DecTerm::Category(_)) => Ok(ty_term),
@@ -86,26 +86,26 @@ impl EthTerm {
     pub fn from_declarative(
         db: &::salsa::Db,
         declarative_term: DecTerm,
-        ty_expectation: TermTypeExpectation,
+        ty_expectation: TypeFinalDestinationExpectation,
     ) -> EthTermResult<Self> {
         Ok(match declarative_term {
             DecTerm::Literal(literal) => {
                 EthTerm::from_literal_declarative_term(db, literal, ty_expectation)?
             }
             DecTerm::Symbol(declarative_term) => {
-                SymbolEthTerm::from_declarative(db, declarative_term)?.into()
+                EthSymbol::from_declarative(db, declarative_term)?.into()
             }
             DecTerm::Rune(declarative_term) => {
-                RuneEthTerm::from_declarative(db, declarative_term)?.into()
+                EthRune::from_declarative(db, declarative_term)?.into()
             }
             DecTerm::EntityPath(declarative_term) => match declarative_term {
-                ItemPathDecTerm::Fugitive(path) => ItemPathTerm::Fugitive(path).into(),
-                ItemPathDecTerm::Trait(path) => ItemPathTerm::Trait(path).into(),
-                ItemPathDecTerm::Type(path) => match ty_expectation {
-                    TermTypeExpectation::FinalDestinationEqsSort => {
+                DecItemPath::Fugitive(path) => ItemPathTerm::Fugitive(path).into(),
+                DecItemPath::Trait(path) => ItemPathTerm::Trait(path).into(),
+                DecItemPath::Type(path) => match ty_expectation {
+                    TypeFinalDestinationExpectation::EqsSort => {
                         ItemPathTerm::TypeOntology(path).into()
                     }
-                    TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path_expected) => {
+                    TypeFinalDestinationExpectation::EqsNonSortTypePath(path_expected) => {
                         if path_expected == path {
                             ItemPathTerm::TypeInstance(path).into()
                         } else {
@@ -115,24 +115,24 @@ impl EthTerm {
                             });
                         }
                     }
-                    TermTypeExpectation::Any => ItemPathTerm::TypeInstance(path).into(),
+                    TypeFinalDestinationExpectation::Any => ItemPathTerm::TypeInstance(path).into(),
                 },
-                ItemPathDecTerm::TypeVariant(path) => ItemPathTerm::TypeVariant(path).into(),
+                DecItemPath::TypeVariant(path) => ItemPathTerm::TypeVariant(path).into(),
             },
             DecTerm::Category(declarative_term) => declarative_term.into(),
             DecTerm::Universe(declarative_term) => declarative_term.into(),
             DecTerm::Curry(declarative_term) => {
-                CurryEthTerm::from_declarative(db, declarative_term)?.into()
+                EthCurry::from_declarative(db, declarative_term)?.into()
             }
             DecTerm::Ritchie(declarative_term) => {
-                RitchieEthTerm::from_declarative(db, declarative_term)?.into()
+                EthRitchie::from_declarative(db, declarative_term)?.into()
             }
             DecTerm::Abstraction(declarative_term) => {
-                AbstractionEthTerm::from_declarative(db, declarative_term, ty_expectation)?.into()
+                EthAbstraction::from_declarative(db, declarative_term, ty_expectation)?.into()
             }
             DecTerm::Application(declarative_term) => {
                 // todo: implicit arguments
-                ApplicationEthTerm::from_declarative(db, declarative_term, ty_expectation)?
+                EthApplication::from_declarative(db, declarative_term, ty_expectation)?
             }
             DecTerm::ApplicationOrRitchieCall(declarative_term) => {
                 ethereal_term_from_application_or_ritchie_call_declarative_term(
@@ -146,18 +146,16 @@ impl EthTerm {
                 // EthTermSubitem::from_declarative(db, declarative_term, ty_expectation)?
             }
             DecTerm::TypeAsTraitItem(declarative_term) => {
-                TypeAsTraitItemEthTerm::from_declarative(db, declarative_term, ty_expectation)?
-                    .into()
+                EthTypeAsTraitItem::from_declarative(db, declarative_term, ty_expectation)?.into()
             }
             DecTerm::TraitConstraint(declarative_term) => {
-                TraitConstraintEthTerm::from_declarative(db, declarative_term, ty_expectation)?
-                    .into()
+                EthTraitConstraint::from_declarative(db, declarative_term, ty_expectation)?.into()
             }
             DecTerm::LeashOrBitNot(toolchain) => match ty_expectation {
-                TermTypeExpectation::FinalDestinationEqsSort => {
+                TypeFinalDestinationExpectation::EqsSort => {
                     db.ethereal_term_menu(toolchain).leash_ty_ontology()
                 }
-                TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path) => {
+                TypeFinalDestinationExpectation::EqsNonSortTypePath(path) => {
                     match path.prelude_ty_path(db) {
                         Some(PreludeTypePath::Num(_)) => {
                             todo!()
@@ -165,7 +163,7 @@ impl EthTerm {
                         Some(_) | None => todo!(),
                     }
                 }
-                TermTypeExpectation::Any => todo!(),
+                TypeFinalDestinationExpectation::Any => todo!(),
             },
             DecTerm::List(declarative_term_list) => {
                 ethereal_term_from_list_declarative_term(db, declarative_term_list, ty_expectation)?
@@ -178,8 +176,8 @@ impl EthTerm {
 
     pub(crate) fn into_declarative(self, db: &::salsa::Db) -> DecTerm {
         match self {
-            EthTerm::Literal(slf) => LiteralDecTerm::Resolved(slf).into(),
-            EthTerm::Symbol(slf) => SymbolDecTerm::new(
+            EthTerm::Literal(slf) => DecLiteral::Resolved(slf).into(),
+            EthTerm::Symbol(slf) => DecSymbol::new(
                 db,
                 slf.toolchain(db),
                 Ok(slf.ty(db).into_declarative(db)),
@@ -190,7 +188,7 @@ impl EthTerm {
             EthTerm::EntityPath(slf) => slf.into(),
             EthTerm::Category(slf) => DecTerm::Category(slf),
             EthTerm::Universe(slf) => slf.into(),
-            EthTerm::Curry(slf) => CurryDecTerm::new_inner(
+            EthTerm::Curry(slf) => DecCurry::new_inner(
                 db,
                 slf.toolchain(db),
                 slf.curry_kind(db),
@@ -237,8 +235,8 @@ impl EthTerm {
 #[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn ethereal_term_from_application_or_ritchie_call_declarative_term(
     db: &::salsa::Db,
-    declarative_term: ApplicationOrRitchieCallDecTerm,
-    term_ty_expectation: TermTypeExpectation,
+    declarative_term: DecApplicationOrRitchieCall,
+    term_ty_expectation: TypeFinalDestinationExpectation,
 ) -> EthTermResult<EthTerm> {
     let function =
         EthTerm::from_declarative(db, declarative_term.function(db), term_ty_expectation)?;
@@ -270,23 +268,23 @@ pub(crate) fn ethereal_term_from_application_or_ritchie_call_declarative_term(
 #[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn ethereal_term_from_list_declarative_term(
     db: &::salsa::Db,
-    list: ListDecTerm,
-    term_ty_expectation: TermTypeExpectation,
+    list: DecList,
+    term_ty_expectation: TypeFinalDestinationExpectation,
 ) -> EthTermResult<EthTerm> {
     match term_ty_expectation {
-        TermTypeExpectation::FinalDestinationEqsSort => {
+        TypeFinalDestinationExpectation::EqsSort => {
             let toolchain = list.toolchain(db);
             let term_menu = db.ethereal_term_menu(toolchain);
             let items = list.items(db);
             match items.len() {
                 0 => Ok(term_menu.list_ty_ontology()),
-                1 => Ok(ApplicationEthTerm::new_reduced(
+                1 => Ok(EthApplication::new_reduced(
                     db,
                     term_menu.array_ty_ontology(),
                     EthTerm::from_declarative(
                         db,
                         items[0],
-                        TermTypeExpectation::FinalDestinationEqsNonSortTypePath(
+                        TypeFinalDestinationExpectation::EqsNonSortTypePath(
                             item_path_menu(db, toolchain).usize_ty_path(),
                         ),
                     )?,
@@ -295,7 +293,7 @@ pub(crate) fn ethereal_term_from_list_declarative_term(
                 _ => todo!(),
             }
         }
-        TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path) => {
+        TypeFinalDestinationExpectation::EqsNonSortTypePath(path) => {
             match path.prelude_ty_path(db) {
                 Some(PreludeTypePath::List) => {
                     todo!()
@@ -306,14 +304,14 @@ pub(crate) fn ethereal_term_from_list_declarative_term(
                 Some(_) | None => todo!(),
             }
         }
-        TermTypeExpectation::Any => todo!(),
+        TypeFinalDestinationExpectation::Any => todo!(),
     }
 }
 
 #[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn ethereal_term_from_declarative_term_wrapper(
     db: &::salsa::Db,
-    wrapper: WrapperDecTerm,
+    wrapper: DecWrapper,
 ) -> EthTermResult<EthTerm> {
     let inner_ty = EthTerm::ty_from_declarative(db, wrapper.inner_ty(db))?;
     match inner_ty.application_expansion(db).function() {
@@ -324,7 +322,7 @@ pub(crate) fn ethereal_term_from_declarative_term_wrapper(
                     todo!()
                 };
                 let leash_ty_ontology = db.ethereal_term_menu(toolchain).leash_ty_ontology();
-                Ok(ApplicationEthTerm::new_reduced(
+                Ok(EthApplication::new_reduced(
                     db,
                     leash_ty_ontology,
                     inner_ty,

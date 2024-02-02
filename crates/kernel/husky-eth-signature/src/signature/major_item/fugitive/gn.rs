@@ -7,7 +7,7 @@ pub struct GnFugitiveEthTemplate {
     pub path: FugitivePath,
     #[return_ref]
     pub template_parameters: EthTemplateParameters,
-    pub ritchie_ty: RitchieEthTerm,
+    pub ritchie_ty: EthRitchie,
 }
 
 impl GnFugitiveEthTemplate {
@@ -24,7 +24,7 @@ impl GnFugitiveEthTemplate {
             .map(|&param| EtherealRitchieParameter::from_declarative(param, db))
             .collect::<EthTermResult<SmallVec<[_; 4]>>>()?;
         let return_ty = EthTerm::ty_from_declarative(db, tmpl.return_ty(db))?;
-        let ritchie_ty = RitchieEthTerm::new(
+        let ritchie_ty = EthRitchie::new(
             db,
             RitchieKind::Type(TypeRitchieKind::Gn),
             ritchie_params,

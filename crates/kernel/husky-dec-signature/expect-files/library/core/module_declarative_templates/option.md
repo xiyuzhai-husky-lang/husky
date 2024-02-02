@@ -14,7 +14,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 10,
                                             },
@@ -24,7 +24,7 @@
                                 ],
                             },
                             self_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 28,
                                     },

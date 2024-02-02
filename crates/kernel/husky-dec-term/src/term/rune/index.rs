@@ -9,12 +9,12 @@ impl salsa::DisplayWithDb for RuneIndex {
         db: &salsa::Db,
     ) -> std::fmt::Result {
         match self.ty_family {
-            DecTermFamily::Category(cat) if cat == CategoryTerm::PROP => match self.disambiguator {
+            DecTermFamily::Category(cat) if cat == Category::PROP => match self.disambiguator {
                 0 => f.write_str("p"),
                 1 => f.write_str("q"),
                 idx => f.write_fmt(format_args!("p{}", idx)),
             },
-            DecTermFamily::Category(cat) if cat == CategoryTerm::TYPE => match self.disambiguator {
+            DecTermFamily::Category(cat) if cat == Category::TYPE => match self.disambiguator {
                 0 => f.write_str("t"),
                 1 => f.write_str("s"),
                 idx => f.write_fmt(format_args!("t{}", idx)),

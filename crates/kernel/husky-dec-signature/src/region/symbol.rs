@@ -10,20 +10,20 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct SymbolDecTermRegion {
     symbol_registry: TermSymbolRegistry,
-    symbol_signatures: SymbolOrderedMap<SymbolDecSignature>,
+    symbol_signatures: SymbolOrderedMap<DecSymbolSignature>,
     /// used to format dec terms
     symbol_name_map: SymbolDecTermNameMap,
     self_ty: Option<DecTerm>,
-    self_value: Option<SymbolDecTerm>,
-    self_lifetime: Option<SymbolDecTerm>,
-    self_place: Option<SymbolDecTerm>,
-    implicit_template_parameter_symbols: SmallVec<[SymbolDecTerm; 1]>,
+    self_value: Option<DecSymbol>,
+    self_lifetime: Option<DecSymbol>,
+    self_place: Option<DecSymbol>,
+    implicit_template_parameter_symbols: SmallVec<[DecSymbol; 1]>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct SymbolDecSignature {
+pub struct DecSymbolSignature {
     kind: SymbolSignatureKind,
-    symbol: Option<SymbolDecTerm>,
+    symbol: Option<DecSymbol>,
     modifier: SymbolModifier,
     ty: DecTermSymbolTypeResult<DecTerm>,
 }
@@ -35,12 +35,12 @@ pub enum SymbolSignatureKind {
     FieldVariable,
 }
 
-impl SymbolDecSignature {
+impl DecSymbolSignature {
     pub fn kind(self) -> SymbolSignatureKind {
         self.kind
     }
 
-    pub fn term_symbol(self) -> Option<SymbolDecTerm> {
+    pub fn term_symbol(self) -> Option<DecSymbol> {
         self.symbol
     }
 
@@ -54,15 +54,15 @@ impl SymbolDecSignature {
 }
 
 impl SymbolDecTermRegion {
-    pub fn self_lifetime(&self) -> Option<SymbolDecTerm> {
+    pub fn self_lifetime(&self) -> Option<DecSymbol> {
         self.self_lifetime
     }
 
-    pub fn self_place(&self) -> Option<SymbolDecTerm> {
+    pub fn self_place(&self) -> Option<DecSymbol> {
         self.self_place
     }
 
-    pub fn implicit_template_parameter_symbols(&self) -> &[SymbolDecTerm] {
+    pub fn implicit_template_parameter_symbols(&self) -> &[DecSymbol] {
         &self.implicit_template_parameter_symbols
     }
 
@@ -76,13 +76,13 @@ impl SymbolDecTermRegion {
         db: &::salsa::Db,
         idx: CurrentSynSymbolIdx,
         ty: DecTermSymbolTypeResult<DecTerm>,
-        term_symbol: SymbolDecTerm,
+        term_symbol: DecSymbol,
         name: SymbolName,
     ) {
         self.add_new_current_syn_symbol_signature(
             db,
             idx,
-            SymbolDecSignature {
+            DecSymbolSignature {
                 kind: SymbolSignatureKind::TemplateParameter,
                 symbol: Some(term_symbol),
                 ty,
@@ -108,7 +108,7 @@ impl SymbolDecTermRegion {
         self.add_new_current_syn_symbol_signature(
             db,
             current_syn_symbol,
-            SymbolDecSignature {
+            DecSymbolSignature {
                 kind: SymbolSignatureKind::ParenateParameter,
                 modifier,
                 ty,
@@ -129,7 +129,7 @@ impl SymbolDecTermRegion {
         self.add_new_current_syn_symbol_signature(
             db,
             current_syn_symbol,
-            SymbolDecSignature {
+            DecSymbolSignature {
                 kind: SymbolSignatureKind::FieldVariable,
                 modifier: SymbolModifier::Pure,
                 ty,
@@ -144,7 +144,7 @@ impl SymbolDecTermRegion {
         &mut self,
         db: &::salsa::Db,
         idx: CurrentSynSymbolIdx,
-        signature: SymbolDecSignature,
+        signature: DecSymbolSignature,
         name: SymbolName,
     ) {
         if let Some(symbol) = signature.symbol {
@@ -237,7 +237,7 @@ impl SymbolDecTermRegion {
         }
         if symbol_region.allow_self_value().to_bool() && self.self_value.is_none() {
             self.self_value = Some(
-                SymbolDecTerm::new_self_value(
+                DecSymbol::new_self_value(
                     db,
                     toolchain,
                     &mut self.symbol_registry,
@@ -247,8 +247,8 @@ impl SymbolDecTermRegion {
             )
         }
     }
-    fn new_self_ty_symbol(&mut self, toolchain: Toolchain, db: &::salsa::Db) -> SymbolDecTerm {
-        let symbol = SymbolDecTerm::new_self_ty(db, toolchain, &mut self.symbol_registry);
+    fn new_self_ty_symbol(&mut self, toolchain: Toolchain, db: &::salsa::Db) -> DecSymbol {
+        let symbol = DecSymbol::new_self_ty(db, toolchain, &mut self.symbol_registry);
         self.implicit_template_parameter_symbols.push(symbol);
         symbol
     }
@@ -264,7 +264,7 @@ impl SymbolDecTermRegion {
     ///
     /// then self type term is `Animal T`
     fn ty_defn_self_ty_term(&self, db: &::salsa::Db, ty_path: TypePath) -> DecTerm {
-        let mut self_ty: DecTerm = ItemPathDecTerm::Type(ty_path.into()).into();
+        let mut self_ty: DecTerm = DecItemPath::Type(ty_path.into()).into();
         for current_syn_symbol_signature in self
             .symbol_signatures
             .current_syn_symbol_map()
@@ -294,11 +294,11 @@ impl SymbolDecTermRegion {
         self.self_ty = self_ty
     }
 
-    pub fn self_value(&self) -> Option<SymbolDecTerm> {
+    pub fn self_value(&self) -> Option<DecSymbol> {
         self.self_value
     }
 
-    fn parent_symbol_term(&self, parent_symbol_idx: ParentSynSymbolIdx) -> SymbolDecSignature {
+    fn parent_symbol_term(&self, parent_symbol_idx: ParentSynSymbolIdx) -> DecSymbolSignature {
         match parent_symbol_idx {
             ParentSynSymbolIdx::Inherited(inherited_syn_symbol_idx) => {
                 self.inherited_syn_symbol_signature(inherited_syn_symbol_idx)
@@ -312,7 +312,7 @@ impl SymbolDecTermRegion {
     pub fn inherited_syn_symbol_signature(
         &self,
         inherited_syn_symbol_idx: InheritedSynSymbolIdx,
-    ) -> SymbolDecSignature {
+    ) -> DecSymbolSignature {
         self.symbol_signatures[inherited_syn_symbol_idx]
     }
 
@@ -320,7 +320,7 @@ impl SymbolDecTermRegion {
     pub fn current_parameter_symbol_signature(
         &self,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-    ) -> Option<SymbolDecSignature> {
+    ) -> Option<DecSymbolSignature> {
         self.symbol_signatures
             .current_syn_symbol_map()
             .get(current_syn_symbol_idx.index())

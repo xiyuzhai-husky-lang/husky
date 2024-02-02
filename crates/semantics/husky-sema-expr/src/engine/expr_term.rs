@@ -8,7 +8,7 @@ use husky_fly_term::{
 use husky_term_prelude::literal::{
     float::TermF32Literal,
     int::{TermI128Literal, TermI64Literal, TermISizeLiteral, TermUSizeLiteral},
-    TermLiteral,
+    Literal,
 };
 use husky_token_data::{BoolLiteralTokenData, FloatLiteralTokenData};
 
@@ -64,9 +64,9 @@ impl<'a> SemaExprEngine<'a> {
             SemaExprData::Literal(regional_token_idx, lit) => {
                 Ok(
                     EthTerm::Literal(match *lit {
-                        LiteralTokenData::Unit => TermLiteral::Unit(()),
+                        LiteralTokenData::Unit => Literal::Unit(()),
                         LiteralTokenData::Char(_) => todo!(),
-                        LiteralTokenData::String(val) => TermLiteral::String(val),
+                        LiteralTokenData::String(val) => Literal::String(val),
                         LiteralTokenData::Integer(ilit) => match ilit {
                             IntegerLikeLiteralTokenData::UnspecifiedRegular(val) => {
                                 // todo: what if place is not none?
@@ -83,37 +83,37 @@ impl<'a> SemaExprEngine<'a> {
                                             ))),
                                         ty_arguments,
                                         ty_ethereal_term,
-                                    } => TermLiteral::from_unspecified_int(int_ty_path, val, self.db),
+                                    } => Literal::from_unspecified_int(int_ty_path, val, self.db),
                                     _ => {
                                         Err(DerivedExprTermError::LiteralTypeNotResolved)?
                                     }
                                 }
                             }
                             IntegerLikeLiteralTokenData::UnspecifiedLarge() => todo!(),
-                            IntegerLikeLiteralTokenData::I8(val) => TermLiteral::I8(val),
-                            IntegerLikeLiteralTokenData::I16(val) => TermLiteral::I16(val),
-                            IntegerLikeLiteralTokenData::I32(val) => TermLiteral::I32(val),
+                            IntegerLikeLiteralTokenData::I8(val) => Literal::I8(val),
+                            IntegerLikeLiteralTokenData::I16(val) => Literal::I16(val),
+                            IntegerLikeLiteralTokenData::I32(val) => Literal::I32(val),
                             IntegerLikeLiteralTokenData::I64(val) => {
-                                TermLiteral::I64(TermI64Literal::new(self.db, val))
+                                Literal::I64(TermI64Literal::new(self.db, val))
                             }
                             IntegerLikeLiteralTokenData::I128(val) => {
-                                TermLiteral::I128(TermI128Literal::new(self.db, val))
+                                Literal::I128(TermI128Literal::new(self.db, val))
                             }
                             IntegerLikeLiteralTokenData::ISize(val) => {
-                                TermLiteral::ISize(TermISizeLiteral::new(self.db, val as i64))
+                                Literal::ISize(TermISizeLiteral::new(self.db, val as i64))
                             }
-                            IntegerLikeLiteralTokenData::R8(val) => TermLiteral::R8(val),
-                            IntegerLikeLiteralTokenData::R16(val) => TermLiteral::R16(val),
-                            IntegerLikeLiteralTokenData::R32(val) => TermLiteral::R32(val),
-                            IntegerLikeLiteralTokenData::R64(val) => TermLiteral::R64(todo!()),
-                            IntegerLikeLiteralTokenData::R128(val) => TermLiteral::R128(todo!()),
-                            IntegerLikeLiteralTokenData::RSize(val) => TermLiteral::RSize(todo!()),
-                            IntegerLikeLiteralTokenData::U8(val) => TermLiteral::U8(val),
-                            IntegerLikeLiteralTokenData::U16(val) => TermLiteral::U16(val),
-                            IntegerLikeLiteralTokenData::U32(val) => TermLiteral::U32(val),
-                            IntegerLikeLiteralTokenData::U64(val) => TermLiteral::U64(todo!()),
-                            IntegerLikeLiteralTokenData::U128(val) => TermLiteral::U128(todo!()),
-                            IntegerLikeLiteralTokenData::USize(val) => TermLiteral::USize(todo!()),
+                            IntegerLikeLiteralTokenData::R8(val) => Literal::R8(val),
+                            IntegerLikeLiteralTokenData::R16(val) => Literal::R16(val),
+                            IntegerLikeLiteralTokenData::R32(val) => Literal::R32(val),
+                            IntegerLikeLiteralTokenData::R64(val) => Literal::R64(todo!()),
+                            IntegerLikeLiteralTokenData::R128(val) => Literal::R128(todo!()),
+                            IntegerLikeLiteralTokenData::RSize(val) => Literal::RSize(todo!()),
+                            IntegerLikeLiteralTokenData::U8(val) => Literal::U8(val),
+                            IntegerLikeLiteralTokenData::U16(val) => Literal::U16(val),
+                            IntegerLikeLiteralTokenData::U32(val) => Literal::U32(val),
+                            IntegerLikeLiteralTokenData::U64(val) => Literal::U64(todo!()),
+                            IntegerLikeLiteralTokenData::U128(val) => Literal::U128(todo!()),
+                            IntegerLikeLiteralTokenData::USize(val) => Literal::USize(todo!()),
                         },
                         LiteralTokenData::Float(lit) => {
                             match lit {
@@ -137,10 +137,10 @@ impl<'a> SemaExprEngine<'a> {
                                                                     float_ty_path,
                                                                 ) => {
                                                                     match float_ty_path {
-                                                    PreludeFloatTypePath::F32 => TermLiteral::F32(
+                                                    PreludeFloatTypePath::F32 => Literal::F32(
                                                         TermF32Literal::try_new(lit.text(self.db).to_string(),self.db) .expect("todo"),
                                                     ),
-                                                    PreludeFloatTypePath::F64 => TermLiteral::F64(
+                                                    PreludeFloatTypePath::F64 => Literal::F64(
                                                         todo!(), // lit.data(self.db).parse().expect("todo"),
                                                     ),
                                                 }
@@ -156,14 +156,14 @@ impl<'a> SemaExprEngine<'a> {
                                         _ => Err(DerivedExprTermError::LiteralTypeNotResolved)?,
                                     }
                                 }
-                                FloatLiteralTokenData::F32(val) => TermLiteral::F32(val),
-                                FloatLiteralTokenData::F64(val) => TermLiteral::F64(val),
+                                FloatLiteralTokenData::F32(val) => Literal::F32(val),
+                                FloatLiteralTokenData::F64(val) => Literal::F64(val),
                             }
                         }
                         LiteralTokenData::TupleIndex(_) => todo!(),
                         LiteralTokenData::Bool(val) => match val {
-                            BoolLiteralTokenData::True => TermLiteral::Bool(true),
-                            BoolLiteralTokenData::False => TermLiteral::Bool(false),
+                            BoolLiteralTokenData::True => Literal::Bool(true),
+                            BoolLiteralTokenData::False => Literal::Bool(false),
                         },
                     })
                     .into(),
@@ -203,7 +203,7 @@ impl<'a> SemaExprEngine<'a> {
             {
                 Some(current_syn_symbol_signature) => {
                     match current_syn_symbol_signature.term_symbol() {
-                        Some(declarative_term_symbol) => Ok(SymbolEthTerm::from_declarative(
+                        Some(declarative_term_symbol) => Ok(EthSymbol::from_declarative(
                             self.db,
                             declarative_term_symbol,
                         )?
@@ -314,13 +314,9 @@ impl<'a> SemaExprEngine<'a> {
                         None => todo!(),
                     },
                 };
-                ApplicationEthTerm::new(
-                    self.db,
-                    self.eth_term_menu().at_ty_ontology(),
-                    place.into(),
-                )
-                .map(Into::into)
-                .map_err(Into::into)
+                EthApplication::new(self.db, self.eth_term_menu().at_ty_ontology(), place.into())
+                    .map(Into::into)
+                    .map_err(Into::into)
             }
             SemaExprData::Unit { .. } => Ok(self.term_menu.unit_ty_ontology().into()),
             &SemaExprData::Ritchie {

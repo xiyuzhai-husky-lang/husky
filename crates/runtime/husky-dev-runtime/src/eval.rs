@@ -10,7 +10,7 @@ use husky_task::{
 };
 use husky_task_interface::{val_control_flow::ValControlFlow, IsLinkageImpl};
 use husky_task_interface::{val_repr::ValArgumentReprInterface, value::IsValue};
-use husky_term_prelude::literal::TermLiteral;
+use husky_term_prelude::literal::Literal;
 use husky_val::{ValOpn, ValPatternData};
 use husky_val_repr::repr::{ValArgumentRepr, ValDomainRepr, ValRepr};
 
@@ -112,31 +112,31 @@ impl<Task: IsTask> DevRuntime<Task> {
                 // ad hoc
                 let db = self.db();
                 let value: TaskValue<Task> = match lit {
-                    TermLiteral::Unit(_) => ().into(),
-                    TermLiteral::Bool(b) => b.into(),
-                    TermLiteral::I8(i) => i.into(),
-                    TermLiteral::I16(i) => i.into(),
-                    TermLiteral::I32(i) => i.into(),
-                    TermLiteral::I64(lit) => lit.value(db).into(),
-                    TermLiteral::I128(lit) => lit.value(db).into(),
-                    TermLiteral::ISize(lit) => (lit.value(db) as isize).into(),
-                    TermLiteral::U8(i) => i.into(),
-                    TermLiteral::U16(i) => i.into(),
-                    TermLiteral::U32(i) => i.into(),
-                    TermLiteral::U64(lit) => lit.value(db).into(),
-                    TermLiteral::U128(lit) => lit.value(db).into(),
-                    TermLiteral::USize(lit) => (lit.value(db) as usize).into(),
-                    TermLiteral::R8(_) => todo!(),
-                    TermLiteral::R16(_) => todo!(),
-                    TermLiteral::R32(_) => todo!(),
-                    TermLiteral::R64(_) => todo!(),
-                    TermLiteral::R128(_) => todo!(),
-                    TermLiteral::RSize(_) => todo!(),
-                    TermLiteral::Nat(_) => todo!(),
-                    TermLiteral::F32(lit) => lit.value(db).into_inner().into(),
-                    TermLiteral::F64(lit) => lit.value(db).into_inner().into(),
-                    TermLiteral::String(_) => todo!(),
-                    TermLiteral::StaticLifetime => todo!(),
+                    Literal::Unit(_) => ().into(),
+                    Literal::Bool(b) => b.into(),
+                    Literal::I8(i) => i.into(),
+                    Literal::I16(i) => i.into(),
+                    Literal::I32(i) => i.into(),
+                    Literal::I64(lit) => lit.value(db).into(),
+                    Literal::I128(lit) => lit.value(db).into(),
+                    Literal::ISize(lit) => (lit.value(db) as isize).into(),
+                    Literal::U8(i) => i.into(),
+                    Literal::U16(i) => i.into(),
+                    Literal::U32(i) => i.into(),
+                    Literal::U64(lit) => lit.value(db).into(),
+                    Literal::U128(lit) => lit.value(db).into(),
+                    Literal::USize(lit) => (lit.value(db) as usize).into(),
+                    Literal::R8(_) => todo!(),
+                    Literal::R16(_) => todo!(),
+                    Literal::R32(_) => todo!(),
+                    Literal::R64(_) => todo!(),
+                    Literal::R128(_) => todo!(),
+                    Literal::RSize(_) => todo!(),
+                    Literal::Nat(_) => todo!(),
+                    Literal::F32(lit) => lit.value(db).into_inner().into(),
+                    Literal::F64(lit) => lit.value(db).into_inner().into(),
+                    Literal::String(_) => todo!(),
+                    Literal::StaticLifetime => todo!(),
                 };
                 ValControlFlow::Continue(value)
             }

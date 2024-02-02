@@ -13,7 +13,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDecTerm(
+                                    symbol: DecSymbol(
                                         Id {
                                             value: 3,
                                         },
@@ -22,7 +22,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDecTerm(
+                                    symbol: DecSymbol(
                                         Id {
                                             value: 4,
                                         },

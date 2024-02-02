@@ -3,11 +3,11 @@ use super::*;
 #[salsa::interned(db = DecTermDb, jar = DecTermJar)]
 pub struct DecTermSymbols {
     #[return_ref]
-    symbols: VecSet<SymbolDecTerm>,
+    symbols: VecSet<DecSymbol>,
 }
 
 impl DecTermSymbols {
-    pub(crate) fn contains(self, db: &::salsa::Db, symbol: SymbolDecTerm) -> bool {
+    pub(crate) fn contains(self, db: &::salsa::Db, symbol: DecSymbol) -> bool {
         self.symbols(db).has(symbol)
     }
 
@@ -31,7 +31,7 @@ impl DecTermSymbols {
     }
 }
 impl DecTerm {
-    pub fn contains_symbol(self, db: &::salsa::Db, symbol: SymbolDecTerm) -> bool {
+    pub fn contains_symbol(self, db: &::salsa::Db, symbol: DecSymbol) -> bool {
         calc_declarative_term_symbols(db, self)
             .map(|declarative_term_symbols| declarative_term_symbols.contains(db, symbol))
             .unwrap_or_default()
@@ -47,9 +47,9 @@ fn calc_declarative_term_symbols(
         DecTerm::Symbol(symbol) => Some(DecTermSymbols::new(db, VecSet::new_one_elem_set(symbol))),
         DecTerm::Rune(_) => None,
         DecTerm::EntityPath(path) => match path {
-            ItemPathDecTerm::Fugitive(_) => todo!(),
-            ItemPathDecTerm::Trait(_) | ItemPathDecTerm::Type(_) => None,
-            ItemPathDecTerm::TypeVariant(_) => todo!(),
+            DecItemPath::Fugitive(_) => todo!(),
+            DecItemPath::Trait(_) | DecItemPath::Type(_) => None,
+            DecItemPath::TypeVariant(_) => todo!(),
         },
         DecTerm::Category(_) => None,
         DecTerm::Universe(_) => None,
@@ -74,7 +74,7 @@ fn calc_declarative_term_symbols(
 #[salsa::tracked(jar = DecTermJar)]
 pub(crate) fn declarative_term_curry_symbols(
     db: &::salsa::Db,
-    declarative_term: CurryDecTerm,
+    declarative_term: DecCurry,
 ) -> Option<DecTermSymbols> {
     let parameter_ty_symbols = calc_declarative_term_symbols(db, declarative_term.parameter_ty(db));
     let return_ty_symbols = calc_declarative_term_symbols(db, declarative_term.return_ty(db));
@@ -84,7 +84,7 @@ pub(crate) fn declarative_term_curry_symbols(
 #[salsa::tracked(jar = DecTermJar)]
 pub(crate) fn declarative_term_ritchie_symbols(
     db: &::salsa::Db,
-    declarative_term: RitchieDecTerm,
+    declarative_term: DecRitchie,
 ) -> Option<DecTermSymbols> {
     let mut symbols: Option<DecTermSymbols> = None;
     for param in declarative_term.params(db) {
@@ -100,7 +100,7 @@ pub(crate) fn declarative_term_ritchie_symbols(
 #[salsa::tracked(jar = DecTermJar)]
 pub(crate) fn application_declarative_term_symbols(
     db: &::salsa::Db,
-    declarative_term: ApplicationDecTerm,
+    declarative_term: DecApplication,
 ) -> Option<DecTermSymbols> {
     DecTermSymbols::merge(
         db,

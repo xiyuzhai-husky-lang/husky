@@ -9,7 +9,7 @@ pub use self::r#const::*;
 pub use self::ty::*;
 
 use crate::*;
-use husky_eth_term::{EthTemplateSymbolAttrs, EthTermSymbolIndexImpl, SymbolEthTerm};
+use husky_eth_term::{EthSymbol, EthTemplateSymbolAttrs, EthTermSymbolIndexImpl};
 use husky_term_prelude::template_symbol_class::TermTemplateSymbolClass;
 
 #[enum_class::from_variants]
@@ -52,16 +52,13 @@ impl HirTemplateSymbolAttrs {
 }
 
 impl HirTemplateSymbol {
-    pub fn from_eth(symbol: SymbolEthTerm, db: &::salsa::Db) -> Option<Self> {
+    pub fn from_eth(symbol: EthSymbol, db: &::salsa::Db) -> Option<Self> {
         hir_template_symbol_from_eth(db, symbol)
     }
 }
 
 #[salsa::tracked(jar = HirTypeJar)]
-fn hir_template_symbol_from_eth(
-    db: &::salsa::Db,
-    symbol: SymbolEthTerm,
-) -> Option<HirTemplateSymbol> {
+fn hir_template_symbol_from_eth(db: &::salsa::Db, symbol: EthSymbol) -> Option<HirTemplateSymbol> {
     match symbol.index(db).inner() {
         EthTermSymbolIndexImpl::ExplicitLifetime {
             attrs,

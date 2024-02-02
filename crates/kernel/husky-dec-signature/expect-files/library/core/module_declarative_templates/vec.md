@@ -16,7 +16,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 4,
                                             },
@@ -57,7 +57,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDecTerm(
+                                    symbol: DecSymbol(
                                         Id {
                                             value: 10,
                                         },
@@ -67,7 +67,7 @@
                             ],
                         },
                         ty: Application(
-                            ApplicationDecTerm(
+                            DecApplication(
                                 Id {
                                     value: 44,
                                 },
@@ -95,7 +95,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: SymbolDecTerm(
+                                            symbol: DecSymbol(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -105,7 +105,7 @@
                                     ],
                                 },
                                 ty: Application(
-                                    ApplicationDecTerm(
+                                    DecApplication(
                                         Id {
                                             value: 44,
                                         },
@@ -113,7 +113,7 @@
                                 ),
                             },
                             self_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 44,
                                     },
@@ -125,7 +125,7 @@
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
                                 ty: Application(
-                                    ApplicationDecTerm(
+                                    DecApplication(
                                         Id {
                                             value: 44,
                                         },
@@ -169,7 +169,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: SymbolDecTerm(
+                                            symbol: DecSymbol(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -179,7 +179,7 @@
                                     ],
                                 },
                                 ty: Application(
-                                    ApplicationDecTerm(
+                                    DecApplication(
                                         Id {
                                             value: 44,
                                         },
@@ -187,7 +187,7 @@
                                 ),
                             },
                             self_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 44,
                                     },
@@ -197,7 +197,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 1,
                                             },
@@ -209,7 +209,7 @@
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: BorrowMut,
                                 ty: Application(
-                                    ApplicationDecTerm(
+                                    DecApplication(
                                         Id {
                                             value: 44,
                                         },
@@ -222,7 +222,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
                                             ty: Symbol(
-                                                SymbolDecTerm(
+                                                DecSymbol(
                                                     Id {
                                                         value: 10,
                                                     },
@@ -266,7 +266,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: SymbolDecTerm(
+                                            symbol: DecSymbol(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -276,7 +276,7 @@
                                     ],
                                 },
                                 ty: Application(
-                                    ApplicationDecTerm(
+                                    DecApplication(
                                         Id {
                                             value: 44,
                                         },
@@ -284,7 +284,7 @@
                                 ),
                             },
                             self_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 44,
                                     },
@@ -294,7 +294,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 2,
                                             },
@@ -306,7 +306,7 @@
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: At,
                                 ty: Application(
-                                    ApplicationDecTerm(
+                                    DecApplication(
                                         Id {
                                             value: 44,
                                         },
@@ -317,7 +317,7 @@
                                 data: [],
                             },
                             return_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 47,
                                     },
@@ -346,7 +346,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: SymbolDecTerm(
+                                            symbol: DecSymbol(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -356,7 +356,7 @@
                                     ],
                                 },
                                 ty: Application(
-                                    ApplicationDecTerm(
+                                    DecApplication(
                                         Id {
                                             value: 44,
                                         },
@@ -364,7 +364,7 @@
                                 ),
                             },
                             self_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 44,
                                     },
@@ -374,7 +374,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 2,
                                             },
@@ -386,7 +386,7 @@
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: At,
                                 ty: Application(
-                                    ApplicationDecTerm(
+                                    DecApplication(
                                         Id {
                                             value: 44,
                                         },
@@ -397,7 +397,7 @@
                                 data: [],
                             },
                             return_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 47,
                                     },
@@ -426,7 +426,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: SymbolDecTerm(
+                                            symbol: DecSymbol(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -436,7 +436,7 @@
                                     ],
                                 },
                                 ty: Application(
-                                    ApplicationDecTerm(
+                                    DecApplication(
                                         Id {
                                             value: 44,
                                         },
@@ -444,7 +444,7 @@
                                 ),
                             },
                             self_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 44,
                                     },
@@ -454,7 +454,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 1,
                                             },
@@ -466,7 +466,7 @@
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: BorrowMut,
                                 ty: Application(
-                                    ApplicationDecTerm(
+                                    DecApplication(
                                         Id {
                                             value: 44,
                                         },
@@ -477,7 +477,7 @@
                                 data: [],
                             },
                             return_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 28,
                                     },
@@ -506,7 +506,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: SymbolDecTerm(
+                                            symbol: DecSymbol(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -516,7 +516,7 @@
                                     ],
                                 },
                                 ty: Application(
-                                    ApplicationDecTerm(
+                                    DecApplication(
                                         Id {
                                             value: 44,
                                         },
@@ -524,7 +524,7 @@
                                 ),
                             },
                             self_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 44,
                                     },
@@ -536,7 +536,7 @@
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Leash,
                                 ty: Application(
-                                    ApplicationDecTerm(
+                                    DecApplication(
                                         Id {
                                             value: 44,
                                         },
@@ -547,7 +547,7 @@
                                 data: [],
                             },
                             return_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 48,
                                     },
@@ -576,7 +576,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: SymbolDecTerm(
+                                            symbol: DecSymbol(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -586,7 +586,7 @@
                                     ],
                                 },
                                 ty: Application(
-                                    ApplicationDecTerm(
+                                    DecApplication(
                                         Id {
                                             value: 44,
                                         },
@@ -594,7 +594,7 @@
                                 ),
                             },
                             self_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 44,
                                     },
@@ -606,7 +606,7 @@
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Leash,
                                 ty: Application(
-                                    ApplicationDecTerm(
+                                    DecApplication(
                                         Id {
                                             value: 44,
                                         },
@@ -650,7 +650,7 @@
                                 ],
                             },
                             return_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 49,
                                     },
@@ -679,7 +679,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: SymbolDecTerm(
+                                            symbol: DecSymbol(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -689,7 +689,7 @@
                                     ],
                                 },
                                 ty: Application(
-                                    ApplicationDecTerm(
+                                    DecApplication(
                                         Id {
                                             value: 44,
                                         },
@@ -697,7 +697,7 @@
                                 ),
                             },
                             self_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 44,
                                     },
@@ -707,7 +707,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDecTerm(
+                                        symbol: DecSymbol(
                                             Id {
                                                 value: 1,
                                             },
@@ -719,7 +719,7 @@
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: BorrowMut,
                                 ty: Application(
-                                    ApplicationDecTerm(
+                                    DecApplication(
                                         Id {
                                             value: 44,
                                         },
@@ -732,7 +732,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
                                             ty: Ritchie(
-                                                RitchieDecTerm(
+                                                DecRitchie(
                                                     Id {
                                                         value: 1,
                                                     },
@@ -743,7 +743,7 @@
                                 ],
                             },
                             return_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 28,
                                     },

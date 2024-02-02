@@ -15,7 +15,7 @@ impl<'a> SemaExprEngine<'a> {
                 return;
             };
             if let Some(symbol) = signature.term_symbol() {
-                if let Ok(symbol) = SymbolEthTerm::from_declarative(self.db, symbol) {
+                if let Ok(symbol) = EthSymbol::from_declarative(self.db, symbol) {
                     self.symbol_terms
                         .insert_new(current_syn_symbol_idx, symbol.into())
                 }

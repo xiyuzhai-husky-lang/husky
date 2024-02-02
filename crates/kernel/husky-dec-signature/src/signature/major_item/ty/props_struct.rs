@@ -7,7 +7,7 @@ pub struct PropsStructTypeDecTemplate {
     pub self_ty: DecTerm,
     #[return_ref]
     pub fields: SmallVec<[PropsStructFieldDecTemplate; 4]>,
-    pub instance_constructor_ritchie_ty: RitchieDecTerm,
+    pub instance_constructor_ritchie_ty: DecRitchie,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -54,7 +54,7 @@ impl PropsStructTypeDecTemplate {
                 })
             })
             .collect::<DecSignatureResult<SmallVec<_>>>()?;
-        let instance_constructor_ritchie_ty = RitchieDecTerm::new(
+        let instance_constructor_ritchie_ty = DecRitchie::new(
             db,
             RitchieKind::RITCHIE_TYPE_FN,
             fields

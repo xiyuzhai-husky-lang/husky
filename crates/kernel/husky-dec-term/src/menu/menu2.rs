@@ -3,9 +3,9 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct DecTermMenu2 {
     static_str_ref: DecTerm,
-    ex_co_lifetime_to_ex_co_ty0_to_ty0: CurryDecTerm,
-    ex_co_lifetime_to_ex_ct_ty0_to_ty0: CurryDecTerm,
-    ex_co_lifetime_to_ex_inv_ty0_to_ty0: CurryDecTerm,
+    ex_co_lifetime_to_ex_co_ty0_to_ty0: DecCurry,
+    ex_co_lifetime_to_ex_ct_ty0_to_ty0: DecCurry,
+    ex_co_lifetime_to_ex_inv_ty0_to_ty0: DecCurry,
     parent: DecTermMenu1,
 }
 
@@ -25,9 +25,9 @@ impl DecTermMenu2 {
     ) -> DecTermResult<Self> {
         // db.it_item_path_term(item_path_menu(db,toolchain).as_ref()?.r32());
         Ok(DecTermMenu2 {
-            static_str_ref: ApplicationDecTerm::new(db, menu1.static_ref_ty(), menu1.str_ty_path())
+            static_str_ref: DecApplication::new(db, menu1.static_ref_ty(), menu1.str_ty_path())
                 .into(),
-            ex_co_lifetime_to_ex_co_ty0_to_ty0: CurryDecTerm::new_nondependent(
+            ex_co_lifetime_to_ex_co_ty0_to_ty0: DecCurry::new_nondependent(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -35,7 +35,7 @@ impl DecTermMenu2 {
                 menu1.lifetime_ty().into(),
                 menu1.explicit_covariant_ty0_to_ty0().into(),
             ),
-            ex_co_lifetime_to_ex_ct_ty0_to_ty0: CurryDecTerm::new_nondependent(
+            ex_co_lifetime_to_ex_ct_ty0_to_ty0: DecCurry::new_nondependent(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -43,7 +43,7 @@ impl DecTermMenu2 {
                 menu1.lifetime_ty().into(),
                 menu1.explicit_contravariant_ty0_to_ty0().into(),
             ),
-            ex_co_lifetime_to_ex_inv_ty0_to_ty0: CurryDecTerm::new_nondependent(
+            ex_co_lifetime_to_ex_inv_ty0_to_ty0: DecCurry::new_nondependent(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -59,15 +59,15 @@ impl DecTermMenu2 {
         self.static_str_ref
     }
 
-    pub fn ex_co_lifetime_to_ex_co_ty0_to_ty0(&self) -> CurryDecTerm {
+    pub fn ex_co_lifetime_to_ex_co_ty0_to_ty0(&self) -> DecCurry {
         self.ex_co_lifetime_to_ex_co_ty0_to_ty0
     }
 
-    pub fn ex_co_lifetime_to_ex_ct_ty0_to_ty0(&self) -> CurryDecTerm {
+    pub fn ex_co_lifetime_to_ex_ct_ty0_to_ty0(&self) -> DecCurry {
         self.ex_co_lifetime_to_ex_ct_ty0_to_ty0
     }
 
-    pub fn ex_co_lifetime_to_ex_inv_ty0_to_ty0(&self) -> CurryDecTerm {
+    pub fn ex_co_lifetime_to_ex_inv_ty0_to_ty0(&self) -> DecCurry {
         self.ex_co_lifetime_to_ex_inv_ty0_to_ty0
     }
 }

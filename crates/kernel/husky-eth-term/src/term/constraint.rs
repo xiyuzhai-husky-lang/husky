@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::interned(db = EthTermDb, jar = EthTermJar)]
-pub struct TraitConstraintEthTerm {
+pub struct EthTraitConstraint {
     ty: EthTerm,
     trai: EthTerm,
 }
@@ -9,16 +9,16 @@ pub struct TraitConstraintEthTerm {
 #[test]
 fn term_trait_constraint_size_works() {
     assert_eq!(
-        std::mem::size_of::<TraitConstraintEthTerm>(),
+        std::mem::size_of::<EthTraitConstraint>(),
         std::mem::size_of::<u32>()
     );
 }
 
-impl TraitConstraintEthTerm {
+impl EthTraitConstraint {
     pub(crate) fn from_declarative(
         _db: &::salsa::Db,
-        _valid_term: TraitConstraintDecTerm,
-        _term_ty_expectation: TermTypeExpectation,
+        _valid_term: DecTraitConstraint,
+        _term_ty_expectation: TypeFinalDestinationExpectation,
     ) -> EthTermResult<Self> {
         todo!()
     }
@@ -36,7 +36,7 @@ impl TraitConstraintEthTerm {
 
 /// # rewrite
 
-impl TraitConstraintEthTerm {
+impl EthTraitConstraint {
     pub fn substitute(self, substitution: EthTermSubstitution, db: &::salsa::Db) -> Self {
         let old_ty = self.ty(db);
         let new_ty = old_ty.substitute(substitution, db);
@@ -49,7 +49,7 @@ impl TraitConstraintEthTerm {
     }
 }
 
-impl EthTermInstantiate for TraitConstraintEthTerm {
+impl EthTermInstantiate for EthTraitConstraint {
     type Output = Self;
 
     fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {

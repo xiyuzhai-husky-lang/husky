@@ -1,14 +1,14 @@
 use crate::*;
 use husky_eth_term::EthTerm;
 use husky_syn_expr::{SynPatternExprData, SynPatternExprIdx, SynPatternExprRoot};
-use husky_term_prelude::literal::TermLiteral;
+use husky_term_prelude::literal::Literal;
 use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData};
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirEagerPatternExpr {
     /// example: `1`
-    Literal(TermLiteral),
+    Literal(Literal),
     /// example: `a`
     Ident {
         symbol_modifier: Option<SymbolModifier>,
@@ -69,7 +69,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         match self.syn_expr_region_data()[syn_pattern_expr_idx] {
             SynPatternExprData::Literal { literal, .. } => {
                 HirEagerPatternExpr::Literal(match literal {
-                    LiteralTokenData::Unit => TermLiteral::Unit(()),
+                    LiteralTokenData::Unit => Literal::Unit(()),
                     LiteralTokenData::Char(_) => todo!(),
                     LiteralTokenData::String(_) => todo!(),
                     LiteralTokenData::Integer(literal) => match literal {
@@ -84,7 +84,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                             else {
                                 todo!()
                             };
-                            TermLiteral::from_unspecified_int(path, value, db)
+                            Literal::from_unspecified_int(path, value, db)
                         }
                         IntegerLikeLiteralTokenData::UnspecifiedLarge() => todo!(),
                         IntegerLikeLiteralTokenData::I8(_) => todo!(),

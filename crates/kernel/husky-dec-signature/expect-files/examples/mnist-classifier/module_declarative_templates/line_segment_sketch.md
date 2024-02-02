@@ -104,7 +104,7 @@
                                 PropsStructFieldDecTemplate {
                                     ident: `points`,
                                     ty: Application(
-                                        ApplicationDecTerm(
+                                        DecApplication(
                                             Id {
                                                 value: 32,
                                             },
@@ -143,7 +143,7 @@
                                     has_initialization: true,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDecTerm {
+                            instance_constructor_ritchie_ty: DecRitchie {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -152,7 +152,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 32,
                                                     },
@@ -208,7 +208,7 @@
                                 PropsStructFieldDecTemplate {
                                     ident: `contour`,
                                     ty: Application(
-                                        ApplicationDecTerm(
+                                        DecApplication(
                                             Id {
                                                 value: 4,
                                             },
@@ -219,7 +219,7 @@
                                 PropsStructFieldDecTemplate {
                                     ident: `strokes`,
                                     ty: Application(
-                                        ApplicationDecTerm(
+                                        DecApplication(
                                             Id {
                                                 value: 33,
                                             },
@@ -228,7 +228,7 @@
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDecTerm {
+                            instance_constructor_ritchie_ty: DecRitchie {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -237,7 +237,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 4,
                                                     },
@@ -249,7 +249,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 33,
                                                     },
@@ -430,7 +430,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 4,
                                                     },
@@ -509,7 +509,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 4,
                                                     },
@@ -604,7 +604,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 4,
                                                     },
@@ -631,7 +631,7 @@
                                 ],
                             },
                             return_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 34,
                                     },
@@ -847,7 +847,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 4,
                                                     },
@@ -1183,7 +1183,7 @@
                                 ),
                             },
                             return_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 35,
                                     },
@@ -1272,7 +1272,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 4,
                                                     },

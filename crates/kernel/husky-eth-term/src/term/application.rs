@@ -21,7 +21,7 @@ use std::fmt::Debug;
 ///
 /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
 #[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = new_inner)]
-pub struct ApplicationEthTerm {
+pub struct EthApplication {
     pub function: EthTerm,
     pub argument: EthTerm,
     pub shift: u8,
@@ -30,12 +30,12 @@ pub struct ApplicationEthTerm {
 #[test]
 fn term_application_size_works() {
     assert_eq!(
-        std::mem::size_of::<ApplicationEthTerm>(),
+        std::mem::size_of::<EthApplication>(),
         std::mem::size_of::<u32>()
     );
 }
 
-impl ApplicationEthTerm {
+impl EthApplication {
     //// this constructor guarantees that the result is reduced and first-order valid
     /// returns EthTerm instead of EthTermApplication because it might reduce to a non application term
     pub fn new(db: &::salsa::Db, function: EthTerm, argument: EthTerm) -> EthTermResult<EthTerm> {
@@ -74,8 +74,8 @@ impl ApplicationEthTerm {
     /// returns EthTerm instead of EthTermApplication because it might reduce to a non application term
     pub(crate) fn from_declarative(
         db: &::salsa::Db,
-        declarative_term_application: ApplicationDecTerm,
-        term_ty_expectation: TermTypeExpectation,
+        declarative_term_application: DecApplication,
+        term_ty_expectation: TypeFinalDestinationExpectation,
     ) -> EthTermResult<EthTerm> {
         // todo: implicit arguments
         ethereal_term_from_declarative_term_application(
@@ -105,8 +105,8 @@ impl ApplicationEthTerm {
 #[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn ethereal_term_from_declarative_term_application(
     db: &::salsa::Db,
-    declarative_term_application: ApplicationDecTerm,
-    declarative_ty_expectation: TermTypeExpectation,
+    declarative_term_application: DecApplication,
+    declarative_ty_expectation: TypeFinalDestinationExpectation,
 ) -> EthTermResult<EthTerm> {
     // todo: implicit arguments
     term_uncheck_from_declarative_term_application_aux(
@@ -127,7 +127,7 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
     db: &::salsa::Db,
     function: EthTerm,
     argument: DecTerm,
-    _declarative_ty_expectation: TermTypeExpectation,
+    _declarative_ty_expectation: TypeFinalDestinationExpectation,
 ) -> EthTermResult<EthTerm> {
     // todo: implicit arguments
     let (function_parameter_ty_curry_parameter_count, argument_expectation) = {
@@ -148,15 +148,13 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
         todo!()
     }
     let shift = argument_ty_curry_parameter_count - function_parameter_ty_curry_parameter_count;
-    Ok(ApplicationEthTerm::new_reduced(
-        db, function, argument, shift,
-    ))
+    Ok(EthApplication::new_reduced(db, function, argument, shift))
 }
 
 #[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn ethereal_term_application_declarative_ty(
     db: &::salsa::Db,
-    term_application: ApplicationEthTerm,
+    term_application: EthApplication,
 ) -> EthTermResult<DecTerm> {
     let function = term_application.function(db);
     let argument = term_application.argument(db);
@@ -186,8 +184,8 @@ pub(crate) fn ethereal_term_application_declarative_ty(
 /// function_ty.parameter_rune(db) matches Some
 pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
     db: &::salsa::Db,
-    function_ty: CurryDecTerm,
-    function_ty_parameter_variable: RuneDecTerm,
+    function_ty: DecCurry,
+    function_ty_parameter_variable: DecRune,
     argument: DecTerm,
     argument_ty: RawType,
     shift: u8,
@@ -216,14 +214,14 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
                     // this is possible because we expect in the recursion process
                     // shift never appears twice
                     let new_parameter_symbol = unsafe {
-                        SymbolDecTerm::new_ad_hoc(
+                        DecSymbol::new_ad_hoc(
                             db,
                             argument_ty.toolchain(db),
                             new_parameter_ty,
                             shift,
                         )
                     };
-                    Ok(CurryDecTerm::new_dependent(
+                    Ok(DecCurry::new_dependent(
                         db,
                         argument_ty.toolchain(db),
                         argument_ty.curry_kind(db),
@@ -235,8 +233,7 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
                             function_ty,
                             function_ty_parameter_variable,
                             // corresponds to `arg b` in the example
-                            ApplicationDecTerm::new(db, argument, new_parameter_symbol.into())
-                                .into(),
+                            DecApplication::new(db, argument, new_parameter_symbol.into()).into(),
                             // corresponds to be `C b -> A` in the example
                             argument_ty
                                 .return_ty_with_variable_substituted(
@@ -258,7 +255,7 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
 /// function_ty.parameter_rune(db) is None
 pub(crate) fn ethereal_term_application_declarative_ty_nondependent_aux(
     db: &::salsa::Db,
-    function_ty: CurryDecTerm,
+    function_ty: DecCurry,
     argument_ty: RawType,
     shift: u8,
 ) -> EthTermResult<DecTerm> {
@@ -266,22 +263,20 @@ pub(crate) fn ethereal_term_application_declarative_ty_nondependent_aux(
     match shift {
         0 => Ok(function_ty.return_ty(db)),
         shift => match argument_ty {
-            RawType::Declarative(DecTerm::Curry(argument_ty)) => {
-                Ok(CurryDecTerm::new_nondependent(
+            RawType::Declarative(DecTerm::Curry(argument_ty)) => Ok(DecCurry::new_nondependent(
+                db,
+                argument_ty.toolchain(db),
+                argument_ty.curry_kind(db),
+                argument_ty.variance(db),
+                argument_ty.parameter_ty(db),
+                ethereal_term_application_declarative_ty_nondependent_aux(
                     db,
-                    argument_ty.toolchain(db),
-                    argument_ty.curry_kind(db),
-                    argument_ty.variance(db),
-                    argument_ty.parameter_ty(db),
-                    ethereal_term_application_declarative_ty_nondependent_aux(
-                        db,
-                        function_ty,
-                        argument_ty.return_ty(db).into(),
-                        shift - 1,
-                    )?,
-                )
-                .into())
-            }
+                    function_ty,
+                    argument_ty.return_ty(db).into(),
+                    shift - 1,
+                )?,
+            )
+            .into()),
             _ => Err(todo!()),
         },
     }
@@ -296,7 +291,7 @@ impl EthTerm {
     }
 }
 
-impl salsa::DisplayWithDb for ApplicationEthTerm {
+impl salsa::DisplayWithDb for EthApplication {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -306,7 +301,7 @@ impl salsa::DisplayWithDb for ApplicationEthTerm {
     }
 }
 
-impl ApplicationEthTerm {
+impl EthApplication {
     pub(super) fn substitute(self, substitution: EthTermSubstitution, db: &::salsa::Db) -> EthTerm
     where
         Self: Copy,
@@ -318,17 +313,17 @@ impl ApplicationEthTerm {
         if old_m == m && old_n == n {
             return self.into();
         }
-        ApplicationEthTerm::new_inner(db, m, n, self.shift(db)).reduce(db)
+        EthApplication::new_inner(db, m, n, self.shift(db)).reduce(db)
     }
 }
 
-impl std::fmt::Display for ApplicationEthTerm {
+impl std::fmt::Display for EthApplication {
     fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }
 }
 
-impl EthTermInstantiate for ApplicationEthTerm {
+impl EthTermInstantiate for EthApplication {
     type Output = EthTerm;
 
     fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {

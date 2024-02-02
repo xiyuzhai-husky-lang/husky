@@ -19,12 +19,15 @@ impl EthTerm {
     }
 
     /// see `self` as the type of another term, return the type expectation for that term
-    pub fn ty_expectation(self, db: &::salsa::Db) -> EthTermResult<TermTypeExpectation> {
+    pub fn ty_expectation(
+        self,
+        db: &::salsa::Db,
+    ) -> EthTermResult<TypeFinalDestinationExpectation> {
         Ok(match self.application_expansion(db).function() {
             TermFunctionReduced::TypeOntology(path) => {
-                TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path)
+                TypeFinalDestinationExpectation::EqsNonSortTypePath(path)
             }
-            _ => TermTypeExpectation::Any,
+            _ => TypeFinalDestinationExpectation::Any,
         })
     }
 
@@ -57,7 +60,7 @@ impl EthTerm {
                     argument_ty.return_ty(db),
                     shift - 1,
                 )?;
-                Ok(CurryEthTerm::new(
+                Ok(EthCurry::new(
                     db,
                     argument_ty.toolchain(db),
                     argument_ty.curry_kind(db),
@@ -79,23 +82,20 @@ impl EthTerm {
     ) -> EthTermResult<Self> {
         let mut term: Self = ItemPathTerm::TypeOntology(path).into();
         for argument in arguments {
-            term = ApplicationEthTerm::new(db, term, argument)?
+            term = EthApplication::new(db, term, argument)?
         }
         Ok(term)
     }
 }
 
-impl RuneEthTerm {
+impl EthRune {
     fn toolchain(self, db: &::salsa::Db) -> Option<Toolchain> {
         self.ty(db).toolchain(db)
     }
 }
 
 #[salsa::tracked(jar = EthTermJar)]
-pub(crate) fn ethereal_term_curry_toolchain(
-    db: &::salsa::Db,
-    term: CurryEthTerm,
-) -> Option<Toolchain> {
+pub(crate) fn ethereal_term_curry_toolchain(db: &::salsa::Db, term: EthCurry) -> Option<Toolchain> {
     let mut merger = ToolchainMerger::default();
     if let Some(parameter_rune) = term.parameter_rune(db) {
         merger.accept(parameter_rune.toolchain(db))
@@ -108,7 +108,7 @@ pub(crate) fn ethereal_term_curry_toolchain(
 #[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn ethereal_term_application_toolchain(
     db: &::salsa::Db,
-    term: ApplicationEthTerm,
+    term: EthApplication,
 ) -> Option<Toolchain> {
     let mut merger = ToolchainMerger::default();
     merger.accept(term.function(db).toolchain(db));
@@ -119,7 +119,7 @@ pub(crate) fn ethereal_term_application_toolchain(
 #[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn ethereal_term_ritchie_toolchain(
     db: &::salsa::Db,
-    term: RitchieEthTerm,
+    term: EthRitchie,
 ) -> Option<Toolchain> {
     let mut merger = ToolchainMerger::default();
     for parameter_contracted_ty in term.parameter_contracted_tys(db) {

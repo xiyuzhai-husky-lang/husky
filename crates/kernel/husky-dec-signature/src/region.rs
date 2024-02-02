@@ -52,7 +52,7 @@ impl SynExprDecTermRegion {
     pub fn current_syn_symbol_signature(
         &self,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-    ) -> Option<SymbolDecSignature> {
+    ) -> Option<DecSymbolSignature> {
         self.term_symbol_region
             .current_parameter_symbol_signature(current_syn_symbol_idx)
     }

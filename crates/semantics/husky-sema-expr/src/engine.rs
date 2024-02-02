@@ -51,10 +51,10 @@ pub(crate) struct SemaExprEngine<'a> {
     return_ty: Option<EthTerm>,
     pub(crate) unveiler: Unveiler,
     self_ty: Option<EthTerm>,
-    self_value: Option<SymbolEthTerm>,
+    self_value: Option<EthSymbol>,
     self_value_ty: Option<FlyTerm>,
-    self_lifetime: Option<SymbolEthTerm>,
-    self_place: Option<SymbolEthTerm>,
+    self_lifetime: Option<EthSymbol>,
+    self_place: Option<EthSymbol>,
     trai_in_use_items_table: TraitInUseItemsTable<'a>,
 }
 
@@ -124,18 +124,18 @@ impl<'a> SemaExprEngine<'a> {
         let self_value = declarative_term_region
             .term_symbol_region()
             .self_value()
-            .map(|self_value| SymbolEthTerm::from_declarative(db, self_value).ok())
+            .map(|self_value| EthSymbol::from_declarative(db, self_value).ok())
             .flatten();
         let mut stack_location_registry = Default::default();
         let self_lifetime = declarative_term_region
             .term_symbol_region()
             .self_lifetime()
-            .map(|self_lifetime| SymbolEthTerm::from_declarative(db, self_lifetime).ok())
+            .map(|self_lifetime| EthSymbol::from_declarative(db, self_lifetime).ok())
             .flatten();
         let self_place = declarative_term_region
             .term_symbol_region()
             .self_place()
-            .map(|self_place| SymbolEthTerm::from_declarative(db, self_place).ok())
+            .map(|self_place| EthSymbol::from_declarative(db, self_place).ok())
             .flatten();
         let self_value_ty = calc_self_value_ty(
             syn_expr_region_data,
@@ -301,7 +301,7 @@ impl<'a> SemaExprEngine<'a> {
 fn calc_self_value_ty(
     syn_expr_region_data: &SynExprRegionData,
     self_ty: Option<EthTerm>,
-    self_place: Option<SymbolEthTerm>,
+    self_place: Option<EthSymbol>,
     db: &salsa::Db,
     registry: &mut StackLocationRegistry,
 ) -> Option<FlyTerm> {

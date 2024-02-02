@@ -1,12 +1,12 @@
 use super::*;
 
 #[salsa::interned(db = DecTermDb, jar = DecTermJar)]
-pub struct TraitConstraintDecTerm {
+pub struct DecTraitConstraint {
     ty: DecTerm,
     trai: DecTerm,
 }
 
-impl TraitConstraintDecTerm {
+impl DecTraitConstraint {
     pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         _f: &mut std::fmt::Formatter<'_>,
@@ -17,7 +17,7 @@ impl TraitConstraintDecTerm {
     }
 }
 
-impl DecTermRewriteCopy for TraitConstraintDecTerm {
+impl DecTermRewriteCopy for DecTraitConstraint {
     fn substitute_copy(self, _db: &::salsa::Db, _substitution: &DecTermSubstitution) -> Self {
         todo!()
     }

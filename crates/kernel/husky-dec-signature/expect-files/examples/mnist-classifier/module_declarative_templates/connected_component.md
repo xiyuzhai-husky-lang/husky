@@ -86,7 +86,7 @@
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDecTerm {
+                            instance_constructor_ritchie_ty: DecRitchie {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -203,7 +203,7 @@
                                 PropsStructFieldDecTemplate {
                                     ident: `matches`,
                                     ty: Application(
-                                        ApplicationDecTerm(
+                                        DecApplication(
                                             Id {
                                                 value: 6,
                                             },
@@ -212,7 +212,7 @@
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDecTerm {
+                            instance_constructor_ritchie_ty: DecRitchie {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -221,7 +221,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 6,
                                                     },
@@ -268,7 +268,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 4,
                                                     },
@@ -279,7 +279,7 @@
                                 ],
                             },
                             return_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 7,
                                     },
@@ -333,7 +333,7 @@
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDecTerm {
+                            instance_constructor_ritchie_ty: DecRitchie {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -475,7 +475,7 @@
                                 ],
                             },
                             return_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 8,
                                     },
@@ -688,7 +688,7 @@
                                 ),
                             },
                             return_ty: Application(
-                                ApplicationDecTerm(
+                                DecApplication(
                                     Id {
                                         value: 9,
                                     },

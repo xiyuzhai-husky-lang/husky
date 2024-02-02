@@ -37,20 +37,20 @@ pub enum DecTerm {
     /// atoms
     ///
     /// literal: 1,1.0, true, false; variable, itemPath
-    Literal(LiteralDecTerm),
-    Symbol(SymbolDecTerm),
+    Literal(DecLiteral),
+    Symbol(DecSymbol),
     /// variables are those appearing in lambda expression
     /// variables are derived from symbols
-    Rune(RuneDecTerm),
-    EntityPath(ItemPathDecTerm),
-    Category(CategoryTerm),
-    Universe(UniverseTerm),
+    Rune(DecRune),
+    EntityPath(DecItemPath),
+    Category(Category),
+    Universe(Universe),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
-    Curry(CurryDecTerm),
+    Curry(DecCurry),
     /// in memory of Dennis M.Ritchie
-    Ritchie(RitchieDecTerm),
+    Ritchie(DecRitchie),
     /// lambda x => expr
-    Abstraction(AbstractionDecTerm),
+    Abstraction(DecAbstraction),
     /// in husky, application is generalized to include composition as a special case;
     ///
     /// when shift is `0`, this is the normal application;
@@ -64,22 +64,22 @@ pub enum DecTerm {
     /// then apply function to the result,
     ///
     /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-    Application(ApplicationDecTerm),
-    ApplicationOrRitchieCall(ApplicationOrRitchieCallDecTerm),
+    Application(DecApplication),
+    ApplicationOrRitchieCall(DecApplicationOrRitchieCall),
     /// ::<ident>
-    AssociatedItem(AssociatedItemDecTerm),
+    AssociatedItem(DecAssociatedItem),
     /// (<type> as <trait>)::<ident>
-    TypeAsTraitItem(TypeAsTraitItemDecTerm),
+    TypeAsTraitItem(DecTypeAsTraitItem),
     /// <type> : <trait>
-    TraitConstraint(TraitConstraintDecTerm),
+    TraitConstraint(DecTraitConstraint),
     /// `~`
     LeashOrBitNot(Toolchain),
-    Wrapper(WrapperDecTerm),
+    Wrapper(DecWrapper),
     /// can be interpreted as
     /// - a normal list of terms
     /// - List functor
     /// - Array functor
-    List(ListDecTerm),
+    List(DecList),
 }
 
 impl DecTerm {

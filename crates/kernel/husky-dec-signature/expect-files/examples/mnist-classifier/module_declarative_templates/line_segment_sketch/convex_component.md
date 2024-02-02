@@ -28,7 +28,7 @@
                                 PropsStructFieldDecTemplate {
                                     ident: `line_segment_sketch`,
                                     ty: Application(
-                                        ApplicationDecTerm(
+                                        DecApplication(
                                             Id {
                                                 value: 27,
                                             },
@@ -39,7 +39,7 @@
                                 PropsStructFieldDecTemplate {
                                     ident: `line_segments`,
                                     ty: Application(
-                                        ApplicationDecTerm(
+                                        DecApplication(
                                             Id {
                                                 value: 29,
                                             },
@@ -48,7 +48,7 @@
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDecTerm {
+                            instance_constructor_ritchie_ty: DecRitchie {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -57,7 +57,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 27,
                                                     },
@@ -69,7 +69,7 @@
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
                                             ty: Application(
-                                                ApplicationDecTerm(
+                                                DecApplication(
                                                     Id {
                                                         value: 29,
                                                     },

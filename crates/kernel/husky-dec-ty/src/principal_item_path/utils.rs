@@ -15,7 +15,7 @@ pub(super) fn curry_from_template_parameters(
         std::iter::zip(variances.iter(), template_parameters.iter()).rev()
     {
         let symbol = template_parameter.symbol();
-        term = CurryDecTerm::new_dependent(
+        term = DecCurry::new_dependent(
             db,
             toolchain,
             term_curry_kind,

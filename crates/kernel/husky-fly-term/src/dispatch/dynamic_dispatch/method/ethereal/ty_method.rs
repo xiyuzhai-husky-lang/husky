@@ -45,7 +45,7 @@ fn ethereal_ty_ontology_path_ty_method_dispatch(
 fn ethereal_term_application_ty_method_dispatch(
     engine: &mut impl FlyTermEngine,
     expr_idx: SynExprIdx,
-    ty_term: ApplicationEthTerm,
+    ty_term: EthApplication,
     ident_token: IdentRegionalToken,
     indirections: FlyIndirections,
 ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {

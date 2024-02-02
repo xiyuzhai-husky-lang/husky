@@ -49,8 +49,8 @@ impl RuneFlyTerm {
     }
 }
 
-impl From<RuneEthTerm> for RuneFlyTerm {
-    fn from(value: RuneEthTerm) -> Self {
+impl From<EthRune> for RuneFlyTerm {
+    fn from(value: EthRune) -> Self {
         RuneFlyTerm(value.into())
     }
 }

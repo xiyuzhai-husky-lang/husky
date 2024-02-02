@@ -3,9 +3,9 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu2 {
     static_str_ref: EthTerm,
-    ex_co_lifetime_to_ex_co_ty0_to_ty0: CurryEthTerm,
-    ex_co_lifetime_to_ex_ct_ty0_to_ty0: CurryEthTerm,
-    ex_co_lifetime_to_ex_inv_ty0_to_ty0: CurryEthTerm,
+    ex_co_lifetime_to_ex_co_ty0_to_ty0: EthCurry,
+    ex_co_lifetime_to_ex_ct_ty0_to_ty0: EthCurry,
+    ex_co_lifetime_to_ex_inv_ty0_to_ty0: EthCurry,
     parent: TermMenu1,
 }
 
@@ -20,14 +20,10 @@ impl std::ops::Deref for TermMenu2 {
 impl TermMenu2 {
     pub(crate) fn new(db: &::salsa::Db, toolchain: Toolchain, menu1: TermMenu1) -> Self {
         TermMenu2 {
-            static_str_ref: ApplicationEthTerm::new(
-                db,
-                menu1.static_ref_ty(),
-                menu1.str_ty_ontology(),
-            )
-            .expect("valid toolchain")
-            .into(),
-            ex_co_lifetime_to_ex_co_ty0_to_ty0: CurryEthTerm::new(
+            static_str_ref: EthApplication::new(db, menu1.static_ref_ty(), menu1.str_ty_ontology())
+                .expect("valid toolchain")
+                .into(),
+            ex_co_lifetime_to_ex_co_ty0_to_ty0: EthCurry::new(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -36,7 +32,7 @@ impl TermMenu2 {
                 menu1.lifetime_ty().into(),
                 menu1.ex_co_ty0_to_ty0().into(),
             ),
-            ex_co_lifetime_to_ex_ct_ty0_to_ty0: CurryEthTerm::new(
+            ex_co_lifetime_to_ex_ct_ty0_to_ty0: EthCurry::new(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -45,7 +41,7 @@ impl TermMenu2 {
                 menu1.lifetime_ty().into(),
                 menu1.explicit_contravariant_ty0_to_ty0().into(),
             ),
-            ex_co_lifetime_to_ex_inv_ty0_to_ty0: CurryEthTerm::new(
+            ex_co_lifetime_to_ex_inv_ty0_to_ty0: EthCurry::new(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -62,15 +58,15 @@ impl TermMenu2 {
         self.static_str_ref
     }
 
-    pub fn ex_co_lifetime_to_ex_co_ty0_to_ty0(&self) -> CurryEthTerm {
+    pub fn ex_co_lifetime_to_ex_co_ty0_to_ty0(&self) -> EthCurry {
         self.ex_co_lifetime_to_ex_co_ty0_to_ty0
     }
 
-    pub fn ex_co_lifetime_to_ex_ct_ty0_to_ty0(&self) -> CurryEthTerm {
+    pub fn ex_co_lifetime_to_ex_ct_ty0_to_ty0(&self) -> EthCurry {
         self.ex_co_lifetime_to_ex_ct_ty0_to_ty0
     }
 
-    pub fn ex_co_lifetime_to_ex_inv_ty0_to_ty0(&self) -> CurryEthTerm {
+    pub fn ex_co_lifetime_to_ex_inv_ty0_to_ty0(&self) -> EthCurry {
         self.ex_co_lifetime_to_ex_inv_ty0_to_ty0
     }
 }

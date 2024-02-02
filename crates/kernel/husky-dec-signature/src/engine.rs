@@ -118,7 +118,7 @@ impl<'a> DecTermEngine<'a> {
                     let (name, (ty, term_symbol)) = match *template_parameter_variant {
                         CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => (
                             label_token.label().into(),
-                            SymbolDecTerm::new_lifetime(
+                            DecSymbol::new_lifetime(
                                 self.db,
                                 self.toolchain,
                                 self.declarative_term_menu,
@@ -129,7 +129,7 @@ impl<'a> DecTermEngine<'a> {
                         ),
                         CurrentTemplateParameterSynSymbolVariant::Place { label_token } => (
                             label_token.label().into(),
-                            SymbolDecTerm::new_place(
+                            DecSymbol::new_place(
                                 self.db,
                                 self.toolchain,
                                 self.declarative_term_menu,
@@ -140,7 +140,7 @@ impl<'a> DecTermEngine<'a> {
                         ),
                         CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. } => (
                             ident_token.ident().into(),
-                            SymbolDecTerm::new_ty(
+                            DecSymbol::new_ty(
                                 self.db,
                                 self.toolchain,
                                 self.declarative_term_menu,
@@ -158,7 +158,7 @@ impl<'a> DecTermEngine<'a> {
                                 ident_token.ident().into(),
                                 (
                                     ty,
-                                    SymbolDecTerm::new_const(
+                                    DecSymbol::new_const(
                                         self.db,
                                         self.toolchain,
                                         attrs,
@@ -209,7 +209,7 @@ impl<'a> DecTermEngine<'a> {
                 }
                 SyndicateTypeConstraint::VariadicParenateParameter { ident_token, ty } => {
                     let ty = self.infer_new_expr_term(*ty).map_err(|_| todo!());
-                    let symbol = SymbolDecTerm::new_ephem(
+                    let symbol = DecSymbol::new_ephem(
                         self.db,
                         self.toolchain,
                         ty,
@@ -360,11 +360,11 @@ impl<'a> DecTermEngine<'a> {
                 Some(path) => Ok(DecTerm::EntityPath(match path {
                     PrincipalEntityPath::Module(_) => todo!(),
                     PrincipalEntityPath::MajorItem(path) => match path {
-                        MajorItemPath::Type(path) => ItemPathDecTerm::Type(path),
+                        MajorItemPath::Type(path) => DecItemPath::Type(path),
                         MajorItemPath::Trait(path) => path.into(),
                         MajorItemPath::Fugitive(path) => path.into(),
                     },
-                    PrincipalEntityPath::TypeVariant(path) => ItemPathDecTerm::TypeVariant(path),
+                    PrincipalEntityPath::TypeVariant(path) => DecItemPath::TypeVariant(path),
                 })),
                 None => Err(DerivedDecTermError2::InvalidEntityPath.into()),
             },
@@ -420,7 +420,7 @@ impl<'a> DecTermEngine<'a> {
                     SynBinaryOpr::AssignClosed(_) => todo!(),
                     SynBinaryOpr::AssignShift(_) => todo!(),
                     SynBinaryOpr::ScopeResolution => todo!(),
-                    SynBinaryOpr::CurryType => Ok(CurryDecTerm::new_nondependent(
+                    SynBinaryOpr::CurryType => Ok(DecCurry::new_nondependent(
                         self.db,
                         self.toolchain,
                         CurryKind::Explicit, // ad hoc
@@ -448,7 +448,7 @@ impl<'a> DecTermEngine<'a> {
                     SynPrefixOpr::Ref => todo!(),
                     SynPrefixOpr::Option => self.declarative_term_menu.option_ty_path(),
                 };
-                Ok(ApplicationDecTerm::new(self.db, tmpl, opd).into())
+                Ok(DecApplication::new(self.db, tmpl, opd).into())
             }
             SynExprData::Suffix { .. } => todo!(),
             SynExprData::Field { .. } => todo!(),
@@ -502,7 +502,7 @@ impl<'a> DecTermEngine<'a> {
                     .into_iter()
                     .map(|item| self.infer_new_expr_term(item.syn_expr_idx()))
                     .collect::<DecTermResult2<_>>()?;
-                Ok(ApplicationOrRitchieCallDecTerm::new(
+                Ok(DecApplicationOrRitchieCall::new(
                     function,
                     template_arguments,
                     items,
@@ -521,7 +521,7 @@ impl<'a> DecTermEngine<'a> {
                 let Ok(function) = self.infer_new_expr_term(function) else {
                     Err(DerivedDecTermError2::CannotInferFunctionDecTermInApplication)?
                 };
-                Ok(ApplicationDecTerm::new(self.db, function, argument).into())
+                Ok(DecApplication::new(self.db, function, argument).into())
             }
             SynExprData::NewTuple { ref items, .. } => {
                 p!(self.syn_expr_region_data.path().debug(self.db));
@@ -533,7 +533,7 @@ impl<'a> DecTermEngine<'a> {
                     .iter()
                     .map(|item| self.infer_new_expr_term(item.syn_expr_idx()))
                     .collect::<DecTermResult2<Vec<_>>>()?;
-                Ok(ListDecTerm::new(
+                Ok(DecList::new(
                     self.db,
                     self.syn_expr_region_data.path().toolchain(self.db),
                     items,
@@ -554,7 +554,7 @@ impl<'a> DecTermEngine<'a> {
             } => match place_label_regional_token {
                 Some(_) => todo!(),
                 None => match self.symbol_declarative_term_region.self_place() {
-                    Some(place) => Ok(ApplicationDecTerm::new(
+                    Some(place) => Ok(DecApplication::new(
                         self.db,
                         self.declarative_term_menu.at_ty_path(),
                         place.into(),
@@ -593,7 +593,7 @@ impl<'a> DecTermEngine<'a> {
                     Some(return_ty_expr) => self.infer_new_expr_term(return_ty_expr)?,
                     None => self.declarative_term_menu.unit(),
                 };
-                Ok(RitchieDecTerm::new(self.db, ritchie_kind, parameter_tys, return_ty).into())
+                Ok(DecRitchie::new(self.db, ritchie_kind, parameter_tys, return_ty).into())
             }
             SynExprData::Sorry { .. } => todo!(),
             SynExprData::Todo { .. } => todo!(),

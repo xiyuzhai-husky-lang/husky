@@ -1,13 +1,13 @@
 use crate::*;
-use husky_term_prelude::literal::TermLiteral;
+use husky_term_prelude::literal::Literal;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu0 {
-    universe0: UniverseTerm,
-    universe1: UniverseTerm,
-    prop: CategoryTerm,
-    ty0: CategoryTerm,
-    static_lifetime: TermLiteral,
+    universe0: Universe,
+    universe1: Universe,
+    prop: Category,
+    ty0: Category,
+    static_lifetime: Literal,
     unit: EthTerm,
     never: EthTerm,
     // core::ops::Add	The addition operator +.
@@ -82,14 +82,14 @@ impl TermMenu0 {
         // let universe1 = db.it_term(TermAtom::new_universe(1).into());
         let _vfs_path_menu = db.vfs_path_menu(toolchain);
         let item_path_menu = item_path_menu(db, toolchain);
-        let universe0 = UniverseTerm::new(0);
-        let universe1 = UniverseTerm::new(1);
+        let universe0 = Universe::new(0);
+        let universe1 = Universe::new(1);
         TermMenu0 {
-            static_lifetime: TermLiteral::StaticLifetime,
+            static_lifetime: Literal::StaticLifetime,
             universe0,
             universe1,
-            prop: CategoryTerm::new(universe0),
-            ty0: CategoryTerm::new(universe1),
+            prop: Category::new(universe0),
+            ty0: Category::new(universe1),
             core_ops_add: EthTerm::EntityPath(item_path_menu.add_trai_path().into()),
             // start here
             // EthTerm::Entity(item_path_menu.core_ops_())
@@ -154,21 +154,21 @@ impl TermMenu0 {
         }
     }
 
-    pub fn universe0(&self) -> UniverseTerm {
+    pub fn universe0(&self) -> Universe {
         self.universe0
     }
 
-    pub fn universe1(&self) -> UniverseTerm {
+    pub fn universe1(&self) -> Universe {
         self.universe1
     }
 
     /// `Prop`
-    pub fn prop(&self) -> CategoryTerm {
+    pub fn prop(&self) -> Category {
         self.prop
     }
 
     /// `Type`
-    pub fn ty0(&self) -> CategoryTerm {
+    pub fn ty0(&self) -> Category {
         self.ty0
     }
 

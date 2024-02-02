@@ -27,15 +27,12 @@ impl EthTerm {
 #[salsa::tracked(jar = EthTermJar)]
 fn application_ethereal_term_final_destination(
     _db: &::salsa::Db,
-    _term_application: ApplicationEthTerm,
+    _term_application: EthApplication,
 ) -> FinalDestination {
     todo!()
 }
 
 #[salsa::tracked(jar = EthTermJar)]
-fn curry_ethereal_term_final_destination(
-    db: &::salsa::Db,
-    curry: CurryEthTerm,
-) -> FinalDestination {
+fn curry_ethereal_term_final_destination(db: &::salsa::Db, curry: EthCurry) -> FinalDestination {
     curry.return_ty(db).final_destination(db)
 }

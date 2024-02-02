@@ -6,12 +6,12 @@ use super::*;
 
 /// representing term `X -> Y` or dependent form `(a: X) -> Y(a)`
 #[salsa::interned(db = EthTermDb, jar = EthTermJar)]
-pub struct CurryEthTerm {
+pub struct EthCurry {
     pub toolchain: Toolchain,
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_rune: Option<RuneEthTerm>,
+    pub parameter_rune: Option<EthRune>,
     /// X
     pub parameter_ty: EthTerm,
     /// Y
@@ -20,16 +20,13 @@ pub struct CurryEthTerm {
 
 #[test]
 fn term_curry_size_works() {
-    assert_eq!(
-        std::mem::size_of::<CurryEthTerm>(),
-        std::mem::size_of::<u32>()
-    );
+    assert_eq!(std::mem::size_of::<EthCurry>(), std::mem::size_of::<u32>());
 }
 
-impl CurryEthTerm {
+impl EthCurry {
     pub(crate) fn from_declarative(
         db: &::salsa::Db,
-        declarative_term_curry: CurryDecTerm,
+        declarative_term_curry: DecCurry,
     ) -> EthTermResult<Self> {
         term_curry_from_declarative(db, declarative_term_curry)
     }
@@ -66,7 +63,7 @@ impl CurryEthTerm {
 
 /// # rewrite
 
-impl CurryEthTerm {
+impl EthCurry {
     pub fn substitute(self, substitution: EthTermSubstitution, db: &::salsa::Db) -> Self {
         let parameter_rune = self.parameter_rune(db);
         if parameter_rune == Some(substitution.src()) {
@@ -84,7 +81,7 @@ impl CurryEthTerm {
     }
 }
 
-impl EthTermInstantiate for CurryEthTerm {
+impl EthTermInstantiate for EthCurry {
     type Output = Self;
 
     fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
@@ -103,16 +100,16 @@ impl EthTermInstantiate for CurryEthTerm {
 #[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn term_curry_from_declarative(
     db: &::salsa::Db,
-    curry: CurryDecTerm,
-) -> EthTermResult<CurryEthTerm> {
+    curry: DecCurry,
+) -> EthTermResult<EthCurry> {
     let t = |declarative_ty| EthTerm::ty_from_declarative(db, declarative_ty);
-    Ok(CurryEthTerm::new(
+    Ok(EthCurry::new(
         db,
         curry.toolchain(db),
         curry.curry_kind(db),
         curry.variance(db),
         match curry.parameter_rune(db) {
-            Some(parameter_rune) => Some(RuneEthTerm::from_declarative(db, parameter_rune)?),
+            Some(parameter_rune) => Some(EthRune::from_declarative(db, parameter_rune)?),
             None => None,
         },
         t(curry.parameter_ty(db))?,
@@ -120,7 +117,7 @@ pub(crate) fn term_curry_from_declarative(
     ))
 }
 
-impl salsa::DisplayWithDb for CurryEthTerm {
+impl salsa::DisplayWithDb for EthCurry {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,

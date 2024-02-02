@@ -6,7 +6,7 @@ use crate::*;
 use either::*;
 use husky_eth_signature::{helpers::trai_for_ty::is_ty_term_always_copyable, HasEthTemplate};
 use husky_eth_term::{
-    ApplicationEthTerm, EthTerm, EthTermSymbolIndexImpl, RitchieEthTerm, TermFunctionReduced,
+    EthApplication, EthRitchie, EthTerm, EthTermSymbolIndexImpl, TermFunctionReduced,
 };
 use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
 
@@ -105,7 +105,7 @@ impl HirType {
 #[salsa::tracked(jar = HirTypeJar)]
 pub(crate) fn hir_ty_from_eth_term_application(
     db: &::salsa::Db,
-    term_application: ApplicationEthTerm,
+    term_application: EthApplication,
 ) -> HirType {
     let application_expansion = term_application.application_expansion(db);
     match application_expansion.function() {

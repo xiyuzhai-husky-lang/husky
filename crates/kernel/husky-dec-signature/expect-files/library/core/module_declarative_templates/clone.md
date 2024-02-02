@@ -13,7 +13,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDecTerm(
+                                    symbol: DecSymbol(
                                         Id {
                                             value: 5,
                                         },
@@ -48,7 +48,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDecTerm(
+                                    symbol: DecSymbol(
                                         Id {
                                             value: 5,
                                         },
@@ -69,7 +69,7 @@
                             ),
                         ),
                         self_ty: DeclarativeSelfType::DerivedAny(
-                            SymbolDecTerm {
+                            DecSymbol {
                                 toolchain: Toolchain {
                                     data: ToolchainData::Local {
                                         library_path: VirtualPath {
@@ -81,8 +81,8 @@
                                 },
                                 ty: Ok(
                                     Category(
-                                        CategoryTerm {
-                                            universe: UniverseTerm(
+                                        Category {
+                                            universe: Universe(
                                                 1,
                                             ),
                                         },
@@ -129,7 +129,7 @@
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
                             self_ty: Symbol(
-                                SymbolDecTerm(
+                                DecSymbol(
                                     Id {
                                         value: 5,
                                     },
@@ -141,7 +141,7 @@
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
                                 ty: Symbol(
-                                    SymbolDecTerm(
+                                    DecSymbol(
                                         Id {
                                             value: 5,
                                         },
@@ -152,7 +152,7 @@
                                 data: [],
                             },
                             return_ty: Symbol(
-                                SymbolDecTerm(
+                                DecSymbol(
                                     Id {
                                         value: 5,
                                     },

@@ -4,19 +4,19 @@ use super::*;
 ///
 /// refraining from using `new_inner` except in conversion from ethereal term back to declarative term
 #[salsa::interned(db = DecTermDb, jar = DecTermJar, constructor = pub new_inner)]
-pub struct CurryDecTerm {
+pub struct DecCurry {
     pub toolchain: Toolchain,
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_rune: Option<RuneDecTerm>,
+    pub parameter_rune: Option<DecRune>,
     /// X
     pub parameter_ty: DecTerm,
     /// Y
     pub return_ty: DecTerm,
 }
 
-impl CurryDecTerm {
+impl DecCurry {
     /// create a new term curry by converting a symbol to variable
     /// this is the only way to create a new dependent curry declarative term
     /// so that cache hit is maximized
@@ -26,12 +26,12 @@ impl CurryDecTerm {
         curry_kind: CurryKind,
         variance: Variance,
         // to be converted to variable
-        parameter_symbol: SymbolDecTerm,
+        parameter_symbol: DecSymbol,
         parameter_ty: DecTerm,
         return_ty: DecTerm,
     ) -> Self {
         let (return_ty, parameter_rune) = return_ty.create_rune(db, parameter_symbol);
-        CurryDecTerm::new_inner(
+        DecCurry::new_inner(
             db,
             toolchain,
             curry_kind,
@@ -50,7 +50,7 @@ impl CurryDecTerm {
         parameter_ty: DecTerm,
         return_ty: DecTerm,
     ) -> Self {
-        CurryDecTerm::new_inner(
+        DecCurry::new_inner(
             db,
             toolchain,
             curry_kind,
@@ -64,10 +64,10 @@ impl CurryDecTerm {
     pub(super) fn substitute_symbol_with_variable(
         self,
         db: &::salsa::Db,
-        symbol: SymbolDecTerm,
-        variable: RuneDecTerm,
+        symbol: DecSymbol,
+        variable: DecRune,
     ) -> Self {
-        CurryDecTerm::new_inner(
+        DecCurry::new_inner(
             db,
             symbol.toolchain(db),
             self.curry_kind(db),
@@ -125,11 +125,11 @@ impl CurryDecTerm {
 }
 
 #[salsa::tracked(jar = DecTermJar)]
-pub(crate) fn curry_parameter_count(db: &::salsa::Db, term: CurryDecTerm) -> u8 {
+pub(crate) fn curry_parameter_count(db: &::salsa::Db, term: DecCurry) -> u8 {
     term.return_ty(db).curry_parameter_count(db) + 1
 }
 
-impl DecTermRewriteCopy for CurryDecTerm {
+impl DecTermRewriteCopy for DecCurry {
     fn substitute_copy(self, db: &::salsa::Db, substitution: &DecTermSubstitution) -> Self {
         let old_parameter_variable = self.parameter_rune(db);
         let parameter_rune = old_parameter_variable.map(|v| v.substitute_copy(db, substitution));

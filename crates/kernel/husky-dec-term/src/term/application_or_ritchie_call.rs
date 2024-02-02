@@ -2,7 +2,7 @@ use super::*;
 use std::fmt::Debug;
 
 #[salsa::interned(db = DecTermDb, jar = DecTermJar, constructor = new_inner)]
-pub struct ApplicationOrRitchieCallDecTerm {
+pub struct DecApplicationOrRitchieCall {
     pub function: DecTerm,
     #[return_ref]
     pub generic_arguments: Vec<DecTerm>,
@@ -11,7 +11,7 @@ pub struct ApplicationOrRitchieCallDecTerm {
     pub extra_comma: bool,
 }
 
-impl ApplicationOrRitchieCallDecTerm {
+impl DecApplicationOrRitchieCall {
     pub fn new(
         function: DecTerm,
         template_arguments: Vec<DecTerm>,

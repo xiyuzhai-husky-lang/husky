@@ -2,12 +2,12 @@ use super::*;
 use husky_coword::Ident;
 
 #[salsa::interned(db = DecTermDb, jar = DecTermJar)]
-pub struct AssociatedItemDecTerm {
+pub struct DecAssociatedItem {
     parent: DecTerm,
     ident: Ident,
 }
 
-impl AssociatedItemDecTerm {
+impl DecAssociatedItem {
     #[inline(never)]
     pub(crate) fn display_fmt_with_db_and_ctx(
         self,
@@ -19,7 +19,7 @@ impl AssociatedItemDecTerm {
     }
 }
 
-impl DecTermRewriteCopy for AssociatedItemDecTerm {
+impl DecTermRewriteCopy for DecAssociatedItem {
     fn substitute_copy(self, db: &::salsa::Db, substitution: &DecTermSubstitution) -> Self {
         let old_parent = self.parent(db);
         let parent = old_parent.substitute_copy(db, substitution);
@@ -27,6 +27,6 @@ impl DecTermRewriteCopy for AssociatedItemDecTerm {
             return self;
         }
         let ident = self.ident(db);
-        AssociatedItemDecTerm::new(db, parent, ident)
+        DecAssociatedItem::new(db, parent, ident)
     }
 }

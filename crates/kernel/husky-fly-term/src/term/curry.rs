@@ -17,7 +17,7 @@ impl FlyTerm {
         merger.accept(parameter_rune.map(|rune| *rune));
         merger.accept([parameter_ty, return_ty]);
         match merger.data_kind() {
-            FlyTermDataKind::Ethereal => CurryEthTerm::new(
+            FlyTermDataKind::Ethereal => EthCurry::new(
                 db,
                 toolchain,
                 curry_kind,

@@ -15,12 +15,12 @@ use std::fmt::Debug;
 ///
 /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
 #[salsa::interned(db = DecTermDb, jar = DecTermJar)]
-pub struct ApplicationDecTerm {
+pub struct DecApplication {
     pub function: DecTerm,
     pub argument: DecTerm,
 }
 
-impl ApplicationDecTerm {
+impl DecApplication {
     #[inline(never)]
     pub(crate) fn display_fmt_with_db_and_ctx(
         self,
@@ -34,7 +34,7 @@ impl ApplicationDecTerm {
     }
 }
 
-impl DecTermRewriteCopy for ApplicationDecTerm {
+impl DecTermRewriteCopy for DecApplication {
     fn substitute_copy(self, db: &::salsa::Db, substitution: &DecTermSubstitution) -> Self
     where
         Self: Copy,
@@ -46,11 +46,11 @@ impl DecTermRewriteCopy for ApplicationDecTerm {
         if old_m == m && old_n == n {
             return self;
         }
-        ApplicationDecTerm::new(db, m, n)
+        DecApplication::new(db, m, n)
     }
 }
 
-impl std::fmt::Display for ApplicationDecTerm {
+impl std::fmt::Display for DecApplication {
     fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }

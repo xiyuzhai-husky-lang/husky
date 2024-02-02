@@ -2208,7 +2208,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -2946,7 +2946,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -3663,7 +3663,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEthTerm(
+                                                    EthSymbol(
                                                         Id {
                                                             value: 7,
                                                         },
@@ -3680,7 +3680,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    SymbolEthTerm(
+                                                    EthSymbol(
                                                         Id {
                                                             value: 8,
                                                         },
@@ -3954,7 +3954,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEthTerm(
+                                                    EthSymbol(
                                                         Id {
                                                             value: 1,
                                                         },
@@ -3971,7 +3971,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    SymbolEthTerm(
+                                                    EthSymbol(
                                                         Id {
                                                             value: 2,
                                                         },
@@ -4720,7 +4720,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -4744,7 +4744,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEthTerm {
+                                                    EthSymbol {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -7434,7 +7434,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEthTerm(
+                                                    EthSymbol(
                                                         Id {
                                                             value: 7,
                                                         },
@@ -7451,7 +7451,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    SymbolEthTerm(
+                                                    EthSymbol(
                                                         Id {
                                                             value: 8,
                                                         },
@@ -8258,7 +8258,7 @@
                             ),
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 58,
                                         },
@@ -8316,7 +8316,7 @@
                             ),
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 41,
                                         },
@@ -8334,7 +8334,7 @@
                             ),
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 41,
                                         },
@@ -8352,7 +8352,7 @@
                             ),
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 41,
                                         },
@@ -8532,7 +8532,7 @@
                                     ),
                                     base: Eth(
                                         Application(
-                                            ApplicationEthTerm(
+                                            EthApplication(
                                                 Id {
                                                     value: 41,
                                                 },

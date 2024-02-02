@@ -5,12 +5,12 @@ use crate::*;
 impl DecTerm {
     #[inline(always)]
     pub fn apply(self, db: &::salsa::Db, argument: impl Into<DecTerm>) -> Self {
-        ApplicationDecTerm::new(db, self, argument.into()).into()
+        DecApplication::new(db, self, argument.into()).into()
     }
 
     pub fn family(self, db: &::salsa::Db) -> DecTermFamily {
         match self {
-            DecTerm::EntityPath(ItemPathDecTerm::Type(path)) => DecTermFamily::TypePath(path),
+            DecTerm::EntityPath(DecItemPath::Type(path)) => DecTermFamily::TypePath(path),
             DecTerm::Category(cat) => DecTermFamily::Category(cat),
             DecTerm::Application(term) => term.function(db).family(db),
             DecTerm::ApplicationOrRitchieCall(term) => term.function(db).family(db),
@@ -25,31 +25,31 @@ impl DecTerm {
     pub fn ty_final_destination_expectation(
         self,
         db: &::salsa::Db,
-    ) -> DecTermResult<TermTypeExpectation> {
+    ) -> DecTermResult<TypeFinalDestinationExpectation> {
         match self {
-            DecTerm::EntityPath(ItemPathDecTerm::Type(path)) => Ok(
-                TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path),
-            ),
-            DecTerm::Category(_) => Ok(TermTypeExpectation::FinalDestinationEqsSort),
+            DecTerm::EntityPath(DecItemPath::Type(path)) => {
+                Ok(TypeFinalDestinationExpectation::EqsNonSortTypePath(path))
+            }
+            DecTerm::Category(_) => Ok(TypeFinalDestinationExpectation::EqsSort),
             DecTerm::Curry(slf) => slf.return_ty(db).ty_final_destination_expectation(db),
             DecTerm::Application(slf) => slf.function(db).ty_final_destination_expectation(db),
-            _ => Ok(TermTypeExpectation::Any),
+            _ => Ok(TypeFinalDestinationExpectation::Any),
         }
     }
 
-    pub const PROP: DecTerm = DecTerm::Category(CategoryTerm::new(UniverseTerm::new(0)));
+    pub const PROP: DecTerm = DecTerm::Category(Category::new(Universe::new(0)));
 
-    pub const TYPE: DecTerm = DecTerm::Category(CategoryTerm::new(UniverseTerm::new(1)));
+    pub const TYPE: DecTerm = DecTerm::Category(Category::new(Universe::new(1)));
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum DecTermFamily {
-    Category(CategoryTerm),
+    Category(Category),
     TypePath(TypePath),
     Other,
 }
 
-impl SymbolDecTerm {
+impl DecSymbol {
     pub(crate) fn ty_family(self, db: &::salsa::Db) -> DecTermFamily {
         self.ty(db)
             .ok()
@@ -58,7 +58,7 @@ impl SymbolDecTerm {
     }
 }
 
-impl RuneDecTerm {
+impl DecRune {
     pub(crate) fn ty_family(self, db: &::salsa::Db) -> DecTermFamily {
         self.ty(db)
             .ok()

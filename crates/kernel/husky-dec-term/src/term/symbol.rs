@@ -14,7 +14,7 @@ use vec_like::VecSet;
 
 /// symbols are defined in a top-down manner through generics
 #[salsa::interned(db = DecTermDb, jar = DecTermJar)]
-pub struct SymbolDecTerm {
+pub struct DecSymbol {
     pub toolchain: Toolchain,
     pub ty: DecTermSymbolTypeResult<DecTerm>,
     /// this is the index for all symbols with the same type
@@ -23,7 +23,7 @@ pub struct SymbolDecTerm {
     pub index: DecTermSymbolIndex,
 }
 
-impl SymbolDecTerm {
+impl DecSymbol {
     #[inline(always)]
     pub fn new_self_ty(
         db: &::salsa::Db,
@@ -31,7 +31,7 @@ impl SymbolDecTerm {
         registry: &mut TermSymbolRegistry,
     ) -> Self {
         // todo: general universe??? or ignore universes totally
-        SymbolDecTerm::new(
+        DecSymbol::new(
             db,
             toolchain,
             Ok(DecTerm::TYPE),
@@ -47,7 +47,7 @@ impl SymbolDecTerm {
         _self_ty_term: DecTerm,
     ) -> Self {
         // todo: general universe??? or ignore universes totally
-        SymbolDecTerm::new(
+        DecSymbol::new(
             db,
             toolchain,
             Ok(DecTerm::TYPE),
@@ -109,7 +109,7 @@ impl SymbolDecTerm {
         let ty = Ok(menu.ty0().into());
         (
             ty,
-            SymbolDecTerm::new(db, toolchain, ty, registry.issue_ty_index(attrs, variance)),
+            DecSymbol::new(db, toolchain, ty, registry.issue_ty_index(attrs, variance)),
         )
     }
 
@@ -197,7 +197,7 @@ pub enum DecTermSymbolTypeErrorKind {
 
 pub type DecTermSymbolTypeResult<T> = Result<T, DecTermSymbolTypeErrorKind>;
 
-impl salsa::DisplayWithDb for SymbolDecTerm {
+impl salsa::DisplayWithDb for DecSymbol {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,

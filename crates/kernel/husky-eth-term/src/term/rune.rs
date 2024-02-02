@@ -1,16 +1,16 @@
 use super::*;
 
 #[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = new_inner)]
-pub struct RuneEthTerm {
+pub struct EthRune {
     pub ty: EthTerm,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     pub index: RuneIndex,
 }
 
-impl RuneEthTerm {
+impl EthRune {
     #[inline(always)]
-    pub(crate) fn from_declarative(db: &::salsa::Db, rune: RuneDecTerm) -> EthTermResult<Self> {
+    pub(crate) fn from_declarative(db: &::salsa::Db, rune: DecRune) -> EthTermResult<Self> {
         let ty = rune.ty(db)?;
         let ty = EthTerm::ty_from_declarative(db, ty)?;
         Ok(Self::new_inner(db, ty, rune.index(db)))
@@ -29,7 +29,7 @@ impl RuneEthTerm {
 
 impl EthTerm {
     #[track_caller]
-    pub fn rune(self) -> RuneEthTerm {
+    pub fn rune(self) -> EthRune {
         match self {
             EthTerm::Rune(slf) => slf,
             _ => unreachable!(),
@@ -39,7 +39,7 @@ impl EthTerm {
 
 /// # rewrite
 
-impl RuneEthTerm {
+impl EthRune {
     pub fn substitute(self, substitution: EthTermSubstitution, db: &salsa::Db) -> EthTerm {
         if self == substitution.src() {
             return substitution.dst();
@@ -47,16 +47,12 @@ impl RuneEthTerm {
         self.substitute_intact(substitution, db).into()
     }
 
-    pub fn substitute_intact(
-        self,
-        substitution: EthTermSubstitution,
-        db: &salsa::Db,
-    ) -> RuneEthTerm {
+    pub fn substitute_intact(self, substitution: EthTermSubstitution, db: &salsa::Db) -> EthRune {
         Self::new_inner(db, self.ty(db).substitute(substitution, db), self.index(db))
     }
 }
 
-impl EthTermInstantiate for RuneEthTerm {
+impl EthTermInstantiate for EthRune {
     type Output = Self;
 
     fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
@@ -71,9 +67,9 @@ impl EthTermInstantiate for RuneEthTerm {
 }
 
 /// back to declarative
-impl RuneEthTerm {
-    pub(super) fn into_declarative(self, db: &salsa::Db) -> RuneDecTerm {
-        RuneDecTerm::new(
+impl EthRune {
+    pub(super) fn into_declarative(self, db: &salsa::Db) -> DecRune {
+        DecRune::new(
             Ok(self.ty(db).into_declarative(db)),
             self.index(db).disambiguator(),
             db,

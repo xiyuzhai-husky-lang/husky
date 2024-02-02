@@ -3,19 +3,19 @@ use super::*;
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct EthTermSubstitution {
-    src: RuneEthTerm,
+    src: EthRune,
     dst: EthTerm,
 }
 
 impl EthTermSubstitution {
-    pub fn new(src: RuneEthTerm, dst: EthTerm) -> Self {
+    pub fn new(src: EthRune, dst: EthTerm) -> Self {
         Self { src, dst }
     }
 }
 
 /// # getters
 impl EthTermSubstitution {
-    pub fn src(&self) -> RuneEthTerm {
+    pub fn src(&self) -> EthRune {
         self.src
     }
 

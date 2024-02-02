@@ -2,7 +2,7 @@ use super::*;
 use husky_coword::Ident;
 
 #[salsa::interned(db = EthTermDb, jar = EthTermJar)]
-pub struct TypeAsTraitItemEthTerm {
+pub struct EthTypeAsTraitItem {
     parent: EthTerm,
     trai: EthTerm,
     ident: Ident,
@@ -11,16 +11,16 @@ pub struct TypeAsTraitItemEthTerm {
 #[test]
 fn term_as_trai_subitem_size_works() {
     assert_eq!(
-        std::mem::size_of::<TypeAsTraitItemEthTerm>(),
+        std::mem::size_of::<EthTypeAsTraitItem>(),
         std::mem::size_of::<u32>()
     );
 }
 
-impl TypeAsTraitItemEthTerm {
+impl EthTypeAsTraitItem {
     pub(crate) fn from_declarative(
         _db: &::salsa::Db,
-        _valid_term: TypeAsTraitItemDecTerm,
-        _term_ty_expectation: TermTypeExpectation,
+        _valid_term: DecTypeAsTraitItem,
+        _term_ty_expectation: TypeFinalDestinationExpectation,
     ) -> EthTermResult<Self> {
         todo!()
     }
@@ -38,7 +38,7 @@ impl TypeAsTraitItemEthTerm {
 
 /// # rewrite
 
-impl TypeAsTraitItemEthTerm {
+impl EthTypeAsTraitItem {
     pub fn substitute(self, _substitution: EthTermSubstitution, _db: &::salsa::Db) -> EthTerm
     where
         Self: Copy,
@@ -56,7 +56,7 @@ impl TypeAsTraitItemEthTerm {
     }
 }
 
-impl EthTermInstantiate for TypeAsTraitItemEthTerm {
+impl EthTermInstantiate for EthTypeAsTraitItem {
     type Output = Self;
 
     fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {

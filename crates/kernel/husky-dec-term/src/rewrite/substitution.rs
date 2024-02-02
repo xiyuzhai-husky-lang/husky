@@ -1,16 +1,16 @@
 use super::*;
 
 pub struct DecTermSubstitution {
-    src: RuneDecTerm,
+    src: DecRune,
     dst: DecTerm,
 }
 
 impl DecTermSubstitution {
-    pub fn new(src: RuneDecTerm, dst: DecTerm) -> Self {
+    pub fn new(src: DecRune, dst: DecTerm) -> Self {
         Self { src, dst }
     }
 
-    pub(crate) fn src(&self) -> RuneDecTerm {
+    pub(crate) fn src(&self) -> DecRune {
         self.src
     }
 

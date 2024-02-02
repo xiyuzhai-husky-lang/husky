@@ -56,7 +56,7 @@
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDecTerm {
+                            instance_constructor_ritchie_ty: DecRitchie {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),

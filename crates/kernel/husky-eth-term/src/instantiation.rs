@@ -5,13 +5,13 @@ use vec_like::SmallVecPairMap;
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EtherealInstantiation {
-    symbol_map: SmallVecPairMap<SymbolEthTerm, EthTerm, 4>,
+    symbol_map: SmallVecPairMap<EthSymbol, EthTerm, 4>,
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
 }
 
 impl EtherealInstantiation {
-    pub fn symbol_map(&self) -> &[(SymbolEthTerm, EthTerm)] {
+    pub fn symbol_map(&self) -> &[(EthSymbol, EthTerm)] {
         self.symbol_map.as_ref()
     }
 
@@ -21,7 +21,7 @@ impl EtherealInstantiation {
 
     /// assume that symbol is in symbol_map
     /// panic otherwise
-    pub fn symbol_instantiation(&self, symbol: SymbolEthTerm) -> EthTerm {
+    pub fn symbol_instantiation(&self, symbol: EthSymbol) -> EthTerm {
         *self
             .symbol_map
             .get_value(symbol)
@@ -30,10 +30,7 @@ impl EtherealInstantiation {
 
     pub fn symbol_map_splitted(
         &self,
-    ) -> (
-        &[(SymbolEthTerm, EthTerm)],
-        Option<&[(SymbolEthTerm, EthTerm)]>,
-    ) {
+    ) -> (&[(EthSymbol, EthTerm)], Option<&[(EthSymbol, EthTerm)]>) {
         let symbol_map: &[_] = self.symbol_map.as_ref();
         match self.separator {
             Some(separator) => {
@@ -85,15 +82,15 @@ pub trait EthTermInstantiateRef {
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EtherealInstantiationBuilder {
-    symbol_map: SmallVecPairMap<SymbolEthTerm, Option<EthTerm>, 4>,
+    symbol_map: SmallVecPairMap<EthSymbol, Option<EthTerm>, 4>,
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
 }
 
 impl EtherealInstantiationBuilder {
     /// symbols must be unique
-    pub(crate) fn new(symbols: impl Iterator<Item = SymbolEthTerm>, is_associated: bool) -> Self {
-        let symbol_map: SmallVecPairMap<SymbolEthTerm, Option<EthTerm>, 4> =
+    pub(crate) fn new(symbols: impl Iterator<Item = EthSymbol>, is_associated: bool) -> Self {
+        let symbol_map: SmallVecPairMap<EthSymbol, Option<EthTerm>, 4> =
             symbols.map(|symbol| (symbol, None)).collect();
         Self {
             separator: is_associated.then_some(symbol_map.len().try_into().unwrap()),
@@ -178,7 +175,7 @@ impl EtherealInstantiationBuilder {
 
     pub fn try_add_symbol_rule(
         &mut self,
-        symbol: SymbolEthTerm,
+        symbol: EthSymbol,
         dst: EthTerm,
     ) -> EthTermMaybeResult<()> {
         if let Some((_, opt_dst0)) = self.symbol_map.get_entry_mut(symbol) {
@@ -201,7 +198,7 @@ impl EtherealInstantiationBuilder {
     }
 
     pub fn try_into_instantiation(&self) -> Option<EtherealInstantiation> {
-        let mut symbol_map = SmallVecPairMap::<SymbolEthTerm, EthTerm, 4>::default();
+        let mut symbol_map = SmallVecPairMap::<EthSymbol, EthTerm, 4>::default();
         for (symbol, mapped) in self.symbol_map.iter() {
             let mapped = (*mapped)?;
             unsafe { symbol_map.insert_new_unchecked((*symbol, mapped)) }

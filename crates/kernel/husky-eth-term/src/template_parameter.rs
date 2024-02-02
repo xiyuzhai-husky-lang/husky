@@ -55,7 +55,7 @@ impl std::ops::Deref for EthTemplateParameters {
 #[salsa::debug_with_db]
 pub struct EthTemplateParameter {
     annotated_variance: Option<Variance>,
-    symbol: SymbolEthTerm,
+    symbol: EthSymbol,
     traits: Vec<EthTerm>,
 }
 
@@ -66,7 +66,7 @@ impl EthTemplateParameter {
     ) -> EthTermResult<Self> {
         Ok(Self {
             annotated_variance: declarative_generic_paramter.annotated_variance(),
-            symbol: SymbolEthTerm::from_declarative(db, declarative_generic_paramter.symbol())?,
+            symbol: EthSymbol::from_declarative(db, declarative_generic_paramter.symbol())?,
             traits: declarative_generic_paramter
                 .traits()
                 .iter()
@@ -75,7 +75,7 @@ impl EthTemplateParameter {
         })
     }
 
-    pub fn symbol(&self) -> SymbolEthTerm {
+    pub fn symbol(&self) -> EthSymbol {
         self.symbol
     }
 

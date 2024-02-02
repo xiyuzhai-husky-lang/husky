@@ -1,6 +1,6 @@
 use husky_entity_tree::HasAttrPaths;
 
-use husky_term_prelude::TermTypeExpectation;
+use husky_term_prelude::TypeFinalDestinationExpectation;
 use vec_like::{OrderedSmallVecSet, SmallVecPairMap, VecMapGetEntry};
 
 use super::*;
@@ -39,7 +39,7 @@ impl DeriveAttrShardEthTemplate {
             EthTerm::from_declarative(
                 db,
                 declarative_template.trai_term(db),
-                TermTypeExpectation::Any,
+                TypeFinalDestinationExpectation::Any,
             )?,
         ))
     }

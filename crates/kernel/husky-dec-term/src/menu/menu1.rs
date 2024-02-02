@@ -4,12 +4,12 @@ use crate::*;
 pub struct DecTermMenu1 {
     parent: DecTermMenu0,
     static_ref_ty: DecTerm,
-    explicit_invariant_ty0_to_trai_ty: CurryDecTerm,
-    explicit_covariant_ty0_to_ty0: CurryDecTerm,
-    explicit_contravariant_ty0_to_ty0: CurryDecTerm,
-    explicit_invariant_ty0_to_ty0: CurryDecTerm,
-    implicit_self_lifetime: SymbolDecTerm,
-    implicit_self_place: SymbolDecTerm,
+    explicit_invariant_ty0_to_trai_ty: DecCurry,
+    explicit_covariant_ty0_to_ty0: DecCurry,
+    explicit_contravariant_ty0_to_ty0: DecCurry,
+    explicit_invariant_ty0_to_ty0: DecCurry,
+    implicit_self_lifetime: DecSymbol,
+    implicit_self_place: DecSymbol,
 }
 
 impl std::ops::Deref for DecTermMenu1 {
@@ -23,13 +23,9 @@ impl std::ops::Deref for DecTermMenu1 {
 impl DecTermMenu1 {
     pub fn new(db: &::salsa::Db, toolchain: Toolchain, menu0: DecTermMenu0) -> Self {
         Self {
-            static_ref_ty: ApplicationDecTerm::new(
-                db,
-                menu0.ref_ty_path(),
-                menu0.static_lifetime(),
-            )
-            .into(),
-            explicit_invariant_ty0_to_trai_ty: CurryDecTerm::new_nondependent(
+            static_ref_ty: DecApplication::new(db, menu0.ref_ty_path(), menu0.static_lifetime())
+                .into(),
+            explicit_invariant_ty0_to_trai_ty: DecCurry::new_nondependent(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -37,7 +33,7 @@ impl DecTermMenu1 {
                 menu0.ty0().into(),
                 menu0.trai_ty().into(),
             ),
-            explicit_covariant_ty0_to_ty0: CurryDecTerm::new_nondependent(
+            explicit_covariant_ty0_to_ty0: DecCurry::new_nondependent(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -45,7 +41,7 @@ impl DecTermMenu1 {
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),
-            explicit_contravariant_ty0_to_ty0: CurryDecTerm::new_nondependent(
+            explicit_contravariant_ty0_to_ty0: DecCurry::new_nondependent(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -53,7 +49,7 @@ impl DecTermMenu1 {
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),
-            explicit_invariant_ty0_to_ty0: CurryDecTerm::new_nondependent(
+            explicit_invariant_ty0_to_ty0: DecCurry::new_nondependent(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -61,13 +57,13 @@ impl DecTermMenu1 {
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),
-            implicit_self_lifetime: SymbolDecTerm::new(
+            implicit_self_lifetime: DecSymbol::new(
                 db,
                 toolchain,
                 Ok(menu0.lifetime_ty()),
                 DecTermSymbolIndex::SELF_LIFETIME,
             ),
-            implicit_self_place: SymbolDecTerm::new(
+            implicit_self_place: DecSymbol::new(
                 db,
                 toolchain,
                 Ok(menu0.place_ty()),
@@ -77,19 +73,19 @@ impl DecTermMenu1 {
         }
     }
 
-    pub fn invariant_ty0_to_trai_ty(&self) -> CurryDecTerm {
+    pub fn invariant_ty0_to_trai_ty(&self) -> DecCurry {
         self.explicit_invariant_ty0_to_trai_ty
     }
 
-    pub fn explicit_covariant_ty0_to_ty0(&self) -> CurryDecTerm {
+    pub fn explicit_covariant_ty0_to_ty0(&self) -> DecCurry {
         self.explicit_covariant_ty0_to_ty0
     }
 
-    pub fn explicit_contravariant_ty0_to_ty0(&self) -> CurryDecTerm {
+    pub fn explicit_contravariant_ty0_to_ty0(&self) -> DecCurry {
         self.explicit_contravariant_ty0_to_ty0
     }
 
-    pub fn ex_inv_ty0_to_ty0(&self) -> CurryDecTerm {
+    pub fn ex_inv_ty0_to_ty0(&self) -> DecCurry {
         self.explicit_invariant_ty0_to_ty0
     }
 
@@ -97,11 +93,11 @@ impl DecTermMenu1 {
         self.static_ref_ty
     }
 
-    pub fn implicit_self_lifetime(&self) -> SymbolDecTerm {
+    pub fn implicit_self_lifetime(&self) -> DecSymbol {
         self.implicit_self_lifetime
     }
 
-    pub fn implicit_self_place(&self) -> SymbolDecTerm {
+    pub fn implicit_self_place(&self) -> DecSymbol {
         self.implicit_self_place
     }
 }

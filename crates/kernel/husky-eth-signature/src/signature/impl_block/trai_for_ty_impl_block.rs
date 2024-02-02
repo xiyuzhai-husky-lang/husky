@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_tree::HasAssociatedItemPaths;
-use husky_term_prelude::TermTypeExpectation;
+use husky_term_prelude::TypeFinalDestinationExpectation;
 use smallvec::SmallVec;
 use vec_like::VecMapGetEntry;
 
@@ -22,7 +22,7 @@ impl TraitForTypeImplBlockEthTemplate {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EtherealSelfTypeInTraitImpl {
     PathLeading(EthTerm),
-    DeriveAny(SymbolEthTerm),
+    DeriveAny(EthSymbol),
 }
 
 impl EtherealSelfTypeInTraitImpl {
@@ -60,7 +60,7 @@ impl EtherealSelfTypeInTraitImpl {
                 )?)
             }
             DeclarativeSelfType::DerivedAny(declarative_term_symbol) => {
-                EtherealSelfTypeInTraitImpl::DeriveAny(SymbolEthTerm::from_declarative(
+                EtherealSelfTypeInTraitImpl::DeriveAny(EthSymbol::from_declarative(
                     db,
                     declarative_term_symbol,
                 )?)
@@ -68,7 +68,7 @@ impl EtherealSelfTypeInTraitImpl {
         })
     }
 
-    pub fn parameter_symbol(self) -> Option<SymbolEthTerm> {
+    pub fn parameter_symbol(self) -> Option<EthSymbol> {
         match self {
             EtherealSelfTypeInTraitImpl::PathLeading(_) => None,
             EtherealSelfTypeInTraitImpl::DeriveAny(symbol) => Some(symbol),
@@ -100,7 +100,11 @@ impl TraitForTypeImplBlockEthTemplate {
     ) -> EtherealSignatureResult<Self> {
         let template_parameters =
             EthTemplateParameters::from_declarative(db, dec_template.template_parameters(db))?;
-        let trai = EthTerm::from_declarative(db, dec_template.trai(db), TermTypeExpectation::Any)?;
+        let trai = EthTerm::from_declarative(
+            db,
+            dec_template.trai(db),
+            TypeFinalDestinationExpectation::Any,
+        )?;
         let self_ty = EtherealSelfTypeInTraitImpl::from_declarative(db, dec_template.self_ty(db))?;
         Ok(Self::new(db, path, template_parameters, trai, self_ty))
     }

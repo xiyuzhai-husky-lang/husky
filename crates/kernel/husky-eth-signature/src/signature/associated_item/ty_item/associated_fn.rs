@@ -31,7 +31,7 @@ impl TypeAssociatedFnEthTemplate {
             declarative_signature.parenate_parameters(db),
         )?;
         let return_ty = EthTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
-        let ty = RitchieEthTerm::new(
+        let ty = EthRitchie::new(
             db,
             TypeRitchieKind::Fn.into(),
             parenate_parameters.iter().copied(),

@@ -150,7 +150,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -525,7 +525,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -535,7 +535,7 @@
                                                                     place: None,
                                                                     base: Eth(
                                                                         Ritchie(
-                                                                            RitchieEthTerm(
+                                                                            EthRitchie(
                                                                                 Id {
                                                                                     value: 10,
                                                                                 },
@@ -1041,7 +1041,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -1051,7 +1051,7 @@
                                                                     place: None,
                                                                     base: Eth(
                                                                         Application(
-                                                                            ApplicationEthTerm(
+                                                                            EthApplication(
                                                                                 Id {
                                                                                     value: 45,
                                                                                 },
@@ -1062,7 +1062,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 4,
                                                                 },
@@ -1219,7 +1219,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -1229,7 +1229,7 @@
                                                                     place: None,
                                                                     base: Eth(
                                                                         Application(
-                                                                            ApplicationEthTerm(
+                                                                            EthApplication(
                                                                                 Id {
                                                                                     value: 58,
                                                                                 },
@@ -1240,7 +1240,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 4,
                                                                 },
@@ -1866,7 +1866,7 @@
                             place: None,
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 60,
                                         },
@@ -1882,7 +1882,7 @@
                             place: None,
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 59,
                                         },
@@ -1906,7 +1906,7 @@
                             ),
                             base: Eth(
                                 Ritchie(
-                                    RitchieEthTerm(
+                                    EthRitchie(
                                         Id {
                                             value: 10,
                                         },
@@ -1926,7 +1926,7 @@
                                     place: None,
                                     base: Eth(
                                         Application(
-                                            ApplicationEthTerm(
+                                            EthApplication(
                                                 Id {
                                                     value: 60,
                                                 },
@@ -1944,7 +1944,7 @@
                                     place: None,
                                     base: Eth(
                                         Application(
-                                            ApplicationEthTerm(
+                                            EthApplication(
                                                 Id {
                                                     value: 59,
                                                 },
@@ -1970,7 +1970,7 @@
                                     ),
                                     base: Eth(
                                         Ritchie(
-                                            RitchieEthTerm(
+                                            EthRitchie(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -2039,7 +2039,7 @@
                             place: None,
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 45,
                                         },
@@ -2058,7 +2058,7 @@
                             place: None,
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 58,
                                         },
@@ -2077,7 +2077,7 @@
                             place: None,
                             base: Eth(
                                 Application(
-                                    ApplicationEthTerm(
+                                    EthApplication(
                                         Id {
                                             value: 59,
                                         },
@@ -2313,8 +2313,8 @@
                                             place: None,
                                             base: Eth(
                                                 Category(
-                                                    CategoryTerm {
-                                                        universe: UniverseTerm(
+                                                    Category {
+                                                        universe: Universe(
                                                             1,
                                                         ),
                                                     },
@@ -2379,8 +2379,8 @@
                                             place: None,
                                             base: Eth(
                                                 Category(
-                                                    CategoryTerm {
-                                                        universe: UniverseTerm(
+                                                    Category {
+                                                        universe: Universe(
                                                             1,
                                                         ),
                                                     },
@@ -2408,7 +2408,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: UniverseTerm(
+                                        smallest_universe: Universe(
                                             1,
                                         ),
                                     },
@@ -2429,7 +2429,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                UniverseTerm(
+                                                Universe(
                                                     1,
                                                 ),
                                             ),
@@ -3385,7 +3385,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -3395,7 +3395,7 @@
                                                                     place: None,
                                                                     base: Eth(
                                                                         Application(
-                                                                            ApplicationEthTerm(
+                                                                            EthApplication(
                                                                                 Id {
                                                                                     value: 45,
                                                                                 },
@@ -4492,7 +4492,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: UniverseTerm(
+                                        smallest_universe: Universe(
                                             1,
                                         ),
                                     },
@@ -4513,7 +4513,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                UniverseTerm(
+                                                Universe(
                                                     1,
                                                 ),
                                             ),
@@ -5309,7 +5309,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -5319,7 +5319,7 @@
                                                                     place: None,
                                                                     base: Eth(
                                                                         Application(
-                                                                            ApplicationEthTerm(
+                                                                            EthApplication(
                                                                                 Id {
                                                                                     value: 45,
                                                                                 },
@@ -6416,7 +6416,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: UniverseTerm(
+                                        smallest_universe: Universe(
                                             1,
                                         ),
                                     },
@@ -6437,7 +6437,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                UniverseTerm(
+                                                Universe(
                                                     1,
                                                 ),
                                             ),
@@ -7233,7 +7233,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            SymbolEthTerm(
+                                                            EthSymbol(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -7243,7 +7243,7 @@
                                                                     place: None,
                                                                     base: Eth(
                                                                         Application(
-                                                                            ApplicationEthTerm(
+                                                                            EthApplication(
                                                                                 Id {
                                                                                     value: 45,
                                                                                 },
@@ -8425,7 +8425,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: UniverseTerm(
+                                        smallest_universe: Universe(
                                             1,
                                         ),
                                     },
@@ -8446,7 +8446,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                UniverseTerm(
+                                                Universe(
                                                     1,
                                                 ),
                                             ),

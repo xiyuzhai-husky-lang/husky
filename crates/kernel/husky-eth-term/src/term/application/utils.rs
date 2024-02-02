@@ -8,6 +8,6 @@ impl EthTerm {
         argument: impl Into<EthTerm>,
         shift: u8,
     ) -> Self {
-        ApplicationEthTerm::new_reduced(db, self, argument.into(), shift)
+        EthApplication::new_reduced(db, self, argument.into(), shift)
     }
 }

@@ -13,7 +13,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDecTerm(
+                                    symbol: DecSymbol(
                                         Id {
                                             value: 5,
                                         },
@@ -41,7 +41,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDecTerm(
+                                    symbol: DecSymbol(
                                         Id {
                                             value: 5,
                                         },
@@ -76,7 +76,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDecTerm(
+                                    symbol: DecSymbol(
                                         Id {
                                             value: 5,
                                         },
@@ -97,7 +97,7 @@
                             ),
                         ),
                         self_ty: DeclarativeSelfType::DerivedAny(
-                            SymbolDecTerm {
+                            DecSymbol {
                                 toolchain: Toolchain {
                                     data: ToolchainData::Local {
                                         library_path: VirtualPath {
@@ -109,8 +109,8 @@
                                 },
                                 ty: Ok(
                                     Category(
-                                        CategoryTerm {
-                                            universe: UniverseTerm(
+                                        Category {
+                                            universe: Universe(
                                                 1,
                                             ),
                                         },

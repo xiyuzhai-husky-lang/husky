@@ -37,7 +37,7 @@ impl FlyTerm {
         merger.accept_one(return_ty);
         match merger.data_kind() {
             FlyTermDataKind::Err => todo!(),
-            FlyTermDataKind::Ethereal => Ok(RitchieEthTerm::new(
+            FlyTermDataKind::Ethereal => Ok(EthRitchie::new(
                 db,
                 ritchie_kind,
                 params

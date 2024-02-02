@@ -1,25 +1,25 @@
 use super::*;
-use husky_dec_term::term::abstraction::AbstractionDecTerm;
+use husky_dec_term::term::abstraction::DecAbstraction;
 
 #[salsa::interned(db = EthTermDb, jar = EthTermJar)]
-pub struct AbstractionEthTerm {
-    x: RuneEthTerm,
+pub struct EthAbstraction {
+    x: EthRune,
     m: EthTerm,
 }
 
 #[test]
 fn term_abstraction_size_works() {
     assert_eq!(
-        std::mem::size_of::<AbstractionEthTerm>(),
+        std::mem::size_of::<EthAbstraction>(),
         std::mem::size_of::<u32>()
     );
 }
 
-impl AbstractionEthTerm {
+impl EthAbstraction {
     pub(crate) fn from_declarative(
         _db: &::salsa::Db,
-        _precise_term: AbstractionDecTerm,
-        _term_ty_expectation: TermTypeExpectation,
+        _precise_term: DecAbstraction,
+        _term_ty_expectation: TypeFinalDestinationExpectation,
     ) -> EthTermResult<Self> {
         todo!()
     }
@@ -41,7 +41,7 @@ impl AbstractionEthTerm {
 
 /// # rewrite
 
-impl AbstractionEthTerm {
+impl EthAbstraction {
     pub fn substitute(self, substitution: EthTermSubstitution, db: &::salsa::Db) -> Self {
         let old_x = self.x(db);
         let new_x = old_x.substitute_intact(substitution, db);
@@ -54,8 +54,8 @@ impl AbstractionEthTerm {
     }
 }
 
-impl EthTermInstantiate for AbstractionEthTerm {
-    type Output = AbstractionEthTerm;
+impl EthTermInstantiate for EthAbstraction {
+    type Output = EthAbstraction;
 
     fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
         Self::new(
@@ -66,7 +66,7 @@ impl EthTermInstantiate for AbstractionEthTerm {
     }
 }
 
-impl salsa::DisplayWithDb for AbstractionEthTerm {
+impl salsa::DisplayWithDb for EthAbstraction {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
