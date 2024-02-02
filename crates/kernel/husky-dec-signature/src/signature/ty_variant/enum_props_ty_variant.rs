@@ -39,7 +39,7 @@ impl EnumPropsVariantDecTemplate {
         let return_ty = parent_ty_template.self_ty(db);
         let instance_constructor_ty = RitchieDecTerm::new(
             db,
-            RitchieTypeKind::Fn.into(),
+            TypeRitchieKind::Fn.into(),
             fields
                 .iter()
                 .copied()

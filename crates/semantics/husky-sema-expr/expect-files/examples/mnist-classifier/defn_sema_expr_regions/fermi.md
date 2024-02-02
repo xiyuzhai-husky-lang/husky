@@ -2284,7 +2284,7 @@
                                                             EthTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Covariant,
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {
@@ -2890,7 +2890,7 @@
                                                             EthTerm(`FermiMatchResult`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
                                                             Fn,
                                                         ),

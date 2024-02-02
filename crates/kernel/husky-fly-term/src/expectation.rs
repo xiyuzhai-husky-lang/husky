@@ -117,7 +117,7 @@ pub trait ExpectFlyTerm: Into<Expectation> + Clone {
             FinalDestination::TypeOntology
             | FinalDestination::AnyOriginal
             | FinalDestination::AnyDerived => TypePathDisambiguation::InstanceConstructor,
-            FinalDestination::Ritchie(RitchieKind::Type(RitchieTypeKind::Fn)) => {
+            FinalDestination::Ritchie(RitchieKind::Type(TypeRitchieKind::Fn)) => {
                 TypePathDisambiguation::InstanceConstructor
             }
             FinalDestination::Ritchie(_) => todo!(),
@@ -229,6 +229,8 @@ pub enum OriginalFlyTermExpectationError {
         contract: TermContract,
         expected: FlyTerm,
     },
+    #[error("ExpectedIntType")]
+    ExpectedIntType { expectee: FlyTerm },
     #[error("place")]
     Place(#[from] FlyPlaceError),
     #[error("todo")]

@@ -1244,7 +1244,7 @@
                                                             EthTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Covariant,
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {
@@ -2175,7 +2175,7 @@
                                                             EthTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Covariant,
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {
@@ -5049,7 +5049,7 @@
                                                             EthTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Covariant,
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {
@@ -7687,7 +7687,7 @@
                                                             EthTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Covariant,
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {

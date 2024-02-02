@@ -31,61 +31,30 @@ impl ExpectFlyTerm for ExpectIntType {
         fluffy_terms: &mut FlyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FlyTermEffect> {
-        match state.expectee().data_inner(db, fluffy_terms) {
-            FlyTermData::Literal(_) => todo!(),
-            FlyTermData::TypeOntology {
-                ty_path,
-                refined_ty_path,
-                ty_arguments,
+        let expectee = state.expectee();
+        match expectee.base_ty_data_inner(db, fluffy_terms) {
+            FlyBaseTypeData::TypeOntology {
+                refined_ty_path: Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
                 ..
-            } => match refined_ty_path {
-                Left(PreludeTypePath::Num(_)) => state.set_ok(
+            } => state.set_ok(
+                ExpectIntTypeOutcome {
+                    placeless_num_ty: state.expectee(),
+                },
+                smallvec![],
+            ),
+            FlyBaseTypeData::Hole(hole_kind, hole) => match hole_kind {
+                HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => state.set_ok(
                     ExpectIntTypeOutcome {
-                        placeless_num_ty: state.expectee(),
+                        placeless_num_ty: hole.into(),
                     },
                     smallvec![],
                 ),
-                _ => todo!(),
+                HoleKind::ImplicitType | HoleKind::Any => AltNone,
             },
-            FlyTermData::Curry {
-                toolchain,
-                curry_kind,
-                variance,
-                parameter_rune,
-                parameter_ty,
-                return_ty,
-                ty_ethereal_term,
-            } => todo!(),
-            FlyTermData::Hole(hole_kind, _) => match hole_kind {
-                HoleKind::UnspecifiedIntegerType => AltNone,
-                HoleKind::UnspecifiedFloatType => todo!(),
-                HoleKind::ImplicitType => todo!(),
-                HoleKind::Any => todo!(),
-            },
-            FlyTermData::Category(_) => todo!(),
-            FlyTermData::Ritchie {
-                ritchie_kind,
-                parameter_contracted_tys,
-                return_ty,
-                ..
-            } => todo!(),
-            // FlyTermData::HoleAtPlace {
-            //     place,
-            //     hole_kind,
-            //     hole,
-            // } => match hole_kind {
-            //     HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => state.set_ok(
-            //         ExpectNumTypeOutcome {
-            //             placeless_num_ty: hole.into(),
-            //         },
-            //         smallvec![],
-            //     ),
-            //     HoleKind::ImplicitType => todo!(),
-            //     HoleKind::Any => todo!(),
-            // },
-            FlyTermData::Symbol { .. } => todo!(),
-            FlyTermData::Rune { .. } => todo!(),
-            FlyTermData::TypeVariant { path } => todo!(),
+            _ => state.set_err(
+                OriginalFlyTermExpectationError::ExpectedIntType { expectee },
+                smallvec![],
+            ),
         }
     }
 }

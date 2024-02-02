@@ -435,7 +435,7 @@
                                         Const,
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -449,7 +449,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -476,7 +476,7 @@
                                         Const,
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -490,7 +490,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -523,7 +523,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -543,7 +543,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -806,7 +806,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -826,7 +826,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -1033,7 +1033,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -1053,7 +1053,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -1118,7 +1118,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -1138,7 +1138,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -1171,7 +1171,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -1191,7 +1191,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -1224,7 +1224,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -1244,7 +1244,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -1416,7 +1416,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -1436,7 +1436,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -1469,7 +1469,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -1489,7 +1489,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -1749,7 +1749,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -1769,7 +1769,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -1976,7 +1976,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -1996,7 +1996,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -2061,7 +2061,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -2081,7 +2081,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -2114,7 +2114,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -2134,7 +2134,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -2559,7 +2559,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -2579,7 +2579,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -2612,7 +2612,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -2632,7 +2632,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -3143,7 +3143,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -3163,7 +3163,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -3196,7 +3196,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -3216,7 +3216,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -3292,7 +3292,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -3312,7 +3312,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -3345,7 +3345,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -3365,7 +3365,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -4196,7 +4196,7 @@
                                 Const,
                             ),
                             base: Hol(
-                                HollowTerm(
+                                HolTerm(
                                     0,
                                 ),
                             ),
@@ -4210,7 +4210,7 @@
                                 Const,
                             ),
                             base: Hol(
-                                HollowTerm(
+                                HolTerm(
                                     1,
                                 ),
                             ),
@@ -4230,7 +4230,7 @@
                                 },
                             ),
                             base: Hol(
-                                HollowTerm(
+                                HolTerm(
                                     0,
                                 ),
                             ),
@@ -4288,7 +4288,7 @@
                                         Const,
                                     ),
                                     base: Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -4304,7 +4304,7 @@
                                         Const,
                                     ),
                                     base: Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -4326,7 +4326,7 @@
                                         },
                                     ),
                                     base: Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -4535,7 +4535,7 @@
                                 },
                             ),
                             base: FlyTermBase::Hol(
-                                HollowTerm(
+                                HolTerm(
                                     0,
                                 ),
                             ),
@@ -4553,7 +4553,7 @@
                                 },
                             ),
                             base: FlyTermBase::Hol(
-                                HollowTerm(
+                                HolTerm(
                                     1,
                                 ),
                             ),
@@ -4571,7 +4571,7 @@
                                 },
                             ),
                             base: FlyTermBase::Hol(
-                                HollowTerm(
+                                HolTerm(
                                     0,
                                 ),
                             ),
@@ -4700,7 +4700,7 @@
                                                             EthTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Covariant,
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {
@@ -4912,7 +4912,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -4936,7 +4936,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -4966,7 +4966,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -5018,7 +5018,7 @@
                                                 },
                                             ),
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     0,
                                                 ),
                                             ),
@@ -5136,7 +5136,7 @@
                                                             EthTerm(`bool`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
                                                             Fn,
                                                         ),
@@ -5246,7 +5246,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -5390,7 +5390,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -5460,7 +5460,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -5490,7 +5490,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -5520,7 +5520,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -5544,7 +5544,7 @@
                                                 },
                                             ),
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     0,
                                                 ),
                                             ),
@@ -5608,7 +5608,7 @@
                                                 },
                                             ),
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     0,
                                                 ),
                                             ),
@@ -5692,7 +5692,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -5722,7 +5722,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -5746,7 +5746,7 @@
                                                 },
                                             ),
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     0,
                                                 ),
                                             ),
@@ -5810,7 +5810,7 @@
                                                 },
                                             ),
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     1,
                                                 ),
                                             ),
@@ -5914,7 +5914,7 @@
                                                             EthTerm(`bool`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
                                                             Fn,
                                                         ),
@@ -6024,7 +6024,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -6168,7 +6168,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -6238,7 +6238,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -6268,7 +6268,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -6292,7 +6292,7 @@
                                                 },
                                             ),
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     0,
                                                 ),
                                             ),
@@ -6344,7 +6344,7 @@
                                                 },
                                             ),
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     1,
                                                 ),
                                             ),
@@ -6464,7 +6464,7 @@
                                                             EthTerm(`ConcaveComponent`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
                                                             Fn,
                                                         ),
@@ -6632,7 +6632,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -6688,7 +6688,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -6856,7 +6856,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -6886,7 +6886,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -6956,7 +6956,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -6986,7 +6986,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -7010,7 +7010,7 @@
                                                 },
                                             ),
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     0,
                                                 ),
                                             ),
@@ -9003,7 +9003,7 @@
                                         Const,
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -9017,7 +9017,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -10730,7 +10730,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -10750,7 +10750,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -10828,7 +10828,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -10848,7 +10848,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -10973,7 +10973,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -10993,7 +10993,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -11462,7 +11462,7 @@
                                 Const,
                             ),
                             base: Hol(
-                                HollowTerm(
+                                HolTerm(
                                     0,
                                 ),
                             ),
@@ -11584,7 +11584,7 @@
                                         Const,
                                     ),
                                     base: Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -11746,7 +11746,7 @@
                                 },
                             ),
                             base: FlyTermBase::Hol(
-                                HollowTerm(
+                                HolTerm(
                                     0,
                                 ),
                             ),
@@ -11916,7 +11916,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -12645,7 +12645,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -12721,7 +12721,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -12827,7 +12827,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -12971,7 +12971,7 @@
                                         Const,
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -12985,7 +12985,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -14236,7 +14236,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -14256,7 +14256,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -14797,7 +14797,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -14817,7 +14817,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -15161,7 +15161,7 @@
                                 Const,
                             ),
                             base: Hol(
-                                HollowTerm(
+                                HolTerm(
                                     0,
                                 ),
                             ),
@@ -15219,7 +15219,7 @@
                                         Const,
                                     ),
                                     base: Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -15328,7 +15328,7 @@
                                 },
                             ),
                             base: FlyTermBase::Hol(
-                                HollowTerm(
+                                HolTerm(
                                     0,
                                 ),
                             ),
@@ -15446,7 +15446,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -15973,7 +15973,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -16121,7 +16121,7 @@
                                                 },
                                             ),
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     0,
                                                 ),
                                             ),
@@ -16321,7 +16321,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -22345,7 +22345,7 @@
                                                             EthTerm(`BoundingBox`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
                                                             Fn,
                                                         ),
@@ -22409,7 +22409,7 @@
                                                             EthTerm(`ClosedRange`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
                                                             Fn,
                                                         ),
@@ -22621,7 +22621,7 @@
                                                             EthTerm(`ClosedRange`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
                                                             Fn,
                                                         ),
@@ -24954,7 +24954,7 @@
                                                             EthTerm(`LineSegment`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
                                                             Fn,
                                                         ),

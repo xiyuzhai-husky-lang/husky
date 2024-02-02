@@ -27,7 +27,7 @@ impl<'a> SemaExprEngine<'a> {
             );
         };
         match function_ty_outcome.variant() {
-            ExpectEqsFunctionTypeOutcomeData::Curry {
+            ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                 variance,
                 parameter_rune,
                 parameter_ty,
@@ -50,7 +50,7 @@ impl<'a> SemaExprEngine<'a> {
                     ty_result,
                 )
             }
-            ExpectEqsFunctionTypeOutcomeData::Ritchie { .. } => {
+            ExpectEqsFunctionTypeOutcomeData::TypeRitchie { .. } => {
                 let argument_sema_expr_idx =
                     self.build_sema_expr(argument_syn_expr_idx, ExpectAnyDerived);
                 (

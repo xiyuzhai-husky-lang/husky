@@ -537,7 +537,7 @@
                                                             EthTerm(`FermiMatchResult`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
                                                             Fn,
                                                         ),
@@ -1513,7 +1513,7 @@
                                         Const,
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             0,
                                         ),
                                     ),
@@ -1527,7 +1527,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -1723,7 +1723,7 @@
                                         Const,
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -1737,7 +1737,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -1933,7 +1933,7 @@
                                         Const,
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             2,
                                         ),
                                     ),
@@ -1947,7 +1947,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 2,
                                             ),
                                         ),
@@ -2966,7 +2966,7 @@
                                         Const,
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             3,
                                         ),
                                     ),
@@ -2980,7 +2980,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 3,
                                             ),
                                         ),
@@ -3006,7 +3006,7 @@
                                         Const,
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             3,
                                         ),
                                     ),
@@ -3020,7 +3020,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 3,
                                             ),
                                         ),
@@ -4215,7 +4215,7 @@
                                         Const,
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             4,
                                         ),
                                     ),
@@ -4229,7 +4229,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 4,
                                             ),
                                         ),
@@ -4255,7 +4255,7 @@
                                         Const,
                                     ),
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             4,
                                         ),
                                     ),
@@ -4269,7 +4269,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 4,
                                             ),
                                         ),
@@ -4356,7 +4356,7 @@
                                                         FlyTerm {
                                                             place: None,
                                                             base: Hol(
-                                                                HollowTerm(
+                                                                HolTerm(
                                                                     5,
                                                                 ),
                                                             ),
@@ -4373,7 +4373,7 @@
                                                         FlyTerm {
                                                             place: None,
                                                             base: Hol(
-                                                                HollowTerm(
+                                                                HolTerm(
                                                                     6,
                                                                 ),
                                                             ),
@@ -4390,7 +4390,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             7,
                                         ),
                                     ),
@@ -4402,7 +4402,7 @@
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 7,
                                             ),
                                         ),
@@ -4424,7 +4424,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             7,
                                         ),
                                     ),
@@ -4436,7 +4436,7 @@
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 7,
                                             ),
                                         ),
@@ -4994,7 +4994,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             7,
                                         ),
                                     ),
@@ -5958,7 +5958,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     5,
                                                 ),
                                             ),
@@ -5966,7 +5966,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     6,
                                                 ),
                                             ),
@@ -6267,7 +6267,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -6299,7 +6299,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 0,
                                             ),
                                         ),
@@ -6401,7 +6401,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -6433,7 +6433,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -6535,7 +6535,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 2,
                                             ),
                                         ),
@@ -6567,7 +6567,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 2,
                                             ),
                                         ),
@@ -7155,7 +7155,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 3,
                                             ),
                                         ),
@@ -7195,7 +7195,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 3,
                                             ),
                                         ),
@@ -7829,7 +7829,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 4,
                                             ),
                                         ),
@@ -7863,7 +7863,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 4,
                                             ),
                                         ),
@@ -7933,7 +7933,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 7,
                                             ),
                                         ),
@@ -7976,7 +7976,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 5,
                                             ),
                                         ),
@@ -8013,7 +8013,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 6,
                                             ),
                                         ),
@@ -8049,7 +8049,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 7,
                                             ),
                                         ),
@@ -8532,7 +8532,7 @@
                                                         FlyTerm {
                                                             place: None,
                                                             base: Hol(
-                                                                HollowTerm(
+                                                                HolTerm(
                                                                     0,
                                                                 ),
                                                             ),
@@ -8549,7 +8549,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             2,
                                         ),
                                     ),
@@ -8561,7 +8561,7 @@
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 2,
                                             ),
                                         ),
@@ -8841,7 +8841,7 @@
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
-                                                        HollowTerm(
+                                                        HolTerm(
                                                             0,
                                                         ),
                                                     ),
@@ -8873,7 +8873,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -8885,7 +8885,7 @@
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -8907,7 +8907,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -8919,7 +8919,7 @@
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -9023,7 +9023,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -9203,7 +9203,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     0,
                                                 ),
                                             ),
@@ -9226,7 +9226,7 @@
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
-                                                        HollowTerm(
+                                                        HolTerm(
                                                             0,
                                                         ),
                                                     ),
@@ -9237,7 +9237,7 @@
                                     return_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -9451,7 +9451,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 2,
                                             ),
                                         ),
@@ -9464,12 +9464,12 @@
                                                     return_ty: FlyTerm {
                                                         place: None,
                                                         base: FlyTermBase::Hol(
-                                                            HollowTerm(
+                                                            HolTerm(
                                                                 1,
                                                             ),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
                                                             Fn,
                                                         ),
@@ -9480,7 +9480,7 @@
                                                                     ty: FlyTerm {
                                                                         place: None,
                                                                         base: FlyTermBase::Hol(
-                                                                            HollowTerm(
+                                                                            HolTerm(
                                                                                 0,
                                                                             ),
                                                                         ),
@@ -9572,7 +9572,7 @@
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     0,
                                                 ),
                                             ),
@@ -9628,7 +9628,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -9670,7 +9670,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -10153,7 +10153,7 @@
                                                         FlyTerm {
                                                             place: None,
                                                             base: Hol(
-                                                                HollowTerm(
+                                                                HolTerm(
                                                                     0,
                                                                 ),
                                                             ),
@@ -10170,7 +10170,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             2,
                                         ),
                                     ),
@@ -10182,7 +10182,7 @@
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 2,
                                             ),
                                         ),
@@ -10462,7 +10462,7 @@
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
-                                                        HollowTerm(
+                                                        HolTerm(
                                                             0,
                                                         ),
                                                     ),
@@ -10494,7 +10494,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -10506,7 +10506,7 @@
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -10528,7 +10528,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -10540,7 +10540,7 @@
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -10644,7 +10644,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -10824,7 +10824,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     0,
                                                 ),
                                             ),
@@ -10847,7 +10847,7 @@
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
-                                                        HollowTerm(
+                                                        HolTerm(
                                                             0,
                                                         ),
                                                     ),
@@ -10858,7 +10858,7 @@
                                     return_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -11072,7 +11072,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 2,
                                             ),
                                         ),
@@ -11085,12 +11085,12 @@
                                                     return_ty: FlyTerm {
                                                         place: None,
                                                         base: FlyTermBase::Hol(
-                                                            HollowTerm(
+                                                            HolTerm(
                                                                 1,
                                                             ),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
                                                             Fn,
                                                         ),
@@ -11101,7 +11101,7 @@
                                                                     ty: FlyTerm {
                                                                         place: None,
                                                                         base: FlyTermBase::Hol(
-                                                                            HollowTerm(
+                                                                            HolTerm(
                                                                                 0,
                                                                             ),
                                                                         ),
@@ -11193,7 +11193,7 @@
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     0,
                                                 ),
                                             ),
@@ -11249,7 +11249,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -11291,7 +11291,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -11774,7 +11774,7 @@
                                                         FlyTerm {
                                                             place: None,
                                                             base: Hol(
-                                                                HollowTerm(
+                                                                HolTerm(
                                                                     0,
                                                                 ),
                                                             ),
@@ -11791,7 +11791,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             2,
                                         ),
                                     ),
@@ -11803,7 +11803,7 @@
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 2,
                                             ),
                                         ),
@@ -12083,7 +12083,7 @@
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
-                                                        HollowTerm(
+                                                        HolTerm(
                                                             0,
                                                         ),
                                                     ),
@@ -12115,7 +12115,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -12127,7 +12127,7 @@
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -12149,7 +12149,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -12161,7 +12161,7 @@
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -12265,7 +12265,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: FlyTermBase::Hol(
-                                        HollowTerm(
+                                        HolTerm(
                                             1,
                                         ),
                                     ),
@@ -12445,7 +12445,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     0,
                                                 ),
                                             ),
@@ -12468,7 +12468,7 @@
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
-                                                        HollowTerm(
+                                                        HolTerm(
                                                             0,
                                                         ),
                                                     ),
@@ -12479,7 +12479,7 @@
                                     return_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -12693,7 +12693,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 2,
                                             ),
                                         ),
@@ -12706,12 +12706,12 @@
                                                     return_ty: FlyTerm {
                                                         place: None,
                                                         base: FlyTermBase::Hol(
-                                                            HollowTerm(
+                                                            HolTerm(
                                                                 1,
                                                             ),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
                                                             Fn,
                                                         ),
@@ -12722,7 +12722,7 @@
                                                                     ty: FlyTerm {
                                                                         place: None,
                                                                         base: FlyTermBase::Hol(
-                                                                            HollowTerm(
+                                                                            HolTerm(
                                                                                 0,
                                                                             ),
                                                                         ),
@@ -12814,7 +12814,7 @@
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Hol(
-                                                HollowTerm(
+                                                HolTerm(
                                                     0,
                                                 ),
                                             ),
@@ -12870,7 +12870,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),
@@ -12912,7 +12912,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Hol(
-                                            HollowTerm(
+                                            HolTerm(
                                                 1,
                                             ),
                                         ),

@@ -999,7 +999,7 @@
                                                             EthTerm(`Trait`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Invariant,
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {
@@ -1083,7 +1083,7 @@
                                                             EthTerm(`independent Type -> Trait`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {
@@ -1169,7 +1169,7 @@
                                                             EthTerm(`Trait`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {
@@ -1275,7 +1275,7 @@
                                                             EthTerm(`independent Type -> Type`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {
@@ -1361,7 +1361,7 @@
                                                             EthTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {
@@ -2563,7 +2563,7 @@
                                                             EthTerm(`independent Type -> Type`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {
@@ -2649,7 +2649,7 @@
                                                             EthTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {
@@ -2767,7 +2767,7 @@
                                                             EthTerm(`independent Type -> Type`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {
@@ -2853,7 +2853,7 @@
                                                             EthTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {

@@ -39,29 +39,18 @@ impl ExpectFlyTerm for ExpectEqsFunctionType {
         terms: &mut FlyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FlyTermEffect> {
-        match state.expectee().data_inner(db, terms) {
-            FlyTermData::Literal(_) => todo!(),
-            FlyTermData::TypeOntology {
-                ty_path: path,
-                refined_ty_path: refined_path,
-                ty_arguments: arguments,
-                ..
-            } => state.set_err(
-                OriginalFlyTermExpectationError::ExpectedFunctionType,
-                smallvec![],
-            ),
-            FlyTermData::Curry {
-                toolchain,
-                curry_kind,
+        match state.expectee().base_ty_data_inner(db, terms) {
+            FlyBaseTypeData::Curry {
+                curry_kind: CurryKind::Explicit,
                 variance,
                 parameter_rune,
                 parameter_ty,
                 return_ty,
-                ty_ethereal_term,
+                ..
             } => state.set_ok(
                 ExpectEqsFunctionTypeOutcome {
                     return_ty,
-                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                    variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                         variance,
                         parameter_rune,
                         parameter_ty,
@@ -70,12 +59,7 @@ impl ExpectFlyTerm for ExpectEqsFunctionType {
                 },
                 smallvec![],
             ),
-            FlyTermData::Hole(_, _) => todo!(),
-            FlyTermData::Category(_) => state.set_err(
-                OriginalFlyTermExpectationError::ExpectedFunctionType,
-                smallvec![],
-            ),
-            FlyTermData::Ritchie {
+            FlyBaseTypeData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
@@ -83,16 +67,17 @@ impl ExpectFlyTerm for ExpectEqsFunctionType {
             } => state.set_ok(
                 ExpectEqsFunctionTypeOutcome {
                     return_ty,
-                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
+                    variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                         ritchie_kind,
                         parameter_contracted_tys: parameter_contracted_tys.to_vec(),
                     },
                 },
                 smallvec![],
             ),
-            FlyTermData::Symbol { .. } => todo!(),
-            FlyTermData::Rune { .. } => todo!(),
-            FlyTermData::TypeVariant { path } => todo!(),
+            _ => state.set_err(
+                OriginalFlyTermExpectationError::ExpectedFunctionType,
+                smallvec![],
+            ),
         }
     }
 }
@@ -117,11 +102,11 @@ impl ExpectEqsFunctionTypeOutcome {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ExpectEqsFunctionTypeOutcomeData {
-    Ritchie {
+    TypeRitchie {
         ritchie_kind: RitchieKind,
         parameter_contracted_tys: Vec<FlyRitchieParameter>,
     },
-    Curry {
+    ExplicitCurry {
         variance: Variance,
         parameter_rune: Option<RuneFlyTerm>,
         parameter_ty: FlyTerm,

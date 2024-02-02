@@ -3,7 +3,7 @@ use husky_entity_path::PreludeIndirectionTypePath;
 use husky_hir_ty::{
     instantiation::HirTermSymbolResolution, ritchie::HirRitchieType, HirConstSymbol,
 };
-use husky_term_prelude::RitchieTypeKind;
+use husky_term_prelude::TypeRitchieKind;
 
 use super::*;
 
@@ -66,8 +66,8 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirRitchieType {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db();
         match self.ritchie_ty_kind(db) {
-            RitchieTypeKind::Fn => builder.word("fn"),
-            RitchieTypeKind::Gn => builder.word("gn"),
+            TypeRitchieKind::Fn => builder.word("fn"),
+            TypeRitchieKind::Gn => builder.word("gn"),
         }
         builder.bracketed_comma_list(RustBracket::Par, self.parameters(db).iter());
         builder.punctuation(RustPunctuation::LightArrow);

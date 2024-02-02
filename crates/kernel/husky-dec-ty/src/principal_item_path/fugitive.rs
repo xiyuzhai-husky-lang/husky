@@ -48,7 +48,7 @@ pub(crate) fn fn_path_declarative_ty(
         signature.template_parameters(db),
         RitchieDecTerm::new(
             db,
-            RitchieTypeKind::Fn.into(),
+            TypeRitchieKind::Fn.into(),
             parenate_parameters,
             return_declarative_ty,
         ),
@@ -71,7 +71,7 @@ pub(crate) fn gn_path_declarative_ty(
         signature.template_parameters(db),
         RitchieDecTerm::new(
             db,
-            RitchieTypeKind::Fn.into(),
+            TypeRitchieKind::Fn.into(),
             param_declarative_tys,
             return_declarative_ty,
         ),

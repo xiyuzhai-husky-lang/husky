@@ -1,5 +1,5 @@
 use super::*;
-use husky_term_prelude::RitchieTypeKind;
+use husky_term_prelude::TypeRitchieKind;
 
 #[salsa::tracked(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct TypeAssociatedFnEthTemplate {
@@ -33,7 +33,7 @@ impl TypeAssociatedFnEthTemplate {
         let return_ty = EthTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
         let ty = RitchieEthTerm::new(
             db,
-            RitchieTypeKind::Fn.into(),
+            TypeRitchieKind::Fn.into(),
             parenate_parameters.iter().copied(),
             return_ty,
         )?
