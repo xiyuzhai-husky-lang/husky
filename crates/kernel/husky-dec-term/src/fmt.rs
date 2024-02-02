@@ -7,7 +7,7 @@ pub trait ShowSymbolDecTerm {
 }
 
 impl ShowSymbolDecTerm for () {
-    fn show_symbol(&self, symbol: DecSymbol) -> &str {
+    fn show_symbol(&self, _symbol: DecSymbol) -> &str {
         todo!()
     }
 }

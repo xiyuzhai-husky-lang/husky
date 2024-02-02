@@ -19,7 +19,7 @@ impl salsa::DisplayWithDb for RuneIndex {
                 1 => f.write_str("s"),
                 idx => f.write_fmt(format_args!("t{}", idx)),
             },
-            DecTermFamily::Category(cat) => match self.disambiguator {
+            DecTermFamily::Category(_cat) => match self.disambiguator {
                 0 => f.write_str("α"),
                 1 => f.write_str("β"),
                 2 => f.write_str("γ"),

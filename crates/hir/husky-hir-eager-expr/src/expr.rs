@@ -283,42 +283,41 @@ impl ToHirEager for SemaExprIdx {
                         path,
                         ref instantiation,
                         ..
-                    } => {
-                        match path {
-                            PrincipalEntityPath::Module(_) => unreachable!(),
-                            PrincipalEntityPath::MajorItem(path) => match path {
-                                MajorItemPath::Type(path) => {
-                                    HirEagerExprData::TypeConstructorFnCall {
-                                        path,
-                                        // ad hoc
-                                        instantiation: HirInstantiation::new_empty(false),
-                                        item_groups,
-                                    }
-                                }
-                                MajorItemPath::Trait(_) => unreachable!(),
-                                MajorItemPath::Fugitive(path) => HirEagerExprData::FunctionFnCall {
-                                    path,
-                                    instantiation: HirInstantiation::from_fly(
-                                        instantiation.as_ref().unwrap(),
-                                        db,
-                                        builder.fluffy_terms(),
-                                    ),
-                                    item_groups,
-                                },
+                    } => match path {
+                        PrincipalEntityPath::Module(_) => unreachable!(),
+                        PrincipalEntityPath::MajorItem(path) => match path {
+                            MajorItemPath::Type(path) => HirEagerExprData::TypeConstructorFnCall {
+                                path,
+                                instantiation: HirInstantiation::from_fly(
+                                    instantiation.as_ref().unwrap(),
+                                    db,
+                                    builder.fluffy_terms(),
+                                ),
+                                item_groups,
                             },
-                            PrincipalEntityPath::TypeVariant(path) => {
-                                HirEagerExprData::TypeVariantConstructorCall {
-                                    path,
-                                    instantiation: HirInstantiation::from_fly(
-                                        instantiation.as_ref().unwrap(),
-                                        db,
-                                        builder.fluffy_terms(),
-                                    ),
-                                    item_groups,
-                                }
+                            MajorItemPath::Trait(_) => unreachable!(),
+                            MajorItemPath::Fugitive(path) => HirEagerExprData::FunctionFnCall {
+                                path,
+                                instantiation: HirInstantiation::from_fly(
+                                    instantiation.as_ref().unwrap(),
+                                    db,
+                                    builder.fluffy_terms(),
+                                ),
+                                item_groups,
+                            },
+                        },
+                        PrincipalEntityPath::TypeVariant(path) => {
+                            HirEagerExprData::TypeVariantConstructorCall {
+                                path,
+                                instantiation: HirInstantiation::from_fly(
+                                    instantiation.as_ref().unwrap(),
+                                    db,
+                                    builder.fluffy_terms(),
+                                ),
+                                item_groups,
                             }
                         }
-                    }
+                    },
                     SemaExprData::AssociatedItem {
                         ref static_dispatch,
                         ..

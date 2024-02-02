@@ -31,6 +31,18 @@ impl MnistOpFrame {
             optimal_transport_average_visual,
         }
     }
+
+    pub fn skeleton(&self) -> &MnistSkeleton {
+        &self.skeleton
+    }
+
+    pub fn optimal_transport(&self) -> &OptimalTransport {
+        &self.optimal_transport
+    }
+
+    pub fn optimal_transport_average(&self) -> &OptimalTransportAverage {
+        &self.optimal_transport_average
+    }
 }
 
 /// # getters
