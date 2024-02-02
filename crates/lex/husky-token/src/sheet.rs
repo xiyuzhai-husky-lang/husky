@@ -201,7 +201,6 @@ impl<'a> TokenGroupIter<'a> {
         Some((
             TokenGroupIdx(idx),
             TokenGroup {
-                base: start,
                 tokens: &self.tokens[start.index()..end],
                 indent: self.indents[idx],
             },
@@ -247,7 +246,6 @@ impl<'a> Iterator for TokenGroupIter<'a> {
 }
 
 pub struct TokenGroup<'a> {
-    base: TokenGroupStart,
     tokens: &'a [TokenData],
     indent: u32,
 }

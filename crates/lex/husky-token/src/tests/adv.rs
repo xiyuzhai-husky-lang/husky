@@ -41,7 +41,7 @@ fn search_for_adversarials(name: &str, snippet_gen: impl Fn(Seed) -> String, n: 
                         Err(_) => vec![],
                     };
                 snippets.push(snippet);
-                std::fs::write(path, serde_json::to_string_pretty(&snippets).unwrap());
+                std::fs::write(path, serde_json::to_string_pretty(&snippets).unwrap()).unwrap();
                 std::process::exit(1)
             }
         }
