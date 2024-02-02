@@ -28,23 +28,12 @@ impl DeclarativeRitchieVariadicParameter {
     }
 
     #[inline(never)]
-    pub(super) fn show_with_db_fmt(
+    pub(super) fn display_fmt_with_db_and_ctx(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
         ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
-        self.ty.show_with_db_fmt(f, db, ctx)
-    }
-}
-
-impl salsa::DisplayWithDb for DeclarativeRitchieVariadicParameter {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        f.write_str("...")?;
-        self.ty.show_with_db_fmt(f, db, &mut Default::default())
+        self.ty.display_fmt_with_db_and_ctx(f, db, ctx)
     }
 }

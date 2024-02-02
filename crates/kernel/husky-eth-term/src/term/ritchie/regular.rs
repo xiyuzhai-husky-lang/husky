@@ -26,7 +26,7 @@ impl EthRitchieRegularParameter {
     }
 
     #[inline(never)]
-    pub(super) fn show_with_db_fmt(
+    pub(super) fn display_fmt_with_db_and_ctx(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
@@ -35,7 +35,7 @@ impl EthRitchieRegularParameter {
         // ad hoc
         f.write_str(self.contract.as_str())?;
         f.write_str(" ")?;
-        self.ty.show_with_db_fmt(f, db, ctx)
+        self.ty.display_fmt_with_db_and_ctx(f, db, ctx)
     }
 }
 
@@ -51,12 +51,13 @@ impl EthTermInstantiate for EthRitchieRegularParameter {
 }
 
 impl salsa::DisplayWithDb for EthRitchieRegularParameter {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        self.ty.show_with_db_fmt(f, db, &mut Default::default())
+        self.ty
+            .display_fmt_with_db_and_ctx(f, db, &mut Default::default())
     }
 }
 

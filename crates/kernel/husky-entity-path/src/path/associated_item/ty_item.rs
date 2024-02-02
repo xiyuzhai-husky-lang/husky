@@ -72,7 +72,7 @@ impl salsa::DebugWithDb for TypeItemPath {
 }
 
 impl salsa::DisplayWithDb for TypeItemPath {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         _f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,

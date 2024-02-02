@@ -82,15 +82,15 @@ impl AssociatedItemPathData {
 }
 
 impl salsa::DisplayWithDb for AssociatedItemPath {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
         match self {
-            AssociatedItemPath::TypeItem(path) => path.display_with_db_fmt(f, db),
-            AssociatedItemPath::TraitItem(path) => path.display_with_db_fmt(f, db),
-            AssociatedItemPath::TraitForTypeItem(path) => path.display_with_db_fmt(f, db),
+            AssociatedItemPath::TypeItem(path) => path.display_fmt_with_db(f, db),
+            AssociatedItemPath::TraitItem(path) => path.display_fmt_with_db(f, db),
+            AssociatedItemPath::TraitForTypeItem(path) => path.display_fmt_with_db(f, db),
         }
     }
 }

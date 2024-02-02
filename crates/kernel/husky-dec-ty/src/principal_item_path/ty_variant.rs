@@ -85,7 +85,8 @@ fn ty_variant_path_declarative_ty_works() {
                             .map(|&(_, ty_variant_path)| {
                                 (
                                     ty_variant_path,
-                                    ty_variant_path_declarative_ty(db, ty_variant_path),
+                                    ty_variant_path_declarative_ty(db, ty_variant_path)
+                                        .map(|t| t.with_context(())),
                                 )
                             })
                             .collect::<Vec<_>>(),

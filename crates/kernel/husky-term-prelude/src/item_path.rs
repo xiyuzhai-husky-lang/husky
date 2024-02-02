@@ -67,7 +67,7 @@ impl From<TraitPath> for ItemPathTerm {
 }
 
 impl ItemPathTerm {
-    pub fn show_with_db_fmt(
+    pub fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
@@ -77,7 +77,7 @@ impl ItemPathTerm {
 }
 
 impl DisplayWithDb for ItemPathTerm {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
@@ -85,27 +85,27 @@ impl DisplayWithDb for ItemPathTerm {
         match self {
             ItemPathTerm::Fugitive(path) => {
                 f.write_str("Form(")?;
-                path.display_with_db_fmt(f, db)?;
+                path.display_fmt_with_db(f, db)?;
                 f.write_str(")")
             }
             ItemPathTerm::Trait(path) => {
                 f.write_str("Trait(")?;
-                path.display_with_db_fmt(f, db)?;
+                path.display_fmt_with_db(f, db)?;
                 f.write_str(")")
             }
             ItemPathTerm::TypeOntology(path) => {
                 f.write_str("TypeOntology(")?;
-                path.display_with_db_fmt(f, db)?;
+                path.display_fmt_with_db(f, db)?;
                 f.write_str(")")
             }
             ItemPathTerm::TypeInstance(path) => {
                 f.write_str("TypeConstructor(")?;
-                path.display_with_db_fmt(f, db)?;
+                path.display_fmt_with_db(f, db)?;
                 f.write_str(")")
             }
             ItemPathTerm::TypeVariant(path) => {
                 f.write_str("TypeVariant(")?;
-                path.display_with_db_fmt(f, db)?;
+                path.display_fmt_with_db(f, db)?;
                 f.write_str(")")
             }
         }

@@ -45,30 +45,12 @@ impl DeclarativeRitchieKeyedParameter {
     }
 
     #[inline(never)]
-    pub(super) fn show_with_db_fmt(
+    pub(super) fn display_fmt_with_db_and_ctx(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
         ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
-        self.ty.show_with_db_fmt(f, db, ctx)
-    }
-}
-
-impl salsa::DisplayWithDb for DeclarativeRitchieKeyedParameter {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        let mut ctx = Default::default();
-        f.write_str(self.key.data(db))?;
-        f.write_str(": ")?;
-        self.ty.show_with_db_fmt(f, db, &mut ctx)?;
-        f.write_str(" = ")?;
-        match self.has_default {
-            true => f.write_str("..."),
-            false => f.write_str("_"),
-        }
+        self.ty.display_fmt_with_db_and_ctx(f, db, ctx)
     }
 }

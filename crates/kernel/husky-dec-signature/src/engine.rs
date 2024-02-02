@@ -6,14 +6,6 @@ use crate::*;
 use husky_print_utils::p;
 use husky_syn_expr::*;
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr};
-use husky_term_prelude::literal::{
-    int::{
-        TermI128Literal, TermI64Literal, TermISizeLiteral, TermR128Literal, TermR64Literal,
-        TermRSizeLiteral, TermU128Literal, TermU64Literal, TermUSizeLiteral,
-    },
-    TermLiteral,
-};
-use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData};
 use husky_vfs::Toolchain;
 use salsa::DebugWithDb;
 
@@ -123,7 +115,7 @@ impl<'a> DecTermEngine<'a> {
                         },
                     ));
                     let variance = annotated_variance_token.map(|vt| vt.into());
-                    let (ty, term_symbol) = match template_parameter_variant {
+                    let (ty, term_symbol) = match *template_parameter_variant {
                         CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => {
                             SymbolDecTerm::new_lifetime(
                                 self.db,
@@ -158,7 +150,7 @@ impl<'a> DecTermEngine<'a> {
                             ident_token,
                             ty_expr_idx,
                         } => {
-                            let ty = self.infer_new_expr_term(*ty_expr_idx).map_err(Into::into);
+                            let ty = self.infer_new_expr_term(ty_expr_idx).map_err(Into::into);
                             (
                                 ty,
                                 SymbolDecTerm::new_const(
@@ -588,17 +580,5 @@ impl<'a> DecTermEngine<'a> {
             SynExprData::Todo { .. } => todo!(),
             SynExprData::Unreachable { .. } => todo!(),
         }
-    }
-
-    pub(crate) fn current_syn_symbol_term(
-        &self,
-        symbol: CurrentSynSymbolIdx,
-    ) -> Option<SymbolSignature> {
-        self.symbol_declarative_term_region
-            .current_parameter_symbol_signature(symbol)
-    }
-
-    pub(crate) fn declarative_term_menu(&self) -> &DecTermMenu {
-        self.declarative_term_menu
     }
 }

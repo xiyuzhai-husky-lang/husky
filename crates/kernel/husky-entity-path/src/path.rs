@@ -261,16 +261,16 @@ impl ItemPath {
 }
 
 impl salsa::DisplayWithDb for ItemPath {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
         match self {
-            ItemPath::Submodule(_, path) => path.display_with_db_fmt(f, db),
-            ItemPath::MajorItem(path) => path.display_with_db_fmt(f, db),
-            ItemPath::AssociatedItem(path) => path.display_with_db_fmt(f, db),
-            ItemPath::TypeVariant(_, path) => path.display_with_db_fmt(f, db),
+            ItemPath::Submodule(_, path) => path.display_fmt_with_db(f, db),
+            ItemPath::MajorItem(path) => path.display_fmt_with_db(f, db),
+            ItemPath::AssociatedItem(path) => path.display_fmt_with_db(f, db),
+            ItemPath::TypeVariant(_, path) => path.display_fmt_with_db(f, db),
             ItemPath::ImplBlock(_path) => todo!(),
             ItemPath::Attr(_, _) => todo!(),
         }

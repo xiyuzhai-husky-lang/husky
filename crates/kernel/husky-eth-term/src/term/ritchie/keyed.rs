@@ -59,23 +59,24 @@ impl EtherealRitchieKeyedParameter {
     }
 
     #[inline(never)]
-    pub(super) fn show_with_db_fmt(
+    pub(super) fn display_fmt_with_db_and_ctx(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         // todo!();
-        self.ty.show_with_db_fmt(f, db, ctx)
+        self.ty.display_fmt_with_db_and_ctx(f, db, ctx)
     }
 }
 
 impl salsa::DisplayWithDb for EtherealRitchieKeyedParameter {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        self.ty.show_with_db_fmt(f, db, &mut Default::default())
+        self.ty
+            .display_fmt_with_db_and_ctx(f, db, &mut Default::default())
     }
 }

@@ -1,5 +1,8 @@
 mod r#abstract;
+mod index;
 mod set;
+
+use salsa::DisplayWithDb;
 
 use crate::helpers::DecTermFamily;
 
@@ -15,7 +18,7 @@ pub struct RuneDecTerm {
     /// this is the index to disambiguate it from all other symbols with the same type
     /// so that we have better cache hits
     /// todo: change to RefinedDeBrujinIndex
-    pub idx: RuneIndex,
+    pub index: RuneIndex,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -40,6 +43,16 @@ impl std::fmt::Display for RuneIndex {
     }
 }
 
+impl salsa::DisplayWithDb for RuneDecTerm {
+    fn display_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        self.index(db).display_fmt_with_db(f, db)
+    }
+}
+
 impl RuneDecTerm {
     pub fn new(ty: DecTermSymbolTypeResult<DecTerm>, disambiguator: u8, db: &::salsa::Db) -> Self {
         Self::new_inner(
@@ -53,17 +66,6 @@ impl RuneDecTerm {
                 disambiguator,
             },
         )
-    }
-
-    #[inline(never)]
-    pub(crate) fn show_with_db_fmt(
-        self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-        _ctx: &mut DecTermShowContext,
-    ) -> std::fmt::Result {
-        // ad hoc
-        f.write_fmt(format_args!("v{}", self.idx(db).disambiguator))
     }
 }
 

@@ -109,7 +109,7 @@ impl salsa::DebugWithDb for FugitivePath {
 }
 
 impl salsa::DisplayWithDb for FugitivePath {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,

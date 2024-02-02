@@ -94,29 +94,32 @@ impl CurryDecTerm {
     }
 
     #[inline(never)]
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
         ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
+        use salsa::DisplayWithDb;
+
         let parameter_rune = self.parameter_rune(db);
         if parameter_rune.is_some() {
             f.write_str("(")?
         }
         f.write_str(self.variance(db).as_str())?;
         if let Some(parameter_rune) = parameter_rune {
-            ctx.fmt_with_variable(db, parameter_rune, |ctx| {
-                ctx.fmt_variable(db, parameter_rune, f)?;
-                f.write_str(": ")?;
-                self.parameter_ty(db).show_with_db_fmt(f, db, ctx)?;
-                f.write_str(") -> ")?;
-                self.return_ty(db).show_with_db_fmt(f, db, ctx)
-            })
+            f.write_str("(")?;
+            parameter_rune.display_fmt_with_db(f, db)?;
+            f.write_str(": ")?;
+            self.parameter_ty(db)
+                .display_fmt_with_db_and_ctx(f, db, ctx)?;
+            f.write_str(") -> ")?;
+            self.return_ty(db).display_fmt_with_db_and_ctx(f, db, ctx)
         } else {
-            self.parameter_ty(db).show_with_db_fmt(f, db, ctx)?;
+            self.parameter_ty(db)
+                .display_fmt_with_db_and_ctx(f, db, ctx)?;
             f.write_str(" -> ")?;
-            self.return_ty(db).show_with_db_fmt(f, db, ctx)
+            self.return_ty(db).display_fmt_with_db_and_ctx(f, db, ctx)
         }
     }
 }
@@ -124,16 +127,6 @@ impl CurryDecTerm {
 #[salsa::tracked(jar = DecTermJar)]
 pub(crate) fn curry_parameter_count(db: &::salsa::Db, term: CurryDecTerm) -> u8 {
     term.return_ty(db).curry_parameter_count(db) + 1
-}
-
-impl salsa::DisplayWithDb for CurryDecTerm {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        self.show_with_db_fmt(f, db, &mut Default::default())
-    }
 }
 
 impl DecTermRewriteCopy for CurryDecTerm {

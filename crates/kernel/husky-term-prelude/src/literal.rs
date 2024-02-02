@@ -115,7 +115,7 @@ impl TermLiteral {
         }
     }
 
-    pub fn show_with_db_fmt(
+    pub fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
@@ -158,11 +158,11 @@ pub struct TermNatLiteral {
 }
 
 impl salsa::DisplayWithDb for TermLiteral {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        self.show_with_db_fmt(f, db)
+        self.display_fmt_with_db_and_ctx(f, db)
     }
 }

@@ -60,11 +60,11 @@ impl SubmoduleItemPathData {
 }
 
 impl salsa::DisplayWithDb for SubmoduleItemPath {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        self.data(db).submodule_path.display_with_db_fmt(f, db)
+        self.data(db).submodule_path.display_fmt_with_db(f, db)
     }
 }

@@ -104,15 +104,15 @@ impl MajorItemPathData {
 }
 
 impl salsa::DisplayWithDb for MajorItemPath {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
         match self {
-            MajorItemPath::Fugitive(path) => path.display_with_db_fmt(f, db),
-            MajorItemPath::Type(path) => path.display_with_db_fmt(f, db),
-            MajorItemPath::Trait(path) => path.display_with_db_fmt(f, db),
+            MajorItemPath::Fugitive(path) => path.display_fmt_with_db(f, db),
+            MajorItemPath::Type(path) => path.display_fmt_with_db(f, db),
+            MajorItemPath::Trait(path) => path.display_fmt_with_db(f, db),
         }
     }
 }

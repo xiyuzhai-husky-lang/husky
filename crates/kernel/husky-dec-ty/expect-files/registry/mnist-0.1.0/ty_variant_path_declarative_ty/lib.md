@@ -17,7 +17,7 @@
                     },
                 ),
                 Ok(
-                    DecTerm(`mnist::MnistLabel`),
+                    "DecTermFmtTodo",
                 ),
             ),
             (
@@ -35,7 +35,7 @@
                     },
                 ),
                 Ok(
-                    DecTerm(`mnist::MnistLabel`),
+                    "DecTermFmtTodo",
                 ),
             ),
             (
@@ -53,7 +53,7 @@
                     },
                 ),
                 Ok(
-                    DecTerm(`mnist::MnistLabel`),
+                    "DecTermFmtTodo",
                 ),
             ),
             (
@@ -71,7 +71,7 @@
                     },
                 ),
                 Ok(
-                    DecTerm(`mnist::MnistLabel`),
+                    "DecTermFmtTodo",
                 ),
             ),
             (
@@ -89,7 +89,7 @@
                     },
                 ),
                 Ok(
-                    DecTerm(`mnist::MnistLabel`),
+                    "DecTermFmtTodo",
                 ),
             ),
             (
@@ -107,7 +107,7 @@
                     },
                 ),
                 Ok(
-                    DecTerm(`mnist::MnistLabel`),
+                    "DecTermFmtTodo",
                 ),
             ),
             (
@@ -125,7 +125,7 @@
                     },
                 ),
                 Ok(
-                    DecTerm(`mnist::MnistLabel`),
+                    "DecTermFmtTodo",
                 ),
             ),
             (
@@ -143,7 +143,7 @@
                     },
                 ),
                 Ok(
-                    DecTerm(`mnist::MnistLabel`),
+                    "DecTermFmtTodo",
                 ),
             ),
             (
@@ -161,7 +161,7 @@
                     },
                 ),
                 Ok(
-                    DecTerm(`mnist::MnistLabel`),
+                    "DecTermFmtTodo",
                 ),
             ),
             (
@@ -179,7 +179,7 @@
                     },
                 ),
                 Ok(
-                    DecTerm(`mnist::MnistLabel`),
+                    "DecTermFmtTodo",
                 ),
             ),
         ],

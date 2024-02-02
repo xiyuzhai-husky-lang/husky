@@ -26,7 +26,7 @@ impl TypeAsTraitItemEthTerm {
     }
 
     #[inline(never)]
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         _f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,

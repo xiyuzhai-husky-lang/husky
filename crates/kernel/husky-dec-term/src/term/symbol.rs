@@ -121,7 +121,7 @@ impl SymbolDecTerm {
     ) -> Self {
         let idx = match ty {
             Ok(ty) => match ty.family(db) {
-                DecTermFamily::Sort => todo!(),
+                DecTermFamily::Category(_) => todo!(),
                 DecTermFamily::TypePath(ty_path) => {
                     registry.issue_const_path_leading_index(attrs, ty_path)
                 }
@@ -141,7 +141,7 @@ impl SymbolDecTerm {
     ) -> Self {
         let idx = match ty {
             Ok(ty) => match ty.family(db) {
-                DecTermFamily::Sort => todo!(),
+                DecTermFamily::Category(_) => todo!(),
                 DecTermFamily::TypePath(ty_path) => {
                     registry.issue_ephem_path_leading_index(ty_path)
                 }
@@ -166,13 +166,14 @@ impl SymbolDecTerm {
         )
     }
 
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
         ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
-        ctx.fmt_symbol(db, self, f)
+        // ctx.fmt_symbol(db, self, f)
+        todo!()
     }
 }
 
@@ -189,7 +190,7 @@ pub enum DecTermSymbolTypeErrorKind {
 pub type DecTermSymbolTypeResult<T> = Result<T, DecTermSymbolTypeErrorKind>;
 
 impl salsa::DisplayWithDb for SymbolDecTerm {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
