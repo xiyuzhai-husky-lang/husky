@@ -2,7 +2,7 @@
     (
         TypePath(`core::option::Option`, `Enum`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`independent Type -> Type`),
         ),
     ),
 ]

@@ -19,7 +19,7 @@ impl DeclarativeParenateParameters {
     pub(crate) fn from_decl(
         parameters: &[ParenateSynParameterData],
         syn_expr_region_data: &SynExprRegionData,
-        signature_region: &DecTermRegion,
+        signature_region: &SynExprDecTermRegion,
     ) -> DecSignatureResult<Self> {
         Ok(Self {
             data: parameters

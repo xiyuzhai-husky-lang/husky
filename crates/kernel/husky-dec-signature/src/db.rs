@@ -3,12 +3,12 @@ use husky_syn_expr::SynExprRegion;
 use crate::*;
 
 pub trait DecSignatureDb {
-    fn declarative_term_region(&self, syn_expr_region: SynExprRegion) -> &DecTermRegion;
+    fn syn_expr_dec_term_region(&self, syn_expr_region: SynExprRegion) -> &SynExprDecTermRegion;
 }
 
 impl DecSignatureDb for ::salsa::Db {
-    fn declarative_term_region(&self, syn_expr_region: SynExprRegion) -> &DecTermRegion {
-        declarative_term_region(self, syn_expr_region)
+    fn syn_expr_dec_term_region(&self, syn_expr_region: SynExprRegion) -> &SynExprDecTermRegion {
+        syn_expr_dec_term_region(self, syn_expr_region)
     }
 }
 
@@ -16,7 +16,7 @@ impl DecSignatureDb for ::salsa::Db {
 // replace them by associated functions
 #[salsa::jar]
 pub struct DecSignatureJar(
-    declarative_term_region,
+    syn_expr_dec_term_region,
     // type
     ty_dec_template,
     EnumTypeDecTemplate,

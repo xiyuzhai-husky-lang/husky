@@ -2,7 +2,7 @@
     (
         TypePath(`core::vec::Vec`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`covariant Type -> Type`),
         ),
     ),
 ]

@@ -36,7 +36,7 @@ pub(crate) struct SemaExprEngine<'a> {
     syn_expr_region: SynExprRegion,
     syn_expr_region_data: &'a SynExprRegionData,
     regional_tokens_data: RegionalTokensData<'a>,
-    declarative_term_region: &'a DecTermRegion,
+    declarative_term_region: &'a SynExprDecTermRegion,
     stack_location_registry: StackLocationRegistry,
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,
@@ -108,14 +108,14 @@ impl<'a> SemaExprEngine<'a> {
         let module_path = syn_expr_region_data.path().module_path(db);
         let return_ty = parent_expr_region
             .map(|parent_expr_region| {
-                db.declarative_term_region(parent_expr_region)
+                db.syn_expr_dec_term_region(parent_expr_region)
                     .expr_term(parent_expr_region.data(db).return_ty()?)
                     .ok()
             })
             .flatten()
             .map(|term| EthTerm::ty_from_declarative(db, term).ok())
             .flatten();
-        let declarative_term_region = db.declarative_term_region(syn_expr_region);
+        let declarative_term_region = db.syn_expr_dec_term_region(syn_expr_region);
         let self_ty = declarative_term_region
             .term_symbol_region()
             .self_ty()

@@ -2,7 +2,7 @@
     (
         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`Type`),
         ),
     ),
 ]

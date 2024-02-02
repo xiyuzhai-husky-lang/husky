@@ -28,6 +28,7 @@ pub use self::ty_as_trai_item::*;
 pub use self::wrapper::*;
 
 use self::abstraction::*;
+use self::name::SymbolDecTermNameMap;
 use crate::*;
 
 #[enum_class::from_variants]
@@ -86,42 +87,6 @@ impl DecTerm {
         match self {
             DecTerm::Curry(term) => curry_parameter_count(db, term),
             _ => 0,
-        }
-    }
-}
-
-/// # fmt
-impl DecTerm {
-    pub fn with_context(self, ctx: ()) -> String {
-        "DecTermFmtTodo".to_string()
-    }
-
-    pub(crate) fn display_fmt_with_db_and_ctx(
-        self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-        ctx: &mut DecTermShowContext,
-    ) -> std::fmt::Result {
-        use salsa::DisplayWithDb;
-
-        match self {
-            DecTerm::Literal(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            DecTerm::Symbol(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            DecTerm::Rune(term) => term.display_fmt_with_db(f, db),
-            DecTerm::EntityPath(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            DecTerm::Category(term) => f.write_str(&term.to_string()),
-            DecTerm::Universe(term) => f.write_str(&term.to_string()),
-            DecTerm::Curry(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            DecTerm::Ritchie(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            DecTerm::Abstraction(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            DecTerm::Application(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            DecTerm::ApplicationOrRitchieCall(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            DecTerm::AssociatedItem(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            DecTerm::TypeAsTraitItem(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            DecTerm::TraitConstraint(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            DecTerm::LeashOrBitNot(_) => f.write_str("~"),
-            DecTerm::List(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            DecTerm::Wrapper(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
         }
     }
 }

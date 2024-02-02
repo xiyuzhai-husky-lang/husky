@@ -20,7 +20,7 @@ use husky_syn_expr::{
 ///
 /// should contains term information enough for generating declarations
 #[derive(Debug, PartialEq, Eq)]
-pub struct DecTermRegion {
+pub struct SynExprDecTermRegion {
     path: SynNodeRegionPath,
     term_symbol_region: SymbolDecTermRegion,
     expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
@@ -28,7 +28,7 @@ pub struct DecTermRegion {
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
 }
 
-impl DecTermRegion {
+impl SynExprDecTermRegion {
     pub(crate) fn new(
         path: SynNodeRegionPath,
         term_symbol_region: SymbolDecTermRegion,
@@ -52,7 +52,7 @@ impl DecTermRegion {
     pub fn current_syn_symbol_signature(
         &self,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-    ) -> Option<SymbolSignature> {
+    ) -> Option<SymbolDecSignature> {
         self.term_symbol_region
             .current_parameter_symbol_signature(current_syn_symbol_idx)
     }

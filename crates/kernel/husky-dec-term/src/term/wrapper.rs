@@ -26,7 +26,7 @@ impl WrapperDecTerm {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &mut DecTermShowContext,
+        ctx: &SymbolDecTermNameMap,
     ) -> std::fmt::Result {
         match self.kind(db) {
             DecTermWrapperKind::ValReturnType => f.write_str("{val_type} ")?,

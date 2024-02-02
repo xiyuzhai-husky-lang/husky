@@ -21,7 +21,7 @@ impl EnumPropsVariantDecTemplate {
         decl: TypePropsVariantSynDecl,
     ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
-        let declarative_term_region = declarative_term_region(db, syn_expr_region);
+        let declarative_term_region = syn_expr_dec_term_region(db, syn_expr_region);
         let fields = decl
             .fields(db)
             .iter()

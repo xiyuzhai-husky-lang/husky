@@ -56,7 +56,11 @@ impl salsa::DisplayWithDb for RuneIndex {
                     idx => f.write_fmt(format_args!("'α{}", idx)),
                 }
             }
-            DecTermFamily::TypePath(_) | DecTermFamily::Other => todo!(),
+            DecTermFamily::TypePath(_) | DecTermFamily::Other => match self.disambiguator {
+                0 => f.write_str("a"),
+                1 => f.write_str("b"),
+                idx => f.write_fmt(format_args!("a{}", idx)),
+            },
         }
     }
 }

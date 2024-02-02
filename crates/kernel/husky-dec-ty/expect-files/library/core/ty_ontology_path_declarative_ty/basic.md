@@ -2,49 +2,49 @@
     (
         TypePath(`core::basic::bool`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`Type`),
         ),
     ),
     (
         TypePath(`core::basic::never`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`Type`),
         ),
     ),
     (
         TypePath(`core::basic::unit`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`Type`),
         ),
     ),
     (
         TypePath(`core::basic::Trait`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`Type`),
         ),
     ),
     (
         TypePath(`core::basic::Module`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`Type`),
         ),
     ),
     (
         TypePath(`core::basic::Lifetime`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`Type`),
         ),
     ),
     (
         TypePath(`core::basic::Place`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`Type`),
         ),
     ),
     (
         TypePath(`core::basic::Universe`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`Type`),
         ),
     ),
 ]

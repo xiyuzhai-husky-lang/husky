@@ -2,7 +2,7 @@
     (
         TypePath(`core::ops::ControlFlow`, `Enum`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`independent Type -> independent Type -> Type`),
         ),
     ),
 ]

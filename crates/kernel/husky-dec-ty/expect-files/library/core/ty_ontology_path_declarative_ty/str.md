@@ -2,13 +2,13 @@
     (
         TypePath(`core::str::str`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`Type`),
         ),
     ),
     (
         TypePath(`core::str::StringLiteral`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`Type`),
         ),
     ),
 ]

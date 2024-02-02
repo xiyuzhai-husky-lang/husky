@@ -2,13 +2,13 @@
     (
         TypePath(`core::slice::Slice`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`covariant Type -> Type`),
         ),
     ),
     (
         TypePath(`core::slice::CyclicSlice`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`covariant Type -> Type`),
         ),
     ),
 ]

@@ -31,7 +31,7 @@ impl TraitForTypeMethodFnDecTemplate {
         );
         let syn_expr_region = decl.syn_expr_region(db);
         let syn_expr_region_data = syn_expr_region.data(db);
-        let declarative_term_region = declarative_term_region(db, syn_expr_region);
+        let declarative_term_region = syn_expr_dec_term_region(db, syn_expr_region);
         let declarative_term_menu = db
             .declarative_term_menu(syn_expr_region.toolchain(db))
             .unwrap();

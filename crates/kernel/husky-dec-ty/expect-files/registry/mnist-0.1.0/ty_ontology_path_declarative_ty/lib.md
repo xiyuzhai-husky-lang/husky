@@ -2,19 +2,19 @@
     (
         TypePath(`mnist::MnistLabel`, `Enum`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`Type`),
         ),
     ),
     (
         TypePath(`mnist::BinaryImage28`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`Type`),
         ),
     ),
     (
         TypePath(`mnist::BinaryGrid28`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`Type`),
         ),
     ),
 ]

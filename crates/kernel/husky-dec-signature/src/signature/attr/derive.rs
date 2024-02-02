@@ -13,7 +13,7 @@ pub struct DeriveAttrShardDecTemplate {
 impl DeriveAttrDecTemplate {
     pub(super) fn from_decl(decl: DeriveAttrSynDecl, db: &::salsa::Db) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
-        let declarative_term_region = declarative_term_region(db, syn_expr_region);
+        let declarative_term_region = syn_expr_dec_term_region(db, syn_expr_region);
         let shards = decl
             .trais(db)
             .iter()

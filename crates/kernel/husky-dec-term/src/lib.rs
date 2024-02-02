@@ -1,11 +1,12 @@
 #![feature(if_let_guard)]
 #![feature(let_chains)]
-mod context;
 mod db;
 mod error;
+mod fmt;
 pub mod helpers;
 pub mod instantiation;
 mod menu;
+pub mod name;
 mod rewrite;
 pub mod term;
 
@@ -14,7 +15,7 @@ pub use self::error::*;
 pub use self::menu::*;
 pub use self::rewrite::*;
 
-use self::context::*;
+use self::fmt::*;
 use self::term::*;
 use husky_coword::*;
 use husky_term_prelude::*;

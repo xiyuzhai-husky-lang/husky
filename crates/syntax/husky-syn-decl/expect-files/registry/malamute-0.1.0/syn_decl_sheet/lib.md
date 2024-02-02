@@ -1017,6 +1017,18 @@ SynDeclSheet {
                                             ),
                                             (
                                                 VariadicParenateParameter {
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: Ident(
+                                                            Coword(
+                                                                Id {
+                                                                    value: 34,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            18,
+                                                        ),
+                                                    },
                                                     ty: 2,
                                                 },
                                                 ArenaIdxRange(

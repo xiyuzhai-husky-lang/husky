@@ -149,7 +149,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateSynPara
             );
             let variable = ctx.define_symbol(
                 variable,
-                Some(SyndicateTypeConstraint::VariadicParenateParameter { ty }),
+                Some(SyndicateTypeConstraint::VariadicParenateParameter { ident_token, ty }),
             );
             Ok(Some(ParenateSynParameterData::Variadic {
                 dot_dot_dot_token,

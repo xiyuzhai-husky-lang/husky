@@ -404,13 +404,6 @@ pub(crate) fn javelin_generated_valkyrie_javelins(
     }
 }
 
-pub struct PackageValkyrieJavelinsBuilder<'db> {
-    db: &'db ::salsa::Db,
-    javelins: VecSet<Javelin>,
-}
-
-impl<'db> PackageValkyrieJavelinsBuilder<'db> {}
-
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct ValkyrieJavelinPantheon {

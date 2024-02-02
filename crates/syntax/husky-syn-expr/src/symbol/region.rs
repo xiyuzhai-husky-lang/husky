@@ -48,6 +48,7 @@ pub enum SyndicateTypeConstraint {
         ty_expr_idx: SynExprIdx,
     },
     VariadicParenateParameter {
+        ident_token: IdentRegionalToken,
         ty: SynExprIdx,
     },
     LetPattern {

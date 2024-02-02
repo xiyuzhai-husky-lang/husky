@@ -27,7 +27,7 @@ impl ApplicationOrRitchieCallDecTerm {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &mut DecTermShowContext,
+        ctx: &SymbolDecTermNameMap,
     ) -> std::fmt::Result {
         self.function(db).display_fmt_with_db_and_ctx(f, db, ctx)?;
         let generic_arguments = self.generic_arguments(db);

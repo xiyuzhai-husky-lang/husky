@@ -1,5 +1,7 @@
+use husky_dec_term::name::SymbolDecTermNameMap;
 use husky_entity_tree::*;
 use husky_syn_expr::*;
+use husky_term_prelude::symbol::SymbolName;
 use husky_vfs::Toolchain;
 
 use super::*;
@@ -8,7 +10,8 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct SymbolDecTermRegion {
     symbol_registry: TermSymbolRegistry,
-    symbol_signatures: SymbolOrderedMap<SymbolSignature>,
+    symbol_signatures: SymbolOrderedMap<SymbolDecSignature>,
+    symbol_name_map: SymbolDecTermNameMap,
     self_ty: Option<DecTerm>,
     self_value: Option<SymbolDecTerm>,
     self_lifetime: Option<SymbolDecTerm>,
@@ -17,9 +20,9 @@ pub struct SymbolDecTermRegion {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct SymbolSignature {
+pub struct SymbolDecSignature {
     kind: SymbolSignatureKind,
-    term_symbol: Option<SymbolDecTerm>,
+    symbol: Option<SymbolDecTerm>,
     modifier: SymbolModifier,
     ty: DecTermSymbolTypeResult<DecTerm>,
 }
@@ -31,13 +34,13 @@ pub enum SymbolSignatureKind {
     FieldVariable,
 }
 
-impl SymbolSignature {
+impl SymbolDecSignature {
     pub fn kind(self) -> SymbolSignatureKind {
         self.kind
     }
 
     pub fn term_symbol(self) -> Option<SymbolDecTerm> {
-        self.term_symbol
+        self.symbol
     }
 
     pub fn modifier(&self) -> SymbolModifier {
@@ -73,16 +76,18 @@ impl SymbolDecTermRegion {
         idx: CurrentSynSymbolIdx,
         ty: DecTermSymbolTypeResult<DecTerm>,
         term_symbol: SymbolDecTerm,
+        name: SymbolName,
     ) {
         self.add_new_current_syn_symbol_signature(
             db,
             idx,
-            SymbolSignature {
+            SymbolDecSignature {
                 kind: SymbolSignatureKind::TemplateParameter,
-                term_symbol: Some(term_symbol),
+                symbol: Some(term_symbol),
                 ty,
                 modifier: SymbolModifier::Const,
             },
+            name,
         )
     }
 
@@ -93,6 +98,7 @@ impl SymbolDecTermRegion {
         current_syn_symbol: CurrentSynSymbolIdx,
         modifier: SymbolModifier,
         ty: DecTermSymbolTypeResult<DecTerm>,
+        name: SymbolName,
     ) {
         let symbol = match modifier {
             SymbolModifier::Const => todo!(),
@@ -101,12 +107,13 @@ impl SymbolDecTermRegion {
         self.add_new_current_syn_symbol_signature(
             db,
             current_syn_symbol,
-            SymbolSignature {
+            SymbolDecSignature {
                 kind: SymbolSignatureKind::ParenateParameter,
                 modifier,
                 ty,
-                term_symbol: symbol,
+                symbol,
             },
+            name,
         )
     }
 
@@ -116,17 +123,18 @@ impl SymbolDecTermRegion {
         db: &::salsa::Db,
         current_syn_symbol: CurrentSynSymbolIdx,
         ty: DecTermSymbolTypeResult<DecTerm>,
+        ident: Ident,
     ) {
         self.add_new_current_syn_symbol_signature(
             db,
             current_syn_symbol,
-            SymbolSignature {
+            SymbolDecSignature {
                 kind: SymbolSignatureKind::FieldVariable,
                 modifier: SymbolModifier::Pure,
                 ty,
-                // ad hoc
-                term_symbol: None,
+                symbol: None,
             },
+            ident.into(),
         )
     }
 
@@ -135,9 +143,17 @@ impl SymbolDecTermRegion {
         &mut self,
         db: &::salsa::Db,
         idx: CurrentSynSymbolIdx,
-        signature: SymbolSignature,
+        signature: SymbolDecSignature,
+        name: SymbolName,
     ) {
+        if let Some(symbol) = signature.symbol {
+            self.symbol_name_map.add(symbol, name)
+        }
         self.symbol_signatures.insert_next(idx, signature)
+    }
+
+    pub fn symbol_name_map(&self) -> &SymbolDecTermNameMap {
+        &self.symbol_name_map
     }
 }
 
@@ -163,6 +179,7 @@ impl SymbolDecTermRegion {
             symbol_signatures: SymbolOrderedMap::new(
                 parent.map(|parent| &parent.symbol_signatures),
             ),
+            symbol_name_map: Default::default(),
             self_ty: parent.map(|parent| parent.self_ty).flatten(),
             self_value: parent.map(|parent| parent.self_value).flatten(),
             self_lifetime: implicit_self_lifetime,
@@ -278,7 +295,7 @@ impl SymbolDecTermRegion {
         self.self_value
     }
 
-    fn parent_symbol_term(&self, parent_symbol_idx: ParentSynSymbolIdx) -> SymbolSignature {
+    fn parent_symbol_term(&self, parent_symbol_idx: ParentSynSymbolIdx) -> SymbolDecSignature {
         match parent_symbol_idx {
             ParentSynSymbolIdx::Inherited(inherited_syn_symbol_idx) => {
                 self.inherited_syn_symbol_signature(inherited_syn_symbol_idx)
@@ -292,7 +309,7 @@ impl SymbolDecTermRegion {
     pub fn inherited_syn_symbol_signature(
         &self,
         inherited_syn_symbol_idx: InheritedSynSymbolIdx,
-    ) -> SymbolSignature {
+    ) -> SymbolDecSignature {
         self.symbol_signatures[inherited_syn_symbol_idx]
     }
 
@@ -300,7 +317,7 @@ impl SymbolDecTermRegion {
     pub fn current_parameter_symbol_signature(
         &self,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-    ) -> Option<SymbolSignature> {
+    ) -> Option<SymbolDecSignature> {
         self.symbol_signatures
             .current_syn_symbol_map()
             .get(current_syn_symbol_idx.index())
