@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = new)]
-pub struct TraitForTypeMethodFnEtherealSignatureTemplate {
+pub struct TraitForTypeMethodFnEthTemplate {
     pub path: TraitForTypeItemPath,
     pub self_ty: EtherealTerm,
     #[return_ref]
@@ -12,11 +12,11 @@ pub struct TraitForTypeMethodFnEtherealSignatureTemplate {
     pub return_ty: EtherealTerm,
 }
 
-impl TraitForTypeMethodFnEtherealSignatureTemplate {
+impl TraitForTypeMethodFnEthTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         path: TraitForTypeItemPath,
-        dec_sig_tmpl: TraitForTypeMethodFnDeclarativeSignatureTemplate,
+        dec_sig_tmpl: TraitForTypeMethodFnDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let self_ty = EtherealTerm::ty_from_declarative(db, dec_sig_tmpl.self_ty(db))?;
         let template_parameters =
@@ -28,7 +28,7 @@ impl TraitForTypeMethodFnEtherealSignatureTemplate {
         let parenate_parameters =
             EtherealParenateParameters::from_declarative(db, dec_sig_tmpl.parenate_parameters(db))?;
         let return_ty = EtherealTerm::ty_from_declarative(db, dec_sig_tmpl.return_ty(db))?;
-        Ok(TraitForTypeMethodFnEtherealSignatureTemplate::new(
+        Ok(TraitForTypeMethodFnEthTemplate::new(
             db,
             path,
             self_ty,
@@ -53,7 +53,7 @@ impl TraitForTypeMethodFnEtherealSignatureTemplate {
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct TraitForTypeMethodFnEtherealSignatureBuilder {
-    pub template: TraitForTypeMethodFnEtherealSignatureTemplate,
+    pub template: TraitForTypeMethodFnEthTemplate,
     #[return_ref]
     pub instantiation_builder: EtherealInstantiationBuilder,
 }

@@ -65,14 +65,14 @@ pub(crate) fn declarative_ty_item_variance_crate_dependencies(
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };
     match signature {
-        TypeDeclarativeSignatureTemplate::Enum(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::PropsStruct(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::TupleStruct(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::Inductive(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::Structure(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::Extern(_) => (),
-        TypeDeclarativeSignatureTemplate::Union(_) => todo!(),
+        TypeDecTemplate::Enum(_) => todo!(),
+        TypeDecTemplate::PropsStruct(_) => todo!(),
+        TypeDecTemplate::UnitStruct(_) => todo!(),
+        TypeDecTemplate::TupleStruct(_) => todo!(),
+        TypeDecTemplate::Inductive(_) => todo!(),
+        TypeDecTemplate::Structure(_) => todo!(),
+        TypeDecTemplate::Extern(_) => (),
+        TypeDecTemplate::Union(_) => todo!(),
     }
     todo!()
 }

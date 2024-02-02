@@ -27,10 +27,6 @@ impl ImplBlockSynNodeDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
-        todo!()
-    }
-
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             ImplBlockSynNodeDecl::Type(syn_node_decl) => syn_node_decl.syn_expr_region(db),

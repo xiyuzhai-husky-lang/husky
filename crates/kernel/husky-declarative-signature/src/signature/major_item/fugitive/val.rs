@@ -1,25 +1,19 @@
 use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct ValFugitiveDeclarativeSignatureTemplate {
-    pub initialization_ty: DeclarativeTerm,
+pub struct MajorValDecTemplate {
+    pub return_ty: DeclarativeTerm,
 }
 
-impl ValFugitiveDeclarativeSignatureTemplate {
+impl MajorValDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
-        decl: ValFugitiveSynDecl,
-    ) -> DeclarativeSignatureResult<ValFugitiveDeclarativeSignatureTemplate> {
+        decl: MajorValSynDecl,
+    ) -> DeclarativeSignatureResult<MajorValDecTemplate> {
         let syn_expr_region = decl.syn_expr_region(db);
         let declarative_term_region = declarative_term_region(db, syn_expr_region);
-        let declarative_term_menu = db
-            .declarative_term_menu(syn_expr_region.toolchain(db))
-            .unwrap();
-        let val_ty = match decl.return_ty(db) {
-            Some(val_ty) => declarative_term_region.expr_term(val_ty.syn_expr_idx())?,
-            None => declarative_term_menu.unit(),
-        };
-        Ok(ValFugitiveDeclarativeSignatureTemplate::new(db, val_ty))
+        let return_ty = declarative_term_region.expr_term(decl.return_ty(db).syn_expr_idx())?;
+        Ok(MajorValDecTemplate::new(db, return_ty))
     }
 
     #[inline(always)]

@@ -130,7 +130,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
-                FunctionFnFugitiveHirDecl {
+                FunctionMajorFnHirDecl {
                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],

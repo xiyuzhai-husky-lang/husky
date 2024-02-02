@@ -15,33 +15,33 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum DeclarativeSignatureTemplate {
+pub enum DecTemplate {
     Submodule,
-    MajorItem(MajorItemDeclarativeSignatureTemplate),
-    ImplBlock(ImplBlockDeclarativeSignatureTemplate),
-    AssociatedItem(AssociatedItemDeclarativeSignatureTemplate),
-    Variant(TypeVariantDeclarativeSignatureTemplate),
-    Attr(AttrDeclarativeSignatureTemplate),
+    MajorItem(MajorItemDecTemplate),
+    ImplBlock(ImplBlockDecTemplate),
+    AssociatedItem(AssociatedItemDecTemplate),
+    Variant(TypeVariantDecTemplate),
+    Attr(AttrDecTemplate),
 }
 
-pub trait HasDeclarativeSignatureTemplate: Copy {
-    type DeclarativeSignatureTemplate;
+pub trait HasDecTemplate: Copy {
+    type DecTemplate;
 
     fn declarative_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate>;
+    ) -> DeclarativeSignatureResult<Self::DecTemplate>;
 }
 
-impl HasDeclarativeSignatureTemplate for ItemPath {
-    type DeclarativeSignatureTemplate = DeclarativeSignatureTemplate;
+impl HasDecTemplate for ItemPath {
+    type DecTemplate = DecTemplate;
 
     fn declarative_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
         Ok(match self {
-            ItemPath::Submodule(_, _) => DeclarativeSignatureTemplate::Submodule,
+            ItemPath::Submodule(_, _) => DecTemplate::Submodule,
             ItemPath::MajorItem(path) => path.declarative_signature_template(db)?.into(),
             ItemPath::AssociatedItem(path) => path.declarative_signature_template(db)?.into(),
             ItemPath::TypeVariant(_, path) => path.declarative_signature_template(db)?.into(),

@@ -16,7 +16,7 @@ use super::*;
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum FugitiveHirDecl {
-    FunctionFn(FunctionFnFugitiveHirDecl),
+    FunctionFn(FunctionMajorFnHirDecl),
     Val(ValFugitiveHirDecl),
     FunctionGn(FunctionGnFugitiveHirDecl),
     TypeAlias(TypeAliasHirDecl),
@@ -63,7 +63,7 @@ impl HasHirDecl for FugitivePath {
 fn fugitive_hir_decl(db: &::salsa::Db, path: FugitivePath) -> Option<FugitiveHirDecl> {
     match path.syn_decl(db).expect("no errors for hir stage") {
         FugitiveSynDecl::FunctionFn(syn_decl) => {
-            Some(FunctionFnFugitiveHirDecl::from_syn(path, syn_decl, db).into())
+            Some(FunctionMajorFnHirDecl::from_syn(path, syn_decl, db).into())
         }
         FugitiveSynDecl::Val(syn_decl) => {
             Some(ValFugitiveHirDecl::from_syn(path, syn_decl, db).into())

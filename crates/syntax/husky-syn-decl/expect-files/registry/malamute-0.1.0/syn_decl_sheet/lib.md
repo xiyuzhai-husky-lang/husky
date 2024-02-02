@@ -584,7 +584,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::FunctionGn(
-                        FunctionGnSynDecl {
+                        MajorGnSynDecl {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                             template_parameters: [
                                 TemplateSynParameterData {

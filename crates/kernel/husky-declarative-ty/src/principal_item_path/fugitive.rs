@@ -19,16 +19,16 @@ pub fn fugitive_path_declarative_ty(
     let variances = &variances;
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     match signature {
-        FugitiveDeclarativeSignatureTemplate::FunctionFn(signature) => {
+        FugitiveDecTemplate::Fn(signature) => {
             fn_path_declarative_ty(db, path.toolchain(db), variances, signature)
         }
-        FugitiveDeclarativeSignatureTemplate::FunctionGn(signature) => {
+        FugitiveDecTemplate::Gn(signature) => {
             gn_path_declarative_ty(db, path.toolchain(db), variances, signature)
         }
-        FugitiveDeclarativeSignatureTemplate::Val(signature) => {
+        FugitiveDecTemplate::Val(signature) => {
             val_path_declarative_ty(db, signature, declarative_term_menu)
         }
-        FugitiveDeclarativeSignatureTemplate::TypeAlias(_) => todo!(),
+        FugitiveDecTemplate::TypeAlias(_) => todo!(),
     }
 }
 
@@ -36,7 +36,7 @@ pub(crate) fn fn_path_declarative_ty(
     db: &::salsa::Db,
     toolchain: Toolchain,
     variances: &[Variance],
-    signature: FnFugitiveDeclarativeSignatureTemplate,
+    signature: MajorFnDecTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let parenate_parameters = signature.parenate_parameters(db).data().to_smallvec();
     let return_declarative_ty = signature.return_ty(db);
@@ -59,7 +59,7 @@ pub(crate) fn gn_path_declarative_ty(
     db: &::salsa::Db,
     toolchain: Toolchain,
     variances: &[Variance],
-    signature: GnFugitiveDeclarativeSignatureTemplate,
+    signature: MajorGnDecTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let param_declarative_tys = signature.parenate_parameters(db).data().to_smallvec();
     let return_declarative_ty = signature.return_ty(db);
@@ -80,8 +80,8 @@ pub(crate) fn gn_path_declarative_ty(
 
 pub(crate) fn val_path_declarative_ty(
     db: &::salsa::Db,
-    signature: ValFugitiveDeclarativeSignatureTemplate,
+    signature: MajorValDecTemplate,
     _declarative_term_menu: &DeclarativeTermMenu,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    Ok(signature.initialization_ty(db).leashed_ty(db))
+    Ok(signature.return_ty(db).leashed_ty(db))
 }

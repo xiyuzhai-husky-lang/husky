@@ -1,4 +1,4 @@
-use husky_hir_decl::decl::{FunctionFnFugitiveHirDecl, ValFugitiveHirDecl};
+use husky_hir_decl::decl::{FunctionMajorFnHirDecl, ValFugitiveHirDecl};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 
 use super::*;
@@ -28,7 +28,7 @@ impl TranspileToRustWith for FunctionFnHirDefn {
     }
 }
 
-impl TranspileToRustWith for FunctionFnFugitiveHirDecl {
+impl TranspileToRustWith for FunctionMajorFnHirDecl {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         builder.with_hir_eager_expr_region(self.hir_eager_expr_region(db), |builder| {

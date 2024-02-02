@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::ValFugitiveSynDecl;
+use husky_syn_decl::MajorValSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct ValFugitiveHirDecl {
@@ -11,7 +11,7 @@ pub struct ValFugitiveHirDecl {
 impl ValFugitiveHirDecl {
     pub(super) fn from_syn(
         path: FugitivePath,
-        syn_decl: ValFugitiveSynDecl,
+        syn_decl: MajorValSynDecl,
         db: &::salsa::Db,
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);

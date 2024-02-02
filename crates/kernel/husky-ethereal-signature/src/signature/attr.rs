@@ -8,17 +8,17 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 #[non_exhaustive]
-pub enum AttrEtherealSignatureTemplate {
-    Derive(DeriveAttrEtherealSignatureTemplate),
+pub enum AttrEthTemplate {
+    Derive(DeriveAttrEthTemplate),
 }
 
-impl HasEtherealSignatureTemplate for AttrItemPath {
-    type EtherealSignatureTemplate = AttrEtherealSignatureTemplate;
+impl HasEthTemplate for AttrItemPath {
+    type EthTemplate = AttrEthTemplate;
 
     fn ethereal_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
+    ) -> EtherealSignatureResult<Self::EthTemplate> {
         attr_ethereal_signature_template(db, self)
     }
 }
@@ -27,14 +27,11 @@ impl HasEtherealSignatureTemplate for AttrItemPath {
 fn attr_ethereal_signature_template(
     db: &::salsa::Db,
     path: AttrItemPath,
-) -> EtherealSignatureResult<AttrEtherealSignatureTemplate> {
+) -> EtherealSignatureResult<AttrEthTemplate> {
     match path.declarative_signature_template(db)? {
-        AttrDeclarativeSignatureTemplate::Derive(declarative_signature_template) => {
-            DeriveAttrEtherealSignatureTemplate::from_declarative(
-                db,
-                declarative_signature_template,
-            )
-            .map(Into::into)
+        AttrDecTemplate::Derive(declarative_signature_template) => {
+            DeriveAttrEthTemplate::from_declarative(db, declarative_signature_template)
+                .map(Into::into)
         }
     }
 }

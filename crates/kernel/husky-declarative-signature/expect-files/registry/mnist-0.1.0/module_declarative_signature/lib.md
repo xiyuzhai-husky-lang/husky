@@ -6,10 +6,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::Enum(
-                        EnumTypeDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Type(
+                    TypeDecTemplate::Enum(
+                        EnumTypeDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
@@ -27,10 +27,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::Extern(
-                        ExternTypeDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Type(
+                    TypeDecTemplate::Extern(
+                        ExternTypeDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
@@ -47,10 +47,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::Extern(
-                        ExternTypeDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Type(
+                    TypeDecTemplate::Extern(
+                        ExternTypeDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
@@ -67,11 +67,11 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValFugitiveDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`mnist::BinaryImage28`),
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Val(
+                        MajorValDecTemplate {
+                            return_ty: DeclarativeTerm(`mnist::BinaryImage28`),
                         },
                     ),
                 ),
@@ -94,9 +94,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::ImplBlock(
-                ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
-                    TraitForTypeImplBlockDeclarativeSignatureTemplate {
+            DecTemplate::ImplBlock(
+                ImplBlockDecTemplate::TraitForTypeImpl(
+                    TraitForTypeImplBlockDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
@@ -137,10 +137,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
-                    TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TraitForTypeMethodFnDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TraitForTypeItem(
+                    TraitForTypeItemDecTemplate::MethodFn(
+                        TraitForTypeMethodFnDecTemplate {
                             self_ty: DeclarativeTerm(`mnist::BinaryImage28`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
@@ -178,9 +178,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::ImplBlock(
-                ImplBlockDeclarativeSignatureTemplate::TypeImpl(
-                    TypeImplBlockDeclarativeSignatureTemplate {
+            DecTemplate::ImplBlock(
+                ImplBlockDecTemplate::TypeImpl(
+                    TypeImplBlockDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
@@ -197,10 +197,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::AssociatedFn(
-                        TypeAssociatedFnDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::AssociatedFn(
+                        TypeAssociatedFnDecTemplate {
                             path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
                             self_ty: DeclarativeTerm(`mnist::BinaryImage28`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -232,9 +232,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::ImplBlock(
-                ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
-                    TraitForTypeImplBlockDeclarativeSignatureTemplate {
+            DecTemplate::ImplBlock(
+                ImplBlockDecTemplate::TraitForTypeImpl(
+                    TraitForTypeImplBlockDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
@@ -275,10 +275,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
-                    TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
-                        TraitForTypeAssociatedTypeDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TraitForTypeItem(
+                    TraitForTypeItemDecTemplate::AssociatedType(
+                        TraitForTypeAssociatedTypeDecTemplate {
                             path: TraitForTypeItemPath(
                                 ItemPathId {
                                     data: ItemPathData::AssociatedItem(
@@ -327,9 +327,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::ImplBlock(
-                ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
-                    TraitForTypeImplBlockDeclarativeSignatureTemplate {
+            DecTemplate::ImplBlock(
+                ImplBlockDecTemplate::TraitForTypeImpl(
+                    TraitForTypeImplBlockDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
@@ -370,10 +370,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
-                    TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TraitForTypeMethodFnDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TraitForTypeItem(
+                    TraitForTypeItemDecTemplate::MethodFn(
+                        TraitForTypeMethodFnDecTemplate {
                             self_ty: DeclarativeTerm(`mnist::BinaryGrid28`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
@@ -411,9 +411,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::ImplBlock(
-                ImplBlockDeclarativeSignatureTemplate::TypeImpl(
-                    TypeImplBlockDeclarativeSignatureTemplate {
+            DecTemplate::ImplBlock(
+                ImplBlockDecTemplate::TypeImpl(
+                    TypeImplBlockDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
@@ -430,10 +430,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::AssociatedFn(
-                        TypeAssociatedFnDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::AssociatedFn(
+                        TypeAssociatedFnDecTemplate {
                             path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
                             self_ty: DeclarativeTerm(`mnist::BinaryGrid28`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -465,9 +465,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::ImplBlock(
-                ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
-                    TraitForTypeImplBlockDeclarativeSignatureTemplate {
+            DecTemplate::ImplBlock(
+                ImplBlockDecTemplate::TraitForTypeImpl(
+                    TraitForTypeImplBlockDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
@@ -508,10 +508,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
-                    TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
-                        TraitForTypeAssociatedTypeDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TraitForTypeItem(
+                    TraitForTypeItemDecTemplate::AssociatedType(
+                        TraitForTypeAssociatedTypeDecTemplate {
                             path: TraitForTypeItemPath(
                                 ItemPathId {
                                     data: ItemPathData::AssociatedItem(

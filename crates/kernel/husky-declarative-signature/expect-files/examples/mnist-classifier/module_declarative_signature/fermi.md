@@ -6,21 +6,21 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::PropsStruct(
-                        PropsStructTypeDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Type(
+                    TypeDecTemplate::PropsStruct(
+                        PropsStructTypeDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
                             fields: [
-                                PropsStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDecTemplate {
                                     ident: `matches`,
                                     ty: DeclarativeTerm(`[] core::option::Option ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                                     has_initialization: false,
                                 },
-                                PropsStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDecTemplate {
                                     ident: `others`,
                                     ty: DeclarativeTerm(`[] ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                                     has_initialization: false,
@@ -59,10 +59,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
-                        FnFugitiveDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Fn(
+                        MajorFnDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
@@ -108,9 +108,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::ImplBlock(
-                ImplBlockDeclarativeSignatureTemplate::TypeImpl(
-                    TypeImplBlockDeclarativeSignatureTemplate {
+            DecTemplate::ImplBlock(
+                ImplBlockDecTemplate::TypeImpl(
+                    TypeImplBlockDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
@@ -127,12 +127,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MemoizedField(
+                        TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
@@ -152,12 +152,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MemoizedField(
+                        TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
@@ -177,12 +177,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MemoizedField(
+                        TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },

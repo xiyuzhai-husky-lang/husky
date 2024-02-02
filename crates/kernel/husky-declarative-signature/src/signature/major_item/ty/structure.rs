@@ -1,12 +1,12 @@
 use crate::*;
 
 #[salsa::tracked(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct StructureTypeDeclarativeSignatureTemplate {
+pub struct StructureTypeDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
 }
 
-impl StructureTypeDeclarativeSignatureTemplate {
+impl StructureTypeDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
         path: TypePath,

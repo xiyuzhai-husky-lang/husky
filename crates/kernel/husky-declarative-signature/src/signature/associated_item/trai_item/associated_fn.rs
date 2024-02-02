@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct TraitAssociatedFnDeclarativeSignatureTemplate {
+pub struct TraitAssociatedFnDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
     #[return_ref]
@@ -9,11 +9,11 @@ pub struct TraitAssociatedFnDeclarativeSignatureTemplate {
     pub return_ty: DeclarativeTerm,
 }
 
-impl TraitAssociatedFnDeclarativeSignatureTemplate {
+impl TraitAssociatedFnDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
         decl: TraitAssociatedFnSynDecl,
-    ) -> DeclarativeSignatureResult<TraitAssociatedFnDeclarativeSignatureTemplate> {
+    ) -> DeclarativeSignatureResult<TraitAssociatedFnDecTemplate> {
         let syn_expr_region = decl.syn_expr_region(db);
         let syn_expr_region_data = syn_expr_region.data(db);
         let declarative_term_region = declarative_term_region(db, syn_expr_region);
@@ -34,7 +34,7 @@ impl TraitAssociatedFnDeclarativeSignatureTemplate {
             Some(return_ty) => declarative_term_region.expr_term(return_ty.syn_expr_idx())?,
             None => declarative_term_menu.unit(),
         };
-        Ok(TraitAssociatedFnDeclarativeSignatureTemplate::new(
+        Ok(TraitAssociatedFnDecTemplate::new(
             db,
             template_parameters,
             parenate_parameters,

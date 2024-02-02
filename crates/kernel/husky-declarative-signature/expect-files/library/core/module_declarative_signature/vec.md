@@ -6,10 +6,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::Extern(
-                        ExternTypeDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Type(
+                    TypeDecTemplate::Extern(
+                        ExternTypeDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
                                     DeclarativeTemplateParameter {
@@ -50,9 +50,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::ImplBlock(
-                ImplBlockDeclarativeSignatureTemplate::TypeImpl(
-                    TypeImplBlockDeclarativeSignatureTemplate {
+            DecTemplate::ImplBlock(
+                ImplBlockDecTemplate::TypeImpl(
+                    TypeImplBlockDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [
                                 DeclarativeTemplateParameter {
@@ -79,12 +79,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TypeMethodFnDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodFn(
+                        TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
                                         DeclarativeTemplateParameter {
@@ -125,12 +125,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TypeMethodFnDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodFn(
+                        TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
                                         DeclarativeTemplateParameter {
@@ -188,12 +188,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TypeMethodFnDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodFn(
+                        TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
                                         DeclarativeTemplateParameter {
@@ -244,12 +244,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TypeMethodFnDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodFn(
+                        TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
                                         DeclarativeTemplateParameter {
@@ -300,12 +300,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TypeMethodFnDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodFn(
+                        TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
                                         DeclarativeTemplateParameter {
@@ -356,12 +356,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TypeMethodFnDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodFn(
+                        TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
                                         DeclarativeTemplateParameter {
@@ -402,12 +402,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TypeMethodFnDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodFn(
+                        TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
                                         DeclarativeTemplateParameter {
@@ -461,12 +461,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TypeMethodFnDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodFn(
+                        TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
                                         DeclarativeTemplateParameter {

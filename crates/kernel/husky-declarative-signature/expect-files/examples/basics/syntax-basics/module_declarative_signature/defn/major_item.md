@@ -15,7 +15,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
 ]

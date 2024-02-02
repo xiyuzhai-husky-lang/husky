@@ -481,7 +481,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::FunctionFn(
-                        FnSynNodeDecl {
+                        MajorFnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -868,7 +868,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::FunctionFn(
-                        FnSynNodeDecl {
+                        MajorFnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -1255,7 +1255,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::FunctionFn(
-                        FnSynNodeDecl {
+                        MajorFnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -1642,7 +1642,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::FunctionFn(
-                        FnSynNodeDecl {
+                        MajorFnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -2132,7 +2132,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::FunctionFn(
-                        FnSynNodeDecl {
+                        MajorFnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -2519,7 +2519,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::FunctionFn(
-                        FnSynNodeDecl {
+                        MajorFnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -3436,7 +3436,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::FunctionFn(
-                        FnSynNodeDecl {
+                        MajorFnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -3737,7 +3737,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::FunctionFn(
-                        FnSynNodeDecl {
+                        MajorFnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(

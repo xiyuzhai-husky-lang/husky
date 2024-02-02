@@ -92,7 +92,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
-                FunctionFnFugitiveHirDecl {
+                FunctionMajorFnHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],

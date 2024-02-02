@@ -4,7 +4,7 @@ mod solid;
 
 use super::*;
 use husky_coword::Ident;
-use husky_ethereal_signature::{HasTypeItemTemplates, TypeItemEtherealSignatureTemplates};
+use husky_ethereal_signature::{HasTypeItemTemplates, TypeItemEthTemplates};
 
 #[derive(Debug, PartialEq, Eq)]
 #[enum_class::from_variants]
@@ -31,7 +31,7 @@ impl FluffyTerm {
                 ..
             } => match ty_path.ty_item_ethereal_signature_templates(db, ident) {
                 JustOk(templates) => match templates {
-                    TypeItemEtherealSignatureTemplates::AssociatedFn(templates) => {
+                    TypeItemEthTemplates::AssociatedFn(templates) => {
                         let dst_ty_arguments: SmallVec<[_; 2]> = ty_arguments.to_smallvec();
                         let signatures: Vec<_> = templates
                             .iter()
@@ -76,9 +76,9 @@ impl FluffyTerm {
                             _ => todo!(),
                         }
                     }
-                    TypeItemEtherealSignatureTemplates::MethodFn(_) => todo!(),
-                    TypeItemEtherealSignatureTemplates::MethodFunction(_) => todo!(),
-                    TypeItemEtherealSignatureTemplates::MemoizedField(_) => todo!(),
+                    TypeItemEthTemplates::MethodFn(_) => todo!(),
+                    TypeItemEthTemplates::MethodFunction(_) => todo!(),
+                    TypeItemEthTemplates::MemoizedField(_) => todo!(),
                 },
                 JustErr(_) => todo!(),
                 Nothing => todo!(),

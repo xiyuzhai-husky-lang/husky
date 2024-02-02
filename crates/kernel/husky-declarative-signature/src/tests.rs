@@ -40,10 +40,7 @@ pub(crate) struct DB;
 fn module_declarative_signature_templates(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> Vec<(
-    ItemPath,
-    DeclarativeSignatureResult<DeclarativeSignatureTemplate>,
-)> {
+) -> Vec<(ItemPath, DeclarativeSignatureResult<DecTemplate>)> {
     syn_decl_sheet(db, module_path)
         .decls(db)
         .iter()

@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct TraitForTypeImplBlockDeclarativeSignatureTemplate {
+pub struct TraitForTypeImplBlockDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
     pub trai: DeclarativeTerm,
@@ -25,13 +25,13 @@ impl DeclarativeSelfType {
     }
 }
 
-impl HasDeclarativeSignatureTemplate for TraitForTypeImplBlockPath {
-    type DeclarativeSignatureTemplate = TraitForTypeImplBlockDeclarativeSignatureTemplate;
+impl HasDecTemplate for TraitForTypeImplBlockPath {
+    type DecTemplate = TraitForTypeImplBlockDecTemplate;
 
     fn declarative_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
         trai_for_ty_impl_block_syn_declarative_signature_template(db, self)
     }
 }
@@ -40,7 +40,7 @@ impl HasDeclarativeSignatureTemplate for TraitForTypeImplBlockPath {
 pub(crate) fn trai_for_ty_impl_block_syn_declarative_signature_template(
     db: &::salsa::Db,
     path: TraitForTypeImplBlockPath,
-) -> DeclarativeSignatureResult<TraitForTypeImplBlockDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<TraitForTypeImplBlockDecTemplate> {
     let decl = path.syn_decl(db)?;
     let syn_expr_region = decl.syn_expr_region(db);
     let declarative_term_region = declarative_term_region(db, syn_expr_region);
@@ -75,7 +75,7 @@ pub(crate) fn trai_for_ty_impl_block_syn_declarative_signature_template(
             DeclarativeSelfType::DerivedAny(self_ty_symbol)
         }
     };
-    Ok(TraitForTypeImplBlockDeclarativeSignatureTemplate::new(
+    Ok(TraitForTypeImplBlockDecTemplate::new(
         db,
         template_parameters,
         trai,

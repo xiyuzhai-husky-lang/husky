@@ -16,46 +16,46 @@ use husky_declarative_signature::*;
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
-pub enum ItemEtherealSignatureTemplate {
+pub enum ItemEthTemplate {
     Submodule,
-    MajorItem(MajorItemEtherealSignatureTemplate),
-    ImplBlock(ImplBlockEtherealSignatureTemplate),
-    AssociatedItem(AssociatedItemEtherealSignatureTemplate),
-    Variant(TypeVariantEtherealSignatureTemplate),
-    Attr(AttrEtherealSignatureTemplate),
+    MajorItem(MajorItemEthTemplate),
+    ImplBlock(ImplBlockEthTemplate),
+    AssociatedItem(AssociatedItemEthTemplate),
+    Variant(TypeVariantEthTemplate),
+    Attr(AttrEthTemplate),
 }
 
-impl ItemEtherealSignatureTemplate {
+impl ItemEthTemplate {
     pub fn self_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
         match self {
-            ItemEtherealSignatureTemplate::Submodule => None,
-            ItemEtherealSignatureTemplate::MajorItem(_) => None,
-            ItemEtherealSignatureTemplate::ImplBlock(template) => Some(template.self_ty(db)),
-            ItemEtherealSignatureTemplate::AssociatedItem(template) => template.self_ty(db),
-            ItemEtherealSignatureTemplate::Variant(template) => Some(template.self_ty(db)),
-            ItemEtherealSignatureTemplate::Attr(_) => None,
+            ItemEthTemplate::Submodule => None,
+            ItemEthTemplate::MajorItem(_) => None,
+            ItemEthTemplate::ImplBlock(template) => Some(template.self_ty(db)),
+            ItemEthTemplate::AssociatedItem(template) => template.self_ty(db),
+            ItemEthTemplate::Variant(template) => Some(template.self_ty(db)),
+            ItemEthTemplate::Attr(_) => None,
         }
     }
 }
 
-pub trait HasEtherealSignatureTemplate {
-    type EtherealSignatureTemplate;
+pub trait HasEthTemplate {
+    type EthTemplate;
 
     fn ethereal_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate>;
+    ) -> EtherealSignatureResult<Self::EthTemplate>;
 }
 
-impl HasEtherealSignatureTemplate for ItemPath {
-    type EtherealSignatureTemplate = ItemEtherealSignatureTemplate;
+impl HasEthTemplate for ItemPath {
+    type EthTemplate = ItemEthTemplate;
 
     fn ethereal_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
+    ) -> EtherealSignatureResult<Self::EthTemplate> {
         Ok(match self {
-            ItemPath::Submodule(_, _) => ItemEtherealSignatureTemplate::Submodule,
+            ItemPath::Submodule(_, _) => ItemEthTemplate::Submodule,
             ItemPath::MajorItem(path) => path.ethereal_signature_template(db)?.into(),
             ItemPath::AssociatedItem(path) => path.ethereal_signature_template(db)?.into(),
             ItemPath::TypeVariant(_, path) => path.ethereal_signature_template(db)?.into(),

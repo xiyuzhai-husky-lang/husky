@@ -66,7 +66,7 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
-                    hir_decl: FunctionFnFugitiveHirDecl {
+                    hir_decl: FunctionMajorFnHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],

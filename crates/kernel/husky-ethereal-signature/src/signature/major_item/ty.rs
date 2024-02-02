@@ -18,70 +18,58 @@ pub use self::unit_struct::*;
 
 use crate::*;
 use husky_coword::Ident;
-use husky_declarative_signature::{
-    HasDeclarativeSignatureTemplate, TypeDeclarativeSignatureTemplate,
-};
+use husky_declarative_signature::{HasDecTemplate, TypeDecTemplate};
 use husky_entity_path::TypePath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 #[salsa::debug_with_db]
-pub enum TypeEtherealSignatureTemplate {
-    Enum(EnumTypeEtherealSignatureTemplate),
-    PropsStruct(PropsStructTypeEtherealSignatureTemplate),
-    UnitStruct(UnitStructTypeEtherealSignatureTemplate),
-    TupleStruct(TupleStructTypeEtherealSignatureTemplate),
-    Inductive(InductiveTypeEtherealSignatureTemplate),
-    Structure(StructureTypeEtherealSignatureTemplate),
-    Extern(ExternTypeEtherealSignatureTemplate),
-    Union(UnionTypeEtherealSignatureTemplate),
+pub enum TypeEthTemplate {
+    Enum(EnumTypeEthTemplate),
+    PropsStruct(PropsStructTypeEthTemplate),
+    UnitStruct(UnitStructTypeEthTemplate),
+    TupleStruct(TupleStructTypeEthTemplate),
+    Inductive(InductiveTypeEthTemplate),
+    Structure(StructureTypeEthTemplate),
+    Extern(ExternTypeEthTemplate),
+    Union(UnionTypeEthTemplate),
 }
 
-impl TypeEtherealSignatureTemplate {
+impl TypeEthTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[EtherealTemplateParameter] {
         match self {
-            TypeEtherealSignatureTemplate::Enum(template) => template.template_parameters(db),
-            TypeEtherealSignatureTemplate::PropsStruct(template) => {
-                template.template_parameters(db)
-            }
-            TypeEtherealSignatureTemplate::UnitStruct(template) => template.template_parameters(db),
-            TypeEtherealSignatureTemplate::TupleStruct(template) => {
-                template.template_parameters(db)
-            }
-            TypeEtherealSignatureTemplate::Inductive(template) => template.template_parameters(db),
-            TypeEtherealSignatureTemplate::Structure(template) => template.template_parameters(db),
-            TypeEtherealSignatureTemplate::Extern(template) => template.template_parameters(db),
-            TypeEtherealSignatureTemplate::Union(template) => template.template_parameters(db),
+            TypeEthTemplate::Enum(template) => template.template_parameters(db),
+            TypeEthTemplate::PropsStruct(template) => template.template_parameters(db),
+            TypeEthTemplate::UnitStruct(template) => template.template_parameters(db),
+            TypeEthTemplate::TupleStruct(template) => template.template_parameters(db),
+            TypeEthTemplate::Inductive(template) => template.template_parameters(db),
+            TypeEthTemplate::Structure(template) => template.template_parameters(db),
+            TypeEthTemplate::Extern(template) => template.template_parameters(db),
+            TypeEthTemplate::Union(template) => template.template_parameters(db),
         }
     }
 
     pub fn instance_constructor_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
         match self {
-            TypeEtherealSignatureTemplate::Enum(_) => None,
-            TypeEtherealSignatureTemplate::PropsStruct(slf) => {
-                Some(slf.instance_constructor_ty(db).into())
-            }
-            TypeEtherealSignatureTemplate::UnitStruct(slf) => {
-                Some(slf.instance_constructor_ty(db).into())
-            }
-            TypeEtherealSignatureTemplate::TupleStruct(slf) => {
-                Some(slf.instance_constructor_ty(db).into())
-            }
-            TypeEtherealSignatureTemplate::Inductive(_) => None,
-            TypeEtherealSignatureTemplate::Structure(_) => todo!(),
-            TypeEtherealSignatureTemplate::Extern(_) => None,
-            TypeEtherealSignatureTemplate::Union(_) => None,
+            TypeEthTemplate::Enum(_) => None,
+            TypeEthTemplate::PropsStruct(slf) => Some(slf.instance_constructor_ty(db).into()),
+            TypeEthTemplate::UnitStruct(slf) => Some(slf.instance_constructor_ty(db).into()),
+            TypeEthTemplate::TupleStruct(slf) => Some(slf.instance_constructor_ty(db).into()),
+            TypeEthTemplate::Inductive(_) => None,
+            TypeEthTemplate::Structure(_) => todo!(),
+            TypeEthTemplate::Extern(_) => None,
+            TypeEthTemplate::Union(_) => None,
         }
     }
 }
 
-impl HasEtherealSignatureTemplate for TypePath {
-    type EtherealSignatureTemplate = TypeEtherealSignatureTemplate;
+impl HasEthTemplate for TypePath {
+    type EthTemplate = TypeEthTemplate;
 
     fn ethereal_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
+    ) -> EtherealSignatureResult<Self::EthTemplate> {
         ty_ethereal_signature_template(db, self)
     }
 }
@@ -90,71 +78,37 @@ impl HasEtherealSignatureTemplate for TypePath {
 fn ty_ethereal_signature_template(
     db: &::salsa::Db,
     path: TypePath,
-) -> EtherealSignatureResult<TypeEtherealSignatureTemplate> {
+) -> EtherealSignatureResult<TypeEthTemplate> {
     Ok(match path.declarative_signature_template(db)? {
-        TypeDeclarativeSignatureTemplate::Enum(declarative_signature_template) => {
-            EnumTypeEtherealSignatureTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
+        TypeDecTemplate::Enum(declarative_signature_template) => {
+            EnumTypeEthTemplate::from_declarative(db, path, declarative_signature_template)?.into()
         }
-        TypeDeclarativeSignatureTemplate::PropsStruct(declarative_signature_template) => {
-            PropsStructTypeEtherealSignatureTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
+        TypeDecTemplate::PropsStruct(declarative_signature_template) => {
+            PropsStructTypeEthTemplate::from_declarative(db, path, declarative_signature_template)?
+                .into()
         }
-        TypeDeclarativeSignatureTemplate::UnitStruct(declarative_signature_template) => {
-            UnitStructTypeEtherealSignatureTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
+        TypeDecTemplate::UnitStruct(declarative_signature_template) => {
+            UnitStructTypeEthTemplate::from_declarative(db, path, declarative_signature_template)?
+                .into()
         }
-        TypeDeclarativeSignatureTemplate::TupleStruct(declarative_signature_template) => {
-            TupleStructTypeEtherealSignatureTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
+        TypeDecTemplate::TupleStruct(declarative_signature_template) => {
+            TupleStructTypeEthTemplate::from_declarative(db, path, declarative_signature_template)?
+                .into()
         }
-        TypeDeclarativeSignatureTemplate::Inductive(declarative_signature_template) => {
-            InductiveTypeEtherealSignatureTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
+        TypeDecTemplate::Inductive(declarative_signature_template) => {
+            InductiveTypeEthTemplate::from_declarative(db, path, declarative_signature_template)?
+                .into()
         }
-        TypeDeclarativeSignatureTemplate::Structure(declarative_signature_template) => {
-            StructureTypeEtherealSignatureTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
+        TypeDecTemplate::Structure(declarative_signature_template) => {
+            StructureTypeEthTemplate::from_declarative(db, path, declarative_signature_template)?
+                .into()
         }
-        TypeDeclarativeSignatureTemplate::Extern(declarative_signature_template) => {
-            ExternTypeEtherealSignatureTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
+        TypeDecTemplate::Extern(declarative_signature_template) => {
+            ExternTypeEthTemplate::from_declarative(db, path, declarative_signature_template)?
+                .into()
         }
-        TypeDeclarativeSignatureTemplate::Union(declarative_signature_template) => {
-            UnionTypeEtherealSignatureTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
+        TypeDecTemplate::Union(declarative_signature_template) => {
+            UnionTypeEthTemplate::from_declarative(db, path, declarative_signature_template)?.into()
         }
     })
 }
@@ -187,7 +141,7 @@ impl HasPropsFieldEtherealSignature for TypePath {
     }
 }
 
-impl HasPropsFieldEtherealSignature for TypeEtherealSignatureTemplate {
+impl HasPropsFieldEtherealSignature for TypeEthTemplate {
     fn props_field_ethereal_signature(
         self,
         db: &::salsa::Db,
@@ -195,16 +149,16 @@ impl HasPropsFieldEtherealSignature for TypeEtherealSignatureTemplate {
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<PropsFieldEtherealSignature> {
         match self {
-            TypeEtherealSignatureTemplate::Enum(_)
-            | TypeEtherealSignatureTemplate::Inductive(_)
-            | TypeEtherealSignatureTemplate::UnitStruct(_)
-            | TypeEtherealSignatureTemplate::TupleStruct(_)
-            | TypeEtherealSignatureTemplate::Extern(_) => Nothing,
-            TypeEtherealSignatureTemplate::PropsStruct(ethereal_signature_template) => {
+            TypeEthTemplate::Enum(_)
+            | TypeEthTemplate::Inductive(_)
+            | TypeEthTemplate::UnitStruct(_)
+            | TypeEthTemplate::TupleStruct(_)
+            | TypeEthTemplate::Extern(_) => Nothing,
+            TypeEthTemplate::PropsStruct(ethereal_signature_template) => {
                 ethereal_signature_template.props_field_ethereal_signature(db, arguments, ident)
             }
-            TypeEtherealSignatureTemplate::Structure(_) => todo!(),
-            TypeEtherealSignatureTemplate::Union(_) => todo!(),
+            TypeEthTemplate::Structure(_) => todo!(),
+            TypeEthTemplate::Union(_) => todo!(),
         }
     }
 }

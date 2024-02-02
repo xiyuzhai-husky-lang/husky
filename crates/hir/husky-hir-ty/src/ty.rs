@@ -4,9 +4,7 @@ pub mod ritchie;
 use self::{path_leading::HirTypePathLeading, ritchie::HirRitchieType};
 use crate::*;
 use either::*;
-use husky_ethereal_signature::{
-    helpers::trai_for_ty::is_ty_term_always_copyable, HasEtherealSignatureTemplate,
-};
+use husky_ethereal_signature::{helpers::trai_for_ty::is_ty_term_always_copyable, HasEthTemplate};
 use husky_ethereal_term::{
     ApplicationEtherealTerm, EtherealTerm, EtherealTermSymbolIndexImpl, RitchieEtherealTerm,
     TermFunctionReduced,

@@ -1,19 +1,17 @@
 use super::*;
-use husky_declarative_signature::{
-    PropsStructFieldDeclarativeSignatureTemplate, PropsStructTypeDeclarativeSignatureTemplate,
-};
+use husky_declarative_signature::{PropsStructFieldDecTemplate, PropsStructTypeDecTemplate};
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct PropsStructTypeEtherealSignatureTemplate {
+pub struct PropsStructTypeEthTemplate {
     pub path: TypePath,
     #[return_ref]
     pub template_parameters: EtherealTemplateParameters,
     #[return_ref]
-    pub fields: SmallVec<[PropsFieldEtherealSignatureTemplate; 4]>,
+    pub fields: SmallVec<[PropsFieldEthTemplate; 4]>,
     pub instance_constructor_ritchie_ty: RitchieEtherealTerm,
 }
 
-impl HasPropsFieldEtherealSignature for PropsStructTypeEtherealSignatureTemplate {
+impl HasPropsFieldEtherealSignature for PropsStructTypeEthTemplate {
     fn props_field_ethereal_signature(
         self,
         db: &::salsa::Db,
@@ -33,11 +31,11 @@ impl HasPropsFieldEtherealSignature for PropsStructTypeEtherealSignatureTemplate
     }
 }
 
-impl PropsStructTypeEtherealSignatureTemplate {
+impl PropsStructTypeEthTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         path: TypePath,
-        tmpl: PropsStructTypeDeclarativeSignatureTemplate,
+        tmpl: PropsStructTypeDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters =
             EtherealTemplateParameters::from_declarative(db, tmpl.template_parameters(db))?;
@@ -46,10 +44,7 @@ impl PropsStructTypeEtherealSignatureTemplate {
             .iter()
             .copied()
             .map(|declarative_signature_template| {
-                PropsFieldEtherealSignatureTemplate::from_declarative(
-                    db,
-                    declarative_signature_template,
-                )
+                PropsFieldEthTemplate::from_declarative(db, declarative_signature_template)
             })
             .collect::<EtherealSignatureResult<_>>()?;
         let instance_constructor_ritchie_ty =
@@ -70,15 +65,15 @@ impl PropsStructTypeEtherealSignatureTemplate {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
-pub struct PropsFieldEtherealSignatureTemplate {
+pub struct PropsFieldEthTemplate {
     ident: Ident,
     ty: EtherealTerm,
 }
 
-impl PropsFieldEtherealSignatureTemplate {
+impl PropsFieldEthTemplate {
     fn from_declarative(
         db: &::salsa::Db,
-        declarative_signature_template: PropsStructFieldDeclarativeSignatureTemplate,
+        declarative_signature_template: PropsStructFieldDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         Ok(Self {
             ident: declarative_signature_template.ident(),

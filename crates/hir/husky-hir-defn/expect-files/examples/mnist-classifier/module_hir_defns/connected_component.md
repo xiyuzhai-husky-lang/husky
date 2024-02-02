@@ -213,7 +213,7 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
-                    hir_decl: FunctionFnFugitiveHirDecl {
+                    hir_decl: FunctionMajorFnHirDecl {
                         path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -560,7 +560,7 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
-                    hir_decl: FunctionFnFugitiveHirDecl {
+                    hir_decl: FunctionMajorFnHirDecl {
                         path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -1323,7 +1323,7 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
-                    hir_decl: FunctionFnFugitiveHirDecl {
+                    hir_decl: FunctionMajorFnHirDecl {
                         path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],

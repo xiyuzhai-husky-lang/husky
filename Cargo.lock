@@ -4853,6 +4853,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-iter-utils"
+version = "0.1.0"
+
+[[package]]
 name = "husky-javelin"
 version = "0.1.0"
 dependencies = [
@@ -5483,6 +5487,7 @@ dependencies = [
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
+ "husky-iter-utils",
  "husky-manifest",
  "husky-manifest-ast",
  "husky-opr",

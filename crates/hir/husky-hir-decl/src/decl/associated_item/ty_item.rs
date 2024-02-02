@@ -89,25 +89,25 @@ pub(crate) fn ty_item_hir_decl(db: &::salsa::Db, path: TypeItemPath) -> Option<T
         }
     }
 }
-// TypeItemEtherealSignatureTemplate::AssociatedFn(ethereal_signature_template) => {
+// TypeItemEthTemplate::AssociatedFn(ethereal_signature_template) => {
 //     Some(TypeAssociatedFnHirDecl::from_syn(path, ethereal_signature_template, db).into())
 // }
-// TypeItemEtherealSignatureTemplate::MethodFn(syn_decl) => {
+// TypeItemEthTemplate::MethodFn(syn_decl) => {
 //     Some(TypeMethodFnHirDecl::from_syn(path, syn_decl, db).into())
 // }
-// TypeItemEtherealSignatureTemplate::MethodFunction(_) => None,
-// TypeItemEtherealSignatureTemplate::MemoizedField(ethereal_signature_template) => {
+// TypeItemEthTemplate::MethodFunction(_) => None,
+// TypeItemEthTemplate::MemoizedField(ethereal_signature_template) => {
 //     Some(TypeMemoizedFieldHirDecl::from_syn(path, ethereal_signature_template, db).into())
 // }
 
-// TypeItemDeclarativeSignatureTemplate::AssociatedFn(template) => {
+// TypeItemDecTemplate::AssociatedFn(template) => {
 //     TypeAssociatedFnHirDecl::from_declarative(db, path, template)?.into()
 // }
-// TypeItemDeclarativeSignatureTemplate::MethodFn(template) => {
+// TypeItemDecTemplate::MethodFn(template) => {
 //     TypeMethodFnHirDecl::from_declarative(db, template)?.into()
 // }
-// TypeItemDeclarativeSignatureTemplate::AssociatedType(_) => todo!(),
-// TypeItemDeclarativeSignatureTemplate::AssociatedVal(_) => todo!(),
-// TypeItemDeclarativeSignatureTemplate::MemoizedField(template) => {
+// TypeItemDecTemplate::AssociatedType(_) => todo!(),
+// TypeItemDecTemplate::AssociatedVal(_) => todo!(),
+// TypeItemDecTemplate::MemoizedField(template) => {
 //     TypeMemoizedFieldHirDecl::from_declarative(db, template)?.into()
 // }

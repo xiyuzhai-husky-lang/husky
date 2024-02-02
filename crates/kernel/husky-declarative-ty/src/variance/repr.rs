@@ -74,15 +74,15 @@ pub(crate) fn ty_template_parameter_variance_reprs(
     if reprs.len() > 0 {
         // ad hoc: todo
         // match signature {
-        //      TypeDeclarativeSignatureTemplate::Enum(_) => todo!(),
-        //      TypeDeclarativeSignatureTemplate::PropsStruct(_) => todo!(),
-        //      TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
-        //      TypeDeclarativeSignatureTemplate::TupleStruct(_) => todo!(),
-        //      TypeDeclarativeSignatureTemplate::Record(_) => todo!(),
-        //      TypeDeclarativeSignatureTemplate::Inductive(_) => todo!(),
-        //      TypeDeclarativeSignatureTemplate::Structure(_) => todo!(),
-        //      TypeDeclarativeSignatureTemplate::Foreign(_) => (),
-        //      TypeDeclarativeSignatureTemplate::Union(_) => todo!(),
+        //      TypeDecTemplate::Enum(_) => todo!(),
+        //      TypeDecTemplate::PropsStruct(_) => todo!(),
+        //      TypeDecTemplate::UnitStruct(_) => todo!(),
+        //      TypeDecTemplate::TupleStruct(_) => todo!(),
+        //      TypeDecTemplate::Record(_) => todo!(),
+        //      TypeDecTemplate::Inductive(_) => todo!(),
+        //      TypeDecTemplate::Structure(_) => todo!(),
+        //      TypeDecTemplate::Foreign(_) => (),
+        //      TypeDecTemplate::Union(_) => todo!(),
         // }
     }
     for (_repr, template_parameter) in std::iter::zip(reprs.iter(), template_parameters.iter()) {

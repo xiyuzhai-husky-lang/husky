@@ -2,7 +2,7 @@ use super::*;
 use husky_term_prelude::RitchieTypeKind;
 
 #[salsa::tracked(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct TypeAssociatedFnEtherealSignatureTemplate {
+pub struct TypeAssociatedFnEthTemplate {
     #[id]
     pub path: TypeItemPath,
     // todo: is this necessary?
@@ -15,11 +15,11 @@ pub struct TypeAssociatedFnEtherealSignatureTemplate {
     pub ty: EtherealTerm,
 }
 
-impl TypeAssociatedFnEtherealSignatureTemplate {
+impl TypeAssociatedFnEthTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         path: TypeItemPath,
-        declarative_signature: TypeAssociatedFnDeclarativeSignatureTemplate,
+        declarative_signature: TypeAssociatedFnDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let self_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.self_ty(db))?;
         let template_parameters = EtherealTemplateParameters::from_declarative(

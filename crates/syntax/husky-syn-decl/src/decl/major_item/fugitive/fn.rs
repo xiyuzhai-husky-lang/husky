@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct FnSynNodeDecl {
+pub struct MajorFnSynNodeDecl {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
     #[return_ref]
@@ -19,7 +19,7 @@ pub struct FnSynNodeDecl {
 }
 
 /// # getters
-impl FnSynNodeDecl {
+impl MajorFnSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_obelisk_list(db)
@@ -39,7 +39,10 @@ impl FnSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_fn_node_decl(&self, syn_node_path: FugitiveSynNodePath) -> FnSynNodeDecl {
+    pub(super) fn parse_fn_node_decl(
+        &self,
+        syn_node_path: FugitiveSynNodePath,
+    ) -> MajorFnSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let template_parameter_decl_list = parser.try_parse_option();
         let parameter_decl_list =
@@ -53,7 +56,7 @@ impl<'a> DeclParser<'a> {
             Ok(None)
         };
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
-        FnSynNodeDecl::new(
+        MajorFnSynNodeDecl::new(
             self.db(),
             syn_node_path,
             template_parameter_decl_list,
@@ -67,7 +70,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct FunctionFnFugitiveSynDecl {
+pub struct FunctionMajorFnSynDecl {
     #[id]
     pub path: FugitivePath,
     #[return_ref]
@@ -78,11 +81,11 @@ pub struct FunctionFnFugitiveSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl FunctionFnFugitiveSynDecl {
+impl FunctionMajorFnSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: FugitivePath,
-        syn_node_decl: FnSynNodeDecl,
+        syn_node_decl: MajorFnSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameter_obelisks = syn_node_decl
             .template_parameter_obelisk_list(db)
@@ -104,7 +107,7 @@ impl FunctionFnFugitiveSynDecl {
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(FunctionFnFugitiveSynDecl::new(
+        Ok(FunctionMajorFnSynDecl::new(
             db,
             path,
             template_parameter_obelisks,

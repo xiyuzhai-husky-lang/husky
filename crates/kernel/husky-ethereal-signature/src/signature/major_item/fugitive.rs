@@ -13,37 +13,31 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 #[salsa::debug_with_db]
-pub enum FugitiveEtherealSignatureTemplate {
-    FunctionFn(FunctionFnEtherealSignatureTemplate),
-    FunctionGn(GnFugitiveEtherealSignatureTemplate),
-    TypeAlias(TypeAliasEtherealSignatureTemplate),
-    Val(ValFugitiveEtherealSignatureTemplate),
+pub enum FugitiveEthTemplate {
+    FunctionFn(FunctionFnEthTemplate),
+    FunctionGn(GnFugitiveEthTemplate),
+    TypeAlias(TypeAliasEthTemplate),
+    Val(ValFugitiveEthTemplate),
 }
 
-impl FugitiveEtherealSignatureTemplate {
+impl FugitiveEthTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[EtherealTemplateParameter] {
         match self {
-            FugitiveEtherealSignatureTemplate::FunctionFn(template) => {
-                template.template_parameters(db)
-            }
-            FugitiveEtherealSignatureTemplate::FunctionGn(template) => {
-                template.template_parameters(db)
-            }
-            FugitiveEtherealSignatureTemplate::TypeAlias(template) => {
-                template.template_parameters(db)
-            }
-            FugitiveEtherealSignatureTemplate::Val(_template) => &[],
+            FugitiveEthTemplate::FunctionFn(template) => template.template_parameters(db),
+            FugitiveEthTemplate::FunctionGn(template) => template.template_parameters(db),
+            FugitiveEthTemplate::TypeAlias(template) => template.template_parameters(db),
+            FugitiveEthTemplate::Val(_template) => &[],
         }
     }
 }
 
-impl HasEtherealSignatureTemplate for FugitivePath {
-    type EtherealSignatureTemplate = FugitiveEtherealSignatureTemplate;
+impl HasEthTemplate for FugitivePath {
+    type EthTemplate = FugitiveEthTemplate;
 
     fn ethereal_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
+    ) -> EtherealSignatureResult<Self::EthTemplate> {
         fugitive_ethereal_signature_template(db, self)
     }
 }
@@ -52,39 +46,22 @@ impl HasEtherealSignatureTemplate for FugitivePath {
 fn fugitive_ethereal_signature_template(
     db: &::salsa::Db,
     path: FugitivePath,
-) -> EtherealSignatureResult<FugitiveEtherealSignatureTemplate> {
+) -> EtherealSignatureResult<FugitiveEthTemplate> {
     Ok(match path.declarative_signature_template(db)? {
-        FugitiveDeclarativeSignatureTemplate::FunctionFn(declarative_signature_template) => {
-            FunctionFnEtherealSignatureTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
+        FugitiveDecTemplate::Fn(declarative_signature_template) => {
+            FunctionFnEthTemplate::from_declarative(db, path, declarative_signature_template)?
+                .into()
         }
-        FugitiveDeclarativeSignatureTemplate::FunctionGn(declarative_signature_template) => {
-            GnFugitiveEtherealSignatureTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
+        FugitiveDecTemplate::Gn(declarative_signature_template) => {
+            GnFugitiveEthTemplate::from_declarative(db, path, declarative_signature_template)?
+                .into()
         }
-        FugitiveDeclarativeSignatureTemplate::TypeAlias(declarative_signature_template) => {
-            TypeAliasEtherealSignatureTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
+        FugitiveDecTemplate::TypeAlias(declarative_signature_template) => {
+            TypeAliasEthTemplate::from_declarative(db, path, declarative_signature_template)?.into()
         }
-        FugitiveDeclarativeSignatureTemplate::Val(declarative_signature_template) => {
-            ValFugitiveEtherealSignatureTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
+        FugitiveDecTemplate::Val(declarative_signature_template) => {
+            ValFugitiveEthTemplate::from_declarative(db, path, declarative_signature_template)?
+                .into()
         }
     })
 }

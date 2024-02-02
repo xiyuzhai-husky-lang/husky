@@ -57,7 +57,6 @@ impl VisibilityExpr {
                             },
                         },
                     }
-                    // Err(OriginalVisibilityExprError::ExpectedCrateOrSuper(state))?
                 } else {
                     VisibilityExpr {
                         visibility: Scope::Pub,

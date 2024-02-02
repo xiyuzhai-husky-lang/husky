@@ -1,22 +1,22 @@
 use super::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct TupleStructTypeDeclarativeSignatureTemplate {
+pub struct TupleStructTypeDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
     pub self_ty: DeclarativeTerm,
     #[return_ref]
-    pub fields: SmallVec<[TupleStructFieldDeclarativeSignatureTemplate; 4]>,
+    pub fields: SmallVec<[TupleStructFieldDecTemplate; 4]>,
     pub instance_constructor_ritchie_ty: RitchieDeclarativeTerm,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
-pub struct TupleStructFieldDeclarativeSignatureTemplate {
+pub struct TupleStructFieldDecTemplate {
     ty: DeclarativeTerm,
 }
 
-impl TupleStructTypeDeclarativeSignatureTemplate {
+impl TupleStructTypeDecTemplate {
     pub fn from_decl(
         db: &::salsa::Db,
         path: TypePath,
@@ -33,12 +33,12 @@ impl TupleStructTypeDeclarativeSignatureTemplate {
             declarative_term_menu,
         );
         let self_ty = construct_self_ty(db, path, &template_parameters);
-        let fields: SmallVec<[TupleStructFieldDeclarativeSignatureTemplate; 4]> = decl
+        let fields: SmallVec<[TupleStructFieldDecTemplate; 4]> = decl
             .fields(db)
             .iter()
             .enumerate()
             .map(|(i, field)| {
-                Ok(TupleStructFieldDeclarativeSignatureTemplate {
+                Ok(TupleStructFieldDecTemplate {
                     ty: match declarative_term_region.expr_term(field.ty()) {
                         Ok(ty) => ty,
                         Err(_) => {
@@ -50,14 +50,16 @@ impl TupleStructTypeDeclarativeSignatureTemplate {
                 })
             })
             .collect::<DeclarativeSignatureResult<SmallVec<_>>>()?;
-        let instance_constructor_ritchie_ty =
-            RitchieDeclarativeTerm::new(db, RitchieKind::RITCHIE_TYPE_FN, fields
+        let instance_constructor_ritchie_ty = RitchieDeclarativeTerm::new(
+            db,
+            RitchieKind::RITCHIE_TYPE_FN,
+            fields
                 .iter()
                 .copied()
-                .map(
-                    TupleStructFieldDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty,
-                )
-                .collect(), self_ty);
+                .map(TupleStructFieldDecTemplate::into_ritchie_parameter_contracted_ty)
+                .collect(),
+            self_ty,
+        );
         Ok(Self::new(
             db,
             template_parameters,
@@ -68,7 +70,7 @@ impl TupleStructTypeDeclarativeSignatureTemplate {
     }
 }
 
-impl TupleStructFieldDeclarativeSignatureTemplate {
+impl TupleStructFieldDecTemplate {
     pub fn into_ritchie_parameter_contracted_ty(self) -> DeclarativeRitchieParameter {
         DeclarativeRitchieRegularParameter::new(TermContract::Move, self.ty).into()
     }

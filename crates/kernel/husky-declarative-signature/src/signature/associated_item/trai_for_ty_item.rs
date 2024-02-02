@@ -13,20 +13,20 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum TraitForTypeItemDeclarativeSignatureTemplate {
-    AssociatedFn(TraitForTypeAssociatedFnDeclarativeSignatureTemplate),
-    MethodFn(TraitForTypeMethodFnDeclarativeSignatureTemplate),
-    AssociatedType(TraitForTypeAssociatedTypeDeclarativeSignatureTemplate),
-    AssociatedVal(TraitForTypeAssociatedValDeclarativeSignatureTemplate),
+pub enum TraitForTypeItemDecTemplate {
+    AssociatedFn(TraitForTypeAssociatedFnDecTemplate),
+    MethodFn(TraitForTypeMethodFnDecTemplate),
+    AssociatedType(TraitForTypeAssociatedTypeDecTemplate),
+    AssociatedVal(TraitForTypeAssociatedValDecTemplate),
 }
 
-impl HasDeclarativeSignatureTemplate for TraitForTypeItemPath {
-    type DeclarativeSignatureTemplate = TraitForTypeItemDeclarativeSignatureTemplate;
+impl HasDecTemplate for TraitForTypeItemPath {
+    type DecTemplate = TraitForTypeItemDecTemplate;
 
     fn declarative_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
         trai_for_ty_item_syn_declarative_signature_from_decl(db, self)
     }
 }
@@ -35,40 +35,31 @@ impl HasDeclarativeSignatureTemplate for TraitForTypeItemPath {
 pub(crate) fn trai_for_ty_item_syn_declarative_signature_from_decl(
     db: &::salsa::Db,
     path: TraitForTypeItemPath,
-) -> DeclarativeSignatureResult<TraitForTypeItemDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<TraitForTypeItemDecTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
         TraitForTypeItemSynDecl::AssociatedFn(decl) => {
-            TraitForTypeAssociatedFnDeclarativeSignatureTemplate::from_decl(db, decl)
-                .map(Into::into)
+            TraitForTypeAssociatedFnDecTemplate::from_decl(db, decl).map(Into::into)
         }
         TraitForTypeItemSynDecl::MethodFn(decl) => {
-            TraitForTypeMethodFnDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
+            TraitForTypeMethodFnDecTemplate::from_decl(db, decl).map(Into::into)
         }
         TraitForTypeItemSynDecl::AssociatedType(decl) => {
-            TraitForTypeAssociatedTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)
-                .map(Into::into)
+            TraitForTypeAssociatedTypeDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TraitForTypeItemSynDecl::AssociatedVal(decl) => {
-            TraitForTypeAssociatedValDeclarativeSignatureTemplate::from_decl(db, decl)
-                .map(Into::into)
+            TraitForTypeAssociatedValDecTemplate::from_decl(db, decl).map(Into::into)
         }
     }
 }
 
-impl TraitForTypeItemDeclarativeSignatureTemplate {
+impl TraitForTypeItemDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
-            TraitForTypeItemDeclarativeSignatureTemplate::AssociatedFn(tmpl) => {
-                tmpl.template_parameters(db)
-            }
-            TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(tmpl) => {
-                tmpl.template_parameters(db)
-            }
-            TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(tmpl) => {
-                tmpl.template_parameters(db)
-            }
-            TraitForTypeItemDeclarativeSignatureTemplate::AssociatedVal(tmpl) => &[],
+            TraitForTypeItemDecTemplate::AssociatedFn(tmpl) => tmpl.template_parameters(db),
+            TraitForTypeItemDecTemplate::MethodFn(tmpl) => tmpl.template_parameters(db),
+            TraitForTypeItemDecTemplate::AssociatedType(tmpl) => tmpl.template_parameters(db),
+            TraitForTypeItemDecTemplate::AssociatedVal(tmpl) => &[],
         }
     }
 }

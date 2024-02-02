@@ -19,33 +19,31 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
-pub enum TypeItemEtherealSignatureTemplate {
-    AssociatedFn(TypeAssociatedFnEtherealSignatureTemplate),
-    MethodFn(TypeMethodFnEtherealSignatureTemplate),
-    MethodFunction(TypeMethodFunctionEtherealSignatureTemplate),
-    MemoizedField(TypeMemoizedFieldEtherealSignatureTemplate),
+pub enum TypeItemEthTemplate {
+    AssociatedFn(TypeAssociatedFnEthTemplate),
+    MethodFn(TypeMethodFnEthTemplate),
+    MethodFunction(TypeMethodFunctionEthTemplate),
+    MemoizedField(TypeMemoizedFieldEthTemplate),
 }
 
-impl TypeItemEtherealSignatureTemplate {
+impl TypeItemEthTemplate {
     pub fn self_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
         match self {
-            TypeItemEtherealSignatureTemplate::AssociatedFn(_) => None,
-            TypeItemEtherealSignatureTemplate::MethodFn(template) => Some(template.self_ty(db)),
-            TypeItemEtherealSignatureTemplate::MethodFunction(_) => todo!(),
-            TypeItemEtherealSignatureTemplate::MemoizedField(template) => {
-                Some(template.self_ty(db))
-            }
+            TypeItemEthTemplate::AssociatedFn(_) => None,
+            TypeItemEthTemplate::MethodFn(template) => Some(template.self_ty(db)),
+            TypeItemEthTemplate::MethodFunction(_) => todo!(),
+            TypeItemEthTemplate::MemoizedField(template) => Some(template.self_ty(db)),
         }
     }
 }
 
-impl HasEtherealSignatureTemplate for TypeItemPath {
-    type EtherealSignatureTemplate = TypeItemEtherealSignatureTemplate;
+impl HasEthTemplate for TypeItemPath {
+    type EthTemplate = TypeItemEthTemplate;
 
     fn ethereal_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
+    ) -> EtherealSignatureResult<Self::EthTemplate> {
         ty_item_ethereal_signature_template(db, self)
     }
 }
@@ -54,18 +52,18 @@ impl HasEtherealSignatureTemplate for TypeItemPath {
 pub(crate) fn ty_item_ethereal_signature_template(
     db: &::salsa::Db,
     path: TypeItemPath,
-) -> EtherealSignatureResult<TypeItemEtherealSignatureTemplate> {
+) -> EtherealSignatureResult<TypeItemEthTemplate> {
     Ok(match path.declarative_signature_template(db)? {
-        TypeItemDeclarativeSignatureTemplate::AssociatedFn(template) => {
-            TypeAssociatedFnEtherealSignatureTemplate::from_declarative(db, path, template)?.into()
+        TypeItemDecTemplate::AssociatedFn(template) => {
+            TypeAssociatedFnEthTemplate::from_declarative(db, path, template)?.into()
         }
-        TypeItemDeclarativeSignatureTemplate::MethodFn(template) => {
-            TypeMethodFnEtherealSignatureTemplate::from_declarative(db, path, template)?.into()
+        TypeItemDecTemplate::MethodFn(template) => {
+            TypeMethodFnEthTemplate::from_declarative(db, path, template)?.into()
         }
-        TypeItemDeclarativeSignatureTemplate::AssociatedType(_) => todo!(),
-        TypeItemDeclarativeSignatureTemplate::AssociatedVal(_) => todo!(),
-        TypeItemDeclarativeSignatureTemplate::MemoizedField(template) => {
-            TypeMemoizedFieldEtherealSignatureTemplate::from_declarative(db, path, template)?.into()
+        TypeItemDecTemplate::AssociatedType(_) => todo!(),
+        TypeItemDecTemplate::AssociatedVal(_) => todo!(),
+        TypeItemDecTemplate::MemoizedField(template) => {
+            TypeMemoizedFieldEthTemplate::from_declarative(db, path, template)?.into()
         }
     })
 }
@@ -74,18 +72,13 @@ pub trait HasTypeItemTemplates: Copy {
     fn ty_item_templates_map<'a>(
         self,
         db: &'a ::salsa::Db,
-    ) -> EtherealSignatureResult<
-        &'a [(
-            Ident,
-            EtherealSignatureResult<TypeItemEtherealSignatureTemplates>,
-        )],
-    >;
+    ) -> EtherealSignatureResult<&'a [(Ident, EtherealSignatureResult<TypeItemEthTemplates>)]>;
 
     fn ty_item_ethereal_signature_templates<'a>(
         self,
         db: &'a ::salsa::Db,
         ident: Ident,
-    ) -> EtherealSignatureMaybeResult<&'a TypeItemEtherealSignatureTemplates> {
+    ) -> EtherealSignatureMaybeResult<&'a TypeItemEthTemplates> {
         use vec_like::VecMapGetEntry;
         match self.ty_item_templates_map(db)?.get_entry(ident) {
             Some((_, Ok(templates))) => JustOk(templates),
@@ -96,23 +89,18 @@ pub trait HasTypeItemTemplates: Copy {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum TypeItemEtherealSignatureTemplates {
-    AssociatedFn(SmallVecImpl<TypeAssociatedFnEtherealSignatureTemplate>),
-    MethodFn(SmallVecImpl<TypeMethodFnEtherealSignatureTemplate>),
-    MethodFunction(SmallVecImpl<TypeMethodFunctionEtherealSignatureTemplate>),
-    MemoizedField(SmallVecImpl<TypeMemoizedFieldEtherealSignatureTemplate>),
+pub enum TypeItemEthTemplates {
+    AssociatedFn(SmallVecImpl<TypeAssociatedFnEthTemplate>),
+    MethodFn(SmallVecImpl<TypeMethodFnEthTemplate>),
+    MethodFunction(SmallVecImpl<TypeMethodFunctionEthTemplate>),
+    MemoizedField(SmallVecImpl<TypeMemoizedFieldEthTemplate>),
 }
 
 impl HasTypeItemTemplates for TypePath {
     fn ty_item_templates_map<'a>(
         self,
         db: &'a ::salsa::Db,
-    ) -> EtherealSignatureResult<
-        &'a [(
-            Ident,
-            EtherealSignatureResult<TypeItemEtherealSignatureTemplates>,
-        )],
-    > {
+    ) -> EtherealSignatureResult<&'a [(Ident, EtherealSignatureResult<TypeItemEthTemplates>)]> {
         ty_item_ethereal_signature_templates_map(db, self)
             .as_ref()
             .map(|v| v as &[_])
@@ -124,14 +112,12 @@ impl HasTypeItemTemplates for TypePath {
 pub(crate) fn ty_item_ethereal_signature_templates_map(
     db: &::salsa::Db,
     ty_path: TypePath,
-) -> EtherealSignatureResult<
-    IdentPairMap<EtherealSignatureResult<TypeItemEtherealSignatureTemplates>>,
-> {
+) -> EtherealSignatureResult<IdentPairMap<EtherealSignatureResult<TypeItemEthTemplates>>> {
     Ok(
         IdentPairMap::from_iter_assuming_no_repetitions(ty_path.item_paths_map(db).iter().map(
             |(ident, (ty_item_kind, result))| -> (
                 Ident,
-                EtherealSignatureResult<TypeItemEtherealSignatureTemplates>,
+                EtherealSignatureResult<TypeItemEthTemplates>,
             ) {
                 let result = match result {
                     Ok(paths) => match ty_item_kind {
@@ -139,26 +125,26 @@ pub(crate) fn ty_item_ethereal_signature_templates_map(
                             .iter()
                             .copied()
                             .map(|path| match path.ethereal_signature_template(db) {
-                                Ok(TypeItemEtherealSignatureTemplate::MethodFn(template)) => {
+                                Ok(TypeItemEthTemplate::MethodFn(template)) => {
                                     Ok(template)
                                 }
                                 Err(e) => Err(e),
                                 _ => unreachable!(),
                             })
                             .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
-                            .map(TypeItemEtherealSignatureTemplates::MethodFn),
+                            .map(TypeItemEthTemplates::MethodFn),
                         TypeItemKind::AssociatedFunctionFn => paths
                             .iter()
                             .copied()
                             .map(|path| match path.ethereal_signature_template(db) {
-                                Ok(TypeItemEtherealSignatureTemplate::AssociatedFn(template)) => {
+                                Ok(TypeItemEthTemplate::AssociatedFn(template)) => {
                                     Ok(template)
                                 }
                                 Err(e) => Err(e),
                                 _ => unreachable!(),
                             })
                             .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
-                            .map(TypeItemEtherealSignatureTemplates::AssociatedFn),
+                            .map(TypeItemEthTemplates::AssociatedFn),
                         TypeItemKind::AssociatedFunctionGn => todo!(),
                         TypeItemKind::AssociatedVal => todo!(),
                         TypeItemKind::AssociatedType => todo!(),
@@ -166,14 +152,14 @@ pub(crate) fn ty_item_ethereal_signature_templates_map(
                             .iter()
                             .copied()
                             .map(|path| match path.ethereal_signature_template(db) {
-                                Ok(TypeItemEtherealSignatureTemplate::MemoizedField(template)) => {
+                                Ok(TypeItemEthTemplate::MemoizedField(template)) => {
                                     Ok(template)
                                 }
                                 Err(e) => Err(e),
                                 _ => unreachable!(),
                             })
                             .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
-                            .map(TypeItemEtherealSignatureTemplates::MemoizedField),
+                            .map(TypeItemEthTemplates::MemoizedField),
                         TypeItemKind::AssociatedFormal => todo!(),
                         TypeItemKind::AssociatedConst => todo!(),
                     },

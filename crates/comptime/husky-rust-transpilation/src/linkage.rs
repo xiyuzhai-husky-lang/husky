@@ -5,7 +5,7 @@ use husky_entity_path::{
     AssociatedItemPath, FugitivePath, PreludeTypePath, TraitForTypeItemPath, TraitItemPath,
     TypeItemPath, TypeVariantPath,
 };
-use husky_ethereal_signature::signature::HasEtherealSignatureTemplate;
+use husky_ethereal_signature::signature::HasEthTemplate;
 use husky_hir_ty::{ritchie::HirEagerContract, trai::HirTrait, HirType};
 use husky_javelin::template_argument::constant::JavelinConstant;
 use husky_linkage::{

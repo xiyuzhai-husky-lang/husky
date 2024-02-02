@@ -45,9 +45,10 @@ impl<'a> HirDeclBuilder<'a> {
 
     pub(crate) fn return_ty_before_eq(
         &self,
-        return_ty_syndicate: Option<ReturnTypeBeforeEqSyndicate>,
+        return_ty_syndicate: impl Into<Option<ReturnTypeBeforeEqSyndicate>>,
     ) -> HirType {
         return_ty_syndicate
+            .into()
             .map(|syndicate| self.hir_ty(syndicate.syn_expr_idx()).unwrap())
             .unwrap_or(self.hir_ty_menu.unit_ty().into())
     }

@@ -6,11 +6,11 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValFugitiveDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Val(
+                        MajorValDecTemplate {
+                            return_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
                         },
                     ),
                 ),
@@ -24,11 +24,11 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValFugitiveDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Val(
+                        MajorValDecTemplate {
+                            return_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
                         },
                     ),
                 ),
@@ -42,11 +42,11 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValFugitiveDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Nine`),
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Val(
+                        MajorValDecTemplate {
+                            return_ty: DeclarativeTerm(`malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Nine`),
                         },
                     ),
                 ),
@@ -60,10 +60,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
-                        FnFugitiveDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Fn(
+                        MajorFnDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
@@ -91,10 +91,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
-                        FnFugitiveDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Fn(
+                        MajorFnDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },

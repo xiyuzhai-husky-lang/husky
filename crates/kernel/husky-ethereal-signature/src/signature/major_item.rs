@@ -11,19 +11,19 @@ use super::*;
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
-pub enum MajorItemEtherealSignatureTemplate {
-    Type(TypeEtherealSignatureTemplate),
-    Fugitive(FugitiveEtherealSignatureTemplate),
-    Trait(TraitEtherealSignatureTemplate),
+pub enum MajorItemEthTemplate {
+    Type(TypeEthTemplate),
+    Fugitive(FugitiveEthTemplate),
+    Trait(TraitEthTemplate),
 }
 
-impl HasEtherealSignatureTemplate for MajorItemPath {
-    type EtherealSignatureTemplate = MajorItemEtherealSignatureTemplate;
+impl HasEthTemplate for MajorItemPath {
+    type EthTemplate = MajorItemEthTemplate;
 
     fn ethereal_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
+    ) -> EtherealSignatureResult<Self::EthTemplate> {
         Ok(match self {
             MajorItemPath::Type(path) => path.ethereal_signature_template(db)?.into(),
             MajorItemPath::Trait(path) => path.ethereal_signature_template(db)?.into(),

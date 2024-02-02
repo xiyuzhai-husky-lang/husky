@@ -13,29 +13,29 @@ type SmallVecImpl<T> = SmallVec<[T; 2]>;
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
-pub enum AssociatedItemEtherealSignatureTemplate {
-    TraitForType(TraitForTypeItemEtherealSignatureTemplate),
-    Type(TypeItemEtherealSignatureTemplate),
-    Trait(TraitItemEtherealSignatureTemplate),
+pub enum AssociatedItemEthTemplate {
+    TraitForType(TraitForTypeItemEthTemplate),
+    Type(TypeItemEthTemplate),
+    Trait(TraitItemEthTemplate),
 }
 
-impl AssociatedItemEtherealSignatureTemplate {
+impl AssociatedItemEthTemplate {
     pub fn self_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
         match self {
-            AssociatedItemEtherealSignatureTemplate::TraitForType(template) => template.self_ty(db),
-            AssociatedItemEtherealSignatureTemplate::Type(template) => template.self_ty(db),
-            AssociatedItemEtherealSignatureTemplate::Trait(template) => template.self_ty(db),
+            AssociatedItemEthTemplate::TraitForType(template) => template.self_ty(db),
+            AssociatedItemEthTemplate::Type(template) => template.self_ty(db),
+            AssociatedItemEthTemplate::Trait(template) => template.self_ty(db),
         }
     }
 }
 
-impl HasEtherealSignatureTemplate for AssociatedItemPath {
-    type EtherealSignatureTemplate = AssociatedItemEtherealSignatureTemplate;
+impl HasEthTemplate for AssociatedItemPath {
+    type EthTemplate = AssociatedItemEthTemplate;
 
     fn ethereal_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
+    ) -> EtherealSignatureResult<Self::EthTemplate> {
         match self {
             AssociatedItemPath::TypeItem(path) => {
                 path.ethereal_signature_template(db).map(Into::into)

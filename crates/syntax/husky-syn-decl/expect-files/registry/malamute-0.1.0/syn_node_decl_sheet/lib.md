@@ -747,7 +747,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::FunctionGn(
-                        GnSynNodeDecl {
+                        MajorGnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(

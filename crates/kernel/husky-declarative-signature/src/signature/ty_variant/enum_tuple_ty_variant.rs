@@ -1,22 +1,22 @@
 use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct EnumTupleVariantDeclarativeSignatureTemplate {
-    pub parent_ty_template: EnumTypeDeclarativeSignatureTemplate,
-    pub fields: SmallVec<[EnumTupleVariantFieldDeclarativeSignatureTemplate; 4]>,
+pub struct EnumTupleVariantDecTemplate {
+    pub parent_ty_template: EnumTypeDecTemplate,
+    pub fields: SmallVec<[EnumTupleVariantFieldDecTemplate; 4]>,
     pub return_ty: DeclarativeTerm,
     pub instance_constructor_ty: RitchieDeclarativeTerm,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct EnumTupleVariantFieldDeclarativeSignatureTemplate {
+pub struct EnumTupleVariantFieldDecTemplate {
     ty: DeclarativeTerm,
 }
 
-impl EnumTupleVariantDeclarativeSignatureTemplate {
+impl EnumTupleVariantDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
-        parent_ty_template: EnumTypeDeclarativeSignatureTemplate,
+        parent_ty_template: EnumTypeDecTemplate,
         decl: TypeTupleVariantSynDecl,
     ) -> DeclarativeSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
@@ -26,7 +26,7 @@ impl EnumTupleVariantDeclarativeSignatureTemplate {
             .iter()
             .enumerate()
             .map(|(i, field)| {
-                Ok(EnumTupleVariantFieldDeclarativeSignatureTemplate {
+                Ok(EnumTupleVariantFieldDecTemplate {
                     ty: match declarative_term_region.expr_term(field.ty()) {
                         Ok(ty) => ty,
                         Err(_) => {
@@ -46,7 +46,7 @@ impl EnumTupleVariantDeclarativeSignatureTemplate {
             fields
                 .iter()
                 .copied()
-                .map(|field: EnumTupleVariantFieldDeclarativeSignatureTemplate| {
+                .map(|field: EnumTupleVariantFieldDecTemplate| {
                     DeclarativeRitchieRegularParameter::new(TermContract::Move, field.ty).into()
                 })
                 .collect(),

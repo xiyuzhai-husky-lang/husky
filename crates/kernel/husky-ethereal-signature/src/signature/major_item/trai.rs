@@ -1,19 +1,19 @@
 use super::*;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct TraitEtherealSignatureTemplate {
+pub struct TraitEthTemplate {
     pub path: TraitPath,
     #[return_ref]
     pub template_parameters: EtherealTemplateParameters,
 }
 
-impl HasEtherealSignatureTemplate for TraitPath {
-    type EtherealSignatureTemplate = TraitEtherealSignatureTemplate;
+impl HasEthTemplate for TraitPath {
+    type EthTemplate = TraitEthTemplate;
 
     fn ethereal_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
+    ) -> EtherealSignatureResult<Self::EthTemplate> {
         trai_ethereal_signature_template(db, self)
     }
 }
@@ -22,15 +22,11 @@ impl HasEtherealSignatureTemplate for TraitPath {
 fn trai_ethereal_signature_template(
     db: &::salsa::Db,
     trai_path: TraitPath,
-) -> EtherealSignatureResult<TraitEtherealSignatureTemplate> {
+) -> EtherealSignatureResult<TraitEthTemplate> {
     let declarative_signature_template = trai_path.declarative_signature_template(db)?;
     let template_parameters = EtherealTemplateParameters::from_declarative(
         db,
         declarative_signature_template.template_parameters(db),
     )?;
-    Ok(TraitEtherealSignatureTemplate::new(
-        db,
-        trai_path,
-        template_parameters,
-    ))
+    Ok(TraitEthTemplate::new(db, trai_path, template_parameters))
 }

@@ -15,7 +15,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -34,7 +34,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -53,7 +53,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -72,7 +72,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -91,7 +91,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -110,7 +110,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -129,7 +129,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -139,11 +139,11 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValFugitiveDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`malamute::Class mnist::MnistLabel`),
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Val(
+                        MajorValDecTemplate {
+                            return_ty: DeclarativeTerm(`malamute::Class mnist::MnistLabel`),
                         },
                     ),
                 ),

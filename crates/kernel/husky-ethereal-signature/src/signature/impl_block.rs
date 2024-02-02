@@ -9,27 +9,27 @@ use super::*;
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
-pub enum ImplBlockEtherealSignatureTemplate {
-    TypeImpl(TypeImplBlockEtherealSignatureTemplate),
-    TraitForTypeImpl(TraitForTypeImplBlockEtherealSignatureTemplate),
+pub enum ImplBlockEthTemplate {
+    TypeImpl(TypeImplBlockEthTemplate),
+    TraitForTypeImpl(TraitForTypeImplBlockEthTemplate),
 }
 
-impl ImplBlockEtherealSignatureTemplate {
+impl ImplBlockEthTemplate {
     pub fn self_ty(self, db: &::salsa::Db) -> EtherealTerm {
         match self {
-            ImplBlockEtherealSignatureTemplate::TypeImpl(template) => template.self_ty(db),
-            ImplBlockEtherealSignatureTemplate::TraitForTypeImpl(template) => template.self_ty(db),
+            ImplBlockEthTemplate::TypeImpl(template) => template.self_ty(db),
+            ImplBlockEthTemplate::TraitForTypeImpl(template) => template.self_ty(db),
         }
     }
 }
 
-impl HasEtherealSignatureTemplate for ImplBlockPath {
-    type EtherealSignatureTemplate = ImplBlockEtherealSignatureTemplate;
+impl HasEthTemplate for ImplBlockPath {
+    type EthTemplate = ImplBlockEthTemplate;
 
     fn ethereal_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
+    ) -> EtherealSignatureResult<Self::EthTemplate> {
         Ok(match self {
             ImplBlockPath::TypeImplBlock(path) => path.ethereal_signature_template(db)?.into(),
             ImplBlockPath::TraitForTypeImplBlock(path) => {

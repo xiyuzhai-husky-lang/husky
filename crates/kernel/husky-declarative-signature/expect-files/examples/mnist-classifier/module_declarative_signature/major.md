@@ -6,11 +6,11 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValFugitiveDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`[] mnist_classifier::connected_component::ConnectedComponent`),
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Val(
+                        MajorValDecTemplate {
+                            return_ty: DeclarativeTerm(`[] mnist_classifier::connected_component::ConnectedComponent`),
                         },
                     ),
                 ),
@@ -24,11 +24,11 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValFugitiveDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Val(
+                        MajorValDecTemplate {
+                            return_ty: DeclarativeTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
                         },
                     ),
                 ),
@@ -42,11 +42,11 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValFugitiveDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`core::num::f32`),
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Val(
+                        MajorValDecTemplate {
+                            return_ty: DeclarativeTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -60,11 +60,11 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValFugitiveDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`~ [] mnist_classifier::raw_contour::RawContour`),
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Val(
+                        MajorValDecTemplate {
+                            return_ty: DeclarativeTerm(`~ [] mnist_classifier::raw_contour::RawContour`),
                         },
                     ),
                 ),
@@ -78,11 +78,11 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValFugitiveDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Val(
+                        MajorValDecTemplate {
+                            return_ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
                         },
                     ),
                 ),
@@ -96,11 +96,11 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValFugitiveDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Val(
+                        MajorValDecTemplate {
+                            return_ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                         },
                     ),
                 ),
@@ -114,11 +114,11 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValFugitiveDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Val(
+                        MajorValDecTemplate {
+                            return_ty: DeclarativeTerm(`~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                         },
                     ),
                 ),

@@ -66,7 +66,7 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
-                    hir_decl: FunctionFnFugitiveHirDecl {
+                    hir_decl: FunctionMajorFnHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -452,7 +452,7 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
-                    hir_decl: FunctionFnFugitiveHirDecl {
+                    hir_decl: FunctionMajorFnHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -766,7 +766,7 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
-                    hir_decl: FunctionFnFugitiveHirDecl {
+                    hir_decl: FunctionMajorFnHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],

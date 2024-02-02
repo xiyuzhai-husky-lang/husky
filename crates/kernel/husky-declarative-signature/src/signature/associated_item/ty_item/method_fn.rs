@@ -1,9 +1,9 @@
 use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct TypeMethodFnDeclarativeSignatureTemplate {
+pub struct TypeMethodFnDecTemplate {
     pub path: TypeItemPath,
-    pub impl_block: TypeImplBlockDeclarativeSignatureTemplate,
+    pub impl_block: TypeImplBlockDecTemplate,
     /// the term for `Self`
     /// not necessarily equal to the type of `self` which might be wrapped in & or &mut etc.
     ///
@@ -18,7 +18,7 @@ pub struct TypeMethodFnDeclarativeSignatureTemplate {
     pub return_ty: DeclarativeTerm,
 }
 
-impl TypeMethodFnDeclarativeSignatureTemplate {
+impl TypeMethodFnDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
         path: TypeItemPath,
@@ -55,7 +55,7 @@ impl TypeMethodFnDeclarativeSignatureTemplate {
             Some(return_ty) => declarative_term_region.expr_term(return_ty.syn_expr_idx())?,
             None => declarative_term_menu.unit(),
         };
-        Ok(TypeMethodFnDeclarativeSignatureTemplate::new(
+        Ok(TypeMethodFnDecTemplate::new(
             db,
             path,
             impl_block,

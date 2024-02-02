@@ -36,7 +36,7 @@ impl AssociatedFnFluffySignature {
 pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     engine: &mut impl FluffyTermEngine,
     expr_idx: SynExprIdx,
-    template: TypeAssociatedFnEtherealSignatureTemplate,
+    template: TypeAssociatedFnEthTemplate,
     ty_template_arguments: &[Term],
     associated_fn_template_arguments: &[FluffyTerm],
 ) -> FluffyTermMaybeResult<AssociatedFnFluffySignature> {

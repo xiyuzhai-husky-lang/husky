@@ -11,20 +11,20 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum MajorItemDeclarativeSignatureTemplate {
-    Type(TypeDeclarativeSignatureTemplate),
-    Fugitive(FugitiveDeclarativeSignatureTemplate),
-    Trait(TraitDeclarativeSignatureTemplate),
+pub enum MajorItemDecTemplate {
+    Type(TypeDecTemplate),
+    Fugitive(FugitiveDecTemplate),
+    Trait(TraitDecTemplate),
 }
 
-impl HasDeclarativeSignatureTemplate for MajorItemPath {
-    type DeclarativeSignatureTemplate = MajorItemDeclarativeSignatureTemplate;
+impl HasDecTemplate for MajorItemPath {
+    type DecTemplate = MajorItemDecTemplate;
 
     #[inline(always)]
     fn declarative_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
         match self {
             MajorItemPath::Type(path) => path.declarative_signature_template(db).map(Into::into),
             MajorItemPath::Fugitive(path) => {

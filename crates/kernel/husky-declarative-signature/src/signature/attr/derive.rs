@@ -1,16 +1,16 @@
 use super::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct DeriveAttrDeclarativeSignatureTemplate {
-    pub shards: SmallVec<[DeriveAttrShardDeclarativeSignatureTemplate; 8]>,
+pub struct DeriveAttrDecTemplate {
+    pub shards: SmallVec<[DeriveAttrShardDecTemplate; 8]>,
 }
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct DeriveAttrShardDeclarativeSignatureTemplate {
+pub struct DeriveAttrShardDecTemplate {
     pub trai_term: DeclarativeTerm,
 }
 
-impl DeriveAttrDeclarativeSignatureTemplate {
+impl DeriveAttrDecTemplate {
     pub(super) fn from_decl(
         decl: DeriveAttrSynDecl,
         db: &::salsa::Db,
@@ -21,12 +21,12 @@ impl DeriveAttrDeclarativeSignatureTemplate {
             .trais(db)
             .iter()
             .map(|trai| {
-                Ok(DeriveAttrShardDeclarativeSignatureTemplate::new(
+                Ok(DeriveAttrShardDecTemplate::new(
                     db,
                     declarative_term_region.expr_term(trai.syn_expr_idx())?,
                 ))
             })
             .collect::<DeclarativeTermResultBorrowed2<_>>()?;
-        Ok(DeriveAttrDeclarativeSignatureTemplate::new(db, shards))
+        Ok(DeriveAttrDecTemplate::new(db, shards))
     }
 }

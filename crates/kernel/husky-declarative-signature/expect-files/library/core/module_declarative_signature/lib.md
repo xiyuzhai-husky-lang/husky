@@ -15,7 +15,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -34,7 +34,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -53,7 +53,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -72,7 +72,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -91,7 +91,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -110,7 +110,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -129,7 +129,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -148,7 +148,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -167,7 +167,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -186,7 +186,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -205,7 +205,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -224,7 +224,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -243,7 +243,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -262,7 +262,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -281,7 +281,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -300,7 +300,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -319,7 +319,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -338,7 +338,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
     (
@@ -357,7 +357,7 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::Submodule,
+            DecTemplate::Submodule,
         ),
     ),
 ]

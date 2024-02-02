@@ -120,11 +120,12 @@ impl<'a> DeclParser<'a> {
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeVariantSynDecl {
+    Unit(TypeUnitVariantSynDecl),
     Props(TypePropsVariantSynDecl),
-    Unit(UnitTypeVariantSynDecl),
     Tuple(TypeTupleVariantSynDecl),
 }
 
+/// # constructor
 impl TypeVariantSynDecl {
     fn from_node_decl(
         db: &::salsa::Db,
@@ -136,19 +137,30 @@ impl TypeVariantSynDecl {
                 TypePropsVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TypeVariantSynNodeDecl::Unit(syn_node_decl) => {
-                UnitTypeVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TypeUnitVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TypeVariantSynNodeDecl::Tuple(syn_node_decl) => {
                 TypeTupleVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
         })
     }
+}
 
-    pub fn path(self, _db: &::salsa::Db) -> TypeVariantPath {
+/// # getters
+impl TypeVariantSynDecl {
+    pub fn path(self, db: &::salsa::Db) -> TypeVariantPath {
         match self {
-            TypeVariantSynDecl::Props(_) => todo!(),
-            TypeVariantSynDecl::Unit(_) => todo!(),
-            TypeVariantSynDecl::Tuple(_) => todo!(),
+            TypeVariantSynDecl::Unit(slf) => slf.path(db),
+            TypeVariantSynDecl::Props(slf) => slf.path(db),
+            TypeVariantSynDecl::Tuple(slf) => slf.path(db),
+        }
+    }
+
+    pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
+        match self {
+            TypeVariantSynDecl::Unit(slf) => slf.syn_expr_region(db),
+            TypeVariantSynDecl::Props(slf) => slf.syn_expr_region(db),
+            TypeVariantSynDecl::Tuple(slf) => slf.syn_expr_region(db),
         }
     }
 }

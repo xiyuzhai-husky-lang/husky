@@ -17,50 +17,44 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum TypeItemDeclarativeSignatureTemplate {
-    AssociatedFn(TypeAssociatedFnDeclarativeSignatureTemplate),
-    MethodFn(TypeMethodFnDeclarativeSignatureTemplate),
-    AssociatedType(TypeAssociatedTypeDeclarativeSignatureTemplate),
-    AssociatedVal(TypeAssociatedValDeclarativeSignatureTemplate),
-    MemoizedField(TypeMemoizedFieldDeclarativeSignatureTemplate),
+pub enum TypeItemDecTemplate {
+    AssociatedFn(TypeAssociatedFnDecTemplate),
+    MethodFn(TypeMethodFnDecTemplate),
+    AssociatedType(TypeAssociatedTypeDecTemplate),
+    AssociatedVal(TypeAssociatedValDecTemplate),
+    MemoizedField(TypeMemoizedFieldDecTemplate),
 }
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum TypeItemDeclarativeSignatureTemplates {
-    AssociatedFn(SmallVecImpl<TypeAssociatedFnDeclarativeSignatureTemplate>),
-    MethodFn(SmallVecImpl<TypeMethodFnDeclarativeSignatureTemplate>),
-    AssociatedType(SmallVecImpl<TypeAssociatedTypeDeclarativeSignatureTemplate>),
-    AssociatedVal(SmallVecImpl<TypeAssociatedValDeclarativeSignatureTemplate>),
-    MemoizedField(SmallVecImpl<TypeMemoizedFieldDeclarativeSignatureTemplate>),
+pub enum TypeItemDecTemplates {
+    AssociatedFn(SmallVecImpl<TypeAssociatedFnDecTemplate>),
+    MethodFn(SmallVecImpl<TypeMethodFnDecTemplate>),
+    AssociatedType(SmallVecImpl<TypeAssociatedTypeDecTemplate>),
+    AssociatedVal(SmallVecImpl<TypeAssociatedValDecTemplate>),
+    MemoizedField(SmallVecImpl<TypeMemoizedFieldDecTemplate>),
 }
 
-impl TypeItemDeclarativeSignatureTemplate {
+impl TypeItemDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
-            TypeItemDeclarativeSignatureTemplate::AssociatedFn(signature) => {
-                signature.template_parameters(db)
-            }
-            TypeItemDeclarativeSignatureTemplate::MethodFn(signature) => {
-                signature.template_parameters(db)
-            }
-            TypeItemDeclarativeSignatureTemplate::AssociatedType(signature) => {
-                signature.template_parameters(db)
-            }
-            TypeItemDeclarativeSignatureTemplate::AssociatedVal(_) => &[],
-            TypeItemDeclarativeSignatureTemplate::MemoizedField(_) => &[],
+            TypeItemDecTemplate::AssociatedFn(signature) => signature.template_parameters(db),
+            TypeItemDecTemplate::MethodFn(signature) => signature.template_parameters(db),
+            TypeItemDecTemplate::AssociatedType(signature) => signature.template_parameters(db),
+            TypeItemDecTemplate::AssociatedVal(_) => &[],
+            TypeItemDecTemplate::MemoizedField(_) => &[],
         }
     }
 }
 
-impl HasDeclarativeSignatureTemplate for TypeItemPath {
-    type DeclarativeSignatureTemplate = TypeItemDeclarativeSignatureTemplate;
+impl HasDecTemplate for TypeItemPath {
+    type DecTemplate = TypeItemDecTemplate;
 
     fn declarative_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignatureTemplate> {
+    ) -> DeclarativeSignatureResult<TypeItemDecTemplate> {
         ty_item_syn_declarative_signature_template(db, self)
     }
 }
@@ -69,50 +63,44 @@ impl HasDeclarativeSignatureTemplate for TypeItemPath {
 pub(crate) fn ty_item_syn_declarative_signature_template(
     db: &::salsa::Db,
     path: TypeItemPath,
-) -> DeclarativeSignatureResult<TypeItemDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<TypeItemDecTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
         TypeItemSynDecl::AssociatedFn(decl) => {
-            TypeAssociatedFnDeclarativeSignatureTemplate::from_decl(db, path, decl).map(Into::into)
+            TypeAssociatedFnDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TypeItemSynDecl::MethodFn(decl) => {
-            TypeMethodFnDeclarativeSignatureTemplate::from_decl(db, path, decl).map(Into::into)
+            TypeMethodFnDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TypeItemSynDecl::AssociatedType(decl) => {
-            TypeAssociatedTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)
-                .map(Into::into)
+            TypeAssociatedTypeDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TypeItemSynDecl::AssociatedVal(decl) => {
-            TypeAssociatedValDeclarativeSignatureTemplate::from_decl(db, path, decl).map(Into::into)
+            TypeAssociatedValDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TypeItemSynDecl::MemoizedField(decl) => {
-            TypeMemoizedFieldDeclarativeSignatureTemplate::from_decl(db, path, decl).map(Into::into)
+            TypeMemoizedFieldDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum TypeMethodDeclarativeSignatureTemplates {
-    MethodFn(SmallVecImpl<TypeMethodFnDeclarativeSignatureTemplate>),
-    MethodFunction(SmallVecImpl<TypeMethodFunctionDeclarativeSignatureTemplate>),
+pub enum TypeMethodDecTemplates {
+    MethodFn(SmallVecImpl<TypeMethodFnDecTemplate>),
+    MethodFunction(SmallVecImpl<TypeMethodFunctionDecTemplate>),
 }
 
-pub trait HasTypeMethodDeclarativeSignatureTemplates: Copy {
+pub trait HasTypeMethodDecTemplates: Copy {
     fn ty_method_declarative_signature_templates_map<'a>(
         self,
         db: &'a ::salsa::Db,
-    ) -> DeclarativeSignatureResult<
-        &'a [(
-            Ident,
-            DeclarativeSignatureResult<TypeMethodDeclarativeSignatureTemplates>,
-        )],
-    >;
+    ) -> DeclarativeSignatureResult<&'a [(Ident, DeclarativeSignatureResult<TypeMethodDecTemplates>)]>;
 
     fn ty_method_declarative_signature_templates<'a>(
         self,
         db: &'a ::salsa::Db,
         ident: Ident,
-    ) -> DeclarativeSignatureResult<Option<&'a TypeMethodDeclarativeSignatureTemplates>> {
+    ) -> DeclarativeSignatureResult<Option<&'a TypeMethodDecTemplates>> {
         use vec_like::VecMapGetEntry;
         match self
             .ty_method_declarative_signature_templates_map(db)?

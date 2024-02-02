@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct GnSynNodeDecl {
+pub struct MajorGnSynNodeDecl {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
     pub syn_expr_region: SynExprRegion,
@@ -16,7 +16,7 @@ pub struct GnSynNodeDecl {
     pub eol_colon: SynNodeDeclResult<EolRegionalToken>,
 }
 
-impl GnSynNodeDecl {
+impl MajorGnSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
@@ -36,7 +36,10 @@ impl GnSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_gn_node_decl(&self, syn_node_path: FugitiveSynNodePath) -> GnSynNodeDecl {
+    pub(super) fn parse_gn_node_decl(
+        &self,
+        syn_node_path: FugitiveSynNodePath,
+    ) -> MajorGnSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let template_parameter_decl_list = parser.try_parse_option();
         let parameter_decl_list =
@@ -51,7 +54,7 @@ impl<'a> DeclParser<'a> {
             Ok(None)
         };
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
-        GnSynNodeDecl::new(
+        MajorGnSynNodeDecl::new(
             self.db(),
             syn_node_path,
             parser.finish(),
@@ -65,7 +68,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct FunctionGnSynDecl {
+pub struct MajorGnSynDecl {
     #[id]
     pub path: FugitivePath,
     #[return_ref]
@@ -76,11 +79,11 @@ pub struct FunctionGnSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl FunctionGnSynDecl {
+impl MajorGnSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: FugitivePath,
-        syn_node_decl: GnSynNodeDecl,
+        syn_node_decl: MajorGnSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
@@ -102,7 +105,7 @@ impl FunctionGnSynDecl {
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(FunctionGnSynDecl::new(
+        Ok(MajorGnSynDecl::new(
             db,
             path,
             template_parameters,

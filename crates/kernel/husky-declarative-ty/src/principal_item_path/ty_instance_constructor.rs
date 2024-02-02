@@ -14,26 +14,24 @@ pub fn ty_instance_constructor_path_declarative_ty(
         todo!()
     };
     match signature {
-        TypeDeclarativeSignatureTemplate::Enum(_) => {
-            Err(OriginalDeclarativeTypeError::EnumTypeNoConstructor)?
-        }
-        TypeDeclarativeSignatureTemplate::PropsStruct(signature) => {
+        TypeDecTemplate::Enum(_) => Err(OriginalDeclarativeTypeError::EnumTypeNoConstructor)?,
+        TypeDecTemplate::PropsStruct(signature) => {
             Ok(props_struct_ty_instance_constructor_path_declarative_ty(
                 db, path, variances, signature,
             )?)
         }
-        TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::TupleStruct(signature) => Ok(
+        TypeDecTemplate::UnitStruct(_) => todo!(),
+        TypeDecTemplate::TupleStruct(signature) => Ok(
             tuple_struct_ty_constructor_path_declarative_ty(db, path, variances, signature)?,
         ),
-        TypeDeclarativeSignatureTemplate::Inductive(_) => {
+        TypeDecTemplate::Inductive(_) => {
             Err(OriginalDeclarativeTypeError::InductiveTypeHasNoConstructor)?
         }
-        TypeDeclarativeSignatureTemplate::Structure(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::Extern(_) => {
+        TypeDecTemplate::Structure(_) => todo!(),
+        TypeDecTemplate::Extern(_) => {
             Err(OriginalDeclarativeTypeError::ExternTypeHasNoConstructor)?
         }
-        TypeDeclarativeSignatureTemplate::Union(_) => todo!(),
+        TypeDecTemplate::Union(_) => todo!(),
     }
 }
 
@@ -41,7 +39,7 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
     db: &::salsa::Db,
     path: TypePath,
     variances: &[Variance],
-    tmpl: PropsStructTypeDeclarativeSignatureTemplate,
+    tmpl: PropsStructTypeDecTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let template_parameters = &tmpl.template_parameters(db);
     let self_ty = tmpl.self_ty(db);
@@ -49,9 +47,7 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
         .fields(db)
         .iter()
         .copied()
-        .filter_map(
-            PropsStructFieldDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty,
-        )
+        .filter_map(PropsStructFieldDecTemplate::into_ritchie_parameter_contracted_ty)
         .collect();
     let instance_constructor_ty =
         RitchieDeclarativeTerm::new(db, RitchieTypeKind::Fn.into(), parameter_tys, self_ty);
@@ -69,7 +65,7 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
     db: &::salsa::Db,
     path: TypePath,
     variances: &[Variance],
-    signature: TupleStructTypeDeclarativeSignatureTemplate,
+    signature: TupleStructTypeDecTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let template_parameters = &signature.template_parameters(db);
     let self_ty = signature.self_ty(db);
@@ -77,7 +73,7 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
         .fields(db)
         .iter()
         .copied()
-        .map(TupleStructFieldDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty)
+        .map(TupleStructFieldDecTemplate::into_ritchie_parameter_contracted_ty)
         .collect();
     let constructor_ty =
         RitchieDeclarativeTerm::new(db, RitchieTypeKind::Fn.into(), parameter_tys, self_ty);

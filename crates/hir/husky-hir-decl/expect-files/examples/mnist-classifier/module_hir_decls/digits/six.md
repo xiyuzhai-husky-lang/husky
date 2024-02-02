@@ -137,7 +137,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
-                FunctionFnFugitiveHirDecl {
+                FunctionMajorFnHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -232,7 +232,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
-                FunctionFnFugitiveHirDecl {
+                FunctionMajorFnHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],

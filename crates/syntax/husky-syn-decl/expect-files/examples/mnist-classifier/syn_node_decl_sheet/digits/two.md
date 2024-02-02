@@ -22,7 +22,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Val(
-                        ValFugitiveSynNodeDecl {
+                        MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -38,20 +38,16 @@ SynNodeDeclSheet {
                                 },
                             ),
                             colon_token: Ok(
-                                Some(
-                                    ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            3,
-                                        ),
+                                ColonRegionalToken(
+                                    RegionalTokenIdx(
+                                        3,
                                     ),
                                 ),
                             ),
                             return_ty: Ok(
-                                Some(
-                                    ReturnTypeBeforeEqSyndicate {
-                                        expr: 1,
-                                    },
-                                ),
+                                ReturnTypeBeforeEqSyndicate {
+                                    expr: 1,
+                                },
                             ),
                             eq_token: Ok(
                                 EqRegionalToken(
@@ -185,7 +181,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::FunctionFn(
-                        FnSynNodeDecl {
+                        MajorFnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -487,7 +483,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::FunctionFn(
-                        FnSynNodeDecl {
+                        MajorFnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -789,7 +785,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::FunctionFn(
-                        FnSynNodeDecl {
+                        MajorFnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -1091,7 +1087,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Val(
-                        ValFugitiveSynNodeDecl {
+                        MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -1107,20 +1103,16 @@ SynNodeDeclSheet {
                                 },
                             ),
                             colon_token: Ok(
-                                Some(
-                                    ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            7,
-                                        ),
+                                ColonRegionalToken(
+                                    RegionalTokenIdx(
+                                        7,
                                     ),
                                 ),
                             ),
                             return_ty: Ok(
-                                Some(
-                                    ReturnTypeBeforeEqSyndicate {
-                                        expr: 5,
-                                    },
-                                ),
+                                ReturnTypeBeforeEqSyndicate {
+                                    expr: 5,
+                                },
                             ),
                             eq_token: Ok(
                                 EqRegionalToken(

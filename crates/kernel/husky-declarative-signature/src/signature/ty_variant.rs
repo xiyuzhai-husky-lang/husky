@@ -11,16 +11,16 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum TypeVariantDeclarativeSignatureTemplate {
-    Props(EnumPropsVariantDeclarativeSignatureTemplate),
-    Unit(EnumUnitTypeVariantDeclarativeSignatureTemplate),
-    Tuple(EnumTupleVariantDeclarativeSignatureTemplate),
+pub enum TypeVariantDecTemplate {
+    Props(EnumPropsVariantDecTemplate),
+    Unit(EnumUnitTypeVariantDecTemplate),
+    Tuple(EnumTupleVariantDecTemplate),
 }
 
 pub(crate) fn variant_signature_template_from_decl(
     _db: &::salsa::Db,
     decl: TypeVariantSynDecl,
-) -> DeclarativeSignatureResult<TypeVariantDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<TypeVariantDecTemplate> {
     match decl {
         TypeVariantSynDecl::Props(_) => todo!(),
         TypeVariantSynDecl::Unit(_) => todo!(),
@@ -28,15 +28,15 @@ pub(crate) fn variant_signature_template_from_decl(
     }
 }
 
-impl TypeVariantDeclarativeSignatureTemplate {}
+impl TypeVariantDecTemplate {}
 
-impl HasDeclarativeSignatureTemplate for TypeVariantPath {
-    type DeclarativeSignatureTemplate = TypeVariantDeclarativeSignatureTemplate;
+impl HasDecTemplate for TypeVariantPath {
+    type DecTemplate = TypeVariantDecTemplate;
 
     fn declarative_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
         ty_variant_syn_declarative_signature_template(db, self)
     }
 }
@@ -45,38 +45,21 @@ impl HasDeclarativeSignatureTemplate for TypeVariantPath {
 pub(crate) fn ty_variant_syn_declarative_signature_template(
     db: &::salsa::Db,
     path: TypeVariantPath,
-) -> DeclarativeSignatureResult<TypeVariantDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<TypeVariantDecTemplate> {
     Ok(
         match path.parent_ty_path(db).declarative_signature_template(db)? {
-            TypeDeclarativeSignatureTemplate::Enum(parent_ty_template) => {
-                match path.syn_decl(db)? {
-                    TypeVariantSynDecl::Props(decl) => {
-                        EnumPropsVariantDeclarativeSignatureTemplate::from_decl(
-                            db,
-                            parent_ty_template,
-                            decl,
-                        )?
-                        .into()
-                    }
-                    TypeVariantSynDecl::Unit(decl) => {
-                        EnumUnitTypeVariantDeclarativeSignatureTemplate::from_decl(
-                            db,
-                            parent_ty_template,
-                            decl,
-                        )?
-                        .into()
-                    }
-                    TypeVariantSynDecl::Tuple(decl) => {
-                        EnumTupleVariantDeclarativeSignatureTemplate::from_decl(
-                            db,
-                            parent_ty_template,
-                            decl,
-                        )?
-                        .into()
-                    }
+            TypeDecTemplate::Enum(parent_ty_template) => match path.syn_decl(db)? {
+                TypeVariantSynDecl::Props(decl) => {
+                    EnumPropsVariantDecTemplate::from_decl(db, parent_ty_template, decl)?.into()
                 }
-            }
-            TypeDeclarativeSignatureTemplate::Inductive(_) => todo!(),
+                TypeVariantSynDecl::Unit(decl) => {
+                    EnumUnitTypeVariantDecTemplate::from_decl(db, parent_ty_template, decl)?.into()
+                }
+                TypeVariantSynDecl::Tuple(decl) => {
+                    EnumTupleVariantDecTemplate::from_decl(db, parent_ty_template, decl)?.into()
+                }
+            },
+            TypeDecTemplate::Inductive(_) => todo!(),
             _ => todo!(),
         },
     )

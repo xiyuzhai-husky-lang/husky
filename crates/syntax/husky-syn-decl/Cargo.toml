@@ -31,6 +31,7 @@ husky-entity-tree.workspace = true
 husky-decl-ast.workspace = true
 # utils
 husky-print-utils.workspace = true
+husky-iter-utils.workspace = true
 
 [dev-dependencies]
 # fs

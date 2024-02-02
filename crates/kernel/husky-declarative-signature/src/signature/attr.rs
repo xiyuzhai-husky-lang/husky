@@ -7,17 +7,17 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum AttrDeclarativeSignatureTemplate {
-    Derive(DeriveAttrDeclarativeSignatureTemplate),
+pub enum AttrDecTemplate {
+    Derive(DeriveAttrDecTemplate),
 }
 
-impl HasDeclarativeSignatureTemplate for AttrItemPath {
-    type DeclarativeSignatureTemplate = AttrDeclarativeSignatureTemplate;
+impl HasDecTemplate for AttrItemPath {
+    type DecTemplate = AttrDecTemplate;
 
     fn declarative_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
         attr_declarative_signature_template(db, self)
     }
 }
@@ -26,10 +26,8 @@ impl HasDeclarativeSignatureTemplate for AttrItemPath {
 fn attr_declarative_signature_template(
     db: &::salsa::Db,
     path: AttrItemPath,
-) -> DeclarativeSignatureResult<AttrDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<AttrDecTemplate> {
     match path.syn_decl(db)? {
-        AttrSynDecl::Derive(decl) => {
-            DeriveAttrDeclarativeSignatureTemplate::from_decl(decl, db).map(Into::into)
-        }
+        AttrSynDecl::Derive(decl) => DeriveAttrDecTemplate::from_decl(decl, db).map(Into::into),
     }
 }

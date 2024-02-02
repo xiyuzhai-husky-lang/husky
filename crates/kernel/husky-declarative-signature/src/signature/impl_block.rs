@@ -9,18 +9,18 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum ImplBlockDeclarativeSignatureTemplate {
-    TypeImpl(TypeImplBlockDeclarativeSignatureTemplate),
-    TraitForTypeImpl(TraitForTypeImplBlockDeclarativeSignatureTemplate),
+pub enum ImplBlockDecTemplate {
+    TypeImpl(TypeImplBlockDecTemplate),
+    TraitForTypeImpl(TraitForTypeImplBlockDecTemplate),
 }
 
-impl HasDeclarativeSignatureTemplate for ImplBlockPath {
-    type DeclarativeSignatureTemplate = ImplBlockDeclarativeSignatureTemplate;
+impl HasDecTemplate for ImplBlockPath {
+    type DecTemplate = ImplBlockDecTemplate;
 
     fn declarative_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
         Ok(match self {
             ImplBlockPath::TypeImplBlock(path) => path.declarative_signature_template(db)?.into(),
             ImplBlockPath::TraitForTypeImplBlock(path) => {
@@ -30,7 +30,7 @@ impl HasDeclarativeSignatureTemplate for ImplBlockPath {
     }
 }
 
-impl ImplBlockDeclarativeSignatureTemplate {
+impl ImplBlockDecTemplate {
     pub fn template_parameters(self, _db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         todo!()
     }

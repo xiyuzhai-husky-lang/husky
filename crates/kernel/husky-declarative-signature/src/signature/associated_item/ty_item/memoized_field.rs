@@ -1,18 +1,18 @@
 use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct TypeMemoizedFieldDeclarativeSignatureTemplate {
+pub struct TypeMemoizedFieldDecTemplate {
     pub path: TypeItemPath,
-    pub impl_block: TypeImplBlockDeclarativeSignatureTemplate,
+    pub impl_block: TypeImplBlockDecTemplate,
     pub return_ty: DeclarativeTerm,
 }
 
-impl TypeMemoizedFieldDeclarativeSignatureTemplate {
+impl TypeMemoizedFieldDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
         path: TypeItemPath,
         decl: TypeMemoizedFieldSynDecl,
-    ) -> DeclarativeSignatureResult<TypeMemoizedFieldDeclarativeSignatureTemplate> {
+    ) -> DeclarativeSignatureResult<TypeMemoizedFieldDecTemplate> {
         let impl_block_syn_declarative_signature_template = decl
             .impl_block_path(db)
             .declarative_signature_template(db)?;
@@ -25,7 +25,7 @@ impl TypeMemoizedFieldDeclarativeSignatureTemplate {
             Some(return_ty) => declarative_term_region.expr_term(return_ty.syn_expr_idx())?,
             None => declarative_term_menu.unit(),
         };
-        Ok(TypeMemoizedFieldDeclarativeSignatureTemplate::new(
+        Ok(TypeMemoizedFieldDecTemplate::new(
             db,
             path,
             impl_block_syn_declarative_signature_template,
@@ -34,14 +34,14 @@ impl TypeMemoizedFieldDeclarativeSignatureTemplate {
     }
 }
 
-// pub trait HasTypeMemoizedFieldDeclarativeSignatureTemplates: Copy {
+// pub trait HasTypeMemoizedFieldDecTemplates: Copy {
 //     fn ty_memoized_field_declarative_signature_templates_map<'a>(
 //         self,
 //         db: &'a ::salsa::Db,
 //     ) -> DeclarativeSignatureResult<
 //         &'a [(
 //             Ident,
-//             DeclarativeSignatureResult<SmallVecImpl<TypeMemoizedFieldDeclarativeSignatureTemplate>>,
+//             DeclarativeSignatureResult<SmallVecImpl<TypeMemoizedFieldDecTemplate>>,
 //         )],
 //     >;
 
@@ -49,7 +49,7 @@ impl TypeMemoizedFieldDeclarativeSignatureTemplate {
 //         self,
 //         db: &'a ::salsa::Db,
 //         ident: Ident,
-//     ) -> DeclarativeSignatureResult<Option<&'a [TypeMemoizedFieldDeclarativeSignatureTemplate]>>
+//     ) -> DeclarativeSignatureResult<Option<&'a [TypeMemoizedFieldDecTemplate]>>
 //     {
 //         use vec_like::VecMapGetEntry;
 //         match self
@@ -63,14 +63,14 @@ impl TypeMemoizedFieldDeclarativeSignatureTemplate {
 //     }
 // }
 
-// impl HasTypeMemoizedFieldDeclarativeSignatureTemplates for TypePath {
+// impl HasTypeMemoizedFieldDecTemplates for TypePath {
 //     fn ty_memoized_field_declarative_signature_templates_map<'a>(
 //         self,
 //         db: &'a ::salsa::Db,
 //     ) -> DeclarativeSignatureResult<
 //         &'a [(
 //             Ident,
-//             DeclarativeSignatureResult<SmallVecImpl<TypeMemoizedFieldDeclarativeSignatureTemplate>>,
+//             DeclarativeSignatureResult<SmallVecImpl<TypeMemoizedFieldDecTemplate>>,
 //         )],
 //     > {
 //         ty_memoized_field_declarative_signature_templates_map(db, self)
@@ -86,7 +86,7 @@ impl TypeMemoizedFieldDeclarativeSignatureTemplate {
 //     ty_path: TypePath,
 // ) -> DeclarativeSignatureResult<
 //     IdentPairMap<
-//         DeclarativeSignatureResult<SmallVecImpl<TypeMemoizedFieldDeclarativeSignatureTemplate>>,
+//         DeclarativeSignatureResult<SmallVecImpl<TypeMemoizedFieldDecTemplate>>,
 //     >,
 // > {
 //     let item_syn_decls_map = ty_path.item_syn_decls_map(db)?;

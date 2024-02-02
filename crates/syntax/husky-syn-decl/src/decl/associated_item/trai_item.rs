@@ -42,12 +42,12 @@ impl TraitItemSynNodeDecl {
         }
     }
 
-    pub fn errors(self, _db: &::salsa::Db) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
-            TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
-            TraitItemSynNodeDecl::MethodFn(_) => todo!(),
-            TraitItemSynNodeDecl::AssociatedType(_) => todo!(),
-            TraitItemSynNodeDecl::AssociatedVal(_) => todo!(),
+            TraitItemSynNodeDecl::AssociatedFn(slf) => slf.errors(db),
+            TraitItemSynNodeDecl::MethodFn(slf) => slf.errors(db),
+            TraitItemSynNodeDecl::AssociatedType(slf) => slf.errors(db),
+            TraitItemSynNodeDecl::AssociatedVal(slf) => slf.errors(db),
         }
     }
 }
@@ -80,7 +80,9 @@ impl<'a> DeclParser<'a> {
             TraitItemKind::AssociatedType => self
                 .parse_trai_associated_ty_node_decl(syn_node_path)
                 .into(),
-            TraitItemKind::AssociatedVal => todo!(),
+            TraitItemKind::AssociatedVal => self
+                .parse_trai_associated_val_node_decl(syn_node_path)
+                .into(),
             TraitItemKind::AssociatedFunctionFn => todo!(),
             TraitItemKind::AssociatedFunctionGn => todo!(),
             TraitItemKind::AssociatedFormal => todo!(),
