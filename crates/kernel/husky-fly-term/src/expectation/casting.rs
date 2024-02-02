@@ -11,17 +11,6 @@ impl ExpectCasting {
     pub fn new(destination: FlyTerm) -> Self {
         Self { destination }
     }
-
-    pub(crate) fn try_substitute_unresolved_fluffy_term<'a>(
-        &self,
-        fluffy_terms: &'a FlyTerms,
-    ) -> Result<Option<Expectation>, &'a HollowTermResolveError> {
-        todo!()
-        // match fluffy_terms.try_reduce_fluffy_term(self.destination)? {
-        //     Some(destination) => Ok(Some(ExpectExplicitlyConvertible { destination }.into())),
-        //     None => Ok(None),
-        // }
-    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
