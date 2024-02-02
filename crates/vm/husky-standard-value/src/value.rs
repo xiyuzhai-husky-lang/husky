@@ -14,7 +14,10 @@ use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, EnumU8ValuePresenter, ValuePresentation,
     ValuePresenterCache,
 };
-use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
+use husky_visual_protocol::{
+    synchrotron::VisualSynchrotron,
+    visual::{primitive::PrimitiveVisual, Visual},
+};
 use ordered_float::OrderedFloat;
 use serde::Serialize;
 use serde_impl::json::SerdeJson;
@@ -430,13 +433,13 @@ impl IsValue for Value {
 
     fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         use husky_visual_protocol::visualize::Visualize;
-        match self {
-            Value::Invalid => todo!(),
-            Value::Moved => todo!(),
+        match *self {
+            Value::Invalid => unreachable!(),
+            Value::Moved => unreachable!(),
             Value::Unit(_) => todo!(),
             Value::Bool(_) => todo!(),
             Value::Char(_) => todo!(),
-            Value::I8(_) => todo!(),
+            Value::I8(value) => PrimitiveVisual::I8(value).into(),
             Value::I16(_) => todo!(),
             Value::I32(_) => todo!(),
             Value::I64(_) => todo!(),
@@ -457,7 +460,7 @@ impl IsValue for Value {
             Value::F32(f) => f.visualize(visual_synchrotron),
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
-            Value::Owned(value) => value.visualize_or_void_dyn(visual_synchrotron),
+            Value::Owned(ref value) => value.visualize_or_void_dyn(visual_synchrotron),
             Value::Leash(value) => value.visualize_or_void_dyn(visual_synchrotron),
             Value::Ref(_) => todo!(),
             Value::Mut(_) => todo!(),
@@ -465,7 +468,7 @@ impl IsValue for Value {
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
             Value::OptionSizedMut(_) => todo!(),
-            Value::EnumU8 { index, presenter } => Visual::Void,
+            Value::EnumU8 { .. } => Visual::Void,
         }
     }
 }
