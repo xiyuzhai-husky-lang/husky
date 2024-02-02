@@ -110,9 +110,8 @@ pub(crate) fn hir_ty_from_eth_term_application(
     let application_expansion = term_application.application_expansion(db);
     match application_expansion.function() {
         TermFunctionReduced::TypeOntology(ty_path) => {
-            let ty_ethereal_signature_template =
-                ty_path.ethereal_signature_template(db).expect("ok");
-            let template_parameters = ty_ethereal_signature_template.template_parameters(db);
+            let ty_eth_template = ty_path.eth_template(db).expect("ok");
+            let template_parameters = ty_eth_template.template_parameters(db);
             // filter out phantoms
             let template_arguments = std::iter::zip(
                 template_parameters.iter(),

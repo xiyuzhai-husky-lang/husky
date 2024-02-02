@@ -202,6 +202,9 @@ impl Diagnose for OriginalSemaExprTypeError {
             OriginalSemaExprTypeError::BitOperationOnlyWorksForRawBitsOrCustom => {
                 format!("Type Error: no bit opr for integer")
             }
+            OriginalSemaExprTypeError::ExpectedNumTypeForIncrOrDecr => {
+                format!("Type Error: ExpectedNumTypeForIncrOrDecr")
+            }
         }
     }
 

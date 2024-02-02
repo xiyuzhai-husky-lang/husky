@@ -46,40 +46,40 @@ impl DeriveAttrShardEthTemplate {
 }
 
 pub trait HasDeriveAttrShardEthTemplates: Copy {
-    fn derive_attr_shard_ethereal_signature_templates_map(
+    fn derive_attr_shard_eth_templates_map(
         self,
         db: &::salsa::Db,
     ) -> EtherealSignatureResult<&[(TraitPath, OrderedSmallVecSet<DeriveAttrShardEthTemplate, 1>)]>;
 
-    fn derive_attr_ethereal_signature_templates(
+    fn derive_attr_eth_templates(
         self,
         db: &::salsa::Db,
         trai_path: TraitPath,
     ) -> EtherealSignatureResult<Option<&[DeriveAttrShardEthTemplate]>> {
         match self
-            .derive_attr_shard_ethereal_signature_templates_map(db)?
+            .derive_attr_shard_eth_templates_map(db)?
             .get_entry(trai_path)
         {
-            Some((_, ethereal_signature_templates)) => Ok(Some(ethereal_signature_templates)),
+            Some((_, eth_templates)) => Ok(Some(eth_templates)),
             None => Ok(None),
         }
     }
 }
 
 impl HasDeriveAttrShardEthTemplates for TypePath {
-    fn derive_attr_shard_ethereal_signature_templates_map(
+    fn derive_attr_shard_eth_templates_map(
         self,
         db: &::salsa::Db,
     ) -> EtherealSignatureResult<&[(TraitPath, OrderedSmallVecSet<DeriveAttrShardEthTemplate, 1>)]>
     {
-        Ok(ty_path_derive_attr_ethereal_signature_templates_map(db, self).as_ref()?)
+        Ok(ty_path_derive_attr_eth_templates_map(db, self).as_ref()?)
     }
 }
 
 // todo: change to ordered map and set
 // todo: use trait HasEthTemplate?
 #[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
-fn ty_path_derive_attr_ethereal_signature_templates_map(
+fn ty_path_derive_attr_eth_templates_map(
     db: &::salsa::Db,
     ty_path: TypePath,
 ) -> EtherealSignatureResult<
@@ -88,7 +88,7 @@ fn ty_path_derive_attr_ethereal_signature_templates_map(
     let mut map: SmallVecPairMap<TraitPath, OrderedSmallVecSet<DeriveAttrShardEthTemplate, 1>, 8> =
         Default::default();
     for attr_path in ty_path.attr_paths(db) {
-        let AttrEthTemplate::Derive(template) = attr_path.ethereal_signature_template(db)? else {
+        let AttrEthTemplate::Derive(template) = attr_path.eth_template(db)? else {
             todo!()
         };
         for shard in template.shards(db) {

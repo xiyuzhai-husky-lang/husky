@@ -4,11 +4,12 @@ mod casting;
 mod coersion;
 mod condition_ty;
 mod curry_destination;
-mod eqs_category;
-mod eqs_function_ty;
-mod eqs_ritchie_ty;
 mod final_destination;
+mod function_ty;
 mod int_ty;
+pub mod num_ty;
+mod ritchie_ty;
+mod sort;
 mod subtype;
 
 pub use self::any_derived::*;
@@ -17,15 +18,15 @@ pub use self::casting::*;
 pub use self::coersion::*;
 pub use self::condition_ty::*;
 pub use self::curry_destination::*;
-pub use self::eqs_category::*;
-pub use self::eqs_function_ty::*;
-pub use self::eqs_ritchie_ty::*;
 pub use self::final_destination::*;
+pub use self::function_ty::*;
 pub use self::int_ty::*;
+pub use self::num_ty::*;
+pub use self::ritchie_ty::*;
+pub use self::sort::*;
 pub use self::subtype::*;
 
 use super::*;
-use husky_dec_ty::variance::VarianceError;
 use idx_arena::ArenaIdx;
 use thiserror::Error;
 
@@ -45,6 +46,7 @@ pub enum Expectation {
     AnyDerived(ExpectAnyDerived),
     ConditionType(ExpectConditionType),
     IntType(ExpectIntType),
+    NumType(ExpectNumType),
     FinalDestination(ExpectFinalDestination),
     CurryDestination(ExpectCurryDestination),
 }
@@ -72,6 +74,7 @@ impl Expectation {
             Expectation::AnyOriginal(epn) => epn.resolve(db, terms, state),
             Expectation::AnyDerived(epn) => epn.resolve(db, terms, state),
             Expectation::IntType(epn) => epn.resolve(db, terms, state),
+            Expectation::NumType(epn) => epn.resolve(db, terms, state),
             Expectation::FinalDestination(epn) => epn.resolve(db, terms, state),
             Expectation::CurryDestination(epn) => epn.resolve(db, terms, state),
             Expectation::ConditionType(epn) => epn.resolve(db, terms, state),
@@ -157,6 +160,7 @@ pub enum ExpectationOutcome {
     EqsFunctionCallType(ExpectEqsFunctionTypeOutcome),
     EqsRitchieCallType(ExpectEqsRitchieTypeOutcome),
     IntType(ExpectIntTypeOutcome),
+    NumType(ExpectNumTypeOutcome),
     ConditionType(ExpectConditionTypeOutcome),
     CurryDestination(ExpectCurryDestinationOutcome),
     FinalDestination(ExpectFinalDestinationOutcome),

@@ -70,7 +70,7 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FlyTerm>>(
     self_place: FlyPlace,
 ) -> FlyTermMaybeResult<MethodFnFlySignature> {
     let ident = ident_token.ident();
-    match ty_path.ty_item_ethereal_signature_templates(engine.db(), ident)? {
+    match ty_path.ty_item_eth_templates(engine.db(), ident)? {
         TypeItemEthTemplates::MethodFn(templates) => {
             for template in templates.iter().copied() {
                 if let JustOk(signature) = ty_method_fn_fluffy_signature(
@@ -122,7 +122,7 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FlyTerm>>(
         template
             .path(db)
             .impl_block(db)
-            .ethereal_signature_template(db)?
+            .eth_template(db)?
             .template_parameters(db),
         template.template_parameters(db),
         db,

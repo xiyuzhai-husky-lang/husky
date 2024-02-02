@@ -10,16 +10,13 @@ pub struct TypeImplBlockEthTemplate {
 impl HasEthTemplate for TypeImplBlockPath {
     type EthTemplate = TypeImplBlockEthTemplate;
 
-    fn ethereal_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EthTemplate> {
-        ty_impl_block_ethereal_signature_template(db, self)
+    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+        ty_impl_block_eth_template(db, self)
     }
 }
 
 #[salsa::tracked(jar = EtherealSignatureJar)]
-pub(crate) fn ty_impl_block_ethereal_signature_template(
+pub(crate) fn ty_impl_block_eth_template(
     db: &::salsa::Db,
     path: TypeImplBlockPath,
 ) -> EtherealSignatureResult<TypeImplBlockEthTemplate> {

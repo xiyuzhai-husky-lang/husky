@@ -24,25 +24,21 @@ impl<'a> TraitForTypeImplBlockEthTemplates<'a> {
     }
 }
 
-pub fn trai_path_for_ty_path_impl_block_ethereal_signature_templates<'a>(
+pub fn trai_path_for_ty_path_impl_block_eth_templates<'a>(
     db: &'a ::salsa::Db,
     trai_path: TraitPath,
     ty_path: TypePath,
 ) -> EtherealSignatureResult<TraitForTypeImplBlockEthTemplates<'a>> {
-    let does_ty_path_derive_trai_path = ty_path
-        .derive_attr_ethereal_signature_templates(db, trai_path)?
-        .is_some();
+    let does_ty_path_derive_trai_path = ty_path.derive_attr_eth_templates(db, trai_path)?.is_some();
     Ok(TraitForTypeImplBlockEthTemplates {
         trai_side_derive_any: if does_ty_path_derive_trai_path {
-            trai_side_derive_any_ethereal_signature_templates(db, trai_path).as_ref()?
+            trai_side_derive_any_eth_templates(db, trai_path).as_ref()?
         } else {
             &[]
         },
         // todo: ty_kind
-        trai_side_path_leading: trai_side_path_leading_ethereal_signature_templates(
-            db, trai_path, ty_path,
-        )?
-        .unwrap_or(&[]),
+        trai_side_path_leading: trai_side_path_leading_eth_templates(db, trai_path, ty_path)?
+            .unwrap_or(&[]),
         ty_side: ty_side_trai_for_ty_impl_block_signature_templates(db, trai_path, ty_path)
             .into_result_option()?
             .unwrap_or(&[]),
@@ -60,10 +56,7 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builders<'a>(
         unreachable!()
     };
     let mut builders: SmallVec<[TraitForTypeImplBlockEtherealSignatureBuilder; 2]> = smallvec![];
-    for template in
-        trai_path_for_ty_path_impl_block_ethereal_signature_templates(db, trai_path, ty_path)?
-            .iter()
-    {
+    for template in trai_path_for_ty_path_impl_block_eth_templates(db, trai_path, ty_path)?.iter() {
         match template.instantiate_ty(db, arguments, ty_term) {
             JustOk(builder) => builders.push(builder),
             JustErr(_) => todo!(),
@@ -105,10 +98,7 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
     let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
         unreachable!()
     };
-    for template in
-        trai_path_for_ty_path_impl_block_ethereal_signature_templates(db, trai_path, ty_path)?
-            .iter()
-    {
+    for template in trai_path_for_ty_path_impl_block_eth_templates(db, trai_path, ty_path)?.iter() {
         match template.instantiate_ty(db, arguments, ty_term) {
             JustOk(_builder) => return Ok(true),
             JustErr(e) => return Err(e),
@@ -134,25 +124,23 @@ pub fn is_ty_term_always_copyable(
 // trait side
 
 #[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
-fn trai_side_derive_any_ethereal_signature_templates(
+fn trai_side_derive_any_eth_templates(
     db: &::salsa::Db,
     trai_path: TraitPath,
 ) -> EtherealSignatureResult<SmallVec<[TraitForTypeImplBlockEthTemplate; 2]>> {
     trai_side_derive_any_trai_for_ty_impl_block_paths_map(db, trai_path)
         .iter()
-        .map(|path| path.ethereal_signature_template(db))
+        .map(|path| path.eth_template(db))
         .collect()
 }
 
-fn trai_side_path_leading_ethereal_signature_templates(
+fn trai_side_path_leading_eth_templates(
     db: &::salsa::Db,
     trai_path: TraitPath,
     ty_path: TypePath,
 ) -> EtherealSignatureResult<Option<&[TraitForTypeImplBlockEthTemplate]>> {
-    match trai_side_path_leading_trai_for_ty_impl_block_ethereal_signature_templates_map(
-        db, trai_path,
-    )
-    .get_value(ty_path)
+    match trai_side_path_leading_trai_for_ty_impl_block_eth_templates_map(db, trai_path)
+        .get_value(ty_path)
     {
         Some(Ok(v)) => Ok(Some(v)),
         Some(Err(e)) => Err(*e),
@@ -161,7 +149,7 @@ fn trai_side_path_leading_ethereal_signature_templates(
 }
 
 #[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
-fn trai_side_path_leading_trai_for_ty_impl_block_ethereal_signature_templates_map(
+fn trai_side_path_leading_trai_for_ty_impl_block_eth_templates_map(
     db: &::salsa::Db,
     trai_path: TraitPath,
 ) -> SmallVecPairMap<
@@ -169,12 +157,8 @@ fn trai_side_path_leading_trai_for_ty_impl_block_ethereal_signature_templates_ma
     EtherealSignatureResult<SmallVec<[TraitForTypeImplBlockEthTemplate; 2]>>,
     8,
 > {
-    trai_side_path_leading_trai_for_ty_impl_block_paths_map(db, trai_path).map_collect(|paths| {
-        paths
-            .iter()
-            .map(|path| path.ethereal_signature_template(db))
-            .collect()
-    })
+    trai_side_path_leading_trai_for_ty_impl_block_paths_map(db, trai_path)
+        .map_collect(|paths| paths.iter().map(|path| path.eth_template(db)).collect())
 }
 
 // type side
@@ -199,10 +183,6 @@ fn ty_side_impl_block_signature_templates_map(
     ty_path: TypePath,
 ) -> SmallVecPairMap<TraitPath, EtherealSignatureResult<TraitForTypeImplBlockSignatureTemplates>, 2>
 {
-    ty_side_trai_for_ty_impl_block_paths_map(db, ty_path).map_collect(|paths| {
-        paths
-            .iter()
-            .map(|path| path.ethereal_signature_template(db))
-            .collect()
-    })
+    ty_side_trai_for_ty_impl_block_paths_map(db, ty_path)
+        .map_collect(|paths| paths.iter().map(|path| path.eth_template(db)).collect())
 }

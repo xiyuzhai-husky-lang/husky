@@ -29,7 +29,7 @@ impl FlyTerm {
                 ty_path,
                 ty_arguments,
                 ..
-            } => match ty_path.ty_item_ethereal_signature_templates(db, ident) {
+            } => match ty_path.ty_item_eth_templates(db, ident) {
                 JustOk(templates) => match templates {
                     TypeItemEthTemplates::AssociatedFn(templates) => {
                         let dst_ty_arguments: SmallVec<[_; 2]> = ty_arguments.to_smallvec();

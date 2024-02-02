@@ -42,10 +42,9 @@ fn hir_trai_from_eth_term_application(db: &::salsa::Db, trai_term: ApplicationEt
     match application_expansion.function() {
         TermFunctionReduced::TypeOntology(_) => todo!(),
         TermFunctionReduced::Trait(trai_path) => {
-            let ty_ethereal_signature_template =
-                trai_path.ethereal_signature_template(db).expect("ok");
+            let ty_eth_template = trai_path.eth_template(db).expect("ok");
             // todo: turn the following into utils
-            let template_parameters = ty_ethereal_signature_template.template_parameters(db);
+            let template_parameters = ty_eth_template.template_parameters(db);
             // filter out phantoms
             let template_arguments = std::iter::zip(
                 template_parameters.iter(),

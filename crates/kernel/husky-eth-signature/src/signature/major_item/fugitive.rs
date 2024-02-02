@@ -34,16 +34,13 @@ impl FugitiveEthTemplate {
 impl HasEthTemplate for FugitivePath {
     type EthTemplate = FugitiveEthTemplate;
 
-    fn ethereal_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EthTemplate> {
-        fugitive_ethereal_signature_template(db, self)
+    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+        fugitive_eth_template(db, self)
     }
 }
 
 // #[salsa::tracked(jar = EtherealSignatureJar)]
-fn fugitive_ethereal_signature_template(
+fn fugitive_eth_template(
     db: &::salsa::Db,
     path: FugitivePath,
 ) -> EtherealSignatureResult<FugitiveEthTemplate> {

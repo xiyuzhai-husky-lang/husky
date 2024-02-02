@@ -38,16 +38,13 @@ impl TypeVariantEthTemplate {
 impl HasEthTemplate for TypeVariantPath {
     type EthTemplate = TypeVariantEthTemplate;
 
-    fn ethereal_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EthTemplate> {
-        ty_variant_ethereal_signature_template(db, self)
+    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+        ty_variant_eth_template(db, self)
     }
 }
 
 #[salsa::tracked(jar = EtherealSignatureJar)]
-fn ty_variant_ethereal_signature_template(
+fn ty_variant_eth_template(
     db: &::salsa::Db,
     path: TypeVariantPath,
 ) -> EtherealSignatureResult<TypeVariantEthTemplate> {

@@ -26,7 +26,7 @@ impl<'a> SemaExprEngine<'a> {
         match opr {
             SynSuffixOpr::Incr => {
                 let (opd_sema_expr_idx, opd_ty) =
-                    self.build_sema_expr_with_ty(opd_syn_expr_idx, ExpectAnyOriginal);
+                    self.build_sema_expr_with_ty(opd_syn_expr_idx, ExpectNumType);
                 (
                     Ok(SemaExprData::Suffix {
                         opd_sema_expr_idx,
@@ -38,7 +38,7 @@ impl<'a> SemaExprEngine<'a> {
             }
             SynSuffixOpr::Decr => {
                 let (opd_sema_expr_idx, opd_ty) =
-                    self.build_sema_expr_with_ty(opd_syn_expr_idx, ExpectAnyOriginal);
+                    self.build_sema_expr_with_ty(opd_syn_expr_idx, ExpectNumType);
                 (
                     Ok(SemaExprData::Suffix {
                         opd_sema_expr_idx,
@@ -67,48 +67,7 @@ impl<'a> SemaExprEngine<'a> {
         }
     }
 
-    fn calc_incr_or_decr_expr_ty(
-        &mut self,
-        opd_ty: Option<FlyTerm>,
-    ) -> SemaExprTypeResult<FlyTerm> {
-        let opd_ty = opd_ty.ok_or(DerivedSemaExprTypeError::SuffixOperandTypeNotInferred)?;
-        match opd_ty.data(self) {
-            FlyTermData::Literal(_) => todo!(),
-            FlyTermData::TypeOntology {
-                ty_path,
-                refined_ty_path,
-                ty_arguments,
-                ty_ethereal_term,
-            } => match refined_ty_path {
-                Left(PreludeTypePath::Num(_)) => (),
-                _ => todo!(),
-            },
-            FlyTermData::Curry {
-                toolchain,
-                curry_kind,
-                variance,
-                parameter_rune,
-                parameter_ty,
-                return_ty,
-                ty_ethereal_term,
-            } => todo!(),
-            FlyTermData::Hole(hole_kind, _) => match hole_kind {
-                HoleKind::UnspecifiedIntegerType => (),
-                HoleKind::UnspecifiedFloatType => todo!(),
-                HoleKind::ImplicitType => todo!(),
-                HoleKind::Any => todo!(),
-            },
-            FlyTermData::Category(_) => todo!(),
-            FlyTermData::Ritchie {
-                ritchie_kind,
-                parameter_contracted_tys,
-                return_ty,
-                ..
-            } => todo!(),
-            FlyTermData::Symbol { .. } => todo!(),
-            FlyTermData::Rune { .. } => todo!(),
-            FlyTermData::TypeVariant { path } => todo!(),
-        }
+    fn calc_incr_or_decr_expr_ty(&mut self, _: Option<FlyTerm>) -> SemaExprTypeResult<FlyTerm> {
         Ok(self.term_menu().unit_ty_ontology().into())
     }
 }

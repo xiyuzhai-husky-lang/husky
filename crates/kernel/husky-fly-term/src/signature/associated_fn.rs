@@ -50,7 +50,7 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FlyTerm>>(
         template
             .path(db)
             .impl_block(db)
-            .ethereal_signature_template(db)?
+            .eth_template(db)?
             .template_parameters(db),
         template.template_parameters(db),
         db,

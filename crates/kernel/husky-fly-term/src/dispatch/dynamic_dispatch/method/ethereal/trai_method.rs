@@ -72,7 +72,7 @@ impl HasFlyTraitMethodDispatch for EthTerm {
                         let TraitForTypeItemEtherealSignatureBuilder::Method(
                             method_signature_builder,
                         ) = impl_block_signature_builder
-                            .associated_item_ethereal_signature_template(db, ident_token.ident())?
+                            .associated_item_eth_template(db, ident_token.ident())?
                         else {
                             todo!()
                         };

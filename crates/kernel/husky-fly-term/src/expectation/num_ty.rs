@@ -2,15 +2,15 @@ use super::*;
 
 /// expect primitive number types
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct ExpectIntType;
+pub struct ExpectNumType;
 
-impl ExpectFlyTerm for ExpectIntType {
-    type Outcome = ExpectIntTypeOutcome;
+impl ExpectFlyTerm for ExpectNumType {
+    type Outcome = ExpectNumTypeOutcome;
 
     #[inline(always)]
     fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
         match outcome {
-            ExpectationOutcome::IntType(outcome) => outcome,
+            ExpectationOutcome::NumType(outcome) => outcome,
             _ => unreachable!(),
         }
     }
@@ -37,15 +37,15 @@ impl ExpectFlyTerm for ExpectIntType {
                 refined_ty_path: Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
                 ..
             } => state.set_ok(
-                ExpectIntTypeOutcome {
-                    placeless_int_ty: state.expectee(),
+                ExpectNumTypeOutcome {
+                    placeless_num_ty: state.expectee(),
                 },
                 smallvec![],
             ),
             FlyBaseTypeData::Hole(hole_kind, hole) => match hole_kind {
                 HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => state.set_ok(
-                    ExpectIntTypeOutcome {
-                        placeless_int_ty: hole.into(),
+                    ExpectNumTypeOutcome {
+                        placeless_num_ty: hole.into(),
                     },
                     smallvec![],
                 ),
@@ -60,14 +60,14 @@ impl ExpectFlyTerm for ExpectIntType {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct ExpectIntTypeOutcome {
+pub struct ExpectNumTypeOutcome {
     /// guaranteed to be placeless
-    placeless_int_ty: FlyTerm,
+    placeless_num_ty: FlyTerm,
 }
 
-impl ExpectIntTypeOutcome {
+impl ExpectNumTypeOutcome {
     /// guaranteed to be placeless
-    pub fn placeless_int_ty(&self) -> FlyTerm {
-        self.placeless_int_ty
+    pub fn placeless_num_ty(&self) -> FlyTerm {
+        self.placeless_num_ty
     }
 }

@@ -47,7 +47,7 @@ impl<'a> SemaExprEngine<'a> {
                     self.build_sema_expr_with_outcome(bound_expr, ExpectIntType);
                 match num_ty_outcome {
                     Some(num_ty_outcome) => {
-                        expected_frame_var_ty = Some(num_ty_outcome.placeless_num_ty())
+                        expected_frame_var_ty = Some(num_ty_outcome.placeless_int_ty())
                     }
                     None => (),
                 };

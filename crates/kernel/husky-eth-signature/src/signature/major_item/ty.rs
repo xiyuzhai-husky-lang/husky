@@ -66,19 +66,13 @@ impl TypeEthTemplate {
 impl HasEthTemplate for TypePath {
     type EthTemplate = TypeEthTemplate;
 
-    fn ethereal_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EthTemplate> {
-        ty_ethereal_signature_template(db, self)
+    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+        ty_eth_template(db, self)
     }
 }
 
 #[salsa::tracked(jar = EtherealSignatureJar)]
-fn ty_ethereal_signature_template(
-    db: &::salsa::Db,
-    path: TypePath,
-) -> EtherealSignatureResult<TypeEthTemplate> {
+fn ty_eth_template(db: &::salsa::Db, path: TypePath) -> EtherealSignatureResult<TypeEthTemplate> {
     Ok(match path.dec_template(db)? {
         TypeDecTemplate::Enum(dec_template) => {
             EnumTypeEthTemplate::from_declarative(db, path, dec_template)?.into()
@@ -130,7 +124,7 @@ impl HasPropsFieldEtherealSignature for TypePath {
         arguments: &[EthTerm],
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<PropsFieldEtherealSignature> {
-        self.ethereal_signature_template(db)?
+        self.eth_template(db)?
             .props_field_ethereal_signature(db, arguments, ident)
     }
 }
@@ -148,8 +142,8 @@ impl HasPropsFieldEtherealSignature for TypeEthTemplate {
             | TypeEthTemplate::UnitStruct(_)
             | TypeEthTemplate::TupleStruct(_)
             | TypeEthTemplate::Extern(_) => Nothing,
-            TypeEthTemplate::PropsStruct(ethereal_signature_template) => {
-                ethereal_signature_template.props_field_ethereal_signature(db, arguments, ident)
+            TypeEthTemplate::PropsStruct(eth_template) => {
+                eth_template.props_field_ethereal_signature(db, arguments, ident)
             }
             TypeEthTemplate::Structure(_) => todo!(),
             TypeEthTemplate::Union(_) => todo!(),

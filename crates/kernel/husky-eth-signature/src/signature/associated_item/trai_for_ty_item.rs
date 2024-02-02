@@ -61,16 +61,13 @@ pub enum TraitForTypeItemEtherealSignatureBuilder {
 impl HasEthTemplate for TraitForTypeItemPath {
     type EthTemplate = TraitForTypeItemEthTemplate;
 
-    fn ethereal_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EthTemplate> {
-        trai_for_ty_item_ethereal_signature_template(db, self)
+    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+        trai_for_ty_item_eth_template(db, self)
     }
 }
 
 // #[salsa::tracked(jar = EtherealSignatureJar)]
-fn trai_for_ty_item_ethereal_signature_template(
+fn trai_for_ty_item_eth_template(
     db: &::salsa::Db,
     path: TraitForTypeItemPath,
 ) -> EtherealSignatureResult<TraitForTypeItemEthTemplate> {

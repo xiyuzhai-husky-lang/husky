@@ -66,6 +66,8 @@ pub enum OriginalSemaExprTypeError {
     /// in husky, i8 ~ isize, u8 ~ usize cannot be used for bit operation
     #[error("no bit opr for integer")]
     BitOperationOnlyWorksForRawBitsOrCustom,
+    #[error("ExpectedNumTypeForIncrOrDecr")]
+    ExpectedNumTypeForIncrOrDecr,
 }
 
 impl OriginalError for OriginalSemaExprTypeError {

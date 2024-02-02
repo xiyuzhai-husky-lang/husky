@@ -89,15 +89,15 @@ pub(crate) fn ty_item_hir_decl(db: &::salsa::Db, path: TypeItemPath) -> Option<T
         }
     }
 }
-// TypeItemEthTemplate::AssociatedFn(ethereal_signature_template) => {
-//     Some(TypeAssociatedFnHirDecl::from_syn(path, ethereal_signature_template, db).into())
+// TypeItemEthTemplate::AssociatedFn(eth_template) => {
+//     Some(TypeAssociatedFnHirDecl::from_syn(path, eth_template, db).into())
 // }
 // TypeItemEthTemplate::MethodFn(syn_decl) => {
 //     Some(TypeMethodFnHirDecl::from_syn(path, syn_decl, db).into())
 // }
 // TypeItemEthTemplate::MethodFunction(_) => None,
-// TypeItemEthTemplate::MemoizedField(ethereal_signature_template) => {
-//     Some(TypeMemoizedFieldHirDecl::from_syn(path, ethereal_signature_template, db).into())
+// TypeItemEthTemplate::MemoizedField(eth_template) => {
+//     Some(TypeMemoizedFieldHirDecl::from_syn(path, eth_template, db).into())
 // }
 
 // TypeItemDecTemplate::AssociatedFn(template) => {

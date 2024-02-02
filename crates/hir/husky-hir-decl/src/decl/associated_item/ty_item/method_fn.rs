@@ -23,14 +23,8 @@ impl TypeMethodFnHirDecl {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =
             HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
-        let self_ty = HirType::from_eth(
-            path.ethereal_signature_template(db)
-                .unwrap()
-                .self_ty(db)
-                .unwrap(),
-            db,
-        )
-        .unwrap();
+        let self_ty =
+            HirType::from_eth(path.eth_template(db).unwrap().self_ty(db).unwrap(), db).unwrap();
         let self_value_parameter =
             HirEagerSelfValueParameter::from_syn(self_ty, syn_decl.self_value_parameter(db));
         let parenate_parameters =

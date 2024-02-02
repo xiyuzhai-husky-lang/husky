@@ -20,14 +20,11 @@ pub enum MajorItemEthTemplate {
 impl HasEthTemplate for MajorItemPath {
     type EthTemplate = MajorItemEthTemplate;
 
-    fn ethereal_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
         Ok(match self {
-            MajorItemPath::Type(path) => path.ethereal_signature_template(db)?.into(),
-            MajorItemPath::Trait(path) => path.ethereal_signature_template(db)?.into(),
-            MajorItemPath::Fugitive(path) => path.ethereal_signature_template(db)?.into(),
+            MajorItemPath::Type(path) => path.eth_template(db)?.into(),
+            MajorItemPath::Trait(path) => path.eth_template(db)?.into(),
+            MajorItemPath::Fugitive(path) => path.eth_template(db)?.into(),
         })
     }
 }
