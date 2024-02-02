@@ -21,9 +21,9 @@ husky-term-prelude.workspace = true
 husky-entity-kind.workspace = true
 husky-entity-path.workspace = true
 husky-coword.workspace = true
-husky-ethereal-term.workspace = true
+husky-eth-term.workspace = true
 husky-expr.workspace = true
-husky-fluffy-term.workspace = true
+husky-fly-term.workspace = true
 # semantics
 husky-sema-expr.workspace = true
 husky-sema-opr = { path = "../../semantics/husky-sema-opr" }

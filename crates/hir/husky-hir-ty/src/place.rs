@@ -1,5 +1,5 @@
 use either::*;
-use husky_fluffy_term::{FlyLifetime, FlyPlace};
+use husky_fly_term::{FlyLifetime, FlyPlace};
 use husky_stack_location::StackLocationIdx;
 
 use crate::lifetime::HirLifetime;

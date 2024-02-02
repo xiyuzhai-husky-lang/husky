@@ -1,5 +1,5 @@
 use super::*;
-use husky_fluffy_term::*;
+use husky_fly_term::*;
 use husky_sema_expr::{
     OriginalExprTermError, OriginalSemaExprDataError, OriginalSemaExprTypeError, SemaExprTermError,
 };

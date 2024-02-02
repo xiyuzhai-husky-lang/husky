@@ -1,6 +1,6 @@
 use super::*;
 use either::*;
-use husky_ethereal_signature::{HasEthTemplate, TypeVariantEthTemplate};
+use husky_eth_signature::{HasEthTemplate, TypeVariantEthTemplate};
 use husky_regional_token::IdentRegionalToken;
 use maybe_result::*;
 

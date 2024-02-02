@@ -1,8 +1,8 @@
 use super::*;
 use either::*;
-use husky_ethereal_signature::{FugitiveEthTemplate, HasEthTemplate, TypeVariantEthTemplate};
-use husky_ethereal_term::instantiation::EthTermInstantiate;
-use husky_fluffy_term::instantiation::{
+use husky_eth_signature::{FugitiveEthTemplate, HasEthTemplate, TypeVariantEthTemplate};
+use husky_eth_term::instantiation::EthTermInstantiate;
+use husky_fly_term::instantiation::{
     FlyInstantiate, FlyInstantiation, FlyInstantiationEnvironment, FlyTermSymbolResolution,
 };
 use husky_regional_token::IdentRegionalToken;

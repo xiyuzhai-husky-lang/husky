@@ -1,5 +1,5 @@
 use crate::{source_map::HirLazyExprSourceMap, *};
-use husky_fluffy_term::{FlyTerm, FlyTermBase, FlyTerms};
+use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
 use husky_hir_ty::HirType;
 use husky_sema_expr::{
     SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,

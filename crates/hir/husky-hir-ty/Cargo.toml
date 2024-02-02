@@ -18,9 +18,9 @@ husky-vfs.workspace = true
 husky-coword.workspace = true
 husky-entity-path.workspace = true
 husky-term-prelude.workspace = true
-husky-ethereal-term.workspace = true
-husky-ethereal-signature.workspace = true
-husky-fluffy-term.workspace = true
+husky-eth-term.workspace = true
+husky-eth-signature.workspace = true
+husky-fly-term.workspace = true
 husky-scope.workspace = true
 husky-stack-location = { path = "../../kernel/husky-stack-location" }
 husky-hir-prelude = { path = "../../hir/husky-hir-prelude" }

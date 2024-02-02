@@ -1,6 +1,6 @@
 use super::*;
 use husky_coword::RootBuiltinIdent;
-use husky_ethereal_term::make_route;
+use husky_eth_term::make_route;
 use husky_print_utils::msg_once;
 use thin_vec::thin_vec;
 

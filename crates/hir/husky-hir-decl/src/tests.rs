@@ -5,12 +5,12 @@ use crate::{db::*, *};
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
-use husky_declarative_signature::DecSignatureJar;
-use husky_declarative_term::DeclarativeTermJar;
+use husky_dec_signature::DecSignatureJar;
+use husky_dec_term::DeclarativeTermJar;
 use husky_entity_tree::{helpers::paths::module_item_paths, EntityTreeJar};
-use husky_ethereal_signature::EtherealSignatureJar;
-use husky_ethereal_term::EthTermJar;
-use husky_fluffy_term::FlyTermJar;
+use husky_eth_signature::EtherealSignatureJar;
+use husky_eth_term::EthTermJar;
+use husky_fly_term::FlyTermJar;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 use husky_sema_expr::SemaExprJar;
@@ -42,7 +42,7 @@ use husky_toml_token::TomlTokenJar;
     TermPreludeJar,
     DeclarativeTermJar,
     DecSignatureJar,
-    husky_declarative_ty::db::DeclarativeTypeJar,
+    husky_dec_ty::db::DeclarativeTypeJar,
     EthTermJar,
     EtherealSignatureJar,
     FlyTermJar,

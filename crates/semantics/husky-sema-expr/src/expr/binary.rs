@@ -5,7 +5,7 @@ mod comparison;
 mod pure_closed;
 mod shift;
 
-use husky_fluffy_term::{
+use husky_fly_term::{
     dispatch::dynamic_dispatch::binary_opr::SemaBinaryOprDynamicDispatch,
     signature::binary_opr::SemaBinaryOprFlySignature,
 };

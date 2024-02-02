@@ -1,5 +1,5 @@
 use super::*;
-use husky_ethereal_term::EthTerm;
+use husky_eth_term::EthTerm;
 use husky_text_protocol::position::FilePosition;
 
 #[derive(Debug, Clone)]

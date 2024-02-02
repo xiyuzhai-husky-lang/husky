@@ -1,6 +1,6 @@
 use super::*;
 use husky_coword::coword_menu;
-use husky_ethereal_signature::{
+use husky_eth_signature::{
     helpers::trai_for_ty::*, EtherealSignatureError, EtherealSignatureMaybeResult,
     EtherealSignatureResult, TraitForTypeAssociatedTypeEtherealSignature,
     TraitForTypeImplBlockEthTemplate, TraitForTypeImplBlockEtherealSignature,

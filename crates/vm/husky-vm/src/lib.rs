@@ -38,7 +38,7 @@
 // pub use husky_vm_interface::*;
 
 // use husky_coword::Ident;
-// use husky_ethereal_term::EthTerm;
+// use husky_eth_term::EthTerm;
 // use husky_standard_value::*;
 // use std::sync::Arc;
 

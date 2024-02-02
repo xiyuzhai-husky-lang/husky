@@ -1,7 +1,7 @@
 use super::*;
 
-use husky_ethereal_term::{EtherealRitchieParameter, EtherealRitchieRegularParameter};
-use husky_fluffy_term::FlyRitchieRegularParameter;
+use husky_eth_term::{EtherealRitchieParameter, EtherealRitchieRegularParameter};
+use husky_fly_term::FlyRitchieRegularParameter;
 use husky_term_prelude::{RitchieTypeKind, TermContract};
 
 #[salsa::interned(db = HirTypeDb, jar = HirTypeJar, constructor = new)]

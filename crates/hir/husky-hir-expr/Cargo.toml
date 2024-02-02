@@ -13,7 +13,7 @@ salsa.workspace = true
 enum-class.workspace = true
 # kernel
 husky-entity-path.workspace = true
-husky-fluffy-term.workspace = true
+husky-fly-term.workspace = true
 # protocols
 husky-entity-kind.workspace = true
 # syntax

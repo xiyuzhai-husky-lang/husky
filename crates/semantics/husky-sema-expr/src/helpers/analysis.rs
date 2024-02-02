@@ -1,4 +1,4 @@
-use husky_fluffy_term::dispatch::StaticDispatch;
+use husky_fly_term::dispatch::StaticDispatch;
 
 use super::*;
 

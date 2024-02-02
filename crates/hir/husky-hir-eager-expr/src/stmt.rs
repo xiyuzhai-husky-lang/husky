@@ -6,7 +6,7 @@ pub use self::loop_stmt::*;
 
 use crate::{coersion::HirEagerCoersion, *};
 use husky_expr::stmt::ConditionConversion;
-use husky_fluffy_term::ExpectationOutcome;
+use husky_fly_term::ExpectationOutcome;
 use husky_hir_ty::ritchie::HirEagerContract;
 use husky_sema_expr::{
     stmt::condition::SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange,

@@ -5,8 +5,8 @@ use crate::{
     },
     *,
 };
-use husky_ethereal_term::EthTerm;
-use husky_fluffy_term::{FlyTerm, FlyTermBase, FlyTerms};
+use husky_eth_term::EthTerm;
+use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
 use husky_hir_ty::HirType;
 use husky_sema_expr::{
     SemaExprArena, SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,

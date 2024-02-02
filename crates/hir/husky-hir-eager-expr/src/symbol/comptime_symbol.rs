@@ -1,7 +1,7 @@
 use super::*;
 use husky_coword::Ident;
-use husky_ethereal_term::EthTerm;
-use husky_fluffy_term::FlyTermBase;
+use husky_eth_term::EthTerm;
+use husky_fly_term::FlyTermBase;
 use husky_hir_ty::HirTemplateSymbol;
 use husky_sema_expr::SemaExprRegionData;
 use husky_syn_expr::{

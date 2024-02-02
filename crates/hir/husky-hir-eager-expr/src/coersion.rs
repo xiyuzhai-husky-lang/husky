@@ -1,6 +1,6 @@
 use crate::*;
 use either::*;
-use husky_fluffy_term::{deref::DerefFlyCoersion, trival::TrivialFlyCoersion, FlyCoersion};
+use husky_fly_term::{deref::DerefFlyCoersion, trival::TrivialFlyCoersion, FlyCoersion};
 use husky_hir_ty::{lifetime::HirLifetime, place::HirPlace};
 
 #[enum_class::from_variants]

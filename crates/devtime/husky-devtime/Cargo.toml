@@ -17,8 +17,8 @@ husky-trace = { path = "../../devtime/husky-trace" }
 # fs
 husky-vfs.workspace = true
 # kernel
-husky-ethereal-term.workspace = true
-husky-ethereal-signature.workspace = true
+husky-eth-term.workspace = true
+husky-eth-signature.workspace = true
 husky-coword.workspace = true
 husky-opr.workspace = true
 husky-entity-kind.workspace = true

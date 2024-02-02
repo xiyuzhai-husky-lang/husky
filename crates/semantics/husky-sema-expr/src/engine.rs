@@ -15,7 +15,7 @@ pub(crate) use self::utils::*;
 use self::symbol::*;
 use crate::*;
 use husky_entity_tree::helpers::TraitInUseItemsTable;
-use husky_ethereal_signature::HasEthTemplate;
+use husky_eth_signature::HasEthTemplate;
 use husky_print_utils::p;
 use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};
 use husky_stack_location::StackLocationRegistry;

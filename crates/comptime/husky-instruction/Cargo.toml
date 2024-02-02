@@ -17,8 +17,8 @@ husky-check-utils.workspace = true
 # husky-dev-linkage-table = { path = "../../comptime/husky-dev-linkage-table" }
 # kernel
 husky-entity-path.workspace = true
-husky-ethereal-term.workspace = true
-husky-ethereal-signature.workspace = true
+husky-eth-term.workspace = true
+husky-eth-signature.workspace = true
 husky-hir-ty.workspace = true
 husky-coword.workspace = true
 husky-standard-value = { workspace = true, features = ["constant"] }

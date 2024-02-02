@@ -2,7 +2,7 @@ mod explicit_application;
 mod list;
 mod prefix;
 
-use husky_fluffy_term::{
+use husky_fly_term::{
     instantiation::FlyInstantiation, signature::binary_opr::SemaBinaryOprFlySignature,
 };
 use husky_term_prelude::literal::{

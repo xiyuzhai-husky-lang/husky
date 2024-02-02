@@ -1,4 +1,4 @@
-use husky_fluffy_term::FlyLifetime;
+use husky_fly_term::FlyLifetime;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirLifetime {}

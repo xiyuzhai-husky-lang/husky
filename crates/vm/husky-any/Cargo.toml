@@ -13,8 +13,8 @@ cyclic-slice = { path = "../../abstractions/cyclic-slice" }
 vec-like.workspace = true
 # kernel
 husky-coword.workspace = true
-husky-ethereal-term.workspace = true
-husky-ethereal-signature.workspace = true
+husky-eth-term.workspace = true
+husky-eth-signature.workspace = true
 # devtime
 # vm
 husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
