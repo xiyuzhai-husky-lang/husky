@@ -13,7 +13,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 5,
                                         },
@@ -41,7 +41,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 5,
                                         },
@@ -76,7 +76,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 5,
                                         },
@@ -85,9 +85,9 @@
                                 },
                             ],
                         },
-                        trai: DeclarativeTerm(`core::marker::Copy`),
+                        trai: DecTerm(`core::marker::Copy`),
                         self_ty: DeclarativeSelfType::DerivedAny(
-                            SymbolDeclarativeTerm {
+                            SymbolDecTerm {
                                 toolchain: Toolchain {
                                     data: ToolchainData::Local {
                                         library_path: VirtualPath {
@@ -106,7 +106,7 @@
                                         },
                                     ),
                                 ),
-                                index: DeclarativeTermSymbolIndex(
+                                index: DecTermSymbolIndex(
                                     SelfType,
                                 ),
                             },

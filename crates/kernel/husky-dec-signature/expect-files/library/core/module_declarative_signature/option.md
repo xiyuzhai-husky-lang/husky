@@ -14,7 +14,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 10,
                                             },
@@ -23,7 +23,7 @@
                                     },
                                 ],
                             },
-                            self_ty: DeclarativeTerm(`core::option::Option t`),
+                            self_ty: DecTerm(`core::option::Option t`),
                         },
                     ),
                 ),

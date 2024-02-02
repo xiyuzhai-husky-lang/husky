@@ -4,15 +4,15 @@ use super::*;
 #[salsa::debug_with_db]
 pub struct DeclarativeRitchieVariadicParameter {
     contract: TermContract,
-    ty: DeclarativeTerm,
+    ty: DecTerm,
 }
 
 impl DeclarativeRitchieVariadicParameter {
-    pub fn new(contract: TermContract, ty: DeclarativeTerm) -> Self {
+    pub fn new(contract: TermContract, ty: DecTerm) -> Self {
         Self { contract, ty }
     }
 
-    pub(crate) fn substitute_ty(self, f: impl FnOnce(DeclarativeTerm) -> DeclarativeTerm) -> Self {
+    pub(crate) fn substitute_ty(self, f: impl FnOnce(DecTerm) -> DecTerm) -> Self {
         Self {
             contract: self.contract,
             ty: f(self.ty),
@@ -23,7 +23,7 @@ impl DeclarativeRitchieVariadicParameter {
         self.contract
     }
 
-    pub fn ty(&self) -> DeclarativeTerm {
+    pub fn ty(&self) -> DecTerm {
         self.ty
     }
 
@@ -32,7 +32,7 @@ impl DeclarativeRitchieVariadicParameter {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &mut DeclarativeTermShowContext,
+        ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
         self.ty.show_with_db_fmt(f, db, ctx)
     }

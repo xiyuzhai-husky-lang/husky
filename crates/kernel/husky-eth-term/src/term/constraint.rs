@@ -17,7 +17,7 @@ fn term_trait_constraint_size_works() {
 impl TraitConstraintEthTerm {
     pub(crate) fn from_declarative(
         _db: &::salsa::Db,
-        _valid_term: TraitConstraintDeclarativeTerm,
+        _valid_term: TraitConstraintDecTerm,
         _term_ty_expectation: TermTypeExpectation,
     ) -> EthTermResult<Self> {
         todo!()

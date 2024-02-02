@@ -13,14 +13,14 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_ty: DeclarativeTerm(`syntax_errors::ast::A`),
+                            self_ty: DecTerm(`syntax_errors::ast::A`),
                             fields: [],
-                            instance_constructor_ritchie_ty: RitchieDeclarativeTerm {
+                            instance_constructor_ritchie_ty: RitchieDecTerm {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
                                 params: [],
-                                return_ty: DeclarativeTerm(`syntax_errors::ast::A`),
+                                return_ty: DecTerm(`syntax_errors::ast::A`),
                             },
                         },
                     ),
@@ -53,7 +53,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`syntax_errors::ast::A`),
+                        ty: DecTerm(`syntax_errors::ast::A`),
                     },
                 ),
             ),

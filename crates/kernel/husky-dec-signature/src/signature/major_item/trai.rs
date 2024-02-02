@@ -19,7 +19,7 @@ impl TraitDecTemplate {
                 .symbol()
                 .index(db)
                 .inner(),
-            DeclarativeTermSymbolIndexImpl::SelfType
+            DecTermSymbolIndexImpl::SelfType
         ));
         &template_parameters[..template_parameters.len() - 1]
     }

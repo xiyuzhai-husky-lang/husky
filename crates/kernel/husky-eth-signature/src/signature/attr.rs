@@ -10,6 +10,7 @@ use super::*;
 #[non_exhaustive]
 pub enum AttrEthTemplate {
     Derive(DeriveAttrEthTemplate),
+    Effect,
 }
 
 impl HasEthTemplate for AttrItemPath {

@@ -14,19 +14,19 @@ use std::fmt::Debug;
 /// then apply function to the result,
 ///
 /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-#[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
-pub struct ApplicationDeclarativeTerm {
-    pub function: DeclarativeTerm,
-    pub argument: DeclarativeTerm,
+#[salsa::interned(db = DecTermDb, jar = DecTermJar)]
+pub struct ApplicationDecTerm {
+    pub function: DecTerm,
+    pub argument: DecTerm,
 }
 
-impl ApplicationDeclarativeTerm {
+impl ApplicationDecTerm {
     #[inline(never)]
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &mut DeclarativeTermShowContext,
+        ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
         self.function(db).show_with_db_fmt(f, db, ctx)?;
         f.write_str(" ")?;
@@ -34,7 +34,7 @@ impl ApplicationDeclarativeTerm {
     }
 }
 
-impl salsa::DisplayWithDb for ApplicationDeclarativeTerm {
+impl salsa::DisplayWithDb for ApplicationDecTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -44,8 +44,8 @@ impl salsa::DisplayWithDb for ApplicationDeclarativeTerm {
     }
 }
 
-impl DeclarativeTermRewriteCopy for ApplicationDeclarativeTerm {
-    fn substitute_copy(self, db: &::salsa::Db, substitution: &DeclarativeTermSubstitution) -> Self
+impl DecTermRewriteCopy for ApplicationDecTerm {
+    fn substitute_copy(self, db: &::salsa::Db, substitution: &DecTermSubstitution) -> Self
     where
         Self: Copy,
     {
@@ -56,11 +56,11 @@ impl DeclarativeTermRewriteCopy for ApplicationDeclarativeTerm {
         if old_m == m && old_n == n {
             return self;
         }
-        ApplicationDeclarativeTerm::new(db, m, n)
+        ApplicationDecTerm::new(db, m, n)
     }
 }
 
-impl std::fmt::Display for ApplicationDeclarativeTerm {
+impl std::fmt::Display for ApplicationDecTerm {
     fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }

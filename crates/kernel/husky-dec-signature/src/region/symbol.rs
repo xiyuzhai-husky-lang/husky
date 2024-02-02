@@ -6,22 +6,22 @@ use super::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct SymbolDeclarativeTermRegion {
+pub struct SymbolDecTermRegion {
     symbol_registry: TermSymbolRegistry,
     symbol_signatures: SymbolOrderedMap<SymbolSignature>,
-    self_ty: Option<DeclarativeTerm>,
-    self_value: Option<SymbolDeclarativeTerm>,
-    self_lifetime: Option<SymbolDeclarativeTerm>,
-    self_place: Option<SymbolDeclarativeTerm>,
-    implicit_template_parameter_symbols: SmallVec<[SymbolDeclarativeTerm; 1]>,
+    self_ty: Option<DecTerm>,
+    self_value: Option<SymbolDecTerm>,
+    self_lifetime: Option<SymbolDecTerm>,
+    self_place: Option<SymbolDecTerm>,
+    implicit_template_parameter_symbols: SmallVec<[SymbolDecTerm; 1]>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SymbolSignature {
     kind: SymbolSignatureKind,
-    term_symbol: Option<SymbolDeclarativeTerm>,
+    term_symbol: Option<SymbolDecTerm>,
     modifier: SymbolModifier,
-    ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
+    ty: DecTermSymbolTypeResult<DecTerm>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -36,7 +36,7 @@ impl SymbolSignature {
         self.kind
     }
 
-    pub fn term_symbol(self) -> Option<SymbolDeclarativeTerm> {
+    pub fn term_symbol(self) -> Option<SymbolDecTerm> {
         self.term_symbol
     }
 
@@ -44,21 +44,21 @@ impl SymbolSignature {
         self.modifier
     }
 
-    pub fn ty(&self) -> DeclarativeTermSymbolTypeResult<DeclarativeTerm> {
+    pub fn ty(&self) -> DecTermSymbolTypeResult<DecTerm> {
         self.ty
     }
 }
 
-impl SymbolDeclarativeTermRegion {
-    pub fn self_lifetime(&self) -> Option<SymbolDeclarativeTerm> {
+impl SymbolDecTermRegion {
+    pub fn self_lifetime(&self) -> Option<SymbolDecTerm> {
         self.self_lifetime
     }
 
-    pub fn self_place(&self) -> Option<SymbolDeclarativeTerm> {
+    pub fn self_place(&self) -> Option<SymbolDecTerm> {
         self.self_place
     }
 
-    pub fn implicit_template_parameter_symbols(&self) -> &[SymbolDeclarativeTerm] {
+    pub fn implicit_template_parameter_symbols(&self) -> &[SymbolDecTerm] {
         &self.implicit_template_parameter_symbols
     }
 
@@ -71,8 +71,8 @@ impl SymbolDeclarativeTermRegion {
         &mut self,
         db: &::salsa::Db,
         idx: CurrentSynSymbolIdx,
-        ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
-        term_symbol: SymbolDeclarativeTerm,
+        ty: DecTermSymbolTypeResult<DecTerm>,
+        term_symbol: SymbolDecTerm,
     ) {
         self.add_new_current_syn_symbol_signature(
             db,
@@ -92,7 +92,7 @@ impl SymbolDeclarativeTermRegion {
         db: &::salsa::Db,
         current_syn_symbol: CurrentSynSymbolIdx,
         modifier: SymbolModifier,
-        ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
+        ty: DecTermSymbolTypeResult<DecTerm>,
     ) {
         let symbol = match modifier {
             SymbolModifier::Const => todo!(),
@@ -115,7 +115,7 @@ impl SymbolDeclarativeTermRegion {
         &mut self,
         db: &::salsa::Db,
         current_syn_symbol: CurrentSynSymbolIdx,
-        ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
+        ty: DecTermSymbolTypeResult<DecTerm>,
     ) {
         self.add_new_current_syn_symbol_signature(
             db,
@@ -141,15 +141,15 @@ impl SymbolDeclarativeTermRegion {
     }
 }
 
-impl SymbolDeclarativeTermRegion {
+impl SymbolDecTermRegion {
     /// will initialize `inherited_syn_symbol_terms`;
     /// but will leave current_syn_symbol_terms unintialized;
     /// `self_ty_term` is set to that of parent if parent exists, otherwise none;
     /// `self_value_term` is set to that of parent if parent exists, otherwise none
     pub(crate) fn new(
-        parent: Option<&SymbolDeclarativeTermRegion>,
+        parent: Option<&SymbolDecTermRegion>,
         syn_expr_region_data: &SynExprRegionData,
-        declarative_term_menu: &DeclarativeTermMenu,
+        declarative_term_menu: &DecTermMenu,
     ) -> Self {
         let registry = parent.map_or(Default::default(), |parent| parent.symbol_registry.clone());
         let implicit_self_lifetime = syn_expr_region_data
@@ -217,7 +217,7 @@ impl SymbolDeclarativeTermRegion {
         }
         if symbol_region.allow_self_value().to_bool() && self.self_value.is_none() {
             self.self_value = Some(
-                SymbolDeclarativeTerm::new_self_value(
+                SymbolDecTerm::new_self_value(
                     db,
                     toolchain,
                     &mut self.symbol_registry,
@@ -227,12 +227,8 @@ impl SymbolDeclarativeTermRegion {
             )
         }
     }
-    fn new_self_ty_symbol(
-        &mut self,
-        toolchain: Toolchain,
-        db: &::salsa::Db,
-    ) -> SymbolDeclarativeTerm {
-        let symbol = SymbolDeclarativeTerm::new_self_ty(db, toolchain, &mut self.symbol_registry);
+    fn new_self_ty_symbol(&mut self, toolchain: Toolchain, db: &::salsa::Db) -> SymbolDecTerm {
+        let symbol = SymbolDecTerm::new_self_ty(db, toolchain, &mut self.symbol_registry);
         self.implicit_template_parameter_symbols.push(symbol);
         symbol
     }
@@ -247,8 +243,8 @@ impl SymbolDeclarativeTermRegion {
     /// ```
     ///
     /// then self type term is `Animal T`
-    fn ty_defn_self_ty_term(&self, db: &::salsa::Db, ty_path: TypePath) -> DeclarativeTerm {
-        let mut self_ty: DeclarativeTerm = ItemPathDeclarativeTerm::Type(ty_path.into()).into();
+    fn ty_defn_self_ty_term(&self, db: &::salsa::Db, ty_path: TypePath) -> DecTerm {
+        let mut self_ty: DecTerm = ItemPathDecTerm::Type(ty_path.into()).into();
         for current_syn_symbol_signature in self
             .symbol_signatures
             .current_syn_symbol_map()
@@ -269,16 +265,16 @@ impl SymbolDeclarativeTermRegion {
         self_ty
     }
 
-    pub fn self_ty(&self) -> Option<DeclarativeTerm> {
+    pub fn self_ty(&self) -> Option<DecTerm> {
         self.self_ty
     }
 
-    pub(crate) fn set_self_ty(&mut self, self_ty: Option<DeclarativeTerm>) {
+    pub(crate) fn set_self_ty(&mut self, self_ty: Option<DecTerm>) {
         debug_assert!(self.self_ty.is_none());
         self.self_ty = self_ty
     }
 
-    pub fn self_value(&self) -> Option<SymbolDeclarativeTerm> {
+    pub fn self_value(&self) -> Option<SymbolDecTerm> {
         self.self_value
     }
 

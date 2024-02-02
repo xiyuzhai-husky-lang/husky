@@ -3,11 +3,11 @@ use husky_syn_expr::SynExprRegion;
 use crate::*;
 
 pub trait DecSignatureDb {
-    fn declarative_term_region(&self, syn_expr_region: SynExprRegion) -> &DeclarativeTermRegion;
+    fn declarative_term_region(&self, syn_expr_region: SynExprRegion) -> &DecTermRegion;
 }
 
 impl DecSignatureDb for ::salsa::Db {
-    fn declarative_term_region(&self, syn_expr_region: SynExprRegion) -> &DeclarativeTermRegion {
+    fn declarative_term_region(&self, syn_expr_region: SynExprRegion) -> &DecTermRegion {
         declarative_term_region(self, syn_expr_region)
     }
 }

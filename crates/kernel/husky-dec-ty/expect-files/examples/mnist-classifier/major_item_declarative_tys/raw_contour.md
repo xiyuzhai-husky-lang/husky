@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
     (
@@ -16,7 +16,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
     (
@@ -26,7 +26,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`fn((core::raw_bits::r32, core::num::i32) -> core::raw_bits::r32`),
+            DecTerm(`fn((core::raw_bits::r32, core::num::i32) -> core::raw_bits::r32`),
         ),
     ),
     (
@@ -36,7 +36,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`fn((core::raw_bits::r32, core::num::i32) -> core::raw_bits::r32`),
+            DecTerm(`fn((core::raw_bits::r32, core::num::i32) -> core::raw_bits::r32`),
         ),
     ),
     (
@@ -46,7 +46,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`fn((core::raw_bits::r32, core::num::i32) -> core::raw_bits::r32`),
+            DecTerm(`fn((core::raw_bits::r32, core::num::i32) -> core::raw_bits::r32`),
         ),
     ),
     (
@@ -56,7 +56,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`fn((core::raw_bits::r32, core::raw_bits::r32, core::num::i32) -> mnist_classifier::raw_contour::Direction`),
+            DecTerm(`fn((core::raw_bits::r32, core::raw_bits::r32, core::num::i32) -> mnist_classifier::raw_contour::Direction`),
         ),
     ),
     (
@@ -66,7 +66,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`fn((mnist_classifier::raw_contour::Direction, mnist_classifier::raw_contour::Direction) -> core::num::i32`),
+            DecTerm(`fn((mnist_classifier::raw_contour::Direction, mnist_classifier::raw_contour::Direction) -> core::num::i32`),
         ),
     ),
     (
@@ -76,7 +76,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`fn((core::raw_bits::r32, core::raw_bits::r32, core::num::i32, mnist_classifier::raw_contour::Direction) -> mnist_classifier::raw_contour::Direction`),
+            DecTerm(`fn((core::raw_bits::r32, core::raw_bits::r32, core::num::i32, mnist_classifier::raw_contour::Direction) -> mnist_classifier::raw_contour::Direction`),
         ),
     ),
     (
@@ -86,7 +86,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
     (
@@ -96,7 +96,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`fn(([] mnist_classifier::geom2d::Point2d) -> mnist_classifier::geom2d::Point2d`),
+            DecTerm(`fn(([] mnist_classifier::geom2d::Point2d) -> mnist_classifier::geom2d::Point2d`),
         ),
     ),
     (
@@ -106,7 +106,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`fn((~ mnist_classifier::connected_component::ConnectedComponent) -> [] mnist_classifier::raw_contour::RawContour`),
+            DecTerm(`fn((~ mnist_classifier::connected_component::ConnectedComponent) -> [] mnist_classifier::raw_contour::RawContour`),
         ),
     ),
 ]

@@ -304,7 +304,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`core::num::i8`),
+                        ty: DecTerm(`core::num::i8`),
                     },
                 ),
             ),
@@ -326,20 +326,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::i8`),
+                                ty: DecTerm(`core::num::i8`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::i8`),
+                            self_ty: DecTerm(`core::num::i8`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::i8`),
+                                ty: DecTerm(`core::num::i8`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i8`),
+                            return_ty: DecTerm(`core::num::i8`),
                         },
                     ),
                 ),
@@ -362,27 +362,27 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::i8`),
+                                ty: DecTerm(`core::num::i8`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::i8`),
+                            self_ty: DecTerm(`core::num::i8`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::i8`),
+                                ty: DecTerm(`core::num::i8`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i8`),
+                                            ty: DecTerm(`core::num::i8`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i8`),
+                            return_ty: DecTerm(`core::num::i8`),
                         },
                     ),
                 ),
@@ -411,9 +411,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::ops::Add core::num::i8`),
+                        trai: DecTerm(`core::ops::Add core::num::i8`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::num::i8`),
+                            DecTerm(`core::num::i8`),
                         ),
                     },
                 ),
@@ -452,25 +452,25 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`core::num::i8`),
+                            self_ty: DecTerm(`core::num::i8`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::i8`),
+                                ty: DecTerm(`core::num::i8`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i8`),
+                                            ty: DecTerm(`core::num::i8`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i8`),
+                            return_ty: DecTerm(`core::num::i8`),
                         },
                     ),
                 ),
@@ -502,7 +502,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`core::num::i16`),
+                        ty: DecTerm(`core::num::i16`),
                     },
                 ),
             ),
@@ -524,20 +524,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::i16`),
+                                ty: DecTerm(`core::num::i16`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::i16`),
+                            self_ty: DecTerm(`core::num::i16`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::i16`),
+                                ty: DecTerm(`core::num::i16`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i16`),
+                            return_ty: DecTerm(`core::num::i16`),
                         },
                     ),
                 ),
@@ -560,27 +560,27 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::i16`),
+                                ty: DecTerm(`core::num::i16`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::i16`),
+                            self_ty: DecTerm(`core::num::i16`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::i16`),
+                                ty: DecTerm(`core::num::i16`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i16`),
+                                            ty: DecTerm(`core::num::i16`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i16`),
+                            return_ty: DecTerm(`core::num::i16`),
                         },
                     ),
                 ),
@@ -609,9 +609,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::ops::Add core::num::i32`),
+                        trai: DecTerm(`core::ops::Add core::num::i32`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::num::i16`),
+                            DecTerm(`core::num::i16`),
                         ),
                     },
                 ),
@@ -650,25 +650,25 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`core::num::i16`),
+                            self_ty: DecTerm(`core::num::i16`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::i16`),
+                                ty: DecTerm(`core::num::i16`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i16`),
+                            return_ty: DecTerm(`core::num::i16`),
                         },
                     ),
                 ),
@@ -700,7 +700,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`core::num::i32`),
+                        ty: DecTerm(`core::num::i32`),
                     },
                 ),
             ),
@@ -722,20 +722,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::i32`),
+                                ty: DecTerm(`core::num::i32`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::i32`),
+                            self_ty: DecTerm(`core::num::i32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::i32`),
+                                ty: DecTerm(`core::num::i32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i32`),
+                            return_ty: DecTerm(`core::num::i32`),
                         },
                     ),
                 ),
@@ -758,27 +758,27 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::i32`),
+                                ty: DecTerm(`core::num::i32`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::i32`),
+                            self_ty: DecTerm(`core::num::i32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::i32`),
+                                ty: DecTerm(`core::num::i32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i32`),
+                            return_ty: DecTerm(`core::num::i32`),
                         },
                     ),
                 ),
@@ -801,27 +801,27 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::i32`),
+                                ty: DecTerm(`core::num::i32`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::i32`),
+                            self_ty: DecTerm(`core::num::i32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::i32`),
+                                ty: DecTerm(`core::num::i32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i32`),
+                            return_ty: DecTerm(`core::num::i32`),
                         },
                     ),
                 ),
@@ -850,9 +850,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::ops::Add core::num::i32`),
+                        trai: DecTerm(`core::ops::Add core::num::i32`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::num::i32`),
+                            DecTerm(`core::num::i32`),
                         ),
                     },
                 ),
@@ -891,25 +891,25 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`core::num::i32`),
+                            self_ty: DecTerm(`core::num::i32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::i32`),
+                                ty: DecTerm(`core::num::i32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i32`),
+                            return_ty: DecTerm(`core::num::i32`),
                         },
                     ),
                 ),
@@ -941,7 +941,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`core::num::i64`),
+                        ty: DecTerm(`core::num::i64`),
                     },
                 ),
             ),
@@ -963,20 +963,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::i64`),
+                                ty: DecTerm(`core::num::i64`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::i64`),
+                            self_ty: DecTerm(`core::num::i64`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::i64`),
+                                ty: DecTerm(`core::num::i64`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i64`),
+                            return_ty: DecTerm(`core::num::i64`),
                         },
                     ),
                 ),
@@ -1005,9 +1005,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::ops::Add core::num::i64`),
+                        trai: DecTerm(`core::ops::Add core::num::i64`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::num::i64`),
+                            DecTerm(`core::num::i64`),
                         ),
                     },
                 ),
@@ -1046,25 +1046,25 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`core::num::i64`),
+                            self_ty: DecTerm(`core::num::i64`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::i64`),
+                                ty: DecTerm(`core::num::i64`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i64`),
+                                            ty: DecTerm(`core::num::i64`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i64`),
+                            return_ty: DecTerm(`core::num::i64`),
                         },
                     ),
                 ),
@@ -1096,7 +1096,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`core::num::i128`),
+                        ty: DecTerm(`core::num::i128`),
                     },
                 ),
             ),
@@ -1118,20 +1118,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::i128`),
+                                ty: DecTerm(`core::num::i128`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::i128`),
+                            self_ty: DecTerm(`core::num::i128`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::i128`),
+                                ty: DecTerm(`core::num::i128`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i128`),
+                            return_ty: DecTerm(`core::num::i128`),
                         },
                     ),
                 ),
@@ -1160,9 +1160,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::ops::Add core::num::i128`),
+                        trai: DecTerm(`core::ops::Add core::num::i128`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::num::i128`),
+                            DecTerm(`core::num::i128`),
                         ),
                     },
                 ),
@@ -1201,25 +1201,25 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`core::num::i128`),
+                            self_ty: DecTerm(`core::num::i128`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::i128`),
+                                ty: DecTerm(`core::num::i128`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i128`),
+                                            ty: DecTerm(`core::num::i128`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i128`),
+                            return_ty: DecTerm(`core::num::i128`),
                         },
                     ),
                 ),
@@ -1251,7 +1251,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`core::num::isize`),
+                        ty: DecTerm(`core::num::isize`),
                     },
                 ),
             ),
@@ -1273,20 +1273,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::isize`),
+                                ty: DecTerm(`core::num::isize`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::isize`),
+                            self_ty: DecTerm(`core::num::isize`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::isize`),
+                                ty: DecTerm(`core::num::isize`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::isize`),
+                            return_ty: DecTerm(`core::num::isize`),
                         },
                     ),
                 ),
@@ -1315,9 +1315,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::ops::Add core::num::isize`),
+                        trai: DecTerm(`core::ops::Add core::num::isize`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::num::isize`),
+                            DecTerm(`core::num::isize`),
                         ),
                     },
                 ),
@@ -1356,25 +1356,25 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`core::num::isize`),
+                            self_ty: DecTerm(`core::num::isize`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::isize`),
+                                ty: DecTerm(`core::num::isize`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::isize`),
+                                            ty: DecTerm(`core::num::isize`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::isize`),
+                            return_ty: DecTerm(`core::num::isize`),
                         },
                     ),
                 ),
@@ -1406,7 +1406,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`core::num::u8`),
+                        ty: DecTerm(`core::num::u8`),
                     },
                 ),
             ),
@@ -1428,20 +1428,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::u8`),
+                                ty: DecTerm(`core::num::u8`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::u8`),
+                            self_ty: DecTerm(`core::num::u8`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::u8`),
+                                ty: DecTerm(`core::num::u8`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::u8`),
+                            return_ty: DecTerm(`core::num::u8`),
                         },
                     ),
                 ),
@@ -1470,9 +1470,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::ops::Add core::num::u8`),
+                        trai: DecTerm(`core::ops::Add core::num::u8`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::num::u8`),
+                            DecTerm(`core::num::u8`),
                         ),
                     },
                 ),
@@ -1511,25 +1511,25 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`core::num::u8`),
+                            self_ty: DecTerm(`core::num::u8`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::u8`),
+                                ty: DecTerm(`core::num::u8`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::u8`),
+                                            ty: DecTerm(`core::num::u8`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::u8`),
+                            return_ty: DecTerm(`core::num::u8`),
                         },
                     ),
                 ),
@@ -1561,7 +1561,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`core::num::u16`),
+                        ty: DecTerm(`core::num::u16`),
                     },
                 ),
             ),
@@ -1583,20 +1583,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::u16`),
+                                ty: DecTerm(`core::num::u16`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::u16`),
+                            self_ty: DecTerm(`core::num::u16`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::u16`),
+                                ty: DecTerm(`core::num::u16`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::u16`),
+                            return_ty: DecTerm(`core::num::u16`),
                         },
                     ),
                 ),
@@ -1625,9 +1625,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::ops::Add core::num::u16`),
+                        trai: DecTerm(`core::ops::Add core::num::u16`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::num::u16`),
+                            DecTerm(`core::num::u16`),
                         ),
                     },
                 ),
@@ -1666,25 +1666,25 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`core::num::u16`),
+                            self_ty: DecTerm(`core::num::u16`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::u16`),
+                                ty: DecTerm(`core::num::u16`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::u16`),
+                                            ty: DecTerm(`core::num::u16`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::u16`),
+                            return_ty: DecTerm(`core::num::u16`),
                         },
                     ),
                 ),
@@ -1716,7 +1716,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`core::num::u32`),
+                        ty: DecTerm(`core::num::u32`),
                     },
                 ),
             ),
@@ -1738,20 +1738,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::u32`),
+                                ty: DecTerm(`core::num::u32`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::u32`),
+                            self_ty: DecTerm(`core::num::u32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::u32`),
+                                ty: DecTerm(`core::num::u32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::u32`),
+                            return_ty: DecTerm(`core::num::u32`),
                         },
                     ),
                 ),
@@ -1780,9 +1780,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::ops::Add core::num::u32`),
+                        trai: DecTerm(`core::ops::Add core::num::u32`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::num::u32`),
+                            DecTerm(`core::num::u32`),
                         ),
                     },
                 ),
@@ -1821,25 +1821,25 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`core::num::u32`),
+                            self_ty: DecTerm(`core::num::u32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::u32`),
+                                ty: DecTerm(`core::num::u32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::u32`),
+                                            ty: DecTerm(`core::num::u32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::u32`),
+                            return_ty: DecTerm(`core::num::u32`),
                         },
                     ),
                 ),
@@ -1871,7 +1871,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`core::num::u64`),
+                        ty: DecTerm(`core::num::u64`),
                     },
                 ),
             ),
@@ -1893,20 +1893,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::u64`),
+                                ty: DecTerm(`core::num::u64`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::u64`),
+                            self_ty: DecTerm(`core::num::u64`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::u64`),
+                                ty: DecTerm(`core::num::u64`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::u64`),
+                            return_ty: DecTerm(`core::num::u64`),
                         },
                     ),
                 ),
@@ -1935,9 +1935,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::ops::Add core::num::u64`),
+                        trai: DecTerm(`core::ops::Add core::num::u64`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::num::u64`),
+                            DecTerm(`core::num::u64`),
                         ),
                     },
                 ),
@@ -1976,25 +1976,25 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`core::num::u64`),
+                            self_ty: DecTerm(`core::num::u64`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::u64`),
+                                ty: DecTerm(`core::num::u64`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::u64`),
+                                            ty: DecTerm(`core::num::u64`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::u64`),
+                            return_ty: DecTerm(`core::num::u64`),
                         },
                     ),
                 ),
@@ -2026,7 +2026,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`core::num::u128`),
+                        ty: DecTerm(`core::num::u128`),
                     },
                 ),
             ),
@@ -2048,20 +2048,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::u128`),
+                                ty: DecTerm(`core::num::u128`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::u128`),
+                            self_ty: DecTerm(`core::num::u128`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::u128`),
+                                ty: DecTerm(`core::num::u128`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::u128`),
+                            return_ty: DecTerm(`core::num::u128`),
                         },
                     ),
                 ),
@@ -2090,9 +2090,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::ops::Add core::num::u128`),
+                        trai: DecTerm(`core::ops::Add core::num::u128`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::num::u128`),
+                            DecTerm(`core::num::u128`),
                         ),
                     },
                 ),
@@ -2131,25 +2131,25 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`core::num::u128`),
+                            self_ty: DecTerm(`core::num::u128`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::u128`),
+                                ty: DecTerm(`core::num::u128`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::u128`),
+                                            ty: DecTerm(`core::num::u128`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::u128`),
+                            return_ty: DecTerm(`core::num::u128`),
                         },
                     ),
                 ),
@@ -2181,7 +2181,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`core::num::usize`),
+                        ty: DecTerm(`core::num::usize`),
                     },
                 ),
             ),
@@ -2203,20 +2203,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::usize`),
+                                ty: DecTerm(`core::num::usize`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::usize`),
+                            self_ty: DecTerm(`core::num::usize`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::usize`),
+                                ty: DecTerm(`core::num::usize`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::usize`),
+                            return_ty: DecTerm(`core::num::usize`),
                         },
                     ),
                 ),
@@ -2245,9 +2245,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::ops::Add core::num::usize`),
+                        trai: DecTerm(`core::ops::Add core::num::usize`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::num::usize`),
+                            DecTerm(`core::num::usize`),
                         ),
                     },
                 ),
@@ -2286,25 +2286,25 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`core::num::usize`),
+                            self_ty: DecTerm(`core::num::usize`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::usize`),
+                                ty: DecTerm(`core::num::usize`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::usize`),
+                                            ty: DecTerm(`core::num::usize`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::usize`),
+                            return_ty: DecTerm(`core::num::usize`),
                         },
                     ),
                 ),
@@ -2336,7 +2336,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`core::num::f32`),
+                        ty: DecTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -2358,20 +2358,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            self_ty: DecTerm(`core::num::f32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -2394,20 +2394,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            self_ty: DecTerm(`core::num::f32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -2430,27 +2430,27 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            self_ty: DecTerm(`core::num::f32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::f32`),
+                                            ty: DecTerm(`core::num::f32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -2473,27 +2473,27 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            self_ty: DecTerm(`core::num::f32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::f32`),
+                                            ty: DecTerm(`core::num::f32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -2516,20 +2516,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            self_ty: DecTerm(`core::num::f32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i32`),
+                            return_ty: DecTerm(`core::num::i32`),
                         },
                     ),
                 ),
@@ -2552,20 +2552,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            self_ty: DecTerm(`core::num::f32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -2588,20 +2588,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            self_ty: DecTerm(`core::num::f32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -2624,20 +2624,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            self_ty: DecTerm(`core::num::f32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -2666,9 +2666,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::ops::Add core::num::f32`),
+                        trai: DecTerm(`core::ops::Add core::num::f32`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::num::f32`),
+                            DecTerm(`core::num::f32`),
                         ),
                     },
                 ),
@@ -2707,25 +2707,25 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            self_ty: DecTerm(`core::num::f32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::f32`),
+                                ty: DecTerm(`core::num::f32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::f32`),
+                                            ty: DecTerm(`core::num::f32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -2757,7 +2757,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`core::num::f64`),
+                        ty: DecTerm(`core::num::f64`),
                     },
                 ),
             ),
@@ -2779,20 +2779,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::f64`),
+                                ty: DecTerm(`core::num::f64`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::f64`),
+                            self_ty: DecTerm(`core::num::f64`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::f64`),
+                                ty: DecTerm(`core::num::f64`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::f64`),
+                            return_ty: DecTerm(`core::num::f64`),
                         },
                     ),
                 ),
@@ -2815,20 +2815,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::num::f64`),
+                                ty: DecTerm(`core::num::f64`),
                             },
-                            self_ty: DeclarativeTerm(`core::num::f64`),
+                            self_ty: DecTerm(`core::num::f64`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::f64`),
+                                ty: DecTerm(`core::num::f64`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::f64`),
+                            return_ty: DecTerm(`core::num::f64`),
                         },
                     ),
                 ),
@@ -2857,9 +2857,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::ops::Add core::num::f64`),
+                        trai: DecTerm(`core::ops::Add core::num::f64`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::num::f64`),
+                            DecTerm(`core::num::f64`),
                         ),
                     },
                 ),
@@ -2898,25 +2898,25 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`core::num::f64`),
+                            self_ty: DecTerm(`core::num::f64`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::num::f64`),
+                                ty: DecTerm(`core::num::f64`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::f64`),
+                                            ty: DecTerm(`core::num::f64`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::f64`),
+                            return_ty: DecTerm(`core::num::f64`),
                         },
                     ),
                 ),

@@ -1,6 +1,6 @@
 use crate::*;
 use husky_dec_signature::DecSignatureError;
-use husky_dec_term::term::DeclarativeTermSymbolTypeErrorKind;
+use husky_dec_term::term::DecTermSymbolTypeErrorKind;
 use husky_dec_ty::DeclarativeTypeError;
 use husky_entity_path::{EntityPathError, ItemPath};
 use maybe_result::MaybeResult;
@@ -22,14 +22,14 @@ pub enum EthTermError {
     NoDeclForEntityPath { item_path: ItemPath },
     #[error("EntityPathError")]
     EntityPathError,
-    #[error("DeclarativeTermError")]
-    DeclarativeTermError(#[from] DeclarativeTermError),
+    #[error("DecTermError")]
+    DecTermError(#[from] DecTermError),
     #[error("DeclarativeTypeError")]
     DeclarativeTypeError(#[from] DeclarativeTypeError),
     #[error("ExpectationNotMatchedForCurry")]
     ExpectationNotMatchedForCurry,
-    #[error("DeclarativeTermSymbolTypeErrorKind")]
-    DeclarativeTermSymbolTypeErrorKind(#[from] DeclarativeTermSymbolTypeErrorKind),
+    #[error("DecTermSymbolTypeErrorKind")]
+    DecTermSymbolTypeErrorKind(#[from] DecTermSymbolTypeErrorKind),
     #[error("ExpectFinalDestinationEqsNonSortTypePath")]
     ExpectFinalDestinationEqsNonSortTypePath {
         path_expected: TypePath,
@@ -55,7 +55,7 @@ pub enum EthTermError {
     #[error("ExpectedCurryForApplicationFunctionType")]
     ExpectedCurryForApplicationFunctionType,
     #[error("ExpectedType")]
-    ExpectedType { expectee: DeclarativeTerm },
+    ExpectedType { expectee: DecTerm },
 }
 
 impl From<EntityPathError> for EthTermError {

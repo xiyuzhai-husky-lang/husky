@@ -7,13 +7,13 @@ use crate::*;
 #[salsa::debug_with_db]
 pub enum DecSignatureError {
     #[error("todo")]
-    DeclarativeTermError,
+    DecTermError,
     #[error("todo")]
-    ParameterTypeDeclarativeTermError(u8),
+    ParameterTypeDecTermError(u8),
     #[error("todo")]
-    FieldTypeDeclarativeTermError(u8),
+    FieldTypeDecTermError(u8),
     #[error("todo")]
-    ReturnTypeDeclarativeTermError,
+    ReturnTypeDecTermError,
     // derived
     #[error("todo")]
     DeclError(DeclError),
@@ -31,8 +31,8 @@ impl From<&DecSignatureError> for DecSignatureError {
     }
 }
 
-impl From<DeclarativeTermError2> for DecSignatureError {
-    fn from(value: DeclarativeTermError2) -> Self {
+impl From<DecTermError2> for DecSignatureError {
+    fn from(value: DecTermError2) -> Self {
         todo!()
     }
 }
@@ -54,15 +54,15 @@ impl From<&SynExprError> for DecSignatureError {
     }
 }
 
-impl From<&DeclarativeTermError> for DecSignatureError {
-    fn from(value: &DeclarativeTermError) -> Self {
-        DecSignatureError::DeclarativeTermError
+impl From<&DecTermError> for DecSignatureError {
+    fn from(value: &DecTermError) -> Self {
+        DecSignatureError::DecTermError
     }
 }
 
-impl From<&DeclarativeTermError2> for DecSignatureError {
-    fn from(value: &DeclarativeTermError2) -> Self {
-        DecSignatureError::DeclarativeTermError
+impl From<&DecTermError2> for DecSignatureError {
+    fn from(value: &DecTermError2) -> Self {
+        DecSignatureError::DecTermError
     }
 }
 

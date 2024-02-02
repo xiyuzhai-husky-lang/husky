@@ -44,7 +44,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`core::raw_bits::r32`),
+                        ty: DecTerm(`core::raw_bits::r32`),
                     },
                 ),
             ),
@@ -66,27 +66,27 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                ty: DecTerm(`core::raw_bits::r32`),
                             },
-                            self_ty: DeclarativeTerm(`core::raw_bits::r32`),
+                            self_ty: DecTerm(`core::raw_bits::r32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                ty: DecTerm(`core::raw_bits::r32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::raw_bits::r32`),
+                            return_ty: DecTerm(`core::raw_bits::r32`),
                         },
                     ),
                 ),
@@ -109,20 +109,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                ty: DecTerm(`core::raw_bits::r32`),
                             },
-                            self_ty: DeclarativeTerm(`core::raw_bits::r32`),
+                            self_ty: DecTerm(`core::raw_bits::r32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                ty: DecTerm(`core::raw_bits::r32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i32`),
+                            return_ty: DecTerm(`core::num::i32`),
                         },
                     ),
                 ),
@@ -145,20 +145,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                ty: DecTerm(`core::raw_bits::r32`),
                             },
-                            self_ty: DeclarativeTerm(`core::raw_bits::r32`),
+                            self_ty: DecTerm(`core::raw_bits::r32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                ty: DecTerm(`core::raw_bits::r32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i32`),
+                            return_ty: DecTerm(`core::num::i32`),
                         },
                     ),
                 ),
@@ -181,20 +181,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                ty: DecTerm(`core::raw_bits::r32`),
                             },
-                            self_ty: DeclarativeTerm(`core::raw_bits::r32`),
+                            self_ty: DecTerm(`core::raw_bits::r32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                ty: DecTerm(`core::raw_bits::r32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i32`),
+                            return_ty: DecTerm(`core::num::i32`),
                         },
                     ),
                 ),
@@ -217,20 +217,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                ty: DecTerm(`core::raw_bits::r32`),
                             },
-                            self_ty: DeclarativeTerm(`core::raw_bits::r32`),
+                            self_ty: DecTerm(`core::raw_bits::r32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                ty: DecTerm(`core::raw_bits::r32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i32`),
+                            return_ty: DecTerm(`core::num::i32`),
                         },
                     ),
                 ),

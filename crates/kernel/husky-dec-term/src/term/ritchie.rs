@@ -10,22 +10,22 @@ use crate::*;
 use smallvec::SmallVec;
 
 /// representing declarative_term `x -> y`
-#[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
-pub struct RitchieDeclarativeTerm {
+#[salsa::interned(db = DecTermDb, jar = DecTermJar)]
+pub struct RitchieDecTerm {
     pub ritchie_kind: RitchieKind,
     #[return_ref]
     pub params: SmallVec<[DeclarativeRitchieParameter; 2]>,
-    pub return_ty: DeclarativeTerm,
-    // ty: DeclarativeTerm,
+    pub return_ty: DecTerm,
+    // ty: DecTerm,
 }
 
-impl RitchieDeclarativeTerm {
+impl RitchieDecTerm {
     #[inline(never)]
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &mut DeclarativeTermShowContext,
+        ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
         f.write_str(self.ritchie_kind(db).code())?;
         f.write_str("(")?;
@@ -40,7 +40,7 @@ impl RitchieDeclarativeTerm {
     }
 }
 
-impl salsa::DisplayWithDb for RitchieDeclarativeTerm {
+impl salsa::DisplayWithDb for RitchieDecTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -69,7 +69,7 @@ pub enum DeclarativeRitchieParameter {
 }
 
 impl DeclarativeRitchieParameter {
-    pub fn ty(&self) -> DeclarativeTerm {
+    pub fn ty(&self) -> DecTerm {
         match self {
             DeclarativeRitchieParameter::Regular(param) => param.ty(),
             DeclarativeRitchieParameter::Variadic(param) => param.ty(),
@@ -77,7 +77,7 @@ impl DeclarativeRitchieParameter {
         }
     }
 
-    pub(crate) fn substitute_ty(self, f: impl Fn(DeclarativeTerm) -> DeclarativeTerm) -> Self {
+    pub(crate) fn substitute_ty(self, f: impl Fn(DecTerm) -> DecTerm) -> Self {
         match self {
             DeclarativeRitchieParameter::Regular(param) => param.substitute_ty(f).into(),
             DeclarativeRitchieParameter::Variadic(param) => param.substitute_ty(f).into(),
@@ -89,7 +89,7 @@ impl DeclarativeRitchieParameter {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &mut DeclarativeTermShowContext,
+        ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
         match self {
             DeclarativeRitchieParameter::Regular(param) => param.show_with_db_fmt(f, db, ctx),
@@ -113,12 +113,8 @@ impl salsa::DisplayWithDb for DeclarativeRitchieParameter {
     }
 }
 
-impl DeclarativeTermRewriteCopy for RitchieDeclarativeTerm {
-    fn substitute_copy(
-        self,
-        _db: &::salsa::Db,
-        substitution: &DeclarativeTermSubstitution,
-    ) -> Self {
+impl DecTermRewriteCopy for RitchieDecTerm {
+    fn substitute_copy(self, _db: &::salsa::Db, substitution: &DecTermSubstitution) -> Self {
         todo!()
     }
 }

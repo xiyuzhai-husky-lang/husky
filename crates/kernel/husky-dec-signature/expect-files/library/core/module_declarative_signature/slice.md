@@ -16,7 +16,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 4,
                                             },
@@ -48,7 +48,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 4,
                                             },
@@ -89,7 +89,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 10,
                                         },
@@ -98,7 +98,7 @@
                                 },
                             ],
                         },
-                        ty: DeclarativeTerm(`core::slice::Slice t`),
+                        ty: DecTerm(`core::slice::Slice t`),
                     },
                 ),
             ),
@@ -121,7 +121,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: SymbolDeclarativeTerm(
+                                            symbol: SymbolDecTerm(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -130,20 +130,20 @@
                                         },
                                     ],
                                 },
-                                ty: DeclarativeTerm(`core::slice::Slice t`),
+                                ty: DecTerm(`core::slice::Slice t`),
                             },
-                            self_ty: DeclarativeTerm(`core::slice::Slice t`),
+                            self_ty: DecTerm(`core::slice::Slice t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::slice::Slice t`),
+                                ty: DecTerm(`core::slice::Slice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::usize`),
+                            return_ty: DecTerm(`core::num::usize`),
                         },
                     ),
                 ),
@@ -167,7 +167,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: SymbolDeclarativeTerm(
+                                            symbol: SymbolDecTerm(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -176,14 +176,14 @@
                                         },
                                     ],
                                 },
-                                ty: DeclarativeTerm(`core::slice::Slice t`),
+                                ty: DecTerm(`core::slice::Slice t`),
                             },
-                            self_ty: DeclarativeTerm(`core::slice::Slice t`),
+                            self_ty: DecTerm(`core::slice::Slice t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 1,
                                             },
@@ -194,25 +194,25 @@
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: BorrowMut,
-                                ty: DeclarativeTerm(`core::slice::Slice t`),
+                                ty: DecTerm(`core::slice::Slice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::usize`),
+                                            ty: DecTerm(`core::num::usize`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::usize`),
+                                            ty: DecTerm(`core::num::usize`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::basic::unit`),
+                            return_ty: DecTerm(`core::basic::unit`),
                         },
                     ),
                 ),
@@ -242,7 +242,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 10,
                                         },
@@ -251,9 +251,9 @@
                                 },
                             ],
                         },
-                        trai: DeclarativeTerm(`core::ops::IntIndex`),
+                        trai: DecTerm(`core::ops::IntIndex`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::slice::CyclicSlice t`),
+                            DecTerm(`core::slice::CyclicSlice t`),
                         ),
                     },
                 ),
@@ -317,7 +317,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            ty_term: DeclarativeTerm(`t`),
+                            ty_term: DecTerm(`t`),
                         },
                     ),
                 ),
@@ -350,7 +350,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 10,
                                         },
@@ -359,7 +359,7 @@
                                 },
                             ],
                         },
-                        ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
+                        ty: DecTerm(`core::slice::CyclicSlice t`),
                     },
                 ),
             ),
@@ -382,7 +382,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: SymbolDeclarativeTerm(
+                                            symbol: SymbolDecTerm(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -391,20 +391,20 @@
                                         },
                                     ],
                                 },
-                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
+                                ty: DecTerm(`core::slice::CyclicSlice t`),
                             },
-                            self_ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
+                            self_ty: DecTerm(`core::slice::CyclicSlice t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
+                                ty: DecTerm(`core::slice::CyclicSlice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i32`),
+                            return_ty: DecTerm(`core::num::i32`),
                         },
                     ),
                 ),
@@ -428,7 +428,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: SymbolDeclarativeTerm(
+                                            symbol: SymbolDecTerm(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -437,20 +437,20 @@
                                         },
                                     ],
                                 },
-                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
+                                ty: DecTerm(`core::slice::CyclicSlice t`),
                             },
-                            self_ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
+                            self_ty: DecTerm(`core::slice::CyclicSlice t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
+                                ty: DecTerm(`core::slice::CyclicSlice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i32`),
+                            return_ty: DecTerm(`core::num::i32`),
                         },
                     ),
                 ),
@@ -474,7 +474,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: SymbolDeclarativeTerm(
+                                            symbol: SymbolDecTerm(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -483,20 +483,20 @@
                                         },
                                     ],
                                 },
-                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
+                                ty: DecTerm(`core::slice::CyclicSlice t`),
                             },
-                            self_ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
+                            self_ty: DecTerm(`core::slice::CyclicSlice t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
+                                ty: DecTerm(`core::slice::CyclicSlice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i32`),
+                            return_ty: DecTerm(`core::num::i32`),
                         },
                     ),
                 ),
@@ -520,7 +520,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: SymbolDeclarativeTerm(
+                                            symbol: SymbolDecTerm(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -529,20 +529,20 @@
                                         },
                                     ],
                                 },
-                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
+                                ty: DecTerm(`core::slice::CyclicSlice t`),
                             },
-                            self_ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
+                            self_ty: DecTerm(`core::slice::CyclicSlice t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
+                                ty: DecTerm(`core::slice::CyclicSlice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::option::Option ~ t`),
+                            return_ty: DecTerm(`core::option::Option ~ t`),
                         },
                     ),
                 ),
@@ -566,7 +566,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: SymbolDeclarativeTerm(
+                                            symbol: SymbolDecTerm(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -575,20 +575,20 @@
                                         },
                                     ],
                                 },
-                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
+                                ty: DecTerm(`core::slice::CyclicSlice t`),
                             },
-                            self_ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
+                            self_ty: DecTerm(`core::slice::CyclicSlice t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
+                                ty: DecTerm(`core::slice::CyclicSlice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::option::Option ~ t`),
+                            return_ty: DecTerm(`core::option::Option ~ t`),
                         },
                     ),
                 ),

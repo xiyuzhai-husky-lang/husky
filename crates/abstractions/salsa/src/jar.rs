@@ -129,7 +129,7 @@ pub enum JarIndex {
     // kernel
     CowordJar,
     DecSignatureJar,
-    DeclarativeTermJar,
+    DecTermJar,
     DeclarativeTypeJar,
     EntityPathJar,
     EtherealSignatureJar,

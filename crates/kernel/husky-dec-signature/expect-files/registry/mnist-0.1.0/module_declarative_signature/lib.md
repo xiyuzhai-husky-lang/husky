@@ -13,7 +13,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_ty: DeclarativeTerm(`mnist::MnistLabel`),
+                            self_ty: DecTerm(`mnist::MnistLabel`),
                         },
                     ),
                 ),
@@ -71,7 +71,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: DeclarativeTerm(`mnist::BinaryImage28`),
+                            return_ty: DecTerm(`mnist::BinaryImage28`),
                         },
                     ),
                 ),
@@ -100,9 +100,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::visual::Visualize`),
+                        trai: DecTerm(`core::visual::Visualize`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`mnist::BinaryImage28`),
+                            DecTerm(`mnist::BinaryImage28`),
                         ),
                     },
                 ),
@@ -141,18 +141,18 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`mnist::BinaryImage28`),
+                            self_ty: DecTerm(`mnist::BinaryImage28`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`mnist::BinaryImage28`),
+                                ty: DecTerm(`mnist::BinaryImage28`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::visual::Visual`),
+                            return_ty: DecTerm(`core::visual::Visual`),
                         },
                     ),
                 ),
@@ -184,7 +184,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`mnist::BinaryImage28`),
+                        ty: DecTerm(`mnist::BinaryImage28`),
                     },
                 ),
             ),
@@ -202,14 +202,14 @@
                     TypeItemDecTemplate::AssociatedFn(
                         TypeAssociatedFnDecTemplate {
                             path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
-                            self_ty: DeclarativeTerm(`mnist::BinaryImage28`),
+                            self_ty: DecTerm(`mnist::BinaryImage28`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`mnist::BinaryImage28`),
+                            return_ty: DecTerm(`mnist::BinaryImage28`),
                         },
                     ),
                 ),
@@ -238,9 +238,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::ops::IntIndex`),
+                        trai: DecTerm(`core::ops::IntIndex`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`mnist::BinaryImage28`),
+                            DecTerm(`mnist::BinaryImage28`),
                         ),
                     },
                 ),
@@ -304,7 +304,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            ty_term: DeclarativeTerm(`core::raw_bits::r32`),
+                            ty_term: DecTerm(`core::raw_bits::r32`),
                         },
                     ),
                 ),
@@ -333,9 +333,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::visual::Visualize`),
+                        trai: DecTerm(`core::visual::Visualize`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`mnist::BinaryGrid28`),
+                            DecTerm(`mnist::BinaryGrid28`),
                         ),
                     },
                 ),
@@ -374,18 +374,18 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`mnist::BinaryGrid28`),
+                            self_ty: DecTerm(`mnist::BinaryGrid28`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`mnist::BinaryGrid28`),
+                                ty: DecTerm(`mnist::BinaryGrid28`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::visual::Visual`),
+                            return_ty: DecTerm(`core::visual::Visual`),
                         },
                     ),
                 ),
@@ -417,7 +417,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`mnist::BinaryGrid28`),
+                        ty: DecTerm(`mnist::BinaryGrid28`),
                     },
                 ),
             ),
@@ -435,14 +435,14 @@
                     TypeItemDecTemplate::AssociatedFn(
                         TypeAssociatedFnDecTemplate {
                             path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
-                            self_ty: DeclarativeTerm(`mnist::BinaryGrid28`),
+                            self_ty: DecTerm(`mnist::BinaryGrid28`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`mnist::BinaryGrid28`),
+                            return_ty: DecTerm(`mnist::BinaryGrid28`),
                         },
                     ),
                 ),
@@ -471,9 +471,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::ops::IntIndex`),
+                        trai: DecTerm(`core::ops::IntIndex`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`mnist::BinaryGrid28`),
+                            DecTerm(`mnist::BinaryGrid28`),
                         ),
                     },
                 ),
@@ -537,7 +537,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            ty_term: DeclarativeTerm(`core::raw_bits::r32`),
+                            ty_term: DecTerm(`core::raw_bits::r32`),
                         },
                     ),
                 ),

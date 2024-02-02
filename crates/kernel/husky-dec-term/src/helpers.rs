@@ -2,24 +2,22 @@ use husky_entity_path::{item_path_menu, TypePath};
 
 use crate::*;
 
-impl DeclarativeTerm {
+impl DecTerm {
     #[inline(always)]
-    pub fn apply(self, db: &::salsa::Db, argument: impl Into<DeclarativeTerm>) -> Self {
-        ApplicationDeclarativeTerm::new(db, self, argument.into()).into()
+    pub fn apply(self, db: &::salsa::Db, argument: impl Into<DecTerm>) -> Self {
+        ApplicationDecTerm::new(db, self, argument.into()).into()
     }
 
-    pub fn family(self, db: &::salsa::Db) -> DeclarativeTermFamily {
+    pub fn family(self, db: &::salsa::Db) -> DecTermFamily {
         match self {
-            DeclarativeTerm::EntityPath(ItemPathDeclarativeTerm::Type(path)) => {
-                DeclarativeTermFamily::TypePath(path)
+            DecTerm::EntityPath(ItemPathDecTerm::Type(path)) => DecTermFamily::TypePath(path),
+            DecTerm::Category(_) => DecTermFamily::Sort,
+            DecTerm::Application(term) => term.function(db).family(db),
+            DecTerm::ApplicationOrRitchieCall(term) => term.function(db).family(db),
+            DecTerm::LeashOrBitNot(toolchain) => {
+                DecTermFamily::TypePath(item_path_menu(db, toolchain).leash_ty_path())
             }
-            DeclarativeTerm::Category(_) => DeclarativeTermFamily::Sort,
-            DeclarativeTerm::Application(term) => term.function(db).family(db),
-            DeclarativeTerm::ApplicationOrRitchieCall(term) => term.function(db).family(db),
-            DeclarativeTerm::LeashOrBitNot(toolchain) => {
-                DeclarativeTermFamily::TypePath(item_path_menu(db, toolchain).leash_ty_path())
-            }
-            _ => DeclarativeTermFamily::Other,
+            _ => DecTermFamily::Other,
         }
     }
 
@@ -27,48 +25,44 @@ impl DeclarativeTerm {
     pub fn ty_final_destination_expectation(
         self,
         db: &::salsa::Db,
-    ) -> DeclarativeTermResult<TermTypeExpectation> {
+    ) -> DecTermResult<TermTypeExpectation> {
         match self {
-            DeclarativeTerm::EntityPath(ItemPathDeclarativeTerm::Type(path)) => Ok(
+            DecTerm::EntityPath(ItemPathDecTerm::Type(path)) => Ok(
                 TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path),
             ),
-            DeclarativeTerm::Category(_) => Ok(TermTypeExpectation::FinalDestinationEqsSort),
-            DeclarativeTerm::Curry(slf) => slf.return_ty(db).ty_final_destination_expectation(db),
-            DeclarativeTerm::Application(slf) => {
-                slf.function(db).ty_final_destination_expectation(db)
-            }
+            DecTerm::Category(_) => Ok(TermTypeExpectation::FinalDestinationEqsSort),
+            DecTerm::Curry(slf) => slf.return_ty(db).ty_final_destination_expectation(db),
+            DecTerm::Application(slf) => slf.function(db).ty_final_destination_expectation(db),
             _ => Ok(TermTypeExpectation::Any),
         }
     }
 
-    pub const PROP: DeclarativeTerm =
-        DeclarativeTerm::Category(CategoryTerm::new(UniverseTerm::new(0)));
+    pub const PROP: DecTerm = DecTerm::Category(CategoryTerm::new(UniverseTerm::new(0)));
 
-    pub const TYPE: DeclarativeTerm =
-        DeclarativeTerm::Category(CategoryTerm::new(UniverseTerm::new(1)));
+    pub const TYPE: DecTerm = DecTerm::Category(CategoryTerm::new(UniverseTerm::new(1)));
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum DeclarativeTermFamily {
+pub enum DecTermFamily {
     Sort,
     TypePath(TypePath),
     Other,
 }
 
-impl SymbolDeclarativeTerm {
-    pub(crate) fn ty_family(self, db: &::salsa::Db) -> DeclarativeTermFamily {
+impl SymbolDecTerm {
+    pub(crate) fn ty_family(self, db: &::salsa::Db) -> DecTermFamily {
         self.ty(db)
             .ok()
             .map(|ty| ty.family(db))
-            .unwrap_or(DeclarativeTermFamily::Other)
+            .unwrap_or(DecTermFamily::Other)
     }
 }
 
-impl RuneDeclarativeTerm {
-    pub(crate) fn ty_family(self, db: &::salsa::Db) -> DeclarativeTermFamily {
+impl RuneDecTerm {
+    pub(crate) fn ty_family(self, db: &::salsa::Db) -> DecTermFamily {
         self.ty(db)
             .ok()
             .map(|ty| ty.family(db))
-            .unwrap_or(DeclarativeTermFamily::Other)
+            .unwrap_or(DecTermFamily::Other)
     }
 }

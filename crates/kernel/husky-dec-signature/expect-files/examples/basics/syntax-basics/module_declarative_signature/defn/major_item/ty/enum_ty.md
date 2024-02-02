@@ -13,7 +13,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_ty: DeclarativeTerm(`syntax_basics::defn::major_item::ty::enum_ty::A`),
+                            self_ty: DecTerm(`syntax_basics::defn::major_item::ty::enum_ty::A`),
                         },
                     ),
                 ),

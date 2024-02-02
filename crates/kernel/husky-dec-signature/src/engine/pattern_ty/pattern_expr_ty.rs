@@ -3,30 +3,26 @@ use super::*;
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct PatternExprDeclarativeTypeInfo {
-    ty: DeclarativeTerm,
+    ty: DecTerm,
 }
 
 impl PatternExprDeclarativeTypeInfo {
-    fn new(ty: DeclarativeTerm) -> Self {
+    fn new(ty: DecTerm) -> Self {
         Self { ty }
     }
 }
 
-impl<'a> DeclarativeTermEngine<'a> {
+impl<'a> DecTermEngine<'a> {
     /// explicit parameters are infered in this crate;
     ///
     /// let variables, be variables and match variables are infered in `husky-expr-ty`
-    pub(super) fn infer_pattern_expr_tys(
-        &mut self,
-        pattern_expr: SynPatternExprIdx,
-        ty: DeclarativeTerm,
-    ) {
+    pub(super) fn infer_pattern_expr_tys(&mut self, pattern_expr: SynPatternExprIdx, ty: DecTerm) {
         self.save_pattern_expr_ty(pattern_expr, ty);
         self.infer_subpattern_expr_tys(pattern_expr)
     }
 
     /// the way type inference works for pattern expressions is dual to that of regular expression
-    fn save_pattern_expr_ty(&mut self, pattern_expr_idx: SynPatternExprIdx, ty: DeclarativeTerm) {
+    fn save_pattern_expr_ty(&mut self, pattern_expr_idx: SynPatternExprIdx, ty: DecTerm) {
         self.pattern_expr_ty_infos
             .insert_new(pattern_expr_idx, PatternExprDeclarativeTypeInfo::new(ty))
     }
@@ -57,7 +53,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     pub(super) fn get_pattern_expr_ty(
         &self,
         pattern_expr_idx: SynPatternExprIdx,
-    ) -> Option<DeclarativeTerm> {
+    ) -> Option<DecTerm> {
         self.pattern_expr_ty_infos
             .get(pattern_expr_idx)
             .map(|info| info.ty)

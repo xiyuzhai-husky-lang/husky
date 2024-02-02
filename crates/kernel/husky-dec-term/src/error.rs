@@ -3,11 +3,11 @@ use husky_entity_path::{EntityPathError, ItemPath};
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq, Clone, Copy)]
-pub enum DeclarativeTermError {
+pub enum DecTermError {
     #[error("term is not reduced")]
-    DeclarativeTermIsNotReduced,
+    DecTermIsNotReduced,
     #[error("term is not type")]
-    DeclarativeTermIsNotTy,
+    DecTermIsNotTy,
     #[error("universe overflows")]
     UniverseOverflow,
     #[error("monad is not input")]
@@ -24,11 +24,11 @@ pub enum DeclarativeTermError {
     // Unknown,
 }
 
-impl From<&EntityPathError> for DeclarativeTermError {
+impl From<&EntityPathError> for DecTermError {
     fn from(_value: &EntityPathError) -> Self {
         todo!()
     }
 }
 
-pub type DeclarativeTermResult<T> = Result<T, DeclarativeTermError>;
-pub type DeclarativeTermResultRef<'a, T> = Result<T, &'a DeclarativeTermError>;
+pub type DecTermResult<T> = Result<T, DecTermError>;
+pub type DecTermResultRef<'a, T> = Result<T, &'a DecTermError>;

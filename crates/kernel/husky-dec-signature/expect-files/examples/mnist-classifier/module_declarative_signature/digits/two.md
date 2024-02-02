@@ -10,7 +10,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                            return_ty: DecTerm(`mnist_classifier::fermi::FermiMatchResult`),
                         },
                     ),
                 ),
@@ -36,12 +36,12 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                            ty: DecTerm(`~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::option::Option core::num::f32`),
+                            return_ty: DecTerm(`core::option::Option core::num::f32`),
                         },
                     ),
                 ),
@@ -67,12 +67,12 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                            ty: DecTerm(`~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::option::Option core::num::f32`),
+                            return_ty: DecTerm(`core::option::Option core::num::f32`),
                         },
                     ),
                 ),
@@ -98,12 +98,12 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                            ty: DecTerm(`~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::option::Option core::num::f32`),
+                            return_ty: DecTerm(`core::option::Option core::num::f32`),
                         },
                     ),
                 ),
@@ -121,7 +121,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: DeclarativeTerm(`malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Two`),
+                            return_ty: DecTerm(`malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Two`),
                         },
                     ),
                 ),

@@ -15,7 +15,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`core::basic::Module`),
+            DecTerm(`core::basic::Module`),
         ),
     ),
     (
@@ -34,7 +34,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`core::basic::Module`),
+            DecTerm(`core::basic::Module`),
         ),
     ),
     (
@@ -53,7 +53,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`core::basic::Module`),
+            DecTerm(`core::basic::Module`),
         ),
     ),
 ]

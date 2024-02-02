@@ -143,7 +143,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: DeclarativeTerm(`malamute::Class mnist::MnistLabel`),
+                            return_ty: DecTerm(`malamute::Class mnist::MnistLabel`),
                         },
                     ),
                 ),

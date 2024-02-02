@@ -32,7 +32,6 @@ use husky_coword::Ident;
 use husky_dec_signature::*;
 use husky_dec_term::{term::*, *};
 use husky_entity_path::*;
-use husky_print_utils::p;
 use husky_term_prelude::*;
 use husky_vfs::*;
 use salsa::DebugWithDb;
@@ -67,7 +66,7 @@ pub struct EthTermJar(
     ethereal_term_from_declarative_term_application,
     ethereal_term_application_declarative_ty,
     // - application reduction
-    reduce_term_application,
+    crate::term::application::reduction::reduce_term_application,
     // - application expansion
     EtherealApplicationArguments,
     // ty as trait associated item

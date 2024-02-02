@@ -2,12 +2,12 @@ use crate::*;
 
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct TraitForTypeAssociatedFnDecTemplate {
-    pub self_ty: DeclarativeTerm,
+    pub self_ty: DecTerm,
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
     #[return_ref]
     pub parenate_parameters: DeclarativeParenateParameters,
-    pub return_ty: DeclarativeTerm,
+    pub return_ty: DecTerm,
 }
 
 impl TraitForTypeAssociatedFnDecTemplate {

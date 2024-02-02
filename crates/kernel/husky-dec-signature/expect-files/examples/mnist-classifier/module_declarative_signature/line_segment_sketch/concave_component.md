@@ -13,20 +13,20 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                            self_ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             fields: [
                                 PropsStructFieldDecTemplate {
                                     ident: `line_segment_sketch`,
-                                    ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                                    ty: DecTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
                                     ident: `strokes`,
-                                    ty: DeclarativeTerm(`~ core::slice::CyclicSlice mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                                    ty: DecTerm(`~ core::slice::CyclicSlice mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDeclarativeTerm {
+                            instance_constructor_ritchie_ty: RitchieDecTerm {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -34,17 +34,17 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
-                                            ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                                            ty: DecTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
-                                            ty: DeclarativeTerm(`~ core::slice::CyclicSlice mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                                            ty: DecTerm(`~ core::slice::CyclicSlice mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                                         },
                                     ),
                                 ],
-                                return_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                return_ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                         },
                     ),
@@ -71,12 +71,12 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                                            ty: DecTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`[] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                            return_ty: DecTerm(`[] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                         },
                     ),
                 ),
@@ -105,9 +105,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::visual::Visualize`),
+                        trai: DecTerm(`core::visual::Visualize`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                            DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                         ),
                     },
                 ),
@@ -146,18 +146,18 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                            self_ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::visual::Visual`),
+                            return_ty: DecTerm(`core::visual::Visual`),
                         },
                     ),
                 ),
@@ -189,7 +189,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                        ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                     },
                 ),
             ),
@@ -211,9 +211,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -236,9 +236,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -261,9 +261,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -286,9 +286,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -311,9 +311,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
+                            return_ty: DecTerm(`mnist_classifier::geom2d::BoundingBox`),
                         },
                     ),
                 ),
@@ -336,9 +336,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
+                            return_ty: DecTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                         },
                     ),
                 ),
@@ -361,20 +361,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                            self_ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
+                            return_ty: DecTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                         },
                     ),
                 ),
@@ -397,20 +397,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                            self_ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                            return_ty: DecTerm(`mnist_classifier::geom2d::Point2d`),
                         },
                     ),
                 ),
@@ -433,20 +433,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                            self_ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                            return_ty: DecTerm(`mnist_classifier::geom2d::Point2d`),
                         },
                     ),
                 ),
@@ -469,20 +469,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                            self_ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            return_ty: DecTerm(`mnist_classifier::geom2d::Vector2d`),
                         },
                     ),
                 ),
@@ -505,20 +505,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                            self_ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            return_ty: DecTerm(`mnist_classifier::geom2d::Vector2d`),
                         },
                     ),
                 ),
@@ -541,20 +541,20 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                            self_ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            return_ty: DecTerm(`mnist_classifier::geom2d::Vector2d`),
                         },
                     ),
                 ),

@@ -1,37 +1,33 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct DeclarativeTermMenu2 {
-    static_str_ref: DeclarativeTerm,
-    ex_co_lifetime_to_ex_co_ty0_to_ty0: CurryDeclarativeTerm,
-    ex_co_lifetime_to_ex_ct_ty0_to_ty0: CurryDeclarativeTerm,
-    ex_co_lifetime_to_ex_inv_ty0_to_ty0: CurryDeclarativeTerm,
-    parent: DeclarativeTermMenu1,
+pub struct DecTermMenu2 {
+    static_str_ref: DecTerm,
+    ex_co_lifetime_to_ex_co_ty0_to_ty0: CurryDecTerm,
+    ex_co_lifetime_to_ex_ct_ty0_to_ty0: CurryDecTerm,
+    ex_co_lifetime_to_ex_inv_ty0_to_ty0: CurryDecTerm,
+    parent: DecTermMenu1,
 }
 
-impl std::ops::Deref for DeclarativeTermMenu2 {
-    type Target = DeclarativeTermMenu1;
+impl std::ops::Deref for DecTermMenu2 {
+    type Target = DecTermMenu1;
 
     fn deref(&self) -> &Self::Target {
         &self.parent
     }
 }
 
-impl DeclarativeTermMenu2 {
+impl DecTermMenu2 {
     pub(crate) fn new(
         db: &::salsa::Db,
         toolchain: Toolchain,
-        menu1: DeclarativeTermMenu1,
-    ) -> DeclarativeTermResult<Self> {
+        menu1: DecTermMenu1,
+    ) -> DecTermResult<Self> {
         // db.it_item_path_term(item_path_menu(db,toolchain).as_ref()?.r32());
-        Ok(DeclarativeTermMenu2 {
-            static_str_ref: ApplicationDeclarativeTerm::new(
-                db,
-                menu1.static_ref_ty(),
-                menu1.str_ty_path(),
-            )
-            .into(),
-            ex_co_lifetime_to_ex_co_ty0_to_ty0: CurryDeclarativeTerm::new_nondependent(
+        Ok(DecTermMenu2 {
+            static_str_ref: ApplicationDecTerm::new(db, menu1.static_ref_ty(), menu1.str_ty_path())
+                .into(),
+            ex_co_lifetime_to_ex_co_ty0_to_ty0: CurryDecTerm::new_nondependent(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -39,7 +35,7 @@ impl DeclarativeTermMenu2 {
                 menu1.lifetime_ty().into(),
                 menu1.explicit_covariant_ty0_to_ty0().into(),
             ),
-            ex_co_lifetime_to_ex_ct_ty0_to_ty0: CurryDeclarativeTerm::new_nondependent(
+            ex_co_lifetime_to_ex_ct_ty0_to_ty0: CurryDecTerm::new_nondependent(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -47,7 +43,7 @@ impl DeclarativeTermMenu2 {
                 menu1.lifetime_ty().into(),
                 menu1.explicit_contravariant_ty0_to_ty0().into(),
             ),
-            ex_co_lifetime_to_ex_inv_ty0_to_ty0: CurryDeclarativeTerm::new_nondependent(
+            ex_co_lifetime_to_ex_inv_ty0_to_ty0: CurryDecTerm::new_nondependent(
                 db,
                 toolchain,
                 CurryKind::Explicit,
@@ -59,19 +55,19 @@ impl DeclarativeTermMenu2 {
         })
     }
 
-    pub fn static_str_ref(&self) -> DeclarativeTerm {
+    pub fn static_str_ref(&self) -> DecTerm {
         self.static_str_ref
     }
 
-    pub fn ex_co_lifetime_to_ex_co_ty0_to_ty0(&self) -> CurryDeclarativeTerm {
+    pub fn ex_co_lifetime_to_ex_co_ty0_to_ty0(&self) -> CurryDecTerm {
         self.ex_co_lifetime_to_ex_co_ty0_to_ty0
     }
 
-    pub fn ex_co_lifetime_to_ex_ct_ty0_to_ty0(&self) -> CurryDeclarativeTerm {
+    pub fn ex_co_lifetime_to_ex_ct_ty0_to_ty0(&self) -> CurryDecTerm {
         self.ex_co_lifetime_to_ex_ct_ty0_to_ty0
     }
 
-    pub fn ex_co_lifetime_to_ex_inv_ty0_to_ty0(&self) -> CurryDeclarativeTerm {
+    pub fn ex_co_lifetime_to_ex_inv_ty0_to_ty0(&self) -> CurryDecTerm {
         self.ex_co_lifetime_to_ex_inv_ty0_to_ty0
     }
 }

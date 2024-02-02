@@ -14,7 +14,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 3,
                                             },
@@ -23,7 +23,7 @@
                                     },
                                 ],
                             },
-                            self_ty: DeclarativeTerm(`malamute::Class t`),
+                            self_ty: DecTerm(`malamute::Class t`),
                         },
                     ),
                 ),
@@ -45,7 +45,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 4,
                                             },
@@ -54,7 +54,7 @@
                                     },
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 5,
                                             },
@@ -63,7 +63,7 @@
                                     },
                                 ],
                             },
-                            self_ty: DeclarativeTerm(`malamute::OneVsAll t a`),
+                            self_ty: DecTerm(`malamute::OneVsAll t a`),
                         },
                     ),
                 ),
@@ -85,7 +85,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 4,
                                             },
@@ -94,7 +94,7 @@
                                     },
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 5,
                                             },
@@ -103,7 +103,7 @@
                                     },
                                 ],
                             },
-                            self_ty: DeclarativeTerm(`malamute::OneVsAllResult t a`),
+                            self_ty: DecTerm(`malamute::OneVsAllResult t a`),
                         },
                     ),
                 ),
@@ -125,7 +125,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 3,
                                             },
@@ -134,7 +134,7 @@
                                     },
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 6,
                                             },
@@ -148,20 +148,20 @@
                                     DeclarativeRitchieParameter::Variadic(
                                         DeclarativeRitchieVariadicParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::f32`),
+                                            ty: DecTerm(`core::num::f32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Keyed(
                                         DeclarativeRitchieKeyedParameter {
                                             key: `skip`,
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                             has_default: true,
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`malamute::OneVsAllResult t a`),
+                            return_ty: DecTerm(`malamute::OneVsAllResult t a`),
                         },
                     ),
                 ),
@@ -191,7 +191,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 4,
                                         },
@@ -200,7 +200,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 5,
                                         },
@@ -209,9 +209,9 @@
                                 },
                             ],
                         },
-                        trai: DeclarativeTerm(`core::default::Default`),
+                        trai: DecTerm(`core::default::Default`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`malamute::OneVsAll t a`),
+                            DecTerm(`malamute::OneVsAll t a`),
                         ),
                     },
                 ),
@@ -250,14 +250,14 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::AssociatedFn(
                         TraitForTypeAssociatedFnDecTemplate {
-                            self_ty: DeclarativeTerm(`malamute::OneVsAll t a`),
+                            self_ty: DecTerm(`malamute::OneVsAll t a`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`malamute::OneVsAll t a`),
+                            return_ty: DecTerm(`malamute::OneVsAll t a`),
                         },
                     ),
                 ),
@@ -287,7 +287,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 3,
                                         },
@@ -296,7 +296,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 6,
                                         },
@@ -305,9 +305,9 @@
                                 },
                             ],
                         },
-                        trai: DeclarativeTerm(`core::ops::Unveil malamute::OneVsAll t a`),
+                        trai: DecTerm(`core::ops::Unveil malamute::OneVsAll t a`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`malamute::Class t`),
+                            DecTerm(`malamute::Class t`),
                         ),
                     },
                 ),
@@ -371,7 +371,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            ty_term: DeclarativeTerm(`core::basic::unit`),
+                            ty_term: DecTerm(`core::basic::unit`),
                         },
                     ),
                 ),
@@ -410,7 +410,7 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::AssociatedFn(
                         TraitForTypeAssociatedFnDecTemplate {
-                            self_ty: DeclarativeTerm(`malamute::Class t`),
+                            self_ty: DecTerm(`malamute::Class t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
@@ -419,12 +419,12 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`malamute::OneVsAll t a`),
+                                            ty: DecTerm(`malamute::OneVsAll t a`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::ops::ControlFlow malamute::Class t(`),
+                            return_ty: DecTerm(`core::ops::ControlFlow malamute::Class t(`),
                         },
                     ),
                 ),
@@ -454,7 +454,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 4,
                                         },
@@ -463,7 +463,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 5,
                                         },
@@ -472,9 +472,9 @@
                                 },
                             ],
                         },
-                        trai: DeclarativeTerm(`core::ops::Unveil malamute::OneVsAllResult t a`),
+                        trai: DecTerm(`core::ops::Unveil malamute::OneVsAllResult t a`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`malamute::OneVsAll t a`),
+                            DecTerm(`malamute::OneVsAll t a`),
                         ),
                     },
                 ),
@@ -538,7 +538,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            ty_term: DeclarativeTerm(`core::basic::unit`),
+                            ty_term: DecTerm(`core::basic::unit`),
                         },
                     ),
                 ),
@@ -577,7 +577,7 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::AssociatedFn(
                         TraitForTypeAssociatedFnDecTemplate {
-                            self_ty: DeclarativeTerm(`malamute::OneVsAll t a`),
+                            self_ty: DecTerm(`malamute::OneVsAll t a`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
@@ -586,12 +586,12 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`malamute::OneVsAllResult t a`),
+                                            ty: DecTerm(`malamute::OneVsAllResult t a`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::ops::ControlFlow malamute::OneVsAll t a(`),
+                            return_ty: DecTerm(`core::ops::ControlFlow malamute::OneVsAll t a(`),
                         },
                     ),
                 ),

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_dec_term::term::DeclarativeTermSymbolTypeErrorKind;
+use husky_dec_term::term::DecTermSymbolTypeErrorKind;
 use husky_syn_decl::DeclError;
 use thiserror::Error;
 
@@ -14,8 +14,8 @@ pub enum DeclarativeTypeError {
     Derived(#[from] DerivedDeclarativeTypeError),
 }
 
-impl From<DeclarativeTermSymbolTypeErrorKind> for DeclarativeTypeError {
-    fn from(e: DeclarativeTermSymbolTypeErrorKind) -> Self {
+impl From<DecTermSymbolTypeErrorKind> for DeclarativeTypeError {
+    fn from(e: DecTermSymbolTypeErrorKind) -> Self {
         DerivedDeclarativeTypeError::SymbolType(e).into()
     }
 }
@@ -30,7 +30,7 @@ impl From<&DeclError> for DeclarativeTypeError {
 #[salsa::debug_with_db]
 pub enum OriginalDeclarativeTypeError {
     #[error("declarative_term error")]
-    DeclarativeTerm(#[from] DeclarativeTermError),
+    DecTerm(#[from] DecTermError),
     #[error("EnumTypeHasNoConstructor")]
     EnumTypeNoConstructor,
     #[error("InductiveTypeHasNoConstructor")]
@@ -65,5 +65,5 @@ pub enum DerivedDeclarativeTypeError {
     #[error("TypeItemNotFound")]
     TypeItemNotFound,
     #[error("SymbolType")]
-    SymbolType(DeclarativeTermSymbolTypeErrorKind),
+    SymbolType(DecTermSymbolTypeErrorKind),
 }

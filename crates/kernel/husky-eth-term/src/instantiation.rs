@@ -144,6 +144,7 @@ impl EtherealInstantiationBuilder {
                 let src_application_expansion = src.application_expansion(db);
                 let dst_application_expansion = dst.application_expansion(db);
                 if src_application_expansion.function() != dst_application_expansion.function() {
+                    use husky_print_utils::p;
                     p!(
                         src_application_expansion.function().debug(db),
                         dst_application_expansion.function().debug(db)

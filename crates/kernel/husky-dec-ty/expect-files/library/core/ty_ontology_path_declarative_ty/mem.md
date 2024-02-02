@@ -2,25 +2,25 @@
     (
         TypePath(`core::mem::Ref`, `Extern`),
         Ok(
-            DeclarativeTerm(`covariant core::basic::Lifetime -> covariant Type -> Type`),
+            DecTerm(`covariant core::basic::Lifetime -> covariant Type -> Type`),
         ),
     ),
     (
         TypePath(`core::mem::RefMut`, `Extern`),
         Ok(
-            DeclarativeTerm(`covariant core::basic::Lifetime -> invariant Type -> Type`),
+            DecTerm(`covariant core::basic::Lifetime -> invariant Type -> Type`),
         ),
     ),
     (
         TypePath(`core::mem::Leash`, `Extern`),
         Ok(
-            DeclarativeTerm(`covariant Type -> Type`),
+            DecTerm(`covariant Type -> Type`),
         ),
     ),
     (
         TypePath(`core::mem::At`, `Extern`),
         Ok(
-            DeclarativeTerm(`independent core::basic::Place -> independent Type -> Type`),
+            DecTerm(`independent core::basic::Place -> independent Type -> Type`),
         ),
     ),
 ]

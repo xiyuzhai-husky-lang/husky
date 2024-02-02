@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`independent Type -> Type`),
+            DecTerm(`independent Type -> Type`),
         ),
     ),
 ]

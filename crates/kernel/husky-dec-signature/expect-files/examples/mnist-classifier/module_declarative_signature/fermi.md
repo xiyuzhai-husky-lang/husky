@@ -13,20 +13,20 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                            self_ty: DecTerm(`mnist_classifier::fermi::FermiMatchResult`),
                             fields: [
                                 PropsStructFieldDecTemplate {
                                     ident: `matches`,
-                                    ty: DeclarativeTerm(`[] core::option::Option ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                    ty: DecTerm(`[] core::option::Option ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
                                     ident: `others`,
-                                    ty: DeclarativeTerm(`[] ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                    ty: DecTerm(`[] ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDeclarativeTerm {
+                            instance_constructor_ritchie_ty: RitchieDecTerm {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -34,17 +34,17 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
-                                            ty: DeclarativeTerm(`[] core::option::Option ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                            ty: DecTerm(`[] core::option::Option ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
-                                            ty: DeclarativeTerm(`[] ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                            ty: DecTerm(`[] ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                                         },
                                     ),
                                 ],
-                                return_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                                return_ty: DecTerm(`mnist_classifier::fermi::FermiMatchResult`),
                             },
                         },
                     ),
@@ -71,18 +71,18 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                            ty: DecTerm(`~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`[](fn((~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32, `),
+                                            ty: DecTerm(`[](fn((~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32, `),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                            return_ty: DecTerm(`mnist_classifier::fermi::FermiMatchResult`),
                         },
                     ),
                 ),
@@ -114,7 +114,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                        ty: DecTerm(`mnist_classifier::fermi::FermiMatchResult`),
                     },
                 ),
             ),
@@ -136,9 +136,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                                ty: DecTerm(`mnist_classifier::fermi::FermiMatchResult`),
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -161,9 +161,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                                ty: DecTerm(`mnist_classifier::fermi::FermiMatchResult`),
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -186,9 +186,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                                ty: DecTerm(`mnist_classifier::fermi::FermiMatchResult`),
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),

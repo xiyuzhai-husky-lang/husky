@@ -1,13 +1,13 @@
 use super::*;
 
-#[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
-pub struct DeclarativeTermSymbols {
+#[salsa::interned(db = DecTermDb, jar = DecTermJar)]
+pub struct DecTermSymbols {
     #[return_ref]
-    symbols: VecSet<SymbolDeclarativeTerm>,
+    symbols: VecSet<SymbolDecTerm>,
 }
 
-impl DeclarativeTermSymbols {
-    pub(crate) fn contains(self, db: &::salsa::Db, symbol: SymbolDeclarativeTerm) -> bool {
+impl DecTermSymbols {
+    pub(crate) fn contains(self, db: &::salsa::Db, symbol: SymbolDecTerm) -> bool {
         self.symbols(db).has(symbol)
     }
 
@@ -25,13 +25,13 @@ impl DeclarativeTermSymbols {
             (Some(fst), Some(snd)) => {
                 let mut symbols = fst.symbols(db).clone();
                 symbols.extend(snd.symbols(db).iter().copied());
-                Some(DeclarativeTermSymbols::new(db, symbols))
+                Some(DecTermSymbols::new(db, symbols))
             }
         }
     }
 }
-impl DeclarativeTerm {
-    pub fn contains_symbol(self, db: &::salsa::Db, symbol: SymbolDeclarativeTerm) -> bool {
+impl DecTerm {
+    pub fn contains_symbol(self, db: &::salsa::Db, symbol: SymbolDecTerm) -> bool {
         calc_declarative_term_symbols(db, self)
             .map(|declarative_term_symbols| declarative_term_symbols.contains(db, symbol))
             .unwrap_or_default()
@@ -40,78 +40,69 @@ impl DeclarativeTerm {
 
 fn calc_declarative_term_symbols(
     db: &::salsa::Db,
-    declarative_term: DeclarativeTerm,
-) -> Option<DeclarativeTermSymbols> {
+    declarative_term: DecTerm,
+) -> Option<DecTermSymbols> {
     match declarative_term {
-        DeclarativeTerm::Literal(_) => None,
-        DeclarativeTerm::Symbol(symbol) => Some(DeclarativeTermSymbols::new(
-            db,
-            VecSet::new_one_elem_set(symbol),
-        )),
-        DeclarativeTerm::Rune(_) => None,
-        DeclarativeTerm::EntityPath(path) => match path {
-            ItemPathDeclarativeTerm::Fugitive(_) => todo!(),
-            ItemPathDeclarativeTerm::Trait(_) | ItemPathDeclarativeTerm::Type(_) => None,
-            ItemPathDeclarativeTerm::TypeVariant(_) => todo!(),
+        DecTerm::Literal(_) => None,
+        DecTerm::Symbol(symbol) => Some(DecTermSymbols::new(db, VecSet::new_one_elem_set(symbol))),
+        DecTerm::Rune(_) => None,
+        DecTerm::EntityPath(path) => match path {
+            ItemPathDecTerm::Fugitive(_) => todo!(),
+            ItemPathDecTerm::Trait(_) | ItemPathDecTerm::Type(_) => None,
+            ItemPathDecTerm::TypeVariant(_) => todo!(),
         },
-        DeclarativeTerm::Category(_) => None,
-        DeclarativeTerm::Universe(_) => None,
-        DeclarativeTerm::Curry(declarative_term) => {
-            declarative_term_curry_symbols(db, declarative_term)
-        }
-        DeclarativeTerm::Ritchie(declarative_term) => {
+        DecTerm::Category(_) => None,
+        DecTerm::Universe(_) => None,
+        DecTerm::Curry(declarative_term) => declarative_term_curry_symbols(db, declarative_term),
+        DecTerm::Ritchie(declarative_term) => {
             declarative_term_ritchie_symbols(db, declarative_term)
         }
-        DeclarativeTerm::Abstraction(_) => todo!(),
-        DeclarativeTerm::Application(declarative_term) => {
+        DecTerm::Abstraction(_) => todo!(),
+        DecTerm::Application(declarative_term) => {
             application_declarative_term_symbols(db, declarative_term)
         }
-        DeclarativeTerm::ApplicationOrRitchieCall(_declarative_ty) => todo!(),
-        DeclarativeTerm::AssociatedItem(_) => todo!(),
-        DeclarativeTerm::TypeAsTraitItem(_) => todo!(),
-        DeclarativeTerm::TraitConstraint(_) => todo!(),
-        DeclarativeTerm::LeashOrBitNot(_) => todo!(),
-        DeclarativeTerm::List(_) => todo!(),
-        DeclarativeTerm::Wrapper(_) => todo!(),
+        DecTerm::ApplicationOrRitchieCall(_declarative_ty) => todo!(),
+        DecTerm::AssociatedItem(_) => todo!(),
+        DecTerm::TypeAsTraitItem(_) => todo!(),
+        DecTerm::TraitConstraint(_) => todo!(),
+        DecTerm::LeashOrBitNot(_) => todo!(),
+        DecTerm::List(_) => todo!(),
+        DecTerm::Wrapper(_) => todo!(),
     }
 }
 
-#[salsa::tracked(jar = DeclarativeTermJar)]
+#[salsa::tracked(jar = DecTermJar)]
 pub(crate) fn declarative_term_curry_symbols(
     db: &::salsa::Db,
-    declarative_term: CurryDeclarativeTerm,
-) -> Option<DeclarativeTermSymbols> {
+    declarative_term: CurryDecTerm,
+) -> Option<DecTermSymbols> {
     let parameter_ty_symbols = calc_declarative_term_symbols(db, declarative_term.parameter_ty(db));
     let return_ty_symbols = calc_declarative_term_symbols(db, declarative_term.return_ty(db));
-    DeclarativeTermSymbols::merge(db, parameter_ty_symbols, return_ty_symbols)
+    DecTermSymbols::merge(db, parameter_ty_symbols, return_ty_symbols)
 }
 
-#[salsa::tracked(jar = DeclarativeTermJar)]
+#[salsa::tracked(jar = DecTermJar)]
 pub(crate) fn declarative_term_ritchie_symbols(
     db: &::salsa::Db,
-    declarative_term: RitchieDeclarativeTerm,
-) -> Option<DeclarativeTermSymbols> {
-    let mut symbols: Option<DeclarativeTermSymbols> = None;
+    declarative_term: RitchieDecTerm,
+) -> Option<DecTermSymbols> {
+    let mut symbols: Option<DecTermSymbols> = None;
     for param in declarative_term.params(db) {
-        symbols = DeclarativeTermSymbols::merge(
-            db,
-            symbols,
-            calc_declarative_term_symbols(db, param.ty()),
-        )
+        symbols = DecTermSymbols::merge(db, symbols, calc_declarative_term_symbols(db, param.ty()))
     }
-    DeclarativeTermSymbols::merge(
+    DecTermSymbols::merge(
         db,
         symbols,
         calc_declarative_term_symbols(db, declarative_term.return_ty(db)),
     )
 }
 
-#[salsa::tracked(jar = DeclarativeTermJar)]
+#[salsa::tracked(jar = DecTermJar)]
 pub(crate) fn application_declarative_term_symbols(
     db: &::salsa::Db,
-    declarative_term: ApplicationDeclarativeTerm,
-) -> Option<DeclarativeTermSymbols> {
-    DeclarativeTermSymbols::merge(
+    declarative_term: ApplicationDecTerm,
+) -> Option<DecTermSymbols> {
+    DecTermSymbols::merge(
         db,
         calc_declarative_term_symbols(db, declarative_term.function(db)),
         calc_declarative_term_symbols(db, declarative_term.argument(db)),

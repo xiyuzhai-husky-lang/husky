@@ -97,11 +97,10 @@ fn construct_self_ty(
     db: &::salsa::Db,
     path: TypePath,
     template_parameters: &[DeclarativeTemplateParameter],
-) -> DeclarativeTerm {
-    let mut self_ty: DeclarativeTerm = path.into();
+) -> DecTerm {
+    let mut self_ty: DecTerm = path.into();
     for template_parameter in template_parameters {
-        self_ty =
-            ApplicationDeclarativeTerm::new(db, self_ty, template_parameter.symbol().into()).into()
+        self_ty = ApplicationDecTerm::new(db, self_ty, template_parameter.symbol().into()).into()
     }
     self_ty
 }

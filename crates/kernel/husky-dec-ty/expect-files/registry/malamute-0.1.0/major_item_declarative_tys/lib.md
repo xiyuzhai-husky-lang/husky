@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`independent Type -> Type`),
+            DecTerm(`independent Type -> Type`),
         ),
     ),
     (
@@ -16,7 +16,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`(independent v0: Type) -> independent v0 -> Type`),
+            DecTerm(`(independent v0: Type) -> independent v0 -> Type`),
         ),
     ),
     (
@@ -26,7 +26,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`(independent v0: Type) -> independent v0 -> Type`),
+            DecTerm(`(independent v0: Type) -> independent v0 -> Type`),
         ),
     ),
     (
@@ -36,7 +36,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`(independent v1: Type) -> (independent v0: v1) -> fn((core::num::f32, core::num::i32) -> malamute::OneVsAllResult v1 v0`),
+            DecTerm(`(independent v1: Type) -> (independent v0: v1) -> fn((core::num::f32, core::num::i32) -> malamute::OneVsAllResult v1 v0`),
         ),
     ),
 ]

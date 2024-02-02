@@ -7,15 +7,15 @@ pub(super) fn curry_from_template_parameters(
     term_curry_kind: CurryKind,
     variances: &[Variance],
     template_parameters: &[DeclarativeTemplateParameter],
-    term: impl Into<DeclarativeTerm>,
-) -> DeclarativeTypeResult<DeclarativeTerm> {
+    term: impl Into<DecTerm>,
+) -> DeclarativeTypeResult<DecTerm> {
     let mut term = term.into();
     debug_assert_eq!(variances.len(), template_parameters.len());
     for (variance, template_parameter) in
         std::iter::zip(variances.iter(), template_parameters.iter()).rev()
     {
         let symbol = template_parameter.symbol();
-        term = CurryDeclarativeTerm::new_dependent(
+        term = CurryDecTerm::new_dependent(
             db,
             toolchain,
             term_curry_kind,

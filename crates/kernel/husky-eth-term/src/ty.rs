@@ -97,7 +97,7 @@ impl HasTypeGivenToolchain for EthTerm {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum RawType {
     Prelude(PreludeTypePath),
-    Declarative(DeclarativeTerm),
+    Declarative(DecTerm),
 }
 
 impl EthTerm {
@@ -135,7 +135,7 @@ impl EthTerm {
             EthTerm::Category(slf) => RawType::Declarative(slf.ty()?.into()),
             EthTerm::Universe(_) => RawType::Prelude(PreludeTypePath::UNIVERSE),
             EthTerm::Curry(slf) => slf.raw_ty(db),
-            EthTerm::Ritchie(_) => DeclarativeTerm::Category(CategoryTerm::new(1.into())).into(),
+            EthTerm::Ritchie(_) => DecTerm::Category(CategoryTerm::new(1.into())).into(),
             EthTerm::Abstraction(_) => todo!(),
             EthTerm::Application(term) => RawType::Declarative(term.declarative_ty(db)?),
             EthTerm::TypeAsTraitItem(_) => todo!(),
@@ -146,12 +146,12 @@ impl EthTerm {
 
 impl CurryEthTerm {
     fn raw_ty(self, db: &salsa::Db) -> RawType {
-        let Ok(RawType::Declarative(DeclarativeTerm::Category(parameter_ty_cat))) =
+        let Ok(RawType::Declarative(DecTerm::Category(parameter_ty_cat))) =
             self.parameter_ty(db).raw_ty(db)
         else {
             unreachable!()
         };
-        let Ok(RawType::Declarative(DeclarativeTerm::Category(return_ty_cat))) =
+        let Ok(RawType::Declarative(DecTerm::Category(return_ty_cat))) =
             self.return_ty(db).raw_ty(db)
         else {
             unreachable!()

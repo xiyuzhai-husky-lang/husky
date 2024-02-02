@@ -4,7 +4,7 @@ use super::*;
 pub fn ty_instance_constructor_path_declarative_ty(
     db: &::salsa::Db,
     path: TypePath,
-) -> DeclarativeTypeResult<DeclarativeTerm> {
+) -> DeclarativeTypeResult<DecTerm> {
     let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     let signature = match path.dec_template(db) {
         Ok(signature) => signature,
@@ -40,7 +40,7 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
     path: TypePath,
     variances: &[Variance],
     tmpl: PropsStructTypeDecTemplate,
-) -> DeclarativeTypeResult<DeclarativeTerm> {
+) -> DeclarativeTypeResult<DecTerm> {
     let template_parameters = &tmpl.template_parameters(db);
     let self_ty = tmpl.self_ty(db);
     let parameter_tys = tmpl
@@ -50,7 +50,7 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
         .filter_map(PropsStructFieldDecTemplate::into_ritchie_parameter_contracted_ty)
         .collect();
     let instance_constructor_ty =
-        RitchieDeclarativeTerm::new(db, RitchieTypeKind::Fn.into(), parameter_tys, self_ty);
+        RitchieDecTerm::new(db, RitchieTypeKind::Fn.into(), parameter_tys, self_ty);
     curry_from_template_parameters(
         db,
         path.toolchain(db),
@@ -66,7 +66,7 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
     path: TypePath,
     variances: &[Variance],
     signature: TupleStructTypeDecTemplate,
-) -> DeclarativeTypeResult<DeclarativeTerm> {
+) -> DeclarativeTypeResult<DecTerm> {
     let template_parameters = &signature.template_parameters(db);
     let self_ty = signature.self_ty(db);
     let parameter_tys = signature
@@ -76,7 +76,7 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
         .map(TupleStructFieldDecTemplate::into_ritchie_parameter_contracted_ty)
         .collect();
     let constructor_ty =
-        RitchieDeclarativeTerm::new(db, RitchieTypeKind::Fn.into(), parameter_tys, self_ty);
+        RitchieDecTerm::new(db, RitchieTypeKind::Fn.into(), parameter_tys, self_ty);
     curry_from_template_parameters(
         db,
         path.toolchain(db),

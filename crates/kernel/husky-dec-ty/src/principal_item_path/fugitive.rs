@@ -7,7 +7,7 @@ use super::*;
 pub fn fugitive_path_declarative_ty(
     db: &::salsa::Db,
     path: FugitivePath,
-) -> DeclarativeTypeResult<DeclarativeTerm> {
+) -> DeclarativeTypeResult<DecTerm> {
     let signature = match path.dec_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
@@ -37,7 +37,7 @@ pub(crate) fn fn_path_declarative_ty(
     toolchain: Toolchain,
     variances: &[Variance],
     signature: MajorFnDecTemplate,
-) -> DeclarativeTypeResult<DeclarativeTerm> {
+) -> DeclarativeTypeResult<DecTerm> {
     let parenate_parameters = signature.parenate_parameters(db).data().to_smallvec();
     let return_declarative_ty = signature.return_ty(db);
     curry_from_template_parameters(
@@ -46,7 +46,7 @@ pub(crate) fn fn_path_declarative_ty(
         CurryKind::Implicit,
         variances,
         signature.template_parameters(db),
-        RitchieDeclarativeTerm::new(
+        RitchieDecTerm::new(
             db,
             RitchieTypeKind::Fn.into(),
             parenate_parameters,
@@ -60,7 +60,7 @@ pub(crate) fn gn_path_declarative_ty(
     toolchain: Toolchain,
     variances: &[Variance],
     signature: MajorGnDecTemplate,
-) -> DeclarativeTypeResult<DeclarativeTerm> {
+) -> DeclarativeTypeResult<DecTerm> {
     let param_declarative_tys = signature.parenate_parameters(db).data().to_smallvec();
     let return_declarative_ty = signature.return_ty(db);
     curry_from_template_parameters(
@@ -69,7 +69,7 @@ pub(crate) fn gn_path_declarative_ty(
         CurryKind::Implicit,
         variances,
         signature.template_parameters(db),
-        RitchieDeclarativeTerm::new(
+        RitchieDecTerm::new(
             db,
             RitchieTypeKind::Fn.into(),
             param_declarative_tys,
@@ -81,7 +81,7 @@ pub(crate) fn gn_path_declarative_ty(
 pub(crate) fn val_path_declarative_ty(
     db: &::salsa::Db,
     signature: MajorValDecTemplate,
-    _declarative_term_menu: &DeclarativeTermMenu,
-) -> DeclarativeTypeResult<DeclarativeTerm> {
+    _declarative_term_menu: &DecTermMenu,
+) -> DeclarativeTypeResult<DecTerm> {
     Ok(signature.return_ty(db).leashed_ty(db))
 }

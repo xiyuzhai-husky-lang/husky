@@ -1,8 +1,8 @@
-use crate::helpers::DeclarativeTermFamily;
+use crate::helpers::DecTermFamily;
 
 use super::*;
 
-impl DeclarativeTerm {
+impl DecTerm {
     // variable should only be created in curry or abstraction
     /// the only way to create new variable
     ///
@@ -26,12 +26,12 @@ impl DeclarativeTerm {
     pub(in crate::term) fn create_rune(
         self,
         db: &::salsa::Db,
-        symbol: SymbolDeclarativeTerm,
-    ) -> (Self, Option<RuneDeclarativeTerm>) {
+        symbol: SymbolDecTerm,
+    ) -> (Self, Option<RuneDecTerm>) {
         let Some(idx) = self.new_variable_idx(db, symbol) else {
             return (self, None);
         };
-        let variable = RuneDeclarativeTerm::new(symbol.ty(db), idx, db);
+        let variable = RuneDecTerm::new(symbol.ty(db), idx, db);
         (
             self.substitute_symbol_with_variable(db, symbol, variable),
             Some(variable),
@@ -45,7 +45,7 @@ impl DeclarativeTerm {
     /// returns the variable idx if turning this symbol into variable
     /// returns None if symbol is not present
     #[inline(always)]
-    fn new_variable_idx(self, db: &::salsa::Db, symbol: SymbolDeclarativeTerm) -> Option<u8> {
+    fn new_variable_idx(self, db: &::salsa::Db, symbol: SymbolDecTerm) -> Option<u8> {
         self.new_variable_idx_with_ty_family(db, symbol, symbol.ty_family(db))
     }
 
@@ -54,8 +54,8 @@ impl DeclarativeTerm {
     fn new_variable_idx_with_ty_family(
         self,
         db: &::salsa::Db,
-        symbol: SymbolDeclarativeTerm,
-        symbol_ty_family: DeclarativeTermFamily,
+        symbol: SymbolDecTerm,
+        symbol_ty_family: DecTermFamily,
     ) -> Option<u8> {
         self.contains_symbol(db, symbol).then(|| {
             self.new_variable_disambiguator_if_symbol_is_present(db, symbol, symbol_ty_family)
@@ -66,11 +66,11 @@ impl DeclarativeTerm {
     fn new_variable_disambiguator_if_symbol_is_present(
         self,
         db: &::salsa::Db,
-        symbol: SymbolDeclarativeTerm,
-        symbol_ty_family: DeclarativeTermFamily,
+        symbol: SymbolDecTerm,
+        symbol_ty_family: DecTermFamily,
     ) -> u8 {
         let mut disambiguator = match self {
-            DeclarativeTerm::Curry(curry)
+            DecTerm::Curry(curry)
                 if let Some(rune) = curry.parameter_rune(db)
                     && curry.return_ty(db).contains_symbol(db, symbol) =>
             {
@@ -78,7 +78,7 @@ impl DeclarativeTerm {
             }
             _ => 0,
         };
-        let mut t = |term: DeclarativeTerm| {
+        let mut t = |term: DecTerm| {
             if let Some(subidx) = term.new_variable_idx_with_ty_family(db, symbol, symbol_ty_family)
             {
                 if subidx > disambiguator {
@@ -88,7 +88,7 @@ impl DeclarativeTerm {
         };
         // scan
         match self {
-            DeclarativeTerm::Curry(term) => {
+            DecTerm::Curry(term) => {
                 if let Some(v) = term.parameter_rune(db) {
                     if let Ok(ty) = v.ty(db) {
                         t(ty)
@@ -97,13 +97,13 @@ impl DeclarativeTerm {
                 t(term.parameter_ty(db));
                 t(term.return_ty(db));
             }
-            DeclarativeTerm::Ritchie(term) => {
+            DecTerm::Ritchie(term) => {
                 for parameter_ty in term.params(db) {
                     t(parameter_ty.ty())
                 }
                 t(term.return_ty(db));
             }
-            DeclarativeTerm::Abstraction(term) => {
+            DecTerm::Abstraction(term) => {
                 let x = term.x(db);
                 let m = term.m(db);
                 t(m);
@@ -114,23 +114,23 @@ impl DeclarativeTerm {
                     }
                 }
             }
-            DeclarativeTerm::Application(term) => {
+            DecTerm::Application(term) => {
                 t(term.function(db));
                 t(term.argument(db))
             }
-            DeclarativeTerm::ApplicationOrRitchieCall(_) => todo!(),
-            DeclarativeTerm::AssociatedItem(_) => todo!(),
-            DeclarativeTerm::TypeAsTraitItem(_) => todo!(),
-            DeclarativeTerm::TraitConstraint(_) => todo!(),
-            DeclarativeTerm::LeashOrBitNot(_) => todo!(),
-            DeclarativeTerm::List(_) => todo!(),
-            DeclarativeTerm::Literal(_)
-            | DeclarativeTerm::Symbol(_)
-            | DeclarativeTerm::Rune(_)
-            | DeclarativeTerm::EntityPath(_)
-            | DeclarativeTerm::Category(_)
-            | DeclarativeTerm::Universe(_) => (),
-            DeclarativeTerm::Wrapper(_) => todo!(),
+            DecTerm::ApplicationOrRitchieCall(_) => todo!(),
+            DecTerm::AssociatedItem(_) => todo!(),
+            DecTerm::TypeAsTraitItem(_) => todo!(),
+            DecTerm::TraitConstraint(_) => todo!(),
+            DecTerm::LeashOrBitNot(_) => todo!(),
+            DecTerm::List(_) => todo!(),
+            DecTerm::Literal(_)
+            | DecTerm::Symbol(_)
+            | DecTerm::Rune(_)
+            | DecTerm::EntityPath(_)
+            | DecTerm::Category(_)
+            | DecTerm::Universe(_) => (),
+            DecTerm::Wrapper(_) => todo!(),
         }
         disambiguator
     }
@@ -140,19 +140,19 @@ impl DeclarativeTerm {
     pub(in crate::term) fn substitute_symbol_with_variable(
         self,
         db: &::salsa::Db,
-        symbol: SymbolDeclarativeTerm,
-        variable: RuneDeclarativeTerm,
+        symbol: SymbolDecTerm,
+        variable: RuneDecTerm,
     ) -> Self {
         if !self.contains_symbol(db, symbol) {
             return self;
         }
         match self {
-            DeclarativeTerm::Symbol(term) if term == symbol => variable.into(),
-            DeclarativeTerm::Universe(_) => self, // ad hoc
-            DeclarativeTerm::Curry(term) => term
+            DecTerm::Symbol(term) if term == symbol => variable.into(),
+            DecTerm::Universe(_) => self, // ad hoc
+            DecTerm::Curry(term) => term
                 .substitute_symbol_with_variable(db, symbol, variable)
                 .into(),
-            DeclarativeTerm::Ritchie(term) => RitchieDeclarativeTerm::new(
+            DecTerm::Ritchie(term) => RitchieDecTerm::new(
                 db,
                 term.ritchie_kind(db),
                 term.params(db)
@@ -167,11 +167,11 @@ impl DeclarativeTerm {
                     .substitute_symbol_with_variable(db, symbol, variable),
             )
             .into(),
-            DeclarativeTerm::Abstraction(term) => {
+            DecTerm::Abstraction(term) => {
                 let x = term.x(db);
                 // should be equal by the choice of variable idx and the fact that m contains the symbol
                 debug_assert_ne!(x, variable);
-                AbstractionDeclarativeTerm::new(
+                AbstractionDecTerm::new(
                     db,
                     x,
                     term.m(db)
@@ -179,7 +179,7 @@ impl DeclarativeTerm {
                 )
                 .into()
             }
-            DeclarativeTerm::Application(term) => ApplicationDeclarativeTerm::new(
+            DecTerm::Application(term) => ApplicationDecTerm::new(
                 db,
                 term.function(db)
                     .substitute_symbol_with_variable(db, symbol, variable),
@@ -187,12 +187,12 @@ impl DeclarativeTerm {
                     .substitute_symbol_with_variable(db, symbol, variable),
             )
             .into(),
-            DeclarativeTerm::ApplicationOrRitchieCall(_) => todo!(),
-            DeclarativeTerm::AssociatedItem(_) => todo!(),
-            DeclarativeTerm::TypeAsTraitItem(_) => todo!(),
-            DeclarativeTerm::TraitConstraint(_) => todo!(),
-            DeclarativeTerm::LeashOrBitNot(_) => todo!(),
-            DeclarativeTerm::List(_) => todo!(),
+            DecTerm::ApplicationOrRitchieCall(_) => todo!(),
+            DecTerm::AssociatedItem(_) => todo!(),
+            DecTerm::TypeAsTraitItem(_) => todo!(),
+            DecTerm::TraitConstraint(_) => todo!(),
+            DecTerm::LeashOrBitNot(_) => todo!(),
+            DecTerm::List(_) => todo!(),
             _ => self,
         }
     }

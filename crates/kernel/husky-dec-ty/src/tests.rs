@@ -5,7 +5,7 @@ use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
 use husky_dec_signature::DecSignatureJar;
-use husky_dec_term::DeclarativeTermJar;
+use husky_dec_term::DecTermJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
@@ -33,7 +33,7 @@ use husky_toml_token::TomlTokenJar;
     SynExprJar,
     SynDeclJar,
     TermPreludeJar,
-    DeclarativeTermJar,
+    DecTermJar,
     DecSignatureJar,
     DeclarativeTypeJar
 )]

@@ -11,7 +11,7 @@ use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData};
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum LiteralDeclarativeTerm {
+pub enum LiteralDecTerm {
     Resolved(TermLiteral),
     Unresolved(UnresolvedTermLiteral),
 }
@@ -22,18 +22,18 @@ pub enum UnresolvedTermLiteral {
     RegularInteger(i128),
 }
 
-impl LiteralDeclarativeTerm {
+impl LiteralDecTerm {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,
-        _ctx: &mut DeclarativeTermShowContext,
+        _ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
-        f.write_str("DeclarativeTermLiteralTodo")
+        f.write_str("DecTermLiteralTodo")
     }
 }
 
-impl salsa::DisplayWithDb for LiteralDeclarativeTerm {
+impl salsa::DisplayWithDb for LiteralDecTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -43,7 +43,7 @@ impl salsa::DisplayWithDb for LiteralDeclarativeTerm {
     }
 }
 
-impl LiteralDeclarativeTerm {
+impl LiteralDecTerm {
     pub fn from_literal_token_data(literal: LiteralTokenData, db: &salsa::Db) -> Self {
         match literal {
             LiteralTokenData::Unit => TermLiteral::Unit(()).into(),
@@ -98,8 +98,8 @@ impl LiteralDeclarativeTerm {
     }
 }
 
-impl DeclarativeTerm {
+impl DecTerm {
     pub fn from_literal_token_data(literal: LiteralTokenData, db: &salsa::Db) -> Self {
-        LiteralDeclarativeTerm::from_literal_token_data(literal, db).into()
+        LiteralDecTerm::from_literal_token_data(literal, db).into()
     }
 }

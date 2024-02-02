@@ -4,9 +4,9 @@ use vec_like::AsVecMapEntry;
 use super::*;
 
 #[derive(Debug, Hash, PartialEq, Eq)]
-pub(crate) struct DeclarativeTermQualifiedTypeholderShowEntry {
-    variable: DeclarativeTermQualifiedTypeholder,
-    show_kind: DeclarativeTermQualifiedTypeholderShowKind,
+pub(crate) struct DecTermQualifiedTypeholderShowEntry {
+    variable: DecTermQualifiedTypeholder,
+    show_kind: DecTermQualifiedTypeholderShowKind,
     idx: u8,
     /// number of lambdas using this variable
     /// level 0 means this variable is external
@@ -14,7 +14,7 @@ pub(crate) struct DeclarativeTermQualifiedTypeholderShowEntry {
     external_variable_ident: Option<Ident>,
 }
 
-impl DeclarativeTermQualifiedTypeholderShowEntry {
+impl DecTermQualifiedTypeholderShowEntry {
     pub(crate) fn show(
         &self,
         _db: &::salsa::Db,
@@ -26,7 +26,7 @@ impl DeclarativeTermQualifiedTypeholderShowEntry {
             todo!()
         } else {
             match self.show_kind {
-                DeclarativeTermQualifiedTypeholderShowKind::Lifetime => match self.idx {
+                DecTermQualifiedTypeholderShowKind::Lifetime => match self.idx {
                     0 => f.write_str("'a"),
                     1 => f.write_str("'b"),
                     2 => f.write_str("'c"),
@@ -35,7 +35,7 @@ impl DeclarativeTermQualifiedTypeholderShowEntry {
                     5 => f.write_str("'f"),
                     idx => f.write_fmt(format_args!("'a{}", idx)),
                 },
-                DeclarativeTermQualifiedTypeholderShowKind::Binding => match self.idx {
+                DecTermQualifiedTypeholderShowKind::Binding => match self.idx {
                     0 => f.write_str("'α"),
                     1 => f.write_str("'β"),
                     2 => f.write_str("'γ"),
@@ -45,17 +45,17 @@ impl DeclarativeTermQualifiedTypeholderShowEntry {
                     6 => f.write_str("'η"),
                     idx => f.write_fmt(format_args!("'α{}", idx)),
                 },
-                DeclarativeTermQualifiedTypeholderShowKind::Prop => match self.idx {
+                DecTermQualifiedTypeholderShowKind::Prop => match self.idx {
                     0 => f.write_str("p"),
                     1 => f.write_str("q"),
                     idx => f.write_fmt(format_args!("p{}", idx)),
                 },
-                DeclarativeTermQualifiedTypeholderShowKind::Type => match self.idx {
+                DecTermQualifiedTypeholderShowKind::Type => match self.idx {
                     0 => f.write_str("t"),
                     1 => f.write_str("s"),
                     idx => f.write_fmt(format_args!("t{}", idx)),
                 },
-                DeclarativeTermQualifiedTypeholderShowKind::Kind => match self.idx {
+                DecTermQualifiedTypeholderShowKind::Kind => match self.idx {
                     0 => f.write_str("α"),
                     1 => f.write_str("β"),
                     2 => f.write_str("γ"),
@@ -65,7 +65,7 @@ impl DeclarativeTermQualifiedTypeholderShowEntry {
                     6 => f.write_str("η"),
                     idx => f.write_fmt(format_args!("α{}", idx)),
                 },
-                DeclarativeTermQualifiedTypeholderShowKind::Other => match self.idx {
+                DecTermQualifiedTypeholderShowKind::Other => match self.idx {
                     0 => f.write_str("a"),
                     1 => f.write_str("b"),
                     idx => f.write_fmt(format_args!("a{}", idx)),
@@ -75,8 +75,8 @@ impl DeclarativeTermQualifiedTypeholderShowEntry {
     }
 }
 
-impl AsVecMapEntry for DeclarativeTermQualifiedTypeholderShowEntry {
-    type K = DeclarativeTermQualifiedTypeholder;
+impl AsVecMapEntry for DecTermQualifiedTypeholderShowEntry {
+    type K = DecTermQualifiedTypeholder;
 
     fn key(&self) -> Self::K
     where
@@ -91,7 +91,7 @@ impl AsVecMapEntry for DeclarativeTermQualifiedTypeholderShowEntry {
 }
 
 #[derive(Debug, Clone, Copy, Hash, PartialEq, Eq)]
-pub(crate) enum DeclarativeTermQualifiedTypeholderShowKind {
+pub(crate) enum DecTermQualifiedTypeholderShowKind {
     Lifetime,
     Binding,
     Prop,
@@ -100,34 +100,34 @@ pub(crate) enum DeclarativeTermQualifiedTypeholderShowKind {
     Other,
 }
 
-impl DeclarativeTermShowContext {
+impl DecTermShowContext {
     pub(super) fn new_external_entry(
         &self,
         db: &::salsa::Db,
-        variable: DeclarativeTermQualifiedTypeholder,
+        variable: DecTermQualifiedTypeholder,
         external_variable_ident: Option<Ident>,
-    ) -> DeclarativeTermQualifiedTypeholderShowEntry {
+    ) -> DecTermQualifiedTypeholderShowEntry {
         self.new_entry(db, variable, 0, external_variable_ident)
     }
 
     pub(super) fn new_internal_entry(
         &self,
         db: &::salsa::Db,
-        variable: DeclarativeTermQualifiedTypeholder,
-    ) -> DeclarativeTermQualifiedTypeholderShowEntry {
+        variable: DecTermQualifiedTypeholder,
+    ) -> DecTermQualifiedTypeholderShowEntry {
         self.new_entry(db, variable, 1, None)
     }
 
     fn new_entry(
         &self,
         db: &::salsa::Db,
-        variable: DeclarativeTermQualifiedTypeholder,
+        variable: DecTermQualifiedTypeholder,
         level: u8,
         external_variable_ident: Option<Ident>,
-    ) -> DeclarativeTermQualifiedTypeholderShowEntry {
+    ) -> DecTermQualifiedTypeholderShowEntry {
         let show_kind = variable_show_kind(variable, db);
         let idx = self.issue_idx(show_kind);
-        DeclarativeTermQualifiedTypeholderShowEntry {
+        DecTermQualifiedTypeholderShowEntry {
             variable,
             show_kind,
             idx,
@@ -136,7 +136,7 @@ impl DeclarativeTermShowContext {
         }
     }
 
-    fn issue_idx(&self, show_kind: DeclarativeTermQualifiedTypeholderShowKind) -> u8 {
+    fn issue_idx(&self, show_kind: DecTermQualifiedTypeholderShowKind) -> u8 {
         let last_idx = self
             .entries
             .data()
@@ -151,11 +151,7 @@ impl DeclarativeTermShowContext {
     }
 
     // todo: put this into an internal table struct
-    pub(super) fn with_variable(
-        &mut self,
-        db: &::salsa::Db,
-        variable: DeclarativeTermQualifiedTypeholder,
-    ) {
+    pub(super) fn with_variable(&mut self, db: &::salsa::Db, variable: DecTermQualifiedTypeholder) {
         if let Some(entry) = self.entries.get_entry_mut(variable) {
             entry.level += 1
         } else {
@@ -164,28 +160,26 @@ impl DeclarativeTermShowContext {
         }
     }
 
-    pub(super) fn without_variable(&mut self, variable: DeclarativeTermQualifiedTypeholder) {
+    pub(super) fn without_variable(&mut self, variable: DecTermQualifiedTypeholder) {
         self.entries.get_entry_mut(variable).unwrap().level -= 1
     }
 }
 
 fn variable_show_kind(
-    variable: DeclarativeTermQualifiedTypeholder,
+    variable: DecTermQualifiedTypeholder,
     db: &::salsa::Db,
-) -> DeclarativeTermQualifiedTypeholderShowKind {
+) -> DecTermQualifiedTypeholderShowKind {
     match variable.ty(db) {
-        Ok(DeclarativeTerm::EntityPath(DeclarativeTermEntityPath::Type(ty)))
-            if ty.eqs_lifetime_ty_path(db) =>
-        {
-            DeclarativeTermQualifiedTypeholderShowKind::Lifetime
+        Ok(DecTerm::EntityPath(DecTermEntityPath::Type(ty))) if ty.eqs_lifetime_ty_path(db) => {
+            DecTermQualifiedTypeholderShowKind::Lifetime
         }
-        Ok(DeclarativeTerm::Category(cat)) if cat.universe().raw() == 0 => {
-            DeclarativeTermQualifiedTypeholderShowKind::Prop
+        Ok(DecTerm::Category(cat)) if cat.universe().raw() == 0 => {
+            DecTermQualifiedTypeholderShowKind::Prop
         }
-        Ok(DeclarativeTerm::Category(cat)) if cat.universe().raw() == 1 => {
-            DeclarativeTermQualifiedTypeholderShowKind::Type
+        Ok(DecTerm::Category(cat)) if cat.universe().raw() == 1 => {
+            DecTermQualifiedTypeholderShowKind::Type
         }
-        Ok(DeclarativeTerm::Category(_)) => DeclarativeTermQualifiedTypeholderShowKind::Kind,
-        _ => DeclarativeTermQualifiedTypeholderShowKind::Other,
+        Ok(DecTerm::Category(_)) => DecTermQualifiedTypeholderShowKind::Kind,
+        _ => DecTermQualifiedTypeholderShowKind::Other,
     }
 }

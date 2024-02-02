@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
     (
@@ -16,7 +16,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`fn((~ mnist_classifier::line_segment_sketch::LineSegmentSketch) -> [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+            DecTerm(`fn((~ mnist_classifier::line_segment_sketch::LineSegmentSketch) -> [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ),
     ),
 ]

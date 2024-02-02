@@ -30,7 +30,7 @@ impl SymbolEthTerm {
     #[inline(always)]
     pub fn from_declarative(
         db: &::salsa::Db,
-        declarative_term_symbol: SymbolDeclarativeTerm,
+        declarative_term_symbol: SymbolDecTerm,
     ) -> EthTermResult<Self> {
         let ty = declarative_term_symbol.ty(db)?;
         let ty = EthTerm::ty_from_declarative(db, ty)?;

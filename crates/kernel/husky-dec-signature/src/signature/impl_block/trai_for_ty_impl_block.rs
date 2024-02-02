@@ -4,7 +4,7 @@ use super::*;
 pub struct TraitForTypeImplBlockDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
-    pub trai: DeclarativeTerm,
+    pub trai: DecTerm,
     pub self_ty: DeclarativeSelfType,
     // todo: where clause
 }
@@ -12,12 +12,12 @@ pub struct TraitForTypeImplBlockDecTemplate {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum DeclarativeSelfType {
-    Path(DeclarativeTerm),
-    DerivedAny(SymbolDeclarativeTerm),
+    Path(DecTerm),
+    DerivedAny(SymbolDecTerm),
 }
 
 impl DeclarativeSelfType {
-    pub fn term(self) -> DeclarativeTerm {
+    pub fn term(self) -> DecTerm {
         match self {
             DeclarativeSelfType::Path(term) => term,
             DeclarativeSelfType::DerivedAny(term) => term.into(),
@@ -66,7 +66,7 @@ pub(crate) fn trai_for_ty_impl_block_syn_dec_template(
             DeclarativeSelfType::Path(self_ty_term)
         }
         SelfTypeDecl::DeriveAny { .. } => {
-            let DeclarativeTerm::Symbol(self_ty_symbol) = self_ty_term else {
+            let DecTerm::Symbol(self_ty_symbol) = self_ty_term else {
                 unreachable!()
             };
             DeclarativeSelfType::DerivedAny(self_ty_symbol)

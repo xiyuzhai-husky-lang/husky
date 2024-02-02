@@ -14,7 +14,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 3,
                                             },
@@ -28,12 +28,12 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: BorrowMut,
-                                            ty: DeclarativeTerm(`core::slice::Slice t`),
+                                            ty: DecTerm(`core::slice::Slice t`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::basic::unit`),
+                            return_ty: DecTerm(`core::basic::unit`),
                         },
                     ),
                 ),
@@ -55,7 +55,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 3,
                                             },
@@ -69,24 +69,24 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: BorrowMut,
-                                            ty: DeclarativeTerm(`core::slice::Slice t`),
+                                            ty: DecTerm(`core::slice::Slice t`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::isize`),
+                                            ty: DecTerm(`core::num::isize`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::isize`),
+                                            ty: DecTerm(`core::num::isize`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::basic::unit`),
+                            return_ty: DecTerm(`core::basic::unit`),
                         },
                     ),
                 ),
@@ -108,7 +108,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 3,
                                             },
@@ -122,24 +122,24 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: BorrowMut,
-                                            ty: DeclarativeTerm(`core::slice::Slice t`),
+                                            ty: DecTerm(`core::slice::Slice t`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::isize`),
+                                            ty: DecTerm(`core::num::isize`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::isize`),
+                                            ty: DecTerm(`core::num::isize`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::isize`),
+                            return_ty: DecTerm(`core::num::isize`),
                         },
                     ),
                 ),
@@ -163,7 +163,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::basic::unit`),
+                            return_ty: DecTerm(`core::basic::unit`),
                         },
                     ),
                 ),
@@ -187,7 +187,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::basic::unit`),
+                            return_ty: DecTerm(`core::basic::unit`),
                         },
                     ),
                 ),

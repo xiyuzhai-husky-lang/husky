@@ -13,20 +13,20 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
+                            self_ty: DecTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
                             fields: [
                                 PropsStructFieldDecTemplate {
                                     ident: `line_segment_sketch`,
-                                    ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                                    ty: DecTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
                                     ident: `line_segments`,
-                                    ty: DeclarativeTerm(`~ core::slice::CyclicSlice mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                                    ty: DecTerm(`~ core::slice::CyclicSlice mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDeclarativeTerm {
+                            instance_constructor_ritchie_ty: RitchieDecTerm {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -34,17 +34,17 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
-                                            ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                                            ty: DecTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
-                                            ty: DeclarativeTerm(`~ core::slice::CyclicSlice mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                                            ty: DecTerm(`~ core::slice::CyclicSlice mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                                         },
                                     ),
                                 ],
-                                return_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
+                                return_ty: DecTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
                             },
                         },
                     ),
@@ -74,9 +74,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::visual::Visualize`),
+                        trai: DecTerm(`core::visual::Visualize`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
+                            DecTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
                         ),
                     },
                 ),
@@ -115,18 +115,18 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
+                            self_ty: DecTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
+                                ty: DecTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::visual::Visual`),
+                            return_ty: DecTerm(`core::visual::Visual`),
                         },
                     ),
                 ),

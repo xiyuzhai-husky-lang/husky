@@ -5,132 +5,122 @@ use husky_vfs::VfsDb;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct DeclarativeTermMenu0 {
+pub struct DecTermMenu0 {
     universe0: UniverseTerm,
     universe1: UniverseTerm,
     prop: CategoryTerm,
     ty0: CategoryTerm,
-    static_lifetime: LiteralDeclarativeTerm,
-    unit: DeclarativeTerm,
-    never: DeclarativeTerm,
+    static_lifetime: LiteralDecTerm,
+    unit: DecTerm,
+    never: DecTerm,
     // core::ops::Add	The addition operator +.
-    core_ops_add: DeclarativeTerm,
+    core_ops_add: DecTerm,
     // core::ops::AddAssign	The addition assignment operator +=.
-    core_ops_add_assign: DeclarativeTerm,
+    core_ops_add_assign: DecTerm,
     // core::ops::BitAnd	The bitwise AND operator &.
-    core_ops_bit_and: DeclarativeTerm,
+    core_ops_bit_and: DecTerm,
     // core::ops::BitAndAssign	The bitwise AND assignment operator &=.
-    core_ops_bit_and_assign: DeclarativeTerm,
+    core_ops_bit_and_assign: DecTerm,
     // core::ops::BitOr	The bitwise OR operator |.
-    core_ops_bit_or: DeclarativeTerm,
+    core_ops_bit_or: DecTerm,
     // core::ops::BitOrAssign	The bitwise OR assignment operator |=.
-    core_ops_bit_or_assign: DeclarativeTerm,
+    core_ops_bit_or_assign: DecTerm,
     // core::ops::BitXor	The bitwise XOR operator ^.
-    core_ops_bit_xor: DeclarativeTerm,
+    core_ops_bit_xor: DecTerm,
     // core::ops::BitXorAssign	The bitwise XOR assignment operator ^=.
-    core_ops_bit_xor_assign: DeclarativeTerm,
+    core_ops_bit_xor_assign: DecTerm,
     // core::ops::Div	The division operator /.
-    core_ops_div: DeclarativeTerm,
+    core_ops_div: DecTerm,
     // core::ops::DivAssign	The division assignment operator /=.
-    core_ops_div_assign: DeclarativeTerm,
+    core_ops_div_assign: DecTerm,
     // core::ops::Mul	The multiplication operator *.
-    core_ops_mul: DeclarativeTerm,
+    core_ops_mul: DecTerm,
     // core::ops::MulAssign	The multiplication assignment operator *=.
-    core_ops_mul_assign: DeclarativeTerm,
+    core_ops_mul_assign: DecTerm,
     // core::ops::Neg	The unary negation operator -.
-    core_ops_neg: DeclarativeTerm,
+    core_ops_neg: DecTerm,
     // Not	The unary logical negation operator !.
-    core_ops_not: DeclarativeTerm,
-    option_ty_path: DeclarativeTerm,
-    slice_ty_path: DeclarativeTerm,
-    str_ty_path: DeclarativeTerm,
-    ref_ty_path: DeclarativeTerm,
-    at_ty_path: DeclarativeTerm,
-    leash_ty_path: ItemPathDeclarativeTerm,
-    vec_ty: DeclarativeTerm,
-    i8: DeclarativeTerm,
-    i16: DeclarativeTerm,
-    i32: DeclarativeTerm,
-    i64: DeclarativeTerm,
-    f32: DeclarativeTerm,
-    f64: DeclarativeTerm,
-    r32: DeclarativeTerm,
-    r64: DeclarativeTerm,
-    bool: DeclarativeTerm,
-    lifetime_ty: DeclarativeTerm,
-    place_ty: DeclarativeTerm,
-    trai_ty: DeclarativeTerm,
-    module: DeclarativeTerm,
+    core_ops_not: DecTerm,
+    option_ty_path: DecTerm,
+    slice_ty_path: DecTerm,
+    str_ty_path: DecTerm,
+    ref_ty_path: DecTerm,
+    at_ty_path: DecTerm,
+    leash_ty_path: ItemPathDecTerm,
+    vec_ty: DecTerm,
+    i8: DecTerm,
+    i16: DecTerm,
+    i32: DecTerm,
+    i64: DecTerm,
+    f32: DecTerm,
+    f64: DecTerm,
+    r32: DecTerm,
+    r64: DecTerm,
+    bool: DecTerm,
+    lifetime_ty: DecTerm,
+    place_ty: DecTerm,
+    trai_ty: DecTerm,
+    module: DecTerm,
 }
 
-impl DeclarativeTermMenu0 {
+impl DecTermMenu0 {
     pub fn new(db: &::salsa::Db, toolchain: Toolchain) -> Self {
-        // let sort = db.it_term(DeclarativeTermAtom::new_category(TermCategory::Sort).into());
-        // let universe1 = db.it_term(DeclarativeTermAtom::new_universe(1).into());
+        // let sort = db.it_term(DecTermAtom::new_category(TermCategory::Sort).into());
+        // let universe1 = db.it_term(DecTermAtom::new_universe(1).into());
         let _vfs_path_menu = db.vfs_path_menu(toolchain);
         let item_path_menu = item_path_menu(db, toolchain);
         let universe0 = UniverseTerm::new(0);
         let universe1 = UniverseTerm::new(1);
-        DeclarativeTermMenu0 {
+        DecTermMenu0 {
             static_lifetime: TermLiteral::StaticLifetime.into(),
             universe0,
             universe1,
             prop: CategoryTerm::new(universe0),
             ty0: CategoryTerm::new(universe1),
-            core_ops_add: DeclarativeTerm::EntityPath(item_path_menu.add_trai_path().into()),
+            core_ops_add: DecTerm::EntityPath(item_path_menu.add_trai_path().into()),
             // start here
-            // DeclarativeTerm::Entity(item_path_menu.core_ops_())
-            core_ops_add_assign: DeclarativeTerm::EntityPath(
-                item_path_menu.add_assign_trai_path().into(),
-            ),
-            core_ops_bit_and: DeclarativeTerm::EntityPath(
-                item_path_menu.bit_and_trai_path().into(),
-            ),
-            core_ops_bit_and_assign: DeclarativeTerm::EntityPath(
+            // DecTerm::Entity(item_path_menu.core_ops_())
+            core_ops_add_assign: DecTerm::EntityPath(item_path_menu.add_assign_trai_path().into()),
+            core_ops_bit_and: DecTerm::EntityPath(item_path_menu.bit_and_trai_path().into()),
+            core_ops_bit_and_assign: DecTerm::EntityPath(
                 item_path_menu.bit_and_assign_trai_path().into(),
             ),
-            core_ops_bit_or: DeclarativeTerm::EntityPath(item_path_menu.bit_or_trai_path().into()),
-            core_ops_bit_or_assign: DeclarativeTerm::EntityPath(
+            core_ops_bit_or: DecTerm::EntityPath(item_path_menu.bit_or_trai_path().into()),
+            core_ops_bit_or_assign: DecTerm::EntityPath(
                 item_path_menu.bit_or_assign_trai_path().into(),
             ),
-            core_ops_bit_xor: DeclarativeTerm::EntityPath(
-                item_path_menu.bit_xor_trai_path().into(),
-            ),
-            core_ops_bit_xor_assign: DeclarativeTerm::EntityPath(
+            core_ops_bit_xor: DecTerm::EntityPath(item_path_menu.bit_xor_trai_path().into()),
+            core_ops_bit_xor_assign: DecTerm::EntityPath(
                 item_path_menu.bit_xor_assign_trai_path().into(),
             ),
-            core_ops_div: DeclarativeTerm::EntityPath(item_path_menu.div_trai_path().into()),
-            core_ops_div_assign: DeclarativeTerm::EntityPath(
-                item_path_menu.div_assign_trai_path().into(),
-            ),
-            core_ops_mul: DeclarativeTerm::EntityPath(item_path_menu.mul_trai_path().into()),
-            core_ops_mul_assign: DeclarativeTerm::EntityPath(
-                item_path_menu.mul_assign_trai_path().into(),
-            ),
-            core_ops_neg: DeclarativeTerm::EntityPath(item_path_menu.neg_trai_path().into()),
-            core_ops_not: DeclarativeTerm::EntityPath(item_path_menu.not_trai_path().into()),
-            option_ty_path: ItemPathDeclarativeTerm::Type(item_path_menu.option_ty_path()).into(),
-            slice_ty_path: ItemPathDeclarativeTerm::Type(item_path_menu.slice_ty_path()).into(),
-            str_ty_path: ItemPathDeclarativeTerm::Type(item_path_menu.str_ty_path()).into(),
+            core_ops_div: DecTerm::EntityPath(item_path_menu.div_trai_path().into()),
+            core_ops_div_assign: DecTerm::EntityPath(item_path_menu.div_assign_trai_path().into()),
+            core_ops_mul: DecTerm::EntityPath(item_path_menu.mul_trai_path().into()),
+            core_ops_mul_assign: DecTerm::EntityPath(item_path_menu.mul_assign_trai_path().into()),
+            core_ops_neg: DecTerm::EntityPath(item_path_menu.neg_trai_path().into()),
+            core_ops_not: DecTerm::EntityPath(item_path_menu.not_trai_path().into()),
+            option_ty_path: ItemPathDecTerm::Type(item_path_menu.option_ty_path()).into(),
+            slice_ty_path: ItemPathDecTerm::Type(item_path_menu.slice_ty_path()).into(),
+            str_ty_path: ItemPathDecTerm::Type(item_path_menu.str_ty_path()).into(),
             ref_ty_path: item_path_menu.ref_ty_path().into(),
             at_ty_path: item_path_menu.at_ty_path().into(),
-            vec_ty: ItemPathDeclarativeTerm::Type(item_path_menu.vec_ty_path()).into(),
-            unit: ItemPathDeclarativeTerm::Type(item_path_menu.unit_ty_path()).into(),
-            never: ItemPathDeclarativeTerm::Type(item_path_menu.never_ty_path()).into(),
-            bool: ItemPathDeclarativeTerm::Type(item_path_menu.bool_ty_path()).into(),
-            trai_ty: ItemPathDeclarativeTerm::Type(item_path_menu.trai_ty_path()).into(),
+            vec_ty: ItemPathDecTerm::Type(item_path_menu.vec_ty_path()).into(),
+            unit: ItemPathDecTerm::Type(item_path_menu.unit_ty_path()).into(),
+            never: ItemPathDecTerm::Type(item_path_menu.never_ty_path()).into(),
+            bool: ItemPathDecTerm::Type(item_path_menu.bool_ty_path()).into(),
+            trai_ty: ItemPathDecTerm::Type(item_path_menu.trai_ty_path()).into(),
             leash_ty_path: item_path_menu.leash_ty_path().into(),
-            lifetime_ty: ItemPathDeclarativeTerm::Type(item_path_menu.lifetime_ty_path()).into(),
-            place_ty: ItemPathDeclarativeTerm::Type(item_path_menu.place_ty_path()).into(),
-            module: ItemPathDeclarativeTerm::Type(item_path_menu.module_ty_path()).into(),
-            i8: ItemPathDeclarativeTerm::Type(item_path_menu.i8_ty_path()).into(),
-            i16: ItemPathDeclarativeTerm::Type(item_path_menu.i16_ty_path()).into(),
-            i32: ItemPathDeclarativeTerm::Type(item_path_menu.i32_ty_path()).into(),
-            i64: ItemPathDeclarativeTerm::Type(item_path_menu.i64_ty_path()).into(),
-            f32: ItemPathDeclarativeTerm::Type(item_path_menu.f32_ty_path()).into(),
-            f64: ItemPathDeclarativeTerm::Type(item_path_menu.f64_ty_path()).into(),
-            r32: ItemPathDeclarativeTerm::Type(item_path_menu.r32_ty_path()).into(),
-            r64: ItemPathDeclarativeTerm::Type(item_path_menu.r64_ty_path()).into(),
+            lifetime_ty: ItemPathDecTerm::Type(item_path_menu.lifetime_ty_path()).into(),
+            place_ty: ItemPathDecTerm::Type(item_path_menu.place_ty_path()).into(),
+            module: ItemPathDecTerm::Type(item_path_menu.module_ty_path()).into(),
+            i8: ItemPathDecTerm::Type(item_path_menu.i8_ty_path()).into(),
+            i16: ItemPathDecTerm::Type(item_path_menu.i16_ty_path()).into(),
+            i32: ItemPathDecTerm::Type(item_path_menu.i32_ty_path()).into(),
+            i64: ItemPathDecTerm::Type(item_path_menu.i64_ty_path()).into(),
+            f32: ItemPathDecTerm::Type(item_path_menu.f32_ty_path()).into(),
+            f64: ItemPathDecTerm::Type(item_path_menu.f64_ty_path()).into(),
+            r32: ItemPathDecTerm::Type(item_path_menu.r32_ty_path()).into(),
+            r64: ItemPathDecTerm::Type(item_path_menu.r64_ty_path()).into(),
         }
     }
 
@@ -152,174 +142,174 @@ impl DeclarativeTermMenu0 {
         self.ty0
     }
 
-    // pub fn core(&self) -> DeclarativeTerm {
+    // pub fn core(&self) -> DecTerm {
     //     self.core
     // }
 
-    // pub fn core_ops(&self) -> DeclarativeTerm {
+    // pub fn core_ops(&self) -> DecTerm {
     //     self.core_ops
     // }
 
     // Add	The addition operator +.
-    pub fn core_ops_add(&self) -> DeclarativeTerm {
+    pub fn core_ops_add(&self) -> DecTerm {
         self.core_ops_add
     }
 
     // AddAssign	The addition assignment operator +=.
-    pub fn core_ops_add_assign(&self) -> DeclarativeTerm {
+    pub fn core_ops_add_assign(&self) -> DecTerm {
         self.core_ops_add_assign
     }
 
     // BitAnd	The bitwise AND operator &.
-    pub fn core_ops_bit_and(&self) -> DeclarativeTerm {
+    pub fn core_ops_bit_and(&self) -> DecTerm {
         self.core_ops_bit_and
     }
 
     // BitAndAssign	The bitwise AND assignment operator &=.
-    pub fn core_ops_bit_and_assign(&self) -> DeclarativeTerm {
+    pub fn core_ops_bit_and_assign(&self) -> DecTerm {
         self.core_ops_bit_and_assign
     }
 
     // BitOr	The bitwise OR operator |.
-    pub fn core_ops_bit_or(&self) -> DeclarativeTerm {
+    pub fn core_ops_bit_or(&self) -> DecTerm {
         self.core_ops_bit_or
     }
 
     // BitOrAssign	The bitwise OR assignment operator |=.
-    pub fn core_ops_bit_or_assign(&self) -> DeclarativeTerm {
+    pub fn core_ops_bit_or_assign(&self) -> DecTerm {
         self.core_ops_bit_or_assign
     }
     // BitXor	The bitwise XOR operator ^.
-    pub fn core_ops_bit_xor(&self) -> DeclarativeTerm {
+    pub fn core_ops_bit_xor(&self) -> DecTerm {
         self.core_ops_bit_xor
     }
 
     // BitXorAssign	The bitwise XOR assignment operator ^=.
-    pub fn core_ops_bit_xor_assign(&self) -> DeclarativeTerm {
+    pub fn core_ops_bit_xor_assign(&self) -> DecTerm {
         self.core_ops_bit_or_assign
     }
 
     // Div	The division operator /.
-    pub fn core_ops_div(&self) -> DeclarativeTerm {
+    pub fn core_ops_div(&self) -> DecTerm {
         self.core_ops_div
     }
 
     // DivAssign	The division assignment operator /=.
-    pub fn core_ops_div_assign(&self) -> DeclarativeTerm {
+    pub fn core_ops_div_assign(&self) -> DecTerm {
         self.core_ops_div_assign
     }
 
     // Mul	The multiplication operator *.
-    pub fn core_ops_mul(&self) -> DeclarativeTerm {
+    pub fn core_ops_mul(&self) -> DecTerm {
         self.core_ops_mul
     }
 
     // MulAssign	The multiplication assignment operator *=.
-    pub fn core_ops_mul_assign(&self) -> DeclarativeTerm {
+    pub fn core_ops_mul_assign(&self) -> DecTerm {
         self.core_ops_mul_assign
     }
 
     // Neg	The unary negation operator -.
-    pub fn core_ops_neg(&self) -> DeclarativeTerm {
+    pub fn core_ops_neg(&self) -> DecTerm {
         self.core_ops_neg
     }
 
     // Not	The unary logical negation operator !.
-    pub fn core_ops_not(&self) -> DeclarativeTerm {
+    pub fn core_ops_not(&self) -> DecTerm {
         self.core_ops_not
     }
 
-    pub fn option_ty_path(&self) -> DeclarativeTerm {
+    pub fn option_ty_path(&self) -> DecTerm {
         self.option_ty_path
     }
 
-    pub fn slice_ty_path(&self) -> DeclarativeTerm {
+    pub fn slice_ty_path(&self) -> DecTerm {
         self.slice_ty_path
     }
 
-    pub fn ref_ty_path(&self) -> DeclarativeTerm {
+    pub fn ref_ty_path(&self) -> DecTerm {
         self.ref_ty_path
     }
 
-    pub fn leash_ty_path(&self) -> ItemPathDeclarativeTerm {
+    pub fn leash_ty_path(&self) -> ItemPathDecTerm {
         self.leash_ty_path
     }
 
-    pub fn list(&self) -> DeclarativeTerm {
+    pub fn list(&self) -> DecTerm {
         self.vec_ty
     }
 
-    pub fn unit(&self) -> DeclarativeTerm {
+    pub fn unit(&self) -> DecTerm {
         self.unit
     }
 
-    pub fn never(&self) -> DeclarativeTerm {
+    pub fn never(&self) -> DecTerm {
         self.never
     }
 
-    pub fn trai_ty(&self) -> DeclarativeTerm {
+    pub fn trai_ty(&self) -> DecTerm {
         self.trai_ty
     }
 
-    pub fn module(&self) -> DeclarativeTerm {
+    pub fn module(&self) -> DecTerm {
         self.module
     }
 
-    pub fn bool(&self) -> DeclarativeTerm {
+    pub fn bool(&self) -> DecTerm {
         self.bool
     }
 
-    pub fn i8(&self) -> DeclarativeTerm {
+    pub fn i8(&self) -> DecTerm {
         self.i8
     }
 
-    pub fn i16(&self) -> DeclarativeTerm {
+    pub fn i16(&self) -> DecTerm {
         self.i16
     }
 
-    pub fn i32(&self) -> DeclarativeTerm {
+    pub fn i32(&self) -> DecTerm {
         self.i32
     }
 
-    pub fn i64(&self) -> DeclarativeTerm {
+    pub fn i64(&self) -> DecTerm {
         self.i64
     }
 
-    pub fn f32(&self) -> DeclarativeTerm {
+    pub fn f32(&self) -> DecTerm {
         self.f32
     }
 
-    pub fn f64(&self) -> DeclarativeTerm {
+    pub fn f64(&self) -> DecTerm {
         self.f64
     }
 
-    pub fn r32(&self) -> DeclarativeTerm {
+    pub fn r32(&self) -> DecTerm {
         self.r32
     }
 
-    pub fn r64(&self) -> DeclarativeTerm {
+    pub fn r64(&self) -> DecTerm {
         self.r64
     }
 
-    pub fn static_lifetime(&self) -> DeclarativeTerm {
+    pub fn static_lifetime(&self) -> DecTerm {
         self.static_lifetime.into()
     }
 
     /// Lifetime
-    pub fn lifetime_ty(&self) -> DeclarativeTerm {
+    pub fn lifetime_ty(&self) -> DecTerm {
         self.lifetime_ty
     }
 
     /// Place
-    pub fn place_ty(&self) -> DeclarativeTerm {
+    pub fn place_ty(&self) -> DecTerm {
         self.place_ty
     }
 
-    pub fn str_ty_path(&self) -> DeclarativeTerm {
+    pub fn str_ty_path(&self) -> DecTerm {
         self.str_ty_path
     }
 
-    pub fn at_ty_path(&self) -> DeclarativeTerm {
+    pub fn at_ty_path(&self) -> DecTerm {
         self.at_ty_path
     }
 }

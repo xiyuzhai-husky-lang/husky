@@ -17,7 +17,7 @@
                     },
                 ),
                 Ok(
-                    DeclarativeTerm(`(independent v0: Type) -> fn((v0) -> core::option::Option v0`),
+                    DecTerm(`(independent v0: Type) -> fn((v0) -> core::option::Option v0`),
                 ),
             ),
             (
@@ -35,7 +35,7 @@
                     },
                 ),
                 Ok(
-                    DeclarativeTerm(`(independent v0: Type) -> core::option::Option v0`),
+                    DecTerm(`(independent v0: Type) -> core::option::Option v0`),
                 ),
             ),
         ],

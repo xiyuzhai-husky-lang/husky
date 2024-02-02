@@ -16,7 +16,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 7,
                                             },
@@ -27,7 +27,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 4,
                                             },
@@ -59,7 +59,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 7,
                                             },
@@ -70,7 +70,7 @@
                                         annotated_variance: Some(
                                             Invariant,
                                         ),
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 8,
                                             },
@@ -102,7 +102,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 4,
                                             },
@@ -132,7 +132,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 9,
                                             },
@@ -141,7 +141,7 @@
                                     },
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 10,
                                             },
@@ -179,7 +179,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 10,
                                         },
@@ -188,9 +188,9 @@
                                 },
                             ],
                         },
-                        trai: DeclarativeTerm(`core::marker::Copy`),
+                        trai: DecTerm(`core::marker::Copy`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::mem::Leash t`),
+                            DecTerm(`core::mem::Leash t`),
                         ),
                     },
                 ),

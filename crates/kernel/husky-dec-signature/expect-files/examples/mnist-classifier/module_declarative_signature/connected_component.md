@@ -13,30 +13,30 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
+                            self_ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
                             fields: [
                                 PropsStructFieldDecTemplate {
                                     ident: `row_start`,
-                                    ty: DeclarativeTerm(`core::num::i32`),
+                                    ty: DecTerm(`core::num::i32`),
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
                                     ident: `row_end`,
-                                    ty: DeclarativeTerm(`core::num::i32`),
+                                    ty: DecTerm(`core::num::i32`),
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
                                     ident: `upper_mass`,
-                                    ty: DeclarativeTerm(`core::num::i32`),
+                                    ty: DecTerm(`core::num::i32`),
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
                                     ident: `lower_mass`,
-                                    ty: DeclarativeTerm(`core::num::i32`),
+                                    ty: DecTerm(`core::num::i32`),
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDeclarativeTerm {
+                            instance_constructor_ritchie_ty: RitchieDecTerm {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -44,29 +44,29 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
-                                return_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
+                                return_ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
                             },
                         },
                     ),
@@ -88,15 +88,15 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::connected_component::EffHoles`),
+                            self_ty: DecTerm(`mnist_classifier::connected_component::EffHoles`),
                             fields: [
                                 PropsStructFieldDecTemplate {
                                     ident: `matches`,
-                                    ty: DeclarativeTerm(`[] core::option::Option ~ mnist_classifier::raw_contour::RawContour`),
+                                    ty: DecTerm(`[] core::option::Option ~ mnist_classifier::raw_contour::RawContour`),
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDeclarativeTerm {
+                            instance_constructor_ritchie_ty: RitchieDecTerm {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -104,11 +104,11 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
-                                            ty: DeclarativeTerm(`[] core::option::Option ~ mnist_classifier::raw_contour::RawContour`),
+                                            ty: DecTerm(`[] core::option::Option ~ mnist_classifier::raw_contour::RawContour`),
                                         },
                                     ),
                                 ],
-                                return_ty: DeclarativeTerm(`mnist_classifier::connected_component::EffHoles`),
+                                return_ty: DecTerm(`mnist_classifier::connected_component::EffHoles`),
                             },
                         },
                     ),
@@ -135,12 +135,12 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
+                                            ty: DecTerm(`~ mnist_classifier::raw_contour::RawContour`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::option::Option core::num::f32`),
+                            return_ty: DecTerm(`core::option::Option core::num::f32`),
                         },
                     ),
                 ),
@@ -161,15 +161,15 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            self_ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             fields: [
                                 PropsStructFieldDecTemplate {
                                     ident: `mask`,
-                                    ty: DeclarativeTerm(`mnist::BinaryImage28`),
+                                    ty: DecTerm(`mnist::BinaryImage28`),
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDeclarativeTerm {
+                            instance_constructor_ritchie_ty: RitchieDecTerm {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -177,11 +177,11 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
-                                            ty: DeclarativeTerm(`mnist::BinaryImage28`),
+                                            ty: DecTerm(`mnist::BinaryImage28`),
                                         },
                                     ),
                                 ],
-                                return_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                                return_ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             },
                         },
                     ),
@@ -208,18 +208,18 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                            ty: DecTerm(`core::raw_bits::r32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                            ty: DecTerm(`core::raw_bits::r32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::raw_bits::r32`),
+                            return_ty: DecTerm(`core::raw_bits::r32`),
                         },
                     ),
                 ),
@@ -245,12 +245,12 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`mnist::BinaryImage28`),
+                                            ty: DecTerm(`mnist::BinaryImage28`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`[] mnist_classifier::connected_component::ConnectedComponent`),
+                            return_ty: DecTerm(`[] mnist_classifier::connected_component::ConnectedComponent`),
                         },
                     ),
                 ),
@@ -279,9 +279,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::visual::Visualize`),
+                        trai: DecTerm(`core::visual::Visualize`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                         ),
                     },
                 ),
@@ -320,18 +320,18 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            self_ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                                ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::visual::Visual`),
+                            return_ty: DecTerm(`core::visual::Visual`),
                         },
                     ),
                 ),
@@ -363,7 +363,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                        ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                     },
                 ),
             ),
@@ -385,9 +385,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                                ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             },
-                            return_ty: DeclarativeTerm(`[] mnist_classifier::raw_contour::RawContour`),
+                            return_ty: DecTerm(`[] mnist_classifier::raw_contour::RawContour`),
                         },
                     ),
                 ),
@@ -410,9 +410,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                                ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::connected_component::EffHoles`),
+                            return_ty: DecTerm(`mnist_classifier::connected_component::EffHoles`),
                         },
                     ),
                 ),
@@ -435,9 +435,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                                ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -460,9 +460,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                                ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -485,9 +485,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                                ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -510,9 +510,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                                ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
+                            return_ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
                         },
                     ),
                 ),
@@ -535,9 +535,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                                ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -560,9 +560,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                                ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -585,27 +585,27 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                                ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            self_ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                                ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -628,27 +628,27 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                                ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            self_ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                                ty: DecTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),

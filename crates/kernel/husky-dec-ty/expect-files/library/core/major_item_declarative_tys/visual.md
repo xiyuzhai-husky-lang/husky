@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`core::basic::Trait`),
+            DecTerm(`core::basic::Trait`),
         ),
     ),
     (
@@ -16,7 +16,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
 ]

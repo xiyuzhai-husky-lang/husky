@@ -13,7 +13,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 5,
                                         },
@@ -68,7 +68,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 5,
                                         },
@@ -77,9 +77,9 @@
                                 },
                             ],
                         },
-                        trai: DeclarativeTerm(`core::visual::Visualize`),
+                        trai: DecTerm(`core::visual::Visualize`),
                         self_ty: DeclarativeSelfType::DerivedAny(
-                            SymbolDeclarativeTerm {
+                            SymbolDecTerm {
                                 toolchain: Toolchain {
                                     data: ToolchainData::Local {
                                         library_path: VirtualPath {
@@ -98,7 +98,7 @@
                                         },
                                     ),
                                 ),
-                                index: DeclarativeTermSymbolIndex(
+                                index: DecTermSymbolIndex(
                                     SelfType,
                                 ),
                             },
@@ -138,18 +138,18 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`t`),
+                            self_ty: DecTerm(`t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`t`),
+                                ty: DecTerm(`t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::visual::Visual`),
+                            return_ty: DecTerm(`core::visual::Visual`),
                         },
                     ),
                 ),

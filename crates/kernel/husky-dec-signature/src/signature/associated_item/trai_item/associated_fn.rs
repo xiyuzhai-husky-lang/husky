@@ -6,7 +6,7 @@ pub struct TraitAssociatedFnDecTemplate {
     pub template_parameters: DeclarativeTemplateParameterTemplates,
     #[return_ref]
     pub parenate_parameters: DeclarativeParenateParameters,
-    pub return_ty: DeclarativeTerm,
+    pub return_ty: DecTerm,
 }
 
 impl TraitAssociatedFnDecTemplate {

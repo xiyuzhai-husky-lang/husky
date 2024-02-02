@@ -112,7 +112,7 @@ pub(crate) fn trai_item_variance_reprs(
             .symbol()
             .index(db)
             .inner(),
-        DeclarativeTermSymbolIndexImpl::SelfType
+        DecTermSymbolIndexImpl::SelfType
     ));
     let reprs = signature
         .template_parameters_without_self_ty(db)

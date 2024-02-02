@@ -13,13 +13,13 @@ use crate::*;
 #[inline(always)]
 pub fn declarative_term_item_path_declarative_ty(
     _db: &::salsa::Db,
-    path: ItemPathDeclarativeTerm,
-) -> DeclarativeTypeResult<DeclarativeTerm> {
+    path: ItemPathDecTerm,
+) -> DeclarativeTypeResult<DecTerm> {
     match path {
-        ItemPathDeclarativeTerm::Fugitive(_) => todo!(),
-        ItemPathDeclarativeTerm::Trait(_) => todo!(),
-        ItemPathDeclarativeTerm::Type(_) => todo!(),
-        ItemPathDeclarativeTerm::TypeVariant(_) => todo!(),
+        ItemPathDecTerm::Fugitive(_) => todo!(),
+        ItemPathDecTerm::Trait(_) => todo!(),
+        ItemPathDecTerm::Type(_) => todo!(),
+        ItemPathDecTerm::TypeVariant(_) => todo!(),
     }
 }
 
@@ -27,7 +27,7 @@ pub fn declarative_term_item_path_declarative_ty(
 pub fn ty_ontology_path_declarative_ty(
     db: &::salsa::Db,
     path: TypePath,
-) -> DeclarativeTypeResult<DeclarativeTerm> {
+) -> DeclarativeTypeResult<DecTerm> {
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     let signature = match path.dec_template(db) {
         Ok(signature) => signature,
@@ -72,7 +72,7 @@ fn ty_ontology_path_declarative_ty_works() {
 pub fn trai_path_declarative_ty(
     db: &::salsa::Db,
     path: TraitPath,
-) -> DeclarativeTypeResult<DeclarativeTerm> {
+) -> DeclarativeTypeResult<DecTerm> {
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     let Ok(variances) = trai_item_variances(db, path) else {
         todo!()

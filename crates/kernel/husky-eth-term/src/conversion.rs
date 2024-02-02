@@ -18,6 +18,7 @@ impl EthTerm {
                     Ok(ty_path.prelude_ty_path(db) == Some(other_ty))
                 }
                 _ => {
+                    use husky_print_utils::p;
                     p!(self.debug(db), other_ty.debug(db));
                     todo!()
                 }

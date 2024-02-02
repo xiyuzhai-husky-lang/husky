@@ -8,14 +8,14 @@ pub struct TypeMethodFnDecTemplate {
     /// not necessarily equal to the type of `self` which might be wrapped in & or &mut etc.
     ///
     /// we don't use self_ty_arguments because it's not determined for declarative terms
-    pub self_ty: DeclarativeTerm,
+    pub self_ty: DecTerm,
     // todo: formal method, method that is not a function pointer
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
     pub self_value_parameter: DeclarativeRitchieRegularParameter,
     #[return_ref]
     pub parenate_parameters: DeclarativeParenateParameters,
-    pub return_ty: DeclarativeTerm,
+    pub return_ty: DecTerm,
 }
 
 impl TypeMethodFnDecTemplate {

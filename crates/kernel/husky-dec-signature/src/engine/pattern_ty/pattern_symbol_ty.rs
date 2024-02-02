@@ -4,11 +4,11 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct PatternSymbolDeclarativeTypeInfo {
     modifier: SymbolModifier,
-    base_ty: DeclarativeTerm,
+    base_ty: DecTerm,
 }
 
 impl PatternSymbolDeclarativeTypeInfo {
-    fn new(modifier: SymbolModifier, base_ty: DeclarativeTerm) -> Self {
+    fn new(modifier: SymbolModifier, base_ty: DecTerm) -> Self {
         Self { modifier, base_ty }
     }
 
@@ -16,12 +16,12 @@ impl PatternSymbolDeclarativeTypeInfo {
         self.modifier
     }
 
-    pub fn base_ty(&self) -> DeclarativeTerm {
+    pub fn base_ty(&self) -> DecTerm {
         self.base_ty
     }
 }
 
-impl<'a> DeclarativeTermEngine<'a> {
+impl<'a> DecTermEngine<'a> {
     pub(super) fn infer_pattern_symbol_tys(
         &mut self,
         syn_pattern_expr_root: impl Into<SynPatternExprRoot>,
@@ -47,10 +47,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         )
     }
 
-    fn calc_new_pattern_symbol_base_ty(
-        &mut self,
-        pattern_symbol: SynPatternSymbolIdx,
-    ) -> DeclarativeTerm {
+    fn calc_new_pattern_symbol_base_ty(&mut self, pattern_symbol: SynPatternSymbolIdx) -> DecTerm {
         match self.syn_expr_region_data[pattern_symbol] {
             SynPatternSymbol::Atom(pattern_expr) => self
                 .get_pattern_expr_ty(pattern_expr)

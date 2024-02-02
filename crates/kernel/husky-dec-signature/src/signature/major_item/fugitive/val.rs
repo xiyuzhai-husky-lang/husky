@@ -2,7 +2,7 @@ use crate::*;
 
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct MajorValDecTemplate {
-    pub return_ty: DeclarativeTerm,
+    pub return_ty: DecTerm,
 }
 
 impl MajorValDecTemplate {

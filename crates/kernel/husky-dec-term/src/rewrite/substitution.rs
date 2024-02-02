@@ -1,20 +1,20 @@
 use super::*;
 
-pub struct DeclarativeTermSubstitution {
-    src: RuneDeclarativeTerm,
-    dst: DeclarativeTerm,
+pub struct DecTermSubstitution {
+    src: RuneDecTerm,
+    dst: DecTerm,
 }
 
-impl DeclarativeTermSubstitution {
-    pub fn new(src: RuneDeclarativeTerm, dst: DeclarativeTerm) -> Self {
+impl DecTermSubstitution {
+    pub fn new(src: RuneDecTerm, dst: DecTerm) -> Self {
         Self { src, dst }
     }
 
-    pub(crate) fn src(&self) -> RuneDeclarativeTerm {
+    pub(crate) fn src(&self) -> RuneDecTerm {
         self.src
     }
 
-    pub(crate) fn dst(&self) -> DeclarativeTerm {
+    pub(crate) fn dst(&self) -> DecTerm {
         self.dst
     }
 }

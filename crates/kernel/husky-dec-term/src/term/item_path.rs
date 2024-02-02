@@ -6,73 +6,73 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum ItemPathDeclarativeTerm {
+pub enum ItemPathDecTerm {
     Fugitive(FugitivePath),
     Trait(TraitPath),
     Type(TypePath),
     TypeVariant(TypeVariantPath),
 }
 
-impl From<ItemPathTerm> for ItemPathDeclarativeTerm {
+impl From<ItemPathTerm> for ItemPathDecTerm {
     fn from(path: ItemPathTerm) -> Self {
         match path {
-            ItemPathTerm::Fugitive(path) => ItemPathDeclarativeTerm::Fugitive(path),
-            ItemPathTerm::Trait(path) => ItemPathDeclarativeTerm::Trait(path),
+            ItemPathTerm::Fugitive(path) => ItemPathDecTerm::Fugitive(path),
+            ItemPathTerm::Trait(path) => ItemPathDecTerm::Trait(path),
             ItemPathTerm::TypeOntology(path) | ItemPathTerm::TypeInstance(path) => {
-                ItemPathDeclarativeTerm::Type(path)
+                ItemPathDecTerm::Type(path)
             }
-            ItemPathTerm::TypeVariant(path) => ItemPathDeclarativeTerm::TypeVariant(path),
+            ItemPathTerm::TypeVariant(path) => ItemPathDecTerm::TypeVariant(path),
         }
     }
 }
 
-impl From<ItemPathTerm> for DeclarativeTerm {
+impl From<ItemPathTerm> for DecTerm {
     fn from(path: ItemPathTerm) -> Self {
-        DeclarativeTerm::EntityPath(path.into())
+        DecTerm::EntityPath(path.into())
     }
 }
 
-impl ItemPathDeclarativeTerm {
+impl ItemPathDecTerm {
     pub fn ty_path(self) -> Option<TypePath> {
         match self {
-            ItemPathDeclarativeTerm::Type(path) => Some(path),
-            ItemPathDeclarativeTerm::Fugitive(_)
-            | ItemPathDeclarativeTerm::Trait(_)
-            | ItemPathDeclarativeTerm::TypeVariant(_) => None,
+            ItemPathDecTerm::Type(path) => Some(path),
+            ItemPathDecTerm::Fugitive(_)
+            | ItemPathDecTerm::Trait(_)
+            | ItemPathDecTerm::TypeVariant(_) => None,
         }
     }
 }
-impl From<FugitivePath> for DeclarativeTerm {
+impl From<FugitivePath> for DecTerm {
     fn from(value: FugitivePath) -> Self {
-        DeclarativeTerm::EntityPath(value.into())
+        DecTerm::EntityPath(value.into())
     }
 }
 
-impl From<TraitPath> for DeclarativeTerm {
+impl From<TraitPath> for DecTerm {
     fn from(value: TraitPath) -> Self {
-        DeclarativeTerm::EntityPath(value.into())
+        DecTerm::EntityPath(value.into())
     }
 }
 
-impl From<TypePath> for DeclarativeTerm {
+impl From<TypePath> for DecTerm {
     fn from(value: TypePath) -> Self {
-        DeclarativeTerm::EntityPath(value.into())
+        DecTerm::EntityPath(value.into())
     }
 }
 
-impl ItemPathDeclarativeTerm {
+impl ItemPathDecTerm {
     #[inline(never)]
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        _ctx: &mut DeclarativeTermShowContext,
+        _ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
         match self {
-            ItemPathDeclarativeTerm::Fugitive(path) => path.display_with_db_fmt(f, db),
-            ItemPathDeclarativeTerm::Trait(path) => path.display_with_db_fmt(f, db),
-            ItemPathDeclarativeTerm::Type(path) => path.display_with_db_fmt(f, db),
-            ItemPathDeclarativeTerm::TypeVariant(path) => path.display_with_db_fmt(f, db),
+            ItemPathDecTerm::Fugitive(path) => path.display_with_db_fmt(f, db),
+            ItemPathDecTerm::Trait(path) => path.display_with_db_fmt(f, db),
+            ItemPathDecTerm::Type(path) => path.display_with_db_fmt(f, db),
+            ItemPathDecTerm::TypeVariant(path) => path.display_with_db_fmt(f, db),
         }
     }
 }

@@ -4,13 +4,13 @@ use crate::*;
 pub struct EnumTupleVariantDecTemplate {
     pub parent_ty_template: EnumTypeDecTemplate,
     pub fields: SmallVec<[EnumTupleVariantFieldDecTemplate; 4]>,
-    pub return_ty: DeclarativeTerm,
-    pub instance_constructor_ty: RitchieDeclarativeTerm,
+    pub return_ty: DecTerm,
+    pub instance_constructor_ty: RitchieDecTerm,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct EnumTupleVariantFieldDecTemplate {
-    ty: DeclarativeTerm,
+    ty: DecTerm,
 }
 
 impl EnumTupleVariantDecTemplate {
@@ -30,7 +30,7 @@ impl EnumTupleVariantDecTemplate {
                     ty: match declarative_term_region.expr_term(field.ty()) {
                         Ok(ty) => ty,
                         Err(_) => {
-                            return Err(DecSignatureError::FieldTypeDeclarativeTermError(
+                            return Err(DecSignatureError::FieldTypeDecTermError(
                                 i.try_into().unwrap(),
                             ))
                         }
@@ -40,7 +40,7 @@ impl EnumTupleVariantDecTemplate {
             .collect::<DecSignatureResult<SmallVec<_>>>()?;
         // todo: GADT can override return_ty
         let return_ty = parent_ty_template.self_ty(db);
-        let instance_constructor_ty = RitchieDeclarativeTerm::new(
+        let instance_constructor_ty = RitchieDecTerm::new(
             db,
             RitchieTypeKind::Fn.into(),
             fields
