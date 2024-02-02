@@ -24,7 +24,7 @@ impl SymbolType {
     pub fn new_parameter_ty_from_signature(
         engine: &mut impl FlyTermEngine,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-        signature: SymbolSignature,
+        signature: SymbolDecSignature,
     ) -> FlyTermResult<Self> {
         let ty = EthTerm::ty_from_declarative(engine.db(), signature.ty()?)?;
         Ok(Self::new_parameter_ty(

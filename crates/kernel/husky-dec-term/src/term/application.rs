@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use std::fmt::Debug;
 
 /// in husky, application is generalized to include composition as a special case;
@@ -26,7 +26,7 @@ impl ApplicationDecTerm {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &mut DecTermShowContext,
+        ctx: &SymbolDecTermNameMap,
     ) -> std::fmt::Result {
         self.function(db).display_fmt_with_db_and_ctx(f, db, ctx)?;
         f.write_str(" ")?;

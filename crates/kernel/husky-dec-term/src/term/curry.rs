@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 /// representing declarative_term `X -> Y` or dependent form `(a: X) -> Y(a)`
 ///
@@ -98,7 +98,7 @@ impl CurryDecTerm {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &mut DecTermShowContext,
+        ctx: &SymbolDecTermNameMap,
     ) -> std::fmt::Result {
         use salsa::DisplayWithDb;
 

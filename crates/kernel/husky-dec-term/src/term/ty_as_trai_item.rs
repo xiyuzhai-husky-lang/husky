@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use husky_coword::Ident;
 
 #[salsa::interned(db = DecTermDb, jar = DecTermJar)]
@@ -14,7 +14,7 @@ impl TypeAsTraitItemDecTerm {
         self,
         _f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,
-        _ctx: &mut DecTermShowContext,
+        _ctx: &SymbolDecTermNameMap,
     ) -> std::fmt::Result {
         todo!()
     }

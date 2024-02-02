@@ -2,7 +2,7 @@
     (
         TypePath(`core::result::Result`, `Enum`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`independent Type -> independent Type -> Type`),
         ),
     ),
 ]

@@ -2,7 +2,7 @@
     (
         TypePath(`core::array::Array`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`independent core::num::usize -> covariant Type -> Type`),
         ),
     ),
 ]

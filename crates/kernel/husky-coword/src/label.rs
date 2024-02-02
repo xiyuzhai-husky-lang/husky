@@ -35,11 +35,9 @@ impl LabelKind {
     }
 }
 
-impl Label {
-    pub fn word(self) -> Coword {
-        self.ident.coword()
-    }
+/// # constructors
 
+impl Label {
     pub fn from_owned(db: &::salsa::Db, data: String) -> Option<Self> {
         Some(Self {
             kind: LabelKind::new(&data),
@@ -52,6 +50,18 @@ impl Label {
             kind: LabelKind::new(&data),
             ident: Ident::from_ref(db, data)?,
         })
+    }
+}
+
+/// # getters
+
+impl Label {
+    pub fn data<'a>(self, db: &'a ::salsa::Db) -> &str {
+        self.ident.data(db)
+    }
+
+    pub fn word(self) -> Coword {
+        self.ident.coword()
     }
 
     pub fn is_valid_place_label(self) -> bool {

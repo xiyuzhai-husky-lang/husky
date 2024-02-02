@@ -6,7 +6,7 @@ pub use self::keyed::*;
 pub use self::regular::*;
 pub use self::variadic::*;
 
-use crate::*;
+use super::*;
 use smallvec::SmallVec;
 
 /// representing declarative_term `x -> y`
@@ -25,7 +25,7 @@ impl RitchieDecTerm {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &mut DecTermShowContext,
+        ctx: &SymbolDecTermNameMap,
     ) -> std::fmt::Result {
         f.write_str(self.ritchie_kind(db).code())?;
         f.write_str("(")?;
@@ -70,7 +70,7 @@ impl DeclarativeRitchieParameter {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &mut DecTermShowContext,
+        ctx: &SymbolDecTermNameMap,
     ) -> std::fmt::Result {
         match self {
             DeclarativeRitchieParameter::Regular(param) => {

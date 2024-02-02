@@ -8,6 +8,8 @@ use husky_term_prelude::literal::{
 };
 use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData};
 
+use self::name::SymbolDecTermNameMap;
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
@@ -27,7 +29,7 @@ impl LiteralDecTerm {
         self,
         f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,
-        _ctx: &mut DecTermShowContext,
+        _ctx: &SymbolDecTermNameMap,
     ) -> std::fmt::Result {
         f.write_str("DecTermLiteralTodo")
     }

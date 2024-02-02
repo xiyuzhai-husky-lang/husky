@@ -13,7 +13,7 @@ impl MajorGnDecTemplate {
     pub(super) fn from_decl(db: &::salsa::Db, decl: MajorGnSynDecl) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let expr_region_data = syn_expr_region.data(db);
-        let declarative_term_region = declarative_term_region(db, syn_expr_region);
+        let declarative_term_region = syn_expr_dec_term_region(db, syn_expr_region);
         let declarative_term_menu = db
             .declarative_term_menu(syn_expr_region.toolchain(db))
             .unwrap();

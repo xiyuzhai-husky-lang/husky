@@ -66,7 +66,7 @@ impl ItemPathDecTerm {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        _ctx: &mut DecTermShowContext,
+        _ctx: &SymbolDecTermNameMap,
     ) -> std::fmt::Result {
         match self {
             ItemPathDecTerm::Fugitive(path) => path.display_fmt_with_db(f, db),

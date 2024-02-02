@@ -47,5 +47,3 @@ impl MnistOpFrame {
         self.optimal_transport_average_visual
     }
 }
-
-pub struct MnistFramesToBe {}

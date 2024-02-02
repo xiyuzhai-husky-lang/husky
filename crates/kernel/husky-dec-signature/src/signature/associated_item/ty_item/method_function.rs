@@ -22,7 +22,7 @@ impl TypeMethodFunctionDecTemplate {
         // the following is blindly copied from method fn
         let syn_expr_region = decl.syn_expr_region(db);
         let expr_region_data = syn_expr_region.data(db);
-        let declarative_term_region = declarative_term_region(db, syn_expr_region);
+        let declarative_term_region = syn_expr_dec_term_region(db, syn_expr_region);
         let self_value_parameter = DeclarativeRitchieRegularParameter::new(
             match decl.self_value_parameter(db) {
                 Some(self_value_parameter) => todo!(),

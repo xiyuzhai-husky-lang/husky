@@ -2,25 +2,25 @@
     (
         TypePath(`core::mem::Ref`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`covariant core::basic::Lifetime -> covariant Type -> Type`),
         ),
     ),
     (
         TypePath(`core::mem::RefMut`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`covariant core::basic::Lifetime -> invariant Type -> Type`),
         ),
     ),
     (
         TypePath(`core::mem::Leash`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`covariant Type -> Type`),
         ),
     ),
     (
         TypePath(`core::mem::At`, `Extern`),
         Ok(
-            "DecTermFmtTodo",
+            DecTerm(`independent core::basic::Place -> independent Type -> Type`),
         ),
     ),
 ]

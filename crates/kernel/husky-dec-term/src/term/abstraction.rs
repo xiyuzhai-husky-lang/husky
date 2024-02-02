@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 #[salsa::interned(db = DecTermDb, jar = DecTermJar)]
 pub struct AbstractionDecTerm {
@@ -16,7 +16,7 @@ impl AbstractionDecTerm {
         self,
         _f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,
-        _ctx: &mut DecTermShowContext,
+        _ctx: &SymbolDecTermNameMap,
     ) -> std::fmt::Result {
         todo!()
     }

@@ -8,6 +8,7 @@ pub use self::set::*;
 
 use super::*;
 use husky_entity_tree::SynNodeRegionPath;
+use husky_term_prelude::symbol::SymbolName;
 use thiserror::Error;
 use vec_like::VecSet;
 
@@ -170,10 +171,17 @@ impl SymbolDecTerm {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &mut DecTermShowContext,
+        name_map: &SymbolDecTermNameMap,
     ) -> std::fmt::Result {
-        // ctx.fmt_symbol(db, self, f)
-        todo!()
+        match name_map[self] {
+            SymbolName::Ident(ident) => f.write_str(ident.data(db)),
+            SymbolName::Label(label) => {
+                f.write_str("'")?;
+                f.write_str(label.data(db))
+            }
+            SymbolName::SelfType => f.write_str("Self"),
+            SymbolName::SelfValue => f.write_str("self"),
+        }
     }
 }
 

@@ -10,7 +10,7 @@ pub struct DeclarativeTemplateParameter {
 impl DeclarativeTemplateParameter {
     fn new_explicit_from_decl(
         parameter_decl_pattern: &TemplateSynParameterData,
-        region: &DecTermRegion,
+        region: &SynExprDecTermRegion,
         declarative_term_menu: &DecTermMenu,
     ) -> DeclarativeTemplateParameter {
         let symbol = parameter_decl_pattern.symbol();
@@ -104,7 +104,7 @@ pub struct DeclarativeTemplateParameterTemplates {
 impl DeclarativeTemplateParameterTemplates {
     pub(crate) fn from_decl(
         template_parameter_obelisks: &[TemplateSynParameterData],
-        declarative_term_region: &DecTermRegion,
+        declarative_term_region: &SynExprDecTermRegion,
         declarative_term_menu: &DecTermMenu,
     ) -> Self {
         Self {

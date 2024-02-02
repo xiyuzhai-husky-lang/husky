@@ -17,7 +17,7 @@
                     },
                 ),
                 Ok(
-                    "DecTermFmtTodo",
+                    DecTerm(`(independent (t: Type) -> fn((t) -> malamute::Class t`),
                 ),
             ),
             (
@@ -35,7 +35,7 @@
                     },
                 ),
                 Ok(
-                    "DecTermFmtTodo",
+                    DecTerm(`(independent (t: Type) -> malamute::Class t`),
                 ),
             ),
         ],
@@ -58,7 +58,7 @@
                     },
                 ),
                 Ok(
-                    "DecTermFmtTodo",
+                    DecTerm(`(independent (s: Type) -> (independent (a: s) -> malamute::OneVsAll s a`),
                 ),
             ),
             (
@@ -76,7 +76,7 @@
                     },
                 ),
                 Ok(
-                    "DecTermFmtTodo",
+                    DecTerm(`(independent (s: Type) -> (independent (a: s) -> malamute::OneVsAll s a`),
                 ),
             ),
         ],
@@ -99,7 +99,7 @@
                     },
                 ),
                 Ok(
-                    "DecTermFmtTodo",
+                    DecTerm(`(independent (s: Type) -> (independent (a: s) -> malamute::OneVsAllResult s a`),
                 ),
             ),
             (
@@ -117,7 +117,7 @@
                     },
                 ),
                 Ok(
-                    "DecTermFmtTodo",
+                    DecTerm(`(independent (s: Type) -> (independent (a: s) -> malamute::OneVsAllResult s a`),
                 ),
             ),
             (
@@ -135,7 +135,7 @@
                     },
                 ),
                 Ok(
-                    "DecTermFmtTodo",
+                    DecTerm(`(independent (s: Type) -> (independent (a: s) -> malamute::OneVsAllResult s a`),
                 ),
             ),
         ],

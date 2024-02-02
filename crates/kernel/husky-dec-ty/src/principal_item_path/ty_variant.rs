@@ -85,8 +85,18 @@ fn ty_variant_path_declarative_ty_works() {
                             .map(|&(_, ty_variant_path)| {
                                 (
                                     ty_variant_path,
-                                    ty_variant_path_declarative_ty(db, ty_variant_path)
-                                        .map(|t| t.with_context(())),
+                                    ty_variant_path_declarative_ty(db, ty_variant_path).map(|t| {
+                                        let name_map = db
+                                            .syn_expr_dec_term_region(
+                                                ty_variant_path
+                                                    .syn_decl(db)
+                                                    .expect("should be okay at this branch")
+                                                    .syn_expr_region(db),
+                                            )
+                                            .term_symbol_region()
+                                            .symbol_name_map();
+                                        t.with_symbol_source_map(name_map)
+                                    }),
                                 )
                             })
                             .collect::<Vec<_>>(),

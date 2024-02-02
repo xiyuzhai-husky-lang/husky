@@ -3,6 +3,8 @@ mod ty_instance_constructor;
 pub mod ty_variant;
 mod utils;
 
+use husky_syn_decl::HasSynDecl;
+
 pub use self::fugitive::*;
 
 pub use self::ty_instance_constructor::*;
@@ -55,7 +57,18 @@ fn ty_ontology_path_declarative_ty_works() {
                 .filter_map(|&module_item_path| match module_item_path {
                     ItemPath::MajorItem(MajorItemPath::Type(ty_path)) => Some((
                         ty_path,
-                        ty_ontology_path_declarative_ty(db, ty_path).map(|t| t.with_context(())),
+                        ty_ontology_path_declarative_ty(db, ty_path).map(|t| {
+                            let name_map = db
+                                .syn_expr_dec_term_region(
+                                    ty_path
+                                        .syn_decl(db)
+                                        .expect("should be okay at this branch")
+                                        .syn_expr_region(db),
+                                )
+                                .term_symbol_region()
+                                .symbol_name_map();
+                            t.with_symbol_source_map(name_map)
+                        }),
                     )),
                     _ => None,
                 })

@@ -22,14 +22,14 @@ pub(super) struct DecTermEngine<'a> {
 }
 
 #[salsa::tracked(jar = DecSignatureJar, return_ref)]
-pub(crate) fn declarative_term_region(
+pub(crate) fn syn_expr_dec_term_region(
     db: &::salsa::Db,
     syn_expr_region: SynExprRegion,
-) -> DecTermRegion {
+) -> SynExprDecTermRegion {
     let expr_region_data = syn_expr_region.data(db);
     let parent_expr_region = expr_region_data.parent();
     let parent_term_symbol_region =
-        parent_expr_region.map(|r| declarative_term_region(db, r).term_symbol_region());
+        parent_expr_region.map(|r| syn_expr_dec_term_region(db, r).term_symbol_region());
     let engine = DecTermEngine::new(db, syn_expr_region, parent_term_symbol_region);
     engine.infer_all()
 }
@@ -67,7 +67,7 @@ impl<'a> DecTermEngine<'a> {
         }
     }
 
-    fn infer_all(mut self) -> DecTermRegion {
+    fn infer_all(mut self) -> SynExprDecTermRegion {
         self.infer_current_syn_symbol_terms();
         self.symbol_declarative_term_region
             .infer_self_ty_parameter_and_self_value_parameter(
@@ -115,8 +115,9 @@ impl<'a> DecTermEngine<'a> {
                         },
                     ));
                     let variance = annotated_variance_token.map(|vt| vt.into());
-                    let (ty, term_symbol) = match *template_parameter_variant {
-                        CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => {
+                    let (name, (ty, term_symbol)) = match *template_parameter_variant {
+                        CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => (
+                            label_token.label().into(),
                             SymbolDecTerm::new_lifetime(
                                 self.db,
                                 self.toolchain,
@@ -124,9 +125,10 @@ impl<'a> DecTermEngine<'a> {
                                 &mut self.symbol_declarative_term_region.symbol_registry_mut(),
                                 attrs,
                                 variance,
-                            )
-                        }
-                        CurrentTemplateParameterSynSymbolVariant::Place { label_token } => {
+                            ),
+                        ),
+                        CurrentTemplateParameterSynSymbolVariant::Place { label_token } => (
+                            label_token.label().into(),
                             SymbolDecTerm::new_place(
                                 self.db,
                                 self.toolchain,
@@ -134,9 +136,10 @@ impl<'a> DecTermEngine<'a> {
                                 &mut self.symbol_declarative_term_region.symbol_registry_mut(),
                                 attrs,
                                 variance,
-                            )
-                        }
-                        CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. } => {
+                            ),
+                        ),
+                        CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. } => (
+                            ident_token.ident().into(),
                             SymbolDecTerm::new_ty(
                                 self.db,
                                 self.toolchain,
@@ -144,21 +147,26 @@ impl<'a> DecTermEngine<'a> {
                                 &mut self.symbol_declarative_term_region.symbol_registry_mut(),
                                 attrs,
                                 variance,
-                            )
-                        }
+                            ),
+                        ),
                         CurrentTemplateParameterSynSymbolVariant::Constant {
                             ident_token,
                             ty_expr_idx,
                         } => {
                             let ty = self.infer_new_expr_term(ty_expr_idx).map_err(Into::into);
                             (
-                                ty,
-                                SymbolDecTerm::new_const(
-                                    self.db,
-                                    self.toolchain,
-                                    attrs,
+                                ident_token.ident().into(),
+                                (
                                     ty,
-                                    &mut self.symbol_declarative_term_region.symbol_registry_mut(),
+                                    SymbolDecTerm::new_const(
+                                        self.db,
+                                        self.toolchain,
+                                        attrs,
+                                        ty,
+                                        &mut self
+                                            .symbol_declarative_term_region
+                                            .symbol_registry_mut(),
+                                    ),
                                 ),
                             )
                         }
@@ -170,6 +178,7 @@ impl<'a> DecTermEngine<'a> {
                             symbols.start(),
                             ty,
                             term_symbol,
+                            name,
                         )
                 }
                 SyndicateTypeConstraint::OrdinaryParenateParameter {
@@ -186,14 +195,19 @@ impl<'a> DecTermEngine<'a> {
                 } => {
                     let ty = self.infer_new_expr_term(*ty_expr_idx).map_err(Into::into);
                     self.symbol_declarative_term_region
-                        .add_new_field_variable_symbol_signature(self.db, symbols.start(), ty)
+                        .add_new_field_variable_symbol_signature(
+                            self.db,
+                            symbols.start(),
+                            ty,
+                            ident_token.ident().into(),
+                        )
                 }
                 SyndicateTypeConstraint::LetPattern { .. }
                 | SyndicateTypeConstraint::LoopVariable => {
                     // need only to compute for decl region
                     return;
                 }
-                SyndicateTypeConstraint::VariadicParenateParameter { ty } => {
+                SyndicateTypeConstraint::VariadicParenateParameter { ident_token, ty } => {
                     let ty = self.infer_new_expr_term(*ty).map_err(|_| todo!());
                     let symbol = SymbolDecTerm::new_ephem(
                         self.db,
@@ -207,6 +221,7 @@ impl<'a> DecTermEngine<'a> {
                             symbols.start(),
                             ty,
                             symbol,
+                            ident_token.ident().into(),
                         )
                 }
             }
@@ -224,7 +239,9 @@ impl<'a> DecTermEngine<'a> {
     ) {
         let Ok(ty) = self.infer_new_expr_term(ty) else {
             for symbol in symbols {
-                let modifier = self.syn_expr_region_data[symbol].modifier();
+                let current_syn_symbol = &self.syn_expr_region_data[symbol];
+                let name = current_syn_symbol.name();
+                let modifier = current_syn_symbol.modifier();
                 self.symbol_declarative_term_region
                     .add_new_parenate_parameter_symbol_signature(
                         self.db,
@@ -233,6 +250,7 @@ impl<'a> DecTermEngine<'a> {
                         Err(DecTermSymbolTypeErrorKind::CannotInferTypeExprTerm(
                             self.syn_expr_region_data.path(),
                         )),
+                        name,
                     )
             }
             return;
@@ -248,7 +266,7 @@ impl<'a> DecTermEngine<'a> {
         current_syn_symbol_idx: CurrentSynSymbolIdx,
     ) {
         let current_syn_symbol = &self.syn_expr_region_data.symbol_region()[current_syn_symbol_idx];
-        match current_syn_symbol.data() {
+        match *current_syn_symbol.data() {
             CurrentSynSymbolData::ParenateRegularParameter {
                 ident,
                 pattern_symbol_idx,
@@ -260,6 +278,7 @@ impl<'a> DecTermEngine<'a> {
                         current_syn_symbol_idx,
                         current_syn_symbol.modifier(),
                         Ok(base_ty),
+                        ident.into(),
                     )
             }
             _ => unreachable!("this function is only used for explicit parameters"),
@@ -316,8 +335,8 @@ impl<'a> DecTermEngine<'a> {
         self.save_expr_term(expr_idx, result)
     }
 
-    pub(crate) fn finish(self) -> DecTermRegion {
-        DecTermRegion::new(
+    pub(crate) fn finish(self) -> SynExprDecTermRegion {
+        SynExprDecTermRegion::new(
             self.syn_expr_region_data.path(),
             self.symbol_declarative_term_region,
             self.expr_terms,

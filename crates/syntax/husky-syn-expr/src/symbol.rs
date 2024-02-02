@@ -10,6 +10,7 @@ pub use self::region::*;
 
 use crate::*;
 use husky_entity_tree::ModuleSymbolContext;
+use husky_term_prelude::symbol::SymbolName;
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::{IsStreamParser, TryParseFromStream};
 
@@ -105,7 +106,10 @@ impl CurrentSynSymbol {
             data: variant,
         }
     }
+}
 
+/// # getters
+impl CurrentSynSymbol {
     pub fn modifier(&self) -> SymbolModifier {
         self.modifier
     }
@@ -116,6 +120,36 @@ impl CurrentSynSymbol {
 
     pub fn data(&self) -> &CurrentSynSymbolData {
         &self.data
+    }
+
+    pub fn name(&self) -> SymbolName {
+        match self.data {
+            CurrentSynSymbolData::TemplateParameter {
+                template_parameter_variant:
+                    CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. }
+                    | CurrentTemplateParameterSynSymbolVariant::Constant { ident_token, .. },
+                ..
+            }
+            | CurrentSynSymbolData::ParenateVariadicParameter { ident_token, .. }
+            | CurrentSynSymbolData::FieldVariable { ident_token } => ident_token.ident().into(),
+            CurrentSynSymbolData::ParenateRegularParameter { ident, .. }
+            | CurrentSynSymbolData::LetVariable { ident, .. }
+            | CurrentSynSymbolData::BeVariable { ident, .. }
+            | CurrentSynSymbolData::CaseVariable { ident, .. }
+            | CurrentSynSymbolData::LoopVariable { ident, .. } => ident.into(),
+            CurrentSynSymbolData::TemplateParameter {
+                template_parameter_variant:
+                    CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token, .. },
+                ..
+            } => label_token.label().into(),
+            CurrentSynSymbolData::TemplateParameter {
+                template_parameter_variant:
+                    CurrentTemplateParameterSynSymbolVariant::Place { label_token, .. },
+                ..
+            } => label_token.label().into(),
+            CurrentSynSymbolData::SelfType => SymbolName::SelfType,
+            CurrentSynSymbolData::SelfValue { .. } => SymbolName::SelfValue,
+        }
     }
 
     pub fn ident(&self) -> Option<Ident> {

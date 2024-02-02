@@ -17,7 +17,7 @@
                     },
                 ),
                 Ok(
-                    "DecTermFmtTodo",
+                    DecTerm(`(independent (t: Type) -> fn((t) -> core::option::Option t`),
                 ),
             ),
             (
@@ -35,7 +35,7 @@
                     },
                 ),
                 Ok(
-                    "DecTermFmtTodo",
+                    DecTerm(`(independent (t: Type) -> core::option::Option t`),
                 ),
             ),
         ],
