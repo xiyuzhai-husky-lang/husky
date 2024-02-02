@@ -3,7 +3,7 @@ use husky_term_prelude::symbol::SymbolName;
 use vec_like::VecPairMap;
 
 #[salsa::debug_with_db]
-#[derive(Debug, Default, PartialEq, Eq)]
+#[derive(Debug, Default, Clone, PartialEq, Eq)]
 pub struct SymbolDecTermNameMap {
     data: VecPairMap<SymbolDecTerm, SymbolName>,
 }
