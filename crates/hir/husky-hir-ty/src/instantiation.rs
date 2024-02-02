@@ -58,22 +58,18 @@ impl HirInstantiation {
         }
     }
 
-    pub fn from_fluffy(
-        instantiation: &FlyInstantiation,
-        db: &::salsa::Db,
-        terms: &FlyTerms,
-    ) -> Self {
+    pub fn from_fly(instantiation: &FlyInstantiation, db: &::salsa::Db, terms: &FlyTerms) -> Self {
         let (symbol_map0, symbol_map1) = &instantiation.symbol_map_splitted();
-        let t = |&(symbol, resolution)| match HirTemplateSymbol::from_ethereal(symbol, db) {
+        let t = |&(symbol, resolution)| match HirTemplateSymbol::from_eth(symbol, db) {
             Some(symbol) => Some((
                 symbol,
                 match resolution {
                     FlyTermSymbolResolution::Explicit(term) => HirTermSymbolResolution::Explicit(
-                        HirTemplateArgument::from_fluffy(term, db, terms).expect("some"),
+                        HirTemplateArgument::from_fly(term, db, terms).expect("some"),
                     ),
                     FlyTermSymbolResolution::SelfLifetime => HirTermSymbolResolution::SelfLifetime,
                     FlyTermSymbolResolution::SelfPlace(place) => {
-                        HirTermSymbolResolution::SelfPlace(HirPlace::from_fluffy(place))
+                        HirTermSymbolResolution::SelfPlace(HirPlace::from_fly(place))
                     }
                 },
             )),
@@ -95,13 +91,13 @@ impl HirInstantiation {
         }
     }
 
-    pub fn from_ethereal(ethereal_instantiation: &EtherealInstantiation, db: &::salsa::Db) -> Self {
+    pub fn from_eth(ethereal_instantiation: &EtherealInstantiation, db: &::salsa::Db) -> Self {
         let (symbol_map0, symbol_map1) = &ethereal_instantiation.symbol_map_splitted();
-        let t = |&(symbol, term)| match HirTemplateSymbol::from_ethereal(symbol, db) {
+        let t = |&(symbol, term)| match HirTemplateSymbol::from_eth(symbol, db) {
             Some(symbol) => Some((
                 symbol,
                 HirTermSymbolResolution::Explicit(
-                    HirTemplateArgument::from_ethereal(term, db).expect("some"),
+                    HirTemplateArgument::from_eth(term, db).expect("some"),
                 ),
             )),
             None => None,

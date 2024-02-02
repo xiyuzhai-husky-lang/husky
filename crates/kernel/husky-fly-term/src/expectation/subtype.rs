@@ -1,14 +1,16 @@
+use std::iter::zip;
+
 use super::*;
 use husky_dec_ty::variance::HasVariances;
 
-/// expect term to be equal to `Type` i.e. `Sort 1`
+/// if terms aren't equal to `Type` i.e. `Sort 1`, this just menas terms are equal
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct ExpectSubtype {
+pub struct ExpectSubtypeOrEqual {
     pub(crate) expected: FlyTerm,
 }
 
-impl ExpectSubtype {
+impl ExpectSubtypeOrEqual {
     pub fn new(destination: FlyTerm) -> Self {
         Self {
             expected: destination,
@@ -16,7 +18,7 @@ impl ExpectSubtype {
     }
 }
 
-impl ExpectFlyTerm for ExpectSubtype {
+impl ExpectFlyTerm for ExpectSubtypeOrEqual {
     type Outcome = ExpectSubtypeOutcome;
 
     #[inline(always)]
@@ -37,6 +39,7 @@ impl ExpectFlyTerm for ExpectSubtype {
         Some(self.expected)
     }
 
+    // expectee should be a subtype of expecteed
     // todo: use ty_data instead
     fn resolve(
         &self,
@@ -44,225 +47,74 @@ impl ExpectFlyTerm for ExpectSubtype {
         terms: &mut FlyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FlyTermEffect> {
-        let expectee_data = state.expectee().data_inner(db, terms);
-        if expectee_data == self.expected.data_inner(db, terms) {
-            return state.set_ok(ExpectSubtypeOutcome {}, smallvec![]);
-        }
-        // todo: handle the case that expectee is a hole first, like
-        // ```
-        // match state.expectee().data_inner(db, terms) {
-        //     FlyTermData::Hole(_, hole) => {
-        //         state.set_holed(hole, |state| HoleConstraint::CoercibleInto {
-        //             target: self.expected,
-        //         })
-        //     }
-        //     _ => (),
-        // }
-        // ```
-        match self.expected.data_inner(db, terms) {
-            FlyTermData::Literal(_) => todo!(),
-            FlyTermData::TypeOntology {
-                ty_path: expected_ty_path,
-                ty_arguments: expected_ty_arguments,
-                ..
-            } => match state.expectee().data_inner(db, terms) {
-                FlyTermData::TypeOntology {
-                    ty_path: expectee_ty_path,
-                    ty_arguments: expectee_ty_arguments,
-                    ..
-                } => {
-                    if expected_ty_path == expectee_ty_path {
-                        let ty_path = expected_ty_path;
-                        assert_eq!(expected_ty_arguments.len(), expected_ty_arguments.len());
-                        let variances = match ty_path.variances(db) {
-                            Ok(variances) => variances,
-                            Err(_) => todo!(),
-                        };
-                        state.set_ok(
-                            ExpectSubtypeOutcome {},
-                            std::iter::zip(
-                                variances,
-                                std::iter::zip(expectee_ty_arguments, expected_ty_arguments),
-                            )
-                            .map(
-                                |(&variance, (&expectee_ty_argument, &expected_ty_argument))| {
-                                    match variance {
-                                        // ad hoc
-                                        Variance::Independent => {
-                                            FlyTermResolveAction::AddExpectation {
-                                                src: state.child_src(),
-                                                expectee: expectee_ty_argument,
-                                                expectation: ExpectSubtype {
-                                                    expected: expected_ty_argument,
-                                                }
-                                                .into(),
-                                            }
-                                        }
-                                        Variance::Covariant => {
-                                            FlyTermResolveAction::AddExpectation {
-                                                src: state.child_src(),
-                                                expectee: expectee_ty_argument,
-                                                expectation: ExpectSubtype {
-                                                    expected: expected_ty_argument,
-                                                }
-                                                .into(),
-                                            }
-                                        }
-                                        Variance::Contravariant => {
-                                            FlyTermResolveAction::AddExpectation {
-                                                src: state.child_src(),
-                                                expectee: expected_ty_argument,
-                                                expectation: ExpectSubtype {
-                                                    expected: expectee_ty_argument,
-                                                }
-                                                .into(),
-                                            }
-                                        }
-                                        Variance::Invariant => todo!(),
-                                    }
-                                },
-                            )
-                            .collect(),
-                        )
-                    } else {
-                        state.set_err(
-                            OriginalFlyTermExpectationError::TypePathMismatchForSubtyping {
-                                expected: self.expected,
-                                expectee: state.expectee(),
-                                expected_path: expected_ty_path,
-                                expectee_path: expectee_ty_path,
-                            },
-                            smallvec![],
-                        )
-                    }
-                }
-                FlyTermData::Hole(_, hole) => {
-                    state.set_holed(hole, |state| HoleConstraint::CoercibleInto {
-                        target: self.expected,
-                    })
-                }
-                expectee_data => {
-                    p!(self.expected.show(db, terms), expectee_data.debug(db));
-                    todo!()
-                } // Some(FlyTermExpectationEffect {
-                  //     result: Err(todo!()),
-                  //     actions: smallvec![],
-                  // }),
-            },
-            FlyTermData::Curry {
-                toolchain,
-                curry_kind,
-                variance,
-                parameter_rune,
-                parameter_ty,
-                return_ty,
-                ty_ethereal_term,
-            } => todo!(),
-            FlyTermData::Hole(_, hole) => {
-                state.set_ok(
-                    ExpectSubtypeOutcome {},
-                    smallvec![FlyTermResolveAction::FillHole {
-                        // todo: check hole kind
-                        hole,
-                        // todo: check subtype
-                        term: state.expectee()
-                    }],
-                )
+        let expectee = state.expectee();
+        let expected = self.expected;
+        let t0 = expectee.data_inner(db, terms);
+        let t1 = expected.data_inner(db, terms);
+        match (t0, t1) {
+            (t0, t1) if t0 == t1 => state.set_ok(ExpectSubtypeOutcome {}, smallvec![]),
+            (FlyTermData::Hole(_, hole), _) => state.set_holed(hole, |_| HoleConstraint::Subtype {
+                target: self.expected,
+            }),
+            (_, FlyTermData::Hole(_, hole)) => {
+                state.set_holed(hole, |_| HoleConstraint::Supertype { target: expectee })
             }
-            FlyTermData::Category(_) => state.set_err(
+            (
+                FlyTermData::TypeOntology {
+                    ty_path: ty_path0,
+                    ty_arguments: args0,
+                    ..
+                },
+                FlyTermData::TypeOntology {
+                    ty_path: ty_path1,
+                    ty_arguments: args1,
+                    ..
+                },
+            ) => {
+                if ty_path0 != ty_path1 {
+                    return state.set_err(
+                        OriginalFlyTermExpectationError::TypePathMismatchForSubtyping {
+                            expected: self.expected,
+                            expectee: state.expectee(),
+                            expected_path: ty_path1,
+                            expectee_path: ty_path0,
+                        },
+                        smallvec![],
+                    );
+                }
+                let ty_path = ty_path0;
+                assert_eq!(args0.len(), args1.len());
+                let variances = match ty_path.variances(db) {
+                    Ok(variances) => variances,
+                    Err(_) => {
+                        return state.set_err(DerivedFlyTermExpectationError::Variance, smallvec![])
+                    }
+                };
+                let subsequent_actions = zip(variances, zip(args0, args1))
+                    .map(|(&variance, (&arg0, &arg1))| {
+                        let (expectee, expected) = match variance {
+                            Variance::Independent => (arg0, arg1),
+                            Variance::Covariant => (arg0, arg1),
+                            Variance::Contravariant => (arg1, arg0),
+                            Variance::Invariant => todo!(),
+                        };
+                        FlyTermResolveAction::AddExpectation {
+                            src: state.child_src(),
+                            expectee,
+                            expectation: ExpectSubtypeOrEqual { expected }.into(),
+                        }
+                    })
+                    .collect();
+                state.set_ok(ExpectSubtypeOutcome {}, subsequent_actions)
+            }
+            (FlyTermData::Curry { .. }, FlyTermData::Curry { .. }) => todo!(),
+            (FlyTermData::Ritchie { .. }, FlyTermData::Ritchie { .. }) => todo!(),
+            _ => state.set_err(
                 OriginalFlyTermExpectationError::ExpectedSubtype {
                     expectee: state.expectee(),
                 },
                 smallvec![],
             ),
-            FlyTermData::Ritchie {
-                ritchie_kind,
-                parameter_contracted_tys,
-                return_ty,
-                ..
-            } => todo!(),
-            FlyTermData::Symbol {
-                ty: expected_ty, ..
-            } => match state.expectee().base_ty_data_inner(db, terms) {
-                FlyBaseTypeData::TypeOntology {
-                    ty_path,
-                    refined_ty_path,
-                    ty_arguments,
-                    ty_ethereal_term,
-                } => todo!(),
-                FlyBaseTypeData::Curry {
-                    curry_kind,
-                    variance,
-                    parameter_rune,
-                    parameter_ty,
-                    return_ty,
-                    ty_ethereal_term,
-                } => todo!(),
-                FlyBaseTypeData::Hole(hole_kind, hole) => match hole_kind {
-                    HoleKind::UnspecifiedIntegerType => todo!(),
-                    HoleKind::UnspecifiedFloatType => todo!(),
-                    HoleKind::ImplicitType => match expected_ty.base_resolved_inner(terms) {
-                        FlyTermBase::Ethereal(EthTerm::Category(_)) => state.set_ok(
-                            ExpectSubtypeOutcome {},
-                            smallvec![FlyTermResolveAction::FillHole {
-                                hole,
-                                term: self.expected
-                            }],
-                        ),
-                        _ => todo!(),
-                    },
-                    HoleKind::Any => state.set_ok(
-                        ExpectSubtypeOutcome {},
-                        smallvec![FlyTermResolveAction::FillHole {
-                            hole,
-                            term: self.expected
-                        }],
-                    ),
-                },
-                FlyBaseTypeData::Category(_) => todo!(),
-                FlyBaseTypeData::Ritchie {
-                    ritchie_kind,
-                    parameter_contracted_tys,
-                    return_ty,
-                } => todo!(),
-                FlyBaseTypeData::Symbol { symbol } => todo!(),
-                FlyBaseTypeData::Rune { rune } => todo!(),
-            },
-            FlyTermData::Rune { .. } => todo!(),
-            FlyTermData::TypeVariant { path } => match state.expectee().data_inner(db, terms) {
-                FlyTermData::Literal(_) => todo!(),
-                FlyTermData::TypeOntology {
-                    ty_path,
-                    refined_ty_path,
-                    ty_arguments: arguments,
-                    ty_ethereal_term,
-                } => todo!(),
-                FlyTermData::Curry {
-                    toolchain,
-                    curry_kind,
-                    variance,
-                    parameter_rune,
-                    parameter_ty,
-                    return_ty,
-                    ty_ethereal_term,
-                } => todo!(),
-                FlyTermData::Hole(_, hole) => state.set_ok(
-                    ExpectSubtypeOutcome {},
-                    smallvec![FlyTermResolveAction::FillHole {
-                        hole,
-                        term: self.expected,
-                    }],
-                ),
-                FlyTermData::Category(_) => todo!(),
-                FlyTermData::Ritchie {
-                    ritchie_kind,
-                    parameter_contracted_tys,
-                    return_ty,
-                } => todo!(),
-                FlyTermData::Symbol { term, ty } => todo!(),
-                FlyTermData::Rune { .. } => todo!(),
-                FlyTermData::TypeVariant { path } => todo!(),
-            },
         }
     }
 }

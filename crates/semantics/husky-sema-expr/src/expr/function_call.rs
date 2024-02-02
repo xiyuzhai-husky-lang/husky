@@ -70,7 +70,7 @@ impl<'a> SemaExprEngine<'a> {
                         syn_expr_idx,
                         lpar_regional_token_idx,
                         rpar_regional_token_idx,
-                        ExpectSubtype::new(parameter_ty),
+                        ExpectSubtypeOrEqual::new(parameter_ty),
                     ),
                     1 => self.build_sema_expr(
                         items.first().expect("len is 1").syn_expr_idx(),

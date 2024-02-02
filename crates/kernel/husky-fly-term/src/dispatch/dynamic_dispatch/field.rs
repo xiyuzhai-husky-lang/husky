@@ -60,13 +60,13 @@ impl FlyTerm {
         mut indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
         match self.base_resolved(engine) {
-            FlyTermBase::Ethereal(term) => {
+            FlyTermBase::Eth(term) => {
                 ethereal_ty_field_dispatch(engine.db(), term, ident, indirections)
             }
-            FlyTermBase::Solid(term) => {
+            FlyTermBase::Sol(term) => {
                 term.field_dispatch_aux(engine, ident, available_traits, indirections)
             }
-            FlyTermBase::Hollow(term) => todo!(),
+            FlyTermBase::Hol(term) => todo!(),
             FlyTermBase::Place => todo!(),
         }
     }

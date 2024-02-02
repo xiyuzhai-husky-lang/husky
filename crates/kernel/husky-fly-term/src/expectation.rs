@@ -25,7 +25,7 @@ pub use self::int_ty::*;
 pub use self::subtype::*;
 
 use super::*;
-use husky_print_utils::p;
+use husky_dec_ty::variance::VarianceError;
 use idx_arena::ArenaIdx;
 use thiserror::Error;
 
@@ -38,7 +38,7 @@ pub enum Expectation {
     ImplicitlyConvertible(ExpectCoersion),
     EqsSort(ExpectEqsCategory),
     LoopVariableType,
-    EqsExactly(ExpectSubtype),
+    EqsExactly(ExpectSubtypeOrEqual),
     EqsFunctionType(ExpectEqsFunctionType),
     EqsRitchieType(ExpectEqsRitchieType),
     AnyOriginal(ExpectAnyOriginal),
@@ -253,4 +253,6 @@ pub enum DerivedFlyTermExpectationError {
         ty_path: TypePath,
         error: EthTermError,
     },
+    #[error("Variance")]
+    Variance,
 }

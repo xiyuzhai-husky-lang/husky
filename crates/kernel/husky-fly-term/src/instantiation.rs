@@ -71,7 +71,7 @@ impl FlyInstantiation {
         }
     }
 
-    pub(crate) fn from_ethereal(
+    pub(crate) fn from_eth(
         env: FlyInstantiationEnvironment,
         instantiation: &EtherealInstantiation,
     ) -> Self {
@@ -320,9 +320,9 @@ impl FlyInstantiate for ApplicationEthTerm {
                     debug_assert_eq!(arguments.len(), 2);
                     let the_place = arguments[0].instantiate(engine, expr_idx, instantiation);
                     let the_place = match the_place.base() {
-                        FlyTermBase::Ethereal(_) => todo!(),
-                        FlyTermBase::Solid(_) => todo!(),
-                        FlyTermBase::Hollow(_) => todo!(),
+                        FlyTermBase::Eth(_) => todo!(),
+                        FlyTermBase::Sol(_) => todo!(),
+                        FlyTermBase::Hol(_) => todo!(),
                         FlyTermBase::Place => the_place.place().unwrap(),
                     };
                     let base = arguments[1].instantiate(engine, expr_idx, instantiation);

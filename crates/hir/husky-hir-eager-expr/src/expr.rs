@@ -254,12 +254,12 @@ impl ToHirEager for SemaExprIdx {
                 let db = builder.db();
                 HirEagerExprData::Unveil {
                     unveil_associated_fn_path,
-                    instantiation: HirInstantiation::from_ethereal(
+                    instantiation: HirInstantiation::from_eth(
                         unveil_output_ty_signature.instantiation(),
                         db,
                     ),
                     opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
-                    return_ty: HirType::from_ethereal(return_ty, db).unwrap(),
+                    return_ty: HirType::from_eth(return_ty, db).unwrap(),
                 }
             }
             SemaExprData::Unwrap {
@@ -298,7 +298,7 @@ impl ToHirEager for SemaExprIdx {
                                 MajorItemPath::Trait(_) => unreachable!(),
                                 MajorItemPath::Fugitive(path) => HirEagerExprData::FunctionFnCall {
                                     path,
-                                    instantiation: HirInstantiation::from_fluffy(
+                                    instantiation: HirInstantiation::from_fly(
                                         instantiation.as_ref().unwrap(),
                                         db,
                                         builder.fluffy_terms(),
@@ -309,7 +309,7 @@ impl ToHirEager for SemaExprIdx {
                             PrincipalEntityPath::TypeVariant(path) => {
                                 HirEagerExprData::TypeVariantConstructorCall {
                                     path,
-                                    instantiation: HirInstantiation::from_fluffy(
+                                    instantiation: HirInstantiation::from_fly(
                                         instantiation.as_ref().unwrap(),
                                         db,
                                         builder.fluffy_terms(),
@@ -326,7 +326,7 @@ impl ToHirEager for SemaExprIdx {
                         StaticDispatch::AssociatedFn(signature) => {
                             HirEagerExprData::AssociatedFunctionFnCall {
                                 path: signature.path(),
-                                instantiation: HirInstantiation::from_fluffy(
+                                instantiation: HirInstantiation::from_fly(
                                     signature.instantiation(),
                                     db,
                                     builder.fluffy_terms(),
@@ -349,8 +349,7 @@ impl ToHirEager for SemaExprIdx {
                 FlyFieldSignature::PropsStruct { ty } => HirEagerExprData::PropsStructField {
                     owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
                     ident: ident_token.ident(),
-                    field_ty: HirType::from_fluffy(ty, builder.db(), builder.fluffy_terms())
-                        .unwrap(),
+                    field_ty: HirType::from_fly(ty, builder.db(), builder.fluffy_terms()).unwrap(),
                 },
                 FlyFieldSignature::Memoized {
                     ty: _,
@@ -383,7 +382,7 @@ impl ToHirEager for SemaExprIdx {
                     self_contract: HirEagerContract::from_term(self_contract),
                     ident: ident_token.ident(),
                     path: signature.path(),
-                    instantiation: HirInstantiation::from_fluffy(
+                    instantiation: HirInstantiation::from_fly(
                         signature.instantiation(),
                         builder.db(),
                         builder.fluffy_terms(),
@@ -424,7 +423,7 @@ impl ToHirEager for SemaExprIdx {
                     .iter()
                     .map(|item| item.sema_expr_idx.to_hir_eager(builder))
                     .collect(),
-                element_ty: HirType::from_fluffy(element_ty, builder.db(), builder.fluffy_terms())
+                element_ty: HirType::from_fly(element_ty, builder.db(), builder.fluffy_terms())
                     .unwrap(),
             },
             SemaExprData::BoxColonList {
@@ -459,7 +458,7 @@ impl ToHirEager for SemaExprIdx {
         let ty = self.ty(builder.sema_expr_arena_ref2());
         let ty_place = ty
             .place()
-            .map(|place| HirPlace::from_fluffy(place))
+            .map(|place| HirPlace::from_fly(place))
             .unwrap_or(HirPlace::Transient);
         let entry = HirEagerExprEntry {
             data,

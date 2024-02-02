@@ -42,7 +42,7 @@ impl HirTemplateParameter {
             todo!()
         };
         let db = builder.db();
-        let symbol = HirTemplateSymbol::from_ethereal(symbol, db)?;
+        let symbol = HirTemplateSymbol::from_eth(symbol, db)?;
         let data = match *syndicate.variant() {
             TemplateParameterSyndicateVariant::Type {
                 ident_token,
@@ -64,12 +64,12 @@ impl HirTemplateParameter {
                                 .expect("ok")
                                 .base_resolved_inner(terms)
                             {
-                                FlyTermBase::Ethereal(trai_term) => trai_term,
-                                FlyTermBase::Solid(_) => todo!(),
-                                FlyTermBase::Hollow(_) => todo!(),
+                                FlyTermBase::Eth(trai_term) => trai_term,
+                                FlyTermBase::Sol(_) => todo!(),
+                                FlyTermBase::Hol(_) => todo!(),
                                 FlyTermBase::Place => todo!(),
                             };
-                            HirTrait::from_ethereal(trai_term, db)
+                            HirTrait::from_eth(trai_term, db)
                         })
                         .collect(),
                     None => smallvec![],

@@ -24,22 +24,22 @@ impl std::ops::Deref for HirIndirections {
 }
 
 impl HirIndirections {
-    pub fn from_fluffy(indirections: &FlyIndirections) -> Self {
+    pub fn from_fly(indirections: &FlyIndirections) -> Self {
         HirIndirections {
-            initial_place: HirPlace::from_fluffy(indirections.initial_place()),
+            initial_place: HirPlace::from_fly(indirections.initial_place()),
             indirections: indirections
                 .iter()
-                .map(|&indirection| HirIndirection::from_fluffy(indirection))
+                .map(|&indirection| HirIndirection::from_fly(indirection))
                 .collect(),
-            final_place: HirPlace::from_fluffy(indirections.final_place()),
+            final_place: HirPlace::from_fly(indirections.final_place()),
         }
     }
 }
 
 impl HirIndirection {
-    fn from_fluffy(indiretion: FlyIndirection) -> Self {
+    fn from_fly(indiretion: FlyIndirection) -> Self {
         match indiretion {
-            FlyIndirection::Place(place) => HirIndirection::Place(HirPlace::from_fluffy(place)),
+            FlyIndirection::Place(place) => HirIndirection::Place(HirPlace::from_fly(place)),
             FlyIndirection::Leash => HirIndirection::Leash,
         }
     }

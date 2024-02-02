@@ -53,7 +53,7 @@ impl ExpectFlyTerm for ExpectEqsCategory {
         state: &mut ExpectationState,
     ) -> AltOption<FlyTermEffect> {
         match state.expectee().base_resolved_inner(terms) {
-            FlyTermBase::Ethereal(EthTerm::Category(cat)) => {
+            FlyTermBase::Eth(EthTerm::Category(cat)) => {
                 match cat.universe() >= self.smallest_universe {
                     true => state.set_ok(ExpectationOutcome::EqsSort(cat.universe()), smallvec![]),
                     false => todo!(),

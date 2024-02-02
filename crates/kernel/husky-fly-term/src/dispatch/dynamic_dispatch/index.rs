@@ -30,11 +30,11 @@ impl FlyTerm {
         mut indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
         match self.base_resolved(engine) {
-            FlyTermBase::Ethereal(owner_ty) => {
+            FlyTermBase::Eth(owner_ty) => {
                 ethereal_owner_ty_index_dispatch(engine, expr_idx, owner_ty, index_ty, indirections)
             }
-            FlyTermBase::Solid(owner_ty) => owner_ty.disambiguate_index(engine, expr_idx, index_ty),
-            FlyTermBase::Hollow(_) => todo!(),
+            FlyTermBase::Sol(owner_ty) => owner_ty.disambiguate_index(engine, expr_idx, index_ty),
+            FlyTermBase::Hol(_) => todo!(),
             FlyTermBase::Place => todo!(),
         }
     }

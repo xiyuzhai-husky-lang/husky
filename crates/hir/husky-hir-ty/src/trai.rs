@@ -12,7 +12,7 @@ pub struct HirTrait {
 }
 
 impl HirTrait {
-    pub fn from_ethereal(trai_term: EthTerm, db: &::salsa::Db) -> Self {
+    pub fn from_eth(trai_term: EthTerm, db: &::salsa::Db) -> Self {
         match trai_term {
             EthTerm::Literal(_) => todo!(),
             EthTerm::Symbol(_) => todo!(),
@@ -29,9 +29,7 @@ impl HirTrait {
             EthTerm::Curry(_) => todo!(),
             EthTerm::Ritchie(_) => todo!(),
             EthTerm::Abstraction(_) => todo!(),
-            EthTerm::Application(trai_term) => {
-                hir_trai_from_ethereal_term_application(db, trai_term)
-            }
+            EthTerm::Application(trai_term) => hir_trai_from_eth_term_application(db, trai_term),
             EthTerm::TypeAsTraitItem(_) => todo!(),
             EthTerm::TraitConstraint(_) => todo!(),
         }
@@ -39,10 +37,7 @@ impl HirTrait {
 }
 
 #[salsa::tracked(jar = HirTypeJar)]
-fn hir_trai_from_ethereal_term_application(
-    db: &::salsa::Db,
-    trai_term: ApplicationEthTerm,
-) -> HirTrait {
+fn hir_trai_from_eth_term_application(db: &::salsa::Db, trai_term: ApplicationEthTerm) -> HirTrait {
     let application_expansion = trai_term.application_expansion(db);
     match application_expansion.function() {
         TermFunctionReduced::TypeOntology(_) => todo!(),
@@ -68,7 +63,7 @@ fn hir_trai_from_ethereal_term_application(
                     disambiguator: _,
                 } => todo!(),
                 EthTermSymbolIndexImpl::Type { attrs, .. } => (!attrs.phantom())
-                    .then(|| HirTemplateArgument::Type(HirType::from_ethereal(arg, db).unwrap())),
+                    .then(|| HirTemplateArgument::Type(HirType::from_eth(arg, db).unwrap())),
                 EthTermSymbolIndexImpl::Prop { .. } => None,
                 EthTermSymbolIndexImpl::ConstPathLeading { .. }
                 | EthTermSymbolIndexImpl::ConstOther { .. } => todo!(),

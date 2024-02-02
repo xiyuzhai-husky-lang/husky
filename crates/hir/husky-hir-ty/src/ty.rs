@@ -31,10 +31,10 @@ pub struct HirTypeTypeAssociatedType {}
 pub struct HirTypeTraitAssociatedType {}
 
 impl HirType {
-    pub fn from_ethereal(term: EthTerm, db: &::salsa::Db) -> Option<Self> {
+    pub fn from_eth(term: EthTerm, db: &::salsa::Db) -> Option<Self> {
         let always_copyable = is_ty_term_always_copyable(term, db).unwrap()?;
         match term {
-            EthTerm::Symbol(symbol) => HirTypeSymbol::from_ethereal(symbol, db).map(Into::into),
+            EthTerm::Symbol(symbol) => HirTypeSymbol::from_eth(symbol, db).map(Into::into),
             EthTerm::EntityPath(path) => match path {
                 ItemPathTerm::Fugitive(_) => todo!(),
                 ItemPathTerm::Trait(_) => todo!(),
@@ -45,10 +45,10 @@ impl HirType {
                 ItemPathTerm::TypeVariant(_) => todo!(),
             },
             EthTerm::Ritchie(term_ritchie) => {
-                Some(HirRitchieType::from_ethereal(term_ritchie, db).into())
+                Some(HirRitchieType::from_eth(term_ritchie, db).into())
             }
             EthTerm::Application(term_application) => {
-                Some(hir_ty_from_ethereal_term_application(db, term_application))
+                Some(hir_ty_from_eth_term_application(db, term_application))
             }
             EthTerm::TypeAsTraitItem(_) => todo!(),
             _ => unreachable!("it should be guaranteed that the term is a valid HirType"),
@@ -56,12 +56,12 @@ impl HirType {
     }
 
     /// this will ignore the place
-    pub fn from_fluffy(term: FlyTerm, db: &::salsa::Db, fluffy_terms: &FlyTerms) -> Option<Self> {
+    pub fn from_fly(term: FlyTerm, db: &::salsa::Db, fluffy_terms: &FlyTerms) -> Option<Self> {
         // todo: consider place
         match term.base_resolved_inner(fluffy_terms) {
-            FlyTermBase::Ethereal(term) => HirType::from_ethereal(term, db),
-            FlyTermBase::Solid(_) => todo!(),
-            FlyTermBase::Hollow(_) => todo!(),
+            FlyTermBase::Eth(term) => HirType::from_eth(term, db),
+            FlyTermBase::Sol(_) => todo!(),
+            FlyTermBase::Hol(_) => unreachable!("expected all fly terms to be resolved"),
             FlyTermBase::Place => todo!(),
         }
     }
@@ -103,7 +103,7 @@ impl HirType {
 }
 
 #[salsa::tracked(jar = HirTypeJar)]
-pub(crate) fn hir_ty_from_ethereal_term_application(
+pub(crate) fn hir_ty_from_eth_term_application(
     db: &::salsa::Db,
     term_application: ApplicationEthTerm,
 ) -> HirType {
@@ -135,7 +135,7 @@ pub(crate) fn hir_ty_from_ethereal_term_application(
                 }
                 .then_some(arg)
             })
-            .map(|arg| HirTemplateArgument::from_ethereal(arg, db).unwrap())
+            .map(|arg| HirTemplateArgument::from_eth(arg, db).unwrap())
             .collect();
             HirTypePathLeading::new(
                 db,

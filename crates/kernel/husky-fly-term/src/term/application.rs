@@ -14,12 +14,12 @@ impl FlyTerm {
             function.base_resolved(engine),
             argument.base_resolved(engine),
         ) {
-            (FlyTermBase::Ethereal(function), FlyTermBase::Ethereal(argument)) => {
+            (FlyTermBase::Eth(function), FlyTermBase::Eth(argument)) => {
                 Ok(ApplicationEthTerm::new(db, function, argument)?.into())
             }
             (
-                FlyTermBase::Ethereal(_) | FlyTermBase::Solid(_),
-                FlyTermBase::Ethereal(_) | FlyTermBase::Solid(_),
+                FlyTermBase::Eth(_) | FlyTermBase::Sol(_),
+                FlyTermBase::Eth(_) | FlyTermBase::Sol(_),
             ) => {
                 todo!()
             }
@@ -33,7 +33,7 @@ impl FlyTerm {
                     } => {
                         let mut arguments = arguments.to_smallvec();
                         arguments.push(argument.into());
-                        HollowTermData::TypeOntology {
+                        HolTermData::TypeOntology {
                             path,
                             refined_path,
                             arguments,
@@ -48,7 +48,7 @@ impl FlyTerm {
                     | FlyTermData::Curry { .. }
                     | FlyTermData::Ritchie { .. } => unreachable!(),
                 };
-                Ok(HollowTerm::new(engine, data).into())
+                Ok(HolTerm::new(engine, data).into())
             }
         }
     }
@@ -77,7 +77,7 @@ impl FlyTerm {
                         path,
                         arguments.iter().map(|argument| {
                             match argument.resolve_progress(fluffy_terms) {
-                                TermResolveProgress::ResolvedEthereal(argument) => argument,
+                                TermResolveProgress::ResolvedEth(argument) => argument,
                                 _ => unreachable!(),
                             }
                         }),
@@ -96,7 +96,7 @@ impl FlyTerm {
                     .into(),
                 FlyTermDataKind::Hollow => fluffy_terms
                     .hollow_terms_mut()
-                    .alloc_new(HollowTermData::TypeOntology {
+                    .alloc_new(HolTermData::TypeOntology {
                         path,
                         refined_path,
                         arguments,

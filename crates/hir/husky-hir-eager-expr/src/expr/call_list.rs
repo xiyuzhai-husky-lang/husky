@@ -31,7 +31,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         match pam {
             SemaRitchieParameterArgumentMatch::Regular(param, item) => {
                 HirEagerRitchieParameterArgumentMatch::Regular(
-                    HirRitchieRegularParameter::from_fluffy(param, self.db(), self.fluffy_terms()),
+                    HirRitchieRegularParameter::from_fly(param, self.db(), self.fluffy_terms()),
                     item.argument_sema_expr_idx().to_hir_eager(self),
                     item.coersion_outcome
                         .as_ref()

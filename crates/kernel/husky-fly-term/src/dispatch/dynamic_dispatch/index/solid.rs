@@ -1,6 +1,6 @@
 use super::*;
 
-impl SolidTerm {
+impl SolTerm {
     pub(super) fn disambiguate_index(
         self,
         engine: &mut impl FlyTermEngine,

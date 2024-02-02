@@ -138,7 +138,7 @@ impl<'a> SemaExprEngine<'a> {
                             self.build_sema_expr_with_ty_and_outcome(expr_idx, ExpectAnyOriginal);
                         let ty_result = match expr_ty {
                             Some(ty) => match ty.base_resolved(self) {
-                                FlyTermBase::Ethereal(ty) if ty == self.term_menu.never() => {
+                                FlyTermBase::Eth(ty) if ty == self.term_menu.never() => {
                                     Some(self.term_menu.never().into())
                                 }
                                 _ => Some(self.term_menu.unit_ty_ontology().into()),

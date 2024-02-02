@@ -41,9 +41,9 @@ impl FlyTerm {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum FlyTermBase {
-    Ethereal(EthTerm),
-    Solid(SolidTerm),
-    Hollow(HollowTerm),
+    Eth(EthTerm),
+    Sol(SolTerm),
+    Hol(HolTerm),
     Place,
 }
 
@@ -114,9 +114,9 @@ impl From<RitchieEthTerm> for FlyTerm {
     }
 }
 
-impl From<SolidTerm> for FlyTerm {
+impl From<SolTerm> for FlyTerm {
     #[inline(always)]
-    fn from(term: SolidTerm) -> Self {
+    fn from(term: SolTerm) -> Self {
         Self {
             place: None,
             base: term.into(),
@@ -124,9 +124,9 @@ impl From<SolidTerm> for FlyTerm {
     }
 }
 
-impl From<HollowTerm> for FlyTerm {
+impl From<HolTerm> for FlyTerm {
     #[inline(always)]
-    fn from(term: HollowTerm) -> Self {
+    fn from(term: HolTerm) -> Self {
         Self {
             place: None,
             base: term.into(),
@@ -149,7 +149,6 @@ fn term_to_fluffy_term_works() {
 }
 
 impl FlyTerm {
-    #[deprecated(note = "should return place or panic")]
     pub fn place(self) -> Option<FlyPlace> {
         self.place
     }
@@ -160,17 +159,16 @@ impl FlyTerm {
 
     pub fn base_resolved_inner(
         self,
-        fluffy_terms: &impl std::borrow::Borrow<HollowTerms>,
+        fluffy_terms: &impl std::borrow::Borrow<HolTerms>,
     ) -> FlyTermBase {
         match self.base {
-            FlyTermBase::Ethereal(_) | FlyTermBase::Solid(_) => self.base,
-            FlyTermBase::Hollow(term) => match term.resolve_progress(fluffy_terms.borrow()) {
-                TermResolveProgress::UnresolvedHollow => self.base,
-                TermResolveProgress::ResolvedEthereal(term) => term.into(),
-                TermResolveProgress::ResolvedSolid(term) => term.into(),
+            FlyTermBase::Eth(_) | FlyTermBase::Sol(_) | FlyTermBase::Place => self.base,
+            FlyTermBase::Hol(term) => match term.resolve_progress(fluffy_terms.borrow()) {
+                TermResolveProgress::UnresolvedHol => self.base,
+                TermResolveProgress::ResolvedEth(term) => term.into(),
+                TermResolveProgress::ResolvedSol(term) => term.into(),
                 TermResolveProgress::Err => todo!(),
             },
-            FlyTermBase::Place => self.base,
         }
     }
 

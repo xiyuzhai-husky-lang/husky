@@ -82,7 +82,7 @@ pub enum HirPlace {
 }
 
 impl HirPlace {
-    pub fn from_fluffy(place: FlyPlace) -> HirPlace {
+    pub fn from_fly(place: FlyPlace) -> HirPlace {
         match place {
             FlyPlace::Const => HirPlace::Const,
             FlyPlace::StackPure { location } => HirPlace::StackPure { location },
@@ -92,10 +92,10 @@ impl HirPlace {
             FlyPlace::MutableStackOwned { location } => HirPlace::MutableStackOwned { location },
             FlyPlace::Transient => HirPlace::Transient,
             FlyPlace::Ref { guard } => HirPlace::Ref {
-                guard: hir_place_guard_from_fluffy(guard),
+                guard: hir_place_guard_from_fly(guard),
             },
             FlyPlace::RefMut { guard } => HirPlace::RefMut {
-                guard: hir_place_guard_from_fluffy(guard),
+                guard: hir_place_guard_from_fly(guard),
             },
             FlyPlace::Leashed => HirPlace::Leashed,
             FlyPlace::Todo => HirPlace::Todo,
@@ -119,11 +119,11 @@ impl HirPlace {
     }
 }
 
-fn hir_place_guard_from_fluffy(
+fn hir_place_guard_from_fly(
     guard: Either<StackLocationIdx, FlyLifetime>,
 ) -> Either<StackLocationIdx, HirLifetime> {
     match guard {
         Left(location) => Left(location),
-        Right(lifetime) => Right(HirLifetime::from_fluffy(lifetime)),
+        Right(lifetime) => Right(HirLifetime::from_fly(lifetime)),
     }
 }

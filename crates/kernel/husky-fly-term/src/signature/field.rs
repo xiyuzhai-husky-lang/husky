@@ -44,7 +44,7 @@ impl From<TypeMemoizedFieldEtherealSignature> for FlyFieldSignature {
             // ad hoc
             ty: signature.return_ty().into(),
             path: signature.path().into(),
-            instantiation: FlyInstantiation::from_ethereal(
+            instantiation: FlyInstantiation::from_eth(
                 FlyInstantiationEnvironment::MemoizedField,
                 signature.instantiation(),
             ),

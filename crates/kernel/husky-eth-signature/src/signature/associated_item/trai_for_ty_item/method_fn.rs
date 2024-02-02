@@ -6,7 +6,7 @@ pub struct TraitForTypeMethodFnEthTemplate {
     pub self_ty: EthTerm,
     #[return_ref]
     pub template_parameters: EthTemplateParameters,
-    pub self_value_parameter: EtherealRitchieRegularParameter,
+    pub self_value_parameter: EthRitchieRegularParameter,
     #[return_ref]
     pub parenate_parameters: EtherealParenateParameters,
     pub return_ty: EthTerm,
@@ -21,7 +21,7 @@ impl TraitForTypeMethodFnEthTemplate {
         let self_ty = EthTerm::ty_from_declarative(db, dec_sig_tmpl.self_ty(db))?;
         let template_parameters =
             EthTemplateParameters::from_declarative(db, dec_sig_tmpl.template_parameters(db))?;
-        let self_value_parameter = EtherealRitchieRegularParameter::from_declarative(
+        let self_value_parameter = EthRitchieRegularParameter::from_declarative(
             db,
             dec_sig_tmpl.self_value_parameter(db),
         )?;
@@ -97,7 +97,7 @@ fn trai_for_ty_method_fn_ethereal_signature_signature_builder_try_into_signature
 pub struct TraitForTypeMethodFnEtherealSignature {
     pub path: TraitForTypeItemPath,
     pub instantiation: EtherealInstantiation,
-    pub self_value_parameter: EtherealRitchieRegularParameter,
+    pub self_value_parameter: EthRitchieRegularParameter,
     pub parenate_parameters: SmallVec<[EtherealRitchieParameter; 4]>,
     pub return_ty: EthTerm,
 }

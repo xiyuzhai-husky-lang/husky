@@ -10,17 +10,17 @@ pub struct FlyRitchieRegularParameter {
 impl FlyRitchieRegularParameter {
     pub(super) fn resolve_as_ethereal(
         self,
-        terms: &impl std::borrow::Borrow<HollowTerms>,
-    ) -> Option<EtherealRitchieRegularParameter> {
-        Some(EtherealRitchieRegularParameter::new(
+        terms: &impl std::borrow::Borrow<HolTerms>,
+    ) -> Option<EthRitchieRegularParameter> {
+        Some(EthRitchieRegularParameter::new(
             self.contract,
             self.ty.resolve_as_ethereal(terms)?,
         ))
     }
 }
 
-impl From<EtherealRitchieRegularParameter> for FlyRitchieRegularParameter {
-    fn from(param: EtherealRitchieRegularParameter) -> Self {
+impl From<EthRitchieRegularParameter> for FlyRitchieRegularParameter {
+    fn from(param: EthRitchieRegularParameter) -> Self {
         Self {
             contract: param.contract(),
             ty: param.ty().into(),
@@ -28,7 +28,7 @@ impl From<EtherealRitchieRegularParameter> for FlyRitchieRegularParameter {
     }
 }
 
-impl FlyInstantiate for EtherealRitchieRegularParameter {
+impl FlyInstantiate for EthRitchieRegularParameter {
     type Target = FlyRitchieRegularParameter;
 
     fn instantiate(

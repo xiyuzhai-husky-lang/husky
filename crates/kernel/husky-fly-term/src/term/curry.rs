@@ -34,7 +34,7 @@ impl FlyTerm {
             FlyTermDataKind::Solid => todo!(),
             FlyTermDataKind::Hollow => terms
                 .hollow_terms_mut()
-                .alloc_new(HollowTermData::Curry {
+                .alloc_new(HolTermData::Curry {
                     toolchain,
                     curry_kind,
                     variance,

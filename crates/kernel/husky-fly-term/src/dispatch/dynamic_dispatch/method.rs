@@ -94,13 +94,13 @@ impl HasFlyTypeMethodDispatch for FlyTerm {
         indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
         match self.base_resolved(engine) {
-            FlyTermBase::Ethereal(ty_term) => {
+            FlyTermBase::Eth(ty_term) => {
                 ty_term.ty_method_dispatch(engine, expr_idx, ident_token, indirections)
             }
-            FlyTermBase::Solid(ty_term) => {
+            FlyTermBase::Sol(ty_term) => {
                 ty_term.ty_method_dispatch(engine, expr_idx, ident_token, indirections)
             }
-            FlyTermBase::Hollow(ty_term) => {
+            FlyTermBase::Hol(ty_term) => {
                 ty_term.ty_method_dispatch(engine, expr_idx, ident_token, indirections)
             }
             FlyTermBase::Place => todo!(),
@@ -118,21 +118,21 @@ impl HasFlyTraitMethodDispatch for FlyTerm {
         indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
         match self.base_resolved(engine) {
-            FlyTermBase::Ethereal(ty_term) => ty_term.trai_method_dispatch_aux(
+            FlyTermBase::Eth(ty_term) => ty_term.trai_method_dispatch_aux(
                 engine,
                 expr_idx,
                 ident_token,
                 trai_item_records,
                 indirections,
             ),
-            FlyTermBase::Solid(ty_term) => ty_term.trai_method_dispatch_aux(
+            FlyTermBase::Sol(ty_term) => ty_term.trai_method_dispatch_aux(
                 engine,
                 expr_idx,
                 ident_token,
                 trai_item_records,
                 indirections,
             ),
-            FlyTermBase::Hollow(ty_term) => ty_term.trai_method_dispatch_aux(
+            FlyTermBase::Hol(ty_term) => ty_term.trai_method_dispatch_aux(
                 engine,
                 expr_idx,
                 ident_token,

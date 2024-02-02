@@ -73,49 +73,47 @@ impl<'a> SemaExprEngine<'a> {
                     _ => opd_ty,
                 };
                 match reduced_opd_ty.base_resolved(self) {
-                    FlyTermBase::Ethereal(opd_ty) => {
-                        match template.instantiate_trai(&[opd_ty], db) {
-                            JustOk(template) => {
-                                let associated_output_template =
-                                    match template.associated_output_template(db) {
-                                        Ok(associated_output_template) => {
-                                            associated_output_template
-                                        }
-                                        Err(e) => return (
+                    FlyTermBase::Eth(opd_ty) => match template.instantiate_trai(&[opd_ty], db) {
+                        JustOk(template) => {
+                            let associated_output_template =
+                                match template.associated_output_template(db) {
+                                    Ok(associated_output_template) => associated_output_template,
+                                    Err(e) => {
+                                        return (
                                             Err(DerivedSemaExprDataError::UnveilOutputTemplate {
                                                 opd_sema_expr_idx,
                                                 e,
                                             }
                                             .into()),
                                             Err(e.into()),
-                                        ),
-                                    };
-                                let Some(unveil_output_ty_signature) =
-                                    associated_output_template.try_into_signature(db)
-                                else {
-                                    todo!()
+                                        )
+                                    }
                                 };
-                                let ty_term = unveil_output_ty_signature.ty_term().into();
-                                (
-                                    Ok(SemaExprData::Unveil {
-                                        opd_sema_expr_idx,
-                                        opr_regional_token_idx,
-                                        unveil_associated_fn_path: unveil_associated_fn_path(
-                                            &unveil_output_ty_signature,
-                                            db,
-                                        ),
-                                        unveil_output_ty_signature,
-                                        return_ty: self.return_ty().unwrap(),
-                                    }),
-                                    Ok(ty_term),
-                                )
-                            }
-                            JustErr(_) => todo!(),
-                            Nothing => todo!(),
+                            let Some(unveil_output_ty_signature) =
+                                associated_output_template.try_into_signature(db)
+                            else {
+                                todo!()
+                            };
+                            let ty_term = unveil_output_ty_signature.ty_term().into();
+                            (
+                                Ok(SemaExprData::Unveil {
+                                    opd_sema_expr_idx,
+                                    opr_regional_token_idx,
+                                    unveil_associated_fn_path: unveil_associated_fn_path(
+                                        &unveil_output_ty_signature,
+                                        db,
+                                    ),
+                                    unveil_output_ty_signature,
+                                    return_ty: self.return_ty().unwrap(),
+                                }),
+                                Ok(ty_term),
+                            )
                         }
-                    }
-                    FlyTermBase::Solid(_) => todo!(),
-                    FlyTermBase::Hollow(_) => todo!(),
+                        JustErr(_) => todo!(),
+                        Nothing => todo!(),
+                    },
+                    FlyTermBase::Sol(_) => todo!(),
+                    FlyTermBase::Hol(_) => todo!(),
                     FlyTermBase::Place => todo!(),
                 }
             }

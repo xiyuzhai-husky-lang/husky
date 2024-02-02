@@ -31,7 +31,7 @@ pub trait FlyTermEngine<'a>: Sized {
     }
 
     fn new_hole(&mut self, src: impl Into<HoleSource>, hole_kind: HoleKind) -> FlyTerm {
-        HollowTerm::new_hole(self, src, hole_kind).into()
+        HolTerm::new_hole(self, src, hole_kind).into()
     }
 
     fn synthesize_function_application_expr_ty(
@@ -57,9 +57,9 @@ pub trait FlyTermEngine<'a>: Sized {
         ) {
             (
                 None,
-                FlyTermBase::Ethereal(parameter_ty),
-                FlyTermBase::Ethereal(return_ty),
-                FlyTermBase::Ethereal(argument_ty),
+                FlyTermBase::Eth(parameter_ty),
+                FlyTermBase::Eth(return_ty),
+                FlyTermBase::Eth(argument_ty),
             ) => {
                 return Ok(EthTerm::synthesize_function_application_expr_ty(
                     self.db(),

@@ -74,7 +74,7 @@ impl ToHirEager for TrivialFlyCoersion {
 
     fn to_hir_eager(&self, _builder: &mut HirEagerExprBuilder) -> Self::Output {
         TrivialHirEagerCoersion {
-            expectee_place: HirPlace::from_fluffy(self.expectee_place),
+            expectee_place: HirPlace::from_fly(self.expectee_place),
         }
     }
 }
@@ -86,7 +86,7 @@ impl ToHirEager for DerefFlyCoersion {
         match *self {
             DerefFlyCoersion::Leash => DerefHirEagerCoersion::Leash,
             DerefFlyCoersion::Ref { lifetime } => DerefHirEagerCoersion::Ref {
-                lifetime: HirLifetime::from_fluffy(lifetime),
+                lifetime: HirLifetime::from_fly(lifetime),
             },
         }
     }

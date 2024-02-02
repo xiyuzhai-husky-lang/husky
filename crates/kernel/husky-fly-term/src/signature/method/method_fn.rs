@@ -18,7 +18,7 @@ impl MemberSignature for MethodFnFlySignature {
 }
 
 impl MethodFnFlySignature {
-    pub(crate) fn from_ethereal(
+    pub(crate) fn from_eth(
         self_place: FlyPlace,
         eth_sig: &TraitForTypeMethodFnEtherealSignature,
     ) -> Self {
@@ -31,7 +31,7 @@ impl MethodFnFlySignature {
                 .map(|&param| param.into())
                 .collect(),
             return_ty: eth_sig.return_ty().into(),
-            instantiation: FlyInstantiation::from_ethereal(
+            instantiation: FlyInstantiation::from_eth(
                 FlyInstantiationEnvironment::MethodFn { self_place },
                 eth_sig.instantiation(),
             ),

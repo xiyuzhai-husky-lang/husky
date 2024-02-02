@@ -122,7 +122,7 @@ impl<'a> SemaExprEngine<'a> {
                                         .ok_ty(&self.sema_expr_arena)
                                         .ok_or(DerivedExprTermError::LiteralTypeNotInferred)?;
                                     match ty.base_resolved(self) {
-                                        FlyTermBase::Ethereal(EthTerm::EntityPath(
+                                        FlyTermBase::Eth(EthTerm::EntityPath(
                                             ItemPathTerm::TypeOntology(ty_path),
                                         )) => {
                                             match ty_path.prelude_ty_path(self.db) {

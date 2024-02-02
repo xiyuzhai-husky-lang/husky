@@ -174,7 +174,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     }
 
     pub(crate) fn expr_term_hir_ty(&self, sema_expr_idx: SemaExprIdx) -> Option<HirType> {
-        HirType::from_ethereal(self.expr_term(sema_expr_idx), self.db)
+        HirType::from_eth(self.expr_term(sema_expr_idx), self.db)
     }
 
     pub(crate) fn expr_ty(&self, sema_expr_idx: SemaExprIdx) -> FlyTerm {
@@ -190,9 +190,9 @@ impl<'a> HirEagerExprBuilder<'a> {
             .expect("hir stage ok")
             .base_resolved_inner(self.sema_expr_region_data.fluffy_term_region().terms())
         {
-            FlyTermBase::Ethereal(term) => term,
-            FlyTermBase::Solid(_) => todo!(),
-            FlyTermBase::Hollow(_) => todo!(),
+            FlyTermBase::Eth(term) => term,
+            FlyTermBase::Sol(_) => todo!(),
+            FlyTermBase::Hol(_) => todo!(),
             FlyTermBase::Place => todo!(),
         }
     }
