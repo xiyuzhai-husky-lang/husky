@@ -50,14 +50,6 @@ impl HirTermSymbolResolution {
 }
 
 impl HirInstantiation {
-    #[deprecated(note = "ad hoc")]
-    pub fn new_empty(is_associated: bool) -> Self {
-        Self {
-            symbol_map: Default::default(),
-            separator: is_associated.then_some(0),
-        }
-    }
-
     pub fn from_fly(instantiation: &FlyInstantiation, db: &::salsa::Db, terms: &FlyTerms) -> Self {
         let (symbol_map0, symbol_map1) = &instantiation.symbol_map_splitted();
         let t = |&(symbol, resolution)| match HirTemplateSymbol::from_eth(symbol, db) {

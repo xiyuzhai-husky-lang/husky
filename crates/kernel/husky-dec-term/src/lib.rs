@@ -15,7 +15,7 @@ pub use self::error::*;
 pub use self::menu::*;
 pub use self::rewrite::*;
 
-use self::fmt::*;
+
 use self::term::*;
 use husky_coword::*;
 use husky_term_prelude::*;
