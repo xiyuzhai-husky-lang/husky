@@ -13,31 +13,31 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum FugitiveDeclarativeSignatureTemplate {
-    FunctionFn(FnFugitiveDeclarativeSignatureTemplate),
-    FunctionGn(GnFugitiveDeclarativeSignatureTemplate),
-    TypeAlias(TypeAliasDeclarativeSignatureTemplate),
-    Val(ValFugitiveDeclarativeSignatureTemplate),
+pub enum FugitiveDecTemplate {
+    Fn(MajorFnDecTemplate),
+    Gn(MajorGnDecTemplate),
+    TypeAlias(TypeAliasDecTemplate),
+    Val(MajorValDecTemplate),
 }
 
-impl FugitiveDeclarativeSignatureTemplate {
+impl FugitiveDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
-            FugitiveDeclarativeSignatureTemplate::FunctionFn(decl) => decl.template_parameters(db),
-            FugitiveDeclarativeSignatureTemplate::Val(decl) => decl.template_parameters(db),
-            FugitiveDeclarativeSignatureTemplate::FunctionGn(decl) => decl.template_parameters(db),
-            FugitiveDeclarativeSignatureTemplate::TypeAlias(_) => todo!(),
+            FugitiveDecTemplate::Fn(decl) => decl.template_parameters(db),
+            FugitiveDecTemplate::Val(decl) => decl.template_parameters(db),
+            FugitiveDecTemplate::Gn(decl) => decl.template_parameters(db),
+            FugitiveDecTemplate::TypeAlias(_) => todo!(),
         }
     }
 }
 
-impl HasDeclarativeSignatureTemplate for FugitivePath {
-    type DeclarativeSignatureTemplate = FugitiveDeclarativeSignatureTemplate;
+impl HasDecTemplate for FugitivePath {
+    type DecTemplate = FugitiveDecTemplate;
 
     fn declarative_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
         fugitive_syn_declarative_signature_template(db, self)
     }
 }
@@ -46,17 +46,15 @@ impl HasDeclarativeSignatureTemplate for FugitivePath {
 pub(crate) fn fugitive_syn_declarative_signature_template(
     db: &::salsa::Db,
     path: FugitivePath,
-) -> DeclarativeSignatureResult<FugitiveDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<FugitiveDecTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
         FugitiveSynDecl::FunctionFn(decl) => {
-            FnFugitiveDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
+            MajorFnDecTemplate::from_decl(db, decl).map(Into::into)
         }
-        FugitiveSynDecl::Val(decl) => {
-            ValFugitiveDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
-        }
+        FugitiveSynDecl::Val(decl) => MajorValDecTemplate::from_decl(db, decl).map(Into::into),
         FugitiveSynDecl::FunctionGn(decl) => {
-            GnFugitiveDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
+            MajorGnDecTemplate::from_decl(db, decl).map(Into::into)
         }
     }
 }

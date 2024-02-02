@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct TraitMethodFnDeclarativeSignatureTemplate {
+pub struct TraitMethodFnDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
     // todo: add field `pub self_value_parameter: DeclarativeRitchieRegularParameter`,
@@ -10,11 +10,11 @@ pub struct TraitMethodFnDeclarativeSignatureTemplate {
     pub return_ty: DeclarativeTerm,
 }
 
-impl TraitMethodFnDeclarativeSignatureTemplate {
+impl TraitMethodFnDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
         decl: TraitMethodFnSynDecl,
-    ) -> DeclarativeSignatureResult<TraitMethodFnDeclarativeSignatureTemplate> {
+    ) -> DeclarativeSignatureResult<TraitMethodFnDecTemplate> {
         let syn_expr_region = decl.syn_expr_region(db);
         let syn_expr_region_data = syn_expr_region.data(db);
         let declarative_term_region = declarative_term_region(db, syn_expr_region);
@@ -35,7 +35,7 @@ impl TraitMethodFnDeclarativeSignatureTemplate {
             Some(return_ty) => declarative_term_region.expr_term(return_ty.syn_expr_idx())?,
             None => declarative_term_menu.unit(),
         };
-        Ok(TraitMethodFnDeclarativeSignatureTemplate::new(
+        Ok(TraitMethodFnDecTemplate::new(
             db,
             template_parameters,
             parenate_parameters,

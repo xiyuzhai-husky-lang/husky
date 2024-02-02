@@ -1,24 +1,24 @@
 use super::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct PropsStructTypeDeclarativeSignatureTemplate {
+pub struct PropsStructTypeDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
     pub self_ty: DeclarativeTerm,
     #[return_ref]
-    pub fields: SmallVec<[PropsStructFieldDeclarativeSignatureTemplate; 4]>,
+    pub fields: SmallVec<[PropsStructFieldDecTemplate; 4]>,
     pub instance_constructor_ritchie_ty: RitchieDeclarativeTerm,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
-pub struct PropsStructFieldDeclarativeSignatureTemplate {
+pub struct PropsStructFieldDecTemplate {
     ident: Ident,
     ty: DeclarativeTerm,
     has_initialization: bool,
 }
 
-impl PropsStructTypeDeclarativeSignatureTemplate {
+impl PropsStructTypeDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
         path: TypePath,
@@ -40,7 +40,7 @@ impl PropsStructTypeDeclarativeSignatureTemplate {
             .iter()
             .enumerate()
             .map(|(i, field)| {
-                Ok(PropsStructFieldDeclarativeSignatureTemplate {
+                Ok(PropsStructFieldDecTemplate {
                     ident: field.ident(),
                     ty: match declarative_term_region.expr_term(field.ty()) {
                         Ok(ty) => ty,
@@ -54,14 +54,16 @@ impl PropsStructTypeDeclarativeSignatureTemplate {
                 })
             })
             .collect::<DeclarativeSignatureResult<SmallVec<_>>>()?;
-        let instance_constructor_ritchie_ty =
-            RitchieDeclarativeTerm::new(db, RitchieKind::RITCHIE_TYPE_FN, fields
+        let instance_constructor_ritchie_ty = RitchieDeclarativeTerm::new(
+            db,
+            RitchieKind::RITCHIE_TYPE_FN,
+            fields
                 .iter()
                 .copied()
-                .filter_map(
-                    PropsStructFieldDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty,
-                )
-                .collect(), self_ty);
+                .filter_map(PropsStructFieldDecTemplate::into_ritchie_parameter_contracted_ty)
+                .collect(),
+            self_ty,
+        );
         Ok(Self::new(
             db,
             template_parameters,
@@ -72,7 +74,7 @@ impl PropsStructTypeDeclarativeSignatureTemplate {
     }
 }
 
-impl PropsStructFieldDeclarativeSignatureTemplate {
+impl PropsStructFieldDecTemplate {
     pub fn ident(&self) -> Ident {
         self.ident
     }

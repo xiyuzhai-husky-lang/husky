@@ -9,13 +9,11 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Val(
-                        ValFugitiveSynDecl {
+                        MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
-                            return_ty: Some(
-                                ReturnTypeBeforeEqSyndicate {
-                                    expr: 1,
-                                },
-                            ),
+                            return_ty: ReturnTypeBeforeEqSyndicate {
+                                expr: 1,
+                            },
                             expr: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -128,7 +126,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::FunctionFn(
-                        FunctionFnFugitiveSynDecl {
+                        FunctionMajorFnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
@@ -365,13 +363,11 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Val(
-                        ValFugitiveSynDecl {
+                        MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-                            return_ty: Some(
-                                ReturnTypeBeforeEqSyndicate {
-                                    expr: 1,
-                                },
-                            ),
+                            return_ty: ReturnTypeBeforeEqSyndicate {
+                                expr: 1,
+                            },
                             expr: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -484,13 +480,11 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Val(
-                        ValFugitiveSynDecl {
+                        MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                            return_ty: Some(
-                                ReturnTypeBeforeEqSyndicate {
-                                    expr: 1,
-                                },
-                            ),
+                            return_ty: ReturnTypeBeforeEqSyndicate {
+                                expr: 1,
+                            },
                             expr: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -603,13 +597,11 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Val(
-                        ValFugitiveSynDecl {
+                        MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
-                            return_ty: Some(
-                                ReturnTypeBeforeEqSyndicate {
-                                    expr: 5,
-                                },
-                            ),
+                            return_ty: ReturnTypeBeforeEqSyndicate {
+                                expr: 5,
+                            },
                             expr: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -823,7 +815,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::FunctionFn(
-                        FunctionFnFugitiveSynDecl {
+                        FunctionMajorFnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
@@ -1060,7 +1052,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::FunctionFn(
-                        FunctionFnFugitiveSynDecl {
+                        FunctionMajorFnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [

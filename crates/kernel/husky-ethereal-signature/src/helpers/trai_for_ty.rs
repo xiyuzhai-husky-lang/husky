@@ -7,14 +7,14 @@ use husky_entity_tree::{
 };
 use husky_term_prelude::{RitchieKind, RitchieTypeKind};
 
-pub struct TraitForTypeImplBlockEtherealSignatureTemplates<'a> {
-    trai_side_derive_any: &'a [TraitForTypeImplBlockEtherealSignatureTemplate],
-    trai_side_path_leading: &'a [TraitForTypeImplBlockEtherealSignatureTemplate],
-    ty_side: &'a [TraitForTypeImplBlockEtherealSignatureTemplate],
+pub struct TraitForTypeImplBlockEthTemplates<'a> {
+    trai_side_derive_any: &'a [TraitForTypeImplBlockEthTemplate],
+    trai_side_path_leading: &'a [TraitForTypeImplBlockEthTemplate],
+    ty_side: &'a [TraitForTypeImplBlockEthTemplate],
 }
 
-impl<'a> TraitForTypeImplBlockEtherealSignatureTemplates<'a> {
-    pub fn iter(self) -> impl Iterator<Item = TraitForTypeImplBlockEtherealSignatureTemplate> + 'a {
+impl<'a> TraitForTypeImplBlockEthTemplates<'a> {
+    pub fn iter(self) -> impl Iterator<Item = TraitForTypeImplBlockEthTemplate> + 'a {
         (self
             .trai_side_derive_any
             .iter()
@@ -28,11 +28,11 @@ pub fn trai_path_for_ty_path_impl_block_ethereal_signature_templates<'a>(
     db: &'a ::salsa::Db,
     trai_path: TraitPath,
     ty_path: TypePath,
-) -> EtherealSignatureResult<TraitForTypeImplBlockEtherealSignatureTemplates<'a>> {
+) -> EtherealSignatureResult<TraitForTypeImplBlockEthTemplates<'a>> {
     let does_ty_path_derive_trai_path = ty_path
         .derive_attr_ethereal_signature_templates(db, trai_path)?
         .is_some();
-    Ok(TraitForTypeImplBlockEtherealSignatureTemplates {
+    Ok(TraitForTypeImplBlockEthTemplates {
         trai_side_derive_any: if does_ty_path_derive_trai_path {
             trai_side_derive_any_ethereal_signature_templates(db, trai_path).as_ref()?
         } else {
@@ -137,7 +137,7 @@ pub fn is_ty_term_always_copyable(
 fn trai_side_derive_any_ethereal_signature_templates(
     db: &::salsa::Db,
     trai_path: TraitPath,
-) -> EtherealSignatureResult<SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplate; 2]>> {
+) -> EtherealSignatureResult<SmallVec<[TraitForTypeImplBlockEthTemplate; 2]>> {
     trai_side_derive_any_trai_for_ty_impl_block_paths_map(db, trai_path)
         .iter()
         .map(|path| path.ethereal_signature_template(db))
@@ -148,7 +148,7 @@ fn trai_side_path_leading_ethereal_signature_templates(
     db: &::salsa::Db,
     trai_path: TraitPath,
     ty_path: TypePath,
-) -> EtherealSignatureResult<Option<&[TraitForTypeImplBlockEtherealSignatureTemplate]>> {
+) -> EtherealSignatureResult<Option<&[TraitForTypeImplBlockEthTemplate]>> {
     match trai_side_path_leading_trai_for_ty_impl_block_ethereal_signature_templates_map(
         db, trai_path,
     )
@@ -166,7 +166,7 @@ fn trai_side_path_leading_trai_for_ty_impl_block_ethereal_signature_templates_ma
     trai_path: TraitPath,
 ) -> SmallVecPairMap<
     TypePath,
-    EtherealSignatureResult<SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplate; 2]>>,
+    EtherealSignatureResult<SmallVec<[TraitForTypeImplBlockEthTemplate; 2]>>,
     8,
 > {
     trai_side_path_leading_trai_for_ty_impl_block_paths_map(db, trai_path).map_collect(|paths| {
@@ -183,7 +183,7 @@ pub fn ty_side_trai_for_ty_impl_block_signature_templates(
     db: &::salsa::Db,
     trai_path: TraitPath,
     ty_path: TypePath,
-) -> EtherealSignatureMaybeResult<&[TraitForTypeImplBlockEtherealSignatureTemplate]> {
+) -> EtherealSignatureMaybeResult<&[TraitForTypeImplBlockEthTemplate]> {
     match ty_side_impl_block_signature_templates_map(db, ty_path).get_value(trai_path) {
         Some(result) => match result {
             Ok(templates) => JustOk(templates),

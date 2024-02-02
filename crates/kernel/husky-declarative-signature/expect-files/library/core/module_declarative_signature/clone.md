@@ -6,9 +6,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Trait(
-                    TraitDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Trait(
+                    TraitDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [
                                 DeclarativeTemplateParameter {
@@ -41,9 +41,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::ImplBlock(
-                ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
-                    TraitForTypeImplBlockDeclarativeSignatureTemplate {
+            DecTemplate::ImplBlock(
+                ImplBlockDecTemplate::TraitForTypeImpl(
+                    TraitForTypeImplBlockDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [
                                 DeclarativeTemplateParameter {
@@ -114,10 +114,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
-                    TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TraitForTypeMethodFnDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TraitForTypeItem(
+                    TraitForTypeItemDecTemplate::MethodFn(
+                        TraitForTypeMethodFnDecTemplate {
                             self_ty: DeclarativeTerm(`t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],

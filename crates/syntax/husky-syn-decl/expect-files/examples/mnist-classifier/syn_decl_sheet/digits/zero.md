@@ -9,13 +9,11 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Val(
-                        ValFugitiveSynDecl {
+                        MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                            return_ty: Some(
-                                ReturnTypeBeforeEqSyndicate {
-                                    expr: 1,
-                                },
-                            ),
+                            return_ty: ReturnTypeBeforeEqSyndicate {
+                                expr: 1,
+                            },
                             expr: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -128,7 +126,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::FunctionFn(
-                        FunctionFnFugitiveSynDecl {
+                        FunctionMajorFnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
@@ -365,13 +363,11 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Val(
-                        ValFugitiveSynDecl {
+                        MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                            return_ty: Some(
-                                ReturnTypeBeforeEqSyndicate {
-                                    expr: 5,
-                                },
-                            ),
+                            return_ty: ReturnTypeBeforeEqSyndicate {
+                                expr: 5,
+                            },
                             expr: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {

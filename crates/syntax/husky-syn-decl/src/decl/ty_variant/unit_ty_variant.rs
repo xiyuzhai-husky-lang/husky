@@ -16,14 +16,14 @@ impl TypeUnitVariantSynNodeDecl {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct UnitTypeVariantSynDecl {
+pub struct TypeUnitVariantSynDecl {
     #[id]
     pub path: TypeVariantPath,
     pub syn_expr_region: SynExprRegion,
 }
 
 /// # constructor
-impl UnitTypeVariantSynDecl {
+impl TypeUnitVariantSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: TypeVariantPath,

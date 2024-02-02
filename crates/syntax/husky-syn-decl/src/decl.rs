@@ -13,6 +13,7 @@ pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::*;
+use husky_iter_utils::chain_as_ref_err_collect;
 use husky_regional_token::*;
 use husky_token_data::{TokenData, TokenDataResult};
 
@@ -95,8 +96,8 @@ impl SynDecl {
             SynDecl::MajorItem(slf) => slf.syn_expr_region(db).into(),
             SynDecl::ImplBlock(slf) => slf.syn_expr_region(db).into(),
             SynDecl::AssociatedItem(slf) => slf.syn_expr_region(db).into(),
-            SynDecl::TypeVariant(_slf) => todo!(),
-            SynDecl::Attr(_) => todo!(),
+            SynDecl::TypeVariant(slf) => Some(slf.syn_expr_region(db)),
+            SynDecl::Attr(slf) => Some(slf.syn_expr_region(db)),
         }
     }
 

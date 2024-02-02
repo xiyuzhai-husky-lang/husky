@@ -6,9 +6,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Trait(
-                    TraitDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Trait(
+                    TraitDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [
                                 DeclarativeTemplateParameter {
@@ -34,9 +34,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Trait(
-                    TraitDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Trait(
+                    TraitDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [
                                 DeclarativeTemplateParameter {
@@ -62,9 +62,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Trait(
-                    TraitDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Trait(
+                    TraitDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [
                                 DeclarativeTemplateParameter {
@@ -90,9 +90,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Trait(
-                    TraitDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Trait(
+                    TraitDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [
                                 DeclarativeTemplateParameter {

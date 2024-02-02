@@ -6,10 +6,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::Enum(
-                        EnumTypeDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Type(
+                    TypeDecTemplate::Enum(
+                        EnumTypeDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
                                     DeclarativeTemplateParameter {

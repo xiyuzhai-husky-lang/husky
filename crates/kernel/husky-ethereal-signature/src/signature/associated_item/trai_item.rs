@@ -11,25 +11,25 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
-pub enum TraitItemEtherealSignatureTemplate {
-    AssociatedFn(TraitAssociatedFnEtherealSignatureTemplate),
+pub enum TraitItemEthTemplate {
+    AssociatedFn(TraitAssociatedFnEthTemplate),
 }
 
-impl TraitItemEtherealSignatureTemplate {
+impl TraitItemEthTemplate {
     pub fn self_ty(self, _db: &::salsa::Db) -> Option<EtherealTerm> {
         match self {
-            TraitItemEtherealSignatureTemplate::AssociatedFn(_) => None,
+            TraitItemEthTemplate::AssociatedFn(_) => None,
         }
     }
 }
 
-impl HasEtherealSignatureTemplate for TraitItemPath {
-    type EtherealSignatureTemplate = TraitItemEtherealSignatureTemplate;
+impl HasEthTemplate for TraitItemPath {
+    type EthTemplate = TraitItemEthTemplate;
 
     fn ethereal_signature_template(
         self,
         _db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
+    ) -> EtherealSignatureResult<Self::EthTemplate> {
         todo!()
     }
 }

@@ -1,23 +1,21 @@
 use super::*;
-use husky_declarative_signature::{
-    TupleStructFieldDeclarativeSignatureTemplate, TupleStructTypeDeclarativeSignatureTemplate,
-};
+use husky_declarative_signature::{TupleStructFieldDecTemplate, TupleStructTypeDecTemplate};
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct TupleStructTypeEtherealSignatureTemplate {
+pub struct TupleStructTypeEthTemplate {
     pub path: TypePath,
     #[return_ref]
     pub template_parameters: EtherealTemplateParameters,
     #[return_ref]
-    pub fields: SmallVec<[TupleFieldEtherealSignatureTemplate; 2]>,
+    pub fields: SmallVec<[TupleFieldEthTemplate; 2]>,
     pub instance_constructor_ritchie_ty: RitchieEtherealTerm,
 }
 
-impl TupleStructTypeEtherealSignatureTemplate {
+impl TupleStructTypeEthTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         path: TypePath,
-        tmpl: TupleStructTypeDeclarativeSignatureTemplate,
+        tmpl: TupleStructTypeDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters =
             EtherealTemplateParameters::from_declarative(db, tmpl.template_parameters(db))?;
@@ -26,10 +24,7 @@ impl TupleStructTypeEtherealSignatureTemplate {
             .iter()
             .copied()
             .map(|declarative_signature_template| {
-                TupleFieldEtherealSignatureTemplate::from_declarative(
-                    db,
-                    declarative_signature_template,
-                )
+                TupleFieldEthTemplate::from_declarative(db, declarative_signature_template)
             })
             .collect::<EtherealSignatureResult<_>>()?;
         let instance_constructor_ritchie_ty =
@@ -50,14 +45,14 @@ impl TupleStructTypeEtherealSignatureTemplate {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
-pub struct TupleFieldEtherealSignatureTemplate {
+pub struct TupleFieldEthTemplate {
     ty: EtherealTerm,
 }
 
-impl TupleFieldEtherealSignatureTemplate {
+impl TupleFieldEthTemplate {
     fn from_declarative(
         db: &::salsa::Db,
-        declarative_signature_template: TupleStructFieldDeclarativeSignatureTemplate,
+        declarative_signature_template: TupleStructFieldDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         Ok(Self {
             ty: EtherealTerm::ty_from_declarative(db, declarative_signature_template.ty())?,

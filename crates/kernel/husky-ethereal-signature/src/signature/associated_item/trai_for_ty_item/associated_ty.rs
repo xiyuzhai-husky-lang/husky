@@ -1,18 +1,18 @@
 use super::*;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct TraitForTypeAssociatedTypeEtherealSignatureTemplate {
+pub struct TraitForTypeAssociatedTypeEthTemplate {
     pub path: TraitForTypeItemPath,
     #[return_ref]
     pub template_parameters: EtherealTemplateParameters,
     pub associated_ty: EtherealTerm,
 }
 
-impl TraitForTypeAssociatedTypeEtherealSignatureTemplate {
+impl TraitForTypeAssociatedTypeEthTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         path: TraitForTypeItemPath,
-        declarative_signature_template: TraitForTypeAssociatedTypeDeclarativeSignatureTemplate,
+        declarative_signature_template: TraitForTypeAssociatedTypeDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters = EtherealTemplateParameters::from_declarative(
             db,
@@ -37,7 +37,7 @@ impl TraitForTypeAssociatedTypeEtherealSignatureTemplate {
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = pub(super) new)]
 pub struct TraitForTypeAssociatedTypeEtherealSignatureBuilder {
-    pub template: TraitForTypeAssociatedTypeEtherealSignatureTemplate,
+    pub template: TraitForTypeAssociatedTypeEthTemplate,
     #[return_ref]
     pub instantiation_builder: EtherealInstantiationBuilder,
 }

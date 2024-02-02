@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ethereal_signature::HasEtherealSignatureTemplate;
+use husky_ethereal_signature::HasEthTemplate;
 use husky_ethereal_term::{
     ApplicationEtherealTerm, EtherealTerm, EtherealTermSymbolIndexImpl, TermFunctionReduced,
 };

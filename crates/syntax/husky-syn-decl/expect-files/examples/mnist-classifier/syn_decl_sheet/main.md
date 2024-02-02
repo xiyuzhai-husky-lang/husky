@@ -226,13 +226,11 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Val(
-                        ValFugitiveSynDecl {
+                        MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::main`, `Val`),
-                            return_ty: Some(
-                                ReturnTypeBeforeEqSyndicate {
-                                    expr: 3,
-                                },
-                            ),
+                            return_ty: ReturnTypeBeforeEqSyndicate {
+                                expr: 3,
+                            },
                             expr: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {

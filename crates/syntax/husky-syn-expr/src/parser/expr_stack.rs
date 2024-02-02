@@ -70,13 +70,11 @@ impl SynExprData {
             }
             SynExprData::SelfValue(_) => todo!(),
             SynExprData::SelfType(_) => BaseEntityPath::SelfType,
-            SynExprData::Binary { .. } => {
-                todo!()
-            }
-            SynExprData::Prefix { .. } => todo!(),
-            SynExprData::Suffix { .. } => todo!(),
-            SynExprData::Field { .. } => BaseEntityPath::None,
-            SynExprData::MethodApplicationOrCall { .. } => BaseEntityPath::None,
+            SynExprData::Binary { .. }
+            | SynExprData::Prefix { .. }
+            | SynExprData::Suffix { .. }
+            | SynExprData::Field { .. }
+            | SynExprData::MethodApplicationOrCall { .. } => BaseEntityPath::None,
             SynExprData::ExplicitApplication { .. } => todo!(),
             SynExprData::FunctionApplicationOrCall { .. } => todo!(),
             SynExprData::At {

@@ -1,12 +1,12 @@
 use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct TraitDeclarativeSignatureTemplate {
+pub struct TraitDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
 }
 
-impl TraitDeclarativeSignatureTemplate {
+impl TraitDecTemplate {
     pub fn template_parameters_without_self_ty<'a>(
         self,
         db: &'a ::salsa::Db,
@@ -25,13 +25,13 @@ impl TraitDeclarativeSignatureTemplate {
     }
 }
 
-impl HasDeclarativeSignatureTemplate for TraitPath {
-    type DeclarativeSignatureTemplate = TraitDeclarativeSignatureTemplate;
+impl HasDecTemplate for TraitPath {
+    type DecTemplate = TraitDecTemplate;
 
     fn declarative_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
         trai_syn_declarative_signature_template(db, self)
     }
 }
@@ -40,7 +40,7 @@ impl HasDeclarativeSignatureTemplate for TraitPath {
 pub fn trai_syn_declarative_signature_template(
     db: &::salsa::Db,
     path: TraitPath,
-) -> DeclarativeSignatureResult<TraitDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<TraitDecTemplate> {
     let decl = path.syn_decl(db)?;
     let syn_expr_region = decl.syn_expr_region(db);
     let declarative_term_region = declarative_term_region(db, syn_expr_region);
@@ -52,8 +52,5 @@ pub fn trai_syn_declarative_signature_template(
         &declarative_term_region,
         declarative_term_menu,
     );
-    Ok(TraitDeclarativeSignatureTemplate::new(
-        db,
-        template_parameters,
-    ))
+    Ok(TraitDecTemplate::new(db, template_parameters))
 }

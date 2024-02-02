@@ -1,9 +1,6 @@
 use super::*;
 use either::*;
-use husky_ethereal_signature::{
-    FugitiveEtherealSignatureTemplate, HasEtherealSignatureTemplate,
-    TypeVariantEtherealSignatureTemplate,
-};
+use husky_ethereal_signature::{FugitiveEthTemplate, HasEthTemplate, TypeVariantEthTemplate};
 use husky_ethereal_term::instantiation::EtherealTermInstantiate;
 use husky_fluffy_term::instantiation::{
     FluffyInstantiate, FluffyInstantiation, FluffyInstantiationEnvironment,
@@ -73,7 +70,7 @@ impl<'a> SemaExprEngine<'a> {
                             db,
                         );
                         let ty = match tmpl {
-                            FugitiveEtherealSignatureTemplate::FunctionFn(tmpl) => {
+                            FugitiveEthTemplate::FunctionFn(tmpl) => {
                                 FluffyInstantiate::instantiate(
                                     tmpl.ritchie_ty(db),
                                     self,
@@ -81,7 +78,7 @@ impl<'a> SemaExprEngine<'a> {
                                     &instantiation,
                                 )
                             }
-                            FugitiveEtherealSignatureTemplate::FunctionGn(tmpl) => {
+                            FugitiveEthTemplate::FunctionGn(tmpl) => {
                                 FluffyInstantiate::instantiate(
                                     tmpl.ritchie_ty(db),
                                     self,
@@ -89,16 +86,14 @@ impl<'a> SemaExprEngine<'a> {
                                     &instantiation,
                                 )
                             }
-                            FugitiveEtherealSignatureTemplate::TypeAlias(_) => todo!(),
-                            FugitiveEtherealSignatureTemplate::Val(tmpl) => {
-                                FluffyInstantiate::instantiate(
-                                    tmpl.return_ty(db),
-                                    self,
-                                    syn_expr_idx,
-                                    &instantiation,
-                                )
-                                .with_place(FluffyPlace::Leashed)
-                            }
+                            FugitiveEthTemplate::TypeAlias(_) => todo!(),
+                            FugitiveEthTemplate::Val(tmpl) => FluffyInstantiate::instantiate(
+                                tmpl.return_ty(db),
+                                self,
+                                syn_expr_idx,
+                                &instantiation,
+                            )
+                            .with_place(FluffyPlace::Leashed),
                         };
                         (Ok(Some(instantiation)), Ok(ty))
                     }
@@ -142,21 +137,17 @@ impl<'a> SemaExprEngine<'a> {
         let db = self.db();
         let parent_ty_path = path.parent_ty_path(db);
         match path.ethereal_signature_template(db)? {
-            TypeVariantEtherealSignatureTemplate::Props(_) => todo!(),
-            TypeVariantEtherealSignatureTemplate::Unit(_) => {
-                match expr_ty_expectation.destination() {
-                    Some(destination) => match destination.data(self) {
-                        FluffyTermData::TypeOntology { ty_path, .. }
-                            if ty_path == parent_ty_path =>
-                        {
-                            Ok(destination)
-                        }
-                        _ => Ok(path.ty(db)?.into()),
-                    },
-                    None => Ok(path.ty(db)?.into()),
-                }
-            }
-            TypeVariantEtherealSignatureTemplate::Tuple(_) => Ok(path.ty(db)?.into()),
+            TypeVariantEthTemplate::Props(_) => todo!(),
+            TypeVariantEthTemplate::Unit(_) => match expr_ty_expectation.destination() {
+                Some(destination) => match destination.data(self) {
+                    FluffyTermData::TypeOntology { ty_path, .. } if ty_path == parent_ty_path => {
+                        Ok(destination)
+                    }
+                    _ => Ok(path.ty(db)?.into()),
+                },
+                None => Ok(path.ty(db)?.into()),
+            },
+            TypeVariantEthTemplate::Tuple(_) => Ok(path.ty(db)?.into()),
         }
     }
 }

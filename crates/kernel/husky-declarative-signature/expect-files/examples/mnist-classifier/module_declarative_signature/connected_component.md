@@ -6,31 +6,31 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::PropsStruct(
-                        PropsStructTypeDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Type(
+                    TypeDecTemplate::PropsStruct(
+                        PropsStructTypeDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
                             fields: [
-                                PropsStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDecTemplate {
                                     ident: `row_start`,
                                     ty: DeclarativeTerm(`core::num::i32`),
                                     has_initialization: false,
                                 },
-                                PropsStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDecTemplate {
                                     ident: `row_end`,
                                     ty: DeclarativeTerm(`core::num::i32`),
                                     has_initialization: false,
                                 },
-                                PropsStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDecTemplate {
                                     ident: `upper_mass`,
                                     ty: DeclarativeTerm(`core::num::i32`),
                                     has_initialization: false,
                                 },
-                                PropsStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDecTemplate {
                                     ident: `lower_mass`,
                                     ty: DeclarativeTerm(`core::num::i32`),
                                     has_initialization: false,
@@ -81,16 +81,16 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::PropsStruct(
-                        PropsStructTypeDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Type(
+                    TypeDecTemplate::PropsStruct(
+                        PropsStructTypeDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::connected_component::EffHoles`),
                             fields: [
-                                PropsStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDecTemplate {
                                     ident: `matches`,
                                     ty: DeclarativeTerm(`[] core::option::Option ~ mnist_classifier::raw_contour::RawContour`),
                                     has_initialization: false,
@@ -123,10 +123,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
-                        FnFugitiveDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Fn(
+                        MajorFnDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
@@ -154,16 +154,16 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::PropsStruct(
-                        PropsStructTypeDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Type(
+                    TypeDecTemplate::PropsStruct(
+                        PropsStructTypeDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             fields: [
-                                PropsStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDecTemplate {
                                     ident: `mask`,
                                     ty: DeclarativeTerm(`mnist::BinaryImage28`),
                                     has_initialization: false,
@@ -196,10 +196,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
-                        FnFugitiveDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Fn(
+                        MajorFnDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
@@ -233,10 +233,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::FunctionFn(
-                        FnFugitiveDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Fn(
+                        MajorFnDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
@@ -273,9 +273,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::ImplBlock(
-                ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
-                    TraitForTypeImplBlockDeclarativeSignatureTemplate {
+            DecTemplate::ImplBlock(
+                ImplBlockDecTemplate::TraitForTypeImpl(
+                    TraitForTypeImplBlockDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
@@ -316,10 +316,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
-                    TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TraitForTypeMethodFnDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TraitForTypeItem(
+                    TraitForTypeItemDecTemplate::MethodFn(
+                        TraitForTypeMethodFnDecTemplate {
                             self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
@@ -357,9 +357,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::ImplBlock(
-                ImplBlockDeclarativeSignatureTemplate::TypeImpl(
-                    TypeImplBlockDeclarativeSignatureTemplate {
+            DecTemplate::ImplBlock(
+                ImplBlockDecTemplate::TypeImpl(
+                    TypeImplBlockDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
@@ -376,12 +376,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MemoizedField(
+                        TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
@@ -401,12 +401,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MemoizedField(
+                        TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
@@ -426,12 +426,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MemoizedField(
+                        TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
@@ -451,12 +451,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MemoizedField(
+                        TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
@@ -476,12 +476,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MemoizedField(
+                        TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
@@ -501,12 +501,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MemoizedField(
+                        TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
@@ -526,12 +526,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MemoizedField(
+                        TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
@@ -551,12 +551,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MemoizedField(
+                        TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
@@ -576,12 +576,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TypeMethodFnDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodFn(
+                        TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
@@ -619,12 +619,12 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TypeMethodFnDeclarativeSignatureTemplate {
+            DecTemplate::AssociatedItem(
+                AssociatedItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodFn(
+                        TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },

@@ -3,18 +3,18 @@ use husky_term_prelude::{RitchieKind, RitchieTypeKind};
 use super::*;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct FunctionFnEtherealSignatureTemplate {
+pub struct FunctionFnEthTemplate {
     pub path: FugitivePath,
     #[return_ref]
     pub template_parameters: EtherealTemplateParameters,
     pub ritchie_ty: RitchieEtherealTerm,
 }
 
-impl FunctionFnEtherealSignatureTemplate {
+impl FunctionFnEthTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         path: FugitivePath,
-        tmpl: FnFugitiveDeclarativeSignatureTemplate,
+        tmpl: MajorFnDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_params =
             EtherealTemplateParameters::from_declarative(db, tmpl.template_parameters(db))?;

@@ -3,8 +3,8 @@ use husky_coword::coword_menu;
 use husky_ethereal_signature::{
     helpers::trai_for_ty::*, EtherealSignatureError, EtherealSignatureMaybeResult,
     EtherealSignatureResult, TraitForTypeAssociatedTypeEtherealSignature,
-    TraitForTypeImplBlockEtherealSignature, TraitForTypeImplBlockEtherealSignatureBuilder,
-    TraitForTypeImplBlockEtherealSignatureTemplate,
+    TraitForTypeImplBlockEthTemplate, TraitForTypeImplBlockEtherealSignature,
+    TraitForTypeImplBlockEtherealSignatureBuilder,
 };
 use maybe_result::*;
 use vec_like::VecMapGetEntry;

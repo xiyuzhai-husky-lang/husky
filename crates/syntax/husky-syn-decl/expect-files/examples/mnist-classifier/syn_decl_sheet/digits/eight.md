@@ -9,13 +9,11 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Val(
-                        ValFugitiveSynDecl {
+                        MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
-                            return_ty: Some(
-                                ReturnTypeBeforeEqSyndicate {
-                                    expr: 1,
-                                },
-                            ),
+                            return_ty: ReturnTypeBeforeEqSyndicate {
+                                expr: 1,
+                            },
                             expr: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -128,13 +126,11 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Val(
-                        ValFugitiveSynDecl {
+                        MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                            return_ty: Some(
-                                ReturnTypeBeforeEqSyndicate {
-                                    expr: 5,
-                                },
-                            ),
+                            return_ty: ReturnTypeBeforeEqSyndicate {
+                                expr: 5,
+                            },
                             expr: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -348,7 +344,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::FunctionFn(
-                        FunctionFnFugitiveSynDecl {
+                        FunctionMajorFnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [

@@ -4,7 +4,7 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
-                    hir_decl: FunctionFnFugitiveHirDecl {
+                    hir_decl: FunctionMajorFnHirDecl {
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],

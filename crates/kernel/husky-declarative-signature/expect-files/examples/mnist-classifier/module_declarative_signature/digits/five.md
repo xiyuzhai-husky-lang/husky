@@ -6,11 +6,11 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValFugitiveDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Five`),
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Fugitive(
+                    FugitiveDecTemplate::Val(
+                        MajorValDecTemplate {
+                            return_ty: DeclarativeTerm(`malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Five`),
                         },
                     ),
                 ),

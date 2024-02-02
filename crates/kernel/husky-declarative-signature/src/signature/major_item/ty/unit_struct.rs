@@ -1,13 +1,13 @@
 use super::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct UnitStructTypeDeclarativeSignatureTemplate {
+pub struct UnitStructTypeDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
     pub self_ty: DeclarativeTerm,
 }
 
-impl UnitStructTypeDeclarativeSignatureTemplate {
+impl UnitStructTypeDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
         path: TypePath,

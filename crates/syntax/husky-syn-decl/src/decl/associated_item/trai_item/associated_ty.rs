@@ -12,6 +12,7 @@ pub struct TraitAssociatedTypeSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
+/// # getters
 impl TraitAssociatedTypeSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
@@ -24,6 +25,7 @@ impl TraitAssociatedTypeSynNodeDecl {
     }
 }
 
+/// # parse
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_trai_associated_ty_node_decl(
         &self,
@@ -47,11 +49,11 @@ impl<'a> DeclParser<'a> {
             SynExprRootKind::AssociatedTypeTerm,
             OriginalSynExprError::ExpectedTypeTermForAssociatedType,
         );
-        let generics = parser.try_parse_option();
+        let template_parameters = parser.try_parse_option();
         TraitAssociatedTypeSynNodeDecl::new(
             db,
             syn_node_path,
-            generics,
+            template_parameters,
             eq_token,
             ty_term_expr_idx,
             parser.finish(),

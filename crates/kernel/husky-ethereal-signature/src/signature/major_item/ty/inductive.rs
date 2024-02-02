@@ -1,18 +1,18 @@
 use super::*;
-use husky_declarative_signature::InductiveTypeDeclarativeSignatureTemplate;
+use husky_declarative_signature::InductiveTypeDecTemplate;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct InductiveTypeEtherealSignatureTemplate {
+pub struct InductiveTypeEthTemplate {
     pub path: TypePath,
     #[return_ref]
     pub template_parameters: EtherealTemplateParameters,
 }
 
-impl InductiveTypeEtherealSignatureTemplate {
+impl InductiveTypeEthTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         path: TypePath,
-        declarative_signature_template: InductiveTypeDeclarativeSignatureTemplate,
+        declarative_signature_template: InductiveTypeDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters = EtherealTemplateParameters::from_declarative(
             db,

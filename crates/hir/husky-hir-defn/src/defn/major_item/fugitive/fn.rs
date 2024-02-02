@@ -1,12 +1,12 @@
 use super::*;
 use husky_hir_decl::{
-    decl::FunctionFnFugitiveHirDecl, parameter::parenate::eager::HirEagerParenateParameter,
+    decl::FunctionMajorFnHirDecl, parameter::parenate::eager::HirEagerParenateParameter,
 };
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct FunctionFnHirDefn {
     pub path: FugitivePath,
-    pub hir_decl: FunctionFnFugitiveHirDecl,
+    pub hir_decl: FunctionMajorFnHirDecl,
     pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
@@ -26,7 +26,7 @@ impl FunctionFnHirDefn {
     pub(super) fn new(
         db: &::salsa::Db,
         path: FugitivePath,
-        hir_decl: FunctionFnFugitiveHirDecl,
+        hir_decl: FunctionMajorFnHirDecl,
     ) -> Self {
         FunctionFnHirDefn::new_inner(
             db,

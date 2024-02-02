@@ -110,7 +110,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
-                FunctionFnFugitiveHirDecl {
+                FunctionMajorFnHirDecl {
                     path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],

@@ -11,16 +11,16 @@ pub fn ty_path_field_declarative_ty(
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
     Ok(match signature {
-        TypeDeclarativeSignatureTemplate::PropsStruct(signature) => signature
+        TypeDecTemplate::PropsStruct(signature) => signature
             .fields(db)
             .iter()
             .find_map(|field| (field.ident() == ident).then_some(field.ty())),
-        TypeDeclarativeSignatureTemplate::Structure(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::Enum(_)
-        | TypeDeclarativeSignatureTemplate::UnitStruct(_)
-        | TypeDeclarativeSignatureTemplate::TupleStruct(_)
-        | TypeDeclarativeSignatureTemplate::Inductive(_)
-        | TypeDeclarativeSignatureTemplate::Extern(_)
-        | TypeDeclarativeSignatureTemplate::Union(_) => None,
+        TypeDecTemplate::Structure(_) => todo!(),
+        TypeDecTemplate::Enum(_)
+        | TypeDecTemplate::UnitStruct(_)
+        | TypeDecTemplate::TupleStruct(_)
+        | TypeDecTemplate::Inductive(_)
+        | TypeDecTemplate::Extern(_)
+        | TypeDecTemplate::Union(_) => None,
     })
 }

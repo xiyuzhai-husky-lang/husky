@@ -5,7 +5,7 @@ use smallvec::SmallVec;
 use vec_like::VecMapGetEntry;
 
 #[salsa::tracked(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = new)]
-pub struct TraitForTypeImplBlockEtherealSignatureTemplate {
+pub struct TraitForTypeImplBlockEthTemplate {
     pub path: TraitForTypeImplBlockPath,
     #[return_ref]
     pub template_parameters: EtherealTemplateParameters,
@@ -13,7 +13,7 @@ pub struct TraitForTypeImplBlockEtherealSignatureTemplate {
     pub self_ty_refined: EtherealSelfTypeInTraitImpl,
 }
 
-impl TraitForTypeImplBlockEtherealSignatureTemplate {
+impl TraitForTypeImplBlockEthTemplate {
     pub fn self_ty(self, db: &::salsa::Db) -> EtherealTerm {
         self.self_ty_refined(db).term()
     }
@@ -76,13 +76,13 @@ impl EtherealSelfTypeInTraitImpl {
     }
 }
 
-impl HasEtherealSignatureTemplate for TraitForTypeImplBlockPath {
-    type EtherealSignatureTemplate = TraitForTypeImplBlockEtherealSignatureTemplate;
+impl HasEthTemplate for TraitForTypeImplBlockPath {
+    type EthTemplate = TraitForTypeImplBlockEthTemplate;
 
     fn ethereal_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
+    ) -> EtherealSignatureResult<Self::EthTemplate> {
         trai_for_ty_impl_block_ethereal_signature_template(db, self)
     }
 }
@@ -91,19 +91,19 @@ impl HasEtherealSignatureTemplate for TraitForTypeImplBlockPath {
 fn trai_for_ty_impl_block_ethereal_signature_template(
     db: &::salsa::Db,
     path: TraitForTypeImplBlockPath,
-) -> EtherealSignatureResult<TraitForTypeImplBlockEtherealSignatureTemplate> {
-    TraitForTypeImplBlockEtherealSignatureTemplate::from_declarative(
+) -> EtherealSignatureResult<TraitForTypeImplBlockEthTemplate> {
+    TraitForTypeImplBlockEthTemplate::from_declarative(
         db,
         path,
         path.declarative_signature_template(db)?,
     )
 }
 
-impl TraitForTypeImplBlockEtherealSignatureTemplate {
+impl TraitForTypeImplBlockEthTemplate {
     fn from_declarative(
         db: &::salsa::Db,
         path: TraitForTypeImplBlockPath,
-        declarative_signature_template: TraitForTypeImplBlockDeclarativeSignatureTemplate,
+        declarative_signature_template: TraitForTypeImplBlockDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters = EtherealTemplateParameters::from_declarative(
             db,
@@ -122,16 +122,15 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
     }
 }
 
-pub type TraitForTypeImplBlockSignatureTemplates =
-    SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplate; 2]>;
+pub type TraitForTypeImplBlockSignatureTemplates = SmallVec<[TraitForTypeImplBlockEthTemplate; 2]>;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = new)]
 pub struct TraitForTypeImplBlockEtherealSignatureBuilder {
-    pub template: TraitForTypeImplBlockEtherealSignatureTemplate,
+    pub template: TraitForTypeImplBlockEthTemplate,
     pub instantiation_builder: EtherealInstantiationBuilder,
 }
 
-impl TraitForTypeImplBlockEtherealSignatureTemplate {
+impl TraitForTypeImplBlockEthTemplate {
     /// try to give a partial instantiation such that `self_ty` is equal to `target_ty`
     /// returns `Nothing` when template matching failed
     #[inline(always)]

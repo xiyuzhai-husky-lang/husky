@@ -366,7 +366,6 @@ where
                     }
                     BaseEntityPath::Err => todo!(),
                     BaseEntityPath::SelfType => todo!(),
-                    // DisambiguatedToken::SynBinaryOpr(regional_token_idx, SynBinaryOpr::Scop),
                 },
                 _ => (),
             }
@@ -378,10 +377,6 @@ where
             ident,
         ) {
             Some(symbol) => match symbol {
-                // Symbol::Variable(variable_idx) => Expr::Variable {
-                //     regional_token_idx,
-                //     symbol_idx: variable_idx,
-                // },
                 Symbol::PrincipalEntity(item_path) => {
                     DisambiguatedTokenData::IdentifiableEntityPath(
                         self.parse_identifiable_item_path_expr(
@@ -405,7 +400,7 @@ where
                         current_syn_symbol_idx,
                         current_syn_symbol_kind,
                     }
-                } //  Expr::EntityPath(item_path),
+                }
             },
             None => DisambiguatedTokenData::UnrecognizedIdent {
                 regional_token_idx,

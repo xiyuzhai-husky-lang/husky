@@ -1,18 +1,18 @@
 use super::*;
-use husky_declarative_signature::StructureTypeDeclarativeSignatureTemplate;
+use husky_declarative_signature::StructureTypeDecTemplate;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct StructureTypeEtherealSignatureTemplate {
+pub struct StructureTypeEthTemplate {
     pub path: TypePath,
     #[return_ref]
     pub template_parameters: EtherealTemplateParameters,
 }
 
-impl StructureTypeEtherealSignatureTemplate {
+impl StructureTypeEthTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         path: TypePath,
-        declarative_signature_template: StructureTypeDeclarativeSignatureTemplate,
+        declarative_signature_template: StructureTypeDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters = EtherealTemplateParameters::from_declarative(
             db,
@@ -23,7 +23,7 @@ impl StructureTypeEtherealSignatureTemplate {
         //     .iter()
         //     .copied()
         //     .map(|declarative_signature_template| {
-        //         PropsFieldEtherealSignatureTemplate::from_declarative(
+        //         PropsFieldEthTemplate::from_declarative(
         //             db,
         //             declarative_signature_template,
         //         )

@@ -34,40 +34,40 @@ pub enum TypeDeclarativeSignature {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum TypeDeclarativeSignatureTemplate {
-    Enum(EnumTypeDeclarativeSignatureTemplate),
-    PropsStruct(PropsStructTypeDeclarativeSignatureTemplate),
-    UnitStruct(UnitStructTypeDeclarativeSignatureTemplate),
-    TupleStruct(TupleStructTypeDeclarativeSignatureTemplate),
-    Inductive(InductiveTypeDeclarativeSignatureTemplate),
-    Structure(StructureTypeDeclarativeSignatureTemplate),
-    Extern(ExternTypeDeclarativeSignatureTemplate),
-    Union(UnionTypeDeclarativeSignatureTemplate),
+pub enum TypeDecTemplate {
+    Enum(EnumTypeDecTemplate),
+    PropsStruct(PropsStructTypeDecTemplate),
+    UnitStruct(UnitStructTypeDecTemplate),
+    TupleStruct(TupleStructTypeDecTemplate),
+    Inductive(InductiveTypeDecTemplate),
+    Structure(StructureTypeDecTemplate),
+    Extern(ExternTypeDecTemplate),
+    Union(UnionTypeDecTemplate),
 }
 
-impl TypeDeclarativeSignatureTemplate {
+impl TypeDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
-            TypeDeclarativeSignatureTemplate::Enum(decl) => decl.template_parameters(db),
-            TypeDeclarativeSignatureTemplate::UnitStruct(decl) => decl.template_parameters(db),
-            TypeDeclarativeSignatureTemplate::TupleStruct(decl) => decl.template_parameters(db),
-            TypeDeclarativeSignatureTemplate::PropsStruct(decl) => decl.template_parameters(db),
-            TypeDeclarativeSignatureTemplate::Inductive(decl) => decl.template_parameters(db),
-            TypeDeclarativeSignatureTemplate::Structure(decl) => decl.template_parameters(db),
-            TypeDeclarativeSignatureTemplate::Extern(decl) => decl.template_parameters(db),
-            TypeDeclarativeSignatureTemplate::Union(decl) => decl.template_parameters(db),
+            TypeDecTemplate::Enum(decl) => decl.template_parameters(db),
+            TypeDecTemplate::UnitStruct(decl) => decl.template_parameters(db),
+            TypeDecTemplate::TupleStruct(decl) => decl.template_parameters(db),
+            TypeDecTemplate::PropsStruct(decl) => decl.template_parameters(db),
+            TypeDecTemplate::Inductive(decl) => decl.template_parameters(db),
+            TypeDecTemplate::Structure(decl) => decl.template_parameters(db),
+            TypeDecTemplate::Extern(decl) => decl.template_parameters(db),
+            TypeDecTemplate::Union(decl) => decl.template_parameters(db),
         }
     }
 }
 
-impl HasDeclarativeSignatureTemplate for TypePath {
-    type DeclarativeSignatureTemplate = TypeDeclarativeSignatureTemplate;
+impl HasDecTemplate for TypePath {
+    type DecTemplate = TypeDecTemplate;
 
     #[inline(always)]
     fn declarative_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
         ty_declarative_signature_template(db, self)
     }
 }
@@ -76,33 +76,23 @@ impl HasDeclarativeSignatureTemplate for TypePath {
 pub(crate) fn ty_declarative_signature_template(
     db: &::salsa::Db,
     path: TypePath,
-) -> DeclarativeSignatureResult<TypeDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<TypeDecTemplate> {
     let decl = path.syn_decl(db)?;
     Ok(match decl {
-        TypeSynDecl::Enum(decl) => {
-            EnumTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
-        }
+        TypeSynDecl::Enum(decl) => EnumTypeDecTemplate::from_decl(db, path, decl)?.into(),
         TypeSynDecl::PropsStruct(decl) => {
-            PropsStructTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
+            PropsStructTypeDecTemplate::from_decl(db, path, decl)?.into()
         }
         TypeSynDecl::UnitStruct(decl) => {
-            UnitStructTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
+            UnitStructTypeDecTemplate::from_decl(db, path, decl)?.into()
         }
         TypeSynDecl::TupleStruct(decl) => {
-            TupleStructTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
+            TupleStructTypeDecTemplate::from_decl(db, path, decl)?.into()
         }
-        TypeSynDecl::Inductive(decl) => {
-            InductiveTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
-        }
-        TypeSynDecl::Structure(decl) => {
-            StructureTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
-        }
-        TypeSynDecl::Extern(decl) => {
-            ExternTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
-        }
-        TypeSynDecl::Union(decl) => {
-            UnionTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
-        }
+        TypeSynDecl::Inductive(decl) => InductiveTypeDecTemplate::from_decl(db, path, decl)?.into(),
+        TypeSynDecl::Structure(decl) => StructureTypeDecTemplate::from_decl(db, path, decl)?.into(),
+        TypeSynDecl::Extern(decl) => ExternTypeDecTemplate::from_decl(db, path, decl)?.into(),
+        TypeSynDecl::Union(decl) => UnionTypeDecTemplate::from_decl(db, path, decl)?.into(),
     })
 }
 

@@ -2,7 +2,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
-                FunctionFnFugitiveHirDecl {
+                FunctionMajorFnHirDecl {
                     path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [
@@ -128,7 +128,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
-                FunctionFnFugitiveHirDecl {
+                FunctionMajorFnHirDecl {
                     path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [
@@ -296,7 +296,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
-                FunctionFnFugitiveHirDecl {
+                FunctionMajorFnHirDecl {
                     path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [
@@ -464,7 +464,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
-                FunctionFnFugitiveHirDecl {
+                FunctionMajorFnHirDecl {
                     path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -515,7 +515,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
-                FunctionFnFugitiveHirDecl {
+                FunctionMajorFnHirDecl {
                     path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],

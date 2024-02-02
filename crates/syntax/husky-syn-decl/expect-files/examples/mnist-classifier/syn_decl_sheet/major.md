@@ -9,13 +9,11 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Val(
-                        ValFugitiveSynDecl {
+                        MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                            return_ty: Some(
-                                ReturnTypeBeforeEqSyndicate {
-                                    expr: 3,
-                                },
-                            ),
+                            return_ty: ReturnTypeBeforeEqSyndicate {
+                                expr: 3,
+                            },
                             expr: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -141,13 +139,11 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Val(
-                        ValFugitiveSynDecl {
+                        MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            return_ty: Some(
-                                ReturnTypeBeforeEqSyndicate {
-                                    expr: 2,
-                                },
-                            ),
+                            return_ty: ReturnTypeBeforeEqSyndicate {
+                                expr: 2,
+                            },
                             expr: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -267,13 +263,11 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Val(
-                        ValFugitiveSynDecl {
+                        MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-                            return_ty: Some(
-                                ReturnTypeBeforeEqSyndicate {
-                                    expr: 1,
-                                },
-                            ),
+                            return_ty: ReturnTypeBeforeEqSyndicate {
+                                expr: 1,
+                            },
                             expr: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -386,13 +380,11 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Val(
-                        ValFugitiveSynDecl {
+                        MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
-                            return_ty: Some(
-                                ReturnTypeBeforeEqSyndicate {
-                                    expr: 4,
-                                },
-                            ),
+                            return_ty: ReturnTypeBeforeEqSyndicate {
+                                expr: 4,
+                            },
                             expr: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -525,13 +517,11 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Val(
-                        ValFugitiveSynDecl {
+                        MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
-                            return_ty: Some(
-                                ReturnTypeBeforeEqSyndicate {
-                                    expr: 2,
-                                },
-                            ),
+                            return_ty: ReturnTypeBeforeEqSyndicate {
+                                expr: 2,
+                            },
                             expr: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -651,13 +641,11 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Val(
-                        ValFugitiveSynDecl {
+                        MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                            return_ty: Some(
-                                ReturnTypeBeforeEqSyndicate {
-                                    expr: 2,
-                                },
-                            ),
+                            return_ty: ReturnTypeBeforeEqSyndicate {
+                                expr: 2,
+                            },
                             expr: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -777,13 +765,11 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Val(
-                        ValFugitiveSynDecl {
+                        MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            return_ty: Some(
-                                ReturnTypeBeforeEqSyndicate {
-                                    expr: 4,
-                                },
-                            ),
+                            return_ty: ReturnTypeBeforeEqSyndicate {
+                                expr: 4,
+                            },
                             expr: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {

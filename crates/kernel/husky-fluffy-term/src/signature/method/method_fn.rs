@@ -71,7 +71,7 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
 ) -> FluffyTermMaybeResult<MethodFnFluffySignature> {
     let ident = ident_token.ident();
     match ty_path.ty_item_ethereal_signature_templates(engine.db(), ident)? {
-        TypeItemEtherealSignatureTemplates::MethodFn(templates) => {
+        TypeItemEthTemplates::MethodFn(templates) => {
             for template in templates.iter().copied() {
                 if let JustOk(signature) = ty_method_fn_fluffy_signature(
                     engine,
@@ -86,7 +86,7 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
             }
             Nothing
         }
-        TypeItemEtherealSignatureTemplates::MethodFunction(templates) => {
+        TypeItemEthTemplates::MethodFunction(templates) => {
             for template in templates {
                 if let JustOk(signature) = ty_method_function_fluffy_signature(
                     engine,
@@ -99,15 +99,15 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
             }
             Nothing
         }
-        TypeItemEtherealSignatureTemplates::AssociatedFn(_) => todo!(),
-        TypeItemEtherealSignatureTemplates::MemoizedField(_) => todo!(),
+        TypeItemEthTemplates::AssociatedFn(_) => todo!(),
+        TypeItemEthTemplates::MemoizedField(_) => todo!(),
     }
 }
 
 fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     engine: &mut impl FluffyTermEngine,
     expr_idx: SynExprIdx,
-    template: TypeMethodFnEtherealSignatureTemplate,
+    template: TypeMethodFnEthTemplate,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
     self_place: FluffyPlace,
@@ -199,7 +199,7 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
 
 fn ty_method_function_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     engine: &mut impl FluffyTermEngine,
-    template: &TypeMethodFunctionEtherealSignatureTemplate,
+    template: &TypeMethodFunctionEthTemplate,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
 ) -> FluffyTermMaybeResult<MethodFnFluffySignature> {

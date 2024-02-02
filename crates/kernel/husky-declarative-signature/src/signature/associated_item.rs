@@ -13,33 +13,29 @@ type SmallVecImpl<T> = SmallVec<[T; 2]>;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum AssociatedItemDeclarativeSignatureTemplate {
-    TypeItem(TypeItemDeclarativeSignatureTemplate),
-    TraitItem(TraitItemDeclarativeSignatureTemplate),
-    TraitForTypeItem(TraitForTypeItemDeclarativeSignatureTemplate),
+pub enum AssociatedItemDecTemplate {
+    TypeItem(TypeItemDecTemplate),
+    TraitItem(TraitItemDecTemplate),
+    TraitForTypeItem(TraitForTypeItemDecTemplate),
 }
 
-impl AssociatedItemDeclarativeSignatureTemplate {
+impl AssociatedItemDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
-            AssociatedItemDeclarativeSignatureTemplate::TypeItem(decl) => {
-                decl.template_parameters(db)
-            }
-            AssociatedItemDeclarativeSignatureTemplate::TraitItem(decl) => {
-                decl.template_parameters(db)
-            }
-            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(_) => todo!(),
+            AssociatedItemDecTemplate::TypeItem(decl) => decl.template_parameters(db),
+            AssociatedItemDecTemplate::TraitItem(decl) => decl.template_parameters(db),
+            AssociatedItemDecTemplate::TraitForTypeItem(_) => todo!(),
         }
     }
 }
 
-impl HasDeclarativeSignatureTemplate for AssociatedItemPath {
-    type DeclarativeSignatureTemplate = AssociatedItemDeclarativeSignatureTemplate;
+impl HasDecTemplate for AssociatedItemPath {
+    type DecTemplate = AssociatedItemDecTemplate;
 
     fn declarative_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
         Ok(match self {
             AssociatedItemPath::TypeItem(path) => path.declarative_signature_template(db)?.into(),
             AssociatedItemPath::TraitItem(path) => path.declarative_signature_template(db)?.into(),

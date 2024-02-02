@@ -199,7 +199,9 @@ pub(crate) fn ty_item_syn_decl(
             TypeMethodFnSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
         }
         TypeItemSynNodeDecl::AssociatedType(_) => todo!(),
-        TypeItemSynNodeDecl::AssociatedVal(_) => todo!(),
+        TypeItemSynNodeDecl::AssociatedVal(syn_node_decl) => {
+            TypeAssociatedValSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+        }
         TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => {
             TypeMemoizedFieldSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
         }

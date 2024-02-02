@@ -11,37 +11,37 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum TypeVariantEtherealSignatureTemplate {
-    Props(EnumPropsVariantEtherealSignatureTemplate),
-    Unit(EnumUnitTypeVariantEtherealSignatureTemplate),
-    Tuple(EnumTupleVariantEtherealSignatureTemplate),
+pub enum TypeVariantEthTemplate {
+    Props(EnumPropsVariantEthTemplate),
+    Unit(EnumUnitTypeVariantEthTemplate),
+    Tuple(EnumTupleVariantEthTemplate),
 }
 
-impl TypeVariantEtherealSignatureTemplate {
+impl TypeVariantEthTemplate {
     pub fn self_ty(self, _db: &::salsa::Db) -> EtherealTerm {
         match self {
-            TypeVariantEtherealSignatureTemplate::Props(_) => todo!(),
-            TypeVariantEtherealSignatureTemplate::Unit(_) => todo!(),
-            TypeVariantEtherealSignatureTemplate::Tuple(_) => todo!(),
+            TypeVariantEthTemplate::Props(_) => todo!(),
+            TypeVariantEthTemplate::Unit(_) => todo!(),
+            TypeVariantEthTemplate::Tuple(_) => todo!(),
         }
     }
 
     pub fn instance_constructor_ty(self, db: &::salsa::Db) -> EtherealTerm {
         match self {
-            TypeVariantEtherealSignatureTemplate::Props(slf) => slf.instance_constructor_ty(db),
-            TypeVariantEtherealSignatureTemplate::Unit(slf) => slf.instance_constructor_ty(db),
-            TypeVariantEtherealSignatureTemplate::Tuple(slf) => slf.instance_constructor_ty(db),
+            TypeVariantEthTemplate::Props(slf) => slf.instance_constructor_ty(db),
+            TypeVariantEthTemplate::Unit(slf) => slf.instance_constructor_ty(db),
+            TypeVariantEthTemplate::Tuple(slf) => slf.instance_constructor_ty(db),
         }
     }
 }
 
-impl HasEtherealSignatureTemplate for TypeVariantPath {
-    type EtherealSignatureTemplate = TypeVariantEtherealSignatureTemplate;
+impl HasEthTemplate for TypeVariantPath {
+    type EthTemplate = TypeVariantEthTemplate;
 
     fn ethereal_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
+    ) -> EtherealSignatureResult<Self::EthTemplate> {
         ty_variant_ethereal_signature_template(db, self)
     }
 }
@@ -50,24 +50,20 @@ impl HasEtherealSignatureTemplate for TypeVariantPath {
 fn ty_variant_ethereal_signature_template(
     db: &::salsa::Db,
     path: TypeVariantPath,
-) -> EtherealSignatureResult<TypeVariantEtherealSignatureTemplate> {
+) -> EtherealSignatureResult<TypeVariantEthTemplate> {
     Ok(match path.declarative_signature_template(db)? {
-        TypeVariantDeclarativeSignatureTemplate::Props(_) => todo!(),
-        TypeVariantDeclarativeSignatureTemplate::Unit(declarative_signature_template) => {
-            EnumUnitTypeVariantEtherealSignatureTemplate::from_declarative(
+        TypeVariantDecTemplate::Props(_) => todo!(),
+        TypeVariantDecTemplate::Unit(declarative_signature_template) => {
+            EnumUnitTypeVariantEthTemplate::from_declarative(
                 db,
                 path,
                 declarative_signature_template,
             )?
             .into()
         }
-        TypeVariantDeclarativeSignatureTemplate::Tuple(declarative_signature_template) => {
-            EnumTupleVariantEtherealSignatureTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
+        TypeVariantDecTemplate::Tuple(declarative_signature_template) => {
+            EnumTupleVariantEthTemplate::from_declarative(db, path, declarative_signature_template)?
+                .into()
         }
     })
 }

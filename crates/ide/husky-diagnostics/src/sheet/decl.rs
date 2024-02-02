@@ -67,7 +67,7 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectedRightParenthesisInTupleStructFieldTypeList(_) => {
                 format!("Syntax Error: expected `)` in tuple struct field type list",)
             }
-            OriginalSynNodeDeclError::ExpectedVariableType(_) => {
+            OriginalSynNodeDeclError::ExpectedValReturnType(_) => {
                 format!("Syntax Error: ExpectVariableType",)
             }
             OriginalSynNodeDeclError::ExpectEqTokenForVariable(_) => {
@@ -79,6 +79,7 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectedEqForAssociatedType(_) => todo!(),
             OriginalSynNodeDeclError::ExpectLeftBracketInDerive(_) => todo!(),
             OriginalSynNodeDeclError::ExpectRightBracketInDerive(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType(_) => todo!(),
         }
     }
 
@@ -107,7 +108,7 @@ impl Diagnose for OriginalSynNodeDeclError {
             | OriginalSynNodeDeclError::ExpectedRightParenthesisInTupleStructFieldTypeList(
                 regional_token_stream_state,
             )
-            | OriginalSynNodeDeclError::ExpectedVariableType(regional_token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedValReturnType(regional_token_stream_state)
             | OriginalSynNodeDeclError::ExpectEqTokenForVariable(regional_token_stream_state)
             | OriginalSynNodeDeclError::ExpectedLcurlOrLparOrSemicolonForStruct(
                 regional_token_stream_state,
@@ -115,6 +116,7 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectedEqForAssociatedType(_) => todo!(),
             OriginalSynNodeDeclError::ExpectLeftBracketInDerive(_) => todo!(),
             OriginalSynNodeDeclError::ExpectRightBracketInDerive(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType(_) => todo!(),
         }
     }
 }

@@ -190,7 +190,7 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
-                    hir_decl: FunctionFnFugitiveHirDecl {
+                    hir_decl: FunctionMajorFnHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -504,7 +504,7 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
-                    hir_decl: FunctionFnFugitiveHirDecl {
+                    hir_decl: FunctionMajorFnHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],

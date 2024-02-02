@@ -6,32 +6,32 @@ use vec_like::{OrderedSmallVecSet, SmallVecPairMap, VecMapGetEntry};
 use super::*;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct DeriveAttrEtherealSignatureTemplate {
-    pub shards: SmallVec<[DeriveAttrShardEtherealSignatureTemplate; 8]>,
+pub struct DeriveAttrEthTemplate {
+    pub shards: SmallVec<[DeriveAttrShardEthTemplate; 8]>,
 }
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct DeriveAttrShardEtherealSignatureTemplate {
+pub struct DeriveAttrShardEthTemplate {
     pub trai_term: EtherealTerm,
 }
 
-impl DeriveAttrEtherealSignatureTemplate {
+impl DeriveAttrEthTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
-        declarative_template: DeriveAttrDeclarativeSignatureTemplate,
+        declarative_template: DeriveAttrDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let trai_term = declarative_template
             .shards(db)
             .iter()
-            .map(|&shard| DeriveAttrShardEtherealSignatureTemplate::from_declarative(shard, db))
+            .map(|&shard| DeriveAttrShardEthTemplate::from_declarative(shard, db))
             .collect::<EtherealSignatureResult<_>>()?;
-        Ok(DeriveAttrEtherealSignatureTemplate::new(db, trai_term))
+        Ok(DeriveAttrEthTemplate::new(db, trai_term))
     }
 }
 
-impl DeriveAttrShardEtherealSignatureTemplate {
+impl DeriveAttrShardEthTemplate {
     fn from_declarative(
-        declarative_template: DeriveAttrShardDeclarativeSignatureTemplate,
+        declarative_template: DeriveAttrShardDecTemplate,
         db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self> {
         Ok(Self::new(
@@ -45,22 +45,17 @@ impl DeriveAttrShardEtherealSignatureTemplate {
     }
 }
 
-pub trait HasDeriveAttrShardEtherealSignatureTemplates: Copy {
+pub trait HasDeriveAttrShardEthTemplates: Copy {
     fn derive_attr_shard_ethereal_signature_templates_map(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<
-        &[(
-            TraitPath,
-            OrderedSmallVecSet<DeriveAttrShardEtherealSignatureTemplate, 1>,
-        )],
-    >;
+    ) -> EtherealSignatureResult<&[(TraitPath, OrderedSmallVecSet<DeriveAttrShardEthTemplate, 1>)]>;
 
     fn derive_attr_ethereal_signature_templates(
         self,
         db: &::salsa::Db,
         trai_path: TraitPath,
-    ) -> EtherealSignatureResult<Option<&[DeriveAttrShardEtherealSignatureTemplate]>> {
+    ) -> EtherealSignatureResult<Option<&[DeriveAttrShardEthTemplate]>> {
         match self
             .derive_attr_shard_ethereal_signature_templates_map(db)?
             .get_entry(trai_path)
@@ -71,38 +66,29 @@ pub trait HasDeriveAttrShardEtherealSignatureTemplates: Copy {
     }
 }
 
-impl HasDeriveAttrShardEtherealSignatureTemplates for TypePath {
+impl HasDeriveAttrShardEthTemplates for TypePath {
     fn derive_attr_shard_ethereal_signature_templates_map(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<
-        &[(
-            TraitPath,
-            OrderedSmallVecSet<DeriveAttrShardEtherealSignatureTemplate, 1>,
-        )],
-    > {
+    ) -> EtherealSignatureResult<&[(TraitPath, OrderedSmallVecSet<DeriveAttrShardEthTemplate, 1>)]>
+    {
         Ok(ty_path_derive_attr_ethereal_signature_templates_map(db, self).as_ref()?)
     }
 }
 
 // todo: change to ordered map and set
-// todo: use trait HasEtherealSignatureTemplate?
+// todo: use trait HasEthTemplate?
 #[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
 fn ty_path_derive_attr_ethereal_signature_templates_map(
     db: &::salsa::Db,
     ty_path: TypePath,
 ) -> EtherealSignatureResult<
-    SmallVecPairMap<TraitPath, OrderedSmallVecSet<DeriveAttrShardEtherealSignatureTemplate, 1>, 8>,
+    SmallVecPairMap<TraitPath, OrderedSmallVecSet<DeriveAttrShardEthTemplate, 1>, 8>,
 > {
-    let mut map: SmallVecPairMap<
-        TraitPath,
-        OrderedSmallVecSet<DeriveAttrShardEtherealSignatureTemplate, 1>,
-        8,
-    > = Default::default();
+    let mut map: SmallVecPairMap<TraitPath, OrderedSmallVecSet<DeriveAttrShardEthTemplate, 1>, 8> =
+        Default::default();
     for attr_path in ty_path.attr_paths(db) {
-        let AttrEtherealSignatureTemplate::Derive(template) =
-            attr_path.ethereal_signature_template(db)?
-        else {
+        let AttrEthTemplate::Derive(template) = attr_path.ethereal_signature_template(db)? else {
             todo!()
         };
         for shard in template.shards(db) {

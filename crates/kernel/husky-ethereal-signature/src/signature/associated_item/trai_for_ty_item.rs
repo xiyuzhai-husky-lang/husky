@@ -13,20 +13,20 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[enum_class::from_variants]
-pub enum TraitForTypeItemEtherealSignatureTemplate {
-    AssociatedFn(TraitForTypeAssociatedFnEtherealSignatureTemplate),
-    AssociatedVal(TraitForTypeAssociatedValEtherealSignatureTemplate),
-    AssociatedType(TraitForTypeAssociatedTypeEtherealSignatureTemplate),
-    MethodFn(TraitForTypeMethodFnEtherealSignatureTemplate),
+pub enum TraitForTypeItemEthTemplate {
+    AssociatedFn(TraitForTypeAssociatedFnEthTemplate),
+    AssociatedVal(TraitForTypeAssociatedValEthTemplate),
+    AssociatedType(TraitForTypeAssociatedTypeEthTemplate),
+    MethodFn(TraitForTypeMethodFnEthTemplate),
 }
 
-impl TraitForTypeItemEtherealSignatureTemplate {
+impl TraitForTypeItemEthTemplate {
     pub fn self_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
         match self {
-            TraitForTypeItemEtherealSignatureTemplate::AssociatedFn(_) => None,
-            TraitForTypeItemEtherealSignatureTemplate::AssociatedVal(_) => None,
-            TraitForTypeItemEtherealSignatureTemplate::AssociatedType(_) => None,
-            TraitForTypeItemEtherealSignatureTemplate::MethodFn(template) => {
+            TraitForTypeItemEthTemplate::AssociatedFn(_) => None,
+            TraitForTypeItemEthTemplate::AssociatedVal(_) => None,
+            TraitForTypeItemEthTemplate::AssociatedType(_) => None,
+            TraitForTypeItemEthTemplate::MethodFn(template) => {
                 // ad hoc
                 Some(template.self_ty(db))
             }
@@ -39,16 +39,14 @@ impl TraitForTypeItemEtherealSignatureTemplate {
         impl_block_signature_builder: TraitForTypeImplBlockEtherealSignatureBuilder,
     ) -> TraitForTypeItemEtherealSignatureBuilder {
         match self {
-            TraitForTypeItemEtherealSignatureTemplate::AssociatedType(item_template) => {
-                item_template
-                    .inherit_instantiation_builder(db, impl_block_signature_builder)
-                    .into()
-            }
-            TraitForTypeItemEtherealSignatureTemplate::MethodFn(item_template) => item_template
+            TraitForTypeItemEthTemplate::AssociatedType(item_template) => item_template
                 .inherit_instantiation_builder(db, impl_block_signature_builder)
                 .into(),
-            TraitForTypeItemEtherealSignatureTemplate::AssociatedFn(_) => todo!(),
-            TraitForTypeItemEtherealSignatureTemplate::AssociatedVal(_) => todo!(),
+            TraitForTypeItemEthTemplate::MethodFn(item_template) => item_template
+                .inherit_instantiation_builder(db, impl_block_signature_builder)
+                .into(),
+            TraitForTypeItemEthTemplate::AssociatedFn(_) => todo!(),
+            TraitForTypeItemEthTemplate::AssociatedVal(_) => todo!(),
         }
     }
 }
@@ -60,13 +58,13 @@ pub enum TraitForTypeItemEtherealSignatureBuilder {
     Method(TraitForTypeMethodFnEtherealSignatureBuilder),
 }
 
-impl HasEtherealSignatureTemplate for TraitForTypeItemPath {
-    type EtherealSignatureTemplate = TraitForTypeItemEtherealSignatureTemplate;
+impl HasEthTemplate for TraitForTypeItemPath {
+    type EthTemplate = TraitForTypeItemEthTemplate;
 
     fn ethereal_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
+    ) -> EtherealSignatureResult<Self::EthTemplate> {
         trai_for_ty_item_ethereal_signature_template(db, self)
     }
 }
@@ -75,25 +73,25 @@ impl HasEtherealSignatureTemplate for TraitForTypeItemPath {
 fn trai_for_ty_item_ethereal_signature_template(
     db: &::salsa::Db,
     path: TraitForTypeItemPath,
-) -> EtherealSignatureResult<TraitForTypeItemEtherealSignatureTemplate> {
+) -> EtherealSignatureResult<TraitForTypeItemEthTemplate> {
     Ok(match path.declarative_signature_template(db)? {
-        TraitForTypeItemDeclarativeSignatureTemplate::AssociatedFn(_) => todo!(),
-        TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(declarative_signature_template) => {
-            TraitForTypeMethodFnEtherealSignatureTemplate::from_declarative(
+        TraitForTypeItemDecTemplate::AssociatedFn(_) => todo!(),
+        TraitForTypeItemDecTemplate::MethodFn(declarative_signature_template) => {
+            TraitForTypeMethodFnEthTemplate::from_declarative(
                 db,
                 path,
                 declarative_signature_template,
             )?
             .into()
         }
-        TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
-            declarative_signature_template,
-        ) => TraitForTypeAssociatedTypeEtherealSignatureTemplate::from_declarative(
-            db,
-            path,
-            declarative_signature_template,
-        )?
-        .into(),
-        TraitForTypeItemDeclarativeSignatureTemplate::AssociatedVal(_) => todo!(),
+        TraitForTypeItemDecTemplate::AssociatedType(declarative_signature_template) => {
+            TraitForTypeAssociatedTypeEthTemplate::from_declarative(
+                db,
+                path,
+                declarative_signature_template,
+            )?
+            .into()
+        }
+        TraitForTypeItemDecTemplate::AssociatedVal(_) => todo!(),
     })
 }

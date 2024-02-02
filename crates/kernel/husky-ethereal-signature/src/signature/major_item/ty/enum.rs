@@ -1,18 +1,18 @@
 use super::*;
-use husky_declarative_signature::EnumTypeDeclarativeSignatureTemplate;
+use husky_declarative_signature::EnumTypeDecTemplate;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct EnumTypeEtherealSignatureTemplate {
+pub struct EnumTypeEthTemplate {
     pub path: TypePath,
     #[return_ref]
     pub template_parameters: EtherealTemplateParameters,
 }
 
-impl EnumTypeEtherealSignatureTemplate {
+impl EnumTypeEthTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         path: TypePath,
-        declarative_signature_template: EnumTypeDeclarativeSignatureTemplate,
+        declarative_signature_template: EnumTypeDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters = EtherealTemplateParameters::from_declarative(
             db,

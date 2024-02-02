@@ -1,27 +1,27 @@
 use super::*;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct TypeMemoizedFieldEtherealSignatureTemplate {
+pub struct TypeMemoizedFieldEthTemplate {
     pub path: TypeItemPath,
-    pub impl_block: TypeImplBlockEtherealSignatureTemplate,
+    pub impl_block: TypeImplBlockEthTemplate,
     pub return_ty: EtherealTerm,
 }
 
-impl TypeMemoizedFieldEtherealSignatureTemplate {
+impl TypeMemoizedFieldEthTemplate {
     pub fn self_ty(self, db: &::salsa::Db) -> EtherealTerm {
         self.impl_block(db).self_ty(db)
     }
 }
 
-impl TypeMemoizedFieldEtherealSignatureTemplate {
+impl TypeMemoizedFieldEthTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         path: TypeItemPath,
-        declarative_signature: TypeMemoizedFieldDeclarativeSignatureTemplate,
-    ) -> EtherealSignatureResult<TypeMemoizedFieldEtherealSignatureTemplate> {
+        declarative_signature: TypeMemoizedFieldDecTemplate,
+    ) -> EtherealSignatureResult<TypeMemoizedFieldEthTemplate> {
         let impl_block = path.impl_block(db).ethereal_signature_template(db)?;
         let return_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
-        Ok(TypeMemoizedFieldEtherealSignatureTemplate::new(
+        Ok(TypeMemoizedFieldEthTemplate::new(
             db, path, impl_block, return_ty,
         ))
     }
@@ -74,14 +74,14 @@ impl TypeMemoizedFieldEtherealSignature {
     }
 }
 
-pub trait HasTypeMemoizedFieldEtherealSignatureTemplates: Copy {
+pub trait HasTypeMemoizedFieldEthTemplates: Copy {
     fn ty_memoized_field_ethereal_signature_templates_map<'a>(
         self,
         db: &'a ::salsa::Db,
     ) -> EtherealSignatureResult<
         &'a [(
             Ident,
-            EtherealSignatureResult<SmallVecImpl<TypeMemoizedFieldEtherealSignatureTemplate>>,
+            EtherealSignatureResult<SmallVecImpl<TypeMemoizedFieldEthTemplate>>,
         )],
     >;
 
@@ -89,7 +89,7 @@ pub trait HasTypeMemoizedFieldEtherealSignatureTemplates: Copy {
         self,
         db: &'a ::salsa::Db,
         ident: Ident,
-    ) -> EtherealSignatureMaybeResult<&'a [TypeMemoizedFieldEtherealSignatureTemplate]> {
+    ) -> EtherealSignatureMaybeResult<&'a [TypeMemoizedFieldEthTemplate]> {
         use vec_like::VecMapGetEntry;
         match self
             .ty_memoized_field_ethereal_signature_templates_map(db)?
@@ -118,7 +118,7 @@ impl HasTypeMemoizedFieldEtherealSignature for TypePath {
         arguments: &[EtherealTerm],
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature> {
-        let TypeItemEtherealSignatureTemplates::MemoizedField(templates) =
+        let TypeItemEthTemplates::MemoizedField(templates) =
             self.ty_item_ethereal_signature_templates(db, ident)?
         else {
             return Nothing;

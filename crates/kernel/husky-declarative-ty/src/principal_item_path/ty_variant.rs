@@ -13,7 +13,7 @@ pub fn ty_variant_path_declarative_ty(
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
     match tmpl {
-        TypeVariantDeclarativeSignatureTemplate::Props(tmpl) => {
+        TypeVariantDecTemplate::Props(tmpl) => {
             let Ok(parent_ty_template_parameter_variances) =
                 ty_path_variances(db, path.parent_ty_path(db))
             else {
@@ -29,7 +29,7 @@ pub fn ty_variant_path_declarative_ty(
                 tmpl.instance_constructor_ty(db),
             )
         }
-        TypeVariantDeclarativeSignatureTemplate::Tuple(tmpl) => {
+        TypeVariantDecTemplate::Tuple(tmpl) => {
             let Ok(parent_ty_template_parameter_variances) =
                 ty_path_variances(db, path.parent_ty_path(db))
             else {
@@ -45,7 +45,7 @@ pub fn ty_variant_path_declarative_ty(
                 tmpl.instance_constructor_ty(db),
             )
         }
-        TypeVariantDeclarativeSignatureTemplate::Unit(signature_template) => {
+        TypeVariantDecTemplate::Unit(signature_template) => {
             let Ok(parent_ty_template_parameter_variances) =
                 ty_path_variances(db, path.parent_ty_path(db))
             else {

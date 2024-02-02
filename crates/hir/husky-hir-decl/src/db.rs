@@ -39,7 +39,7 @@ pub struct HirDeclJar(
     crate::decl::TraitHirDecl,
     // fugitive
     crate::decl::fugitive_hir_decl,
-    crate::decl::FunctionFnFugitiveHirDecl,
+    crate::decl::FunctionMajorFnHirDecl,
     crate::decl::FunctionGnFugitiveHirDecl,
     crate::decl::TypeAliasHirDecl,
     crate::decl::ValFugitiveHirDecl,

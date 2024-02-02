@@ -6,10 +6,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::Extern(
-                        ExternTypeDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Type(
+                    TypeDecTemplate::Extern(
+                        ExternTypeDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
                                     DeclarativeTemplateParameter {
@@ -49,10 +49,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::Extern(
-                        ExternTypeDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Type(
+                    TypeDecTemplate::Extern(
+                        ExternTypeDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
                                     DeclarativeTemplateParameter {
@@ -92,10 +92,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::Extern(
-                        ExternTypeDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Type(
+                    TypeDecTemplate::Extern(
+                        ExternTypeDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
                                     DeclarativeTemplateParameter {
@@ -124,10 +124,10 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::MajorItem(
-                MajorItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::Extern(
-                        ExternTypeDeclarativeSignatureTemplate {
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Type(
+                    TypeDecTemplate::Extern(
+                        ExternTypeDecTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
                                     DeclarativeTemplateParameter {
@@ -172,9 +172,9 @@
             ),
         ),
         Ok(
-            DeclarativeSignatureTemplate::ImplBlock(
-                ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
-                    TraitForTypeImplBlockDeclarativeSignatureTemplate {
+            DecTemplate::ImplBlock(
+                ImplBlockDecTemplate::TraitForTypeImpl(
+                    TraitForTypeImplBlockDecTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [
                                 DeclarativeTemplateParameter {

@@ -128,7 +128,7 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
-                    hir_decl: FunctionFnFugitiveHirDecl {
+                    hir_decl: FunctionMajorFnHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],

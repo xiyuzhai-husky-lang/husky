@@ -14,31 +14,31 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum TraitItemDeclarativeSignatureTemplate {
-    AssociatedFn(TraitAssociatedFnDeclarativeSignatureTemplate),
-    MethodFn(TraitMethodFnDeclarativeSignatureTemplate),
-    AssociatedType(TraitAssociatedTypeDeclarativeSignatureTemplate),
-    AssociatedVal(TraitAssociatedValDeclarativeSignatureTemplate),
+pub enum TraitItemDecTemplate {
+    AssociatedFn(TraitAssociatedFnDecTemplate),
+    MethodFn(TraitMethodFnDecTemplate),
+    AssociatedType(TraitAssociatedTypeDecTemplate),
+    AssociatedVal(TraitAssociatedValDecTemplate),
 }
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum TraitItemDeclarativeSignatureTemplates {
-    AssociatedFn(SmallVecImpl<TraitAssociatedFnDeclarativeSignatureTemplate>),
-    MethodFn(SmallVecImpl<TraitMethodFnDeclarativeSignatureTemplate>),
-    AssociatedType(SmallVecImpl<TraitAssociatedTypeDeclarativeSignatureTemplate>),
-    AssociatedVal(SmallVecImpl<TraitAssociatedValDeclarativeSignatureTemplate>),
-    // MemoizedField(SmallVecImpl<TraitMemoizedFieldDeclarativeSignatureTemplate>),
+pub enum TraitItemDecTemplates {
+    AssociatedFn(SmallVecImpl<TraitAssociatedFnDecTemplate>),
+    MethodFn(SmallVecImpl<TraitMethodFnDecTemplate>),
+    AssociatedType(SmallVecImpl<TraitAssociatedTypeDecTemplate>),
+    AssociatedVal(SmallVecImpl<TraitAssociatedValDecTemplate>),
+    // MemoizedField(SmallVecImpl<TraitMemoizedFieldDecTemplate>),
 }
 
-impl HasDeclarativeSignatureTemplate for TraitItemPath {
-    type DeclarativeSignatureTemplate = TraitItemDeclarativeSignatureTemplate;
+impl HasDecTemplate for TraitItemPath {
+    type DecTemplate = TraitItemDecTemplate;
 
     fn declarative_signature_template(
         self,
         db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
         trai_item_syn_declarative_signature_template(db, self)
     }
 }
@@ -47,34 +47,34 @@ impl HasDeclarativeSignatureTemplate for TraitItemPath {
 pub(crate) fn trai_item_syn_declarative_signature_template(
     db: &::salsa::Db,
     path: TraitItemPath,
-) -> DeclarativeSignatureResult<TraitItemDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<TraitItemDecTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
         TraitItemSynDecl::AssociatedFn(decl) => {
-            TraitAssociatedFnDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
+            TraitAssociatedFnDecTemplate::from_decl(db, decl).map(Into::into)
         }
         TraitItemSynDecl::MethodFn(decl) => {
-            TraitMethodFnDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
+            TraitMethodFnDecTemplate::from_decl(db, decl).map(Into::into)
         }
         TraitItemSynDecl::AssociatedType(decl) => {
-            TraitAssociatedTypeDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
+            TraitAssociatedTypeDecTemplate::from_decl(db, decl).map(Into::into)
         }
         TraitItemSynDecl::AssociatedVal(decl) => {
-            TraitAssociatedValDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
+            TraitAssociatedValDecTemplate::from_decl(db, decl).map(Into::into)
         }
     }
 }
 
-impl TraitItemDeclarativeSignatureTemplate {
+impl TraitItemDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
-            TraitItemDeclarativeSignatureTemplate::AssociatedFn(slf) => slf.template_parameters(db),
-            TraitItemDeclarativeSignatureTemplate::MethodFn(slf) => slf.template_parameters(db),
-            TraitItemDeclarativeSignatureTemplate::AssociatedType(slf) => {
+            TraitItemDecTemplate::AssociatedFn(slf) => slf.template_parameters(db),
+            TraitItemDecTemplate::MethodFn(slf) => slf.template_parameters(db),
+            TraitItemDecTemplate::AssociatedType(slf) => {
                 // slf.template_parameters(db)
                 &[]
             }
-            TraitItemDeclarativeSignatureTemplate::AssociatedVal(slf) => &[],
+            TraitItemDecTemplate::AssociatedVal(slf) => &[],
         }
     }
 }

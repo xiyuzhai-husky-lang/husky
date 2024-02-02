@@ -22,7 +22,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Val(
-                        ValFugitiveSynNodeDecl {
+                        MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -38,20 +38,16 @@ SynNodeDeclSheet {
                                 },
                             ),
                             colon_token: Ok(
-                                Some(
-                                    ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            4,
-                                        ),
+                                ColonRegionalToken(
+                                    RegionalTokenIdx(
+                                        4,
                                     ),
                                 ),
                             ),
                             return_ty: Ok(
-                                Some(
-                                    ReturnTypeBeforeEqSyndicate {
-                                        expr: 3,
-                                    },
-                                ),
+                                ReturnTypeBeforeEqSyndicate {
+                                    expr: 3,
+                                },
                             ),
                             eq_token: Ok(
                                 EqRegionalToken(
@@ -198,7 +194,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Val(
-                        ValFugitiveSynNodeDecl {
+                        MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -214,20 +210,16 @@ SynNodeDeclSheet {
                                 },
                             ),
                             colon_token: Ok(
-                                Some(
-                                    ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            4,
-                                        ),
+                                ColonRegionalToken(
+                                    RegionalTokenIdx(
+                                        4,
                                     ),
                                 ),
                             ),
                             return_ty: Ok(
-                                Some(
-                                    ReturnTypeBeforeEqSyndicate {
-                                        expr: 2,
-                                    },
-                                ),
+                                ReturnTypeBeforeEqSyndicate {
+                                    expr: 2,
+                                },
                             ),
                             eq_token: Ok(
                                 EqRegionalToken(
@@ -368,7 +360,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Val(
-                        ValFugitiveSynNodeDecl {
+                        MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -384,20 +376,16 @@ SynNodeDeclSheet {
                                 },
                             ),
                             colon_token: Ok(
-                                Some(
-                                    ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            4,
-                                        ),
+                                ColonRegionalToken(
+                                    RegionalTokenIdx(
+                                        4,
                                     ),
                                 ),
                             ),
                             return_ty: Ok(
-                                Some(
-                                    ReturnTypeBeforeEqSyndicate {
-                                        expr: 1,
-                                    },
-                                ),
+                                ReturnTypeBeforeEqSyndicate {
+                                    expr: 1,
+                                },
                             ),
                             eq_token: Ok(
                                 EqRegionalToken(
@@ -531,7 +519,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Val(
-                        ValFugitiveSynNodeDecl {
+                        MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -547,20 +535,16 @@ SynNodeDeclSheet {
                                 },
                             ),
                             colon_token: Ok(
-                                Some(
-                                    ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            4,
-                                        ),
+                                ColonRegionalToken(
+                                    RegionalTokenIdx(
+                                        4,
                                     ),
                                 ),
                             ),
                             return_ty: Ok(
-                                Some(
-                                    ReturnTypeBeforeEqSyndicate {
-                                        expr: 4,
-                                    },
-                                ),
+                                ReturnTypeBeforeEqSyndicate {
+                                    expr: 4,
+                                },
                             ),
                             eq_token: Ok(
                                 EqRegionalToken(
@@ -714,7 +698,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Val(
-                        ValFugitiveSynNodeDecl {
+                        MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -730,20 +714,16 @@ SynNodeDeclSheet {
                                 },
                             ),
                             colon_token: Ok(
-                                Some(
-                                    ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            4,
-                                        ),
+                                ColonRegionalToken(
+                                    RegionalTokenIdx(
+                                        4,
                                     ),
                                 ),
                             ),
                             return_ty: Ok(
-                                Some(
-                                    ReturnTypeBeforeEqSyndicate {
-                                        expr: 2,
-                                    },
-                                ),
+                                ReturnTypeBeforeEqSyndicate {
+                                    expr: 2,
+                                },
                             ),
                             eq_token: Ok(
                                 EqRegionalToken(
@@ -884,7 +864,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Val(
-                        ValFugitiveSynNodeDecl {
+                        MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -900,20 +880,16 @@ SynNodeDeclSheet {
                                 },
                             ),
                             colon_token: Ok(
-                                Some(
-                                    ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            4,
-                                        ),
+                                ColonRegionalToken(
+                                    RegionalTokenIdx(
+                                        4,
                                     ),
                                 ),
                             ),
                             return_ty: Ok(
-                                Some(
-                                    ReturnTypeBeforeEqSyndicate {
-                                        expr: 2,
-                                    },
-                                ),
+                                ReturnTypeBeforeEqSyndicate {
+                                    expr: 2,
+                                },
                             ),
                             eq_token: Ok(
                                 EqRegionalToken(
@@ -1054,7 +1030,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Val(
-                        ValFugitiveSynNodeDecl {
+                        MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -1070,20 +1046,16 @@ SynNodeDeclSheet {
                                 },
                             ),
                             colon_token: Ok(
-                                Some(
-                                    ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            4,
-                                        ),
+                                ColonRegionalToken(
+                                    RegionalTokenIdx(
+                                        4,
                                     ),
                                 ),
                             ),
                             return_ty: Ok(
-                                Some(
-                                    ReturnTypeBeforeEqSyndicate {
-                                        expr: 4,
-                                    },
-                                ),
+                                ReturnTypeBeforeEqSyndicate {
+                                    expr: 4,
+                                },
                             ),
                             eq_token: Ok(
                                 EqRegionalToken(

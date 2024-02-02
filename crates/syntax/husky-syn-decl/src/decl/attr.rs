@@ -46,6 +46,7 @@ pub enum AttrSynDecl {
     Derive(DeriveAttrSynDecl),
 }
 
+/// # constructor
 impl AttrSynDecl {
     #[inline(always)]
     fn from_node_decl(
@@ -66,6 +67,12 @@ impl AttrSynDecl {
     pub fn path(self, db: &::salsa::Db) -> AttrItemPath {
         match self {
             AttrSynDecl::Derive(slf) => slf.path(db),
+        }
+    }
+
+    pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
+        match self {
+            AttrSynDecl::Derive(slf) => slf.syn_expr_region(db),
         }
     }
 }

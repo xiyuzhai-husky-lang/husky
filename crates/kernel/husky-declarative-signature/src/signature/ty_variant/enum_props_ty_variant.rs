@@ -1,23 +1,23 @@
 use super::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct EnumPropsVariantDeclarativeSignatureTemplate {
-    pub parent_ty_template: EnumTypeDeclarativeSignatureTemplate,
-    pub field_tys: SmallVec<[EnumPropsVariantFieldDeclarativeSignatureTemplate; 4]>,
+pub struct EnumPropsVariantDecTemplate {
+    pub parent_ty_template: EnumTypeDecTemplate,
+    pub field_tys: SmallVec<[EnumPropsVariantFieldDecTemplate; 4]>,
     pub return_ty: DeclarativeTerm,
     pub instance_constructor_ty: RitchieDeclarativeTerm,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct EnumPropsVariantFieldDeclarativeSignatureTemplate {
+pub struct EnumPropsVariantFieldDecTemplate {
     ident: Ident,
     ty: DeclarativeTerm,
 }
 
-impl EnumPropsVariantDeclarativeSignatureTemplate {
+impl EnumPropsVariantDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
-        parent_ty_template: EnumTypeDeclarativeSignatureTemplate,
+        parent_ty_template: EnumTypeDecTemplate,
         decl: TypePropsVariantSynDecl,
     ) -> DeclarativeSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
@@ -27,7 +27,7 @@ impl EnumPropsVariantDeclarativeSignatureTemplate {
             .iter()
             .enumerate()
             .map(|(i, field)| {
-                Ok(EnumPropsVariantFieldDeclarativeSignatureTemplate {
+                Ok(EnumPropsVariantFieldDecTemplate {
                     ident: field.ident(),
                     ty: declarative_term_region.expr_term(field.ty()).map_err(|_| {
                         DeclarativeSignatureError::FieldTypeDeclarativeTermError(
@@ -45,7 +45,7 @@ impl EnumPropsVariantDeclarativeSignatureTemplate {
             fields
                 .iter()
                 .copied()
-                .map(|field: EnumPropsVariantFieldDeclarativeSignatureTemplate| {
+                .map(|field: EnumPropsVariantFieldDecTemplate| {
                     DeclarativeRitchieRegularParameter::new(TermContract::Move, field.ty).into()
                 })
                 .collect(),
