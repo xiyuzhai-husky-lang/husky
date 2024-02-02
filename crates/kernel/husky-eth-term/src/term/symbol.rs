@@ -5,7 +5,6 @@ pub use self::index::*;
 pub use self::set::*;
 
 use super::*;
-
 use thiserror::Error;
 
 #[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = pub new_inner)]

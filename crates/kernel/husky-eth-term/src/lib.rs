@@ -41,19 +41,12 @@ use smallvec::*;
 pub struct EthTermJar(
     // symbol
     SymbolEthTerm,
-    // - symbols
-    EthTermSymbols,
-    // curry
-    term_curry_symbols,
-    curry_parameter_count,
-    // ritchie
-    term_ritchie_symbols,
-    term_application_symbols,
-    // hole
+    // rune
     RuneEthTerm,
     // curry
     CurryEthTerm,
     term_curry_from_declarative,
+    crate::term::curry::curry_parameter_count,
     // curry_parameter_count,
     // ritchie
     RitchieEthTerm,
