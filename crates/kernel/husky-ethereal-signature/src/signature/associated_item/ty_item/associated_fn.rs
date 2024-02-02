@@ -6,13 +6,13 @@ pub struct TypeAssociatedFnEthTemplate {
     #[id]
     pub path: TypeItemPath,
     // todo: is this necessary?
-    pub self_ty: EtherealTerm,
+    pub self_ty: EthTerm,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
+    pub template_parameters: EthTemplateParameters,
     #[return_ref]
     pub parenate_parameters: EtherealParenateParameters,
-    pub return_ty: EtherealTerm,
-    pub ty: EtherealTerm,
+    pub return_ty: EthTerm,
+    pub ty: EthTerm,
 }
 
 impl TypeAssociatedFnEthTemplate {
@@ -21,8 +21,8 @@ impl TypeAssociatedFnEthTemplate {
         path: TypeItemPath,
         declarative_signature: TypeAssociatedFnDecTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let self_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.self_ty(db))?;
-        let template_parameters = EtherealTemplateParameters::from_declarative(
+        let self_ty = EthTerm::ty_from_declarative(db, declarative_signature.self_ty(db))?;
+        let template_parameters = EthTemplateParameters::from_declarative(
             db,
             declarative_signature.template_parameters(db),
         )?;
@@ -30,8 +30,8 @@ impl TypeAssociatedFnEthTemplate {
             db,
             declarative_signature.parenate_parameters(db),
         )?;
-        let return_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
-        let ty = RitchieEtherealTerm::new(
+        let return_ty = EthTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
+        let ty = RitchieEthTerm::new(
             db,
             RitchieTypeKind::Fn.into(),
             parenate_parameters.iter().copied(),

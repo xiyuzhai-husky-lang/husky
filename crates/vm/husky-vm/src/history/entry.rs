@@ -4,7 +4,7 @@ use crate::*;
 pub enum HistoryEntry {
     PureExpr {
         result: VMResult<RegularValue>,
-        ty: EtherealTerm,
+        ty: EthTerm,
     },
     Exec {
         mutations: Vec<MutationData>,

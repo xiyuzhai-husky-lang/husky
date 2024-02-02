@@ -1,13 +1,13 @@
 use super::*;
 
-impl EtherealTerm {
+impl EthTerm {
     #[inline(always)]
     pub(crate) fn apply_unchecked(
         self,
         db: &::salsa::Db,
-        argument: impl Into<EtherealTerm>,
+        argument: impl Into<EthTerm>,
         shift: u8,
     ) -> Self {
-        ApplicationEtherealTerm::new_reduced(db, self, argument.into(), shift)
+        ApplicationEthTerm::new_reduced(db, self, argument.into(), shift)
     }
 }

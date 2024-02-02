@@ -3,13 +3,13 @@ use super::*;
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = new)]
 pub struct TraitForTypeMethodFnEthTemplate {
     pub path: TraitForTypeItemPath,
-    pub self_ty: EtherealTerm,
+    pub self_ty: EthTerm,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
+    pub template_parameters: EthTemplateParameters,
     pub self_value_parameter: EtherealRitchieRegularParameter,
     #[return_ref]
     pub parenate_parameters: EtherealParenateParameters,
-    pub return_ty: EtherealTerm,
+    pub return_ty: EthTerm,
 }
 
 impl TraitForTypeMethodFnEthTemplate {
@@ -18,16 +18,16 @@ impl TraitForTypeMethodFnEthTemplate {
         path: TraitForTypeItemPath,
         dec_sig_tmpl: TraitForTypeMethodFnDecTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let self_ty = EtherealTerm::ty_from_declarative(db, dec_sig_tmpl.self_ty(db))?;
+        let self_ty = EthTerm::ty_from_declarative(db, dec_sig_tmpl.self_ty(db))?;
         let template_parameters =
-            EtherealTemplateParameters::from_declarative(db, dec_sig_tmpl.template_parameters(db))?;
+            EthTemplateParameters::from_declarative(db, dec_sig_tmpl.template_parameters(db))?;
         let self_value_parameter = EtherealRitchieRegularParameter::from_declarative(
             db,
             dec_sig_tmpl.self_value_parameter(db),
         )?;
         let parenate_parameters =
             EtherealParenateParameters::from_declarative(db, dec_sig_tmpl.parenate_parameters(db))?;
-        let return_ty = EtherealTerm::ty_from_declarative(db, dec_sig_tmpl.return_ty(db))?;
+        let return_ty = EthTerm::ty_from_declarative(db, dec_sig_tmpl.return_ty(db))?;
         Ok(TraitForTypeMethodFnEthTemplate::new(
             db,
             path,
@@ -99,7 +99,7 @@ pub struct TraitForTypeMethodFnEtherealSignature {
     pub instantiation: EtherealInstantiation,
     pub self_value_parameter: EtherealRitchieRegularParameter,
     pub parenate_parameters: SmallVec<[EtherealRitchieParameter; 4]>,
-    pub return_ty: EtherealTerm,
+    pub return_ty: EthTerm,
 }
 
 impl TraitForTypeMethodFnEtherealSignature {
@@ -107,7 +107,7 @@ impl TraitForTypeMethodFnEtherealSignature {
         &self.parenate_parameters
     }
 
-    pub fn return_ty(&self) -> EtherealTerm {
+    pub fn return_ty(&self) -> EthTerm {
         self.return_ty
     }
 

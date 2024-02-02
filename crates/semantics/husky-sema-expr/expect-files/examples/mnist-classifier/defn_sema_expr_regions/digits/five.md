@@ -69,7 +69,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 7,
                                                         },
@@ -86,7 +86,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 8,
                                                         },
@@ -249,7 +249,7 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`MnistLabel`),
+                                                EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
@@ -258,14 +258,14 @@
                                             target: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`MnistLabel`),
+                                                    EthTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`MnistLabel`),
+                                    EthTerm(`MnistLabel`),
                                 ),
                             },
                             HollowTermEntry {
@@ -278,14 +278,14 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Five`),
+                                                EthTerm(`Five`),
                                             ),
                                         },
                                     ),
                                     constraints: [],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`Five`),
+                                    EthTerm(`Five`),
                                 ),
                             },
                             HollowTermEntry {
@@ -316,7 +316,7 @@
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`OneVsAll MnistLabel Five`),
+                                    EthTerm(`OneVsAll MnistLabel Five`),
                                 ),
                             },
                         ],
@@ -333,7 +333,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`OneVsAll MnistLabel Five`),
+                                                EthTerm(`OneVsAll MnistLabel Five`),
                                             ),
                                         },
                                     },
@@ -374,7 +374,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`MnistLabel`),
+                                                EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     },
@@ -411,7 +411,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Five`),
+                                                EthTerm(`Five`),
                                             ),
                                         },
                                     },
@@ -449,7 +449,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`OneVsAll MnistLabel Five`),
+                                                EthTerm(`OneVsAll MnistLabel Five`),
                                             ),
                                         },
                                     },
@@ -490,7 +490,7 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`OneVsAll MnistLabel Five`),
+                EthTerm(`OneVsAll MnistLabel Five`),
             ),
             self_ty: None,
         },

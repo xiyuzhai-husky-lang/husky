@@ -3,7 +3,7 @@ use super::*;
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct EnumTupleVariantEthTemplate {
     pub parent_ty_template: EnumTypeEthTemplate,
-    pub instance_constructor_ritchie_ty: RitchieEtherealTerm,
+    pub instance_constructor_ritchie_ty: RitchieEthTerm,
 }
 
 impl EnumTupleVariantEthTemplate {
@@ -18,11 +18,11 @@ impl EnumTupleVariantEthTemplate {
             unreachable!()
         };
         let instance_constructor_ty =
-            RitchieEtherealTerm::from_declarative(db, tmpl.instance_constructor_ty(db))?;
+            RitchieEthTerm::from_declarative(db, tmpl.instance_constructor_ty(db))?;
         Ok(Self::new(db, parent_ty_template, instance_constructor_ty))
     }
 
-    pub fn instance_constructor_ty(self, db: &::salsa::Db) -> EtherealTerm {
+    pub fn instance_constructor_ty(self, db: &::salsa::Db) -> EthTerm {
         self.instance_constructor_ritchie_ty(db).into()
     }
 }

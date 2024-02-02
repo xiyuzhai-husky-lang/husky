@@ -26,7 +26,7 @@ impl SymbolType {
         current_syn_symbol_idx: CurrentSynSymbolIdx,
         signature: SymbolSignature,
     ) -> FluffyTermResult<Self> {
-        let ty = EtherealTerm::ty_from_declarative(engine.db(), signature.ty()?)?;
+        let ty = EthTerm::ty_from_declarative(engine.db(), signature.ty()?)?;
         Ok(Self::new_parameter_ty(
             engine,
             current_syn_symbol_idx,
@@ -129,7 +129,7 @@ impl SymbolType {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct PlaceTypeData {
     place: FluffyPlace,
-    ty: EtherealTerm,
+    ty: EthTerm,
 }
 
 /// `PlaceQual` qualifies the place of a base type `T`
@@ -208,7 +208,7 @@ pub enum FluffyPlace {
     /// always immutable
     Leashed,
     Todo,
-    EtherealSymbol(SymbolEtherealTerm),
+    EtherealSymbol(SymbolEthTerm),
 }
 
 impl FluffyPlace {

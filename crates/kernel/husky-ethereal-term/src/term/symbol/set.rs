@@ -1,14 +1,14 @@
 use super::*;
 use vec_like::VecSet;
 
-#[salsa::tracked(db = EtherealTermDb, jar = EtherealTermJar)]
-pub struct EtherealTermSymbols {
+#[salsa::tracked(db = EthTermDb, jar = EthTermJar)]
+pub struct EthTermSymbols {
     #[return_ref]
-    pub(crate) data: VecSet<SymbolEtherealTerm>,
+    pub(crate) data: VecSet<SymbolEthTerm>,
 }
 
-impl EtherealTermSymbols {
-    pub(crate) fn contains(self, db: &::salsa::Db, symbol: SymbolEtherealTerm) -> bool {
+impl EthTermSymbols {
+    pub(crate) fn contains(self, db: &::salsa::Db, symbol: SymbolEthTerm) -> bool {
         self.data(db).has(symbol)
     }
 
@@ -25,61 +25,57 @@ impl EtherealTermSymbols {
 
     fn remove(
         symbols: impl Into<Option<Self>>,
-        _symbol: impl Into<Option<SymbolEtherealTerm>>,
+        _symbol: impl Into<Option<SymbolEthTerm>>,
     ) -> Option<Self> {
         let _symbols = symbols.into()?;
         todo!()
     }
 }
 
-impl EtherealTerm {
-    pub(crate) fn symbols(self, db: &::salsa::Db) -> Option<EtherealTermSymbols> {
+impl EthTerm {
+    pub(crate) fn symbols(self, db: &::salsa::Db) -> Option<EthTermSymbols> {
         match self {
-            EtherealTerm::Literal(_)
-            | EtherealTerm::Rune(_)
-            | EtherealTerm::EntityPath(_)
-            | EtherealTerm::Category(_) => None,
-            EtherealTerm::Universe(_) => None, // ad hoc
-            EtherealTerm::Symbol(symbol) => Some(EtherealTermSymbols::new(
-                db,
-                VecSet::new_one_elem_set(symbol),
-            )),
-            EtherealTerm::Curry(term) => term_curry_symbols(db, term),
-            EtherealTerm::Ritchie(term) => term_ritchie_symbols(db, term),
-            EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::Application(term) => term_application_symbols(db, term),
-            EtherealTerm::TypeAsTraitItem(_) => todo!(),
-            EtherealTerm::TraitConstraint(_) => todo!(),
+            EthTerm::Literal(_)
+            | EthTerm::Rune(_)
+            | EthTerm::EntityPath(_)
+            | EthTerm::Category(_) => None,
+            EthTerm::Universe(_) => None, // ad hoc
+            EthTerm::Symbol(symbol) => {
+                Some(EthTermSymbols::new(db, VecSet::new_one_elem_set(symbol)))
+            }
+            EthTerm::Curry(term) => term_curry_symbols(db, term),
+            EthTerm::Ritchie(term) => term_ritchie_symbols(db, term),
+            EthTerm::Abstraction(_) => todo!(),
+            EthTerm::Application(term) => term_application_symbols(db, term),
+            EthTerm::TypeAsTraitItem(_) => todo!(),
+            EthTerm::TraitConstraint(_) => todo!(),
         }
     }
 }
 
-#[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn term_curry_symbols(
-    db: &::salsa::Db,
-    term: CurryEtherealTerm,
-) -> Option<EtherealTermSymbols> {
+#[salsa::tracked(jar = EthTermJar)]
+pub(crate) fn term_curry_symbols(db: &::salsa::Db, term: CurryEthTerm) -> Option<EthTermSymbols> {
     let parameter_ty_symbols = term.parameter_ty(db).symbols(db);
     let return_ty_symbols = term.return_ty(db).symbols(db);
-    EtherealTermSymbols::merge(parameter_ty_symbols, return_ty_symbols)
+    EthTermSymbols::merge(parameter_ty_symbols, return_ty_symbols)
 }
 
-#[salsa::tracked(jar = EtherealTermJar)]
+#[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn term_ritchie_symbols(
     db: &::salsa::Db,
-    term: RitchieEtherealTerm,
-) -> Option<EtherealTermSymbols> {
-    let mut symbols: Option<EtherealTermSymbols> = None;
+    term: RitchieEthTerm,
+) -> Option<EthTermSymbols> {
+    let mut symbols: Option<EthTermSymbols> = None;
     for parameter_ty in term.parameter_contracted_tys(db) {
-        symbols = EtherealTermSymbols::merge(symbols, parameter_ty.ty().symbols(db))
+        symbols = EthTermSymbols::merge(symbols, parameter_ty.ty().symbols(db))
     }
-    EtherealTermSymbols::merge(symbols, term.return_ty(db).symbols(db))
+    EthTermSymbols::merge(symbols, term.return_ty(db).symbols(db))
 }
 
-#[salsa::tracked(jar = EtherealTermJar)]
+#[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn term_application_symbols(
     db: &::salsa::Db,
-    term: ApplicationEtherealTerm,
-) -> Option<EtherealTermSymbols> {
-    EtherealTermSymbols::merge(term.function(db).symbols(db), term.argument(db).symbols(db))
+    term: ApplicationEthTerm,
+) -> Option<EthTermSymbols> {
+    EthTermSymbols::merge(term.function(db).symbols(db), term.argument(db).symbols(db))
 }

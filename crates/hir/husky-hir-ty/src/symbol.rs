@@ -9,9 +9,7 @@ pub use self::r#const::*;
 pub use self::ty::*;
 
 use crate::*;
-use husky_ethereal_term::{
-    EtherealTemplateSymbolAttrs, EtherealTermSymbolIndexImpl, SymbolEtherealTerm,
-};
+use husky_ethereal_term::{EthTemplateSymbolAttrs, EthTermSymbolIndexImpl, SymbolEthTerm};
 use husky_term_prelude::template_symbol_class::TermTemplateSymbolClass;
 
 #[enum_class::from_variants]
@@ -46,7 +44,7 @@ impl HirTemplateSymbolClass {
 }
 
 impl HirTemplateSymbolAttrs {
-    pub(crate) fn from_ethereal(attrs: EtherealTemplateSymbolAttrs) -> Option<Self> {
+    pub(crate) fn from_ethereal(attrs: EthTemplateSymbolAttrs) -> Option<Self> {
         Some(Self {
             class: HirTemplateSymbolClass::from_term(attrs.class)?,
         })
@@ -54,7 +52,7 @@ impl HirTemplateSymbolAttrs {
 }
 
 impl HirTemplateSymbol {
-    pub fn from_ethereal(symbol: SymbolEtherealTerm, db: &::salsa::Db) -> Option<Self> {
+    pub fn from_ethereal(symbol: SymbolEthTerm, db: &::salsa::Db) -> Option<Self> {
         hir_template_symbol_from_ethereal(db, symbol)
     }
 }
@@ -62,10 +60,10 @@ impl HirTemplateSymbol {
 #[salsa::tracked(jar = HirTypeJar)]
 fn hir_template_symbol_from_ethereal(
     db: &::salsa::Db,
-    symbol: SymbolEtherealTerm,
+    symbol: SymbolEthTerm,
 ) -> Option<HirTemplateSymbol> {
     match symbol.index(db).inner() {
-        EtherealTermSymbolIndexImpl::ExplicitLifetime {
+        EthTermSymbolIndexImpl::ExplicitLifetime {
             attrs,
             variance,
             disambiguator,
@@ -77,7 +75,7 @@ fn hir_template_symbol_from_ethereal(
             }
             .into(),
         ),
-        EtherealTermSymbolIndexImpl::ExplicitPlace {
+        EthTermSymbolIndexImpl::ExplicitPlace {
             attrs,
             variance,
             disambiguator,
@@ -89,7 +87,7 @@ fn hir_template_symbol_from_ethereal(
             }
             .into(),
         ),
-        EtherealTermSymbolIndexImpl::Type {
+        EthTermSymbolIndexImpl::Type {
             attrs,
             variance,
             disambiguator,
@@ -101,8 +99,8 @@ fn hir_template_symbol_from_ethereal(
             }
             .into(),
         ),
-        EtherealTermSymbolIndexImpl::Prop { disambiguator: _ } => todo!(),
-        EtherealTermSymbolIndexImpl::ConstPathLeading {
+        EthTermSymbolIndexImpl::Prop { disambiguator: _ } => todo!(),
+        EthTermSymbolIndexImpl::ConstPathLeading {
             attrs,
             disambiguator,
             ty_path,
@@ -118,7 +116,7 @@ fn hir_template_symbol_from_ethereal(
             )
             .into(),
         ),
-        EtherealTermSymbolIndexImpl::ConstOther {
+        EthTermSymbolIndexImpl::ConstOther {
             attrs,
             disambiguator,
         } => Some(
@@ -132,14 +130,14 @@ fn hir_template_symbol_from_ethereal(
             )
             .into(),
         ),
-        EtherealTermSymbolIndexImpl::EphemPathLeading {
+        EthTermSymbolIndexImpl::EphemPathLeading {
             disambiguator: _,
             ty_path: _,
         } => None,
-        EtherealTermSymbolIndexImpl::EphemOther { disambiguator: _ } => None,
-        EtherealTermSymbolIndexImpl::SelfType => Some(HirTypeSymbol::SelfType.into()),
-        EtherealTermSymbolIndexImpl::SelfValue => todo!(),
-        EtherealTermSymbolIndexImpl::SelfLifetime => Some(HirTypeSymbol::SelfLifetime.into()),
-        EtherealTermSymbolIndexImpl::SelfPlace => Some(HirTypeSymbol::SelfPlace.into()),
+        EthTermSymbolIndexImpl::EphemOther { disambiguator: _ } => None,
+        EthTermSymbolIndexImpl::SelfType => Some(HirTypeSymbol::SelfType.into()),
+        EthTermSymbolIndexImpl::SelfValue => todo!(),
+        EthTermSymbolIndexImpl::SelfLifetime => Some(HirTypeSymbol::SelfLifetime.into()),
+        EthTermSymbolIndexImpl::SelfPlace => Some(HirTypeSymbol::SelfPlace.into()),
     }
 }

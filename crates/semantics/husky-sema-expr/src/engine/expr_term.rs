@@ -63,7 +63,7 @@ impl<'a> SemaExprEngine<'a> {
         match data {
             SemaExprData::Literal(regional_token_idx, lit) => {
                 Ok(
-                    EtherealTerm::Literal(match *lit {
+                    EthTerm::Literal(match *lit {
                         LiteralTokenData::Unit => TermLiteral::Unit(()),
                         LiteralTokenData::Char(_) => todo!(),
                         LiteralTokenData::String(val) => TermLiteral::String(val),
@@ -122,7 +122,7 @@ impl<'a> SemaExprEngine<'a> {
                                         .ok_ty(&self.sema_expr_arena)
                                         .ok_or(DerivedExprTermError::LiteralTypeNotInferred)?;
                                     match ty.base_resolved(self) {
-                                        FluffyTermBase::Ethereal(EtherealTerm::EntityPath(
+                                        FluffyTermBase::Ethereal(EthTerm::EntityPath(
                                             ItemPathTerm::TypeOntology(ty_path),
                                         )) => {
                                             match ty_path.prelude_ty_path(self.db) {
@@ -203,7 +203,7 @@ impl<'a> SemaExprEngine<'a> {
             {
                 Some(current_syn_symbol_signature) => {
                     match current_syn_symbol_signature.term_symbol() {
-                        Some(declarative_term_symbol) => Ok(SymbolEtherealTerm::from_declarative(
+                        Some(declarative_term_symbol) => Ok(SymbolEthTerm::from_declarative(
                             self.db,
                             declarative_term_symbol,
                         )?
@@ -314,7 +314,7 @@ impl<'a> SemaExprEngine<'a> {
                         None => todo!(),
                     },
                 };
-                ApplicationEtherealTerm::new(
+                ApplicationEthTerm::new(
                     self.db,
                     self.eth_term_menu().at_ty_ontology(),
                     place.into(),

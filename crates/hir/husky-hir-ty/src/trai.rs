@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ethereal_signature::HasEthTemplate;
 use husky_ethereal_term::{
-    ApplicationEtherealTerm, EtherealTerm, EtherealTermSymbolIndexImpl, TermFunctionReduced,
+    ApplicationEthTerm, EthTerm, EthTermSymbolIndexImpl, TermFunctionReduced,
 };
 use husky_term_prelude::ItemPathTerm;
 
@@ -14,28 +14,28 @@ pub struct HirTrait {
 }
 
 impl HirTrait {
-    pub fn from_ethereal(trai_term: EtherealTerm, db: &::salsa::Db) -> Self {
+    pub fn from_ethereal(trai_term: EthTerm, db: &::salsa::Db) -> Self {
         match trai_term {
-            EtherealTerm::Literal(_) => todo!(),
-            EtherealTerm::Symbol(_) => todo!(),
-            EtherealTerm::Rune(_) => todo!(),
-            EtherealTerm::EntityPath(path) => match path {
+            EthTerm::Literal(_) => todo!(),
+            EthTerm::Symbol(_) => todo!(),
+            EthTerm::Rune(_) => todo!(),
+            EthTerm::EntityPath(path) => match path {
                 ItemPathTerm::Fugitive(_) => todo!(),
                 ItemPathTerm::Trait(trai_path) => Self::new(db, trai_path, smallvec![]),
                 ItemPathTerm::TypeOntology(_) => todo!(),
                 ItemPathTerm::TypeInstance(_) => todo!(),
                 ItemPathTerm::TypeVariant(_) => todo!(),
             },
-            EtherealTerm::Category(_) => todo!(),
-            EtherealTerm::Universe(_) => todo!(),
-            EtherealTerm::Curry(_) => todo!(),
-            EtherealTerm::Ritchie(_) => todo!(),
-            EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::Application(trai_term) => {
+            EthTerm::Category(_) => todo!(),
+            EthTerm::Universe(_) => todo!(),
+            EthTerm::Curry(_) => todo!(),
+            EthTerm::Ritchie(_) => todo!(),
+            EthTerm::Abstraction(_) => todo!(),
+            EthTerm::Application(trai_term) => {
                 hir_trai_from_ethereal_term_application(db, trai_term)
             }
-            EtherealTerm::TypeAsTraitItem(_) => todo!(),
-            EtherealTerm::TraitConstraint(_) => todo!(),
+            EthTerm::TypeAsTraitItem(_) => todo!(),
+            EthTerm::TraitConstraint(_) => todo!(),
         }
     }
 }
@@ -43,7 +43,7 @@ impl HirTrait {
 #[salsa::tracked(jar = HirTypeJar)]
 fn hir_trai_from_ethereal_term_application(
     db: &::salsa::Db,
-    trai_term: ApplicationEtherealTerm,
+    trai_term: ApplicationEthTerm,
 ) -> HirTrait {
     let application_expansion = trai_term.application_expansion(db);
     match application_expansion.function() {
@@ -59,27 +59,27 @@ fn hir_trai_from_ethereal_term_application(
                 application_expansion.arguments(db).iter().copied(),
             )
             .filter_map(|(param, arg)| match param.symbol().index(db).inner() {
-                EtherealTermSymbolIndexImpl::ExplicitLifetime {
+                EthTermSymbolIndexImpl::ExplicitLifetime {
                     attrs: _,
                     variance: _,
                     disambiguator: _,
                 } => todo!(),
-                EtherealTermSymbolIndexImpl::ExplicitPlace {
+                EthTermSymbolIndexImpl::ExplicitPlace {
                     attrs: _,
                     variance: _,
                     disambiguator: _,
                 } => todo!(),
-                EtherealTermSymbolIndexImpl::Type { attrs, .. } => (!attrs.phantom())
+                EthTermSymbolIndexImpl::Type { attrs, .. } => (!attrs.phantom())
                     .then(|| HirTemplateArgument::Type(HirType::from_ethereal(arg, db).unwrap())),
-                EtherealTermSymbolIndexImpl::Prop { .. } => None,
-                EtherealTermSymbolIndexImpl::ConstPathLeading { .. }
-                | EtherealTermSymbolIndexImpl::ConstOther { .. } => todo!(),
-                EtherealTermSymbolIndexImpl::EphemPathLeading { .. }
-                | EtherealTermSymbolIndexImpl::EphemOther { .. }
-                | EtherealTermSymbolIndexImpl::SelfType
-                | EtherealTermSymbolIndexImpl::SelfValue
-                | EtherealTermSymbolIndexImpl::SelfLifetime
-                | EtherealTermSymbolIndexImpl::SelfPlace => unreachable!(),
+                EthTermSymbolIndexImpl::Prop { .. } => None,
+                EthTermSymbolIndexImpl::ConstPathLeading { .. }
+                | EthTermSymbolIndexImpl::ConstOther { .. } => todo!(),
+                EthTermSymbolIndexImpl::EphemPathLeading { .. }
+                | EthTermSymbolIndexImpl::EphemOther { .. }
+                | EthTermSymbolIndexImpl::SelfType
+                | EthTermSymbolIndexImpl::SelfValue
+                | EthTermSymbolIndexImpl::SelfLifetime
+                | EthTermSymbolIndexImpl::SelfPlace => unreachable!(),
             })
             .collect();
             HirTrait::new(db, trai_path, template_arguments).into()

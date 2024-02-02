@@ -128,12 +128,12 @@ pub enum JarIndex {
     TokenInfoJar,
     // kernel
     CowordJar,
-    DeclarativeSignatureJar,
+    DecSignatureJar,
     DeclarativeTermJar,
     DeclarativeTypeJar,
     EntityPathJar,
     EtherealSignatureJar,
-    EtherealTermJar,
+    EthTermJar,
     FluffyTermJar,
     TermPreludeJar,
     // lex

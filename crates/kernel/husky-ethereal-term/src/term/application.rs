@@ -21,29 +21,25 @@ use std::fmt::Debug;
 /// then apply function to the result,
 ///
 /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-#[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar, constructor = new_inner)]
-pub struct ApplicationEtherealTerm {
-    pub function: EtherealTerm,
-    pub argument: EtherealTerm,
+#[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = new_inner)]
+pub struct ApplicationEthTerm {
+    pub function: EthTerm,
+    pub argument: EthTerm,
     pub shift: u8,
 }
 
 #[test]
 fn term_application_size_works() {
     assert_eq!(
-        std::mem::size_of::<ApplicationEtherealTerm>(),
+        std::mem::size_of::<ApplicationEthTerm>(),
         std::mem::size_of::<u32>()
     );
 }
 
-impl ApplicationEtherealTerm {
+impl ApplicationEthTerm {
     //// this constructor guarantees that the result is reduced and first-order valid
-    /// returns EtherealTerm instead of EtherealTermApplication because it might reduce to a non application term
-    pub fn new(
-        db: &::salsa::Db,
-        function: EtherealTerm,
-        argument: EtherealTerm,
-    ) -> EtherealTermResult<EtherealTerm> {
+    /// returns EthTerm instead of EthTermApplication because it might reduce to a non application term
+    pub fn new(db: &::salsa::Db, function: EthTerm, argument: EthTerm) -> EthTermResult<EthTerm> {
         let (function_parameter_ty_curry_parameter_count, _argument_expectation) = {
             match function.raw_ty(db)? {
                 RawType::Declarative(DeclarativeTerm::Curry(function_declarative_ty)) => {
@@ -66,22 +62,22 @@ impl ApplicationEtherealTerm {
     }
 
     /// this constructor guarantees that the result is reduced, not necessarily valid
-    /// returns EtherealTerm instead of EtherealTermApplication because it might reduce to a non application term
+    /// returns EthTerm instead of EthTermApplication because it might reduce to a non application term
     pub(super) fn new_reduced(
         db: &::salsa::Db,
-        function: EtherealTerm,
-        argument: EtherealTerm,
+        function: EthTerm,
+        argument: EthTerm,
         shift: u8,
-    ) -> EtherealTerm {
+    ) -> EthTerm {
         Self::new_inner(db, function, argument, shift).reduce(db)
     }
 
-    /// returns EtherealTerm instead of EtherealTermApplication because it might reduce to a non application term
+    /// returns EthTerm instead of EthTermApplication because it might reduce to a non application term
     pub(crate) fn from_declarative(
         db: &::salsa::Db,
         declarative_term_application: ApplicationDeclarativeTerm,
         term_ty_expectation: TermTypeExpectation,
-    ) -> EtherealTermResult<EtherealTerm> {
+    ) -> EthTermResult<EthTerm> {
         // todo: implicit arguments
         ethereal_term_from_declarative_term_application(
             db,
@@ -90,7 +86,7 @@ impl ApplicationEtherealTerm {
         )
     }
 
-    pub(crate) fn declarative_ty(self, db: &::salsa::Db) -> EtherealTermResult<DeclarativeTerm> {
+    pub(crate) fn declarative_ty(self, db: &::salsa::Db) -> EthTermResult<DeclarativeTerm> {
         ethereal_term_application_declarative_ty(db, self)
     }
 
@@ -107,16 +103,16 @@ impl ApplicationEtherealTerm {
     }
 }
 
-#[salsa::tracked(jar = EtherealTermJar)]
+#[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn ethereal_term_from_declarative_term_application(
     db: &::salsa::Db,
     declarative_term_application: ApplicationDeclarativeTerm,
     declarative_ty_expectation: TermTypeExpectation,
-) -> EtherealTermResult<EtherealTerm> {
+) -> EthTermResult<EthTerm> {
     // todo: implicit arguments
     term_uncheck_from_declarative_term_application_aux(
         db,
-        EtherealTerm::from_declarative(
+        EthTerm::from_declarative(
             db,
             declarative_term_application.function(db),
             declarative_ty_expectation,
@@ -126,14 +122,14 @@ pub(crate) fn ethereal_term_from_declarative_term_application(
     )
 }
 
-/// argument is `DeclarativeTerm` instead of `EtherealTerm` is because we need to read function type to get expectation for argument
+/// argument is `DeclarativeTerm` instead of `EthTerm` is because we need to read function type to get expectation for argument
 ///
 pub(crate) fn term_uncheck_from_declarative_term_application_aux(
     db: &::salsa::Db,
-    function: EtherealTerm,
+    function: EthTerm,
     argument: DeclarativeTerm,
     _declarative_ty_expectation: TermTypeExpectation,
-) -> EtherealTermResult<EtherealTerm> {
+) -> EthTermResult<EthTerm> {
     // todo: implicit arguments
     let (function_parameter_ty_curry_parameter_count, argument_expectation) = {
         match function.raw_ty(db)? {
@@ -144,25 +140,25 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
                     parameter_ty.ty_final_destination_expectation(db)?,
                 )
             }
-            _ => Err(EtherealTermError::ExpectedCurryForApplicationFunctionType)?,
+            _ => Err(EthTermError::ExpectedCurryForApplicationFunctionType)?,
         }
     };
-    let argument = EtherealTerm::from_declarative(db, argument, argument_expectation)?;
+    let argument = EthTerm::from_declarative(db, argument, argument_expectation)?;
     let argument_ty_curry_parameter_count = argument.ty_curry_parameter_count(db)?;
     if argument_ty_curry_parameter_count < function_parameter_ty_curry_parameter_count {
         todo!()
     }
     let shift = argument_ty_curry_parameter_count - function_parameter_ty_curry_parameter_count;
-    Ok(ApplicationEtherealTerm::new_reduced(
+    Ok(ApplicationEthTerm::new_reduced(
         db, function, argument, shift,
     ))
 }
 
-#[salsa::tracked(jar = EtherealTermJar)]
+#[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn ethereal_term_application_declarative_ty(
     db: &::salsa::Db,
-    term_application: ApplicationEtherealTerm,
-) -> EtherealTermResult<DeclarativeTerm> {
+    term_application: ApplicationEthTerm,
+) -> EthTermResult<DeclarativeTerm> {
     let function = term_application.function(db);
     let argument = term_application.argument(db);
     match function.raw_ty(db)? {
@@ -198,7 +194,7 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
     argument: DeclarativeTerm,
     argument_ty: RawType,
     shift: u8,
-) -> EtherealTermResult<DeclarativeTerm> {
+) -> EthTermResult<DeclarativeTerm> {
     // for example, suppose that
     //
     // function_ty = (a: A) -> List a
@@ -272,7 +268,7 @@ pub(crate) fn ethereal_term_application_declarative_ty_nondependent_aux(
     function_ty: CurryDeclarativeTerm,
     argument_ty: RawType,
     shift: u8,
-) -> EtherealTermResult<DeclarativeTerm> {
+) -> EthTermResult<DeclarativeTerm> {
     debug_assert!(function_ty.parameter_rune(db).is_none());
     match shift {
         0 => Ok(function_ty.return_ty(db)),
@@ -298,8 +294,8 @@ pub(crate) fn ethereal_term_application_declarative_ty_nondependent_aux(
     }
 }
 
-impl EtherealTerm {
-    fn ty_curry_parameter_count(self, db: &::salsa::Db) -> EtherealTermResult<u8> {
+impl EthTerm {
+    fn ty_curry_parameter_count(self, db: &::salsa::Db) -> EthTermResult<u8> {
         Ok(match self.raw_ty(db)? {
             RawType::Declarative(ty) => ty.curry_parameter_count(db),
             _ => 0,
@@ -307,7 +303,7 @@ impl EtherealTerm {
     }
 }
 
-impl salsa::DisplayWithDb for ApplicationEtherealTerm {
+impl salsa::DisplayWithDb for ApplicationEthTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -317,12 +313,8 @@ impl salsa::DisplayWithDb for ApplicationEtherealTerm {
     }
 }
 
-impl ApplicationEtherealTerm {
-    pub(super) fn substitute(
-        self,
-        substitution: EtherealTermSubstitution,
-        db: &::salsa::Db,
-    ) -> EtherealTerm
+impl ApplicationEthTerm {
+    pub(super) fn substitute(self, substitution: EthTermSubstitution, db: &::salsa::Db) -> EthTerm
     where
         Self: Copy,
     {
@@ -333,18 +325,18 @@ impl ApplicationEtherealTerm {
         if old_m == m && old_n == n {
             return self.into();
         }
-        ApplicationEtherealTerm::new_inner(db, m, n, self.shift(db)).reduce(db)
+        ApplicationEthTerm::new_inner(db, m, n, self.shift(db)).reduce(db)
     }
 }
 
-impl std::fmt::Display for ApplicationEtherealTerm {
+impl std::fmt::Display for ApplicationEthTerm {
     fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }
 }
 
-impl EtherealTermInstantiate for ApplicationEtherealTerm {
-    type Output = EtherealTerm;
+impl EthTermInstantiate for ApplicationEthTerm {
+    type Output = EthTerm;
 
     fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
         Self::new_reduced(

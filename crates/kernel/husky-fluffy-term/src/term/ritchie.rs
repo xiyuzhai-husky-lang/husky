@@ -37,7 +37,7 @@ impl FluffyTerm {
         merger.accept_one(return_ty);
         match merger.data_kind() {
             FluffyTermDataKind::Err => todo!(),
-            FluffyTermDataKind::Ethereal => Ok(RitchieEtherealTerm::new(
+            FluffyTermDataKind::Ethereal => Ok(RitchieEthTerm::new(
                 db,
                 ritchie_kind,
                 params

@@ -32,16 +32,11 @@ impl AssociatedItemDecTemplate {
 impl HasDecTemplate for AssociatedItemPath {
     type DecTemplate = AssociatedItemDecTemplate;
 
-    fn declarative_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
+    fn dec_template(self, db: &::salsa::Db) -> DecSignatureResult<Self::DecTemplate> {
         Ok(match self {
-            AssociatedItemPath::TypeItem(path) => path.declarative_signature_template(db)?.into(),
-            AssociatedItemPath::TraitItem(path) => path.declarative_signature_template(db)?.into(),
-            AssociatedItemPath::TraitForTypeItem(path) => {
-                path.declarative_signature_template(db)?.into()
-            }
+            AssociatedItemPath::TypeItem(path) => path.dec_template(db)?.into(),
+            AssociatedItemPath::TraitItem(path) => path.dec_template(db)?.into(),
+            AssociatedItemPath::TraitForTypeItem(path) => path.dec_template(db)?.into(),
         })
     }
 }

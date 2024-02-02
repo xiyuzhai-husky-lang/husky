@@ -20,7 +20,7 @@ impl DeclarativeParenateParameters {
         parameters: &[ParenateSynParameterData],
         syn_expr_region_data: &SynExprRegionData,
         signature_region: &DeclarativeTermRegion,
-    ) -> DeclarativeSignatureResult<Self> {
+    ) -> DecSignatureResult<Self> {
         Ok(Self {
             data: parameters
                 .iter()
@@ -36,7 +36,7 @@ impl DeclarativeParenateParameters {
                             syn_expr_region_data
                                 .pattern_contract(syn_pattern_root.syn_pattern_expr_idx()),
                             signature_region.expr_term(*ty).map_err(|_| {
-                                DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
+                                DecSignatureError::ParameterTypeDeclarativeTermError(
                                     i.try_into().unwrap(),
                                 )
                             })?,
@@ -49,7 +49,7 @@ impl DeclarativeParenateParameters {
                         } => DeclarativeRitchieVariadicParameter::new(
                             TermContract::new(*symbol_modifier_keyword_group),
                             signature_region.expr_term(*ty).map_err(|_| {
-                                DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
+                                DecSignatureError::ParameterTypeDeclarativeTermError(
                                     i.try_into().unwrap(),
                                 )
                             })?,
@@ -65,7 +65,7 @@ impl DeclarativeParenateParameters {
                             ident_token.ident(),
                             TermContract::new(*symbol_modifier_keyword_group),
                             signature_region.expr_term(*ty).map_err(|_| {
-                                DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
+                                DecSignatureError::ParameterTypeDeclarativeTermError(
                                     i.try_into().unwrap(),
                                 )
                             })?,
@@ -74,7 +74,7 @@ impl DeclarativeParenateParameters {
                                 Right(_) => true,
                                 // Some(
                                 //     signature_region.expr_term(default_expr_idx).map_err(|_| {
-                                //         DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
+                                //         DecSignatureError::ParameterTypeDeclarativeTermError(
                                 //             i.try_into().unwrap(),
                                 //         )
                                 //     })?,
@@ -84,7 +84,7 @@ impl DeclarativeParenateParameters {
                         .into(),
                     })
                 })
-                .collect::<DeclarativeSignatureResult<_>>()?,
+                .collect::<DecSignatureResult<_>>()?,
         })
     }
 

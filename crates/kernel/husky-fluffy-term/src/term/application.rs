@@ -6,7 +6,7 @@ impl FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         function: impl Into<FluffyTerm>,
         argument: impl Into<FluffyTerm>,
-    ) -> EtherealTermResult<Self> {
+    ) -> EthTermResult<Self> {
         let db = engine.db();
         let function = function.into();
         let argument = argument.into();
@@ -15,7 +15,7 @@ impl FluffyTerm {
             argument.base_resolved(engine),
         ) {
             (FluffyTermBase::Ethereal(function), FluffyTermBase::Ethereal(argument)) => {
-                Ok(ApplicationEtherealTerm::new(db, function, argument)?.into())
+                Ok(ApplicationEthTerm::new(db, function, argument)?.into())
             }
             (
                 FluffyTermBase::Ethereal(_) | FluffyTermBase::Solid(_),
@@ -53,10 +53,7 @@ impl FluffyTerm {
         }
     }
 
-    pub fn new_leashed(
-        engine: &mut impl FluffyTermEngine,
-        ty: FluffyTerm,
-    ) -> EtherealTermResult<Self> {
+    pub fn new_leashed(engine: &mut impl FluffyTermEngine, ty: FluffyTerm) -> EthTermResult<Self> {
         let function: FluffyTerm = engine.term_menu().leash_ty_ontology().into();
         Self::new_application(engine, function, ty)
     }
@@ -75,7 +72,7 @@ impl FluffyTerm {
             merger.accept(arguments.iter().copied());
             match merger.data_kind() {
                 FluffyTermDataKind::Ethereal => {
-                    match EtherealTerm::new_ty_ontology(
+                    match EthTerm::new_ty_ontology(
                         db,
                         path,
                         arguments.iter().map(|argument| {

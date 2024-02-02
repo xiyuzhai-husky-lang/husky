@@ -11,7 +11,7 @@ use smallvec::*;
 use vec_like::{SmallVecMap, SmallVecPairMap};
 
 use crate::template_argument::{
-    constant::LinkageConstant, place::LinkagePlace, ty::LinkageType, LinkageTemplateArgument,
+    constant::LinkageConstant, place::LinkagePlace, ty::LinType, LinkageTemplateArgument,
 };
 
 #[salsa::debug_with_db]
@@ -167,7 +167,7 @@ impl LinkageTermSymbolResolution {
                 JavelinTemplateArgument::Vacant => todo!(),
                 JavelinTemplateArgument::Type(javelin_ty) => {
                     smallvec![LinkageTermSymbolResolution::Explicit(
-                        LinkageTemplateArgument::Type(LinkageType::from_javelin(
+                        LinkageTemplateArgument::Type(LinType::from_javelin(
                             javelin_ty,
                             linkage_instantiation,
                             db

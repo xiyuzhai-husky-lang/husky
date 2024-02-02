@@ -27,7 +27,7 @@ pub enum TypeItemEthTemplate {
 }
 
 impl TypeItemEthTemplate {
-    pub fn self_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
+    pub fn self_ty(self, db: &::salsa::Db) -> Option<EthTerm> {
         match self {
             TypeItemEthTemplate::AssociatedFn(_) => None,
             TypeItemEthTemplate::MethodFn(template) => Some(template.self_ty(db)),
@@ -53,7 +53,7 @@ pub(crate) fn ty_item_ethereal_signature_template(
     db: &::salsa::Db,
     path: TypeItemPath,
 ) -> EtherealSignatureResult<TypeItemEthTemplate> {
-    Ok(match path.declarative_signature_template(db)? {
+    Ok(match path.dec_template(db)? {
         TypeItemDecTemplate::AssociatedFn(template) => {
             TypeAssociatedFnEthTemplate::from_declarative(db, path, template)?.into()
         }

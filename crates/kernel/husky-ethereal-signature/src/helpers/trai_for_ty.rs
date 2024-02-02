@@ -52,7 +52,7 @@ pub fn trai_path_for_ty_path_impl_block_ethereal_signature_templates<'a>(
 pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builders<'a>(
     db: &'a ::salsa::Db,
     trai_path: TraitPath,
-    ty_term: EtherealTerm,
+    ty_term: EthTerm,
 ) -> EtherealSignatureResult<SmallVec<[TraitForTypeImplBlockEtherealSignatureBuilder; 2]>> {
     let application_expansion = ty_term.application_expansion(db);
     let arguments = application_expansion.arguments(db);
@@ -77,12 +77,12 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builders<'a>(
 pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
     db: &'a ::salsa::Db,
     trai_path: TraitPath,
-    ty_term: EtherealTerm,
+    ty_term: EthTerm,
 ) -> EtherealSignatureResult<bool> {
     match ty_term {
-        EtherealTerm::Symbol(_) => return Ok(false), // ad hoc
-        EtherealTerm::Rune(_) => todo!(),
-        EtherealTerm::Ritchie(ritchie) => match ritchie.ritchie_kind(db) {
+        EthTerm::Symbol(_) => return Ok(false), // ad hoc
+        EthTerm::Rune(_) => todo!(),
+        EthTerm::Ritchie(ritchie) => match ritchie.ritchie_kind(db) {
             RitchieKind::Type(ritchie_ty_kind) => match ritchie_ty_kind {
                 RitchieTypeKind::Fn => match trai_path.refine(db) {
                     Left(prelude_trai_path) => {
@@ -97,7 +97,7 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
             },
             RitchieKind::Trait(_) => todo!(),
         },
-        EtherealTerm::TypeAsTraitItem(_) => todo!(),
+        EthTerm::TypeAsTraitItem(_) => todo!(),
         _ => (),
     }
     let application_expansion = ty_term.application_expansion(db);
@@ -120,7 +120,7 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
 
 // todo: cache this
 pub fn is_ty_term_always_copyable(
-    ty_term: EtherealTerm,
+    ty_term: EthTerm,
     db: &::salsa::Db,
 ) -> EtherealSignatureResult<Option<bool>> {
     let Some(item_path_menu) = ty_term.item_path_menu(db) else {

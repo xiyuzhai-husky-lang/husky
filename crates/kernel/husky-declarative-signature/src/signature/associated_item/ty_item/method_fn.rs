@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct TypeMethodFnDecTemplate {
     pub path: TypeItemPath,
     pub impl_block: TypeImplBlockDecTemplate,
@@ -23,13 +23,11 @@ impl TypeMethodFnDecTemplate {
         db: &::salsa::Db,
         path: TypeItemPath,
         decl: TypeMethodFnSynDecl,
-    ) -> DeclarativeSignatureResult<Self> {
+    ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let expr_region_data = syn_expr_region.data(db);
         let declarative_term_region = declarative_term_region(db, syn_expr_region);
-        let impl_block = decl
-            .impl_block_path(db)
-            .declarative_signature_template(db)?;
+        let impl_block = decl.impl_block_path(db).dec_template(db)?;
         let self_ty = impl_block.ty(db);
         let contract = match decl.self_value_parameter(db) {
             Some(self_value_parameter) => {

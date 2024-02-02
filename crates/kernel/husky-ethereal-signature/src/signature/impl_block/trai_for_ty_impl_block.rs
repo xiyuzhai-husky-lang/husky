@@ -8,25 +8,25 @@ use vec_like::VecMapGetEntry;
 pub struct TraitForTypeImplBlockEthTemplate {
     pub path: TraitForTypeImplBlockPath,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
-    pub trai: EtherealTerm,
+    pub template_parameters: EthTemplateParameters,
+    pub trai: EthTerm,
     pub self_ty_refined: EtherealSelfTypeInTraitImpl,
 }
 
 impl TraitForTypeImplBlockEthTemplate {
-    pub fn self_ty(self, db: &::salsa::Db) -> EtherealTerm {
+    pub fn self_ty(self, db: &::salsa::Db) -> EthTerm {
         self.self_ty_refined(db).term()
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EtherealSelfTypeInTraitImpl {
-    PathLeading(EtherealTerm),
-    DeriveAny(SymbolEtherealTerm),
+    PathLeading(EthTerm),
+    DeriveAny(SymbolEthTerm),
 }
 
 impl EtherealSelfTypeInTraitImpl {
-    pub fn term(self) -> EtherealTerm {
+    pub fn term(self) -> EthTerm {
         match self {
             EtherealSelfTypeInTraitImpl::PathLeading(ty_term) => ty_term,
             EtherealSelfTypeInTraitImpl::DeriveAny(ty_term_symbol) => ty_term_symbol.into(),
@@ -34,8 +34,8 @@ impl EtherealSelfTypeInTraitImpl {
     }
 }
 
-impl EtherealTermInstantiate for EtherealSelfTypeInTraitImpl {
-    type Output = EtherealTerm;
+impl EthTermInstantiate for EtherealSelfTypeInTraitImpl {
+    type Output = EthTerm;
 
     fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
         match self {
@@ -51,16 +51,16 @@ impl EtherealSelfTypeInTraitImpl {
     fn from_declarative(
         db: &::salsa::Db,
         declarative_self_ty: DeclarativeSelfType,
-    ) -> EtherealTermResult<Self> {
+    ) -> EthTermResult<Self> {
         Ok(match declarative_self_ty {
             DeclarativeSelfType::Path(declarative_term) => {
-                EtherealSelfTypeInTraitImpl::PathLeading(EtherealTerm::ty_from_declarative(
+                EtherealSelfTypeInTraitImpl::PathLeading(EthTerm::ty_from_declarative(
                     db,
                     declarative_term,
                 )?)
             }
             DeclarativeSelfType::DerivedAny(declarative_term_symbol) => {
-                EtherealSelfTypeInTraitImpl::DeriveAny(SymbolEtherealTerm::from_declarative(
+                EtherealSelfTypeInTraitImpl::DeriveAny(SymbolEthTerm::from_declarative(
                     db,
                     declarative_term_symbol,
                 )?)
@@ -68,7 +68,7 @@ impl EtherealSelfTypeInTraitImpl {
         })
     }
 
-    pub fn parameter_symbol(self) -> Option<SymbolEtherealTerm> {
+    pub fn parameter_symbol(self) -> Option<SymbolEthTerm> {
         match self {
             EtherealSelfTypeInTraitImpl::PathLeading(_) => None,
             EtherealSelfTypeInTraitImpl::DeriveAny(symbol) => Some(symbol),
@@ -92,32 +92,19 @@ fn trai_for_ty_impl_block_ethereal_signature_template(
     db: &::salsa::Db,
     path: TraitForTypeImplBlockPath,
 ) -> EtherealSignatureResult<TraitForTypeImplBlockEthTemplate> {
-    TraitForTypeImplBlockEthTemplate::from_declarative(
-        db,
-        path,
-        path.declarative_signature_template(db)?,
-    )
+    TraitForTypeImplBlockEthTemplate::from_declarative(db, path, path.dec_template(db)?)
 }
 
 impl TraitForTypeImplBlockEthTemplate {
     fn from_declarative(
         db: &::salsa::Db,
         path: TraitForTypeImplBlockPath,
-        declarative_signature_template: TraitForTypeImplBlockDecTemplate,
+        dec_template: TraitForTypeImplBlockDecTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let template_parameters = EtherealTemplateParameters::from_declarative(
-            db,
-            declarative_signature_template.template_parameters(db),
-        )?;
-        let trai = EtherealTerm::from_declarative(
-            db,
-            declarative_signature_template.trai(db),
-            TermTypeExpectation::Any,
-        )?;
-        let self_ty = EtherealSelfTypeInTraitImpl::from_declarative(
-            db,
-            declarative_signature_template.self_ty(db),
-        )?;
+        let template_parameters =
+            EthTemplateParameters::from_declarative(db, dec_template.template_parameters(db))?;
+        let trai = EthTerm::from_declarative(db, dec_template.trai(db), TermTypeExpectation::Any)?;
+        let self_ty = EtherealSelfTypeInTraitImpl::from_declarative(db, dec_template.self_ty(db))?;
         Ok(Self::new(db, path, template_parameters, trai, self_ty))
     }
 }
@@ -137,8 +124,8 @@ impl TraitForTypeImplBlockEthTemplate {
     pub fn instantiate_ty(
         self,
         db: &::salsa::Db,
-        target_ty_arguments: &[EtherealTerm],
-        target_ty_term: EtherealTerm,
+        target_ty_arguments: &[EthTerm],
+        target_ty_term: EthTerm,
     ) -> EtherealSignatureMaybeResult<TraitForTypeImplBlockEtherealSignatureBuilder> {
         let mut instantiation = self
             .template_parameters(db)
@@ -189,7 +176,7 @@ impl TraitForTypeImplBlockEtherealSignatureBuilder {
     /// return `Nothing` when template matching failed
     pub fn instantiate_trai(
         self,
-        target_trai_arguments: &[EtherealTerm],
+        target_trai_arguments: &[EthTerm],
         db: &::salsa::Db,
     ) -> EtherealSignatureMaybeResult<Self> {
         let mut instantiation_builder = self.instantiation_builder(db);
@@ -267,8 +254,8 @@ fn trai_for_ty_impl_block_with_ty_instantiated_item_ethereal_signature_template(
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TraitForTypeImplBlockEtherealSignature {
     path: TraitForTypeImplBlockPath,
-    trai: EtherealTerm,
-    self_ty: EtherealTerm,
+    trai: EthTerm,
+    self_ty: EthTerm,
 }
 
 impl TraitForTypeImplBlockEtherealSignature {
@@ -276,11 +263,11 @@ impl TraitForTypeImplBlockEtherealSignature {
         self.path
     }
 
-    pub fn trai(&self) -> EtherealTerm {
+    pub fn trai(&self) -> EthTerm {
         self.trai
     }
 
-    pub fn ty(&self) -> EtherealTerm {
+    pub fn ty(&self) -> EthTerm {
         self.self_ty
     }
 }

@@ -1,7 +1,7 @@
 use super::*;
 use crate::signature::method::method_fn::ty_method_fluffy_signature;
 
-impl HasFluffyTypeMethodDispatch for EtherealTerm {
+impl HasFluffyTypeMethodDispatch for EthTerm {
     fn ty_method_dispatch(
         self,
         engine: &mut impl FluffyTermEngine,
@@ -11,7 +11,7 @@ impl HasFluffyTypeMethodDispatch for EtherealTerm {
     ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
         // todo: check scope
         match self {
-            EtherealTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)) => {
+            EthTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)) => {
                 ethereal_ty_ontology_path_ty_method_dispatch(
                     engine,
                     expr_idx,
@@ -20,7 +20,7 @@ impl HasFluffyTypeMethodDispatch for EtherealTerm {
                     indirections,
                 )
             }
-            EtherealTerm::Application(ty_term) => ethereal_term_application_ty_method_dispatch(
+            EthTerm::Application(ty_term) => ethereal_term_application_ty_method_dispatch(
                 engine,
                 expr_idx,
                 ty_term,
@@ -45,7 +45,7 @@ fn ethereal_ty_ontology_path_ty_method_dispatch(
 fn ethereal_term_application_ty_method_dispatch(
     engine: &mut impl FluffyTermEngine,
     expr_idx: SynExprIdx,
-    ty_term: ApplicationEtherealTerm,
+    ty_term: ApplicationEthTerm,
     ident_token: IdentRegionalToken,
     indirections: FluffyIndirections,
 ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
@@ -67,7 +67,7 @@ fn ethereal_ty_method_dispatch_aux(
     engine: &mut impl FluffyTermEngine,
     expr_idx: SynExprIdx,
     ty_path: TypePath,
-    arguments: &[EtherealTerm],
+    arguments: &[EthTerm],
     ident_token: IdentRegionalToken,
     mut indirections: FluffyIndirections,
 ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {

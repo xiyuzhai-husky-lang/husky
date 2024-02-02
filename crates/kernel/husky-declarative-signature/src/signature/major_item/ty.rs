@@ -20,15 +20,15 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
-pub enum TypeDeclarativeSignature {
-    Enum(EnumTypeDeclarativeSignature),
-    PropsStruct(PropsStructDeclarativeSignature),
-    UnitStruct(UnitStructTypeDeclarativeSignature),
-    TupleStruct(TupleStructTypeDeclarativeSignature),
-    Inductive(InductiveTypeDeclarativeSignature),
-    Structure(StructureTypeDeclarativeSignature),
-    Extern(ExternTypeDeclarativeSignature),
-    Union(UnionTypeDeclarativeSignature),
+pub enum TypeDecSignature {
+    Enum(EnumTypeDecSignature),
+    PropsStruct(PropsStructDecSignature),
+    UnitStruct(UnitStructTypeDecSignature),
+    TupleStruct(TupleStructTypeDecSignature),
+    Inductive(InductiveTypeDecSignature),
+    Structure(StructureTypeDecSignature),
+    Extern(ExternTypeDecSignature),
+    Union(UnionTypeDecSignature),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -64,19 +64,16 @@ impl HasDecTemplate for TypePath {
     type DecTemplate = TypeDecTemplate;
 
     #[inline(always)]
-    fn declarative_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
-        ty_declarative_signature_template(db, self)
+    fn dec_template(self, db: &::salsa::Db) -> DecSignatureResult<Self::DecTemplate> {
+        ty_dec_template(db, self)
     }
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub(crate) fn ty_declarative_signature_template(
+#[salsa::tracked(jar = DecSignatureJar)]
+pub(crate) fn ty_dec_template(
     db: &::salsa::Db,
     path: TypePath,
-) -> DeclarativeSignatureResult<TypeDecTemplate> {
+) -> DecSignatureResult<TypeDecTemplate> {
     let decl = path.syn_decl(db)?;
     Ok(match decl {
         TypeSynDecl::Enum(decl) => EnumTypeDecTemplate::from_decl(db, path, decl)?.into(),

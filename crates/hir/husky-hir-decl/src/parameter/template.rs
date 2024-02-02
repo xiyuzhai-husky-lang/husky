@@ -38,8 +38,7 @@ impl HirTemplateParameter {
         syndicate: &TemplateSynParameterData,
         builder: &HirDeclBuilder,
     ) -> Option<Self> {
-        let EtherealTerm::Symbol(symbol) = builder.current_syn_symbol_term(syndicate.symbol())
-        else {
+        let EthTerm::Symbol(symbol) = builder.current_syn_symbol_term(syndicate.symbol()) else {
             todo!()
         };
         let db = builder.db();

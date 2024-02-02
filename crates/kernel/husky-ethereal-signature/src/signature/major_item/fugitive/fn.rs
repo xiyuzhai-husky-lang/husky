@@ -6,8 +6,8 @@ use super::*;
 pub struct FunctionFnEthTemplate {
     pub path: FugitivePath,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
-    pub ritchie_ty: RitchieEtherealTerm,
+    pub template_parameters: EthTemplateParameters,
+    pub ritchie_ty: RitchieEthTerm,
 }
 
 impl FunctionFnEthTemplate {
@@ -17,14 +17,14 @@ impl FunctionFnEthTemplate {
         tmpl: MajorFnDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_params =
-            EtherealTemplateParameters::from_declarative(db, tmpl.template_parameters(db))?;
+            EthTemplateParameters::from_declarative(db, tmpl.template_parameters(db))?;
         let ritchie_params: SmallVec<[_; 4]> = tmpl
             .parenate_parameters(db)
             .iter()
             .map(|&param| EtherealRitchieParameter::from_declarative(param, db))
-            .collect::<EtherealTermResult<SmallVec<[_; 4]>>>()?;
-        let return_ty = EtherealTerm::ty_from_declarative(db, tmpl.return_ty(db))?;
-        let ritchie_ty = RitchieEtherealTerm::new(
+            .collect::<EthTermResult<SmallVec<[_; 4]>>>()?;
+        let return_ty = EthTerm::ty_from_declarative(db, tmpl.return_ty(db))?;
+        let ritchie_ty = RitchieEthTerm::new(
             db,
             RitchieKind::Type(RitchieTypeKind::Fn),
             ritchie_params,

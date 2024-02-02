@@ -8,72 +8,72 @@ pub struct TermMenu0 {
     prop: CategoryTerm,
     ty0: CategoryTerm,
     static_lifetime: TermLiteral,
-    unit: EtherealTerm,
-    never: EtherealTerm,
+    unit: EthTerm,
+    never: EthTerm,
     // core::ops::Add	The addition operator +.
-    core_ops_add: EtherealTerm,
+    core_ops_add: EthTerm,
     // core::ops::AddAssign	The addition assignment operator +=.
-    core_ops_add_assign: EtherealTerm,
+    core_ops_add_assign: EthTerm,
     // core::ops::BitAnd	The bitwise AND operator &.
-    core_ops_bit_and: EtherealTerm,
+    core_ops_bit_and: EthTerm,
     // core::ops::BitAndAssign	The bitwise AND assignment operator &=.
-    core_ops_bit_and_assign: EtherealTerm,
+    core_ops_bit_and_assign: EthTerm,
     // core::ops::BitOr	The bitwise OR operator |.
-    core_ops_bit_or: EtherealTerm,
+    core_ops_bit_or: EthTerm,
     // core::ops::BitOrAssign	The bitwise OR assignment operator |=.
-    core_ops_bit_or_assign: EtherealTerm,
+    core_ops_bit_or_assign: EthTerm,
     // core::ops::BitXor	The bitwise XOR operator ^.
-    core_ops_bit_xor: EtherealTerm,
+    core_ops_bit_xor: EthTerm,
     // core::ops::BitXorAssign	The bitwise XOR assignment operator ^=.
-    core_ops_bit_xor_assign: EtherealTerm,
+    core_ops_bit_xor_assign: EthTerm,
     // core::ops::Div	The division operator /.
-    core_ops_div: EtherealTerm,
+    core_ops_div: EthTerm,
     // core::ops::DivAssign	The division assignment operator /=.
-    core_ops_div_assign: EtherealTerm,
+    core_ops_div_assign: EthTerm,
     // core::ops::Mul	The multiplication operator *.
-    core_ops_mul: EtherealTerm,
+    core_ops_mul: EthTerm,
     // core::ops::MulAssign	The multiplication assignment operator *=.
-    core_ops_mul_assign: EtherealTerm,
+    core_ops_mul_assign: EthTerm,
     // core::ops::Neg	The unary negation operator -.
-    core_ops_neg: EtherealTerm,
+    core_ops_neg: EthTerm,
     // Not	The unary logical negation operator !.
-    core_ops_not: EtherealTerm,
-    option_ty_ontology: EtherealTerm,
-    slice_ty_ontology: EtherealTerm,
-    str_ty_ontology: EtherealTerm,
-    at_ty_ontology: EtherealTerm,
-    ref_ty_ontology: EtherealTerm,
-    list_ty_ontology: EtherealTerm,
-    array_ty_ontology: EtherealTerm,
-    leash_ty_ontology: EtherealTerm,
-    i8_ty_ontology: EtherealTerm,
-    i16_ty_ontology: EtherealTerm,
-    i32_ty_ontology: EtherealTerm,
-    i64_ty_ontology: EtherealTerm,
-    i128_ty_ontology: EtherealTerm,
-    isize_ty_ontology: EtherealTerm,
-    r8_ty_ontology: EtherealTerm,
-    r16_ty_ontology: EtherealTerm,
-    r32_ty_ontology: EtherealTerm,
-    r64_ty_ontology: EtherealTerm,
-    r128_ty_ontology: EtherealTerm,
-    rsize_ty_ontology: EtherealTerm,
-    u8_ty_ontology: EtherealTerm,
-    u16_ty_ontology: EtherealTerm,
-    u32_ty_ontology: EtherealTerm,
-    u64_ty_ontology: EtherealTerm,
-    u128_ty_ontology: EtherealTerm,
-    usize_ty_ontology: EtherealTerm,
-    f32_ty_ontology: EtherealTerm,
-    f64_ty_ontology: EtherealTerm,
-    bool_ty_ontology: EtherealTerm,
-    html_ty_ontology: EtherealTerm,
-    lifetime_ty_ontology: EtherealTerm,
-    trai_ty_ontology: EtherealTerm,
-    module_ty_ontology: EtherealTerm,
-    clone_trai: EtherealTerm,
-    copy_trai: EtherealTerm,
-    default_trai: EtherealTerm,
+    core_ops_not: EthTerm,
+    option_ty_ontology: EthTerm,
+    slice_ty_ontology: EthTerm,
+    str_ty_ontology: EthTerm,
+    at_ty_ontology: EthTerm,
+    ref_ty_ontology: EthTerm,
+    list_ty_ontology: EthTerm,
+    array_ty_ontology: EthTerm,
+    leash_ty_ontology: EthTerm,
+    i8_ty_ontology: EthTerm,
+    i16_ty_ontology: EthTerm,
+    i32_ty_ontology: EthTerm,
+    i64_ty_ontology: EthTerm,
+    i128_ty_ontology: EthTerm,
+    isize_ty_ontology: EthTerm,
+    r8_ty_ontology: EthTerm,
+    r16_ty_ontology: EthTerm,
+    r32_ty_ontology: EthTerm,
+    r64_ty_ontology: EthTerm,
+    r128_ty_ontology: EthTerm,
+    rsize_ty_ontology: EthTerm,
+    u8_ty_ontology: EthTerm,
+    u16_ty_ontology: EthTerm,
+    u32_ty_ontology: EthTerm,
+    u64_ty_ontology: EthTerm,
+    u128_ty_ontology: EthTerm,
+    usize_ty_ontology: EthTerm,
+    f32_ty_ontology: EthTerm,
+    f64_ty_ontology: EthTerm,
+    bool_ty_ontology: EthTerm,
+    html_ty_ontology: EthTerm,
+    lifetime_ty_ontology: EthTerm,
+    trai_ty_ontology: EthTerm,
+    module_ty_ontology: EthTerm,
+    clone_trai: EthTerm,
+    copy_trai: EthTerm,
+    default_trai: EthTerm,
 }
 
 impl TermMenu0 {
@@ -90,34 +90,28 @@ impl TermMenu0 {
             universe1,
             prop: CategoryTerm::new(universe0),
             ty0: CategoryTerm::new(universe1),
-            core_ops_add: EtherealTerm::EntityPath(item_path_menu.add_trai_path().into()),
+            core_ops_add: EthTerm::EntityPath(item_path_menu.add_trai_path().into()),
             // start here
-            // EtherealTerm::Entity(item_path_menu.core_ops_())
-            core_ops_add_assign: EtherealTerm::EntityPath(
-                item_path_menu.add_assign_trai_path().into(),
-            ),
-            core_ops_bit_and: EtherealTerm::EntityPath(item_path_menu.bit_and_trai_path().into()),
-            core_ops_bit_and_assign: EtherealTerm::EntityPath(
+            // EthTerm::Entity(item_path_menu.core_ops_())
+            core_ops_add_assign: EthTerm::EntityPath(item_path_menu.add_assign_trai_path().into()),
+            core_ops_bit_and: EthTerm::EntityPath(item_path_menu.bit_and_trai_path().into()),
+            core_ops_bit_and_assign: EthTerm::EntityPath(
                 item_path_menu.bit_and_assign_trai_path().into(),
             ),
-            core_ops_bit_or: EtherealTerm::EntityPath(item_path_menu.bit_or_trai_path().into()),
-            core_ops_bit_or_assign: EtherealTerm::EntityPath(
+            core_ops_bit_or: EthTerm::EntityPath(item_path_menu.bit_or_trai_path().into()),
+            core_ops_bit_or_assign: EthTerm::EntityPath(
                 item_path_menu.bit_or_assign_trai_path().into(),
             ),
-            core_ops_bit_xor: EtherealTerm::EntityPath(item_path_menu.bit_xor_trai_path().into()),
-            core_ops_bit_xor_assign: EtherealTerm::EntityPath(
+            core_ops_bit_xor: EthTerm::EntityPath(item_path_menu.bit_xor_trai_path().into()),
+            core_ops_bit_xor_assign: EthTerm::EntityPath(
                 item_path_menu.bit_xor_assign_trai_path().into(),
             ),
-            core_ops_div: EtherealTerm::EntityPath(item_path_menu.div_trai_path().into()),
-            core_ops_div_assign: EtherealTerm::EntityPath(
-                item_path_menu.div_assign_trai_path().into(),
-            ),
-            core_ops_mul: EtherealTerm::EntityPath(item_path_menu.mul_trai_path().into()),
-            core_ops_mul_assign: EtherealTerm::EntityPath(
-                item_path_menu.mul_assign_trai_path().into(),
-            ),
-            core_ops_neg: EtherealTerm::EntityPath(item_path_menu.neg_trai_path().into()),
-            core_ops_not: EtherealTerm::EntityPath(item_path_menu.not_trai_path().into()),
+            core_ops_div: EthTerm::EntityPath(item_path_menu.div_trai_path().into()),
+            core_ops_div_assign: EthTerm::EntityPath(item_path_menu.div_assign_trai_path().into()),
+            core_ops_mul: EthTerm::EntityPath(item_path_menu.mul_trai_path().into()),
+            core_ops_mul_assign: EthTerm::EntityPath(item_path_menu.mul_assign_trai_path().into()),
+            core_ops_neg: EthTerm::EntityPath(item_path_menu.neg_trai_path().into()),
+            core_ops_not: EthTerm::EntityPath(item_path_menu.not_trai_path().into()),
             option_ty_ontology: ItemPathTerm::TypeOntology(item_path_menu.option_ty_path()).into(),
             slice_ty_ontology: ItemPathTerm::TypeOntology(item_path_menu.slice_ty_path()).into(),
             str_ty_ontology: ItemPathTerm::TypeOntology(item_path_menu.str_ty_path()).into(),
@@ -178,237 +172,237 @@ impl TermMenu0 {
         self.ty0
     }
 
-    // pub fn core(&self) -> EtherealTerm {
+    // pub fn core(&self) -> EthTerm {
     //     self.core
     // }
 
-    // pub fn core_ops(&self) -> EtherealTerm {
+    // pub fn core_ops(&self) -> EthTerm {
     //     self.core_ops
     // }
 
     // Add	The addition operator +.
-    pub fn core_ops_add(&self) -> EtherealTerm {
+    pub fn core_ops_add(&self) -> EthTerm {
         self.core_ops_add
     }
 
     // AddAssign	The addition assignment operator +=.
-    pub fn core_ops_add_assign(&self) -> EtherealTerm {
+    pub fn core_ops_add_assign(&self) -> EthTerm {
         self.core_ops_add_assign
     }
 
     // BitAnd	The bitwise AND operator &.
-    pub fn core_ops_bit_and(&self) -> EtherealTerm {
+    pub fn core_ops_bit_and(&self) -> EthTerm {
         self.core_ops_bit_and
     }
 
     // BitAndAssign	The bitwise AND assignment operator &=.
-    pub fn core_ops_bit_and_assign(&self) -> EtherealTerm {
+    pub fn core_ops_bit_and_assign(&self) -> EthTerm {
         self.core_ops_bit_and_assign
     }
 
     // BitOr	The bitwise OR operator |.
-    pub fn core_ops_bit_or(&self) -> EtherealTerm {
+    pub fn core_ops_bit_or(&self) -> EthTerm {
         self.core_ops_bit_or
     }
 
     // BitOrAssign	The bitwise OR assignment operator |=.
-    pub fn core_ops_bit_or_assign(&self) -> EtherealTerm {
+    pub fn core_ops_bit_or_assign(&self) -> EthTerm {
         self.core_ops_bit_or_assign
     }
     // BitXor	The bitwise XOR operator ^.
-    pub fn core_ops_bit_xor(&self) -> EtherealTerm {
+    pub fn core_ops_bit_xor(&self) -> EthTerm {
         self.core_ops_bit_xor
     }
 
     // BitXorAssign	The bitwise XOR assignment operator ^=.
-    pub fn core_ops_bit_xor_assign(&self) -> EtherealTerm {
+    pub fn core_ops_bit_xor_assign(&self) -> EthTerm {
         self.core_ops_bit_or_assign
     }
 
     // Div	The division operator /.
-    pub fn core_ops_div(&self) -> EtherealTerm {
+    pub fn core_ops_div(&self) -> EthTerm {
         self.core_ops_div
     }
 
     // DivAssign	The division assignment operator /=.
-    pub fn core_ops_div_assign(&self) -> EtherealTerm {
+    pub fn core_ops_div_assign(&self) -> EthTerm {
         self.core_ops_div_assign
     }
 
     // Mul	The multiplication operator *.
-    pub fn core_ops_mul(&self) -> EtherealTerm {
+    pub fn core_ops_mul(&self) -> EthTerm {
         self.core_ops_mul
     }
 
     // MulAssign	The multiplication assignment operator *=.
-    pub fn core_ops_mul_assign(&self) -> EtherealTerm {
+    pub fn core_ops_mul_assign(&self) -> EthTerm {
         self.core_ops_mul_assign
     }
 
     // Neg	The unary negation operator -.
-    pub fn core_ops_neg(&self) -> EtherealTerm {
+    pub fn core_ops_neg(&self) -> EthTerm {
         self.core_ops_neg
     }
 
     // Not	The unary logical negation operator !.
-    pub fn core_ops_not(&self) -> EtherealTerm {
+    pub fn core_ops_not(&self) -> EthTerm {
         self.core_ops_not
     }
 
-    pub fn option_ty_ontology(&self) -> EtherealTerm {
+    pub fn option_ty_ontology(&self) -> EthTerm {
         self.option_ty_ontology
     }
 
-    pub fn slice_ty_ontology(&self) -> EtherealTerm {
+    pub fn slice_ty_ontology(&self) -> EthTerm {
         self.slice_ty_ontology
     }
 
-    pub fn at_ty_ontology(&self) -> EtherealTerm {
+    pub fn at_ty_ontology(&self) -> EthTerm {
         self.at_ty_ontology
     }
 
-    pub fn ref_ty_path(&self) -> EtherealTerm {
+    pub fn ref_ty_path(&self) -> EthTerm {
         self.ref_ty_ontology
     }
 
-    pub fn list_ty_ontology(&self) -> EtherealTerm {
+    pub fn list_ty_ontology(&self) -> EthTerm {
         self.list_ty_ontology
     }
 
-    pub fn array_ty_ontology(&self) -> EtherealTerm {
+    pub fn array_ty_ontology(&self) -> EthTerm {
         self.array_ty_ontology
     }
 
-    pub fn unit_ty_ontology(&self) -> EtherealTerm {
+    pub fn unit_ty_ontology(&self) -> EthTerm {
         self.unit
     }
 
-    pub fn never(&self) -> EtherealTerm {
+    pub fn never(&self) -> EthTerm {
         self.never
     }
 
-    pub fn trai_ty_ontology(&self) -> EtherealTerm {
+    pub fn trai_ty_ontology(&self) -> EthTerm {
         self.trai_ty_ontology
     }
 
-    pub fn module_ty_ontology(&self) -> EtherealTerm {
+    pub fn module_ty_ontology(&self) -> EthTerm {
         self.module_ty_ontology
     }
 
-    pub fn bool_ty_ontology(&self) -> EtherealTerm {
+    pub fn bool_ty_ontology(&self) -> EthTerm {
         self.bool_ty_ontology
     }
 
-    pub fn i8_ty_ontology(&self) -> EtherealTerm {
+    pub fn i8_ty_ontology(&self) -> EthTerm {
         self.i8_ty_ontology
     }
 
-    pub fn i16_ty_ontology(&self) -> EtherealTerm {
+    pub fn i16_ty_ontology(&self) -> EthTerm {
         self.i16_ty_ontology
     }
 
-    pub fn i32_ty_ontology(&self) -> EtherealTerm {
+    pub fn i32_ty_ontology(&self) -> EthTerm {
         self.i32_ty_ontology
     }
 
-    pub fn i64_ty_ontology(&self) -> EtherealTerm {
+    pub fn i64_ty_ontology(&self) -> EthTerm {
         self.i64_ty_ontology
     }
 
-    pub fn i128_ty_ontology(&self) -> EtherealTerm {
+    pub fn i128_ty_ontology(&self) -> EthTerm {
         self.i128_ty_ontology
     }
 
-    pub fn isize_ty_ontology(&self) -> EtherealTerm {
+    pub fn isize_ty_ontology(&self) -> EthTerm {
         self.isize_ty_ontology
     }
 
-    pub fn u8_ty_ontology(&self) -> EtherealTerm {
+    pub fn u8_ty_ontology(&self) -> EthTerm {
         self.u8_ty_ontology
     }
 
-    pub fn u16_ty_ontology(&self) -> EtherealTerm {
+    pub fn u16_ty_ontology(&self) -> EthTerm {
         self.u16_ty_ontology
     }
 
-    pub fn u32_ty_ontology(&self) -> EtherealTerm {
+    pub fn u32_ty_ontology(&self) -> EthTerm {
         self.u32_ty_ontology
     }
 
-    pub fn u64_ty_ontology(&self) -> EtherealTerm {
+    pub fn u64_ty_ontology(&self) -> EthTerm {
         self.u64_ty_ontology
     }
 
-    pub fn u128_ty_ontology(&self) -> EtherealTerm {
+    pub fn u128_ty_ontology(&self) -> EthTerm {
         self.u128_ty_ontology
     }
 
-    pub fn usize_ty_ontology(&self) -> EtherealTerm {
+    pub fn usize_ty_ontology(&self) -> EthTerm {
         self.usize_ty_ontology
     }
 
-    pub fn r8_ty_ontology(&self) -> EtherealTerm {
+    pub fn r8_ty_ontology(&self) -> EthTerm {
         self.r8_ty_ontology
     }
 
-    pub fn r16_ty_ontology(&self) -> EtherealTerm {
+    pub fn r16_ty_ontology(&self) -> EthTerm {
         self.r16_ty_ontology
     }
 
-    pub fn r128_ty_ontology(&self) -> EtherealTerm {
+    pub fn r128_ty_ontology(&self) -> EthTerm {
         self.r128_ty_ontology
     }
 
-    pub fn rsize_ty_ontology(&self) -> EtherealTerm {
+    pub fn rsize_ty_ontology(&self) -> EthTerm {
         self.rsize_ty_ontology
     }
 
-    pub fn f32_ty_ontology(&self) -> EtherealTerm {
+    pub fn f32_ty_ontology(&self) -> EthTerm {
         self.f32_ty_ontology
     }
 
-    pub fn f64_ty_ontology(&self) -> EtherealTerm {
+    pub fn f64_ty_ontology(&self) -> EthTerm {
         self.f64_ty_ontology
     }
 
-    pub fn r32_ty_ontology(&self) -> EtherealTerm {
+    pub fn r32_ty_ontology(&self) -> EthTerm {
         self.r32_ty_ontology
     }
 
-    pub fn r64_ty_ontology(&self) -> EtherealTerm {
+    pub fn r64_ty_ontology(&self) -> EthTerm {
         self.r64_ty_ontology
     }
 
-    pub fn static_lifetime(&self) -> EtherealTerm {
+    pub fn static_lifetime(&self) -> EthTerm {
         self.static_lifetime.into()
     }
 
     /// Lifetime
-    pub fn lifetime_ty(&self) -> EtherealTerm {
+    pub fn lifetime_ty(&self) -> EthTerm {
         self.lifetime_ty_ontology
     }
 
-    pub fn str_ty_ontology(&self) -> EtherealTerm {
+    pub fn str_ty_ontology(&self) -> EthTerm {
         self.str_ty_ontology
     }
 
-    pub fn leash_ty_ontology(&self) -> EtherealTerm {
+    pub fn leash_ty_ontology(&self) -> EthTerm {
         self.leash_ty_ontology
     }
 
-    pub fn clone_trai(&self) -> EtherealTerm {
+    pub fn clone_trai(&self) -> EthTerm {
         self.clone_trai
     }
 
-    pub fn copy_trai(&self) -> EtherealTerm {
+    pub fn copy_trai(&self) -> EthTerm {
         self.copy_trai
     }
 
-    pub fn default_trai(&self) -> EtherealTerm {
+    pub fn default_trai(&self) -> EthTerm {
         self.default_trai
     }
 
-    pub fn html_ty_ontology(&self) -> EtherealTerm {
+    pub fn html_ty_ontology(&self) -> EthTerm {
         self.html_ty_ontology
     }
 }

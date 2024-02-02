@@ -1,11 +1,11 @@
 use crate::*;
 
-pub trait EtherealTermDb {
-    fn ethereal_term_menu(&self, toolchain: Toolchain) -> &EtherealTermMenu;
+pub trait EthTermDb {
+    fn ethereal_term_menu(&self, toolchain: Toolchain) -> &EthTermMenu;
 }
 
-impl EtherealTermDb for ::salsa::Db {
-    fn ethereal_term_menu(&self, toolchain: Toolchain) -> &EtherealTermMenu {
+impl EthTermDb for ::salsa::Db {
+    fn ethereal_term_menu(&self, toolchain: Toolchain) -> &EthTermMenu {
         term_menu(self, toolchain)
     }
 }

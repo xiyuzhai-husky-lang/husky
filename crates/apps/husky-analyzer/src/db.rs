@@ -12,8 +12,8 @@ use salsa::snapshot::SnapshotClone;
     husky_term_prelude::TermPreludeJar,
     husky_declarative_term::DeclarativeTermJar,
     husky_declarative_ty::DeclarativeTypeJar,
-    husky_declarative_signature::DeclarativeSignatureJar,
-    husky_ethereal_term::EtherealTermJar,
+    husky_declarative_signature::DecSignatureJar,
+    husky_ethereal_term::EthTermJar,
     husky_ethereal_signature::EtherealSignatureJar,
     husky_fluffy_term::FluffyTermJar,
     // lex

@@ -15,7 +15,7 @@ pub enum ImplBlockEthTemplate {
 }
 
 impl ImplBlockEthTemplate {
-    pub fn self_ty(self, db: &::salsa::Db) -> EtherealTerm {
+    pub fn self_ty(self, db: &::salsa::Db) -> EthTerm {
         match self {
             ImplBlockEthTemplate::TypeImpl(template) => template.self_ty(db),
             ImplBlockEthTemplate::TraitForTypeImpl(template) => template.self_ty(db),

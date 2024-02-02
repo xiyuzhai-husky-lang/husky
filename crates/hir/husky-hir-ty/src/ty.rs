@@ -6,8 +6,7 @@ use crate::*;
 use either::*;
 use husky_ethereal_signature::{helpers::trai_for_ty::is_ty_term_always_copyable, HasEthTemplate};
 use husky_ethereal_term::{
-    ApplicationEtherealTerm, EtherealTerm, EtherealTermSymbolIndexImpl, RitchieEtherealTerm,
-    TermFunctionReduced,
+    ApplicationEthTerm, EthTerm, EthTermSymbolIndexImpl, RitchieEthTerm, TermFunctionReduced,
 };
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
 
@@ -32,13 +31,11 @@ pub struct HirTypeTypeAssociatedType {}
 pub struct HirTypeTraitAssociatedType {}
 
 impl HirType {
-    pub fn from_ethereal(term: EtherealTerm, db: &::salsa::Db) -> Option<Self> {
+    pub fn from_ethereal(term: EthTerm, db: &::salsa::Db) -> Option<Self> {
         let always_copyable = is_ty_term_always_copyable(term, db).unwrap()?;
         match term {
-            EtherealTerm::Symbol(symbol) => {
-                HirTypeSymbol::from_ethereal(symbol, db).map(Into::into)
-            }
-            EtherealTerm::EntityPath(path) => match path {
+            EthTerm::Symbol(symbol) => HirTypeSymbol::from_ethereal(symbol, db).map(Into::into),
+            EthTerm::EntityPath(path) => match path {
                 ItemPathTerm::Fugitive(_) => todo!(),
                 ItemPathTerm::Trait(_) => todo!(),
                 ItemPathTerm::TypeOntology(ty_path) => {
@@ -47,13 +44,13 @@ impl HirType {
                 ItemPathTerm::TypeInstance(_) => todo!(),
                 ItemPathTerm::TypeVariant(_) => todo!(),
             },
-            EtherealTerm::Ritchie(term_ritchie) => {
+            EthTerm::Ritchie(term_ritchie) => {
                 Some(HirRitchieType::from_ethereal(term_ritchie, db).into())
             }
-            EtherealTerm::Application(term_application) => {
+            EthTerm::Application(term_application) => {
                 Some(hir_ty_from_ethereal_term_application(db, term_application))
             }
-            EtherealTerm::TypeAsTraitItem(_) => todo!(),
+            EthTerm::TypeAsTraitItem(_) => todo!(),
             _ => unreachable!("it should be guaranteed that the term is a valid HirType"),
         }
     }
@@ -112,7 +109,7 @@ impl HirType {
 #[salsa::tracked(jar = HirTypeJar)]
 pub(crate) fn hir_ty_from_ethereal_term_application(
     db: &::salsa::Db,
-    term_application: ApplicationEtherealTerm,
+    term_application: ApplicationEthTerm,
 ) -> HirType {
     let application_expansion = term_application.application_expansion(db);
     match application_expansion.function() {
@@ -127,20 +124,18 @@ pub(crate) fn hir_ty_from_ethereal_term_application(
             )
             .filter_map(|(param, arg)| {
                 match param.symbol().index(db).inner() {
-                    EtherealTermSymbolIndexImpl::ExplicitLifetime { attrs, .. }
-                    | EtherealTermSymbolIndexImpl::ExplicitPlace { attrs, .. }
-                    | EtherealTermSymbolIndexImpl::Type { attrs, .. }
-                    | EtherealTermSymbolIndexImpl::ConstOther { attrs, .. }
-                    | EtherealTermSymbolIndexImpl::ConstPathLeading { attrs, .. } => {
-                        !attrs.phantom()
-                    }
-                    EtherealTermSymbolIndexImpl::Prop { .. } => false,
-                    EtherealTermSymbolIndexImpl::EphemPathLeading { .. }
-                    | EtherealTermSymbolIndexImpl::EphemOther { .. }
-                    | EtherealTermSymbolIndexImpl::SelfType
-                    | EtherealTermSymbolIndexImpl::SelfValue
-                    | EtherealTermSymbolIndexImpl::SelfLifetime
-                    | EtherealTermSymbolIndexImpl::SelfPlace => unreachable!(),
+                    EthTermSymbolIndexImpl::ExplicitLifetime { attrs, .. }
+                    | EthTermSymbolIndexImpl::ExplicitPlace { attrs, .. }
+                    | EthTermSymbolIndexImpl::Type { attrs, .. }
+                    | EthTermSymbolIndexImpl::ConstOther { attrs, .. }
+                    | EthTermSymbolIndexImpl::ConstPathLeading { attrs, .. } => !attrs.phantom(),
+                    EthTermSymbolIndexImpl::Prop { .. } => false,
+                    EthTermSymbolIndexImpl::EphemPathLeading { .. }
+                    | EthTermSymbolIndexImpl::EphemOther { .. }
+                    | EthTermSymbolIndexImpl::SelfType
+                    | EthTermSymbolIndexImpl::SelfValue
+                    | EthTermSymbolIndexImpl::SelfLifetime
+                    | EthTermSymbolIndexImpl::SelfPlace => unreachable!(),
                 }
                 .then_some(arg)
             })

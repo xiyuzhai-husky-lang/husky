@@ -20,7 +20,7 @@ pub enum FluffyTermData<'a> {
         ty_path: TypePath,
         refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
         ty_arguments: &'a [FluffyTerm],
-        ty_ethereal_term: Option<EtherealTerm>,
+        ty_ethereal_term: Option<EthTerm>,
     },
     Curry {
         toolchain: Toolchain,
@@ -29,7 +29,7 @@ pub enum FluffyTermData<'a> {
         parameter_rune: Option<RuneFluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
-        ty_ethereal_term: Option<CurryEtherealTerm>,
+        ty_ethereal_term: Option<CurryEthTerm>,
     },
     Hole(HoleKind, Hole),
     Category(CategoryTerm),
@@ -39,7 +39,7 @@ pub enum FluffyTermData<'a> {
         return_ty: FluffyTerm,
     },
     Symbol {
-        term: SymbolEtherealTerm,
+        term: SymbolEthTerm,
         ty: FluffyTerm,
     },
     Rune {
@@ -146,7 +146,7 @@ pub enum FluffyBaseTypeData<'a> {
         ty_path: TypePath,
         refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
         ty_arguments: &'a [FluffyTerm],
-        ty_ethereal_term: Option<EtherealTerm>,
+        ty_ethereal_term: Option<EthTerm>,
     },
     Curry {
         curry_kind: CurryKind,
@@ -154,7 +154,7 @@ pub enum FluffyBaseTypeData<'a> {
         parameter_rune: Option<RuneFluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
-        ty_ethereal_term: Option<CurryEtherealTerm>,
+        ty_ethereal_term: Option<CurryEthTerm>,
     },
     Hole(HoleKind, Hole),
     Category(CategoryTerm),
@@ -164,10 +164,10 @@ pub enum FluffyBaseTypeData<'a> {
         return_ty: FluffyTerm,
     },
     Symbol {
-        symbol: SymbolEtherealTerm,
+        symbol: SymbolEthTerm,
     },
     Rune {
-        rune: RuneEtherealTerm,
+        rune: RuneEthTerm,
     },
 }
 

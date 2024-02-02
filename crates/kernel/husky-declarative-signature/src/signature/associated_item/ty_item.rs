@@ -51,19 +51,16 @@ impl TypeItemDecTemplate {
 impl HasDecTemplate for TypeItemPath {
     type DecTemplate = TypeItemDecTemplate;
 
-    fn declarative_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<TypeItemDecTemplate> {
-        ty_item_syn_declarative_signature_template(db, self)
+    fn dec_template(self, db: &::salsa::Db) -> DecSignatureResult<TypeItemDecTemplate> {
+        ty_item_syn_dec_template(db, self)
     }
 }
 
-// #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub(crate) fn ty_item_syn_declarative_signature_template(
+// #[salsa::tracked(jar = DecSignatureJar)]
+pub(crate) fn ty_item_syn_dec_template(
     db: &::salsa::Db,
     path: TypeItemPath,
-) -> DeclarativeSignatureResult<TypeItemDecTemplate> {
+) -> DecSignatureResult<TypeItemDecTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
         TypeItemSynDecl::AssociatedFn(decl) => {
@@ -91,21 +88,18 @@ pub enum TypeMethodDecTemplates {
 }
 
 pub trait HasTypeMethodDecTemplates: Copy {
-    fn ty_method_declarative_signature_templates_map<'a>(
+    fn ty_method_dec_templates_map<'a>(
         self,
         db: &'a ::salsa::Db,
-    ) -> DeclarativeSignatureResult<&'a [(Ident, DeclarativeSignatureResult<TypeMethodDecTemplates>)]>;
+    ) -> DecSignatureResult<&'a [(Ident, DecSignatureResult<TypeMethodDecTemplates>)]>;
 
-    fn ty_method_declarative_signature_templates<'a>(
+    fn ty_method_dec_templates<'a>(
         self,
         db: &'a ::salsa::Db,
         ident: Ident,
-    ) -> DeclarativeSignatureResult<Option<&'a TypeMethodDecTemplates>> {
+    ) -> DecSignatureResult<Option<&'a TypeMethodDecTemplates>> {
         use vec_like::VecMapGetEntry;
-        match self
-            .ty_method_declarative_signature_templates_map(db)?
-            .get_entry(ident)
-        {
+        match self.ty_method_dec_templates_map(db)?.get_entry(ident) {
             Some((_, Ok(templates))) => Ok(Some(templates)),
             Some((_, Err(e))) => Err(*e),
             None => Ok(None),

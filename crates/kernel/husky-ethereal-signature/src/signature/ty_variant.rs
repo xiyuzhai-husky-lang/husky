@@ -18,7 +18,7 @@ pub enum TypeVariantEthTemplate {
 }
 
 impl TypeVariantEthTemplate {
-    pub fn self_ty(self, _db: &::salsa::Db) -> EtherealTerm {
+    pub fn self_ty(self, _db: &::salsa::Db) -> EthTerm {
         match self {
             TypeVariantEthTemplate::Props(_) => todo!(),
             TypeVariantEthTemplate::Unit(_) => todo!(),
@@ -26,7 +26,7 @@ impl TypeVariantEthTemplate {
         }
     }
 
-    pub fn instance_constructor_ty(self, db: &::salsa::Db) -> EtherealTerm {
+    pub fn instance_constructor_ty(self, db: &::salsa::Db) -> EthTerm {
         match self {
             TypeVariantEthTemplate::Props(slf) => slf.instance_constructor_ty(db),
             TypeVariantEthTemplate::Unit(slf) => slf.instance_constructor_ty(db),
@@ -51,19 +51,13 @@ fn ty_variant_ethereal_signature_template(
     db: &::salsa::Db,
     path: TypeVariantPath,
 ) -> EtherealSignatureResult<TypeVariantEthTemplate> {
-    Ok(match path.declarative_signature_template(db)? {
+    Ok(match path.dec_template(db)? {
         TypeVariantDecTemplate::Props(_) => todo!(),
-        TypeVariantDecTemplate::Unit(declarative_signature_template) => {
-            EnumUnitTypeVariantEthTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
+        TypeVariantDecTemplate::Unit(dec_template) => {
+            EnumUnitTypeVariantEthTemplate::from_declarative(db, path, dec_template)?.into()
         }
-        TypeVariantDecTemplate::Tuple(declarative_signature_template) => {
-            EnumTupleVariantEthTemplate::from_declarative(db, path, declarative_signature_template)?
-                .into()
+        TypeVariantDecTemplate::Tuple(dec_template) => {
+            EnumTupleVariantEthTemplate::from_declarative(db, path, dec_template)?.into()
         }
     })
 }

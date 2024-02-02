@@ -60,7 +60,7 @@ pub(crate) fn declarative_ty_item_variance_crate_dependencies(
     _idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {
     let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
-    let signature = match path.declarative_signature_template(db) {
+    let signature = match path.dec_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };
@@ -92,7 +92,7 @@ pub(crate) fn form_item_variance_crate_dependencies(
     path: FugitivePath,
     _idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {
-    let _signature = match path.declarative_signature_template(db) {
+    let _signature = match path.dec_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };

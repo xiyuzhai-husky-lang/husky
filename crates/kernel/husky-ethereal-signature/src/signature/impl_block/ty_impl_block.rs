@@ -3,8 +3,8 @@ use super::*;
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct TypeImplBlockEthTemplate {
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
-    pub self_ty: EtherealTerm,
+    pub template_parameters: EthTemplateParameters,
+    pub self_ty: EthTerm,
 }
 
 impl HasEthTemplate for TypeImplBlockPath {
@@ -23,11 +23,9 @@ pub(crate) fn ty_impl_block_ethereal_signature_template(
     db: &::salsa::Db,
     path: TypeImplBlockPath,
 ) -> EtherealSignatureResult<TypeImplBlockEthTemplate> {
-    let declarative_signature_template = path.declarative_signature_template(db)?;
-    let template_parameters = EtherealTemplateParameters::from_declarative(
-        db,
-        declarative_signature_template.template_parameters(db),
-    )?;
-    let ty = EtherealTerm::ty_from_declarative(db, declarative_signature_template.ty(db))?;
+    let dec_template = path.dec_template(db)?;
+    let template_parameters =
+        EthTemplateParameters::from_declarative(db, dec_template.template_parameters(db))?;
+    let ty = EthTerm::ty_from_declarative(db, dec_template.ty(db))?;
     Ok(TypeImplBlockEthTemplate::new(db, template_parameters, ty))
 }

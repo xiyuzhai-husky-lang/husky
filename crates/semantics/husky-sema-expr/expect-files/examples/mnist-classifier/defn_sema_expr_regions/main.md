@@ -69,7 +69,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`OneVsAll MnistLabel One`),
+                                        EthTerm(`OneVsAll MnistLabel One`),
                                     ),
                                 },
                             ),
@@ -81,7 +81,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel One`),
+                                            EthTerm(`OneVsAll MnistLabel One`),
                                         ),
                                     },
                                 ),
@@ -122,7 +122,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -132,10 +132,10 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`Type`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::Type {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`Type`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::Type {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
                                                                 variance: None,
@@ -143,10 +143,10 @@
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`MnistLabel`),
+                                                    EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -156,24 +156,24 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`t`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`t`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::ConstOther {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
                                                                 disambiguator: 0,
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`One`),
+                                                    EthTerm(`One`),
                                                 ),
                                             ],
                                             separator: Some(
                                                 2,
                                             ),
                                         },
-                                        ty_term: EtherealTerm(`unit`),
+                                        ty_term: EthTerm(`unit`),
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
@@ -197,14 +197,14 @@
                                             ),
                                         },
                                     ),
-                                    return_ty: EtherealTerm(`Class MnistLabel`),
+                                    return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -214,7 +214,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -245,7 +245,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`OneVsAll MnistLabel Six`),
+                                        EthTerm(`OneVsAll MnistLabel Six`),
                                     ),
                                 },
                             ),
@@ -257,7 +257,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel Six`),
+                                            EthTerm(`OneVsAll MnistLabel Six`),
                                         ),
                                     },
                                 ),
@@ -298,7 +298,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -308,10 +308,10 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`Type`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::Type {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`Type`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::Type {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
                                                                 variance: None,
@@ -319,10 +319,10 @@
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`MnistLabel`),
+                                                    EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -332,24 +332,24 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`t`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`t`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::ConstOther {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
                                                                 disambiguator: 0,
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`Six`),
+                                                    EthTerm(`Six`),
                                                 ),
                                             ],
                                             separator: Some(
                                                 2,
                                             ),
                                         },
-                                        ty_term: EtherealTerm(`unit`),
+                                        ty_term: EthTerm(`unit`),
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
@@ -373,14 +373,14 @@
                                             ),
                                         },
                                     ),
-                                    return_ty: EtherealTerm(`Class MnistLabel`),
+                                    return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -390,7 +390,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -421,7 +421,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`OneVsAll MnistLabel Zero`),
+                                        EthTerm(`OneVsAll MnistLabel Zero`),
                                     ),
                                 },
                             ),
@@ -433,7 +433,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel Zero`),
+                                            EthTerm(`OneVsAll MnistLabel Zero`),
                                         ),
                                     },
                                 ),
@@ -474,7 +474,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -484,10 +484,10 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`Type`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::Type {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`Type`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::Type {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
                                                                 variance: None,
@@ -495,10 +495,10 @@
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`MnistLabel`),
+                                                    EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -508,24 +508,24 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`t`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`t`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::ConstOther {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
                                                                 disambiguator: 0,
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`Zero`),
+                                                    EthTerm(`Zero`),
                                                 ),
                                             ],
                                             separator: Some(
                                                 2,
                                             ),
                                         },
-                                        ty_term: EtherealTerm(`unit`),
+                                        ty_term: EthTerm(`unit`),
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
@@ -549,14 +549,14 @@
                                             ),
                                         },
                                     ),
-                                    return_ty: EtherealTerm(`Class MnistLabel`),
+                                    return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -566,7 +566,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -597,7 +597,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`OneVsAll MnistLabel Seven`),
+                                        EthTerm(`OneVsAll MnistLabel Seven`),
                                     ),
                                 },
                             ),
@@ -609,7 +609,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel Seven`),
+                                            EthTerm(`OneVsAll MnistLabel Seven`),
                                         ),
                                     },
                                 ),
@@ -650,7 +650,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -660,10 +660,10 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`Type`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::Type {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`Type`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::Type {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
                                                                 variance: None,
@@ -671,10 +671,10 @@
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`MnistLabel`),
+                                                    EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -684,24 +684,24 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`t`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`t`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::ConstOther {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
                                                                 disambiguator: 0,
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`Seven`),
+                                                    EthTerm(`Seven`),
                                                 ),
                                             ],
                                             separator: Some(
                                                 2,
                                             ),
                                         },
-                                        ty_term: EtherealTerm(`unit`),
+                                        ty_term: EthTerm(`unit`),
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
@@ -725,14 +725,14 @@
                                             ),
                                         },
                                     ),
-                                    return_ty: EtherealTerm(`Class MnistLabel`),
+                                    return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -742,7 +742,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -773,7 +773,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`OneVsAll MnistLabel Eight`),
+                                        EthTerm(`OneVsAll MnistLabel Eight`),
                                     ),
                                 },
                             ),
@@ -785,7 +785,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel Eight`),
+                                            EthTerm(`OneVsAll MnistLabel Eight`),
                                         ),
                                     },
                                 ),
@@ -826,7 +826,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -836,10 +836,10 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`Type`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::Type {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`Type`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::Type {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
                                                                 variance: None,
@@ -847,10 +847,10 @@
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`MnistLabel`),
+                                                    EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -860,24 +860,24 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`t`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`t`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::ConstOther {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
                                                                 disambiguator: 0,
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`Eight`),
+                                                    EthTerm(`Eight`),
                                                 ),
                                             ],
                                             separator: Some(
                                                 2,
                                             ),
                                         },
-                                        ty_term: EtherealTerm(`unit`),
+                                        ty_term: EthTerm(`unit`),
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
@@ -901,14 +901,14 @@
                                             ),
                                         },
                                     ),
-                                    return_ty: EtherealTerm(`Class MnistLabel`),
+                                    return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -918,7 +918,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -949,7 +949,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`OneVsAll MnistLabel Three`),
+                                        EthTerm(`OneVsAll MnistLabel Three`),
                                     ),
                                 },
                             ),
@@ -961,7 +961,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel Three`),
+                                            EthTerm(`OneVsAll MnistLabel Three`),
                                         ),
                                     },
                                 ),
@@ -1002,7 +1002,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1012,10 +1012,10 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`Type`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::Type {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`Type`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::Type {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
                                                                 variance: None,
@@ -1023,10 +1023,10 @@
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`MnistLabel`),
+                                                    EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1036,24 +1036,24 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`t`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`t`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::ConstOther {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
                                                                 disambiguator: 0,
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`Three`),
+                                                    EthTerm(`Three`),
                                                 ),
                                             ],
                                             separator: Some(
                                                 2,
                                             ),
                                         },
-                                        ty_term: EtherealTerm(`unit`),
+                                        ty_term: EthTerm(`unit`),
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
@@ -1077,14 +1077,14 @@
                                             ),
                                         },
                                     ),
-                                    return_ty: EtherealTerm(`Class MnistLabel`),
+                                    return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -1094,7 +1094,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -1125,7 +1125,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`OneVsAll MnistLabel Nine`),
+                                        EthTerm(`OneVsAll MnistLabel Nine`),
                                     ),
                                 },
                             ),
@@ -1137,7 +1137,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel Nine`),
+                                            EthTerm(`OneVsAll MnistLabel Nine`),
                                         ),
                                     },
                                 ),
@@ -1178,7 +1178,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1188,10 +1188,10 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`Type`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::Type {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`Type`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::Type {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
                                                                 variance: None,
@@ -1199,10 +1199,10 @@
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`MnistLabel`),
+                                                    EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1212,24 +1212,24 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`t`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`t`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::ConstOther {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
                                                                 disambiguator: 0,
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`Nine`),
+                                                    EthTerm(`Nine`),
                                                 ),
                                             ],
                                             separator: Some(
                                                 2,
                                             ),
                                         },
-                                        ty_term: EtherealTerm(`unit`),
+                                        ty_term: EthTerm(`unit`),
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
@@ -1253,14 +1253,14 @@
                                             ),
                                         },
                                     ),
-                                    return_ty: EtherealTerm(`Class MnistLabel`),
+                                    return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -1270,7 +1270,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -1301,7 +1301,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`OneVsAll MnistLabel Five`),
+                                        EthTerm(`OneVsAll MnistLabel Five`),
                                     ),
                                 },
                             ),
@@ -1313,7 +1313,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel Five`),
+                                            EthTerm(`OneVsAll MnistLabel Five`),
                                         ),
                                     },
                                 ),
@@ -1354,7 +1354,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1364,10 +1364,10 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`Type`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::Type {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`Type`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::Type {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
                                                                 variance: None,
@@ -1375,10 +1375,10 @@
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`MnistLabel`),
+                                                    EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1388,24 +1388,24 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`t`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`t`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::ConstOther {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
                                                                 disambiguator: 0,
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`Five`),
+                                                    EthTerm(`Five`),
                                                 ),
                                             ],
                                             separator: Some(
                                                 2,
                                             ),
                                         },
-                                        ty_term: EtherealTerm(`unit`),
+                                        ty_term: EthTerm(`unit`),
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
@@ -1429,14 +1429,14 @@
                                             ),
                                         },
                                     ),
-                                    return_ty: EtherealTerm(`Class MnistLabel`),
+                                    return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -1446,7 +1446,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -1477,7 +1477,7 @@
                                         Leashed,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`OneVsAll MnistLabel Two`),
+                                        EthTerm(`OneVsAll MnistLabel Two`),
                                     ),
                                 },
                             ),
@@ -1489,7 +1489,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel Two`),
+                                            EthTerm(`OneVsAll MnistLabel Two`),
                                         ),
                                     },
                                 ),
@@ -1530,7 +1530,7 @@
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1540,10 +1540,10 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`Type`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::Type {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`Type`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::Type {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
                                                                 variance: None,
@@ -1551,10 +1551,10 @@
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`MnistLabel`),
+                                                    EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm {
+                                                    SymbolEthTerm {
                                                         toolchain: Toolchain {
                                                             data: ToolchainData::Local {
                                                                 library_path: VirtualPath {
@@ -1564,24 +1564,24 @@
                                                                 },
                                                             },
                                                         },
-                                                        ty: EtherealTerm(`t`),
-                                                        index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                        ty: EthTerm(`t`),
+                                                        index: EthTermSymbolIndex(
+                                                            EthTermSymbolIndexImpl::ConstOther {
+                                                                attrs: EthTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
                                                                 disambiguator: 0,
                                                             },
                                                         ),
                                                     },
-                                                    EtherealTerm(`Two`),
+                                                    EthTerm(`Two`),
                                                 ),
                                             ],
                                             separator: Some(
                                                 2,
                                             ),
                                         },
-                                        ty_term: EtherealTerm(`unit`),
+                                        ty_term: EthTerm(`unit`),
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
@@ -1605,14 +1605,14 @@
                                             ),
                                         },
                                     ),
-                                    return_ty: EtherealTerm(`Class MnistLabel`),
+                                    return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -1622,7 +1622,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -1653,7 +1653,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 1,
                                                         },
@@ -1765,7 +1765,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -1796,7 +1796,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -1827,7 +1827,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -1858,7 +1858,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -1889,7 +1889,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -1920,7 +1920,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -1951,7 +1951,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -1982,7 +1982,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -2013,7 +2013,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -2095,7 +2095,7 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`MnistLabel`),
+                                                EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
@@ -2104,14 +2104,14 @@
                                             target: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`MnistLabel`),
+                                                    EthTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`MnistLabel`),
+                                    EthTerm(`MnistLabel`),
                                 ),
                             },
                             HollowTermEntry {
@@ -2134,7 +2134,7 @@
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`Class MnistLabel`),
+                                    EthTerm(`Class MnistLabel`),
                                 ),
                             },
                         ],
@@ -2159,7 +2159,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel One`),
+                                            EthTerm(`OneVsAll MnistLabel One`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2173,7 +2173,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -2187,7 +2187,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2221,7 +2221,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel Six`),
+                                            EthTerm(`OneVsAll MnistLabel Six`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2235,7 +2235,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -2249,7 +2249,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2283,7 +2283,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel Zero`),
+                                            EthTerm(`OneVsAll MnistLabel Zero`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2297,7 +2297,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -2311,7 +2311,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2345,7 +2345,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel Seven`),
+                                            EthTerm(`OneVsAll MnistLabel Seven`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2359,7 +2359,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -2373,7 +2373,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2407,7 +2407,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel Eight`),
+                                            EthTerm(`OneVsAll MnistLabel Eight`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2421,7 +2421,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -2435,7 +2435,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2469,7 +2469,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel Three`),
+                                            EthTerm(`OneVsAll MnistLabel Three`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2483,7 +2483,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -2497,7 +2497,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2531,7 +2531,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel Nine`),
+                                            EthTerm(`OneVsAll MnistLabel Nine`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2545,7 +2545,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -2559,7 +2559,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2593,7 +2593,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel Five`),
+                                            EthTerm(`OneVsAll MnistLabel Five`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2607,7 +2607,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -2621,7 +2621,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2655,7 +2655,7 @@
                                             Leashed,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll MnistLabel Two`),
+                                            EthTerm(`OneVsAll MnistLabel Two`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2669,7 +2669,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -2683,7 +2683,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2709,7 +2709,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Class MnistLabel`),
+                                                EthTerm(`Class MnistLabel`),
                                             ),
                                         },
                                     },
@@ -2750,7 +2750,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`MnistLabel`),
+                                                EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     },
@@ -2788,7 +2788,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Class MnistLabel`),
+                                                EthTerm(`Class MnistLabel`),
                                             ),
                                         },
                                     },
@@ -2829,7 +2829,7 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`Class MnistLabel`),
+                EthTerm(`Class MnistLabel`),
             ),
             self_ty: None,
         },

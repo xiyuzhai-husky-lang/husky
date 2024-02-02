@@ -21,16 +21,11 @@ impl HasDecTemplate for MajorItemPath {
     type DecTemplate = MajorItemDecTemplate;
 
     #[inline(always)]
-    fn declarative_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
+    fn dec_template(self, db: &::salsa::Db) -> DecSignatureResult<Self::DecTemplate> {
         match self {
-            MajorItemPath::Type(path) => path.declarative_signature_template(db).map(Into::into),
-            MajorItemPath::Fugitive(path) => {
-                path.declarative_signature_template(db).map(Into::into)
-            }
-            MajorItemPath::Trait(decl) => decl.declarative_signature_template(db).map(Into::into),
+            MajorItemPath::Type(path) => path.dec_template(db).map(Into::into),
+            MajorItemPath::Fugitive(path) => path.dec_template(db).map(Into::into),
+            MajorItemPath::Trait(decl) => decl.dec_template(db).map(Into::into),
         }
     }
 }

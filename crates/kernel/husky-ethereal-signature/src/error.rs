@@ -1,14 +1,14 @@
 use crate::*;
-use husky_declarative_signature::DeclarativeSignatureError;
+use husky_declarative_signature::DecSignatureError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
 pub enum EtherealSignatureError {
     #[error("term error")]
-    TermError(EtherealTermError),
+    TermError(EthTermError),
     #[error("DerivedFromDeclarative")]
-    DerivedFromDeclarativeSignature(DeclarativeSignatureError),
+    DerivedFromDecSignature(DecSignatureError),
     #[error("NoSuchItem")]
     NoSuchItemInTraitForTypeImplBlockEtherealSignatureBuilder {
         signature_builder: TraitForTypeImplBlockEtherealSignatureBuilder,
@@ -26,14 +26,14 @@ impl From<&EtherealSignatureError> for EtherealSignatureError {
     }
 }
 
-impl From<DeclarativeSignatureError> for EtherealSignatureError {
-    fn from(e: DeclarativeSignatureError) -> Self {
-        EtherealSignatureError::DerivedFromDeclarativeSignature(e)
+impl From<DecSignatureError> for EtherealSignatureError {
+    fn from(e: DecSignatureError) -> Self {
+        EtherealSignatureError::DerivedFromDecSignature(e)
     }
 }
 
-impl From<EtherealTermError> for EtherealSignatureError {
-    fn from(e: EtherealTermError) -> Self {
+impl From<EthTermError> for EtherealSignatureError {
+    fn from(e: EthTermError) -> Self {
         EtherealSignatureError::TermError(e)
     }
 }

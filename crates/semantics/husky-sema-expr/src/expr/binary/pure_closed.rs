@@ -6,7 +6,7 @@ impl<'a> SemaExprEngine<'a> {
         lopd: SynExprIdx,
         ropd: SynExprIdx,
         opr: BinaryClosedOpr,
-        menu: &EtherealTermMenu,
+        menu: &EthTermMenu,
     ) -> (
         SemaExprIdx,
         SemaBinaryOpr,

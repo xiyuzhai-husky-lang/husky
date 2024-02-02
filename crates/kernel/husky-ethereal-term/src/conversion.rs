@@ -1,12 +1,12 @@
 use crate::*;
 
-impl EtherealTerm {
+impl EthTerm {
     /// whether two types are trivially convertible
     pub fn is_ty_trivially_convertible_from(
         self,
         db: &::salsa::Db,
         other_ty: Either<Self, PreludeTypePath>,
-    ) -> EtherealTermResult<bool> {
+    ) -> EthTermResult<bool> {
         match other_ty {
             Left(other_ty) if other_ty == self => Ok(true),
             Left(_other_ty) => {
@@ -14,7 +14,7 @@ impl EtherealTerm {
                 Ok(false)
             }
             Right(other_ty) => match self {
-                EtherealTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)) => {
+                EthTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)) => {
                     Ok(ty_path.prelude_ty_path(db) == Some(other_ty))
                 }
                 _ => {

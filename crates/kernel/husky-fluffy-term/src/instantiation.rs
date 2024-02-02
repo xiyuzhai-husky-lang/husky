@@ -6,14 +6,14 @@ use vec_like::SmallVecPairMap;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FluffyInstantiation {
     env: FluffyInstantiationEnvironment,
-    symbol_map: SmallVecPairMap<SymbolEtherealTerm, FluffyTermSymbolResolution, 4>,
+    symbol_map: SmallVecPairMap<SymbolEthTerm, FluffyTermSymbolResolution, 4>,
     separator: Option<u8>,
 }
 
-impl std::ops::Index<SymbolEtherealTerm> for FluffyInstantiation {
+impl std::ops::Index<SymbolEthTerm> for FluffyInstantiation {
     type Output = FluffyTermSymbolResolution;
 
-    fn index(&self, index: SymbolEtherealTerm) -> &Self::Output {
+    fn index(&self, index: SymbolEthTerm) -> &Self::Output {
         &self.symbol_map[index].1
     }
 }
@@ -38,8 +38,8 @@ impl FluffyInstantiation {
     pub fn from_template_parameters(
         env: FluffyInstantiationEnvironment,
         syn_expr_idx: SynExprIdx,
-        template_parameters1: &[EtherealTemplateParameter],
-        template_parameters2: Option<&[EtherealTemplateParameter]>,
+        template_parameters1: &[EthTemplateParameter],
+        template_parameters2: Option<&[EthTemplateParameter]>,
         terms: &mut FluffyTerms,
         db: &::salsa::Db,
     ) -> Self {
@@ -86,7 +86,7 @@ impl FluffyInstantiation {
         }
     }
 
-    pub fn symbol_map(&self) -> &[(SymbolEtherealTerm, FluffyTermSymbolResolution)] {
+    pub fn symbol_map(&self) -> &[(SymbolEthTerm, FluffyTermSymbolResolution)] {
         self.symbol_map.as_ref()
     }
 
@@ -97,8 +97,8 @@ impl FluffyInstantiation {
     pub fn symbol_map_splitted(
         &self,
     ) -> (
-        &[(SymbolEtherealTerm, FluffyTermSymbolResolution)],
-        Option<&[(SymbolEtherealTerm, FluffyTermSymbolResolution)]>,
+        &[(SymbolEthTerm, FluffyTermSymbolResolution)],
+        Option<&[(SymbolEthTerm, FluffyTermSymbolResolution)]>,
     ) {
         let symbol_map: &[_] = self.symbol_map.as_ref();
         match self.separator {
@@ -159,14 +159,14 @@ pub(crate) trait FluffyInstantiateRef {
 
 pub struct FluffyTermInstantiationBuilder {
     env: FluffyInstantiationEnvironment,
-    symbol_map: SmallVecPairMap<SymbolEtherealTerm, Option<FluffyTermSymbolResolution>, 4>,
+    symbol_map: SmallVecPairMap<SymbolEthTerm, Option<FluffyTermSymbolResolution>, 4>,
     separator: Option<u8>,
 }
 
-impl std::ops::Index<SymbolEtherealTerm> for FluffyTermInstantiationBuilder {
+impl std::ops::Index<SymbolEthTerm> for FluffyTermInstantiationBuilder {
     type Output = Option<FluffyTermSymbolResolution>;
 
-    fn index(&self, index: SymbolEtherealTerm) -> &Self::Output {
+    fn index(&self, index: SymbolEthTerm) -> &Self::Output {
         &self.symbol_map[index].1
     }
 }
@@ -174,8 +174,8 @@ impl std::ops::Index<SymbolEtherealTerm> for FluffyTermInstantiationBuilder {
 impl FluffyTermInstantiationBuilder {
     pub fn new_associated(
         env: FluffyInstantiationEnvironment,
-        impl_block_template_parameters: &[EtherealTemplateParameter],
-        associated_item_template_parameters: &[EtherealTemplateParameter],
+        impl_block_template_parameters: &[EthTemplateParameter],
+        associated_item_template_parameters: &[EthTemplateParameter],
         db: &::salsa::Db,
     ) -> Self {
         Self {
@@ -188,10 +188,10 @@ impl FluffyTermInstantiationBuilder {
                     (
                         symbol,
                         match symbol.index(db).inner() {
-                            EtherealTermSymbolIndexImpl::SelfLifetime => {
+                            EthTermSymbolIndexImpl::SelfLifetime => {
                                 Some(FluffyTermSymbolResolution::SelfLifetime)
                             }
-                            EtherealTermSymbolIndexImpl::SelfPlace => Some(match env {
+                            EthTermSymbolIndexImpl::SelfPlace => Some(match env {
                                 FluffyInstantiationEnvironment::AssociatedFn => todo!(),
                                 FluffyInstantiationEnvironment::MethodFn { self_place } => {
                                     FluffyTermSymbolResolution::SelfPlace(self_place)
@@ -220,12 +220,12 @@ impl FluffyTermInstantiationBuilder {
     /// JustErr(_) means something is wrong
     pub(crate) fn try_add_rule(
         &mut self,
-        src: EtherealTerm,
+        src: EthTerm,
         dst: FluffyTerm,
     ) -> FluffyTermMaybeResult<()> {
         match src {
-            EtherealTerm::Literal(_) => todo!(),
-            EtherealTerm::Symbol(symbol) => {
+            EthTerm::Literal(_) => todo!(),
+            EthTerm::Symbol(symbol) => {
                 let (_, ref mut dst0) = self.symbol_map[symbol];
                 match *dst0 {
                     Some(dst0) => match dst0 {
@@ -244,16 +244,16 @@ impl FluffyTermInstantiationBuilder {
                 }
                 JustOk(())
             }
-            EtherealTerm::Rune(_) => todo!(),
-            EtherealTerm::EntityPath(_) => todo!(),
-            EtherealTerm::Category(_) => todo!(),
-            EtherealTerm::Universe(_) => todo!(),
-            EtherealTerm::Curry(_) => todo!(),
-            EtherealTerm::Ritchie(_) => todo!(),
-            EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::Application(_) => todo!(),
-            EtherealTerm::TypeAsTraitItem(_) => todo!(),
-            EtherealTerm::TraitConstraint(_) => todo!(),
+            EthTerm::Rune(_) => todo!(),
+            EthTerm::EntityPath(_) => todo!(),
+            EthTerm::Category(_) => todo!(),
+            EthTerm::Universe(_) => todo!(),
+            EthTerm::Curry(_) => todo!(),
+            EthTerm::Ritchie(_) => todo!(),
+            EthTerm::Abstraction(_) => todo!(),
+            EthTerm::Application(_) => todo!(),
+            EthTerm::TypeAsTraitItem(_) => todo!(),
+            EthTerm::TraitConstraint(_) => todo!(),
         }
     }
 
@@ -270,7 +270,7 @@ impl FluffyTermInstantiationBuilder {
     }
 }
 
-impl FluffyInstantiate for EtherealTerm {
+impl FluffyInstantiate for EthTerm {
     type Target = FluffyTerm;
 
     fn instantiate(
@@ -283,29 +283,29 @@ impl FluffyInstantiate for EtherealTerm {
             return self.into();
         }
         match self {
-            EtherealTerm::Literal(_) => todo!(),
-            EtherealTerm::Symbol(symbol) => match instantiation[symbol] {
+            EthTerm::Literal(_) => todo!(),
+            EthTerm::Symbol(symbol) => match instantiation[symbol] {
                 resolution => match resolution {
                     FluffyTermSymbolResolution::Explicit(term) => term,
                     FluffyTermSymbolResolution::SelfLifetime => todo!(),
                     FluffyTermSymbolResolution::SelfPlace(place) => place.into(),
                 },
             },
-            EtherealTerm::Rune(_) => todo!(),
-            EtherealTerm::EntityPath(_) => self.into(),
-            EtherealTerm::Category(_) => todo!(),
-            EtherealTerm::Universe(_) => todo!(),
-            EtherealTerm::Curry(_) => todo!(),
-            EtherealTerm::Ritchie(term) => term.instantiate(engine, expr_idx, instantiation),
-            EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::Application(term) => term.instantiate(engine, expr_idx, instantiation),
-            EtherealTerm::TypeAsTraitItem(_) => todo!(),
-            EtherealTerm::TraitConstraint(_) => todo!(),
+            EthTerm::Rune(_) => todo!(),
+            EthTerm::EntityPath(_) => self.into(),
+            EthTerm::Category(_) => todo!(),
+            EthTerm::Universe(_) => todo!(),
+            EthTerm::Curry(_) => todo!(),
+            EthTerm::Ritchie(term) => term.instantiate(engine, expr_idx, instantiation),
+            EthTerm::Abstraction(_) => todo!(),
+            EthTerm::Application(term) => term.instantiate(engine, expr_idx, instantiation),
+            EthTerm::TypeAsTraitItem(_) => todo!(),
+            EthTerm::TraitConstraint(_) => todo!(),
         }
     }
 }
 
-impl FluffyInstantiate for ApplicationEtherealTerm {
+impl FluffyInstantiate for ApplicationEthTerm {
     type Target = FluffyTerm;
 
     fn instantiate(
@@ -366,7 +366,7 @@ impl FluffyInstantiate for ApplicationEtherealTerm {
     }
 }
 
-impl FluffyInstantiate for RitchieEtherealTerm {
+impl FluffyInstantiate for RitchieEthTerm {
     type Target = FluffyTerm;
 
     fn instantiate(

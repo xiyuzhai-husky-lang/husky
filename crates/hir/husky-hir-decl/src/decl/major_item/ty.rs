@@ -108,7 +108,7 @@ pub enum PropsFieldEtherealSignature {
 }
 
 impl PropsFieldEtherealSignature {
-    pub fn ty(self) -> EtherealTerm {
+    pub fn ty(self) -> EthTerm {
         match self {
             PropsFieldEtherealSignature::PropsStruct(signature) => signature.ty(),
         }

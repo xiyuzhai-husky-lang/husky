@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct TraitDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
@@ -28,19 +28,16 @@ impl TraitDecTemplate {
 impl HasDecTemplate for TraitPath {
     type DecTemplate = TraitDecTemplate;
 
-    fn declarative_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
-        trai_syn_declarative_signature_template(db, self)
+    fn dec_template(self, db: &::salsa::Db) -> DecSignatureResult<Self::DecTemplate> {
+        trai_syn_dec_template(db, self)
     }
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub fn trai_syn_declarative_signature_template(
+#[salsa::tracked(jar = DecSignatureJar)]
+pub fn trai_syn_dec_template(
     db: &::salsa::Db,
     path: TraitPath,
-) -> DeclarativeSignatureResult<TraitDecTemplate> {
+) -> DecSignatureResult<TraitDecTemplate> {
     let decl = path.syn_decl(db)?;
     let syn_expr_region = decl.syn_expr_region(db);
     let declarative_term_region = declarative_term_region(db, syn_expr_region);

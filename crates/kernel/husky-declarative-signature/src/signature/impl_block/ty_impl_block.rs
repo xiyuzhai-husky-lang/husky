@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct TypeImplBlockDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
@@ -10,19 +10,16 @@ pub struct TypeImplBlockDecTemplate {
 impl HasDecTemplate for TypeImplBlockPath {
     type DecTemplate = TypeImplBlockDecTemplate;
 
-    fn declarative_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
-        ty_impl_block_syn_declarative_signature_template(db, self)
+    fn dec_template(self, db: &::salsa::Db) -> DecSignatureResult<Self::DecTemplate> {
+        ty_impl_block_syn_dec_template(db, self)
     }
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub(crate) fn ty_impl_block_syn_declarative_signature_template(
+#[salsa::tracked(jar = DecSignatureJar)]
+pub(crate) fn ty_impl_block_syn_dec_template(
     db: &::salsa::Db,
     path: TypeImplBlockPath,
-) -> DeclarativeSignatureResult<TypeImplBlockDecTemplate> {
+) -> DecSignatureResult<TypeImplBlockDecTemplate> {
     let decl = path.syn_decl(db)?;
     let syn_expr_region = decl.syn_expr_region(db);
     let declarative_term_region = declarative_term_region(db, syn_expr_region);

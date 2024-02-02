@@ -21,7 +21,7 @@ pub enum TraitForTypeItemEthTemplate {
 }
 
 impl TraitForTypeItemEthTemplate {
-    pub fn self_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
+    pub fn self_ty(self, db: &::salsa::Db) -> Option<EthTerm> {
         match self {
             TraitForTypeItemEthTemplate::AssociatedFn(_) => None,
             TraitForTypeItemEthTemplate::AssociatedVal(_) => None,
@@ -74,23 +74,13 @@ fn trai_for_ty_item_ethereal_signature_template(
     db: &::salsa::Db,
     path: TraitForTypeItemPath,
 ) -> EtherealSignatureResult<TraitForTypeItemEthTemplate> {
-    Ok(match path.declarative_signature_template(db)? {
+    Ok(match path.dec_template(db)? {
         TraitForTypeItemDecTemplate::AssociatedFn(_) => todo!(),
-        TraitForTypeItemDecTemplate::MethodFn(declarative_signature_template) => {
-            TraitForTypeMethodFnEthTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
+        TraitForTypeItemDecTemplate::MethodFn(dec_template) => {
+            TraitForTypeMethodFnEthTemplate::from_declarative(db, path, dec_template)?.into()
         }
-        TraitForTypeItemDecTemplate::AssociatedType(declarative_signature_template) => {
-            TraitForTypeAssociatedTypeEthTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
+        TraitForTypeItemDecTemplate::AssociatedType(dec_template) => {
+            TraitForTypeAssociatedTypeEthTemplate::from_declarative(db, path, dec_template)?.into()
         }
         TraitForTypeItemDecTemplate::AssociatedVal(_) => todo!(),
     })

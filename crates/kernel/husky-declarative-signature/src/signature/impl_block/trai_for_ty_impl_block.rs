@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct TraitForTypeImplBlockDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
@@ -28,19 +28,16 @@ impl DeclarativeSelfType {
 impl HasDecTemplate for TraitForTypeImplBlockPath {
     type DecTemplate = TraitForTypeImplBlockDecTemplate;
 
-    fn declarative_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
-        trai_for_ty_impl_block_syn_declarative_signature_template(db, self)
+    fn dec_template(self, db: &::salsa::Db) -> DecSignatureResult<Self::DecTemplate> {
+        trai_for_ty_impl_block_syn_dec_template(db, self)
     }
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub(crate) fn trai_for_ty_impl_block_syn_declarative_signature_template(
+#[salsa::tracked(jar = DecSignatureJar)]
+pub(crate) fn trai_for_ty_impl_block_syn_dec_template(
     db: &::salsa::Db,
     path: TraitForTypeImplBlockPath,
-) -> DeclarativeSignatureResult<TraitForTypeImplBlockDecTemplate> {
+) -> DecSignatureResult<TraitForTypeImplBlockDecTemplate> {
     let decl = path.syn_decl(db)?;
     let syn_expr_region = decl.syn_expr_region(db);
     let declarative_term_region = declarative_term_region(db, syn_expr_region);
@@ -57,7 +54,7 @@ pub(crate) fn trai_for_ty_impl_block_syn_declarative_signature_template(
     let self_ty_term = declarative_term_region
         .term_symbol_region()
         .self_ty()
-        .ok_or(DeclarativeSignatureError::SelfTypeNotInferred)?;
+        .ok_or(DecSignatureError::SelfTypeNotInferred)?;
     let self_ty = match decl.self_ty_decl(db) {
         SelfTypeDecl::PathLeadingExpr(ty_expr) => {
             debug_assert_eq!(

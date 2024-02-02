@@ -84,7 +84,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EtherealTerm(`str`),
+                EthTerm(`str`),
             ),
         },
     },
@@ -173,7 +173,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EtherealTerm(`StringLiteral`),
+                EthTerm(`StringLiteral`),
             ),
         },
     },

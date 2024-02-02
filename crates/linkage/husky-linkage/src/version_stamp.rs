@@ -1,6 +1,6 @@
 use crate::{
     template_argument::{
-        ty::{LinkageRitchieType, LinkageType, LinkageTypePathLeading},
+        ty::{LinType, LinTypePathLeading, LinkageRitchieType},
         LinkageTemplateArgument, LinkageTemplateArguments,
     },
     *,
@@ -20,7 +20,7 @@ pub struct LinkageVersionStamp {
 #[enum_class::from_variants]
 pub enum LinkageVersionStampData {
     HirDefn(Linkage),
-    Type(LinkageType),
+    Type(LinType),
 }
 
 #[enum_class::from_variants]
@@ -123,13 +123,13 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
     builder.finish()
 }
 
-impl HasVersionStamp for LinkageType {
+impl HasVersionStamp for LinType {
     type VersionStamp = LinkageVersionStamp;
 
     fn version_stamp(self, db: &salsa::Db) -> Self::VersionStamp {
         match self {
-            LinkageType::PathLeading(slf) => linkage_ty_path_leading_version_stamp(db, slf),
-            LinkageType::Ritchie(slf) => linkage_ty_ritchie_version_stamp(db, slf),
+            LinType::PathLeading(slf) => linkage_ty_path_leading_version_stamp(db, slf),
+            LinType::Ritchie(slf) => linkage_ty_ritchie_version_stamp(db, slf),
         }
     }
 }
@@ -137,9 +137,9 @@ impl HasVersionStamp for LinkageType {
 #[salsa::tracked(jar = LinkageJar)]
 fn linkage_ty_path_leading_version_stamp(
     db: &::salsa::Db,
-    linkage_ty: LinkageTypePathLeading,
+    linkage_ty: LinTypePathLeading,
 ) -> LinkageVersionStamp {
-    let mut builder = LinkageVersionStampBuilder::new(LinkageType::PathLeading(linkage_ty), db);
+    let mut builder = LinkageVersionStampBuilder::new(LinType::PathLeading(linkage_ty), db);
     let hir_defn: HirDefn = linkage_ty.ty_path(db).hir_defn(db).unwrap().into();
     builder.add(hir_defn);
     builder.add_template_arguments(linkage_ty.template_arguments(db));
@@ -151,7 +151,7 @@ fn linkage_ty_ritchie_version_stamp(
     db: &::salsa::Db,
     linkage_ty: LinkageRitchieType,
 ) -> LinkageVersionStamp {
-    let builder = LinkageVersionStampBuilder::new(LinkageType::Ritchie(linkage_ty), db);
+    let builder = LinkageVersionStampBuilder::new(LinType::Ritchie(linkage_ty), db);
     builder.finish()
 }
 
@@ -177,14 +177,14 @@ impl<'a> LinkageVersionStampBuilder<'a> {
         self.substamps.push(item.version_stamp(self.db).into())
     }
 
-    fn add_ty(&mut self, ty: LinkageType) {
+    fn add_ty(&mut self, ty: LinType) {
         match ty {
-            LinkageType::PathLeading(ty) => self.add_ty_path_leading(ty),
-            LinkageType::Ritchie(_) => (),
+            LinType::PathLeading(ty) => self.add_ty_path_leading(ty),
+            LinType::Ritchie(_) => (),
         }
     }
 
-    fn add_ty_path_leading(&mut self, ty: LinkageTypePathLeading) {
+    fn add_ty_path_leading(&mut self, ty: LinTypePathLeading) {
         let db = self.db;
         self.add_ty_path(ty.ty_path(db), db);
         self.add_template_arguments(ty.template_arguments(db))

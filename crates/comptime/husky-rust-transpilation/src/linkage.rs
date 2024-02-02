@@ -14,14 +14,14 @@ use husky_linkage::{
     template_argument::{
         constant::LinkageConstant,
         place,
-        ty::{LinkageRitchieParameter, LinkageRitchieType, LinkageType},
+        ty::{LinType, LinkageRitchieParameter, LinkageRitchieType},
         LinkageTemplateArgument,
     },
     trai::LinkageTrait,
 };
 use husky_linkage::{
     linkage::{package_linkages, Linkage, LinkageData},
-    template_argument::ty::LinkageTypePathLeading,
+    template_argument::ty::LinTypePathLeading,
 };
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
@@ -206,7 +206,7 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinkageInstantiation) {
         let ident = path.ident(db).unwrap();
         builder.bracketed(RustBracket::Angle, |builder| {
             match self_ty {
-                LinkageType::PathLeading(self_ty) => match self_ty.ty_path(db).refine(db) {
+                LinType::PathLeading(self_ty) => match self_ty.ty_path(db).refine(db) {
                     Left(PreludeTypePath::VEC) => match ident.data(db) {
                         "first" | "last" => {
                             builder.bracketed_comma_list(
@@ -254,12 +254,12 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinkageInstantiation) {
     }
 }
 
-impl<E> TranspileToRustWith<E> for LinkageType {
+impl<E> TranspileToRustWith<E> for LinType {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let _db = builder.db;
         match self {
-            LinkageType::PathLeading(slf) => slf.transpile_to_rust(builder),
-            LinkageType::Ritchie(slf) => slf.transpile_to_rust(builder),
+            LinType::PathLeading(slf) => slf.transpile_to_rust(builder),
+            LinType::Ritchie(slf) => slf.transpile_to_rust(builder),
         }
     }
 }
@@ -275,7 +275,7 @@ impl<E> TranspileToRustWith<E> for LinkageTrait {
     }
 }
 
-impl<E> TranspileToRustWith<E> for LinkageTypePathLeading {
+impl<E> TranspileToRustWith<E> for LinTypePathLeading {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db;
         let template_arguments = self.template_arguments(db);

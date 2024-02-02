@@ -115,7 +115,7 @@ impl<'a> HirLazyExprBuilder<'a> {
         HirType::from_ethereal(self.expr_term(sema_expr_idx), self.db)
     }
 
-    pub(crate) fn expr_term(&self, sema_expr_idx: SemaExprIdx) -> EtherealTerm {
+    pub(crate) fn expr_term(&self, sema_expr_idx: SemaExprIdx) -> EthTerm {
         // ad hoc
         match self
             .sema_expr_region_data

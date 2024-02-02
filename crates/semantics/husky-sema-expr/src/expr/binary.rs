@@ -108,10 +108,10 @@ impl<'a> SemaExprEngine<'a> {
         let lopd_sema_expr_idx = todo!();
         // todo
         // match ropd_ty {
-        //     EtherealTerm::Entity(path) if path == self.item_path_menu.trai_ty().into() => {
+        //     EthTerm::Entity(path) if path == self.item_path_menu.trai_ty().into() => {
         //         todo!()
         //     }
-        //     EtherealTerm::Category(_) => {
+        //     EthTerm::Category(_) => {
         //         todo!()
         //         // if let Some(ropd_term) = self.infer_new_expr_term(ropd) {
         //         //     ropd_expectation = ExpectImplicitConversion {
@@ -197,7 +197,7 @@ impl<'a> SemaExprEngine<'a> {
             );
         };
         todo!()
-        // Ok(EtherealTerm::new_category(x_u.max(y_u)).into())
+        // Ok(EthTerm::new_category(x_u.max(y_u)).into())
     }
 
     fn calc_binary_assign_shift_expr_ty(
@@ -231,8 +231,8 @@ impl<'a> SemaExprEngine<'a> {
         let Some(ropd_ty) = ropd_ty else { return };
         todo!()
         // let lopd_ty = match lopd_ty {
-        //     FluffyTerm::EtherealTerm(lopd_ty) => match lopd_ty {
-        //         EtherealTerm::Application(lopd_ty) => todo!(),
+        //     FluffyTerm::EthTerm(lopd_ty) => match lopd_ty {
+        //         EthTerm::Application(lopd_ty) => todo!(),
         //         _ => todo!(),
         //     },
         //     FluffyTerm::Unresolved(lopd_ty) => {
@@ -248,7 +248,7 @@ impl<'a> SemaExprEngine<'a> {
         //     _ => todo!(),
         // };
         // let ropd_ty = match ropd_ty {
-        //     FluffyTerm::EtherealTerm(ropd_ty) => todo!(),
+        //     FluffyTerm::EthTerm(ropd_ty) => todo!(),
         //     // self.db.intrinsic_ty(ropd_ty).reduced_term(),
         //     FluffyTerm::Unresolved(_) => todo!(),
         //     _ => todo!(),

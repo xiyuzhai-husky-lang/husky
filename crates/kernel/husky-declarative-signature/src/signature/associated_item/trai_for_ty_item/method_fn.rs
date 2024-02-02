@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct TraitForTypeMethodFnDecTemplate {
     pub self_ty: DeclarativeTerm,
     #[return_ref]
@@ -15,11 +15,11 @@ impl TraitForTypeMethodFnDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
         decl: TraitForTypeMethodFnSynDecl,
-    ) -> DeclarativeSignatureResult<Self> {
+    ) -> DecSignatureResult<Self> {
         let self_ty = decl
             .path(db)
             .impl_block(db)
-            .declarative_signature_template(db)?
+            .dec_template(db)?
             .self_ty(db)
             .term();
         let self_value_parameter = DeclarativeRitchieRegularParameter::new(

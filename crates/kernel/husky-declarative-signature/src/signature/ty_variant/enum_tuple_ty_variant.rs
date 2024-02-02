@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct EnumTupleVariantDecTemplate {
     pub parent_ty_template: EnumTypeDecTemplate,
     pub fields: SmallVec<[EnumTupleVariantFieldDecTemplate; 4]>,
@@ -18,7 +18,7 @@ impl EnumTupleVariantDecTemplate {
         db: &::salsa::Db,
         parent_ty_template: EnumTypeDecTemplate,
         decl: TypeTupleVariantSynDecl,
-    ) -> DeclarativeSignatureResult<Self> {
+    ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let declarative_term_region = declarative_term_region(db, syn_expr_region);
         let fields = decl
@@ -30,14 +30,14 @@ impl EnumTupleVariantDecTemplate {
                     ty: match declarative_term_region.expr_term(field.ty()) {
                         Ok(ty) => ty,
                         Err(_) => {
-                            return Err(DeclarativeSignatureError::FieldTypeDeclarativeTermError(
+                            return Err(DecSignatureError::FieldTypeDeclarativeTermError(
                                 i.try_into().unwrap(),
                             ))
                         }
                     },
                 })
             })
-            .collect::<DeclarativeSignatureResult<SmallVec<_>>>()?;
+            .collect::<DecSignatureResult<SmallVec<_>>>()?;
         // todo: GADT can override return_ty
         let return_ty = parent_ty_template.self_ty(db);
         let instance_constructor_ty = RitchieDeclarativeTerm::new(

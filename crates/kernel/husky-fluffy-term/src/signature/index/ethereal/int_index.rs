@@ -4,9 +4,9 @@ use husky_ethereal_signature::helpers::trai_for_ty::ty_side_trai_for_ty_impl_blo
 pub(super) fn ethereal_owner_ty_int_index_signature(
     engine: &mut impl FluffyTermEngine,
     syn_expr_idx: SynExprIdx,
-    owner_ty: EtherealTerm,
+    owner_ty: EthTerm,
     custom_ty_path: CustomTypePath,
-    owner_ty_arguments: &[EtherealTerm],
+    owner_ty_arguments: &[EthTerm],
     index_ty: FluffyTerm,
     final_place: FluffyPlace,
 ) -> FluffyTermMaybeResult<FluffyIndexSignature> {

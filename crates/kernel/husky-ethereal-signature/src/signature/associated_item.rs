@@ -20,7 +20,7 @@ pub enum AssociatedItemEthTemplate {
 }
 
 impl AssociatedItemEthTemplate {
-    pub fn self_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
+    pub fn self_ty(self, db: &::salsa::Db) -> Option<EthTerm> {
         match self {
             AssociatedItemEthTemplate::TraitForType(template) => template.self_ty(db),
             AssociatedItemEthTemplate::Type(template) => template.self_ty(db),

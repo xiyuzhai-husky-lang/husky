@@ -5,8 +5,8 @@ use husky_declarative_signature::UnitStructTypeDecTemplate;
 pub struct UnitStructTypeEthTemplate {
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
-    pub self_ty: EtherealTerm,
+    pub template_parameters: EthTemplateParameters,
+    pub self_ty: EthTerm,
 }
 
 impl UnitStructTypeEthTemplate {
@@ -16,14 +16,14 @@ impl UnitStructTypeEthTemplate {
         tmpl: UnitStructTypeDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters =
-            EtherealTemplateParameters::from_declarative(db, tmpl.template_parameters(db))?;
-        let self_ty = EtherealTerm::ty_from_declarative(db, tmpl.self_ty(db))?;
+            EthTemplateParameters::from_declarative(db, tmpl.template_parameters(db))?;
+        let self_ty = EthTerm::ty_from_declarative(db, tmpl.self_ty(db))?;
         Ok(Self::new(db, path, template_parameters, self_ty))
     }
 }
 
 impl UnitStructTypeEthTemplate {
-    pub fn instance_constructor_ty(self, db: &::salsa::Db) -> EtherealTerm {
+    pub fn instance_constructor_ty(self, db: &::salsa::Db) -> EthTerm {
         self.self_ty(db)
     }
 }

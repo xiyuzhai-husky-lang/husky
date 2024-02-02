@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct TypeAssociatedValDecTemplate {
     pub path: TypeItemPath,
 }
@@ -10,7 +10,7 @@ impl TypeAssociatedValDecTemplate {
         db: &::salsa::Db,
         path: TypeItemPath,
         decl: TypeAssociatedValSynDecl,
-    ) -> DeclarativeSignatureResult<TypeAssociatedValDecTemplate> {
+    ) -> DecSignatureResult<TypeAssociatedValDecTemplate> {
         let syn_expr_region = decl.syn_expr_region(db);
         let _declarative_term_region = declarative_term_region(db, syn_expr_region);
         let _declarative_term_menu = db

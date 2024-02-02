@@ -6,16 +6,16 @@ use super::*;
 
 pub(super) fn ethereal_ty_field_dispatch(
     db: &::salsa::Db,
-    ty_term: EtherealTerm,
+    ty_term: EthTerm,
     ident: Ident,
     indirections: FluffyIndirections,
 ) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
     // divide into cases for memoization
     match ty_term {
-        EtherealTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)) => {
+        EthTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)) => {
             ethereal_ty_ontology_path_ty_field_dispatch(db, ty_path, ident, indirections)
         }
-        EtherealTerm::Application(ty_term) => {
+        EthTerm::Application(ty_term) => {
             ethereal_term_application_ty_field_dispatch(db, ty_term, ident, indirections)
         }
         _ => Nothing,
@@ -33,7 +33,7 @@ pub(crate) fn ethereal_ty_ontology_path_ty_field_dispatch(
 
 pub(crate) fn ethereal_term_application_ty_field_dispatch(
     db: &::salsa::Db,
-    ty_term: ApplicationEtherealTerm,
+    ty_term: ApplicationEthTerm,
     ident: Ident,
     indirections: FluffyIndirections,
 ) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
@@ -53,7 +53,7 @@ pub(crate) fn ethereal_term_application_ty_field_dispatch(
 fn ethereal_ty_field_dispatch_aux<'a>(
     db: &'a ::salsa::Db,
     ty_path: TypePath,
-    arguments: &'a [EtherealTerm],
+    arguments: &'a [EthTerm],
     ident: Ident,
     mut indirections: FluffyIndirections,
 ) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {

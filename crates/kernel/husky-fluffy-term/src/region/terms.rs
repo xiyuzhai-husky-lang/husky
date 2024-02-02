@@ -32,28 +32,28 @@ impl FluffyTerms {
     pub(crate) fn new_hole_from_template_parameter_symbol(
         &mut self,
         hole_source: HoleSource,
-        template_parameter_symbol: SymbolEtherealTerm,
+        template_parameter_symbol: SymbolEthTerm,
         db: &::salsa::Db,
     ) -> HollowTerm {
         let hole_kind = match template_parameter_symbol.ty(db) {
-            EtherealTerm::Literal(_) => todo!(),
-            EtherealTerm::Symbol(_) => HoleKind::Any,
-            EtherealTerm::Rune(_) => todo!(),
-            EtherealTerm::EntityPath(_) => todo!(),
-            EtherealTerm::Category(cat) => {
+            EthTerm::Literal(_) => todo!(),
+            EthTerm::Symbol(_) => HoleKind::Any,
+            EthTerm::Rune(_) => todo!(),
+            EthTerm::EntityPath(_) => todo!(),
+            EthTerm::Category(cat) => {
                 if cat.universe().raw() != 1 {
                     // maybe we need to consider universe
                     todo!()
                 }
                 HoleKind::ImplicitType
             }
-            EtherealTerm::Universe(_) => todo!(),
-            EtherealTerm::Curry(_) => todo!(),
-            EtherealTerm::Ritchie(_) => todo!(),
-            EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::Application(_) => todo!(),
-            EtherealTerm::TypeAsTraitItem(_) => todo!(),
-            EtherealTerm::TraitConstraint(_) => todo!(),
+            EthTerm::Universe(_) => todo!(),
+            EthTerm::Curry(_) => todo!(),
+            EthTerm::Ritchie(_) => todo!(),
+            EthTerm::Abstraction(_) => todo!(),
+            EthTerm::Application(_) => todo!(),
+            EthTerm::TypeAsTraitItem(_) => todo!(),
+            EthTerm::TraitConstraint(_) => todo!(),
         };
         self.hollow_terms.alloc_new(HollowTermData::Hole {
             hole_source,

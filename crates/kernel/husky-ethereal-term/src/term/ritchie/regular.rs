@@ -4,17 +4,17 @@ use super::*;
 #[salsa::debug_with_db]
 pub struct EtherealRitchieRegularParameter {
     contract: TermContract,
-    ty: EtherealTerm,
+    ty: EthTerm,
 }
 
 impl EtherealRitchieRegularParameter {
     pub fn from_declarative(
         db: &::salsa::Db,
         param: DeclarativeRitchieRegularParameter,
-    ) -> EtherealTermResult<Self> {
+    ) -> EthTermResult<Self> {
         Ok(EtherealRitchieRegularParameter {
             contract: param.contract(),
-            ty: EtherealTerm::ty_from_declarative(db, param.ty())?,
+            ty: EthTerm::ty_from_declarative(db, param.ty())?,
         })
     }
 
@@ -39,7 +39,7 @@ impl EtherealRitchieRegularParameter {
     }
 }
 
-impl EtherealTermInstantiate for EtherealRitchieRegularParameter {
+impl EthTermInstantiate for EtherealRitchieRegularParameter {
     type Output = Self;
 
     fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self {
@@ -61,7 +61,7 @@ impl salsa::DisplayWithDb for EtherealRitchieRegularParameter {
 }
 
 impl EtherealRitchieRegularParameter {
-    pub fn new(contract: TermContract, ty: EtherealTerm) -> Self {
+    pub fn new(contract: TermContract, ty: EthTerm) -> Self {
         Self { contract, ty }
     }
 
@@ -69,7 +69,7 @@ impl EtherealRitchieRegularParameter {
         self.contract
     }
 
-    pub fn ty(&self) -> EtherealTerm {
+    pub fn ty(&self) -> EthTerm {
         self.ty
     }
 }

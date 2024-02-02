@@ -1,20 +1,17 @@
 use super::*;
 
-pub(super) fn ethereal_term_data<'a>(
-    db: &'a ::salsa::Db,
-    term: EtherealTerm,
-) -> FluffyTermData<'a> {
+pub(super) fn ethereal_term_data<'a>(db: &'a ::salsa::Db, term: EthTerm) -> FluffyTermData<'a> {
     match term {
-        EtherealTerm::Literal(lit) => FluffyTermData::Literal(lit),
-        EtherealTerm::Symbol(term) => FluffyTermData::Symbol {
+        EthTerm::Literal(lit) => FluffyTermData::Literal(lit),
+        EthTerm::Symbol(term) => FluffyTermData::Symbol {
             term,
             ty: term.ty(db).into(),
         },
-        EtherealTerm::Rune(term) => FluffyTermData::Rune {
+        EthTerm::Rune(term) => FluffyTermData::Rune {
             ty: term.ty(db).into(),
             index: term.index(db),
         },
-        EtherealTerm::EntityPath(path) => match path {
+        EthTerm::EntityPath(path) => match path {
             ItemPathTerm::Fugitive(_) => todo!(),
             ItemPathTerm::Trait(_) => todo!(),
             ItemPathTerm::TypeOntology(ty_path) => FluffyTermData::TypeOntology {
@@ -26,9 +23,9 @@ pub(super) fn ethereal_term_data<'a>(
             ItemPathTerm::TypeInstance(_) => todo!(),
             ItemPathTerm::TypeVariant(path) => FluffyTermData::TypeVariant { path },
         },
-        EtherealTerm::Category(term) => FluffyTermData::Category(term),
-        EtherealTerm::Universe(_) => todo!(),
-        EtherealTerm::Curry(term) => FluffyTermData::Curry {
+        EthTerm::Category(term) => FluffyTermData::Category(term),
+        EthTerm::Universe(_) => todo!(),
+        EthTerm::Curry(term) => FluffyTermData::Curry {
             toolchain: term.toolchain(db),
             curry_kind: term.curry_kind(db),
             variance: term.variance(db),
@@ -37,11 +34,11 @@ pub(super) fn ethereal_term_data<'a>(
             return_ty: term.return_ty(db).into(),
             ty_ethereal_term: Some(term),
         },
-        EtherealTerm::Ritchie(term) => term_ritchie_fluffy_data(db, term).as_ref(),
-        EtherealTerm::Abstraction(_) => todo!(),
-        EtherealTerm::Application(term) => term_application_fluffy_data(db, term).as_ref(),
-        EtherealTerm::TypeAsTraitItem(_) => todo!(),
-        EtherealTerm::TraitConstraint(_) => todo!(),
+        EthTerm::Ritchie(term) => term_ritchie_fluffy_data(db, term).as_ref(),
+        EthTerm::Abstraction(_) => todo!(),
+        EthTerm::Application(term) => term_application_fluffy_data(db, term).as_ref(),
+        EthTerm::TypeAsTraitItem(_) => todo!(),
+        EthTerm::TraitConstraint(_) => todo!(),
     }
 }
 
@@ -51,7 +48,7 @@ pub struct TermRitchieFluffyData {
     parameter_contracted_tys: SmallVec<[FluffyRitchieParameter; 2]>,
     variadics: (),
     keyed_parameter_contracted_tys: (),
-    return_ty: EtherealTerm,
+    return_ty: EthTerm,
 }
 
 impl TermRitchieFluffyData {
@@ -75,7 +72,7 @@ impl TermRitchieFluffyData {
 #[salsa::tracked(jar = FluffyTermJar, return_ref)]
 pub(crate) fn term_ritchie_fluffy_data(
     db: &::salsa::Db,
-    term: RitchieEtherealTerm,
+    term: RitchieEthTerm,
 ) -> TermRitchieFluffyData {
     TermRitchieFluffyData {
         ritchie_kind: term.ritchie_kind(db),
@@ -97,7 +94,7 @@ pub(crate) enum TermApplicationFluffyData {
         path: TypePath,
         refined_path: Either<PreludeTypePath, CustomTypePath>,
         arguments: SmallVec<[FluffyTerm; 2]>,
-        ty_ethereal_term: EtherealTerm,
+        ty_ethereal_term: EthTerm,
     },
 }
 
@@ -105,7 +102,7 @@ pub(crate) enum TermApplicationFluffyData {
 #[salsa::tracked(jar = FluffyTermJar, return_ref)]
 pub(crate) fn term_application_fluffy_data(
     db: &::salsa::Db,
-    term: ApplicationEtherealTerm,
+    term: ApplicationEthTerm,
 ) -> TermApplicationFluffyData {
     let expansion = term.application_expansion(db);
     match expansion.function() {
@@ -161,13 +158,13 @@ impl TermApplicationFluffyData {
 
 pub(super) fn ethereal_term_fluffy_base_ty_data<'a>(
     db: &'a ::salsa::Db,
-    term: EtherealTerm,
+    term: EthTerm,
 ) -> FluffyBaseTypeData<'a> {
     match term {
-        EtherealTerm::Literal(_) => todo!(),
-        EtherealTerm::Symbol(symbol) => FluffyBaseTypeData::Symbol { symbol },
-        EtherealTerm::Rune(rune) => FluffyBaseTypeData::Rune { rune },
-        EtherealTerm::EntityPath(path) => match path {
+        EthTerm::Literal(_) => todo!(),
+        EthTerm::Symbol(symbol) => FluffyBaseTypeData::Symbol { symbol },
+        EthTerm::Rune(rune) => FluffyBaseTypeData::Rune { rune },
+        EthTerm::EntityPath(path) => match path {
             ItemPathTerm::Fugitive(_) => todo!(),
             ItemPathTerm::Trait(_) => todo!(),
             ItemPathTerm::TypeOntology(ty_path) => FluffyBaseTypeData::TypeOntology {
@@ -179,9 +176,9 @@ pub(super) fn ethereal_term_fluffy_base_ty_data<'a>(
             ItemPathTerm::TypeInstance(_) => todo!(),
             ItemPathTerm::TypeVariant(path) => unreachable!(),
         },
-        EtherealTerm::Category(term) => FluffyBaseTypeData::Category(term),
-        EtherealTerm::Universe(_) => todo!(),
-        EtherealTerm::Curry(term) => FluffyBaseTypeData::Curry {
+        EthTerm::Category(term) => FluffyBaseTypeData::Category(term),
+        EthTerm::Universe(_) => todo!(),
+        EthTerm::Curry(term) => FluffyBaseTypeData::Curry {
             curry_kind: term.curry_kind(db),
             variance: term.variance(db),
             parameter_rune: term.parameter_rune(db).map(Into::into),
@@ -189,10 +186,10 @@ pub(super) fn ethereal_term_fluffy_base_ty_data<'a>(
             return_ty: term.return_ty(db).into(),
             ty_ethereal_term: Some(term),
         },
-        EtherealTerm::Ritchie(term) => term_ritchie_fluffy_data(db, term).as_ref2(),
-        EtherealTerm::Abstraction(_) => todo!(),
-        EtherealTerm::Application(term) => term_application_fluffy_data(db, term).as_ref2(),
-        EtherealTerm::TypeAsTraitItem(_) => todo!(),
-        EtherealTerm::TraitConstraint(_) => todo!(),
+        EthTerm::Ritchie(term) => term_ritchie_fluffy_data(db, term).as_ref2(),
+        EthTerm::Abstraction(_) => todo!(),
+        EthTerm::Application(term) => term_application_fluffy_data(db, term).as_ref2(),
+        EthTerm::TypeAsTraitItem(_) => todo!(),
+        EthTerm::TraitConstraint(_) => todo!(),
     }
 }

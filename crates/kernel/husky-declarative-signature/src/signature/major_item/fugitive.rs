@@ -34,19 +34,16 @@ impl FugitiveDecTemplate {
 impl HasDecTemplate for FugitivePath {
     type DecTemplate = FugitiveDecTemplate;
 
-    fn declarative_signature_template(
-        self,
-        db: &::salsa::Db,
-    ) -> DeclarativeSignatureResult<Self::DecTemplate> {
-        fugitive_syn_declarative_signature_template(db, self)
+    fn dec_template(self, db: &::salsa::Db) -> DecSignatureResult<Self::DecTemplate> {
+        fugitive_syn_dec_template(db, self)
     }
 }
 
-// #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub(crate) fn fugitive_syn_declarative_signature_template(
+// #[salsa::tracked(jar = DecSignatureJar)]
+pub(crate) fn fugitive_syn_dec_template(
     db: &::salsa::Db,
     path: FugitivePath,
-) -> DeclarativeSignatureResult<FugitiveDecTemplate> {
+) -> DecSignatureResult<FugitiveDecTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
         FugitiveSynDecl::FunctionFn(decl) => {

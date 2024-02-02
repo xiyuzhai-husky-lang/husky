@@ -202,7 +202,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                     HoleKind::UnspecifiedIntegerType => todo!(),
                     HoleKind::UnspecifiedFloatType => todo!(),
                     HoleKind::ImplicitType => match expected_ty.base_resolved_inner(terms) {
-                        FluffyTermBase::Ethereal(EtherealTerm::Category(_)) => state.set_ok(
+                        FluffyTermBase::Ethereal(EthTerm::Category(_)) => state.set_ok(
                             ExpectSubtypeOutcome {},
                             smallvec![FluffyTermResolveAction::FillHole {
                                 hole,
@@ -273,7 +273,7 @@ pub struct ExpectSubtypeOutcome {
 }
 
 impl ExpectSubtypeOutcome {
-    pub(crate) fn resolved(&self) -> Option<EtherealTerm> {
+    pub(crate) fn resolved(&self) -> Option<EthTerm> {
         todo!()
     }
 }

@@ -22,7 +22,7 @@ pub struct FluffyTerm {
 }
 
 impl FluffyTerm {
-    pub(crate) fn new_ethereal(place: FluffyPlace, ethereal_term: EtherealTerm) -> Self {
+    pub(crate) fn new_ethereal(place: FluffyPlace, ethereal_term: EthTerm) -> Self {
         Self {
             place: Some(place),
             base: ethereal_term.into(),
@@ -41,7 +41,7 @@ impl FluffyTerm {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum FluffyTermBase {
-    Ethereal(EtherealTerm),
+    Ethereal(EthTerm),
     Solid(SolidTerm),
     Hollow(HollowTerm),
     Place,
@@ -56,9 +56,9 @@ impl From<FluffyPlace> for FluffyTerm {
     }
 }
 
-impl From<EtherealTerm> for FluffyTerm {
+impl From<EthTerm> for FluffyTerm {
     #[inline(always)]
-    fn from(term: EtherealTerm) -> Self {
+    fn from(term: EthTerm) -> Self {
         Self {
             place: None,
             base: term.into(),
@@ -68,49 +68,49 @@ impl From<EtherealTerm> for FluffyTerm {
 
 impl From<TermLiteral> for FluffyTerm {
     fn from(value: TermLiteral) -> Self {
-        Into::<EtherealTerm>::into(value).into()
+        Into::<EthTerm>::into(value).into()
     }
 }
 
 impl From<ItemPathTerm> for FluffyTerm {
     fn from(value: ItemPathTerm) -> Self {
-        Into::<EtherealTerm>::into(value).into()
+        Into::<EthTerm>::into(value).into()
     }
 }
 
-impl From<ApplicationEtherealTerm> for FluffyTerm {
-    fn from(value: ApplicationEtherealTerm) -> Self {
-        Into::<EtherealTerm>::into(value).into()
+impl From<ApplicationEthTerm> for FluffyTerm {
+    fn from(value: ApplicationEthTerm) -> Self {
+        Into::<EthTerm>::into(value).into()
     }
 }
 
-impl From<CurryEtherealTerm> for FluffyTerm {
-    fn from(value: CurryEtherealTerm) -> Self {
-        Into::<EtherealTerm>::into(value).into()
+impl From<CurryEthTerm> for FluffyTerm {
+    fn from(value: CurryEthTerm) -> Self {
+        Into::<EthTerm>::into(value).into()
     }
 }
 
 impl From<CategoryTerm> for FluffyTerm {
     fn from(value: CategoryTerm) -> Self {
-        Into::<EtherealTerm>::into(value).into()
+        Into::<EthTerm>::into(value).into()
     }
 }
 
-impl From<SymbolEtherealTerm> for FluffyTerm {
-    fn from(value: SymbolEtherealTerm) -> Self {
-        Into::<EtherealTerm>::into(value).into()
+impl From<SymbolEthTerm> for FluffyTerm {
+    fn from(value: SymbolEthTerm) -> Self {
+        Into::<EthTerm>::into(value).into()
     }
 }
 
-impl From<RuneEtherealTerm> for FluffyTerm {
-    fn from(value: RuneEtherealTerm) -> Self {
-        Into::<EtherealTerm>::into(value).into()
+impl From<RuneEthTerm> for FluffyTerm {
+    fn from(value: RuneEthTerm) -> Self {
+        Into::<EthTerm>::into(value).into()
     }
 }
 
-impl From<RitchieEtherealTerm> for FluffyTerm {
-    fn from(value: RitchieEtherealTerm) -> Self {
-        Into::<EtherealTerm>::into(value).into()
+impl From<RitchieEthTerm> for FluffyTerm {
+    fn from(value: RitchieEthTerm) -> Self {
+        Into::<EthTerm>::into(value).into()
     }
 }
 
@@ -136,8 +136,8 @@ impl From<HollowTerm> for FluffyTerm {
 
 #[test]
 fn term_to_fluffy_term_works() {
-    fn t(a: impl Copy + Into<EtherealTerm> + Into<FluffyTerm>) {
-        let term: EtherealTerm = a.into();
+    fn t(a: impl Copy + Into<EthTerm> + Into<FluffyTerm>) {
+        let term: EthTerm = a.into();
         let fluffy_term: FluffyTerm = a.into();
         let term_to_fluffy_term: FluffyTerm = term.into();
         assert_eq!(fluffy_term, term_to_fluffy_term)

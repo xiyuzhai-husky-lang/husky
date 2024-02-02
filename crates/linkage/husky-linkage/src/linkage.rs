@@ -1,5 +1,5 @@
 use crate::{
-    template_argument::ty::{LinkageType, LinkageTypePathLeading},
+    template_argument::ty::{LinType, LinTypePathLeading},
     *,
 };
 use either::*;
@@ -64,7 +64,7 @@ pub enum LinkageData {
         instantiation: LinkageInstantiation,
     },
     StructField {
-        self_ty: LinkageTypePathLeading,
+        self_ty: LinTypePathLeading,
         field: LinkageStructField,
     },
     Index,
@@ -73,10 +73,10 @@ pub enum LinkageData {
         instantiation: LinkageInstantiation,
     },
     VecConstructor {
-        element_ty: LinkageType,
+        element_ty: LinType,
     },
     TypeDefault {
-        ty: LinkageType,
+        ty: LinType,
     },
     EnumU8ToJsonValue {
         ty_path: TypePath,
@@ -116,8 +116,8 @@ impl Linkage {
         linkage_instantiation: &LinkageInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        let LinkageType::PathLeading(self_ty) =
-            LinkageType::from_hir(self_ty, Some(linkage_instantiation), db)
+        let LinType::PathLeading(self_ty) =
+            LinType::from_hir(self_ty, Some(linkage_instantiation), db)
         else {
             unreachable!()
         };
@@ -217,7 +217,7 @@ impl Linkage {
         Self::new(
             db,
             LinkageData::VecConstructor {
-                element_ty: LinkageType::from_hir(element_ty, Some(linkage_instantiation), db),
+                element_ty: LinType::from_hir(element_ty, Some(linkage_instantiation), db),
             },
         )
     }
@@ -308,7 +308,7 @@ impl Linkage {
         Self::new(
             db,
             LinkageData::TypeDefault {
-                ty: LinkageType::from_hir(ty, Some(linkage_instantiation), db),
+                ty: LinType::from_hir(ty, Some(linkage_instantiation), db),
             },
         )
     }
@@ -519,7 +519,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         LinkageInstantiation::from_javelin(instantiation, db)
                             .into_iter()
                             .map(|instantiation| {
-                                let self_ty = LinkageTypePathLeading::new(
+                                let self_ty = LinTypePathLeading::new(
                                     db,
                                     path,
                                     instantiation
@@ -583,7 +583,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
         JavelinData::VecConstructor { element_ty } => smallvec![Linkage::new(
             db,
             LinkageData::VecConstructor {
-                element_ty: LinkageType::from_javelin(
+                element_ty: LinType::from_javelin(
                     element_ty,
                     // ad hoc
                     &LinkageInstantiation::new_empty(false),
@@ -594,7 +594,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
         JavelinData::TypeDefault { ty } => smallvec![Linkage::new(
             db,
             LinkageData::TypeDefault {
-                ty: LinkageType::from_javelin(
+                ty: LinType::from_javelin(
                     ty,
                     // ad hoc
                     &LinkageInstantiation::new_empty(false),

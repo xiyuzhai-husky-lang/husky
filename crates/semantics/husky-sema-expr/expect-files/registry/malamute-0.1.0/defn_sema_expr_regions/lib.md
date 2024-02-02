@@ -111,7 +111,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 1,
                                                         },
@@ -128,7 +128,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 2,
                                                         },
@@ -274,7 +274,7 @@
                                 Const,
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`Type`),
+                                EthTerm(`Type`),
                             ),
                         },
                     ),
@@ -284,7 +284,7 @@
                                 Const,
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`t`),
+                                EthTerm(`t`),
                             ),
                         },
                     ),
@@ -296,13 +296,13 @@
                     FluffyTerm {
                         place: None,
                         base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`t`),
+                            EthTerm(`t`),
                         ),
                     },
                     FluffyTerm {
                         place: None,
                         base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`a`),
+                            EthTerm(`a`),
                         ),
                     },
                 ],
@@ -325,14 +325,14 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`t`),
+                                                EthTerm(`t`),
                                             ),
                                         },
                                     ),
                                     constraints: [],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`t`),
+                                    EthTerm(`t`),
                                 ),
                             },
                             HollowTermEntry {
@@ -345,14 +345,14 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`a`),
+                                                EthTerm(`a`),
                                             ),
                                         },
                                     ),
                                     constraints: [],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`a`),
+                                    EthTerm(`a`),
                                 ),
                             },
                             HollowTermEntry {
@@ -383,7 +383,7 @@
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`OneVsAll t a`),
+                                    EthTerm(`OneVsAll t a`),
                                 ),
                             },
                         ],
@@ -400,7 +400,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`OneVsAll t a`),
+                                                EthTerm(`OneVsAll t a`),
                                             ),
                                         },
                                     },
@@ -441,7 +441,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`t`),
+                                                EthTerm(`t`),
                                             ),
                                         },
                                     },
@@ -478,7 +478,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`a`),
+                                                EthTerm(`a`),
                                             ),
                                         },
                                     },
@@ -516,7 +516,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`OneVsAll t a`),
+                                                EthTerm(`OneVsAll t a`),
                                             ),
                                         },
                                     },
@@ -557,10 +557,10 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`OneVsAll t a`),
+                EthTerm(`OneVsAll t a`),
             ),
             self_ty: Some(
-                EtherealTerm(`OneVsAll t a`),
+                EthTerm(`OneVsAll t a`),
             ),
         },
     },
@@ -676,7 +676,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`OneVsAll t a`),
+                                        EthTerm(`OneVsAll t a`),
                                     ),
                                 },
                             ),
@@ -694,7 +694,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll t a`),
+                                            EthTerm(`OneVsAll t a`),
                                         ),
                                     },
                                 ),
@@ -725,7 +725,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 4,
                                                         },
@@ -742,7 +742,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 6,
                                                         },
@@ -813,7 +813,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 4,
                                                         },
@@ -880,7 +880,7 @@
                                         Const,
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`t`),
+                                        EthTerm(`t`),
                                     ),
                                 },
                             ),
@@ -892,7 +892,7 @@
                                             Const,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`t`),
+                                            EthTerm(`t`),
                                         ),
                                     },
                                 ),
@@ -1061,7 +1061,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 4,
                                                         },
@@ -1078,7 +1078,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 6,
                                                         },
@@ -1139,7 +1139,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -1149,7 +1149,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -1440,7 +1440,7 @@
                             ),
                             base: Ethereal(
                                 Application(
-                                    ApplicationEtherealTerm(
+                                    ApplicationEthTerm(
                                         Id {
                                             value: 13,
                                         },
@@ -1464,7 +1464,7 @@
                             ),
                             base: Ethereal(
                                 Application(
-                                    ApplicationEtherealTerm(
+                                    ApplicationEthTerm(
                                         Id {
                                             value: 13,
                                         },
@@ -1487,7 +1487,7 @@
                                 Const,
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`Type`),
+                                EthTerm(`Type`),
                             ),
                         },
                     ),
@@ -1497,7 +1497,7 @@
                                 Const,
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`t`),
+                                EthTerm(`t`),
                             ),
                         },
                     ),
@@ -1513,7 +1513,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`OneVsAll t a`),
+                                EthTerm(`OneVsAll t a`),
                             ),
                         },
                     ),
@@ -1525,13 +1525,13 @@
                     FluffyTerm {
                         place: None,
                         base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`t`),
+                            EthTerm(`t`),
                         ),
                     },
                     FluffyTerm {
                         place: None,
                         base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`a`),
+                            EthTerm(`a`),
                         ),
                     },
                 ],
@@ -1574,7 +1574,7 @@
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`Class t`),
+                                    EthTerm(`Class t`),
                                 ),
                             },
                             HollowTermEntry {
@@ -1587,7 +1587,7 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     ),
@@ -1596,14 +1596,14 @@
                                             target: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`unit`),
+                                                    EthTerm(`unit`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`unit`),
+                                    EthTerm(`unit`),
                                 ),
                             },
                             HollowTermEntry {
@@ -1634,7 +1634,7 @@
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`ControlFlow Class t unit`),
+                                    EthTerm(`ControlFlow Class t unit`),
                                 ),
                             },
                             HollowTermEntry {
@@ -1667,7 +1667,7 @@
                                     },
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`fn((move  Class t) -> ControlFlow Class t unit`),
+                                    EthTerm(`fn((move  Class t) -> ControlFlow Class t unit`),
                                 ),
                             },
                             HollowTermEntry {
@@ -1682,7 +1682,7 @@
                                                 Const,
                                             ),
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`t`),
+                                                EthTerm(`t`),
                                             ),
                                         },
                                     ),
@@ -1693,14 +1693,14 @@
                                                     Const,
                                                 ),
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`t`),
+                                                    EthTerm(`t`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`t`),
+                                    EthTerm(`t`),
                                 ),
                             },
                             HollowTermEntry {
@@ -1723,7 +1723,7 @@
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`Class t`),
+                                    EthTerm(`Class t`),
                                 ),
                             },
                             HollowTermEntry {
@@ -1756,7 +1756,7 @@
                                     },
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`fn((move  t) -> Class t`),
+                                    EthTerm(`fn((move  t) -> Class t`),
                                 ),
                             },
                             HollowTermEntry {
@@ -1769,7 +1769,7 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Class t`),
+                                                EthTerm(`Class t`),
                                             ),
                                         },
                                     ),
@@ -1778,14 +1778,14 @@
                                             target: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`Class t`),
+                                                    EthTerm(`Class t`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`Class t`),
+                                    EthTerm(`Class t`),
                                 ),
                             },
                             HollowTermEntry {
@@ -1798,7 +1798,7 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     ),
@@ -1807,14 +1807,14 @@
                                             target: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`unit`),
+                                                    EthTerm(`unit`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`unit`),
+                                    EthTerm(`unit`),
                                 ),
                             },
                             HollowTermEntry {
@@ -1845,7 +1845,7 @@
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`ControlFlow Class t unit`),
+                                    EthTerm(`ControlFlow Class t unit`),
                                 ),
                             },
                             HollowTermEntry {
@@ -1878,7 +1878,7 @@
                                     },
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`fn((move  unit) -> ControlFlow Class t unit`),
+                                    EthTerm(`fn((move  unit) -> ControlFlow Class t unit`),
                                 ),
                             },
                         ],
@@ -1909,7 +1909,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAll t a`),
+                                            EthTerm(`OneVsAll t a`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2059,7 +2059,7 @@
                                             Const,
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`t`),
+                                            EthTerm(`t`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2129,7 +2129,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`ControlFlow Class t unit`),
+                                                EthTerm(`ControlFlow Class t unit`),
                                             ),
                                         },
                                     },
@@ -2170,7 +2170,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Class t`),
+                                                EthTerm(`Class t`),
                                             ),
                                         },
                                     },
@@ -2207,7 +2207,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -2320,7 +2320,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2346,7 +2346,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`ControlFlow Class t unit`),
+                                                EthTerm(`ControlFlow Class t unit`),
                                             ),
                                         },
                                     },
@@ -2387,7 +2387,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`Class t`),
+                                                EthTerm(`Class t`),
                                             ),
                                         },
                                     },
@@ -2424,7 +2424,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -2462,7 +2462,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`ControlFlow Class t unit`),
+                                                EthTerm(`ControlFlow Class t unit`),
                                             ),
                                         },
                                     },
@@ -2503,10 +2503,10 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`ControlFlow Class t unit`),
+                EthTerm(`ControlFlow Class t unit`),
             ),
             self_ty: Some(
-                EtherealTerm(`Class t`),
+                EthTerm(`Class t`),
             ),
         },
     },
@@ -2622,7 +2622,7 @@
                                         },
                                     ),
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`OneVsAllResult t a`),
+                                        EthTerm(`OneVsAllResult t a`),
                                     ),
                                 },
                             ),
@@ -2640,7 +2640,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAllResult t a`),
+                                            EthTerm(`OneVsAllResult t a`),
                                         ),
                                     },
                                 ),
@@ -2671,7 +2671,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 4,
                                                         },
@@ -2688,7 +2688,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 6,
                                                         },
@@ -2759,7 +2759,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 1,
                                                         },
@@ -2776,7 +2776,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 2,
                                                         },
@@ -2916,7 +2916,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 4,
                                                         },
@@ -2933,7 +2933,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 6,
                                                         },
@@ -3004,7 +3004,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 1,
                                                         },
@@ -3021,7 +3021,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 2,
                                                         },
@@ -3161,7 +3161,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 4,
                                                         },
@@ -3178,7 +3178,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    SymbolEtherealTerm(
+                                                    SymbolEthTerm(
                                                         Id {
                                                             value: 6,
                                                         },
@@ -3239,7 +3239,7 @@
                                 FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`unit`),
+                                        EthTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -3249,7 +3249,7 @@
                                     FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -3598,7 +3598,7 @@
                             ),
                             base: Ethereal(
                                 Application(
-                                    ApplicationEtherealTerm(
+                                    ApplicationEthTerm(
                                         Id {
                                             value: 24,
                                         },
@@ -3622,7 +3622,7 @@
                             ),
                             base: Ethereal(
                                 Application(
-                                    ApplicationEtherealTerm(
+                                    ApplicationEthTerm(
                                         Id {
                                             value: 24,
                                         },
@@ -3646,7 +3646,7 @@
                             ),
                             base: Ethereal(
                                 Application(
-                                    ApplicationEtherealTerm(
+                                    ApplicationEthTerm(
                                         Id {
                                             value: 24,
                                         },
@@ -3669,7 +3669,7 @@
                                 Const,
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`Type`),
+                                EthTerm(`Type`),
                             ),
                         },
                     ),
@@ -3679,7 +3679,7 @@
                                 Const,
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`t`),
+                                EthTerm(`t`),
                             ),
                         },
                     ),
@@ -3695,7 +3695,7 @@
                                 },
                             ),
                             base: FluffyTermBase::Ethereal(
-                                EtherealTerm(`OneVsAllResult t a`),
+                                EthTerm(`OneVsAllResult t a`),
                             ),
                         },
                     ),
@@ -3707,13 +3707,13 @@
                     FluffyTerm {
                         place: None,
                         base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`t`),
+                            EthTerm(`t`),
                         ),
                     },
                     FluffyTerm {
                         place: None,
                         base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`a`),
+                            EthTerm(`a`),
                         ),
                     },
                 ],
@@ -3756,7 +3756,7 @@
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`OneVsAll t a`),
+                                    EthTerm(`OneVsAll t a`),
                                 ),
                             },
                             HollowTermEntry {
@@ -3769,7 +3769,7 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     ),
@@ -3778,14 +3778,14 @@
                                             target: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`unit`),
+                                                    EthTerm(`unit`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`unit`),
+                                    EthTerm(`unit`),
                                 ),
                             },
                             HollowTermEntry {
@@ -3816,7 +3816,7 @@
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`ControlFlow OneVsAll t a unit`),
+                                    EthTerm(`ControlFlow OneVsAll t a unit`),
                                 ),
                             },
                             HollowTermEntry {
@@ -3849,7 +3849,7 @@
                                     },
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`fn((move  OneVsAll t a) -> ControlFlow OneVsAll t a unit`),
+                                    EthTerm(`fn((move  OneVsAll t a) -> ControlFlow OneVsAll t a unit`),
                                 ),
                             },
                             HollowTermEntry {
@@ -3862,14 +3862,14 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`t`),
+                                                EthTerm(`t`),
                                             ),
                                         },
                                     ),
                                     constraints: [],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`t`),
+                                    EthTerm(`t`),
                                 ),
                             },
                             HollowTermEntry {
@@ -3882,14 +3882,14 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`a`),
+                                                EthTerm(`a`),
                                             ),
                                         },
                                     ),
                                     constraints: [],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`a`),
+                                    EthTerm(`a`),
                                 ),
                             },
                             HollowTermEntry {
@@ -3920,7 +3920,7 @@
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`OneVsAll t a`),
+                                    EthTerm(`OneVsAll t a`),
                                 ),
                             },
                             HollowTermEntry {
@@ -3953,7 +3953,7 @@
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`OneVsAll t a`),
+                                    EthTerm(`OneVsAll t a`),
                                 ),
                             },
                             HollowTermEntry {
@@ -3966,7 +3966,7 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     ),
@@ -3975,14 +3975,14 @@
                                             target: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`unit`),
+                                                    EthTerm(`unit`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`unit`),
+                                    EthTerm(`unit`),
                                 ),
                             },
                             HollowTermEntry {
@@ -4013,7 +4013,7 @@
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`ControlFlow OneVsAll t a unit`),
+                                    EthTerm(`ControlFlow OneVsAll t a unit`),
                                 ),
                             },
                             HollowTermEntry {
@@ -4046,7 +4046,7 @@
                                     },
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`fn((move  OneVsAll t a) -> ControlFlow OneVsAll t a unit`),
+                                    EthTerm(`fn((move  OneVsAll t a) -> ControlFlow OneVsAll t a unit`),
                                 ),
                             },
                             HollowTermEntry {
@@ -4059,14 +4059,14 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`t`),
+                                                EthTerm(`t`),
                                             ),
                                         },
                                     ),
                                     constraints: [],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`t`),
+                                    EthTerm(`t`),
                                 ),
                             },
                             HollowTermEntry {
@@ -4079,14 +4079,14 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`a`),
+                                                EthTerm(`a`),
                                             ),
                                         },
                                     ),
                                     constraints: [],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`a`),
+                                    EthTerm(`a`),
                                 ),
                             },
                             HollowTermEntry {
@@ -4117,7 +4117,7 @@
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`OneVsAll t a`),
+                                    EthTerm(`OneVsAll t a`),
                                 ),
                             },
                             HollowTermEntry {
@@ -4130,7 +4130,7 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`OneVsAll t a`),
+                                                EthTerm(`OneVsAll t a`),
                                             ),
                                         },
                                     ),
@@ -4139,14 +4139,14 @@
                                             target: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`OneVsAll t a`),
+                                                    EthTerm(`OneVsAll t a`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`OneVsAll t a`),
+                                    EthTerm(`OneVsAll t a`),
                                 ),
                             },
                             HollowTermEntry {
@@ -4159,7 +4159,7 @@
                                         FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     ),
@@ -4168,14 +4168,14 @@
                                             target: FluffyTerm {
                                                 place: None,
                                                 base: FluffyTermBase::Ethereal(
-                                                    EtherealTerm(`unit`),
+                                                    EthTerm(`unit`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`unit`),
+                                    EthTerm(`unit`),
                                 ),
                             },
                             HollowTermEntry {
@@ -4206,7 +4206,7 @@
                                     ],
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`ControlFlow OneVsAll t a unit`),
+                                    EthTerm(`ControlFlow OneVsAll t a unit`),
                                 ),
                             },
                             HollowTermEntry {
@@ -4239,7 +4239,7 @@
                                     },
                                 },
                                 resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
-                                    EtherealTerm(`fn((move  unit) -> ControlFlow OneVsAll t a unit`),
+                                    EthTerm(`fn((move  unit) -> ControlFlow OneVsAll t a unit`),
                                 ),
                             },
                         ],
@@ -4270,7 +4270,7 @@
                                             },
                                         ),
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`OneVsAllResult t a`),
+                                            EthTerm(`OneVsAllResult t a`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -4387,7 +4387,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`ControlFlow OneVsAll t a unit`),
+                                                EthTerm(`ControlFlow OneVsAll t a unit`),
                                             ),
                                         },
                                     },
@@ -4428,7 +4428,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`OneVsAll t a`),
+                                                EthTerm(`OneVsAll t a`),
                                             ),
                                         },
                                     },
@@ -4465,7 +4465,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -4502,7 +4502,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`t`),
+                                                EthTerm(`t`),
                                             ),
                                         },
                                     },
@@ -4539,7 +4539,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`a`),
+                                                EthTerm(`a`),
                                             ),
                                         },
                                     },
@@ -4680,7 +4680,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`ControlFlow OneVsAll t a unit`),
+                                                EthTerm(`ControlFlow OneVsAll t a unit`),
                                             ),
                                         },
                                     },
@@ -4721,7 +4721,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`OneVsAll t a`),
+                                                EthTerm(`OneVsAll t a`),
                                             ),
                                         },
                                     },
@@ -4758,7 +4758,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -4795,7 +4795,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`t`),
+                                                EthTerm(`t`),
                                             ),
                                         },
                                     },
@@ -4832,7 +4832,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`a`),
+                                                EthTerm(`a`),
                                             ),
                                         },
                                     },
@@ -4945,7 +4945,7 @@
                                     expectee: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EthTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -4971,7 +4971,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`ControlFlow OneVsAll t a unit`),
+                                                EthTerm(`ControlFlow OneVsAll t a unit`),
                                             ),
                                         },
                                     },
@@ -5012,7 +5012,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`OneVsAll t a`),
+                                                EthTerm(`OneVsAll t a`),
                                             ),
                                         },
                                     },
@@ -5049,7 +5049,7 @@
                                         expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`unit`),
+                                                EthTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -5087,7 +5087,7 @@
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: FluffyTermBase::Ethereal(
-                                                EtherealTerm(`ControlFlow OneVsAll t a unit`),
+                                                EthTerm(`ControlFlow OneVsAll t a unit`),
                                             ),
                                         },
                                     },
@@ -5128,10 +5128,10 @@
                 },
             },
             return_ty: Some(
-                EtherealTerm(`ControlFlow OneVsAll t a unit`),
+                EthTerm(`ControlFlow OneVsAll t a unit`),
             ),
             self_ty: Some(
-                EtherealTerm(`OneVsAll t a`),
+                EthTerm(`OneVsAll t a`),
             ),
         },
     },

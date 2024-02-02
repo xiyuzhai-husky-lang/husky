@@ -1,21 +1,21 @@
 use super::*;
 
-#[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar, constructor = new_inner)]
-pub struct RuneEtherealTerm {
-    pub ty: EtherealTerm,
+#[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = new_inner)]
+pub struct RuneEthTerm {
+    pub ty: EthTerm,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     pub index: RuneIndex,
 }
 
-impl RuneEtherealTerm {
+impl RuneEthTerm {
     #[inline(always)]
     pub(crate) fn from_declarative(
         db: &::salsa::Db,
         variable: RuneDeclarativeTerm,
-    ) -> EtherealTermResult<Self> {
+    ) -> EthTermResult<Self> {
         let ty = variable.ty(db)?;
-        let ty = EtherealTerm::ty_from_declarative(db, ty)?;
+        let ty = EthTerm::ty_from_declarative(db, ty)?;
         Ok(Self::new_inner(db, ty, variable.idx(db)))
     }
 
@@ -30,11 +30,11 @@ impl RuneEtherealTerm {
     }
 }
 
-impl EtherealTerm {
+impl EthTerm {
     #[track_caller]
-    pub fn rune(self) -> RuneEtherealTerm {
+    pub fn rune(self) -> RuneEthTerm {
         match self {
-            EtherealTerm::Rune(slf) => slf,
+            EthTerm::Rune(slf) => slf,
             _ => unreachable!(),
         }
     }
@@ -42,12 +42,8 @@ impl EtherealTerm {
 
 /// # rewrite
 
-impl RuneEtherealTerm {
-    pub fn substitute(
-        self,
-        substitution: EtherealTermSubstitution,
-        db: &salsa::Db,
-    ) -> EtherealTerm {
+impl RuneEthTerm {
+    pub fn substitute(self, substitution: EthTermSubstitution, db: &salsa::Db) -> EthTerm {
         if self == substitution.src() {
             return substitution.dst();
         }
@@ -56,14 +52,14 @@ impl RuneEtherealTerm {
 
     pub fn substitute_intact(
         self,
-        substitution: EtherealTermSubstitution,
+        substitution: EthTermSubstitution,
         db: &salsa::Db,
-    ) -> RuneEtherealTerm {
+    ) -> RuneEthTerm {
         Self::new_inner(db, self.ty(db).substitute(substitution, db), self.index(db))
     }
 }
 
-impl EtherealTermInstantiate for RuneEtherealTerm {
+impl EthTermInstantiate for RuneEthTerm {
     type Output = Self;
 
     fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
@@ -78,7 +74,7 @@ impl EtherealTermInstantiate for RuneEtherealTerm {
 }
 
 /// back to declarative
-impl RuneEtherealTerm {
+impl RuneEthTerm {
     pub(super) fn into_declarative(self, db: &salsa::Db) -> RuneDeclarativeTerm {
         RuneDeclarativeTerm::new(
             Ok(self.ty(db).into_declarative(db)),

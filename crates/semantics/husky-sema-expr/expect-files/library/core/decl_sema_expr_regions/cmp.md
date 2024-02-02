@@ -84,7 +84,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EtherealTerm(`t`),
+                EthTerm(`t`),
             ),
         },
     },
@@ -173,7 +173,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EtherealTerm(`t`),
+                EthTerm(`t`),
             ),
         },
     },
@@ -262,7 +262,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EtherealTerm(`t`),
+                EthTerm(`t`),
             ),
         },
     },
@@ -351,7 +351,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EtherealTerm(`t`),
+                EthTerm(`t`),
             ),
         },
     },

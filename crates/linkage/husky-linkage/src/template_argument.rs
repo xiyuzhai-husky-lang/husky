@@ -12,7 +12,7 @@ use husky_javelin::template_argument::JavelinTemplateArgument;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum LinkageTemplateArgument {
     Vacant,
-    Type(LinkageType),
+    Type(LinType),
     Constant(LinkageConstant),
     Lifetime,
     Place(LinkagePlace),
@@ -39,9 +39,9 @@ impl LinkageTemplateArgument {
     ) -> Self {
         match arg {
             HirTemplateArgument::Vacant => LinkageTemplateArgument::Vacant,
-            HirTemplateArgument::Type(hir_ty) => LinkageTemplateArgument::Type(
-                LinkageType::from_hir(hir_ty, linkage_instantiation, db),
-            ),
+            HirTemplateArgument::Type(hir_ty) => {
+                LinkageTemplateArgument::Type(LinType::from_hir(hir_ty, linkage_instantiation, db))
+            }
             HirTemplateArgument::Constant(hir_constant) => LinkageTemplateArgument::Constant(
                 LinkageConstant::from_hir(hir_constant, linkage_instantiation),
             ),
@@ -58,7 +58,7 @@ impl LinkageTemplateArgument {
         match arg {
             JavelinTemplateArgument::Vacant => todo!(),
             JavelinTemplateArgument::Type(javelin_ty) => LinkageTemplateArgument::Type(
-                LinkageType::from_javelin(javelin_ty, linkage_instantiation, db),
+                LinType::from_javelin(javelin_ty, linkage_instantiation, db),
             ),
             JavelinTemplateArgument::Constant(constant) => {
                 LinkageTemplateArgument::Constant(LinkageConstant(constant))
