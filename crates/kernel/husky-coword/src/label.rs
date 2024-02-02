@@ -60,7 +60,7 @@ impl Label {
         self.ident.data(db)
     }
 
-    pub fn word(self) -> Coword {
+    pub fn coword(self) -> Coword {
         self.ident.coword()
     }
 
