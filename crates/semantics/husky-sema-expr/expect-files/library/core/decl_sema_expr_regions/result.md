@@ -285,7 +285,7 @@
                                     ),
                                     current_syn_symbol_idx: 2,
                                     current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                        template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `T2`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -360,7 +360,7 @@
                                     ),
                                     current_syn_symbol_idx: 4,
                                     current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                        template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E2`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -468,7 +468,7 @@
                                     ),
                                     current_syn_symbol_idx: 1,
                                     current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                        template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `T1`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -543,7 +543,7 @@
                                     ),
                                     current_syn_symbol_idx: 3,
                                     current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                        template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E1`,
                                                 regional_token_idx: RegionalTokenIdx(

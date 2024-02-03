@@ -98,10 +98,10 @@ impl TokenInfoData {
                 CurrentSynSymbolKind::LetVariable { .. }
                 | CurrentSynSymbolKind::BeVariable { .. }
                 | CurrentSynSymbolKind::CaseVariable { .. } => TokenClass::Variable,
-                CurrentSynSymbolKind::ExplicitRegularParameter { .. } => TokenClass::Parameter,
+                CurrentSynSymbolKind::ParenateRegularParameter { .. } => TokenClass::Parameter,
                 CurrentSynSymbolKind::LoopVariable(_) => TokenClass::LoopVariable,
                 CurrentSynSymbolKind::TemplateParameter { .. } => TokenClass::ImplicitParameter,
-                CurrentSynSymbolKind::ExplicitVariadicParameter { .. } => TokenClass::Parameter,
+                CurrentSynSymbolKind::ParenateVariadicParameter { .. } => TokenClass::Parameter,
                 CurrentSynSymbolKind::FieldVariable { .. } => TokenClass::Variable,
             },
             // TokenProtocol::Variable,

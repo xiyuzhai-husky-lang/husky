@@ -496,7 +496,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             | CurrentSynSymbolKind::CaseVariable {
                 pattern_symbol_idx: pattern_symbol,
             }
-            | CurrentSynSymbolKind::ExplicitRegularParameter {
+            | CurrentSynSymbolKind::ParenateRegularParameter {
                 pattern_symbol_idx: pattern_symbol,
             } => match self.syn_expr_region_data[pattern_symbol] {
                 SynPatternSymbol::Atom(pattern_expr_idx) => {
@@ -521,7 +521,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             CurrentSynSymbolKind::TemplateParameter {
                 template_parameter_kind,
             } => match template_parameter_kind {
-                CurrentImplicitParameterSynSymbolKind::Type { ident_token } => self.add(
+                CurrentTemplateParameterSynSymbolKind::Type { ident_token } => self.add(
                     ident_token.regional_token_idx(),
                     TokenInfoSource::TemplateParameter(current_syn_symbol_idx),
                     TokenInfoData::CurrentSynSymbol {
@@ -530,7 +530,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                         current_syn_symbol_kind,
                     },
                 ),
-                CurrentImplicitParameterSynSymbolKind::Lifetime { label_token } => self.add(
+                CurrentTemplateParameterSynSymbolKind::Lifetime { label_token } => self.add(
                     label_token.regional_token_idx(),
                     current_syn_symbol_idx,
                     TokenInfoData::CurrentSynSymbol {
@@ -539,7 +539,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                         current_syn_symbol_kind,
                     },
                 ),
-                CurrentImplicitParameterSynSymbolKind::Place { label_token } => self.add(
+                CurrentTemplateParameterSynSymbolKind::Place { label_token } => self.add(
                     label_token.regional_token_idx(),
                     current_syn_symbol_idx,
                     TokenInfoData::CurrentSynSymbol {
@@ -548,7 +548,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                         current_syn_symbol_kind,
                     },
                 ),
-                CurrentImplicitParameterSynSymbolKind::Constant { ident_token } => self.add(
+                CurrentTemplateParameterSynSymbolKind::Constant { ident_token } => self.add(
                     ident_token.regional_token_idx(),
                     current_syn_symbol_idx,
                     TokenInfoData::CurrentSynSymbol {
@@ -558,7 +558,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     },
                 ),
             },
-            CurrentSynSymbolKind::ExplicitVariadicParameter { ident_token } => self.add(
+            CurrentSynSymbolKind::ParenateVariadicParameter { ident_token } => self.add(
                 ident_token.regional_token_idx(),
                 current_syn_symbol_idx,
                 TokenInfoData::CurrentSynSymbol {

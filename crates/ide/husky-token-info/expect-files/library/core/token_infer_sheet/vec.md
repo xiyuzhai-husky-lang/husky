@@ -130,7 +130,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -155,7 +155,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -198,7 +198,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -312,7 +312,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
+                        current_syn_symbol_kind: CurrentSynSymbolKind::ParenateRegularParameter {
                             pattern_symbol_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -697,7 +697,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
+                        current_syn_symbol_kind: CurrentSynSymbolKind::ParenateRegularParameter {
                             pattern_symbol_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -732,7 +732,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
+                        current_syn_symbol_kind: CurrentSynSymbolKind::ParenateRegularParameter {
                             pattern_symbol_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -853,7 +853,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
+                        current_syn_symbol_kind: CurrentSynSymbolKind::ParenateRegularParameter {
                             pattern_symbol_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
