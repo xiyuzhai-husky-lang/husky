@@ -5,7 +5,7 @@ pub struct MajorItems;
 
 impl IsAstChildren for MajorItems {
     const ALLOW_STMT: AstResult<()> = Err(AstError::Original(
-        OriginalAstError::UnexpectedStmtInsideModule,
+        OriginalAstError::UnexpectedStmtUnderModule,
     ));
 
     #[inline(always)]
@@ -18,6 +18,7 @@ impl IsAstChildren for MajorItems {
             }
             EntityKindKeywordGroup::Const(_) => FugitiveKind::Const.into(),
             EntityKindKeywordGroup::Val(_) => FugitiveKind::Val.into(),
+            EntityKindKeywordGroup::Memo(_) => Err(OriginalAstError::UnexpectedMemoUnderModule)?,
             EntityKindKeywordGroup::Gn(_) => FugitiveKind::FunctionGn.into(),
             EntityKindKeywordGroup::FormalEntity(_) => FugitiveKind::Formal.into(),
             EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),

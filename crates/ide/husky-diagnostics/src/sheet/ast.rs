@@ -153,7 +153,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedMemoFieldOutsideImplBlock => {
                 format!("Syntax Error: UnexpectedMemoFieldInsideForm")
             }
-            OriginalAstError::UnexpectedStmtInsideModule => {
+            OriginalAstError::UnexpectedStmtUnderModule => {
                 format!("Syntax Error: UnexpectedStmtInsideModule")
             }
             OriginalAstError::ExpectedTypeItems(_) => {
@@ -171,14 +171,19 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::ExpectedFormBodyForMain(_) => {
                 format!("Syntax Error: ExpectedFormBodyForMain")
             }
-            OriginalAstError::UnexpectedModInsideModuleItem => {
+            OriginalAstError::UnexpectedModUnderFugitive => {
                 format!("unexpected submodule inside module item")
             }
-            OriginalAstError::SubmoduleFileNotFound { ident_token: _, error: _ } => {
+            OriginalAstError::SubmoduleFileNotFound {
+                ident_token: _,
+                error: _,
+            } => {
                 format!("submodule file not found")
             }
             OriginalAstError::UnexpectedTraitInsideImplBlock => todo!(),
             OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce => todo!(),
+            OriginalAstError::UnexpectedMemoUnderModule => todo!(),
+            OriginalAstError::UnexpectedMemoUnderFugitive => todo!(),
         }
     }
 
@@ -205,7 +210,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedStmtInsideTrait
             | OriginalAstError::UnexpectedMainInsideTrait
             | OriginalAstError::UnexpectedUseInsideTrait
-            | OriginalAstError::UnexpectedModInsideModuleItem
+            | OriginalAstError::UnexpectedModUnderFugitive
             | OriginalAstError::UnexpectedImplBlockInsideModuleItem
             | OriginalAstError::UnexpectedTraitInsideTrait
             | OriginalAstError::UnexpectedPattern
@@ -216,7 +221,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedMajorTypeInsideImplBlock
             | OriginalAstError::ExpectedEntityKeywordGroup(_)
             | OriginalAstError::UnexpectedMemoFieldOutsideImplBlock
-            | OriginalAstError::UnexpectedStmtInsideModule
+            | OriginalAstError::UnexpectedStmtUnderModule
             | OriginalAstError::ExpectedTypeItems(_)
             | OriginalAstError::ExpectedTypeVariants(_)
             | OriginalAstError::ExpectedIdentForTypeVariant(_)
@@ -245,6 +250,8 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             }
             OriginalAstError::UnexpectedTraitInsideImplBlock => todo!(),
             OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce => todo!(),
+            OriginalAstError::UnexpectedMemoUnderModule => todo!(),
+            OriginalAstError::UnexpectedMemoUnderFugitive => todo!(),
         }
     }
 }
