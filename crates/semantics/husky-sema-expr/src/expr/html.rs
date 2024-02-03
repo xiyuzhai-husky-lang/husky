@@ -8,13 +8,13 @@ pub enum SemaHtmlArgumentExpr {
         property_ident: IdentRegionalToken,
         eq: EqRegionalToken,
         lcurl: LcurlRegionalToken,
-        expr: SemaExprIdx,
+        argument: SemaExprIdx,
         rcurl: RcurlRegionalToken,
     },
     Shortened {
         lcurl: LcurlRegionalToken,
         property_ident: IdentRegionalToken,
-        // todo: add SymbolIdx
+        // todo: argument: SemaExprIdx,
         rcurl: RcurlRegionalToken,
     },
 }
@@ -62,7 +62,7 @@ impl<'a> SemaExprEngine<'a> {
                 property_ident,
                 eq,
                 lcurl,
-                expr: self.build_sema_expr(expr, ExpectAnyOriginal),
+                argument: self.build_sema_expr(expr, ExpectAnyOriginal),
                 rcurl,
             },
             SynHtmlArgumentExpr::Shortened {

@@ -27,7 +27,7 @@ impl FlyTerm {
         engine: &mut impl FlyTermEngine,
         expr_idx: SynExprIdx,
         index_ty: FlyTerm,
-        mut indirections: FlyIndirections,
+        indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
         match self.base_resolved(engine) {
             FlyTermBase::Eth(owner_ty) => {

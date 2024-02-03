@@ -40,17 +40,13 @@ impl ToHirEager for SemaHtmlArgumentExpr {
         match self {
             SemaHtmlArgumentExpr::Expanded {
                 property_ident,
-                expr,
+                argument: expr,
                 ..
             } => HirEagerHtmlArgumentExpr {
                 property_ident: property_ident.ident(),
                 expr: expr.to_hir_eager(builder),
             },
-            SemaHtmlArgumentExpr::Shortened {
-                lcurl: _,
-                property_ident,
-                rcurl: _,
-            } => HirEagerHtmlArgumentExpr {
+            SemaHtmlArgumentExpr::Shortened { property_ident, .. } => HirEagerHtmlArgumentExpr {
                 property_ident: property_ident.ident(),
                 expr: todo!(),
             },

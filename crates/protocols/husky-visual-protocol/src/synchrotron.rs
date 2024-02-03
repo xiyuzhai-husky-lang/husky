@@ -1,8 +1,6 @@
 pub mod action;
 
-use self::action::{
-    VisualSynchrotronAction, VisualSynchrotronActionOutcome,
-};
+use self::action::{VisualSynchrotronAction, VisualSynchrotronActionOutcome};
 use crate::visual::{VisualArena, VisualData, VisualId};
 use serde::{Deserialize, Serialize};
 
@@ -21,7 +19,6 @@ impl VisualSynchrotron {
     pub(crate) fn alloc_visual(&mut self, data: impl Into<VisualData>) -> VisualId {
         match self.take_action(VisualSynchrotronAction::AllocVisual { data: data.into() }) {
             VisualSynchrotronActionOutcome::AllocVisual { visual_id } => visual_id,
-            _ => unreachable!(),
         }
     }
 }

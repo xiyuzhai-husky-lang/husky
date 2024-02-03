@@ -35,7 +35,6 @@ impl Into<VisualSerdeId> for VisualId {
     }
 }
 
-#[macro_use]
 macro_rules! impl_visual_serde_id_from_to_for_sub_visual_id {
     ($ty: ty) => {
         impl From<VisualSerdeId> for $ty {
