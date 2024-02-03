@@ -135,6 +135,10 @@ impl EtherealInstantiationBuilder {
         if src == dst {
             return JustOk(());
         }
+        let is_symbol_or_rune: EthTermMaybeResult<()> = match dst {
+            EthTerm::Symbol(_) | EthTerm::Rune(_) => JustOk(()),
+            _ => Nothing,
+        };
         match src {
             EthTerm::Symbol(symbol) => self.try_add_symbol_rule(symbol, dst),
             EthTerm::Application(_) => {
@@ -161,15 +165,29 @@ impl EtherealInstantiationBuilder {
                 JustOk(())
             }
             EthTerm::Literal(_)
-            | EthTerm::Rune(_)
             | EthTerm::EntityPath(_)
             | EthTerm::Category(_)
-            | EthTerm::Universe(_) => Nothing,
-            EthTerm::Curry(_) => todo!(),
+            | EthTerm::Universe(_)
+            | EthTerm::Rune(_) => Nothing,
+            EthTerm::Curry(_) => {
+                todo!("dependent type")
+                // let EthTerm::TraitConstraint(dst) = dst else {
+                //     // todo: check dst is of type Prop
+                //     return is_symbol_or_rune;
+                // };
+                // self.try_add_rule(src.ty(db), dst.ty(db), db)?;
+                // self.try_add_rule(src.trai(db), dst.trai(db), db)
+            }
             EthTerm::Ritchie(_) => todo!(),
-            EthTerm::Abstraction(_) => todo!(),
-            EthTerm::TypeAsTraitItem(_) => todo!(),
-            EthTerm::TraitConstraint(_) => todo!(),
+            EthTerm::Abstraction(_) | EthTerm::TypeAsTraitItem(_) => JustOk(()),
+            EthTerm::TraitConstraint(src) => {
+                let EthTerm::TraitConstraint(dst) = dst else {
+                    // todo: check dst is of type Prop
+                    return is_symbol_or_rune;
+                };
+                self.try_add_rule(src.ty(db), dst.ty(db), db)?;
+                self.try_add_rule(src.trai(db), dst.trai(db), db)
+            }
         }
     }
 
