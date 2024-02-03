@@ -8,7 +8,10 @@ use husky_fly_term::{
 };
 use husky_term_prelude::literal::{
     float::TermF32Literal,
-    int::{TermI128Literal, TermI64Literal, TermISizeLiteral, TermUSizeLiteral},
+    int::{
+        TermI128Literal, TermI64Literal, TermISizeLiteral, TermR128Literal, TermR64Literal,
+        TermRSizeLiteral, TermU128Literal, TermU64Literal, TermUSizeLiteral,
+    },
     Literal,
 };
 use husky_token_data::{BoolLiteralTokenData, FloatLiteralTokenData};
@@ -60,6 +63,7 @@ impl<'a> SemaExprEngine<'a> {
     }
 
     fn calc_expr_term(&mut self, sema_expr_idx: SemaExprIdx) -> SemaExprTermResult<FlyTerm> {
+        let db = self.db;
         let data = sema_expr_idx.data_result(&self.sema_expr_arena)?;
         match data {
             SemaExprData::Literal(regional_token_idx, lit) => {
@@ -106,15 +110,27 @@ impl<'a> SemaExprEngine<'a> {
                             IntegerLikeLiteralTokenData::R8(val) => Literal::R8(val),
                             IntegerLikeLiteralTokenData::R16(val) => Literal::R16(val),
                             IntegerLikeLiteralTokenData::R32(val) => Literal::R32(val),
-                            IntegerLikeLiteralTokenData::R64(val) => Literal::R64(todo!()),
-                            IntegerLikeLiteralTokenData::R128(val) => Literal::R128(todo!()),
-                            IntegerLikeLiteralTokenData::RSize(val) => Literal::RSize(todo!()),
+                            IntegerLikeLiteralTokenData::R64(val) => {
+                                Literal::R64(TermR64Literal::new(db, val as u64))
+                            }
+                            IntegerLikeLiteralTokenData::R128(val) => {
+                                Literal::R128(TermR128Literal::new(db, val as u128))
+                            }
+                            IntegerLikeLiteralTokenData::RSize(val) => {
+                                Literal::RSize(TermRSizeLiteral::new(db, val as u64))
+                            }
                             IntegerLikeLiteralTokenData::U8(val) => Literal::U8(val),
                             IntegerLikeLiteralTokenData::U16(val) => Literal::U16(val),
                             IntegerLikeLiteralTokenData::U32(val) => Literal::U32(val),
-                            IntegerLikeLiteralTokenData::U64(val) => Literal::U64(todo!()),
-                            IntegerLikeLiteralTokenData::U128(val) => Literal::U128(todo!()),
-                            IntegerLikeLiteralTokenData::USize(val) => Literal::USize(todo!()),
+                            IntegerLikeLiteralTokenData::U64(val) => {
+                                Literal::U64(TermU64Literal::new(db, val as u64))
+                            }
+                            IntegerLikeLiteralTokenData::U128(val) => {
+                                Literal::U128(TermU128Literal::new(db, val as u128))
+                            }
+                            IntegerLikeLiteralTokenData::USize(val) => {
+                                Literal::USize(TermUSizeLiteral::new(db, val as u64))
+                            }
                         },
                         LiteralTokenData::Float(lit) => {
                             match lit {
@@ -161,7 +177,6 @@ impl<'a> SemaExprEngine<'a> {
                                 FloatLiteralTokenData::F64(val) => Literal::F64(val),
                             }
                         }
-                        LiteralTokenData::TupleIndex(_) => todo!(),
                         LiteralTokenData::Bool(val) => match val {
                             BoolLiteralTokenData::True => Literal::Bool(true),
                             BoolLiteralTokenData::False => Literal::Bool(false),

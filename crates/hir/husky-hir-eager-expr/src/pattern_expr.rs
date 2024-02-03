@@ -1,7 +1,13 @@
 use crate::*;
 use husky_eth_term::term::EthTerm;
 use husky_syn_expr::{SynPatternExprData, SynPatternExprIdx, SynPatternExprRoot};
-use husky_term_prelude::literal::Literal;
+use husky_term_prelude::literal::{
+    int::{
+        TermI128Literal, TermI64Literal, TermISizeLiteral, TermR128Literal, TermR64Literal,
+        TermRSizeLiteral, TermU128Literal, TermU64Literal, TermUSizeLiteral,
+    },
+    Literal,
+};
 use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData};
 
 #[salsa::debug_with_db]
@@ -87,27 +93,44 @@ impl<'a> HirEagerExprBuilder<'a> {
                             Literal::from_unspecified_int(path, value, db)
                         }
                         IntegerLikeLiteralTokenData::UnspecifiedLarge() => todo!(),
-                        IntegerLikeLiteralTokenData::I8(_) => todo!(),
-                        IntegerLikeLiteralTokenData::I16(_) => todo!(),
-                        IntegerLikeLiteralTokenData::I32(_) => todo!(),
-                        IntegerLikeLiteralTokenData::I64(_) => todo!(),
-                        IntegerLikeLiteralTokenData::I128(_) => todo!(),
-                        IntegerLikeLiteralTokenData::ISize(_) => todo!(),
-                        IntegerLikeLiteralTokenData::R8(_) => todo!(),
-                        IntegerLikeLiteralTokenData::R16(_) => todo!(),
-                        IntegerLikeLiteralTokenData::R32(_) => todo!(),
-                        IntegerLikeLiteralTokenData::R64(_) => todo!(),
-                        IntegerLikeLiteralTokenData::R128(_) => todo!(),
-                        IntegerLikeLiteralTokenData::RSize(_) => todo!(),
-                        IntegerLikeLiteralTokenData::U8(_) => todo!(),
-                        IntegerLikeLiteralTokenData::U16(_) => todo!(),
-                        IntegerLikeLiteralTokenData::U32(_) => todo!(),
-                        IntegerLikeLiteralTokenData::U64(_) => todo!(),
-                        IntegerLikeLiteralTokenData::U128(_) => todo!(),
-                        IntegerLikeLiteralTokenData::USize(_) => todo!(),
+                        IntegerLikeLiteralTokenData::I8(val) => Literal::I8(val),
+                        IntegerLikeLiteralTokenData::I16(val) => Literal::I16(val),
+                        IntegerLikeLiteralTokenData::I32(val) => Literal::I32(val),
+                        IntegerLikeLiteralTokenData::I64(val) => {
+                            Literal::I64(TermI64Literal::new(db, val))
+                        }
+                        IntegerLikeLiteralTokenData::I128(val) => {
+                            Literal::I128(TermI128Literal::new(db, val))
+                        }
+                        IntegerLikeLiteralTokenData::ISize(val) => {
+                            Literal::ISize(TermISizeLiteral::new(db, val as i64))
+                        }
+                        IntegerLikeLiteralTokenData::R8(val) => Literal::R8(val),
+                        IntegerLikeLiteralTokenData::R16(val) => Literal::R16(val),
+                        IntegerLikeLiteralTokenData::R32(val) => Literal::R32(val),
+                        IntegerLikeLiteralTokenData::R64(val) => {
+                            Literal::R64(TermR64Literal::new(db, val as u64))
+                        }
+                        IntegerLikeLiteralTokenData::R128(val) => {
+                            Literal::R128(TermR128Literal::new(db, val as u128))
+                        }
+                        IntegerLikeLiteralTokenData::RSize(val) => {
+                            Literal::RSize(TermRSizeLiteral::new(db, val as u64))
+                        }
+                        IntegerLikeLiteralTokenData::U8(val) => Literal::U8(val),
+                        IntegerLikeLiteralTokenData::U16(val) => Literal::U16(val),
+                        IntegerLikeLiteralTokenData::U32(val) => Literal::U32(val),
+                        IntegerLikeLiteralTokenData::U64(val) => {
+                            Literal::U64(TermU64Literal::new(db, val as u64))
+                        }
+                        IntegerLikeLiteralTokenData::U128(val) => {
+                            Literal::U128(TermU128Literal::new(db, val as u128))
+                        }
+                        IntegerLikeLiteralTokenData::USize(val) => {
+                            Literal::USize(TermUSizeLiteral::new(db, val as u64))
+                        }
                     },
                     LiteralTokenData::Float(_) => todo!(),
-                    LiteralTokenData::TupleIndex(_) => todo!(),
                     LiteralTokenData::Bool(_) => todo!(),
                 })
             }

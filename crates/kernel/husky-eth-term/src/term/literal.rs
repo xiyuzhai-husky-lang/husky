@@ -15,12 +15,12 @@ impl EthTerm {
     }
 
     fn from_unresolved_literal_declarative_term(
-        literal: UnresolvedTermLiteral,
+        literal: UnresolvedDecLiteral,
         ty_expectation: TypeFinalDestinationExpectation,
         db: &salsa::Db,
     ) -> EthTerm {
         match literal {
-            UnresolvedTermLiteral::RegularInteger(i) => {
+            UnresolvedDecLiteral::RegularInteger(i) => {
                 let TypeFinalDestinationExpectation::EqsNonSortTypePath(ty_path) = ty_expectation
                 else {
                     todo!()
