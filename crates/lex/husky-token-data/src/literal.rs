@@ -3,13 +3,11 @@ mod char;
 mod float;
 mod integer;
 mod string;
-mod tuple_index;
 
 pub use self::bool::*;
 pub use self::char::*;
 pub use self::float::*;
 pub use self::integer::*;
-pub use self::tuple_index::*;
 
 use crate::*;
 use husky_term_prelude::literal::StringLiteralTokenData;
@@ -23,7 +21,6 @@ pub enum LiteralTokenData {
     String(StringLiteralTokenData),
     Integer(IntegerLikeLiteralTokenData),
     Float(FloatLiteralTokenData),
-    TupleIndex(TupleIndexLiteralTokenData),
     Bool(BoolLiteralTokenData),
 }
 
@@ -36,7 +33,6 @@ impl LiteralTokenData {
             LiteralTokenData::Bool(_) => None,
             LiteralTokenData::String(_) => None,
             LiteralTokenData::Char(_) => None,
-            LiteralTokenData::TupleIndex(_) => None,
         }
     }
 }

@@ -153,10 +153,9 @@ impl<'a> SemaExprEngine<'a> {
                             }
                         }
                     }
-                    FloatLiteralTokenData::F32(_) => todo!(),
-                    FloatLiteralTokenData::F64(_) => todo!(),
+                    FloatLiteralTokenData::F32(_) => Ok(self.term_menu().f32_ty_ontology().into()),
+                    FloatLiteralTokenData::F64(_) => Ok(self.term_menu().f64_ty_ontology().into()),
                 },
-                LiteralTokenData::TupleIndex(_) => todo!(),
                 LiteralTokenData::Bool(_) => Ok(self.term_menu().bool_ty_ontology().into()),
             },
             _ => unreachable!(),

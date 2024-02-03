@@ -15,12 +15,12 @@ use self::name::SymbolDecTermNameMap;
 #[enum_class::from_variants]
 pub enum DecLiteral {
     Resolved(Literal),
-    Unresolved(UnresolvedTermLiteral),
+    Unresolved(UnresolvedDecLiteral),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
-pub enum UnresolvedTermLiteral {
+pub enum UnresolvedDecLiteral {
     RegularInteger(i128),
 }
 
@@ -43,7 +43,7 @@ impl DecLiteral {
             LiteralTokenData::String(_) => todo!(),
             LiteralTokenData::Integer(literal) => match literal {
                 IntegerLikeLiteralTokenData::UnspecifiedRegular(i) => {
-                    UnresolvedTermLiteral::RegularInteger(i).into()
+                    UnresolvedDecLiteral::RegularInteger(i).into()
                 }
                 IntegerLikeLiteralTokenData::UnspecifiedLarge() => todo!(),
                 IntegerLikeLiteralTokenData::I8(i) => Literal::I8(i).into(),
@@ -84,7 +84,6 @@ impl DecLiteral {
                 }
             },
             LiteralTokenData::Float(_) => todo!(),
-            LiteralTokenData::TupleIndex(_) => todo!(),
             LiteralTokenData::Bool(_) => todo!(),
         }
     }
