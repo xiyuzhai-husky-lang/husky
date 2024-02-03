@@ -57,6 +57,14 @@ impl DeriveAttrSynNodeDecl {
     }
 }
 
+/// # getters
+
+impl DeriveAttrSynNodeDecl {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
+        chain_as_ref_err_collect!(self.lpar_token(db), self.trais(db), self.rpar_token(db))
+    }
+}
+
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct DeriveAttrSynDecl {
     #[id]

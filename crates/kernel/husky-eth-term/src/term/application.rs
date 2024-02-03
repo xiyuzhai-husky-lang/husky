@@ -1,6 +1,5 @@
 mod expansion;
 pub mod reduction;
-mod utils;
 
 pub use self::expansion::*;
 

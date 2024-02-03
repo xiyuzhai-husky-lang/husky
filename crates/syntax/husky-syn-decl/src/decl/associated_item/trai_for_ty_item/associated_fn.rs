@@ -16,21 +16,14 @@ pub struct TraitForTypeAssociatedFnSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
+/// # getters
 impl TraitForTypeAssociatedFnSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
-        SmallVec::from_iter(
-            self.template_parameter_decl_list(db)
-                .as_ref()
-                .err()
-                .into_iter()
-                .chain(
-                    self.parenate_parameter_decl_list(db)
-                        .as_ref()
-                        .err()
-                        .into_iter(),
-                )
-                .chain(self.return_ty(db).as_ref().err().into_iter())
-                .chain(self.eol_colon(db).as_ref().err().into_iter()),
+        chain_as_ref_err_collect!(
+            self.template_parameter_decl_list(db),
+            self.parenate_parameter_decl_list(db),
+            self.return_ty(db),
+            self.eol_colon(db)
         )
     }
 }
