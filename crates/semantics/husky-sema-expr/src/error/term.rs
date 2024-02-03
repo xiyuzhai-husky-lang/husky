@@ -21,12 +21,6 @@ impl From<FlyTermError> for SemaExprTermError {
     }
 }
 
-impl From<&SemaExprTypeError> for SemaExprTermError {
-    fn from(value: &SemaExprTypeError) -> Self {
-        todo!()
-    }
-}
-
 impl From<&SemaExprDataError> for SemaExprTermError {
     fn from(value: &SemaExprDataError) -> Self {
         DerivedSemaExprTermError::ExprError.into()
