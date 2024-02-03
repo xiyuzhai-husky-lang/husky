@@ -29,15 +29,6 @@ impl From<TraitForTypeItemSynNodeDecl> for ItemSynNodeDecl {
 }
 
 impl TraitForTypeItemSynNodeDecl {
-    pub fn syn_node_path(self, db: &::salsa::Db) -> TraitForTypeItemSynNodePath {
-        match self {
-            TraitForTypeItemSynNodeDecl::AssociatedFn(_) => todo!(),
-            TraitForTypeItemSynNodeDecl::MethodFn(slf) => slf.syn_node_path(db),
-            TraitForTypeItemSynNodeDecl::AssociatedType(slf) => slf.syn_node_path(db),
-            TraitForTypeItemSynNodeDecl::AssociatedVal(_) => todo!(),
-        }
-    }
-
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             TraitForTypeItemSynNodeDecl::AssociatedFn(slf) => slf.syn_expr_region(db),

@@ -37,8 +37,6 @@ pub struct SynDeclJar(
     TupleStructTypeSynDecl,
     PropsStructTypeSynNodeDecl,
     PropsStructTypeSynDecl,
-    RecordTypeSynNodeDecl,
-    RecordTypeSynDecl,
     InductiveTypeSynNodeDecl,
     InductiveTypeSynDecl,
     StructureTypeSynNodeDecl,

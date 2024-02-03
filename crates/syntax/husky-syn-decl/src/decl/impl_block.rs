@@ -100,15 +100,3 @@ impl HasSynDecl for ImplBlockPath {
         }
     }
 }
-
-pub(crate) fn impl_block_syn_decl(
-    _db: &::salsa::Db,
-    _impl_block: ImplBlockPath,
-) -> DeclResult<ImplBlockSynDecl> {
-    todo!()
-    // match impl_block {
-    //     ImplBlockNode::TypeImplBlock(impl_block) => impl_block.decl(db).map(Into::into),
-    //     ImplBlockNode::TraitForTypeImplBlock(impl_block) => impl_block.decl(db).map(Into::into),
-    //     ImplBlockNode::IllFormedImplBlock(_) => Err(&DeclError::Derived(DerivedDeclError::ImplErr)),
-    // }
-}

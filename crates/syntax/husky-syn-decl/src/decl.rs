@@ -44,25 +44,14 @@ impl ItemSynNodeDecl {
         }
     }
 
-    pub fn syn_node_path(self, db: &::salsa::Db) -> ItemSynNodePath {
-        match self {
-            ItemSynNodeDecl::Submodule(slf) => slf.syn_node_path(db).into(),
-            ItemSynNodeDecl::MajorItem(slf) => slf.syn_node_path(db).into(),
-            ItemSynNodeDecl::ImplBlock(slf) => slf.syn_node_path(db).into(),
-            ItemSynNodeDecl::AssociatedItem(slf) => slf.syn_node_path(db).into(),
-            ItemSynNodeDecl::TypeVariant(slf) => slf.syn_node_path(db).into(),
-            ItemSynNodeDecl::Attr(_) => todo!(),
-        }
-    }
-
-    pub fn node_decl_errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
             ItemSynNodeDecl::Submodule(slf) => slf.errors(db),
             ItemSynNodeDecl::MajorItem(slf) => slf.errors(db),
             ItemSynNodeDecl::ImplBlock(slf) => slf.errors(db),
             ItemSynNodeDecl::AssociatedItem(slf) => slf.errors(db),
             ItemSynNodeDecl::TypeVariant(slf) => slf.errors(db),
-            ItemSynNodeDecl::Attr(_) => todo!(),
+            ItemSynNodeDecl::Attr(slf) => slf.errors(db),
         }
     }
 }

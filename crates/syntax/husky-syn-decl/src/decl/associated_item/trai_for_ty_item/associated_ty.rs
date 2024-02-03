@@ -12,6 +12,7 @@ pub struct TraitForTypeAssociatedTypeSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
+/// # getters
 impl TraitForTypeAssociatedTypeSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(

@@ -12,10 +12,17 @@ pub enum AttrSynNodeDecl {
     Derive(DeriveAttrSynNodeDecl),
 }
 
+/// # getters
 impl AttrSynNodeDecl {
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             AttrSynNodeDecl::Derive(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+        }
+    }
+
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
+        match self {
+            AttrSynNodeDecl::Derive(slf) => slf.errors(db),
         }
     }
 }

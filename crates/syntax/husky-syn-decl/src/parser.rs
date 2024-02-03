@@ -1,9 +1,5 @@
 use crate::*;
-
-use husky_decl_ast::DeclAst;
-
 use husky_entity_tree::{helpers::tokra_region::DeclTokraRegionData, *};
-use husky_print_utils::p;
 
 pub(crate) struct DeclParser<'a> {
     db: &'a ::salsa::Db,
@@ -16,9 +12,7 @@ impl<'a> DeclParser<'a> {
     pub(crate) fn new(db: &'a ::salsa::Db, syn_node_path: ItemSynNodePath) -> Self {
         let path = syn_node_path.module_path(db);
         let Ok(module_symbol_context) = db.module_symbol_context(path) else {
-            use salsa::DebugWithDb;
-            p!(path.debug(db));
-            unreachable!("valid module")
+            unreachable!("expected valid module")
         };
         Self {
             db,
@@ -50,11 +44,6 @@ impl<'a> DeclParser<'a> {
     #[inline(always)]
     pub(crate) fn db(&self) -> &'a ::salsa::Db {
         self.db
-    }
-
-    #[inline(always)]
-    pub(crate) fn ast(&self) -> &'a DeclAst {
-        todo!()
     }
 
     pub(crate) fn syn_node_path(&self) -> ItemSynNodePath {

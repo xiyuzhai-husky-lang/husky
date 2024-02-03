@@ -23,23 +23,6 @@ pub enum AssociatedItemSynNodeDecl {
 }
 
 impl AssociatedItemSynNodeDecl {
-    pub fn syn_node_path(self, db: &::salsa::Db) -> AssociatedItemSynNodePath {
-        match self {
-            AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => {
-                syn_node_decl.syn_node_path(db).into()
-            }
-            AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => {
-                syn_node_decl.syn_node_path(db).into()
-            }
-            AssociatedItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => {
-                syn_node_decl.syn_node_path(db).into()
-            }
-            AssociatedItemSynNodeDecl::IllFormedItem(syn_node_decl) => {
-                syn_node_decl.syn_node_path(db).into()
-            }
-        }
-    }
-
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => syn_node_decl.syn_expr_region(db),

@@ -7,6 +7,7 @@ pub struct TraitForTypeAssociatedValSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
+/// # getters
 impl TraitForTypeAssociatedValSynNodeDecl {
     pub fn errors(self, _db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         // ad hoc

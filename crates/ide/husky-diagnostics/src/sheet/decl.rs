@@ -20,7 +20,7 @@ pub(crate) fn decl_diagnostic_sheet(
         .copied()
     {
         if let Some(syn_expr_region) = syn_node_decl.syn_expr_region(db) {
-            for error in syn_node_decl.node_decl_errors(db) {
+            for error in syn_node_decl.errors(db) {
                 if let SynNodeDeclError::Original(error) = error {
                     collector
                         .region_collector(syn_expr_region)
