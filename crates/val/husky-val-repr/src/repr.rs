@@ -6,7 +6,7 @@ pub(crate) use self::val_domain_repr_guard::ValDomainReprGuard;
 use self::source::*;
 use crate::*;
 use husky_coword::Ident;
-use husky_entity_path::FugitivePath;
+use husky_entity_path::MajorFugitivePath;
 use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
 use husky_hir_expr::HirExprIdx;
 use husky_linkage::linkage::Linkage;
@@ -86,7 +86,7 @@ impl ValRepr {
         )
     }
 
-    pub fn new_val_item(path: FugitivePath, db: &::salsa::Db) -> Self {
+    pub fn new_val_item(path: MajorFugitivePath, db: &::salsa::Db) -> Self {
         val_item_val_repr(db, path)
     }
 
@@ -102,7 +102,7 @@ impl ValRepr {
 }
 
 #[salsa::tracked(jar = ValReprJar)]
-fn val_item_val_repr(db: &::salsa::Db, path: FugitivePath) -> ValRepr {
+fn val_item_val_repr(db: &::salsa::Db, path: MajorFugitivePath) -> ValRepr {
     let domain = ValDomainRepr::Omni;
     let FugitiveHirDefn::Val(hir_defn) = path.hir_defn(db).unwrap() else {
         unreachable!()
@@ -225,7 +225,7 @@ impl ValDomainRepr {
 pub(crate) fn val_item_val_reprs(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> Vec<(FugitivePath, ValRepr)> {
+) -> Vec<(MajorFugitivePath, ValRepr)> {
     use husky_entity_kind::FugitiveKind;
     use husky_entity_path::{ItemPath, MajorItemPath};
     use husky_entity_tree::helpers::paths::module_item_paths;

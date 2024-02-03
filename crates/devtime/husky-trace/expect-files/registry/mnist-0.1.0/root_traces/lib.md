@@ -14,7 +14,7 @@
                         value: 1,
                     },
                 ),
-                val_item_path: FugitivePath(
+                val_item_path: MajorFugitivePath(
                     ItemPathId(
                         Id {
                             value: 14,

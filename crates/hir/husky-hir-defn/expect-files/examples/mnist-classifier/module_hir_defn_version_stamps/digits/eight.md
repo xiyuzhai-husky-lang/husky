@@ -2,7 +2,7 @@
     (
         MajorItem(
             Fugitive(
-                FugitivePath(
+                MajorFugitivePath(
                     ItemPathId(
                         Id {
                             value: 96,
@@ -24,7 +24,7 @@
     (
         MajorItem(
             Fugitive(
-                FugitivePath(
+                MajorFugitivePath(
                     ItemPathId(
                         Id {
                             value: 97,
@@ -46,7 +46,7 @@
     (
         MajorItem(
             Fugitive(
-                FugitivePath(
+                MajorFugitivePath(
                     ItemPathId(
                         Id {
                             value: 98,

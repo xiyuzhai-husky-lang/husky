@@ -5,7 +5,7 @@ pub(crate) use self::utils::*;
 use super::*;
 
 /// representing term `X -> Y` or dependent form `(a: X) -> Y(a)`
-#[salsa::interned(db = EthTermDb, jar = EthTermJar)]
+#[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = new_inner)]
 pub struct EthCurry {
     pub toolchain: Toolchain,
     pub curry_kind: CurryKind,
@@ -23,7 +23,29 @@ fn term_curry_size_works() {
     assert_eq!(std::mem::size_of::<EthCurry>(), std::mem::size_of::<u32>());
 }
 
+/// # constructors
+
 impl EthCurry {
+    pub fn new(
+        toolchain: Toolchain,
+        curry_kind: CurryKind,
+        variance: Variance,
+        parameter_rune: Option<EthRune>,
+        parameter_ty: EthTerm,
+        return_ty: EthTerm,
+        db: &::salsa::Db,
+    ) -> Self {
+        Self::new_inner(
+            db,
+            toolchain,
+            curry_kind,
+            variance,
+            parameter_rune,
+            parameter_ty.reduce(db),
+            return_ty.reduce(db),
+        )
+    }
+
     pub(crate) fn from_declarative(
         db: &::salsa::Db,
         declarative_term_curry: DecCurry,
@@ -70,13 +92,13 @@ impl EthCurry {
             return self;
         }
         Self::new(
-            db,
             self.toolchain(db),
             self.curry_kind(db),
             self.variance(db),
             parameter_rune.map(|rune| rune.substitute_intact(substitution, db)),
             self.parameter_ty(db),
             self.return_ty(db),
+            db,
         )
     }
 }
@@ -86,13 +108,13 @@ impl EthTermInstantiate for EthCurry {
 
     fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
         Self::new(
-            db,
             self.toolchain(db),
             self.curry_kind(db),
             self.variance(db),
             self.parameter_rune(db).instantiate(db, instantiation),
             self.parameter_ty(db).instantiate(db, instantiation),
             self.return_ty(db).instantiate(db, instantiation),
+            db,
         )
     }
 }
@@ -104,7 +126,6 @@ pub(crate) fn term_curry_from_declarative(
 ) -> EthTermResult<EthCurry> {
     let t = |declarative_ty| EthTerm::ty_from_declarative(db, declarative_ty);
     Ok(EthCurry::new(
-        db,
         curry.toolchain(db),
         curry.curry_kind(db),
         curry.variance(db),
@@ -114,6 +135,7 @@ pub(crate) fn term_curry_from_declarative(
         },
         t(curry.parameter_ty(db))?,
         t(curry.return_ty(db))?,
+        db,
     ))
 }
 

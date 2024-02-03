@@ -4,7 +4,7 @@ use std::fmt::Debug;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id]
 #[salsa::deref_id]
-pub struct FugitivePath(ItemPathId);
+pub struct MajorFugitivePath(ItemPathId);
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -15,7 +15,7 @@ pub struct FugitivePathData {
     fugitive_kind: FugitiveKind,
 }
 
-impl FugitivePath {
+impl MajorFugitivePath {
     pub fn new(
         module_path: ModulePath,
         ident: Ident,
@@ -57,8 +57,8 @@ impl FugitivePath {
 
 impl FugitivePathData {
     #[inline(always)]
-    pub(super) fn item_path(self, id: ItemPathId) -> FugitivePath {
-        FugitivePath(id)
+    pub(super) fn item_path(self, id: ItemPathId) -> MajorFugitivePath {
+        MajorFugitivePath(id)
     }
 
     pub fn crate_path(self, db: &::salsa::Db) -> CratePath {
@@ -93,7 +93,7 @@ impl FugitivePathData {
     }
 }
 
-impl salsa::DebugWithDb for FugitivePath {
+impl salsa::DebugWithDb for MajorFugitivePath {
     fn debug_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -108,7 +108,7 @@ impl salsa::DebugWithDb for FugitivePath {
     }
 }
 
-impl salsa::DisplayWithDb for FugitivePath {
+impl salsa::DisplayWithDb for MajorFugitivePath {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,

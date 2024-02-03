@@ -7,7 +7,7 @@ use super::*;
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum DecItemPath {
-    Fugitive(FugitivePath),
+    Fugitive(MajorFugitivePath),
     Trait(TraitPath),
     Type(TypePath),
     TypeVariant(TypeVariantPath),
@@ -40,8 +40,8 @@ impl DecItemPath {
         }
     }
 }
-impl From<FugitivePath> for DecTerm {
-    fn from(value: FugitivePath) -> Self {
+impl From<MajorFugitivePath> for DecTerm {
+    fn from(value: MajorFugitivePath) -> Self {
         DecTerm::EntityPath(value.into())
     }
 }

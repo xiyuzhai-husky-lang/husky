@@ -56,7 +56,7 @@ impl HasType for TraitPath {
     }
 }
 
-impl HasType for FugitivePath {
+impl HasType for MajorFugitivePath {
     fn ty(self, db: &::salsa::Db) -> EthTermResult<EthTerm> {
         EthTerm::ty_from_declarative(db, fugitive_path_declarative_ty(db, self)?)
     }

@@ -11,7 +11,7 @@ use salsa::DebugWithDb;
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ValReprSource {
-    ValItem(FugitivePath),
+    ValItem(MajorFugitivePath),
     Expansion {
         parent_val_repr: ValRepr,
         source: ValReprExpansionSource,

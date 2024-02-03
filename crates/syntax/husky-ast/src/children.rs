@@ -36,7 +36,7 @@ pub(crate) trait IsAstChildren {
 #[enum_class::from_variants]
 pub enum DefnBlock {
     Fugitive {
-        path: FugitivePath,
+        path: MajorFugitivePath,
         body: Option<FugitiveBody>,
     },
     Submodule {

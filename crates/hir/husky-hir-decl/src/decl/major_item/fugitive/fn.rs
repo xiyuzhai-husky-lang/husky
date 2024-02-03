@@ -3,7 +3,7 @@ use husky_syn_decl::FunctionMajorFnSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct FunctionMajorFnHirDecl {
-    pub path: FugitivePath,
+    pub path: MajorFugitivePath,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
     #[return_ref]
@@ -14,7 +14,7 @@ pub struct FunctionMajorFnHirDecl {
 
 impl FunctionMajorFnHirDecl {
     pub(super) fn from_syn(
-        path: FugitivePath,
+        path: MajorFugitivePath,
         syn_decl: FunctionMajorFnSynDecl,
         db: &::salsa::Db,
     ) -> Self {

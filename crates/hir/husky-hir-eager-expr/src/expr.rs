@@ -87,7 +87,7 @@ pub enum HirEagerExprData {
         item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
     },
     FunctionFnCall {
-        path: FugitivePath,
+        path: MajorFugitivePath,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
     },

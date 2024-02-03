@@ -2,7 +2,7 @@
     (
         MajorItem(
             Fugitive(
-                FugitivePath(
+                MajorFugitivePath(
                     ItemPathId(
                         Id {
                             value: 50,

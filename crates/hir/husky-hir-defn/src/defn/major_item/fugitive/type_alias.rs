@@ -3,7 +3,7 @@ use husky_hir_decl::decl::TypeAliasHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar)]
 pub struct TypeAliasHirDefn {
-    pub path: FugitivePath,
+    pub path: MajorFugitivePath,
     pub hir_decl: TypeAliasHirDecl,
     pub hir_eager_expr_region: Option<HirEagerExprRegion>,
 }

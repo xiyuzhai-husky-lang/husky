@@ -7,7 +7,7 @@ use salsa::DisplayWithDb;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
 pub enum ItemPathTerm {
-    Fugitive(FugitivePath),
+    Fugitive(MajorFugitivePath),
     Trait(TraitPath),
     TypeOntology(TypePath),
     TypeInstance(TypePath),
@@ -54,8 +54,8 @@ impl ItemPathTerm {
     }
 }
 
-impl From<FugitivePath> for ItemPathTerm {
-    fn from(value: FugitivePath) -> Self {
+impl From<MajorFugitivePath> for ItemPathTerm {
+    fn from(value: MajorFugitivePath) -> Self {
         ItemPathTerm::Fugitive(value)
     }
 }

@@ -41,7 +41,7 @@ impl FugitiveHirDecl {
         }
     }
 
-    pub fn path(self, db: &::salsa::Db) -> FugitivePath {
+    pub fn path(self, db: &::salsa::Db) -> MajorFugitivePath {
         match self {
             FugitiveHirDecl::FunctionFn(decl) => decl.path(db),
             FugitiveHirDecl::Val(decl) => decl.path(db),
@@ -51,7 +51,7 @@ impl FugitiveHirDecl {
     }
 }
 
-impl HasHirDecl for FugitivePath {
+impl HasHirDecl for MajorFugitivePath {
     type HirDecl = FugitiveHirDecl;
 
     fn hir_decl(self, db: &::salsa::Db) -> Option<Self::HirDecl> {
@@ -60,7 +60,7 @@ impl HasHirDecl for FugitivePath {
 }
 
 #[salsa::tracked(jar = HirDeclJar)]
-fn fugitive_hir_decl(db: &::salsa::Db, path: FugitivePath) -> Option<FugitiveHirDecl> {
+fn fugitive_hir_decl(db: &::salsa::Db, path: MajorFugitivePath) -> Option<FugitiveHirDecl> {
     match path.syn_decl(db).expect("no errors for hir stage") {
         FugitiveSynDecl::FunctionFn(syn_decl) => {
             Some(FunctionMajorFnHirDecl::from_syn(path, syn_decl, db).into())

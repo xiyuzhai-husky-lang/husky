@@ -72,7 +72,7 @@ impl<'a> DeclParser<'a> {
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct FunctionMajorFnSynDecl {
     #[id]
-    pub path: FugitivePath,
+    pub path: MajorFugitivePath,
     #[return_ref]
     pub template_parameters: TemplateSynParametersData,
     #[return_ref]
@@ -84,7 +84,7 @@ pub struct FunctionMajorFnSynDecl {
 impl FunctionMajorFnSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
-        path: FugitivePath,
+        path: MajorFugitivePath,
         syn_node_decl: MajorFnSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameter_obelisks = syn_node_decl
