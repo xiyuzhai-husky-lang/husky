@@ -1,7 +1,5 @@
-use husky_hir_ty::trai::HirTrait;
-use husky_print_utils::p;
-
 use super::*;
+use husky_hir_ty::trai::HirTrait;
 
 #[salsa::tracked(db = HirDeclDb, jar = HirDeclJar, constructor = new)]
 pub struct TraitForTypeImplBlockHirDecl {

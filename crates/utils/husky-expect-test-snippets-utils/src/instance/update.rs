@@ -69,7 +69,8 @@ input
 {}
 ```"#,
                 entry.input
-            );
+            )
+            .unwrap();
             if let Some(ref output) = entry.output {
                 write!(
                     result,
@@ -81,7 +82,8 @@ output
 {}
 ```"#,
                     output
-                );
+                )
+                .unwrap();
             }
         }
         result.push('\n');

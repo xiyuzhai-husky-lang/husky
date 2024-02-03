@@ -90,7 +90,6 @@ impl BinaryImageVisualData {
                     let j0 = j / 8;
                     let j1 = j % 8;
                     debug_assert_eq!(j, j0 * 8 + j1);
-                    debug_assert!(j1 >= 0);
                     debug_assert!(j1 < 8);
                     let byte: u8 = bitmap[(i * (bits_per_row as u32) + j0) as usize];
                     let bit: bool = (byte & (1 << (7 - j1))) != 0;

@@ -33,7 +33,6 @@ use husky_entity_kind::FugitiveKind;
 use husky_entity_path::MajorItemPath;
 use husky_entity_path::{FugitivePath, ItemPath};
 use husky_entity_tree::helpers::paths::module_item_paths;
-use husky_manifest::HasPackageManifest;
 use husky_sema_expr::SemaExprIdx;
 use husky_trace_protocol::id::TraceId;
 use husky_trace_protocol::{
