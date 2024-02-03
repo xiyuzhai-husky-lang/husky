@@ -958,7 +958,7 @@ TokenSheetData {
         ),
         TokenData::Keyword(
             Keyword::Fugitive(
-                Val,
+                Memo,
             ),
         ),
         TokenData::Ident(
@@ -1015,7 +1015,7 @@ TokenSheetData {
         ),
         TokenData::Keyword(
             Keyword::Fugitive(
-                Val,
+                Memo,
             ),
         ),
         TokenData::Ident(

@@ -6,7 +6,7 @@ AstSheet {
                     3,
                 ),
                 error: AstError::Original(
-                    OriginalAstError::UnexpectedModInsideModuleItem,
+                    OriginalAstError::UnexpectedModUnderFugitive,
                 ),
             },
             Ast::Err {

@@ -10,6 +10,7 @@ pub enum FugitiveKeyword {
     Type,
     Val,
     Gn,
+    Memo,
 }
 
 impl FugitiveKeyword {
@@ -23,6 +24,7 @@ impl FugitiveKeyword {
             FugitiveKeyword::Type => "type",
             FugitiveKeyword::Val => "val",
             FugitiveKeyword::Gn => "gn",
+            FugitiveKeyword::Memo => "memo",
         }
     }
 }

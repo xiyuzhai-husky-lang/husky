@@ -1,7 +1,7 @@
 mod ambiguous;
 mod connection;
 mod end;
-mod form;
+mod fugitive;
 mod modifier;
 mod pronoun;
 mod stmt;
@@ -10,7 +10,7 @@ mod ty;
 pub use self::ambiguous::*;
 pub use self::connection::*;
 pub use self::end::*;
-pub use self::form::*;
+pub use self::fugitive::*;
 pub use self::modifier::*;
 pub use self::pronoun::*;
 pub use self::stmt::*;

@@ -11,6 +11,8 @@ pub enum EntityKindKeywordGroup {
     StaticFn(StaticToken, FugitiveFnToken),
     /// `val`
     Val(ValToken),
+    /// `memo`
+    Memo(MemoToken),
     /// `gn`
     Gn(GnToken),
     /// husky will have the capacities of theorem proving
@@ -213,6 +215,9 @@ where
                 ))),
                 FugitiveKeyword::Val => {
                     Ok(Some(EntityKindKeywordGroup::Val(ValToken { token_idx })))
+                }
+                FugitiveKeyword::Memo => {
+                    Ok(Some(EntityKindKeywordGroup::Memo(MemoToken { token_idx })))
                 }
                 FugitiveKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
             },

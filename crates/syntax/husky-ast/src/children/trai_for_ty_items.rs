@@ -20,7 +20,7 @@ impl IsAstChildren for TraitForTypeItems {
     fn determine_item_kind(item_keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind> {
         let trait_item_kind = match item_keyword_group {
             EntityKindKeywordGroup::Submodule(_) => {
-                Err(OriginalAstError::UnexpectedModInsideModuleItem)?
+                Err(OriginalAstError::UnexpectedModUnderFugitive)?
             }
             EntityKindKeywordGroup::FugitiveFn(_) => TraitItemKind::MethodFn,
             EntityKindKeywordGroup::StaticFn(_, _) => TraitItemKind::AssociatedFunctionFn,
@@ -32,6 +32,7 @@ impl IsAstChildren for TraitForTypeItems {
             EntityKindKeywordGroup::AliasOrAssociateType(_) => TraitItemKind::AssociatedType,
             EntityKindKeywordGroup::Trait(_) => Err(OriginalAstError::UnexpectedTraitInsideTrait)?,
             EntityKindKeywordGroup::Val(_) => TraitItemKind::AssociatedVal,
+            EntityKindKeywordGroup::Memo(_) => TraitItemKind::MemoizedField,
             EntityKindKeywordGroup::Const(_) => todo!(),
         };
         Ok(EntityKind::AssociatedItem {

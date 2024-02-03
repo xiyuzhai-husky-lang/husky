@@ -72,13 +72,13 @@ pub enum OriginalAstError {
     #[error("UnexpectedStmtInsideTrait")]
     UnexpectedStmtInsideTrait,
     #[error("UnexpectedStmtInsideModule")]
-    UnexpectedStmtInsideModule,
+    UnexpectedStmtUnderModule,
     #[error("UnexpectedMainInsideTrait")]
     UnexpectedMainInsideTrait,
     #[error("UnexpectedUseInsideTrait")]
     UnexpectedUseInsideTrait,
     #[error("unexpected submodule inside module item")]
-    UnexpectedModInsideModuleItem,
+    UnexpectedModUnderFugitive,
     #[error("unexpected implemention block inside module item")]
     UnexpectedImplBlockInsideModuleItem,
     #[error("UnexpectedTraitInsideTrait")]
@@ -118,6 +118,10 @@ pub enum OriginalAstError {
     VisibilityExprError(#[from] OriginalVisibilityExprError),
     #[error("ExpectedLboxOrIdentAfterPoundForAttrOrSorce")]
     ExpectedLboxOrIdentAfterPoundForAttrOrSorce,
+    #[error("UnexpectedMemoUnderModule")]
+    UnexpectedMemoUnderModule,
+    #[error("UnexpectedMemoUnderFugitive")]
+    UnexpectedMemoUnderFugitive,
 }
 
 impl From<std::convert::Infallible> for AstError {

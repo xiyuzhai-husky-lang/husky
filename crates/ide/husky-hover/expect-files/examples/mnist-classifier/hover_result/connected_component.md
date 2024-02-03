@@ -136,11 +136,11 @@
                         Range {
                             start: Position {
                                 line: 41,
-                                character: 27,
+                                character: 28,
                             },
                             end: Position {
                                 line: 41,
-                                character: 28,
+                                character: 29,
                             },
                         },
                     ),
@@ -189,7 +189,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "This is a paradigm\ntoken_idx = 264;\n\ntoken_line_group_idx = 35\n\ntoken = TokenData::Keyword(\n    Keyword::Fugitive(\n        Val,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "This is a paradigm\ntoken_idx = 264;\n\ntoken_line_group_idx = 35\n\ntoken = TokenData::Keyword(\n    Keyword::Fugitive(\n        Memo,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
@@ -200,7 +200,7 @@
                             },
                             end: Position {
                                 line: 58,
-                                character: 7,
+                                character: 8,
                             },
                         },
                     ),

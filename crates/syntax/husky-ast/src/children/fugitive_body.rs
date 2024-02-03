@@ -19,7 +19,7 @@ impl IsAstChildren for FugitiveBody {
     fn determine_item_kind(item_keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind> {
         let module_item_kind = match item_keyword_group {
             EntityKindKeywordGroup::Submodule(_) => {
-                Err(OriginalAstError::UnexpectedModInsideModuleItem)?
+                Err(OriginalAstError::UnexpectedModUnderFugitive)?
             }
             EntityKindKeywordGroup::FugitiveFn(_) => FugitiveKind::FunctionFn.into(),
             EntityKindKeywordGroup::StaticFn(_, _) => {
@@ -32,6 +32,7 @@ impl IsAstChildren for FugitiveBody {
             EntityKindKeywordGroup::Trait(_) => MajorItemKind::Trait,
             EntityKindKeywordGroup::Val(_) => FugitiveKind::Val.into(),
             EntityKindKeywordGroup::Const(_) => FugitiveKind::Const.into(),
+            EntityKindKeywordGroup::Memo(_) => Err(OriginalAstError::UnexpectedMemoUnderFugitive)?,
         };
         Ok(EntityKind::MajorItem {
             module_item_kind,
