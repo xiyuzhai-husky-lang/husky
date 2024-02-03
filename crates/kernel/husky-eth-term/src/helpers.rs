@@ -67,13 +67,13 @@ impl EthTerm {
                     shift - 1,
                 )?;
                 Ok(EthCurry::new(
-                    db,
                     argument_ty.toolchain(db),
                     argument_ty.curry_kind(db),
                     argument_ty.variance(db),
                     None,
                     argument_ty.parameter_ty(db),
                     expr_ty,
+                    db,
                 )
                 .into())
             }

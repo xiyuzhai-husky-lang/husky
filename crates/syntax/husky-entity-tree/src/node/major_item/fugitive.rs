@@ -11,7 +11,7 @@ pub struct FugitiveSynNodePath(ItemSynNodePathId);
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct FugitiveSynNodePathData {
-    pub maybe_ambiguous_path: MaybeAmbiguousPath<FugitivePath>,
+    pub maybe_ambiguous_path: MaybeAmbiguousPath<MajorFugitivePath>,
 }
 
 impl From<FugitiveSynNodePath> for ItemSynNodePath {
@@ -20,7 +20,7 @@ impl From<FugitiveSynNodePath> for ItemSynNodePath {
     }
 }
 
-impl HasSynNodePath for FugitivePath {
+impl HasSynNodePath for MajorFugitivePath {
     type SynNodePath = FugitiveSynNodePath;
 
     fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
@@ -39,7 +39,7 @@ impl FugitiveSynNodePath {
     pub(super) fn new(
         db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
-        path: FugitivePath,
+        path: MajorFugitivePath,
     ) -> Self {
         Self(ItemSynNodePathId::new(
             db,
@@ -84,7 +84,7 @@ impl FugitiveSynNodePathData {
         FugitiveSynNodePath(id)
     }
 
-    pub fn path(self) -> Option<FugitivePath> {
+    pub fn path(self) -> Option<MajorFugitivePath> {
         self.maybe_ambiguous_path.unambiguous_path()
     }
 

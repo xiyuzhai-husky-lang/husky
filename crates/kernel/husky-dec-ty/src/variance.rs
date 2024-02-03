@@ -79,7 +79,7 @@ pub(crate) fn trai_item_variances(
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn fugitive_path_variances(
     db: &::salsa::Db,
-    path: FugitivePath,
+    path: MajorFugitivePath,
 ) -> VarianceResult<Vec<Variance>> {
     calc_item_path_variances(db, path)
 }

@@ -18,7 +18,6 @@ impl FlyTerm {
         merger.accept([parameter_ty, return_ty]);
         match merger.data_kind() {
             FlyTermDataKind::Ethereal => EthCurry::new(
-                db,
                 toolchain,
                 curry_kind,
                 variance,
@@ -29,6 +28,7 @@ impl FlyTerm {
                 return_ty
                     .resolve_as_ethereal(terms)
                     .expect("guaranteed by merger"),
+                db,
             )
             .into(),
             FlyTermDataKind::Solid => todo!(),

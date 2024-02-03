@@ -178,13 +178,13 @@ impl HolTerms {
                         self.entries[idx].resolve_progress =
                             HolTermResolveProgressBuf::ResolvedEthereal(
                                 EthCurry::new(
-                                    db,
                                     toolchain,
                                     curry_kind,
                                     variance,
                                     parameter_rune,
                                     parameter_ty,
                                     return_ty,
+                                    db,
                                 )
                                 .into(),
                             )

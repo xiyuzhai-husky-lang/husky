@@ -4,7 +4,7 @@ use husky_term_prelude::{RitchieKind, TypeRitchieKind};
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct FunctionFnEthTemplate {
-    pub path: FugitivePath,
+    pub path: MajorFugitivePath,
     #[return_ref]
     pub template_parameters: EthTemplateParameters,
     pub ritchie_ty: EthRitchie,
@@ -13,7 +13,7 @@ pub struct FunctionFnEthTemplate {
 impl FunctionFnEthTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
-        path: FugitivePath,
+        path: MajorFugitivePath,
         tmpl: MajorFnDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_params =

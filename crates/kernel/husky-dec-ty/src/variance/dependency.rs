@@ -89,7 +89,7 @@ pub(crate) fn trai_item_variance_crate_dependencies(
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn form_item_variance_crate_dependencies(
     db: &::salsa::Db,
-    path: FugitivePath,
+    path: MajorFugitivePath,
     _idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {
     let _signature = match path.dec_template(db) {

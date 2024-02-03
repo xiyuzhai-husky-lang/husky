@@ -2,7 +2,7 @@ use super::*;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct TypeAliasEthTemplate {
-    pub path: FugitivePath,
+    pub path: MajorFugitivePath,
     #[return_ref]
     pub template_parameters: EthTemplateParameters,
 }
@@ -10,7 +10,7 @@ pub struct TypeAliasEthTemplate {
 impl TypeAliasEthTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
-        path: FugitivePath,
+        path: MajorFugitivePath,
         dec_template: TypeAliasDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters =

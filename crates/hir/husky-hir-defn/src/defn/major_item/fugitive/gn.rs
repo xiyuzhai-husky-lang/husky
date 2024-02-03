@@ -6,7 +6,7 @@ use husky_hir_lazy_expr::helpers::hir_lazy_body_with_expr_region;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct FunctionGnHirDefn {
-    pub path: FugitivePath,
+    pub path: MajorFugitivePath,
     pub hir_decl: FunctionGnFugitiveHirDecl,
     pub lazy_body_with_hir_lazy_expr_region: Option<(HirLazyExprIdx, HirLazyExprRegion)>,
 }
@@ -26,7 +26,7 @@ impl From<FunctionGnHirDefn> for HirDefn {
 impl FunctionGnHirDefn {
     pub(super) fn new(
         db: &::salsa::Db,
-        path: FugitivePath,
+        path: MajorFugitivePath,
         hir_decl: FunctionGnFugitiveHirDecl,
     ) -> Self {
         FunctionGnHirDefn::new_inner(

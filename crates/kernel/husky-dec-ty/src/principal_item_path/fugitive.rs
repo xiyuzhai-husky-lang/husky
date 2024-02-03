@@ -6,7 +6,7 @@ use super::*;
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn fugitive_path_declarative_ty(
     db: &::salsa::Db,
-    path: FugitivePath,
+    path: MajorFugitivePath,
 ) -> DeclarativeTypeResult<DecTerm> {
     let signature = match path.dec_template(db) {
         Ok(signature) => signature,

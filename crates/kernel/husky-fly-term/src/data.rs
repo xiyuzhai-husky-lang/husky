@@ -302,7 +302,7 @@ impl<'a> FlyTermDataKindMerger<'a> {
 
     pub(crate) fn data_kind(self) -> FlyTermDataKind {
         if self.has_err {
-            todo!()
+            FlyTermDataKind::Err
         } else if self.has_hol {
             FlyTermDataKind::Hollow
         } else if self.has_sol {

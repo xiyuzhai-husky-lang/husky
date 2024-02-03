@@ -19,7 +19,7 @@ use utils::*;
 pub enum MajorItemPath {
     Type(TypePath),
     Trait(TraitPath),
-    Fugitive(FugitivePath),
+    Fugitive(MajorFugitivePath),
 }
 
 impl std::ops::Deref for MajorItemPath {

@@ -65,7 +65,7 @@ impl<'a> AstParser<'a> {
                         }
                     }
                     MajorItemKind::Fugitive(form_kind) => DefnBlock::Fugitive {
-                        path: FugitivePath::new(
+                        path: MajorFugitivePath::new(
                             self.module_path,
                             ident,
                             connection,

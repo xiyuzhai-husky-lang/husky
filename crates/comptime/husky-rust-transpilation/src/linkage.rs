@@ -2,7 +2,7 @@ use crate::*;
 use either::*;
 use husky_corgi_config::transpilation_setup::TranspilationSetup;
 use husky_entity_path::{
-    AssociatedItemPath, FugitivePath, PreludeTypePath, TraitForTypeItemPath, TraitItemPath,
+    AssociatedItemPath, MajorFugitivePath, PreludeTypePath, TraitForTypeItemPath, TraitItemPath,
     TypeItemPath, TypeVariantPath,
 };
 use husky_eth_signature::signature::HasEthTemplate;
@@ -158,7 +158,7 @@ impl<E> TranspileToRustWith<E> for (AssociatedItemPath, &LinInstantiation) {
     }
 }
 
-impl<E> TranspileToRustWith<E> for (FugitivePath, &LinInstantiation) {
+impl<E> TranspileToRustWith<E> for (MajorFugitivePath, &LinInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let (path, instantiation) = self;
         path.transpile_to_rust(builder);

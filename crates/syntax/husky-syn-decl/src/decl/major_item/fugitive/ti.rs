@@ -13,7 +13,7 @@ pub struct TypeAliasSynNodeDecl {
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TypeAliasSynDecl {
     #[id]
-    pub path: FugitivePath,
+    pub path: MajorFugitivePath,
     #[return_ref]
     pub template_parameters: TemplateSynParametersData,
     pub syn_expr_region: SynExprRegion,

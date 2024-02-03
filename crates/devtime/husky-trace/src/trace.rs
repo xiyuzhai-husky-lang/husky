@@ -31,7 +31,7 @@ use crate::{
 };
 use husky_entity_kind::FugitiveKind;
 use husky_entity_path::MajorItemPath;
-use husky_entity_path::{FugitivePath, ItemPath};
+use husky_entity_path::{ItemPath, MajorFugitivePath};
 use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_sema_expr::SemaExprIdx;
 use husky_trace_protocol::id::TraceId;
@@ -130,7 +130,7 @@ impl Trace {
         }
     }
 
-    fn from_fugitive_path(fugitive_path: FugitivePath, db: &::salsa::Db) -> Option<Self> {
+    fn from_fugitive_path(fugitive_path: MajorFugitivePath, db: &::salsa::Db) -> Option<Self> {
         match fugitive_path.fugitive_kind(db) {
             FugitiveKind::Const => todo!(),
             FugitiveKind::Val => Some(Trace::from_val_item_path(fugitive_path, db).into()),

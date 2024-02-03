@@ -216,7 +216,6 @@ impl EthTerm {
             | EthTerm::Category(_)
             | EthTerm::Universe(_) => self,
             EthTerm::EntityPath(ItemPathTerm::Fugitive(_)) => todo!(),
-            // ad hoc
             EthTerm::Curry(_) => self,
             EthTerm::Ritchie(slf) => slf.reduce(db).into(),
             EthTerm::Abstraction(_) => todo!(),

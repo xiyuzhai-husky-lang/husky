@@ -3,7 +3,7 @@ use husky_syn_decl::TypeAliasSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct TypeAliasHirDecl {
-    pub path: FugitivePath,
+    pub path: MajorFugitivePath,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
     pub ty: HirType,
@@ -12,7 +12,7 @@ pub struct TypeAliasHirDecl {
 
 impl TypeAliasHirDecl {
     pub(super) fn from_syn(
-        path: FugitivePath,
+        path: MajorFugitivePath,
         syn_decl: TypeAliasSynDecl,
         db: &::salsa::Db,
     ) -> Self {
