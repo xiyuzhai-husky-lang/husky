@@ -44,14 +44,14 @@ pub(crate) fn as_id(
     match item.fields {
         syn::Fields::Named(ref fields) => {
             if fields.named.len() != 1 {
-                todo!()
+                panic!("expect one field")
             }
             let field_ident = &fields.named[0].ident;
             let field_ty = &fields.named[0].ty;
             let self_ty = self_ty(ident, &item.generics);
             let where_clause = &item.generics.where_clause;
             if where_clause.is_some() {
-                todo!()
+                panic!("expect no where clause")
             }
             quote! {
                 #item
@@ -77,7 +77,7 @@ pub(crate) fn as_id(
         }
         syn::Fields::Unnamed(ref fields) => {
             if fields.unnamed.len() != 1 {
-                todo!()
+                panic!("expect one field")
             }
             let field_ty = &fields.unnamed[0].ty;
             let self_ty = if item.generics.params.is_empty() {
@@ -103,7 +103,7 @@ pub(crate) fn as_id(
             };
             let where_clause = &item.generics.where_clause;
             if where_clause.is_some() {
-                todo!()
+                panic!("expect no where clause")
             }
             quote! {
                 #item
@@ -125,6 +125,6 @@ pub(crate) fn as_id(
             }
             .into()
         }
-        syn::Fields::Unit => todo!(),
+        syn::Fields::Unit => panic!("expect one field"),
     }
 }
