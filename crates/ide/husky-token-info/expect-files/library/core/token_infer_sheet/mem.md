@@ -67,7 +67,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Lifetime {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Lifetime {
                                 label_token: LifetimeLabelRegionalToken {
                                     label: `'a`,
                                     token_idx: RegionalTokenIdx(
@@ -90,7 +90,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -148,7 +148,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Lifetime {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Lifetime {
                                 label_token: LifetimeLabelRegionalToken {
                                     label: `'a`,
                                     token_idx: RegionalTokenIdx(
@@ -171,7 +171,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -229,7 +229,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -254,7 +254,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -317,7 +317,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -373,7 +373,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Place {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Place {
                                 label_token: PlaceLabelRegionalToken {
                                     label: `'α`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -395,7 +395,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(

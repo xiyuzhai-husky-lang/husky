@@ -186,12 +186,12 @@ impl CurrentSynSymbol {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum CurrentSynSymbolKind {
     TemplateParameter {
-        template_parameter_kind: CurrentImplicitParameterSynSymbolKind,
+        template_parameter_kind: CurrentTemplateParameterSynSymbolKind,
     },
-    ExplicitRegularParameter {
+    ParenateRegularParameter {
         pattern_symbol_idx: SynPatternSymbolIdx,
     },
-    ExplicitVariadicParameter {
+    ParenateVariadicParameter {
         ident_token: IdentRegionalToken,
     },
     LetVariable {
@@ -211,7 +211,7 @@ pub enum CurrentSynSymbolKind {
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum CurrentImplicitParameterSynSymbolKind {
+pub enum CurrentTemplateParameterSynSymbolKind {
     Type {
         ident_token: IdentRegionalToken,
     },
@@ -398,7 +398,7 @@ impl CurrentSynSymbolData {
             },
             CurrentSynSymbolData::ParenateRegularParameter {
                 pattern_symbol_idx, ..
-            } => CurrentSynSymbolKind::ExplicitRegularParameter {
+            } => CurrentSynSymbolKind::ParenateRegularParameter {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
             CurrentSynSymbolData::LetVariable {
@@ -420,7 +420,7 @@ impl CurrentSynSymbolData {
                 CurrentSynSymbolKind::LoopVariable(*expr_idx)
             }
             CurrentSynSymbolData::ParenateVariadicParameter { ident_token, .. } => {
-                CurrentSynSymbolKind::ExplicitVariadicParameter {
+                CurrentSynSymbolKind::ParenateVariadicParameter {
                     ident_token: *ident_token,
                 }
             }
@@ -436,25 +436,25 @@ impl CurrentSynSymbolData {
 }
 
 impl CurrentTemplateParameterSynSymbolVariant {
-    fn kind(&self) -> CurrentImplicitParameterSynSymbolKind {
+    fn kind(&self) -> CurrentTemplateParameterSynSymbolKind {
         match self {
             CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. } => {
-                CurrentImplicitParameterSynSymbolKind::Type {
+                CurrentTemplateParameterSynSymbolKind::Type {
                     ident_token: *ident_token,
                 }
             }
             CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => {
-                CurrentImplicitParameterSynSymbolKind::Lifetime {
+                CurrentTemplateParameterSynSymbolKind::Lifetime {
                     label_token: *label_token,
                 }
             }
             CurrentTemplateParameterSynSymbolVariant::Place { label_token } => {
-                CurrentImplicitParameterSynSymbolKind::Place {
+                CurrentTemplateParameterSynSymbolKind::Place {
                     label_token: *label_token,
                 }
             }
             CurrentTemplateParameterSynSymbolVariant::Constant { ident_token, .. } => {
-                CurrentImplicitParameterSynSymbolKind::Constant {
+                CurrentTemplateParameterSynSymbolKind::Constant {
                     ident_token: *ident_token,
                 }
             }

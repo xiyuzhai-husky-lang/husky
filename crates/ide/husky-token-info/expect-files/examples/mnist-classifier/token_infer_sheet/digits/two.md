@@ -238,7 +238,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
+                        current_syn_symbol_kind: CurrentSynSymbolKind::ParenateRegularParameter {
                             pattern_symbol_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -449,7 +449,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
+                        current_syn_symbol_kind: CurrentSynSymbolKind::ParenateRegularParameter {
                             pattern_symbol_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -660,7 +660,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
+                        current_syn_symbol_kind: CurrentSynSymbolKind::ParenateRegularParameter {
                             pattern_symbol_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
