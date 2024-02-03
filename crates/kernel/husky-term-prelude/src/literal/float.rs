@@ -37,3 +37,23 @@ pub struct TermF64Literal {
     #[return_ref]
     pub text: String,
 }
+
+impl TermF64Literal {
+    pub fn try_new(mut text: String, db: &::salsa::Db) -> Result<Self, ParseFloatError> {
+        if !text.ends_with("f64") {
+            if text.ends_with(".") {
+                text += "0f64"
+            } else {
+                text += "f64"
+            }
+        }
+        let value: OrderedFloat<f64> = match text.trim_end_matches("f64").parse() {
+            Ok(value) => value,
+            Err(e) => {
+                p!(text, e);
+                todo!()
+            }
+        };
+        Ok(Self::new(db, value, text))
+    }
+}

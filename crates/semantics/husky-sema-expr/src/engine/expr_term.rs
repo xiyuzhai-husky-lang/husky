@@ -7,7 +7,7 @@ use husky_fly_term::{
     instantiation::FlyInstantiation, signature::binary_opr::SemaBinaryOprFlySignature,
 };
 use husky_term_prelude::literal::{
-    float::TermF32Literal,
+    float::{TermF32Literal, TermF64Literal},
     int::{
         TermI128Literal, TermI64Literal, TermISizeLiteral, TermR128Literal, TermR64Literal,
         TermRSizeLiteral, TermU128Literal, TermU64Literal, TermUSizeLiteral,
@@ -89,9 +89,7 @@ impl<'a> SemaExprEngine<'a> {
                                         ty_arguments,
                                         ty_ethereal_term,
                                     } => Literal::from_unspecified_int(int_ty_path, val, self.db),
-                                    _ => {
-                                        Err(DerivedSemaExprTermError::LiteralTypeNotResolved)?
-                                    }
+                                    _ => Err(DerivedSemaExprTermError::LiteralTypeNotResolved)?,
                                 }
                             }
                             IntegerLikeLiteralTokenData::UnspecifiedLarge() => todo!(),
@@ -132,51 +130,41 @@ impl<'a> SemaExprEngine<'a> {
                                 Literal::USize(TermUSizeLiteral::new(db, val as u64))
                             }
                         },
-                        LiteralTokenData::Float(lit) => {
-                            match lit {
-                                FloatLiteralTokenData::Unspecified(lit) => {
-                                    let ty = sema_expr_idx
-                                        .ok_ty(&self.sema_expr_arena)
-                                        .ok_or(DerivedSemaExprTermError::LiteralTypeNotInferred)?;
-                                    match ty.base_resolved(self) {
-                                        FlyTermBase::Eth(EthTerm::EntityPath(
-                                            ItemPathTerm::TypeOntology(ty_path),
-                                        )) => {
-                                            match ty_path.prelude_ty_path(self.db) {
-                                                Some(prelude_ty_path) => {
-                                                    match prelude_ty_path {
-                                                        PreludeTypePath::Num(num_ty_path) => {
-                                                            match num_ty_path {
-                                                                PreludeNumTypePath::Int(_) => {
-                                                                    todo!()
-                                                                }
-                                                                PreludeNumTypePath::Float(
-                                                                    float_ty_path,
-                                                                ) => {
-                                                                    match float_ty_path {
-                                                    PreludeFloatTypePath::F32 => Literal::F32(
-                                                        TermF32Literal::try_new(lit.text(self.db).to_string(),self.db) .expect("todo"),
-                                                    ),
-                                                    PreludeFloatTypePath::F64 => Literal::F64(
-                                                        todo!(), // lit.data(self.db).parse().expect("todo"),
-                                                    ),
-                                                }
-                                                                }
-                                                            }
-                                                        }
-                                                        _ => todo!(),
-                                                    }
-                                                }
-                                                None => todo!(),
-                                            }
+                        LiteralTokenData::Float(lit) => match lit {
+                            FloatLiteralTokenData::Unspecified(lit) => {
+                                let ty = sema_expr_idx
+                                    .ok_ty(&self.sema_expr_arena)
+                                    .ok_or(DerivedSemaExprTermError::LiteralTypeNotInferred)?;
+                                match ty.base_resolved(self) {
+                                    FlyTermBase::Eth(EthTerm::EntityPath(
+                                        ItemPathTerm::TypeOntology(ty_path),
+                                    )) if let Some(PreludeTypePath::Num(
+                                        PreludeNumTypePath::Float(float_ty_path),
+                                    )) = ty_path.prelude_ty_path(self.db) =>
+                                    {
+                                        match float_ty_path {
+                                            PreludeFloatTypePath::F32 => Literal::F32(
+                                                TermF32Literal::try_new(
+                                                    lit.text(db).to_string(),
+                                                    db,
+                                                )
+                                                .expect("todo"),
+                                            ),
+                                            PreludeFloatTypePath::F64 => Literal::F64(
+                                                TermF64Literal::try_new(
+                                                    lit.text(db).to_string(),
+                                                    db,
+                                                )
+                                                .expect("todo"),
+                                            ),
                                         }
-                                        _ => Err(DerivedSemaExprTermError::LiteralTypeNotResolved)?,
                                     }
+                                    _ => Err(DerivedSemaExprTermError::LiteralTypeNotResolved)?,
                                 }
-                                FloatLiteralTokenData::F32(val) => Literal::F32(val),
-                                FloatLiteralTokenData::F64(val) => Literal::F64(val),
                             }
-                        }
+                            FloatLiteralTokenData::F32(val) => Literal::F32(val),
+                            FloatLiteralTokenData::F64(val) => Literal::F64(val),
+                        },
                         LiteralTokenData::Bool(val) => match val {
                             BoolLiteralTokenData::True => Literal::Bool(true),
                             BoolLiteralTokenData::False => Literal::Bool(false),
