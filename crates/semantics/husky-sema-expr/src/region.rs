@@ -38,15 +38,14 @@ fn sema_expr_region_eth_term_fmt_context(
 ) -> EthTermFmtContext {
     let syn_expr_region_data = region.syn_expr_region(db).data(db);
     let sema_expr_region_data = region.data(db);
-    let fluffy_terms = sema_expr_region_data.fluffy_term_region().terms();
+    let fly_terms = sema_expr_region_data.fly_term_region().terms();
     let symbol_names = VecMap::from_iter_assuming_no_repetitions(
         sema_expr_region_data
             .symbol_terms
             .inherited_syn_symbol_map()
             .key_value_iter()
             .map(|(idx, term)| {
-                let FlyTermBase::Eth(EthTerm::Symbol(symbol)) =
-                    term.base_resolved_inner(fluffy_terms)
+                let FlyTermBase::Eth(EthTerm::Symbol(symbol)) = term.base_resolved_inner(fly_terms)
                 else {
                     todo!();
                 };
@@ -59,7 +58,7 @@ fn sema_expr_region_eth_term_fmt_context(
                     .key_value_iter()
                     .map(|(idx, term)| {
                         let FlyTermBase::Eth(EthTerm::Symbol(symbol)) =
-                            term.base_resolved_inner(fluffy_terms)
+                            term.base_resolved_inner(fly_terms)
                         else {
                             todo!();
                         };
@@ -83,7 +82,7 @@ impl SemaExprRegion {
         sema_expr_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FlyTerm>>,
         symbol_tys: SymbolMap<SymbolType>,
         symbol_terms: SymbolMap<FlyTerm>,
-        fluffy_term_region: FlyTermRegion,
+        fly_term_region: FlyTermRegion,
         return_ty: Option<EthTerm>,
         self_ty: Option<EthTerm>,
         db: &::salsa::Db,
@@ -102,7 +101,7 @@ impl SemaExprRegion {
                 sema_expr_terms,
                 symbol_tys,
                 symbol_terms,
-                fluffy_term_region,
+                fly_term_region,
                 return_ty,
                 self_ty,
             },
@@ -122,7 +121,7 @@ pub struct SemaExprRegionData {
     sema_expr_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FlyTerm>>,
     symbol_tys: SymbolMap<SymbolType>,
     symbol_terms: SymbolMap<FlyTerm>,
-    fluffy_term_region: FlyTermRegion,
+    fly_term_region: FlyTermRegion,
     return_ty: Option<EthTerm>,
     self_ty: Option<EthTerm>,
 }
@@ -170,8 +169,8 @@ impl SemaExprRegionData {
         self.sema_expr_term(self.syn_root_to_sema_expr_idx(syn_expr_root))
     }
 
-    pub fn fluffy_term_region(&self) -> &FlyTermRegion {
-        &self.fluffy_term_region
+    pub fn fly_term_region(&self) -> &FlyTermRegion {
+        &self.fly_term_region
     }
 
     pub fn symbol_tys(&self) -> &SymbolMap<SymbolType> {
@@ -196,7 +195,7 @@ impl SemaExprRegionData {
         db: &::salsa::Db,
     ) -> EthTerm {
         match self.syn_pattern_expr_ty_infos[syn_pattern_expr_idx].ty {
-            Ok(ty_term) => match ty_term.base_resolved_inner(self.fluffy_term_region.terms()) {
+            Ok(ty_term) => match ty_term.base_resolved_inner(self.fly_term_region.terms()) {
                 FlyTermBase::Eth(ty_term) => ty_term,
                 FlyTermBase::Sol(_) => todo!(),
                 FlyTermBase::Hol(_) => todo!(),

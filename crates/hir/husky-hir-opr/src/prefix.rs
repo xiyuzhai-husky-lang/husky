@@ -19,11 +19,11 @@ impl HirPrefixOpr {
         opr: SemaPrefixOpr,
         opd_ty: FlyTerm,
         db: &::salsa::Db,
-        fluffy_terms: &FlyTerms,
+        fly_terms: &FlyTerms,
     ) -> Self {
         match opr {
             SemaPrefixOpr::Minus => HirPrefixOpr::Minus,
-            SemaPrefixOpr::Not => match opd_ty.base_ty_data_inner(db, fluffy_terms) {
+            SemaPrefixOpr::Not => match opd_ty.base_ty_data_inner(db, fly_terms) {
                 husky_fly_term::FlyBaseTypeData::TypeOntology {
                     ty_path: _,
                     refined_ty_path: Left(prelude_ty_path),

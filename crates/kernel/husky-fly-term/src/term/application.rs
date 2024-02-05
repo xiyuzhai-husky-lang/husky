@@ -61,7 +61,7 @@ impl FlyTerm {
 
     pub fn new_ty_ontology(
         db: &::salsa::Db,
-        fluffy_terms: &mut FlyTerms,
+        fly_terms: &mut FlyTerms,
         path: TypePath,
         refined_path: Either<PreludeTypePath, CustomTypePath>,
         arguments: SmallVec<[FlyTerm; 2]>,
@@ -69,7 +69,7 @@ impl FlyTerm {
         if arguments.len() == 0 {
             ItemPathTerm::TypeOntology(path).into()
         } else {
-            let mut merger = FlyTermDataKindMerger::new(fluffy_terms);
+            let mut merger = FlyTermDataKindMerger::new(fly_terms);
             merger.accept(arguments.iter().copied());
             match merger.data_kind() {
                 FlyTermDataKind::Ethereal => {
@@ -77,7 +77,7 @@ impl FlyTerm {
                         db,
                         path,
                         arguments.iter().map(|argument| {
-                            match argument.resolve_progress(fluffy_terms) {
+                            match argument.resolve_progress(fly_terms) {
                                 TermResolveProgress::ResolvedEth(argument) => argument,
                                 _ => unreachable!(),
                             }
@@ -87,7 +87,7 @@ impl FlyTerm {
                         Err(_) => todo!(),
                     }
                 }
-                FlyTermDataKind::Solid => fluffy_terms
+                FlyTermDataKind::Solid => fly_terms
                     .solid_terms_mut()
                     .intern_new(SolidTermData::TypeOntology {
                         path,
@@ -95,7 +95,7 @@ impl FlyTerm {
                         arguments,
                     })
                     .into(),
-                FlyTermDataKind::Hollow => fluffy_terms
+                FlyTermDataKind::Hollow => fly_terms
                     .hollow_terms_mut()
                     .alloc_new(HolTermData::TypeOntology {
                         path,

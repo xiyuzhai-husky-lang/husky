@@ -377,7 +377,7 @@ impl FlyInstantiate for EthApplication {
                     if flag {
                         FlyTerm::new_ty_ontology(
                             db,
-                            engine.fluffy_terms_mut(),
+                            engine.fly_terms_mut(),
                             path,
                             refined_path,
                             arguments,

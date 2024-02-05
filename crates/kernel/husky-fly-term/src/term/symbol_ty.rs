@@ -75,7 +75,7 @@ impl SymbolType {
                 Some(FlyPlace::Transient) | None => FlyPlace::ImmutableStackOwned {
                     location: engine.issue_new_stack_location_idx(),
                 },
-                Some(place) => match ty.is_always_copyable(engine.db(), engine.fluffy_terms())? {
+                Some(place) => match ty.is_always_copyable(engine.db(), engine.fly_terms())? {
                     Some(true) => FlyPlace::ImmutableStackOwned {
                         location: engine.issue_new_stack_location_idx(),
                     },
@@ -101,12 +101,12 @@ impl SymbolType {
                 Some(FlyPlace::Transient) | None => FlyPlace::MutableStackOwned {
                     location: engine.issue_new_stack_location_idx(),
                 },
-                Some(place) => match ty.is_always_copyable(engine.db(), engine.fluffy_terms())? {
+                Some(place) => match ty.is_always_copyable(engine.db(), engine.fly_terms())? {
                     Some(true) => FlyPlace::MutableStackOwned {
                         location: engine.issue_new_stack_location_idx(),
                     },
                     Some(false) => {
-                        p!(ty.show(engine.db(), engine.fluffy_terms()));
+                        p!(ty.show(engine.db(), engine.fly_terms()));
                         todo!()
                     }
                     None => todo!(),

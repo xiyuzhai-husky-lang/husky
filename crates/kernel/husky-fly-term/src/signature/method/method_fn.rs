@@ -61,7 +61,7 @@ impl MethodFnFlySignature {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct MethodFunctionFlySignature {}
 
-pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FlyTerm>>(
+pub(crate) fn ty_method_fly_signature<Term: Copy + Into<FlyTerm>>(
     engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
     ty_path: TypePath,
@@ -74,7 +74,7 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FlyTerm>>(
     match ty_path.ty_item_eth_templates(engine.db(), ident)? {
         TypeItemEthTemplates::MethodFn(templates) => {
             for template in templates.iter().copied() {
-                if let JustOk(signature) = ty_method_fn_fluffy_signature(
+                if let JustOk(signature) = ty_method_fn_fly_signature(
                     engine,
                     expr_idx,
                     template,
@@ -89,7 +89,7 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FlyTerm>>(
         }
         TypeItemEthTemplates::MethodFunction(templates) => {
             for template in templates {
-                if let JustOk(signature) = ty_method_function_fluffy_signature(
+                if let JustOk(signature) = ty_method_function_fly_signature(
                     engine,
                     template,
                     ty_template_arguments,
@@ -105,7 +105,7 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FlyTerm>>(
     }
 }
 
-fn ty_method_fn_fluffy_signature<Term: Copy + Into<FlyTerm>>(
+fn ty_method_fn_fly_signature<Term: Copy + Into<FlyTerm>>(
     engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
     template: TypeMethodFnEthTemplate,
@@ -196,7 +196,7 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FlyTerm>>(
     })
 }
 
-fn ty_method_function_fluffy_signature<Term: Copy + Into<FlyTerm>>(
+fn ty_method_function_fly_signature<Term: Copy + Into<FlyTerm>>(
     engine: &mut impl FlyTermEngineMut,
     template: &TypeMethodFunctionEthTemplate,
     ty_template_arguments: &[Term],

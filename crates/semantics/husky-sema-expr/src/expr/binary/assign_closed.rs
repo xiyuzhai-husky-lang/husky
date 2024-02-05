@@ -15,7 +15,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprTypeResult<FlyTerm>,
     ) {
         // let expr_eval_lifetime = self
-        //     .fluffy_term_region
+        //     .fly_term_region
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
         let (lopd_sema_expr_idx, lopd_ty) = self.build_sema_expr_with_ty(lopd, ExpectAnyOriginal);
         let ropd_sema_expr_idx = match lopd_ty {

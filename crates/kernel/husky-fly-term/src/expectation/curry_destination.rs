@@ -24,13 +24,9 @@ impl ExpectFlyTerm for ExpectCurryDestination {
     }
 
     #[inline(always)]
-    fn final_destination_inner(
-        &self,
-        db: &::salsa::Db,
-        fluffy_terms: &FlyTerms,
-    ) -> FinalDestination {
+    fn final_destination_inner(&self, db: &::salsa::Db, fly_terms: &FlyTerms) -> FinalDestination {
         self.curry_destination
-            .final_destination_inner(db, fluffy_terms)
+            .final_destination_inner(db, fly_terms)
     }
 
     #[inline(always)]

@@ -7,7 +7,7 @@ pub enum SolidTermData {
     TypeOntology {
         path: TypePath,
         refined_path: Either<PreludeTypePath, CustomTypePath>,
-        // use fluffy term here because we don't want to recreate vectors when converting
+        // use fly term here because we don't want to recreate vectors when converting
         arguments: SmallVec<[FlyTerm; 2]>,
     },
     Curry {
@@ -20,7 +20,7 @@ pub enum SolidTermData {
     },
     Ritchie {
         ritchie_kind: RitchieKind,
-        // use fluffy term here because we don't want to recreate vectors when converting
+        // use fly term here because we don't want to recreate vectors when converting
         parameter_contracted_tys: SmallVec<[FlyRitchieParameter; 2]>,
         return_ty: SolTerm,
     },

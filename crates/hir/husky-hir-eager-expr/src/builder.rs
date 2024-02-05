@@ -189,7 +189,7 @@ impl<'a> HirEagerExprBuilder<'a> {
             .sema_expr_term(sema_expr_idx)
             .expect("hir stage some")
             .expect("hir stage ok")
-            .base_resolved_inner(self.sema_expr_region_data.fluffy_term_region().terms())
+            .base_resolved_inner(self.sema_expr_region_data.fly_term_region().terms())
         {
             FlyTermBase::Eth(term) => term,
             FlyTermBase::Sol(_) => todo!(),
@@ -254,8 +254,8 @@ impl<'a> HirEagerExprBuilder<'a> {
             .syn_pattern_expr_ty(syn_pattern_expr_idx, self.db)
     }
 
-    pub(crate) fn fluffy_terms(&self) -> &FlyTerms {
-        self.sema_expr_region_data.fluffy_term_region().terms()
+    pub(crate) fn fly_terms(&self) -> &FlyTerms {
+        self.sema_expr_region_data.fly_term_region().terms()
     }
 }
 

@@ -37,7 +37,7 @@ impl FlyTerm {
                             .iter()
                             .copied()
                             .filter_map(|template| {
-                                ty_associated_fn_fluffy_signature(
+                                ty_associated_fn_fly_signature(
                                     engine,
                                     syn_expr_idx,
                                     template,

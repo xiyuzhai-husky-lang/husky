@@ -41,7 +41,7 @@ pub(crate) struct SemaExprEngine<'a> {
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,
     pub(crate) sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
-    fluffy_term_region: FlyTermRegion,
+    fly_term_region: FlyTermRegion,
     sema_expr_term_results: VecPairMap<SemaExprIdx, SemaExprTermResult<FlyTerm>>,
     symbol_terms: SymbolMap<FlyTerm>,
     symbol_tys: SymbolMap<SymbolType>,
@@ -63,8 +63,8 @@ impl<'a> FlyTermEngine<'a> for SemaExprEngine<'a> {
         self.db
     }
 
-    fn fluffy_term_region(&self) -> &FlyTermRegion {
-        &self.fluffy_term_region
+    fn fly_term_region(&self) -> &FlyTermRegion {
+        &self.fly_term_region
     }
 
     fn expr_region_data(&self) -> &'a SynExprRegionData {
@@ -89,8 +89,8 @@ impl<'a> FlyTermEngineMut<'a> for SemaExprEngine<'a> {
         &mut self.stack_location_registry
     }
 
-    fn fluffy_term_region_mut(&mut self) -> &mut FlyTermRegion {
-        &mut self.fluffy_term_region
+    fn fly_term_region_mut(&mut self) -> &mut FlyTermRegion {
+        &mut self.fly_term_region
     }
 }
 
@@ -171,8 +171,8 @@ impl<'a> SemaExprEngine<'a> {
             sema_expr_arena: SemaExprArena::default(),
             sema_stmt_arena: SemaStmtArena::default(),
             sema_expr_roots: Default::default(),
-            fluffy_term_region: FlyTermRegion::new(
-                parent_sema_expr_region.map(|r| r.data(db).fluffy_term_region()),
+            fly_term_region: FlyTermRegion::new(
+                parent_sema_expr_region.map(|r| r.data(db).fly_term_region()),
             ),
             sema_expr_term_results: Default::default(),
             symbol_terms: SymbolMap::new(
@@ -220,8 +220,7 @@ impl<'a> SemaExprEngine<'a> {
             immediate_ty_result,
             expectation_idx_and_ty,
         );
-        self.fluffy_term_region
-            .resolve_as_much_as_possible(self.db());
+        self.fly_term_region.resolve_as_much_as_possible(self.db());
         sema_expr_idx
     }
 
@@ -263,7 +262,7 @@ impl<'a> SemaExprEngine<'a> {
 
     pub(crate) fn finish(mut self) -> SemaExprRegion {
         let db = self.db;
-        self.fluffy_term_region
+        self.fly_term_region
             .finalize_unresolved_term_table(db, self.term_menu);
         self.infer_extra_expr_terms_in_preparation_for_hir();
         SemaExprRegion::new(
@@ -280,7 +279,7 @@ impl<'a> SemaExprEngine<'a> {
             self.sema_expr_term_results,
             self.symbol_tys,
             self.symbol_terms,
-            self.fluffy_term_region,
+            self.fly_term_region,
             self.return_ty,
             self.self_ty,
             self.db,

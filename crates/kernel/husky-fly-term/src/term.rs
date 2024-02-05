@@ -139,12 +139,12 @@ impl From<HolTerm> for FlyTerm {
 }
 
 #[test]
-fn term_to_fluffy_term_works() {
+fn term_to_fly_term_works() {
     fn t(a: impl Copy + Into<EthTerm> + Into<FlyTerm>) {
         let term: EthTerm = a.into();
-        let fluffy_term: FlyTerm = a.into();
-        let term_to_fluffy_term: FlyTerm = term.into();
-        assert_eq!(fluffy_term, term_to_fluffy_term)
+        let fly_term: FlyTerm = a.into();
+        let term_to_fly_term: FlyTerm = term.into();
+        assert_eq!(fly_term, term_to_fly_term)
     }
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
@@ -158,16 +158,16 @@ impl FlyTerm {
     }
 
     pub fn base_resolved(self, engine: &impl FlyTermEngine) -> FlyTermBase {
-        self.base_resolved_inner(engine.fluffy_terms())
+        self.base_resolved_inner(engine.fly_terms())
     }
 
     pub fn base_resolved_inner(
         self,
-        fluffy_terms: &impl std::borrow::Borrow<HolTerms>,
+        fly_terms: &impl std::borrow::Borrow<HolTerms>,
     ) -> FlyTermBase {
         match self.base {
             FlyTermBase::Eth(_) | FlyTermBase::Sol(_) | FlyTermBase::Place => self.base,
-            FlyTermBase::Hol(term) => match term.resolve_progress(fluffy_terms.borrow()) {
+            FlyTermBase::Hol(term) => match term.resolve_progress(fly_terms.borrow()) {
                 TermResolveProgress::UnresolvedHol => self.base,
                 TermResolveProgress::ResolvedEth(term) => term.into(),
                 TermResolveProgress::ResolvedSol(term) => term.into(),

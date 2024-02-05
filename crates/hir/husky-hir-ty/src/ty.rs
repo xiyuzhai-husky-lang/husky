@@ -57,9 +57,9 @@ impl HirType {
     }
 
     /// this will ignore the place
-    pub fn from_fly(term: FlyTerm, db: &::salsa::Db, fluffy_terms: &FlyTerms) -> Option<Self> {
+    pub fn from_fly(term: FlyTerm, db: &::salsa::Db, fly_terms: &FlyTerms) -> Option<Self> {
         // todo: consider place
-        match term.base_resolved_inner(fluffy_terms) {
+        match term.base_resolved_inner(fly_terms) {
             FlyTermBase::Eth(term) => HirType::from_eth(term, db),
             FlyTermBase::Sol(_) => todo!(),
             FlyTermBase::Hol(_) => unreachable!("expected all fly terms to be resolved"),

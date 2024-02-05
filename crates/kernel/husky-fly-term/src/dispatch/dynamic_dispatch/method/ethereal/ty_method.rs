@@ -1,7 +1,7 @@
 use husky_eth_term::term::application::{EthApplication, TermFunctionReduced};
 
 use super::*;
-use crate::signature::method::method_fn::ty_method_fluffy_signature;
+use crate::signature::method::method_fn::ty_method_fly_signature;
 
 impl HasFlyTypeMethodDispatch for EthTerm {
     fn ty_method_dispatch(
@@ -96,7 +96,7 @@ fn ethereal_ty_method_dispatch_aux(
         }
         _ => (),
     }
-    if let Some(signature) = ty_method_fluffy_signature(
+    if let Some(signature) = ty_method_fly_signature(
         engine,
         expr_idx,
         ty_path,

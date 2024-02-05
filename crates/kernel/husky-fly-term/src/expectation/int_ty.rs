@@ -28,11 +28,11 @@ impl ExpectFlyTerm for ExpectIntType {
     fn resolve(
         &self,
         db: &::salsa::Db,
-        fluffy_terms: &mut FlyTerms,
+        fly_terms: &mut FlyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FlyTermEffect> {
         let expectee = state.expectee();
-        match expectee.base_ty_data_inner(db, fluffy_terms) {
+        match expectee.base_ty_data_inner(db, fly_terms) {
             FlyBaseTypeData::TypeOntology {
                 refined_ty_path: Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
                 ..

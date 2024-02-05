@@ -60,12 +60,12 @@ impl HirEagerComptimeSymbolRegionData {
         db: &::salsa::Db,
     ) -> Self {
         let mut arena = HirEagerComptimeSymbolArena::default();
-        let terms = sema_expr_region_data.fluffy_term_region().terms();
-        for (inherited_syn_symbol_idx, &fluffy_term) in sema_expr_region_data
+        let terms = sema_expr_region_data.fly_term_region().terms();
+        for (inherited_syn_symbol_idx, &fly_term) in sema_expr_region_data
             .symbol_terms()
             .inherited_syn_symbol_key_values()
         {
-            let FlyTermBase::Eth(term) = fluffy_term.base_resolved_inner(terms) else {
+            let FlyTermBase::Eth(term) = fly_term.base_resolved_inner(terms) else {
                 unreachable!()
             };
             match term {
@@ -87,11 +87,11 @@ impl HirEagerComptimeSymbolRegionData {
                 _ => todo!(),
             }
         }
-        for (current_syn_symbol_idx, &fluffy_term) in sema_expr_region_data
+        for (current_syn_symbol_idx, &fly_term) in sema_expr_region_data
             .symbol_terms()
             .current_syn_symbol_key_values()
         {
-            let FlyTermBase::Eth(term) = fluffy_term.base_resolved_inner(terms) else {
+            let FlyTermBase::Eth(term) = fly_term.base_resolved_inner(terms) else {
                 unreachable!()
             };
             match term {

@@ -29,7 +29,7 @@ pub enum HoleKind {
 impl HolTerm {
     pub(crate) fn new(engine: &mut impl FlyTermEngineMut, data: HolTermData) -> Self {
         engine
-            .fluffy_term_region_mut()
+            .fly_term_region_mut()
             .hollow_terms_mut()
             .alloc_new(data)
     }

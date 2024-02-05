@@ -33,7 +33,7 @@ impl AssociatedFnFlySignature {
     }
 }
 
-pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FlyTerm>>(
+pub(crate) fn ty_associated_fn_fly_signature<Term: Copy + Into<FlyTerm>>(
     engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
     template: TypeAssociatedFnEthTemplate,

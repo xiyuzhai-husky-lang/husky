@@ -8,7 +8,7 @@ impl HasFlyTypeMethodDispatch for HolTerm {
         ident_token: IdentRegionalToken,
         indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
-        match self.fluffy_base_ty_data(engine.db(), engine.fluffy_terms()) {
+        match self.fly_base_ty_data(engine.db(), engine.fly_terms()) {
             FlyBaseTypeData::TypeOntology {
                 ty_path,
                 refined_ty_path,
@@ -16,7 +16,7 @@ impl HasFlyTypeMethodDispatch for HolTerm {
                 ty_ethereal_term,
             } => {
                 p!(self
-                    .fluffy_base_ty_data(engine.db(), engine.fluffy_terms())
+                    .fly_base_ty_data(engine.db(), engine.fly_terms())
                     .debug(engine.db()));
                 todo!()
             }
@@ -32,7 +32,7 @@ impl HasFlyTypeMethodDispatch for HolTerm {
                 let db = engine.db();
                 let term_menu = engine.term_menu();
                 engine
-                    .fluffy_term_region_mut()
+                    .fly_term_region_mut()
                     .terms
                     .fill_hole_by_force(hole, db, term_menu);
                 // ad hoc, needs improvement

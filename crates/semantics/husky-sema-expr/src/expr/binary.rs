@@ -215,7 +215,7 @@ impl<'a> SemaExprEngine<'a> {
     ) {
         todo!()
         // let expr_eval_lifetime = self
-        //     .fluffy_term_region
+        //     .fly_term_region
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
         // match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal) {
         //     Some(_) => todo!(),
@@ -236,7 +236,7 @@ impl<'a> SemaExprEngine<'a> {
         //         _ => todo!(),
         //     },
         //     FlyTerm::Unresolved(lopd_ty) => {
-        //         match self.fluffy_term_region[lopd_ty].unresolved_term() {
+        //         match self.fly_term_region[lopd_ty].unresolved_term() {
         //             FlyTermData::ImplicitSymbol(_) => todo!(),
         //             FlyTermData::TypeOntology(_) => {
         //                 todo!()

@@ -531,7 +531,7 @@ impl<'a> SemaExprEngine<'a> {
         let (ty, outcome) = match expectation_idx_and_ty {
             Some((expectation_idx, ty)) => (
                 Some(ty),
-                self.fluffy_term_region()[expectation_idx]
+                self.fly_term_region()[expectation_idx]
                     .resolve_progress()
                     .outcome::<E>()
                     .cloned(),
@@ -563,7 +563,7 @@ impl<'a> SemaExprEngine<'a> {
         let (sema_expr_idx, expectation_idx) =
             self.build_sema_expr_aux(syn_expr_idx, expr_ty_expectation);
         let outcome = match expectation_idx {
-            Some((expectation_idx, _)) => self.fluffy_term_region()[expectation_idx]
+            Some((expectation_idx, _)) => self.fly_term_region()[expectation_idx]
                 .resolve_progress()
                 .outcome::<E>()
                 .cloned(),
@@ -1003,7 +1003,7 @@ impl<'a> SemaExprEngine<'a> {
                     }
                     TypePathDisambiguation::InstanceConstructor => {
                         let element_ty: FlyTerm = match expr_ty_expectation
-                            .destination_term_data(self.db(), self.fluffy_term_region().terms())
+                            .destination_term_data(self.db(), self.fly_term_region().terms())
                         {
                             Some(ty_pattern) => match ty_pattern {
                                 FlyTermData::Literal(_) => todo!(),

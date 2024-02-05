@@ -22,7 +22,7 @@ impl FlyTerm {
             params,
             return_ty,
             engine.db(),
-            engine.fluffy_terms_mut(),
+            engine.fly_terms_mut(),
         )
     }
 
