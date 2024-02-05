@@ -17,8 +17,8 @@ use crate::*;
 use husky_entity_tree::helpers::TraitInUseItemsTable;
 use husky_eth_signature::HasEthTemplate;
 use husky_eth_term::term::{symbol::EthSymbol, EthTerm};
+use husky_place::PlaceRegistry;
 use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};
-use husky_stack_location::StackLocationRegistry;
 use husky_syn_decl::{
     AssociatedItemSynNodeDecl, HasSynNodeDecl, ItemSynNodeDecl, TraitForTypeItemSynNodeDecl,
     TraitItemSynNodeDecl, TypeItemSynNodeDecl,
@@ -37,7 +37,7 @@ pub(crate) struct SemaExprEngine<'a> {
     syn_expr_region_data: &'a SynExprRegionData,
     regional_tokens_data: RegionalTokensData<'a>,
     declarative_term_region: &'a SynExprDecTermRegion,
-    stack_location_registry: StackLocationRegistry,
+    stack_location_registry: PlaceRegistry,
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,
     pub(crate) sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
@@ -85,7 +85,7 @@ impl<'a> FlyTermEngine<'a> for SemaExprEngine<'a> {
 }
 
 impl<'a> FlyTermEngineMut<'a> for SemaExprEngine<'a> {
-    fn stack_location_registry_mut(&mut self) -> &mut StackLocationRegistry {
+    fn stack_location_registry_mut(&mut self) -> &mut PlaceRegistry {
         &mut self.stack_location_registry
     }
 
@@ -308,7 +308,7 @@ fn calc_self_value_ty(
     self_ty: Option<EthTerm>,
     self_place: Option<EthSymbol>,
     db: &salsa::Db,
-    registry: &mut StackLocationRegistry,
+    registry: &mut PlaceRegistry,
 ) -> Option<FlyTerm> {
     fn method_fn_self_value_modifier_from_self_value_parameter(
         self_value_parameter: &Option<SelfValueParameterSyndicate>,

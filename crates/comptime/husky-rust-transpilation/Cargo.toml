@@ -32,7 +32,7 @@ husky-entity-path.workspace = true
 husky-eth-signature.workspace = true
 husky-task.workspace = true
 husky-term-prelude.workspace = true
-husky-stack-location.workspace = true
+husky-place.workspace = true
 husky-opr.workspace = true
 husky-expr = { path = "../../kernel/husky-expr" }
 # lex

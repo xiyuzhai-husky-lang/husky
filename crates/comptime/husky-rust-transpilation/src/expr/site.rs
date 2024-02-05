@@ -2,14 +2,14 @@ use super::*;
 use crate::binding::{RustBinding, RustBindings};
 use husky_hir_eager_expr::coersion::HirEagerCoersion;
 use husky_hir_ty::ritchie::HirRitchieRegularParameter;
-use husky_stack_location::StackLocationIdx;
+use husky_place::PlaceIdx;
 use vec_like::SmallVecPairMap;
 
 #[derive(Debug, Default)]
 pub(crate) struct HirEagerExprSite {
     pub(crate) rust_precedence_range: RustPrecedenceRange,
     pub(crate) rust_bindings: RustBindings,
-    pub(crate) location_contract_map: SmallVecPairMap<StackLocationIdx, HirEagerContract, 2>,
+    pub(crate) location_contract_map: SmallVecPairMap<PlaceIdx, HirEagerContract, 2>,
 }
 
 impl HirEagerExprSite {
@@ -123,7 +123,7 @@ impl HirEagerExprSite {
         initial_value_entry: &HirEagerExprEntry,
         coersion: Option<HirEagerCoersion>,
     ) -> Self {
-        let mut location_contract_map: SmallVecPairMap<StackLocationIdx, HirEagerContract, 2> =
+        let mut location_contract_map: SmallVecPairMap<PlaceIdx, HirEagerContract, 2> =
             Default::default();
         if let Some(location) = initial_value_entry.ty_place.location()
             && contract != HirEagerContract::At
@@ -154,7 +154,7 @@ impl HirEagerExprSite {
         }
     }
 
-    pub(crate) fn location_contract(&self, location: StackLocationIdx) -> Option<HirEagerContract> {
+    pub(crate) fn location_contract(&self, location: PlaceIdx) -> Option<HirEagerContract> {
         self.location_contract_map.get_value(location).copied()
     }
 }

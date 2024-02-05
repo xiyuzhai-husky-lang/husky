@@ -3,7 +3,7 @@ use avec::Avec;
 use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
 use husky_vm::{Instruction, InstructionData, VMConditionBranch, VMPattern, VMPatternBranch};
 
-impl<'a> InstructionSheetBuilder<'a> {
+impl<'a> InstructionBlockBuilder<'a> {
     pub(super) fn compile_func_stmts(&mut self, stmts: &[HirEagerStmtIdx]) {
         stmts
             .iter()

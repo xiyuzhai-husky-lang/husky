@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_tree::helpers::TraitInUseItemsTable;
-use husky_stack_location::{StackLocationIdx, StackLocationRegistry};
+use husky_place::{PlaceIdx, PlaceRegistry};
 
 pub trait FlyTermEngine<'a>: Sized {
     fn db(&self) -> &'a ::salsa::Db;
@@ -20,13 +20,13 @@ pub trait FlyTermEngine<'a>: Sized {
 }
 
 pub trait FlyTermEngineMut<'a>: FlyTermEngine<'a> {
-    fn stack_location_registry_mut(&mut self) -> &mut StackLocationRegistry;
+    fn stack_location_registry_mut(&mut self) -> &mut PlaceRegistry;
     fn fly_term_region_mut(&mut self) -> &mut FlyTermRegion;
     fn fly_terms_mut(&mut self) -> &mut FlyTerms {
         self.fly_term_region_mut().terms_mut()
     }
 
-    fn issue_new_stack_location_idx(&mut self) -> StackLocationIdx {
+    fn issue_new_stack_location_idx(&mut self) -> PlaceIdx {
         self.stack_location_registry_mut().issue_new()
     }
 

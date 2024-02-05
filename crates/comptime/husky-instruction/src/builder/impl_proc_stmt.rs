@@ -6,7 +6,7 @@ use husky_vm::{
     __RegistrableSafe,
 };
 
-impl<'a> InstructionSheetBuilder<'a> {
+impl<'a> InstructionBlockBuilder<'a> {
     pub(super) fn compile_proc_stmts(&mut self, stmts: &[HirEagerStmtIdx]) {
         stmts
             .iter()

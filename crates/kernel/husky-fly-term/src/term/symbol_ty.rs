@@ -1,5 +1,5 @@
 use husky_eth_term::term::symbol::EthSymbol;
-use husky_stack_location::StackLocationIdx;
+use husky_place::PlaceIdx;
 use thiserror::Error;
 
 use super::*;
@@ -141,15 +141,15 @@ pub enum FlyPlace {
     /// - ImmutableStackOwned if base type is known to be copyable
     /// - ImmutableReferenced if base type is known to be noncopyable
     StackPure {
-        location: StackLocationIdx,
+        location: PlaceIdx,
     },
     /// lvalue nonreference
     ImmutableStackOwned {
-        location: StackLocationIdx,
+        location: PlaceIdx,
     },
     /// lvalue nonreference
     MutableStackOwned {
-        location: StackLocationIdx,
+        location: PlaceIdx,
     },
     // rvalue
     Transient,
@@ -173,7 +173,7 @@ pub enum FlyPlace {
         ///
         /// let `a` be a reference to `A<'b>`, then `a.x` is a valid for `'b` time,
         /// even if `a` is short lived.
-        guard: Either<StackLocationIdx, FlyLifetime>,
+        guard: Either<PlaceIdx, FlyLifetime>,
     },
     /// a place accessed through ref mut
     ///
@@ -203,7 +203,7 @@ pub enum FlyPlace {
         ///
         /// If `a` is a mutable variable on stack of type `A<'b>`, then `a.x` is valid as long as `a` is valid,
         /// even if `b` is long lived. So we should only care about the stack location.
-        guard: Either<StackLocationIdx, FlyLifetime>,
+        guard: Either<PlaceIdx, FlyLifetime>,
     },
     /// stored in database
     /// always immutable
