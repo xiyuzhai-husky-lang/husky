@@ -186,8 +186,8 @@ impl ExpectationProgress {
     }
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum FlyTermExpectationError {
     #[error("original {0}")]
     Original(#[from] OriginalFlyTermExpectationError),
@@ -203,8 +203,8 @@ impl From<FlyPlaceError> for FlyTermExpectationError {
     }
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalFlyTermExpectationError {
     #[error("type path mismatch for subtyping")]
     TypePathMismatchForSubtyping {
@@ -241,8 +241,8 @@ pub enum OriginalFlyTermExpectationError {
     Todo,
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedFlyTermExpectationError {
     #[error("{term:?} {error}")]
     TermTypeError { term: EthTerm, error: EthTermError },

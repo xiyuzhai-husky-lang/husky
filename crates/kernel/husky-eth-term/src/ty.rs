@@ -52,13 +52,13 @@ impl HasTypeGivenDisambiguation for MajorItemPath {
 
 impl HasType for TraitPath {
     fn ty(self, db: &::salsa::Db) -> EthTermResult<EthTerm> {
-        EthTerm::ty_from_declarative(db, trai_path_declarative_ty(db, self)?)
+        EthTerm::ty_from_dec(db, trai_path_declarative_ty(db, self)?)
     }
 }
 
 impl HasType for MajorFugitivePath {
     fn ty(self, db: &::salsa::Db) -> EthTermResult<EthTerm> {
-        EthTerm::ty_from_declarative(db, fugitive_path_declarative_ty(db, self)?)
+        EthTerm::ty_from_dec(db, fugitive_path_declarative_ty(db, self)?)
     }
 }
 
@@ -70,19 +70,18 @@ impl HasTypeGivenDisambiguation for TypePath {
     ) -> EthTermResult<EthTerm> {
         match disambiguation {
             TypePathDisambiguation::OntologyConstructor => {
-                EthTerm::ty_from_declarative(db, ty_ontology_path_declarative_ty(db, self)?)
+                EthTerm::ty_from_dec(db, ty_ontology_path_declarative_ty(db, self)?)
             }
-            TypePathDisambiguation::InstanceConstructor => EthTerm::ty_from_declarative(
-                db,
-                ty_instance_constructor_path_declarative_ty(db, self)?,
-            ),
+            TypePathDisambiguation::InstanceConstructor => {
+                EthTerm::ty_from_dec(db, ty_instance_constructor_path_declarative_ty(db, self)?)
+            }
         }
     }
 }
 
 impl HasType for TypeVariantPath {
     fn ty(self, db: &::salsa::Db) -> EthTermResult<EthTerm> {
-        EthTerm::ty_from_declarative(db, ty_variant_path_declarative_ty(db, self)?)
+        EthTerm::ty_from_dec(db, ty_variant_path_declarative_ty(db, self)?)
     }
 }
 
@@ -104,7 +103,7 @@ pub enum RawType {
 impl EthTerm {
     pub fn ty_unchecked(self, db: &::salsa::Db) -> EthTermResult<Either<EthTerm, PreludeTypePath>> {
         Ok(match self.raw_ty(db)? {
-            RawType::Declarative(declarative_ty) => Left(EthTerm::from_declarative(
+            RawType::Declarative(declarative_ty) => Left(EthTerm::from_dec(
                 db,
                 declarative_ty,
                 TypeFinalDestinationExpectation::EqsSort,

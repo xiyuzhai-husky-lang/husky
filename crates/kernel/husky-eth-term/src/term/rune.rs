@@ -10,9 +10,9 @@ pub struct EthRune {
 
 impl EthRune {
     #[inline(always)]
-    pub(crate) fn from_declarative(db: &::salsa::Db, rune: DecRune) -> EthTermResult<Self> {
+    pub(crate) fn from_dec(db: &::salsa::Db, rune: DecRune) -> EthTermResult<Self> {
         let ty = rune.ty(db)?;
-        let ty = EthTerm::ty_from_declarative(db, ty)?;
+        let ty = EthTerm::ty_from_dec(db, ty)?;
         Ok(Self::new_inner(db, ty, rune.index(db)))
     }
 
@@ -23,7 +23,7 @@ impl EthRune {
         db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
-        ctx.fmt_rune(db, self, f)
+        f.write_str("variable_ad_hoc_fmt")
     }
 }
 
@@ -52,10 +52,10 @@ impl EthRune {
     }
 }
 
-impl EthTermInstantiate for EthRune {
+impl EthInstantiate for EthRune {
     type Output = Self;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
         // it's assumed that all symbols will be replaced by its map
         // otherwise it's illegal
         Self::new_inner(

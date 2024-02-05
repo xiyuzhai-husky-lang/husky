@@ -22,7 +22,7 @@ use husky_syn_expr::{
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynExprDecTermRegion {
     path: SynNodeRegionPath,
-    term_symbol_region: SymbolDecTermRegion,
+    term_symbol_region: DecSymbolRegion,
     expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
@@ -31,7 +31,7 @@ pub struct SynExprDecTermRegion {
 impl SynExprDecTermRegion {
     pub(crate) fn new(
         path: SynNodeRegionPath,
-        term_symbol_region: SymbolDecTermRegion,
+        term_symbol_region: DecSymbolRegion,
         expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
         pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
         pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
@@ -45,7 +45,7 @@ impl SynExprDecTermRegion {
         }
     }
 
-    pub fn term_symbol_region(&self) -> &SymbolDecTermRegion {
+    pub fn dec_symbol_region(&self) -> &DecSymbolRegion {
         &self.term_symbol_region
     }
 

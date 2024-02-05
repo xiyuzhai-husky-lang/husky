@@ -46,6 +46,7 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FlyTerm>>(
         todo!()
     }
     let mut instantiation_builder = FlyTermInstantiationBuilder::new_associated(
+        template.path(db),
         FlyInstantiationEnvironment::AssociatedFn,
         template
             .path(db)

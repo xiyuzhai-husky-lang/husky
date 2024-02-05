@@ -116,8 +116,8 @@ pub(crate) fn parse_use_expr_root(
         })
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum UseExprError {
     #[error("{0}")]
     Original(#[from] OriginalUseExprError),
@@ -125,8 +125,8 @@ pub enum UseExprError {
     Derived(#[from] DerivedUseExprError),
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalUseExprError {
     #[error("expect identifier")]
     ExpectIdent(TokenStreamState),
@@ -161,8 +161,8 @@ impl OriginalError for OriginalUseExprError {
     type Error = UseExprError;
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedUseExprError {
     #[error("token error")]
     TokenData(#[from] TokenDataError),

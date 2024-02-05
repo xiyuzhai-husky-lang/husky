@@ -7,8 +7,8 @@ use husky_vfs::error::VfsError;
 use original_error::OriginalError;
 use thiserror::Error;
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum AstError {
     #[error("{0}")]
     Original(#[from] OriginalAstError),
@@ -16,8 +16,8 @@ pub enum AstError {
     Derived(#[from] DerivedAstError),
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalAstError {
     #[error("excessive indent")]
     ExcessiveIndent,
@@ -140,8 +140,8 @@ impl From<TokenDataError> for AstError {
     }
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedAstError {
     #[error("{0}")]
     TokenData(#[from] TokenDataError),

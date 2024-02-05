@@ -33,6 +33,7 @@ use husky_entity_kind::FugitiveKind;
 use husky_entity_path::MajorItemPath;
 use husky_entity_path::{ItemPath, MajorFugitivePath};
 use husky_entity_tree::helpers::paths::module_item_paths;
+use husky_entity_tree::helpers::tokra_region::HasRegionalTokenIdxBase;
 use husky_sema_expr::SemaExprIdx;
 use husky_trace_protocol::id::TraceId;
 use husky_trace_protocol::{

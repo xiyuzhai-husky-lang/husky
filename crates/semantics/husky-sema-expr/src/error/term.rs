@@ -1,7 +1,7 @@
 use super::*;
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum SemaExprTermError {
     #[error("original expr term error: {0}")]
     Original(#[from] OriginalSemaExprTermError),
@@ -27,15 +27,15 @@ impl From<&SemaExprDataError> for SemaExprTermError {
     }
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalSemaExprTermError {
     #[error("todo")]
     Todo,
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedSemaExprTermError {
     #[error("expr error")]
     ExprError,

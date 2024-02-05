@@ -1,38 +1,25 @@
 [
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TraitForTypeItem(
-                                    TraitForTypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TraitForTypeItem(
-                                                            TraitForTypeItemPathData {
-                                                                impl_block: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `malamute`,
-                                                                        trai_path: TraitPath(`core::default::Default`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                                ident: `default`,
-                                                                item_kind: AssociatedFunctionFn,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
+        path: RegionPath::Defn(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TraitForTypeItem(
+                    TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `malamute`,
+                                                trai_path: TraitPath(`core::default::Default`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
                                         },
+                                        ident: `default`,
+                                        item_kind: AssociatedFunctionFn,
                                     },
                                 ),
                             ),
@@ -42,39 +29,26 @@
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TraitForTypeItem(
-                        TraitForTypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TraitForTypeItem(
-                                        TraitForTypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitForTypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TraitForTypeItem(
-                                                                TraitForTypeItemPathData {
-                                                                    impl_block: TraitForTypeImplBlock {
-                                                                        data: TraitForTypeImplBlockPathData {
-                                                                            module_path: `malamute`,
-                                                                            trai_path: TraitPath(`core::default::Default`),
-                                                                            ty_sketch: TypeSketch::Path(
-                                                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                            ),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                    ident: `default`,
-                                                                    item_kind: AssociatedFunctionFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
+            path: RegionPath::Defn(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TraitForTypeItem(
+                        TraitForTypeItemPath(
+                            ItemPathId {
+                                data: ItemPathData::AssociatedItem(
+                                    AssociatedItemPathData::TraitForTypeItem(
+                                        TraitForTypeItemPathData {
+                                            impl_block: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `malamute`,
+                                                    trai_path: TraitPath(`core::default::Default`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
                                             },
+                                            ident: `default`,
+                                            item_kind: AssociatedFunctionFn,
                                         },
                                     ),
                                 ),
@@ -108,18 +82,30 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::TypeVariant(
+                                                Room32,
+                                                TypeVariantPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ident: `No`,
+                                                                index: U8(
+                                                                    1,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`Label`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     0,
                                                                 ),
@@ -128,15 +114,11 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`label`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     1,
                                                                 ),
@@ -257,7 +239,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -284,7 +266,7 @@
                                 Const,
                             ),
                             base: FlyTermBase::Eth(
-                                EthTerm(`t`),
+                                EthTerm(`Label`),
                             ),
                         },
                     ),
@@ -296,13 +278,13 @@
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`t`),
+                            EthTerm(`Label`),
                         ),
                     },
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`a`),
+                            EthTerm(`label`),
                         ),
                     },
                 ],
@@ -325,7 +307,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`t`),
+                                                EthTerm(`Label`),
                                             ),
                                         },
                                     ),
@@ -334,14 +316,14 @@
                                             target: FlyTerm {
                                                 place: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`t`),
+                                                    EthTerm(`Label`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`t`),
+                                    EthTerm(`Label`),
                                 ),
                             },
                             HolTermEntry {
@@ -354,7 +336,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`a`),
+                                                EthTerm(`label`),
                                             ),
                                         },
                                     ),
@@ -363,14 +345,14 @@
                                             target: FlyTerm {
                                                 place: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`a`),
+                                                    EthTerm(`label`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`a`),
+                                    EthTerm(`label`),
                                 ),
                             },
                             HolTermEntry {
@@ -401,7 +383,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`OneVsAll t a`),
+                                    EthTerm(`OneVsAll Label label`),
                                 ),
                             },
                         ],
@@ -418,7 +400,7 @@
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`OneVsAll t a`),
+                                                EthTerm(`OneVsAll Label label`),
                                             ),
                                         },
                                     },
@@ -459,7 +441,7 @@
                                         expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`t`),
+                                                EthTerm(`Label`),
                                             ),
                                         },
                                     },
@@ -496,7 +478,7 @@
                                         expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`a`),
+                                                EthTerm(`label`),
                                             ),
                                         },
                                     },
@@ -534,7 +516,7 @@
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`OneVsAll t a`),
+                                                EthTerm(`OneVsAll Label label`),
                                             ),
                                         },
                                     },
@@ -575,47 +557,34 @@
                 },
             },
             return_ty: Some(
-                EthTerm(`OneVsAll t a`),
+                EthTerm(`OneVsAll Label label`),
             ),
             self_ty: Some(
-                EthTerm(`OneVsAll t a`),
+                EthTerm(`OneVsAll Label label`),
             ),
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TraitForTypeItem(
-                                    TraitForTypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TraitForTypeItem(
-                                                            TraitForTypeItemPathData {
-                                                                impl_block: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `malamute`,
-                                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`malamute::Class`, `Enum`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                                ident: `unveil`,
-                                                                item_kind: AssociatedFunctionFn,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
+        path: RegionPath::Defn(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TraitForTypeItem(
+                    TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `malamute`,
+                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`malamute::Class`, `Enum`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
                                         },
+                                        ident: `unveil`,
+                                        item_kind: AssociatedFunctionFn,
                                     },
                                 ),
                             ),
@@ -625,39 +594,26 @@
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TraitForTypeItem(
-                        TraitForTypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TraitForTypeItem(
-                                        TraitForTypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitForTypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TraitForTypeItem(
-                                                                TraitForTypeItemPathData {
-                                                                    impl_block: TraitForTypeImplBlock {
-                                                                        data: TraitForTypeImplBlockPathData {
-                                                                            module_path: `malamute`,
-                                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                                            ty_sketch: TypeSketch::Path(
-                                                                                TypePath(`malamute::Class`, `Enum`),
-                                                                            ),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                    ident: `unveil`,
-                                                                    item_kind: AssociatedFunctionFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
+            path: RegionPath::Defn(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TraitForTypeItem(
+                        TraitForTypeItemPath(
+                            ItemPathId {
+                                data: ItemPathData::AssociatedItem(
+                                    AssociatedItemPathData::TraitForTypeItem(
+                                        TraitForTypeItemPathData {
+                                            impl_block: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `malamute`,
+                                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`malamute::Class`, `Enum`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
                                             },
+                                            ident: `unveil`,
+                                            item_kind: AssociatedFunctionFn,
                                         },
                                     ),
                                 ),
@@ -694,7 +650,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`OneVsAll t a`),
+                                        EthTerm(`OneVsAll Label label`),
                                     ),
                                 },
                             ),
@@ -712,7 +668,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`OneVsAll t a`),
+                                            EthTerm(`OneVsAll Label label`),
                                         ),
                                     },
                                 ),
@@ -740,18 +696,30 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::TypeVariant(
+                                                Room32,
+                                                TypeVariantPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                                ident: `Break`,
+                                                                index: U8(
+                                                                    1,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 4,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`B`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     0,
                                                                 ),
@@ -760,15 +728,11 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 6,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`C`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     1,
                                                                 ),
@@ -828,18 +792,30 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::TypeVariant(
+                                                Room32,
+                                                TypeVariantPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(`malamute::Class`, `Enum`),
+                                                                ident: `Known`,
+                                                                index: U8(
+                                                                    0,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 4,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`Label`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     4,
                                                                 ),
@@ -898,7 +874,7 @@
                                         Const,
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`t`),
+                                        EthTerm(`Label`),
                                     ),
                                 },
                             ),
@@ -910,7 +886,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`t`),
+                                            EthTerm(`Label`),
                                         ),
                                     },
                                 ),
@@ -1076,18 +1052,30 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::TypeVariant(
+                                                Room32,
+                                                TypeVariantPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                                ident: `Continue`,
+                                                                index: U8(
+                                                                    0,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 4,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`B`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     7,
                                                                 ),
@@ -1096,15 +1084,11 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 6,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`C`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     8,
                                                                 ),
@@ -1439,7 +1423,7 @@
                         SemaExprIdx(
                             10,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -1515,7 +1499,7 @@
                                 Const,
                             ),
                             base: FlyTermBase::Eth(
-                                EthTerm(`t`),
+                                EthTerm(`Label`),
                             ),
                         },
                     ),
@@ -1531,7 +1515,7 @@
                                 },
                             ),
                             base: FlyTermBase::Eth(
-                                EthTerm(`OneVsAll t a`),
+                                EthTerm(`OneVsAll Label label`),
                             ),
                         },
                     ),
@@ -1543,13 +1527,13 @@
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`t`),
+                            EthTerm(`Label`),
                         ),
                     },
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`a`),
+                            EthTerm(`label`),
                         ),
                     },
                 ],
@@ -1592,7 +1576,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`Class t`),
+                                    EthTerm(`Class Label`),
                                 ),
                             },
                             HolTermEntry {
@@ -1652,7 +1636,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`ControlFlow Class t unit`),
+                                    EthTerm(`ControlFlow Class Label unit`),
                                 ),
                             },
                             HolTermEntry {
@@ -1685,7 +1669,7 @@
                                     },
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`fn((move  Class t) -> ControlFlow Class t unit`),
+                                    EthTerm(`fn((move  Class Label) -> ControlFlow Class Label unit`),
                                 ),
                             },
                             HolTermEntry {
@@ -1700,7 +1684,7 @@
                                                 Const,
                                             ),
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`t`),
+                                                EthTerm(`Label`),
                                             ),
                                         },
                                     ),
@@ -1711,14 +1695,14 @@
                                                     Const,
                                                 ),
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`t`),
+                                                    EthTerm(`Label`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`t`),
+                                    EthTerm(`Label`),
                                 ),
                             },
                             HolTermEntry {
@@ -1741,7 +1725,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`Class t`),
+                                    EthTerm(`Class Label`),
                                 ),
                             },
                             HolTermEntry {
@@ -1774,7 +1758,7 @@
                                     },
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`fn((move  t) -> Class t`),
+                                    EthTerm(`fn((move  Label) -> Class Label`),
                                 ),
                             },
                             HolTermEntry {
@@ -1787,7 +1771,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`Class t`),
+                                                EthTerm(`Class Label`),
                                             ),
                                         },
                                     ),
@@ -1796,14 +1780,14 @@
                                             target: FlyTerm {
                                                 place: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`Class t`),
+                                                    EthTerm(`Class Label`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`Class t`),
+                                    EthTerm(`Class Label`),
                                 ),
                             },
                             HolTermEntry {
@@ -1863,7 +1847,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`ControlFlow Class t unit`),
+                                    EthTerm(`ControlFlow Class Label unit`),
                                 ),
                             },
                             HolTermEntry {
@@ -1896,7 +1880,7 @@
                                     },
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`fn((move  unit) -> ControlFlow Class t unit`),
+                                    EthTerm(`fn((move  unit) -> ControlFlow Class Label unit`),
                                 ),
                             },
                         ],
@@ -1927,7 +1911,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`OneVsAll t a`),
+                                            EthTerm(`OneVsAll Label label`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2077,7 +2061,7 @@
                                             Const,
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`t`),
+                                            EthTerm(`Label`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -2147,7 +2131,7 @@
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`ControlFlow Class t unit`),
+                                                EthTerm(`ControlFlow Class Label unit`),
                                             ),
                                         },
                                     },
@@ -2188,7 +2172,7 @@
                                         expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`Class t`),
+                                                EthTerm(`Class Label`),
                                             ),
                                         },
                                     },
@@ -2364,7 +2348,7 @@
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`ControlFlow Class t unit`),
+                                                EthTerm(`ControlFlow Class Label unit`),
                                             ),
                                         },
                                     },
@@ -2405,7 +2389,7 @@
                                         expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`Class t`),
+                                                EthTerm(`Class Label`),
                                             ),
                                         },
                                     },
@@ -2480,7 +2464,7 @@
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`ControlFlow Class t unit`),
+                                                EthTerm(`ControlFlow Class Label unit`),
                                             ),
                                         },
                                     },
@@ -2521,47 +2505,34 @@
                 },
             },
             return_ty: Some(
-                EthTerm(`ControlFlow Class t unit`),
+                EthTerm(`ControlFlow Class Label unit`),
             ),
             self_ty: Some(
-                EthTerm(`Class t`),
+                EthTerm(`Class Label`),
             ),
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TraitForTypeItem(
-                                    TraitForTypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TraitForTypeItem(
-                                                            TraitForTypeItemPathData {
-                                                                impl_block: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `malamute`,
-                                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                                ident: `unveil`,
-                                                                item_kind: AssociatedFunctionFn,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
+        path: RegionPath::Defn(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TraitForTypeItem(
+                    TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `malamute`,
+                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
                                         },
+                                        ident: `unveil`,
+                                        item_kind: AssociatedFunctionFn,
                                     },
                                 ),
                             ),
@@ -2571,39 +2542,26 @@
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TraitForTypeItem(
-                        TraitForTypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TraitForTypeItem(
-                                        TraitForTypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitForTypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TraitForTypeItem(
-                                                                TraitForTypeItemPathData {
-                                                                    impl_block: TraitForTypeImplBlock {
-                                                                        data: TraitForTypeImplBlockPathData {
-                                                                            module_path: `malamute`,
-                                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                                            ty_sketch: TypeSketch::Path(
-                                                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                            ),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                    ident: `unveil`,
-                                                                    item_kind: AssociatedFunctionFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
+            path: RegionPath::Defn(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TraitForTypeItem(
+                        TraitForTypeItemPath(
+                            ItemPathId {
+                                data: ItemPathData::AssociatedItem(
+                                    AssociatedItemPathData::TraitForTypeItem(
+                                        TraitForTypeItemPathData {
+                                            impl_block: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `malamute`,
+                                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
                                             },
+                                            ident: `unveil`,
+                                            item_kind: AssociatedFunctionFn,
                                         },
                                     ),
                                 ),
@@ -2640,7 +2598,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`OneVsAllResult t a`),
+                                        EthTerm(`OneVsAllResult Label label`),
                                     ),
                                 },
                             ),
@@ -2658,7 +2616,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`OneVsAllResult t a`),
+                                            EthTerm(`OneVsAllResult Label label`),
                                         ),
                                     },
                                 ),
@@ -2686,18 +2644,30 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::TypeVariant(
+                                                Room32,
+                                                TypeVariantPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                                ident: `Break`,
+                                                                index: U8(
+                                                                    1,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 4,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`B`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     0,
                                                                 ),
@@ -2706,15 +2676,11 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 6,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`C`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     1,
                                                                 ),
@@ -2774,18 +2740,30 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::TypeVariant(
+                                                Room32,
+                                                TypeVariantPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ident: `Yes`,
+                                                                index: U8(
+                                                                    0,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`Label`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     4,
                                                                 ),
@@ -2794,15 +2772,11 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`label`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     5,
                                                                 ),
@@ -2931,18 +2905,30 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::TypeVariant(
+                                                Room32,
+                                                TypeVariantPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                                ident: `Break`,
+                                                                index: U8(
+                                                                    1,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 4,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`B`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     7,
                                                                 ),
@@ -2951,15 +2937,11 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 6,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`C`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     8,
                                                                 ),
@@ -3019,18 +3001,30 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::TypeVariant(
+                                                Room32,
+                                                TypeVariantPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ident: `No`,
+                                                                index: U8(
+                                                                    1,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`Label`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     11,
                                                                 ),
@@ -3039,15 +3033,11 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`label`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     12,
                                                                 ),
@@ -3176,18 +3166,30 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::TypeVariant(
+                                                Room32,
+                                                TypeVariantPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                                ident: `Continue`,
+                                                                index: U8(
+                                                                    0,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 4,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`B`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     14,
                                                                 ),
@@ -3196,15 +3198,11 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 6,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`C`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     15,
                                                                 ),
@@ -3597,7 +3595,7 @@
                         SemaExprIdx(
                             11,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -3697,7 +3695,7 @@
                                 Const,
                             ),
                             base: FlyTermBase::Eth(
-                                EthTerm(`t`),
+                                EthTerm(`Label`),
                             ),
                         },
                     ),
@@ -3713,7 +3711,7 @@
                                 },
                             ),
                             base: FlyTermBase::Eth(
-                                EthTerm(`OneVsAllResult t a`),
+                                EthTerm(`OneVsAllResult Label label`),
                             ),
                         },
                     ),
@@ -3725,13 +3723,13 @@
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`t`),
+                            EthTerm(`Label`),
                         ),
                     },
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`a`),
+                            EthTerm(`label`),
                         ),
                     },
                 ],
@@ -3774,7 +3772,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`OneVsAll t a`),
+                                    EthTerm(`OneVsAll Label label`),
                                 ),
                             },
                             HolTermEntry {
@@ -3834,7 +3832,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`ControlFlow OneVsAll t a unit`),
+                                    EthTerm(`ControlFlow OneVsAll Label label unit`),
                                 ),
                             },
                             HolTermEntry {
@@ -3867,7 +3865,7 @@
                                     },
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`fn((move  OneVsAll t a) -> ControlFlow OneVsAll t a unit`),
+                                    EthTerm(`fn((move  OneVsAll Label label) -> ControlFlow OneVsAll Label label unit`),
                                 ),
                             },
                             HolTermEntry {
@@ -3880,7 +3878,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`t`),
+                                                EthTerm(`Label`),
                                             ),
                                         },
                                     ),
@@ -3889,14 +3887,14 @@
                                             target: FlyTerm {
                                                 place: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`t`),
+                                                    EthTerm(`Label`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`t`),
+                                    EthTerm(`Label`),
                                 ),
                             },
                             HolTermEntry {
@@ -3909,7 +3907,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`a`),
+                                                EthTerm(`label`),
                                             ),
                                         },
                                     ),
@@ -3918,14 +3916,14 @@
                                             target: FlyTerm {
                                                 place: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`a`),
+                                                    EthTerm(`label`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`a`),
+                                    EthTerm(`label`),
                                 ),
                             },
                             HolTermEntry {
@@ -3956,7 +3954,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`OneVsAll t a`),
+                                    EthTerm(`OneVsAll Label label`),
                                 ),
                             },
                             HolTermEntry {
@@ -3989,7 +3987,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`OneVsAll t a`),
+                                    EthTerm(`OneVsAll Label label`),
                                 ),
                             },
                             HolTermEntry {
@@ -4049,7 +4047,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`ControlFlow OneVsAll t a unit`),
+                                    EthTerm(`ControlFlow OneVsAll Label label unit`),
                                 ),
                             },
                             HolTermEntry {
@@ -4082,7 +4080,7 @@
                                     },
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`fn((move  OneVsAll t a) -> ControlFlow OneVsAll t a unit`),
+                                    EthTerm(`fn((move  OneVsAll Label label) -> ControlFlow OneVsAll Label label unit`),
                                 ),
                             },
                             HolTermEntry {
@@ -4095,7 +4093,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`t`),
+                                                EthTerm(`Label`),
                                             ),
                                         },
                                     ),
@@ -4104,14 +4102,14 @@
                                             target: FlyTerm {
                                                 place: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`t`),
+                                                    EthTerm(`Label`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`t`),
+                                    EthTerm(`Label`),
                                 ),
                             },
                             HolTermEntry {
@@ -4124,7 +4122,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`a`),
+                                                EthTerm(`label`),
                                             ),
                                         },
                                     ),
@@ -4133,14 +4131,14 @@
                                             target: FlyTerm {
                                                 place: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`a`),
+                                                    EthTerm(`label`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`a`),
+                                    EthTerm(`label`),
                                 ),
                             },
                             HolTermEntry {
@@ -4171,7 +4169,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`OneVsAll t a`),
+                                    EthTerm(`OneVsAll Label label`),
                                 ),
                             },
                             HolTermEntry {
@@ -4184,7 +4182,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`OneVsAll t a`),
+                                                EthTerm(`OneVsAll Label label`),
                                             ),
                                         },
                                     ),
@@ -4193,14 +4191,14 @@
                                             target: FlyTerm {
                                                 place: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`OneVsAll t a`),
+                                                    EthTerm(`OneVsAll Label label`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`OneVsAll t a`),
+                                    EthTerm(`OneVsAll Label label`),
                                 ),
                             },
                             HolTermEntry {
@@ -4260,7 +4258,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`ControlFlow OneVsAll t a unit`),
+                                    EthTerm(`ControlFlow OneVsAll Label label unit`),
                                 ),
                             },
                             HolTermEntry {
@@ -4293,7 +4291,7 @@
                                     },
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`fn((move  unit) -> ControlFlow OneVsAll t a unit`),
+                                    EthTerm(`fn((move  unit) -> ControlFlow OneVsAll Label label unit`),
                                 ),
                             },
                         ],
@@ -4324,7 +4322,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`OneVsAllResult t a`),
+                                            EthTerm(`OneVsAllResult Label label`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -4441,7 +4439,7 @@
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`ControlFlow OneVsAll t a unit`),
+                                                EthTerm(`ControlFlow OneVsAll Label label unit`),
                                             ),
                                         },
                                     },
@@ -4482,7 +4480,7 @@
                                         expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`OneVsAll t a`),
+                                                EthTerm(`OneVsAll Label label`),
                                             ),
                                         },
                                     },
@@ -4556,7 +4554,7 @@
                                         expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`t`),
+                                                EthTerm(`Label`),
                                             ),
                                         },
                                     },
@@ -4593,7 +4591,7 @@
                                         expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`a`),
+                                                EthTerm(`label`),
                                             ),
                                         },
                                     },
@@ -4734,7 +4732,7 @@
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`ControlFlow OneVsAll t a unit`),
+                                                EthTerm(`ControlFlow OneVsAll Label label unit`),
                                             ),
                                         },
                                     },
@@ -4775,7 +4773,7 @@
                                         expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`OneVsAll t a`),
+                                                EthTerm(`OneVsAll Label label`),
                                             ),
                                         },
                                     },
@@ -4849,7 +4847,7 @@
                                         expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`t`),
+                                                EthTerm(`Label`),
                                             ),
                                         },
                                     },
@@ -4886,7 +4884,7 @@
                                         expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`a`),
+                                                EthTerm(`label`),
                                             ),
                                         },
                                     },
@@ -5025,7 +5023,7 @@
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`ControlFlow OneVsAll t a unit`),
+                                                EthTerm(`ControlFlow OneVsAll Label label unit`),
                                             ),
                                         },
                                     },
@@ -5066,7 +5064,7 @@
                                         expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`OneVsAll t a`),
+                                                EthTerm(`OneVsAll Label label`),
                                             ),
                                         },
                                     },
@@ -5141,7 +5139,7 @@
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`ControlFlow OneVsAll t a unit`),
+                                                EthTerm(`ControlFlow OneVsAll Label label unit`),
                                             ),
                                         },
                                     },
@@ -5182,10 +5180,10 @@
                 },
             },
             return_ty: Some(
-                EthTerm(`ControlFlow OneVsAll t a unit`),
+                EthTerm(`ControlFlow OneVsAll Label label unit`),
             ),
             self_ty: Some(
-                EthTerm(`OneVsAll t a`),
+                EthTerm(`OneVsAll Label label`),
             ),
         },
     },

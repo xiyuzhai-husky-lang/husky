@@ -75,28 +75,28 @@ impl HasEthTemplate for TypePath {
 fn ty_eth_template(db: &::salsa::Db, path: TypePath) -> EtherealSignatureResult<TypeEthTemplate> {
     Ok(match path.dec_template(db)? {
         TypeDecTemplate::Enum(dec_template) => {
-            EnumTypeEthTemplate::from_declarative(db, path, dec_template)?.into()
+            EnumTypeEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TypeDecTemplate::PropsStruct(dec_template) => {
-            PropsStructTypeEthTemplate::from_declarative(db, path, dec_template)?.into()
+            PropsStructTypeEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TypeDecTemplate::UnitStruct(dec_template) => {
-            UnitStructTypeEthTemplate::from_declarative(db, path, dec_template)?.into()
+            UnitStructTypeEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TypeDecTemplate::TupleStruct(dec_template) => {
-            TupleStructTypeEthTemplate::from_declarative(db, path, dec_template)?.into()
+            TupleStructTypeEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TypeDecTemplate::Inductive(dec_template) => {
-            InductiveTypeEthTemplate::from_declarative(db, path, dec_template)?.into()
+            InductiveTypeEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TypeDecTemplate::Structure(dec_template) => {
-            StructureTypeEthTemplate::from_declarative(db, path, dec_template)?.into()
+            StructureTypeEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TypeDecTemplate::Extern(dec_template) => {
-            ExternTypeEthTemplate::from_declarative(db, path, dec_template)?.into()
+            ExternTypeEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TypeDecTemplate::Union(dec_template) => {
-            UnionTypeEthTemplate::from_declarative(db, path, dec_template)?.into()
+            UnionTypeEthTemplate::from_dec(db, path, dec_template)?.into()
         }
     })
 }

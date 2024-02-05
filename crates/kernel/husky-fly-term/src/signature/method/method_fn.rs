@@ -118,11 +118,11 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FlyTerm>>(
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
         todo!()
     }
+    let path = template.path(db);
     let mut instantiation_builder = FlyTermInstantiationBuilder::new_associated(
+        path,
         FlyInstantiationEnvironment::MethodFn { self_place },
-        template
-            .path(db)
-            .impl_block(db)
+        path.impl_block(db)
             .eth_template(db)?
             .template_parameters(db),
         template.template_parameters(db),

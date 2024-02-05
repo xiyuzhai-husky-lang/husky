@@ -46,16 +46,16 @@ fn fugitive_eth_template(
 ) -> EtherealSignatureResult<FugitiveEthTemplate> {
     Ok(match path.dec_template(db)? {
         FugitiveDecTemplate::Fn(dec_template) => {
-            FunctionFnEthTemplate::from_declarative(db, path, dec_template)?.into()
+            FunctionFnEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         FugitiveDecTemplate::Gn(dec_template) => {
-            GnFugitiveEthTemplate::from_declarative(db, path, dec_template)?.into()
+            GnFugitiveEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         FugitiveDecTemplate::TypeAlias(dec_template) => {
-            TypeAliasEthTemplate::from_declarative(db, path, dec_template)?.into()
+            TypeAliasEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         FugitiveDecTemplate::Val(dec_template) => {
-            ValFugitiveEthTemplate::from_declarative(db, path, dec_template)?.into()
+            ValFugitiveEthTemplate::from_dec(db, path, dec_template)?.into()
         }
     })
 }

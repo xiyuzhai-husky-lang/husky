@@ -14,13 +14,13 @@ impl TypeMemoizedFieldEthTemplate {
 }
 
 impl TypeMemoizedFieldEthTemplate {
-    pub(super) fn from_declarative(
+    pub(super) fn from_dec(
         db: &::salsa::Db,
         path: TypeItemPath,
         declarative_signature: TypeMemoizedFieldDecTemplate,
     ) -> EtherealSignatureResult<TypeMemoizedFieldEthTemplate> {
         let impl_block = path.impl_block(db).eth_template(db)?;
-        let return_ty = EthTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
+        let return_ty = EthTerm::ty_from_dec(db, declarative_signature.return_ty(db))?;
         Ok(TypeMemoizedFieldEthTemplate::new(
             db, path, impl_block, return_ty,
         ))
@@ -35,7 +35,7 @@ impl TypeMemoizedFieldEthTemplate {
         let mut instantiation_builder = self
             .impl_block(db)
             .template_parameters(db)
-            .empty_instantiation_builder(true);
+            .empty_instantiation_builder(self.path(db).into(), true);
         instantiation_builder.try_add_rules_from_application(
             self_ty,
             target_self_ty_arguments,
@@ -56,7 +56,7 @@ impl TypeMemoizedFieldEthTemplate {
 #[derive(Debug, PartialEq, Eq)]
 pub struct TypeMemoizedFieldEtherealSignature {
     path: TypeItemPath,
-    instantiation: EtherealInstantiation,
+    instantiation: EthInstantiation,
     return_ty: EthTerm,
 }
 
@@ -65,7 +65,7 @@ impl TypeMemoizedFieldEtherealSignature {
         self.path
     }
 
-    pub fn instantiation(&self) -> &EtherealInstantiation {
+    pub fn instantiation(&self) -> &EthInstantiation {
         &self.instantiation
     }
 

@@ -113,29 +113,29 @@ impl<'a> SemaExprEngine<'a> {
                     .ok()
             })
             .flatten()
-            .map(|term| EthTerm::ty_from_declarative(db, term).ok())
+            .map(|term| EthTerm::ty_from_dec(db, term).ok())
             .flatten();
         let declarative_term_region = db.syn_expr_dec_term_region(syn_expr_region);
         let self_ty = declarative_term_region
-            .term_symbol_region()
+            .dec_symbol_region()
             .self_ty()
-            .map(|self_ty| EthTerm::ty_from_declarative(db, self_ty).ok())
+            .map(|self_ty| EthTerm::ty_from_dec(db, self_ty).ok())
             .flatten();
         let self_value = declarative_term_region
-            .term_symbol_region()
+            .dec_symbol_region()
             .self_value()
-            .map(|self_value| EthSymbol::from_declarative(db, self_value).ok())
+            .map(|self_value| EthSymbol::from_dec(db, self_value).ok())
             .flatten();
         let mut stack_location_registry = Default::default();
         let self_lifetime = declarative_term_region
-            .term_symbol_region()
+            .dec_symbol_region()
             .self_lifetime()
-            .map(|self_lifetime| EthSymbol::from_declarative(db, self_lifetime).ok())
+            .map(|self_lifetime| EthSymbol::from_dec(db, self_lifetime).ok())
             .flatten();
         let self_place = declarative_term_region
-            .term_symbol_region()
+            .dec_symbol_region()
             .self_place()
-            .map(|self_place| EthSymbol::from_declarative(db, self_place).ok())
+            .map(|self_place| EthSymbol::from_dec(db, self_place).ok())
             .flatten();
         let self_value_ty = calc_self_value_ty(
             syn_expr_region_data,
@@ -260,11 +260,15 @@ impl<'a> SemaExprEngine<'a> {
     }
 
     pub(crate) fn finish(mut self) -> SemaExprRegion {
+        let db = self.db;
         self.fluffy_term_region
-            .finalize_unresolved_term_table(self.db, self.term_menu);
+            .finalize_unresolved_term_table(db, self.term_menu);
         self.infer_extra_expr_terms_in_preparation_for_hir();
         SemaExprRegion::new(
-            self.syn_expr_region_data.path(),
+            self.syn_expr_region_data
+                .path()
+                .region_path(db)
+                .expect("should be some"),
             self.syn_expr_region,
             self.sema_expr_arena,
             self.sema_stmt_arena,

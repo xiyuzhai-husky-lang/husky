@@ -101,13 +101,13 @@ pub(crate) fn ty_item_hir_decl(db: &::salsa::Db, path: TypeItemPath) -> Option<T
 // }
 
 // TypeItemDecTemplate::AssociatedFn(template) => {
-//     TypeAssociatedFnHirDecl::from_declarative(db, path, template)?.into()
+//     TypeAssociatedFnHirDecl::from_dec(db, path, template)?.into()
 // }
 // TypeItemDecTemplate::MethodFn(template) => {
-//     TypeMethodFnHirDecl::from_declarative(db, template)?.into()
+//     TypeMethodFnHirDecl::from_dec(db, template)?.into()
 // }
 // TypeItemDecTemplate::AssociatedType(_) => todo!(),
 // TypeItemDecTemplate::AssociatedVal(_) => todo!(),
 // TypeItemDecTemplate::MemoizedField(template) => {
-//     TypeMemoizedFieldHirDecl::from_declarative(db, template)?.into()
+//     TypeMemoizedFieldHirDecl::from_dec(db, template)?.into()
 // }

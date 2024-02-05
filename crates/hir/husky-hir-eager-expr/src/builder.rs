@@ -220,10 +220,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         (
             HirEagerExprRegion::new(
                 self.db,
-                self.sema_expr_region_data
-                    .path()
-                    .region_path(self.db)
-                    .unwrap(),
+                self.sema_expr_region_data.path(),
                 self.hir_eager_expr_arena,
                 self.hir_eager_stmt_arena,
                 self.hir_eager_pattern_expr_arena,

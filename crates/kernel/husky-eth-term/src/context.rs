@@ -27,16 +27,6 @@ impl TermShowContext {
         }
     }
 
-    pub(crate) fn fmt_rune(
-        &mut self,
-        _db: &::salsa::Db,
-        _rune: EthRune,
-        f: &mut std::fmt::Formatter<'_>,
-    ) -> std::fmt::Result {
-        // ad hoc
-        f.write_str("variable_ad_hoc_fmt")
-    }
-
     pub(crate) fn fmt_with_variable(
         &mut self,
         _db: &::salsa::Db,

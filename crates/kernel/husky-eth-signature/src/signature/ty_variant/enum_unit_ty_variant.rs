@@ -11,7 +11,7 @@ impl EnumUnitTypeVariantEthTemplate {
         self.self_ty(db)
     }
 
-    pub(super) fn from_declarative(
+    pub(super) fn from_dec(
         db: &::salsa::Db,
         path: TypeVariantPath,
         tmpl: EnumUnitTypeVariantDecTemplate,
@@ -20,7 +20,7 @@ impl EnumUnitTypeVariantEthTemplate {
         else {
             unreachable!()
         };
-        let self_ty = EthTerm::ty_from_declarative(db, tmpl.self_ty(db))?;
+        let self_ty = EthTerm::ty_from_dec(db, tmpl.self_ty(db))?;
         Ok(Self::new(db, parent_ty_template, self_ty))
     }
 }

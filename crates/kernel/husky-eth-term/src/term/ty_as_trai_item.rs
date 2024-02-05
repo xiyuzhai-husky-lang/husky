@@ -17,7 +17,7 @@ fn term_as_trai_subitem_size_works() {
 }
 
 impl EthTypeAsTraitItem {
-    pub(crate) fn from_declarative(
+    pub(crate) fn from_dec(
         _db: &::salsa::Db,
         _valid_term: DecTypeAsTraitItem,
         _term_ty_expectation: TypeFinalDestinationExpectation,
@@ -56,10 +56,10 @@ impl EthTypeAsTraitItem {
     }
 }
 
-impl EthTermInstantiate for EthTypeAsTraitItem {
+impl EthInstantiate for EthTypeAsTraitItem {
     type Output = Self;
 
-    fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+    fn instantiate(self, db: &salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
         Self::new(
             db,
             self.parent(db).instantiate(db, instantiation),

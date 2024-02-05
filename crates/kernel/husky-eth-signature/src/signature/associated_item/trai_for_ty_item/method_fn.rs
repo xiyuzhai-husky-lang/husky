@@ -14,21 +14,19 @@ pub struct TraitForTypeMethodFnEthTemplate {
 }
 
 impl TraitForTypeMethodFnEthTemplate {
-    pub(super) fn from_declarative(
+    pub(super) fn from_dec(
         db: &::salsa::Db,
         path: TraitForTypeItemPath,
         dec_sig_tmpl: TraitForTypeMethodFnDecTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let self_ty = EthTerm::ty_from_declarative(db, dec_sig_tmpl.self_ty(db))?;
+        let self_ty = EthTerm::ty_from_dec(db, dec_sig_tmpl.self_ty(db))?;
         let template_parameters =
-            EthTemplateParameters::from_declarative(db, dec_sig_tmpl.template_parameters(db))?;
-        let self_value_parameter = EthRitchieRegularParameter::from_declarative(
-            db,
-            dec_sig_tmpl.self_value_parameter(db),
-        )?;
+            EthTemplateParameters::from_dec(db, dec_sig_tmpl.template_parameters(db))?;
+        let self_value_parameter =
+            EthRitchieRegularParameter::from_dec(db, dec_sig_tmpl.self_value_parameter(db))?;
         let parenate_parameters =
-            EtherealParenateParameters::from_declarative(db, dec_sig_tmpl.parenate_parameters(db))?;
-        let return_ty = EthTerm::ty_from_declarative(db, dec_sig_tmpl.return_ty(db))?;
+            EtherealParenateParameters::from_dec(db, dec_sig_tmpl.parenate_parameters(db))?;
+        let return_ty = EthTerm::ty_from_dec(db, dec_sig_tmpl.return_ty(db))?;
         Ok(TraitForTypeMethodFnEthTemplate::new(
             db,
             path,
@@ -97,7 +95,7 @@ fn trai_for_ty_method_fn_ethereal_signature_signature_builder_try_into_signature
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraitForTypeMethodFnEtherealSignature {
     pub path: TraitForTypeItemPath,
-    pub instantiation: EtherealInstantiation,
+    pub instantiation: EthInstantiation,
     pub self_value_parameter: EthRitchieRegularParameter,
     pub parenate_parameters: SmallVec<[EtherealRitchieParameter; 4]>,
     pub return_ty: EthTerm,
@@ -116,7 +114,7 @@ impl TraitForTypeMethodFnEtherealSignature {
         self.path
     }
 
-    pub fn instantiation(&self) -> &EtherealInstantiation {
+    pub fn instantiation(&self) -> &EthInstantiation {
         &self.instantiation
     }
 }

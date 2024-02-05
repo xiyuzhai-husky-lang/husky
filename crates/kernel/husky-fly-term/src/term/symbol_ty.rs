@@ -27,7 +27,7 @@ impl SymbolType {
         current_syn_symbol_idx: CurrentSynSymbolIdx,
         signature: DecSymbolSignature,
     ) -> FlyTermResult<Self> {
-        let ty = EthTerm::ty_from_declarative(engine.db(), signature.ty()?)?;
+        let ty = EthTerm::ty_from_dec(engine.db(), signature.ty()?)?;
         Ok(Self::new_parameter_ty(
             engine,
             current_syn_symbol_idx,

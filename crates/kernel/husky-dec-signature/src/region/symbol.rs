@@ -1,4 +1,4 @@
-use husky_dec_term::name::SymbolDecTermNameMap;
+use husky_dec_term::name::DecSymbolNameMap;
 use husky_entity_tree::*;
 use husky_syn_expr::*;
 use husky_term_prelude::symbol::SymbolName;
@@ -8,11 +8,11 @@ use super::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct SymbolDecTermRegion {
+pub struct DecSymbolRegion {
     symbol_registry: TermSymbolRegistry,
     symbol_signatures: SymbolOrderedMap<DecSymbolSignature>,
     /// used to format dec terms
-    symbol_name_map: SymbolDecTermNameMap,
+    symbol_name_map: DecSymbolNameMap,
     self_ty: Option<DecTerm>,
     self_value: Option<DecSymbol>,
     self_lifetime: Option<DecSymbol>,
@@ -53,7 +53,7 @@ impl DecSymbolSignature {
     }
 }
 
-impl SymbolDecTermRegion {
+impl DecSymbolRegion {
     pub fn self_lifetime(&self) -> Option<DecSymbol> {
         self.self_lifetime
     }
@@ -153,18 +153,18 @@ impl SymbolDecTermRegion {
         self.symbol_signatures.insert_next(idx, signature)
     }
 
-    pub fn symbol_name_map(&self) -> &SymbolDecTermNameMap {
+    pub fn symbol_name_map(&self) -> &DecSymbolNameMap {
         &self.symbol_name_map
     }
 }
 
-impl SymbolDecTermRegion {
+impl DecSymbolRegion {
     /// will initialize `inherited_syn_symbol_terms`;
     /// but will leave current_syn_symbol_terms unintialized;
     /// `self_ty_term` is set to that of parent if parent exists, otherwise none;
     /// `self_value_term` is set to that of parent if parent exists, otherwise none
     pub(crate) fn new(
-        parent: Option<&SymbolDecTermRegion>,
+        parent: Option<&DecSymbolRegion>,
         syn_expr_region_data: &SynExprRegionData,
         declarative_term_menu: &DecTermMenu,
     ) -> Self {

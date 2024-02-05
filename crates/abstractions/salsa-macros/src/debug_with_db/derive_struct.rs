@@ -5,9 +5,9 @@ pub(super) fn struct_debug_with_db_impl(item: &mut ItemStruct) -> proc_macro2::T
     let ident = &item.ident;
 
     let body = match item.fields {
-        syn::Fields::Named(_) => struct_regular_fields_debug_with_db(&item.ident, &mut item.fields),
-        syn::Fields::Unnamed(_) => struct_tuple_fields_debug_with_db(&item.ident, &item.fields),
-        syn::Fields::Unit => todo!("unit struct debug with db"),
+        syn::Fields::Named(_) => props_struct_ebug_with_db(&item.ident, &mut item.fields),
+        syn::Fields::Unnamed(_) => tuple_struct_debug_with_db(&item.ident, &item.fields),
+        syn::Fields::Unit => unit_struct_debug_with_db(&item.ident),
     };
     // todo: refactor this as a function
     let generics = &item.generics;
@@ -37,18 +37,16 @@ pub(super) fn struct_debug_with_db_impl(item: &mut ItemStruct) -> proc_macro2::T
     quote! {
         impl #generics_without_trais ::salsa::DebugWithDb for #self_ty #where_clause {
             fn debug_with_db_fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db,) -> ::std::fmt::Result {
+                use ::salsa::fmt::{WithFmtContext, WithFmtContextTest};
                 #[allow(unused_imports)]
                 use ::salsa::debug::helper::Fallback;
-                #body
+                WithFmtContextTest(self).with_fmt_context(|| { #body }, _db)
             }
         }
     }
 }
 
-fn struct_regular_fields_debug_with_db(
-    ident: &Ident,
-    fields: &mut Fields,
-) -> proc_macro2::TokenStream {
+fn props_struct_ebug_with_db(ident: &Ident, fields: &mut Fields) -> proc_macro2::TokenStream {
     let ident_string = ident.to_string();
     // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
     let fields = fields
@@ -105,7 +103,7 @@ fn has_skip_fmt_attr(field: &mut syn::Field) -> bool {
     }
 }
 
-fn struct_tuple_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_macro2::TokenStream {
+fn tuple_struct_debug_with_db(ident: &Ident, fields: &Fields) -> proc_macro2::TokenStream {
     let ident_string = ident.to_string();
     // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
     let fields = fields
@@ -140,5 +138,12 @@ fn struct_tuple_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_mac
         #fields
 
         debug_tuple.finish()
+    }
+}
+
+fn unit_struct_debug_with_db(ident: &Ident) -> proc_macro2::TokenStream {
+    let ident_string = ident.to_string();
+    quote! {
+        f.write_str(#ident_string)
     }
 }

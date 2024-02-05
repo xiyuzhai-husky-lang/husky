@@ -1,16 +1,55 @@
+use self::fmt::EthTermFmtContext;
+use crate::fmt::with_eth_term_fmt_context;
 use crate::{term::symbol::EthSymbol, *};
+use husky_entity_path::region::RegionPath;
+use husky_syn_decl::HasSynDecl;
 use maybe_result::*;
-use vec_like::SmallVecPairMap;
+use salsa::fmt::WithFmtContext;
+use vec_like::{SmallVecPairMap, VecMap};
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct EtherealInstantiation {
+pub struct EthInstantiation {
+    path: ItemPath,
     symbol_map: SmallVecPairMap<EthSymbol, EthTerm, 4>,
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
 }
 
-impl EtherealInstantiation {
+impl WithFmtContext for EthInstantiation {
+    fn with_fmt_context(
+        &self,
+        f: impl FnOnce() -> std::fmt::Result,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        let ctx = instantiation_eth_term_fmt_context(db, *self.path);
+        with_eth_term_fmt_context(ctx, f, db)
+    }
+}
+
+#[salsa::tracked(jar = EthTermJar)]
+pub fn instantiation_eth_term_fmt_context(
+    db: &::salsa::Db,
+    path_id: ItemPathId,
+) -> EthTermFmtContext {
+    use husky_dec_signature::engine::syn_expr_dec_term_region;
+
+    let path = path_id.item_path(db);
+    let symbol_name_map =
+        syn_expr_dec_term_region(db, path.syn_decl(db).unwrap().syn_expr_region(db).unwrap())
+            .dec_symbol_region()
+            .symbol_name_map();
+    let symbol_names = VecMap::from_iter_assuming_no_repetitions(
+        symbol_name_map
+            .data()
+            .iter()
+            .map(|&(symbol, name)| (EthSymbol::from_dec(db, symbol).expect("ok"), name)),
+    )
+    .expect("no repetitions");
+    EthTermFmtContext::new(db, RegionPath::Decl(path), symbol_names)
+}
+
+impl EthInstantiation {
     pub fn symbol_map(&self) -> &[(EthSymbol, EthTerm)] {
         self.symbol_map.as_ref()
     }
@@ -40,32 +79,36 @@ impl EtherealInstantiation {
             None => (symbol_map, None),
         }
     }
+
+    pub fn path(&self) -> ItemPath {
+        self.path
+    }
 }
 
-pub trait EthTermInstantiate: Copy {
+pub trait EthInstantiate: Copy {
     type Output;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output;
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EthInstantiation) -> Self::Output;
 }
 
-impl<T> EthTermInstantiate for Option<T>
+impl<T> EthInstantiate for Option<T>
 where
-    T: EthTermInstantiate,
+    T: EthInstantiate,
 {
     type Output = Option<T::Output>;
 
-    fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+    fn instantiate(self, db: &salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
         self.map(|slf| slf.instantiate(db, instantiation))
     }
 }
 
-impl<T> EthTermInstantiate for &[T]
+impl<T> EthInstantiate for &[T]
 where
-    T: EthTermInstantiate,
+    T: EthInstantiate,
 {
     type Output = Vec<T::Output>;
 
-    fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+    fn instantiate(self, db: &salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
         self.iter()
             .copied()
             .map(|elem| elem.instantiate(db, instantiation))
@@ -76,12 +119,13 @@ where
 pub trait EthTermInstantiateRef {
     type Target;
 
-    fn instantiate(&self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Target;
+    fn instantiate(&self, db: &::salsa::Db, instantiation: &EthInstantiation) -> Self::Target;
 }
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EtherealInstantiationBuilder {
+    path: ItemPath,
     symbol_map: SmallVecPairMap<EthSymbol, Option<EthTerm>, 4>,
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
@@ -89,10 +133,15 @@ pub struct EtherealInstantiationBuilder {
 
 impl EtherealInstantiationBuilder {
     /// symbols must be unique
-    pub(crate) fn new(symbols: impl Iterator<Item = EthSymbol>, is_associated: bool) -> Self {
+    pub(crate) fn new(
+        path: ItemPath,
+        symbols: impl Iterator<Item = EthSymbol>,
+        is_associated: bool,
+    ) -> Self {
         let symbol_map: SmallVecPairMap<EthSymbol, Option<EthTerm>, 4> =
             symbols.map(|symbol| (symbol, None)).collect();
         Self {
+            path,
             separator: is_associated.then_some(symbol_map.len().try_into().unwrap()),
             symbol_map,
         }
@@ -215,13 +264,14 @@ impl EtherealInstantiationBuilder {
         }
     }
 
-    pub fn try_into_instantiation(&self) -> Option<EtherealInstantiation> {
+    pub fn try_into_instantiation(&self) -> Option<EthInstantiation> {
         let mut symbol_map = SmallVecPairMap::<EthSymbol, EthTerm, 4>::default();
         for (symbol, mapped) in self.symbol_map.iter() {
             let mapped = (*mapped)?;
             unsafe { symbol_map.insert_new_unchecked((*symbol, mapped)) }
         }
-        Some(EtherealInstantiation {
+        Some(EthInstantiation {
+            path: self.path,
             symbol_map,
             separator: self.separator,
         })
@@ -237,6 +287,7 @@ impl EtherealInstantiationBuilder {
             unsafe { symbol_map.insert_new_unchecked((param.symbol(), None)) }
         }
         Self {
+            path: self.path,
             symbol_map,
             separator: Some(len),
         }

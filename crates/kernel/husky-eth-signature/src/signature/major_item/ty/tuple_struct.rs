@@ -13,21 +13,21 @@ pub struct TupleStructTypeEthTemplate {
 }
 
 impl TupleStructTypeEthTemplate {
-    pub(super) fn from_declarative(
+    pub(super) fn from_dec(
         db: &::salsa::Db,
         path: TypePath,
         tmpl: TupleStructTypeDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters =
-            EthTemplateParameters::from_declarative(db, tmpl.template_parameters(db))?;
+            EthTemplateParameters::from_dec(db, tmpl.template_parameters(db))?;
         let fields = tmpl
             .fields(db)
             .iter()
             .copied()
-            .map(|dec_template| TupleFieldEthTemplate::from_declarative(db, dec_template))
+            .map(|dec_template| TupleFieldEthTemplate::from_dec(db, dec_template))
             .collect::<EtherealSignatureResult<_>>()?;
         let instance_constructor_ritchie_ty =
-            EthRitchie::from_declarative(db, tmpl.instance_constructor_ritchie_ty(db))?;
+            EthRitchie::from_dec(db, tmpl.instance_constructor_ritchie_ty(db))?;
         Ok(Self::new(
             db,
             path,
@@ -49,12 +49,12 @@ pub struct TupleFieldEthTemplate {
 }
 
 impl TupleFieldEthTemplate {
-    fn from_declarative(
+    fn from_dec(
         db: &::salsa::Db,
         dec_template: TupleStructFieldDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         Ok(Self {
-            ty: EthTerm::ty_from_declarative(db, dec_template.ty())?,
+            ty: EthTerm::ty_from_dec(db, dec_template.ty())?,
         })
     }
 

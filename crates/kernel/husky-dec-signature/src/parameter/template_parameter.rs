@@ -119,7 +119,7 @@ impl DeclarativeTemplateParameterTemplates {
                 })
                 .chain(
                     declarative_term_region
-                        .term_symbol_region()
+                        .dec_symbol_region()
                         .implicit_template_parameter_symbols()
                         .iter()
                         .map(|&a| DeclarativeTemplateParameter::new_implicit(a)),

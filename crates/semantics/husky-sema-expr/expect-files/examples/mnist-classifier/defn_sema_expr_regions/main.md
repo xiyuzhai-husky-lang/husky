@@ -1,43 +1,17 @@
 [
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Fugitive(
-                                    FugitiveSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::main`, `Val`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::MajorItem(
+                MajorItemPath::Fugitive(
+                    FugitivePath(`mnist_classifier::main`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::main`, `Val`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::main`, `Val`),
                     ),
                 ),
             ),
@@ -56,6 +30,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -119,53 +98,28 @@
                                                 ),
                                             },
                                         ),
-                                        instantiation: EtherealInstantiation {
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath::ImplBlock(
+                                                ImplBlockPath::TraitForTypeImplBlock(
+                                                    TraitForTypeImplBlock {
+                                                        data: TraitForTypeImplBlockPathData {
+                                                            module_path: `malamute`,
+                                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                                            ty_sketch: TypeSketch::Path(
+                                                                TypePath(`malamute::Class`, `Enum`),
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`Type`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::Type {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Comptime,
-                                                                },
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`t`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Runtime,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`label`),
                                                     EthTerm(`One`),
                                                 ),
                                             ],
@@ -232,6 +186,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -295,53 +254,28 @@
                                                 ),
                                             },
                                         ),
-                                        instantiation: EtherealInstantiation {
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath::ImplBlock(
+                                                ImplBlockPath::TraitForTypeImplBlock(
+                                                    TraitForTypeImplBlock {
+                                                        data: TraitForTypeImplBlockPathData {
+                                                            module_path: `malamute`,
+                                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                                            ty_sketch: TypeSketch::Path(
+                                                                TypePath(`malamute::Class`, `Enum`),
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`Type`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::Type {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Comptime,
-                                                                },
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`t`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Runtime,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`label`),
                                                     EthTerm(`Six`),
                                                 ),
                                             ],
@@ -408,6 +342,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -471,53 +410,28 @@
                                                 ),
                                             },
                                         ),
-                                        instantiation: EtherealInstantiation {
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath::ImplBlock(
+                                                ImplBlockPath::TraitForTypeImplBlock(
+                                                    TraitForTypeImplBlock {
+                                                        data: TraitForTypeImplBlockPathData {
+                                                            module_path: `malamute`,
+                                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                                            ty_sketch: TypeSketch::Path(
+                                                                TypePath(`malamute::Class`, `Enum`),
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`Type`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::Type {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Comptime,
-                                                                },
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`t`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Runtime,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`label`),
                                                     EthTerm(`Zero`),
                                                 ),
                                             ],
@@ -584,6 +498,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -647,53 +566,28 @@
                                                 ),
                                             },
                                         ),
-                                        instantiation: EtherealInstantiation {
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath::ImplBlock(
+                                                ImplBlockPath::TraitForTypeImplBlock(
+                                                    TraitForTypeImplBlock {
+                                                        data: TraitForTypeImplBlockPathData {
+                                                            module_path: `malamute`,
+                                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                                            ty_sketch: TypeSketch::Path(
+                                                                TypePath(`malamute::Class`, `Enum`),
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`Type`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::Type {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Comptime,
-                                                                },
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`t`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Runtime,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`label`),
                                                     EthTerm(`Seven`),
                                                 ),
                                             ],
@@ -760,6 +654,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -823,53 +722,28 @@
                                                 ),
                                             },
                                         ),
-                                        instantiation: EtherealInstantiation {
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath::ImplBlock(
+                                                ImplBlockPath::TraitForTypeImplBlock(
+                                                    TraitForTypeImplBlock {
+                                                        data: TraitForTypeImplBlockPathData {
+                                                            module_path: `malamute`,
+                                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                                            ty_sketch: TypeSketch::Path(
+                                                                TypePath(`malamute::Class`, `Enum`),
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`Type`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::Type {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Comptime,
-                                                                },
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`t`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Runtime,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`label`),
                                                     EthTerm(`Eight`),
                                                 ),
                                             ],
@@ -936,6 +810,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -999,53 +878,28 @@
                                                 ),
                                             },
                                         ),
-                                        instantiation: EtherealInstantiation {
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath::ImplBlock(
+                                                ImplBlockPath::TraitForTypeImplBlock(
+                                                    TraitForTypeImplBlock {
+                                                        data: TraitForTypeImplBlockPathData {
+                                                            module_path: `malamute`,
+                                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                                            ty_sketch: TypeSketch::Path(
+                                                                TypePath(`malamute::Class`, `Enum`),
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`Type`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::Type {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Comptime,
-                                                                },
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`t`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Runtime,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`label`),
                                                     EthTerm(`Three`),
                                                 ),
                                             ],
@@ -1112,6 +966,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -1175,53 +1034,28 @@
                                                 ),
                                             },
                                         ),
-                                        instantiation: EtherealInstantiation {
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath::ImplBlock(
+                                                ImplBlockPath::TraitForTypeImplBlock(
+                                                    TraitForTypeImplBlock {
+                                                        data: TraitForTypeImplBlockPathData {
+                                                            module_path: `malamute`,
+                                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                                            ty_sketch: TypeSketch::Path(
+                                                                TypePath(`malamute::Class`, `Enum`),
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`Type`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::Type {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Comptime,
-                                                                },
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`t`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Runtime,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`label`),
                                                     EthTerm(`Nine`),
                                                 ),
                                             ],
@@ -1288,6 +1122,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -1351,53 +1190,28 @@
                                                 ),
                                             },
                                         ),
-                                        instantiation: EtherealInstantiation {
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath::ImplBlock(
+                                                ImplBlockPath::TraitForTypeImplBlock(
+                                                    TraitForTypeImplBlock {
+                                                        data: TraitForTypeImplBlockPathData {
+                                                            module_path: `malamute`,
+                                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                                            ty_sketch: TypeSketch::Path(
+                                                                TypePath(`malamute::Class`, `Enum`),
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`Type`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::Type {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Comptime,
-                                                                },
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`t`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Runtime,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`label`),
                                                     EthTerm(`Five`),
                                                 ),
                                             ],
@@ -1464,6 +1278,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -1527,53 +1346,28 @@
                                                 ),
                                             },
                                         ),
-                                        instantiation: EtherealInstantiation {
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath::ImplBlock(
+                                                ImplBlockPath::TraitForTypeImplBlock(
+                                                    TraitForTypeImplBlock {
+                                                        data: TraitForTypeImplBlockPathData {
+                                                            module_path: `malamute`,
+                                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                                            ty_sketch: TypeSketch::Path(
+                                                                TypePath(`malamute::Class`, `Enum`),
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`Type`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::Type {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Comptime,
-                                                                },
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol {
-                                                        toolchain: Toolchain {
-                                                            data: ToolchainData::Local {
-                                                                library_path: VirtualPath {
-                                                                    _data: VirtualPathBuf(
-                                                                        "../../../library",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        ty: EthTerm(`t`),
-                                                        index: EthTermSymbolIndex(
-                                                            EthTermSymbolIndexImpl::ConstOther {
-                                                                attrs: EthTemplateSymbolAttrs {
-                                                                    class: Runtime,
-                                                                },
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    },
+                                                    EthSymbol(`label`),
                                                     EthTerm(`Two`),
                                                 ),
                                             ],
@@ -1650,18 +1444,30 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::TypeVariant(
+                                                Room32,
+                                                TypeVariantPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(`malamute::Class`, `Enum`),
+                                                                ident: `Unknown`,
+                                                                index: U8(
+                                                                    1,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`Label`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     0,
                                                                 ),
@@ -2061,7 +1867,7 @@
                         SemaExprIdx(
                             20,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],

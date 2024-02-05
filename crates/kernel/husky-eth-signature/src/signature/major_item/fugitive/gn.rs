@@ -11,19 +11,19 @@ pub struct GnFugitiveEthTemplate {
 }
 
 impl GnFugitiveEthTemplate {
-    pub(super) fn from_declarative(
+    pub(super) fn from_dec(
         db: &::salsa::Db,
         path: MajorFugitivePath,
         tmpl: MajorGnDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters =
-            EthTemplateParameters::from_declarative(db, tmpl.template_parameters(db))?;
+            EthTemplateParameters::from_dec(db, tmpl.template_parameters(db))?;
         let ritchie_params: SmallVec<[_; 4]> = tmpl
             .parenate_parameters(db)
             .iter()
-            .map(|&param| EtherealRitchieParameter::from_declarative(param, db))
+            .map(|&param| EtherealRitchieParameter::from_dec(param, db))
             .collect::<EthTermResult<SmallVec<[_; 4]>>>()?;
-        let return_ty = EthTerm::ty_from_declarative(db, tmpl.return_ty(db))?;
+        let return_ty = EthTerm::ty_from_dec(db, tmpl.return_ty(db))?;
         let ritchie_ty = EthRitchie::new(
             db,
             RitchieKind::Type(TypeRitchieKind::Gn),

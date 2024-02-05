@@ -91,11 +91,8 @@ impl EthRitchie {
     }
 
     #[inline(always)]
-    pub fn from_declarative(
-        db: &::salsa::Db,
-        declarative_term_ritchie: DecRitchie,
-    ) -> EthTermResult<Self> {
-        ethereal_term_ritchie_from_declarative_term_ritchie(db, declarative_term_ritchie)
+    pub fn from_dec(db: &::salsa::Db, declarative_term_ritchie: DecRitchie) -> EthTermResult<Self> {
+        ethereal_term_ritchie_from_dec_term_ritchie(db, declarative_term_ritchie)
     }
 
     #[inline(never)]
@@ -119,7 +116,7 @@ impl EthRitchie {
 }
 
 #[salsa::tracked(jar = EthTermJar)]
-pub(crate) fn ethereal_term_ritchie_from_declarative_term_ritchie(
+pub(crate) fn ethereal_term_ritchie_from_dec_term_ritchie(
     db: &::salsa::Db,
     declarative_term_ritchie: DecRitchie,
 ) -> EthTermResult<EthRitchie> {
@@ -129,40 +126,31 @@ pub(crate) fn ethereal_term_ritchie_from_declarative_term_ritchie(
         declarative_term_ritchie
             .params(db)
             .iter()
-            .map(|&param| -> EthTermResult<_> {
-                EtherealRitchieParameter::from_declarative(param, db)
-            }),
-        EthTerm::ty_from_declarative(db, declarative_term_ritchie.return_ty(db))?,
+            .map(|&param| -> EthTermResult<_> { EtherealRitchieParameter::from_dec(param, db) }),
+        EthTerm::ty_from_dec(db, declarative_term_ritchie.return_ty(db))?,
     )
 }
 
 impl EtherealRitchieParameter {
-    pub fn from_declarative(
-        param: DeclarativeRitchieParameter,
-        db: &::salsa::Db,
-    ) -> EthTermResult<Self> {
+    pub fn from_dec(param: DeclarativeRitchieParameter, db: &::salsa::Db) -> EthTermResult<Self> {
         Ok(match param {
             DeclarativeRitchieParameter::Regular(param) => {
-                EthRitchieRegularParameter::from_declarative(db, param)?.into()
+                EthRitchieRegularParameter::from_dec(db, param)?.into()
             }
             DeclarativeRitchieParameter::Variadic(param) => {
-                EtherealRitchieVariadicParameter::from_declarative(db, param)?.into()
+                EtherealRitchieVariadicParameter::from_dec(db, param)?.into()
             }
             DeclarativeRitchieParameter::Keyed(param) => {
-                EtherealRitchieKeyedParameter::from_declarative(db, param)?.into()
+                EtherealRitchieKeyedParameter::from_dec(db, param)?.into()
             }
         })
     }
 }
 
-impl EthTermInstantiate for EtherealRitchieParameter {
+impl EthInstantiate for EtherealRitchieParameter {
     type Output = Self;
 
-    fn instantiate(
-        self,
-        _db: &::salsa::Db,
-        _instantiation: &EtherealInstantiation,
-    ) -> Self::Output {
+    fn instantiate(self, _db: &::salsa::Db, _instantiation: &EthInstantiation) -> Self::Output {
         todo!()
     }
 }
@@ -273,10 +261,10 @@ impl<'a> EthTermSubstitute<'a> for EtherealRitchieParameter {
     }
 }
 
-impl EthTermInstantiate for EthRitchie {
+impl EthInstantiate for EthRitchie {
     type Output = Self;
 
-    fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+    fn instantiate(self, db: &salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
         Self::new_inner(
             db,
             self.ritchie_kind(db),

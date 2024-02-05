@@ -390,7 +390,29 @@ impl From<PrincipalEntityPath> for EntityPath {
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum PrincipalItemPath {
-    Submodule(SubmodulePath),
-    MajorItem(MajorItemPath),
+    Submodule(SubmoduleItemPath),
+    Major(MajorItemPath),
     TypeVariant(TypeVariantPath),
+}
+
+impl From<PrincipalItemPath> for ItemPath {
+    fn from(path: PrincipalItemPath) -> Self {
+        match path {
+            PrincipalItemPath::Submodule(path) => path.into(),
+            PrincipalItemPath::Major(path) => path.into(),
+            PrincipalItemPath::TypeVariant(path) => path.into(),
+        }
+    }
+}
+
+impl From<MajorFugitivePath> for PrincipalItemPath {
+    fn from(path: MajorFugitivePath) -> Self {
+        PrincipalItemPath::Major(path.into())
+    }
+}
+
+impl From<TypePath> for PrincipalItemPath {
+    fn from(path: TypePath) -> Self {
+        PrincipalItemPath::Major(path.into())
+    }
 }

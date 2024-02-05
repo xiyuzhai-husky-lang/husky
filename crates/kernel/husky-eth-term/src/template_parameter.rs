@@ -18,16 +18,14 @@ impl<'a> IntoIterator for &'a EthTemplateParameters {
 }
 
 impl EthTemplateParameters {
-    pub fn from_declarative(
+    pub fn from_dec(
         db: &::salsa::Db,
         template_parameters: &[DeclarativeTemplateParameter],
     ) -> EthTermResult<EthTemplateParameters> {
         Ok(EthTemplateParameters {
             data: template_parameters
                 .iter()
-                .map(|template_parameter| {
-                    EthTemplateParameter::from_declarative(db, template_parameter)
-                })
+                .map(|template_parameter| EthTemplateParameter::from_dec(db, template_parameter))
                 .collect::<EthTermResult<_>>()?,
         })
     }
@@ -38,8 +36,16 @@ impl EthTemplateParameters {
     }
 
     /// returns an empty partial instantiation
-    pub fn empty_instantiation_builder(&self, is_associated: bool) -> EtherealInstantiationBuilder {
-        EtherealInstantiationBuilder::new(self.iter().map(|param| param.symbol()), is_associated)
+    pub fn empty_instantiation_builder(
+        &self,
+        path: ItemPath,
+        is_associated: bool,
+    ) -> EtherealInstantiationBuilder {
+        EtherealInstantiationBuilder::new(
+            path,
+            self.iter().map(|param| param.symbol()),
+            is_associated,
+        )
     }
 }
 
@@ -60,13 +66,13 @@ pub struct EthTemplateParameter {
 }
 
 impl EthTemplateParameter {
-    fn from_declarative(
+    fn from_dec(
         db: &::salsa::Db,
         declarative_generic_paramter: &DeclarativeTemplateParameter,
     ) -> EthTermResult<Self> {
         Ok(Self {
             annotated_variance: declarative_generic_paramter.annotated_variance(),
-            symbol: EthSymbol::from_declarative(db, declarative_generic_paramter.symbol())?,
+            symbol: EthSymbol::from_dec(db, declarative_generic_paramter.symbol())?,
             traits: declarative_generic_paramter
                 .traits()
                 .iter()

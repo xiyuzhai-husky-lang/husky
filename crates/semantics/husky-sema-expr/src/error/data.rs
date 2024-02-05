@@ -1,7 +1,7 @@
 use super::*;
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum SemaExprDataError {
     #[error("original {0}")]
     Original(#[from] OriginalSemaExprDataError),
@@ -9,8 +9,8 @@ pub enum SemaExprDataError {
     Derived(#[from] DerivedSemaExprDataError),
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalSemaExprDataError {
     #[error("RitchieParameterArgumentMismatch")]
     RitchieParameterArgumentMismatch {
