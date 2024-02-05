@@ -170,7 +170,7 @@ husky-expr = { path = "crates/kernel/husky-expr" }
 husky-fly-term = { path = "crates/kernel/husky-fly-term" }
 husky-opr = { path = "crates/kernel/husky-opr" }
 husky-scope = { path = "crates/kernel/husky-scope" }
-husky-stack-location = { path = "crates/kernel/husky-stack-location" }
+husky-place = { path = "crates/kernel/husky-place" }
 husky-term-prelude = { path = "crates/kernel/husky-term-prelude" }
 # lex
 husky-regional-token = { path = "crates/lex/husky-regional-token" }

@@ -22,7 +22,7 @@ husky-eth-term.workspace = true
 husky-eth-signature.workspace = true
 husky-fly-term.workspace = true
 husky-scope.workspace = true
-husky-stack-location = { path = "../../kernel/husky-stack-location" }
+husky-place = { path = "../../kernel/husky-place" }
 husky-hir-prelude = { path = "../../hir/husky-hir-prelude" }
 # utils
 husky-print-utils.workspace = true

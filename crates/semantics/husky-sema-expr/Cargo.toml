@@ -28,7 +28,7 @@ husky-entity-kind.workspace = true
 husky-coword.workspace = true
 husky-fly-term.workspace = true
 husky-expr = { path = "../../kernel/husky-expr" }
-husky-stack-location.workspace = true
+husky-place.workspace = true
 # lex
 husky-token-data.workspace = true
 husky-regional-token.workspace = true

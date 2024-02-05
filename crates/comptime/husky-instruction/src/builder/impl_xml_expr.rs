@@ -2,7 +2,7 @@ use husky_vm::InstructionData;
 
 use crate::*;
 
-impl<'a> InstructionSheetBuilder<'a> {
+impl<'a> InstructionBlockBuilder<'a> {
     pub(super) fn compile_xml_expr(&mut self, expr: Arc<HtmlExpr>) {
         match expr.variant {
             HtmlExprVariant::Value(ref value_expr) => {

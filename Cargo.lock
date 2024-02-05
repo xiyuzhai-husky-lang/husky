@@ -4482,10 +4482,10 @@ dependencies = [
  "husky-fly-term",
  "husky-manifest",
  "husky-manifest-ast",
+ "husky-place",
  "husky-print-utils",
  "husky-regional-token",
  "husky-scope",
- "husky-stack-location",
  "husky-syn-decl",
  "husky-syn-expr",
  "husky-term-prelude",
@@ -4753,9 +4753,9 @@ dependencies = [
  "husky-fly-term",
  "husky-hir-prelude",
  "husky-hir-ty",
+ "husky-place",
  "husky-print-utils",
  "husky-scope",
- "husky-stack-location",
  "husky-term-prelude",
  "husky-vfs",
  "maybe-result",
@@ -4820,7 +4820,9 @@ dependencies = [
  "husky-opr",
  "husky-print-utils",
  "husky-standard-value",
+ "husky-task-interface",
  "salsa",
+ "shifted-unsigned-int",
 ]
 
 [[package]]
@@ -5179,6 +5181,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-place"
+version = "0.1.0"
+dependencies = [
+ "shifted-unsigned-int",
+]
+
+[[package]]
 name = "husky-platform"
 version = "0.1.0"
 dependencies = [
@@ -5268,10 +5277,10 @@ dependencies = [
  "husky-manifest",
  "husky-manifest-ast",
  "husky-opr",
+ "husky-place",
  "husky-print-utils",
  "husky-rust-transpilation",
  "husky-sema-expr",
- "husky-stack-location",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -5349,11 +5358,11 @@ dependencies = [
  "husky-manifest",
  "husky-manifest-ast",
  "husky-opr",
+ "husky-place",
  "husky-print-utils",
  "husky-regional-token",
  "husky-sema-expr",
  "husky-sema-opr",
- "husky-stack-location",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -5417,13 +5426,6 @@ dependencies = [
  "itertools 0.11.0",
  "lsp-types 0.95.0",
  "salsa",
-]
-
-[[package]]
-name = "husky-stack-location"
-version = "0.1.0"
-dependencies = [
- "shifted-unsigned-int",
 ]
 
 [[package]]

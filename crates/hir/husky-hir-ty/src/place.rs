@@ -1,6 +1,6 @@
 use either::*;
 use husky_fly_term::{FlyLifetime, FlyPlace};
-use husky_stack_location::StackLocationIdx;
+use husky_place::PlaceIdx;
 
 use crate::lifetime::HirLifetime;
 
@@ -11,15 +11,15 @@ pub enum HirPlace {
     /// - ImmutableStackOwned if base type is known to be copyable
     /// - ImmutableReferenced if base type is known to be noncopyable
     StackPure {
-        location: StackLocationIdx,
+        location: PlaceIdx,
     },
     /// lvalue nonreference
     ImmutableStackOwned {
-        location: StackLocationIdx,
+        location: PlaceIdx,
     },
     /// lvalue nonreference
     MutableStackOwned {
-        location: StackLocationIdx,
+        location: PlaceIdx,
     },
     // rvalue
     Transient,
@@ -43,7 +43,7 @@ pub enum HirPlace {
         ///
         /// let `a` be a reference to `A<'b>`, then `a.x` is a valid for `'b` time,
         /// even if `a` is short lived.
-        guard: Either<StackLocationIdx, HirLifetime>,
+        guard: Either<PlaceIdx, HirLifetime>,
     },
     /// a place accessed through ref mut
     ///
@@ -73,7 +73,7 @@ pub enum HirPlace {
         ///
         /// If `a` is a mutable variable on stack of type `A<'b>`, then `a.x` is valid as long as `a` is valid,
         /// even if `b` is long lived. So we should only care about the stack location.
-        guard: Either<StackLocationIdx, HirLifetime>,
+        guard: Either<PlaceIdx, HirLifetime>,
     },
     /// stored in database
     /// always immutable
@@ -103,7 +103,7 @@ impl HirPlace {
         }
     }
 
-    pub fn location(self) -> Option<StackLocationIdx> {
+    pub fn location(self) -> Option<PlaceIdx> {
         match self {
             HirPlace::StackPure { location }
             | HirPlace::ImmutableStackOwned { location }
@@ -119,9 +119,7 @@ impl HirPlace {
     }
 }
 
-fn hir_place_guard_from_fly(
-    guard: Either<StackLocationIdx, FlyLifetime>,
-) -> Either<StackLocationIdx, HirLifetime> {
+fn hir_place_guard_from_fly(guard: Either<PlaceIdx, FlyLifetime>) -> Either<PlaceIdx, HirLifetime> {
     match guard {
         Left(location) => Left(location),
         Right(lifetime) => Right(HirLifetime::from_fly(lifetime)),

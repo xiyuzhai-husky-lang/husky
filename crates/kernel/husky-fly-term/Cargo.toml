@@ -30,7 +30,7 @@ husky-eth-signature.workspace = true
 husky-coword.workspace = true
 husky-expr.workspace = true
 husky-scope.workspace = true
-husky-stack-location = { path = "../../kernel/husky-stack-location" }
+husky-place = { path = "../../kernel/husky-place" }
 # semantics
 husky-dec-signature.workspace = true
 # syntax

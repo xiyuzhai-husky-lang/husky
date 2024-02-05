@@ -7,7 +7,7 @@ use husky_vm::{
 };
 use map_collect::MapCollect;
 
-impl<'a> InstructionSheetBuilder<'a> {
+impl<'a> InstructionBlockBuilder<'a> {
     pub(super) fn compile_eager_expr(
         &mut self,
         expr: HirEagerExprIdx,
