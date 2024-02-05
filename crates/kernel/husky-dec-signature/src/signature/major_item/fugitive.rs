@@ -26,7 +26,7 @@ impl FugitiveDecTemplate {
             FugitiveDecTemplate::Fn(decl) => decl.template_parameters(db),
             FugitiveDecTemplate::Val(decl) => decl.template_parameters(db),
             FugitiveDecTemplate::Gn(decl) => decl.template_parameters(db),
-            FugitiveDecTemplate::TypeAlias(_) => todo!(),
+            FugitiveDecTemplate::TypeAlias(decl) => decl.template_parameters(db),
         }
     }
 }

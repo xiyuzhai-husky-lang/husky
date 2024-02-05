@@ -384,7 +384,7 @@ impl<'a> SemaExprEngine<'a> {
                 .into(),
                 MajorItemPath::Trait(trai_path) => ItemPathTerm::Trait(trai_path).into(),
                 MajorItemPath::Fugitive(fugitive_path) => {
-                    ItemPathTerm::Fugitive(fugitive_path).into()
+                    ItemPathTerm::MajorFugitive(fugitive_path).into()
                 }
             },
             // todo: generics

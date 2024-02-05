@@ -4,7 +4,7 @@ pub enum EntityClass {
     Type,
     FunctionFn,
     FunctionGn,
-    AliasType,
+    TypeAlias,
     Val,
     Trait,
     TypeVariant,

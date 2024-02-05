@@ -121,8 +121,3 @@ pub trait FlyTermEngine<'a>: Sized {
 }
 
 pub trait FlyTermEngineMut<'a>: FlyTermEngine<'a> {}
-
-struct A {
-    x: i32,
-    y: i32,
-}

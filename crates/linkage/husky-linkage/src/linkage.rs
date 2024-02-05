@@ -348,7 +348,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         )]
                     }
                     FugitiveKind::Const => todo!(),
-                    FugitiveKind::AliasType | FugitiveKind::Formal => unreachable!(),
+                    FugitiveKind::TypeAlias | FugitiveKind::Formal => unreachable!(),
                 },
                 JavPath::TypeItem(path) => match path.item_kind(db) {
                     TypeItemKind::MethodFn => build(

@@ -16,7 +16,7 @@ pub enum DecItemPath {
 impl From<ItemPathTerm> for DecItemPath {
     fn from(path: ItemPathTerm) -> Self {
         match path {
-            ItemPathTerm::Fugitive(path) => DecItemPath::Fugitive(path),
+            ItemPathTerm::MajorFugitive(path) => DecItemPath::Fugitive(path),
             ItemPathTerm::Trait(path) => DecItemPath::Trait(path),
             ItemPathTerm::TypeOntology(path) | ItemPathTerm::TypeInstance(path) => {
                 DecItemPath::Type(path)

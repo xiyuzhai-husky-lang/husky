@@ -41,25 +41,38 @@ impl PartialOrdWithDb for Scope {
             (Scope::PubUnder(_), Scope::Private(_) | Scope::Disconnected { .. }) => {
                 Some(Ordering::Greater)
             }
-            (Scope::Private(_), Scope::Pub) => {
-                todo!()
+            (Scope::Private(_), Scope::Pub) => Some(Ordering::Less),
+            (Scope::Private(module_path0), Scope::PubUnder(module_path1)) => {
+                match module_path0.partial_cmp_with_db(db, module_path1) {
+                    Some(Ordering::Equal) => Some(Ordering::Less),
+                    other => other,
+                }
             }
-            (Scope::Private(_), Scope::PubUnder(_)) => todo!(),
-            (Scope::Private(module_path1), Scope::Private(module_path2))
-                if module_path1 == module_path2 =>
+            (Scope::Private(module_path0), Scope::Private(module_path1))
+                if module_path0 == module_path1 =>
             {
                 Some(Ordering::Equal)
             }
             (Scope::Private(_), Scope::Private(_)) => None,
             (
-                Scope::Private(module_path1),
+                Scope::Private(module_path0),
                 Scope::Disconnected {
-                    module_path: module_path2,
+                    module_path: module_path1,
                     ..
                 },
-            ) if module_path1 == module_path2 => Some(Ordering::Greater),
+            ) if module_path0 == module_path1 => Some(Ordering::Greater),
             (Scope::Private(_), Scope::Disconnected { .. }) => None,
-            (Scope::Disconnected { .. }, _) => todo!(),
+            (
+                Scope::Disconnected {
+                    module_path: module_path0,
+                    ..
+                },
+                Scope::Disconnected {
+                    module_path: module_path1,
+                    ..
+                },
+            ) if module_path0 == module_path1 => Some(Ordering::Equal),
+            (Scope::Disconnected { .. }, _) => None,
         }
     }
 }
