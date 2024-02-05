@@ -344,31 +344,19 @@ impl salsa::DisplayWithDb for EthTerm {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        self.display_fmt_with_db_and_ctx(f, db, &mut Default::default())
-    }
-}
-
-impl EthTerm {
-    #[inline(never)]
-    pub(crate) fn display_fmt_with_db_and_ctx(
-        self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-        ctx: &mut TermShowContext,
-    ) -> std::fmt::Result {
         match self {
-            EthTerm::Literal(term) => term.display_fmt_with_db_and_ctx(f, db),
+            EthTerm::Literal(term) => term.display_fmt_with_db(f, db),
             EthTerm::Symbol(term) => term.display_fmt_with_db(f, db),
-            EthTerm::Rune(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            EthTerm::EntityPath(term) => term.display_fmt_with_db_and_ctx(f, db),
+            EthTerm::Rune(term) => term.display_fmt_with_db(f, db),
+            EthTerm::EntityPath(term) => term.display_fmt_with_db(f, db),
             EthTerm::Category(term) => f.write_str(&term.to_string()),
             EthTerm::Universe(term) => f.write_str(&term.to_string()),
-            EthTerm::Curry(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            EthTerm::Ritchie(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            EthTerm::Abstraction(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            EthTerm::Application(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            EthTerm::TypeAsTraitItem(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            EthTerm::TraitConstraint(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            EthTerm::Curry(term) => term.display_fmt_with_db(f, db),
+            EthTerm::Ritchie(term) => term.display_fmt_with_db(f, db),
+            EthTerm::Abstraction(term) => term.display_fmt_with_db(f, db),
+            EthTerm::Application(term) => term.display_fmt_with_db(f, db),
+            EthTerm::TypeAsTraitItem(term) => term.display_fmt_with_db(f, db),
+            EthTerm::TraitConstraint(term) => term.display_fmt_with_db(f, db),
         }
     }
 }

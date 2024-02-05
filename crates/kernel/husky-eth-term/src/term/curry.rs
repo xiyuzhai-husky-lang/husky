@@ -52,41 +52,6 @@ impl EthCurry {
     ) -> EthTermResult<Self> {
         term_curry_from_dec(db, declarative_term_curry)
     }
-
-    #[inline(never)]
-    pub(crate) fn display_fmt_with_db_and_ctx(
-        self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-        ctx: &mut TermShowContext,
-    ) -> std::fmt::Result {
-        let parameter_rune = self.parameter_rune(db);
-        if parameter_rune.is_some() {
-            f.write_str("(")?
-        }
-        f.write_str(self.variance(db).as_str())?;
-        if let Some(parameter_rune) = parameter_rune {
-            ctx.fmt_with_variable(db, parameter_rune, |ctx| {
-                {
-                    let this = &mut *ctx;
-                    let _db = db;
-                    let _rune = parameter_rune;
-                    // ad hoc
-                    f.write_str("variable_ad_hoc_fmt")
-                }?;
-                f.write_str(": ")?;
-                self.parameter_ty(db)
-                    .display_fmt_with_db_and_ctx(f, db, ctx)?;
-                f.write_str(") -> ")?;
-                self.return_ty(db).display_fmt_with_db_and_ctx(f, db, ctx)
-            })
-        } else {
-            self.parameter_ty(db)
-                .display_fmt_with_db_and_ctx(f, db, ctx)?;
-            f.write_str(" -> ")?;
-            self.return_ty(db).display_fmt_with_db_and_ctx(f, db, ctx)
-        }
-    }
 }
 
 /// # rewrite
@@ -148,6 +113,21 @@ impl salsa::DisplayWithDb for EthCurry {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        self.display_fmt_with_db_and_ctx(f, db, &mut Default::default())
+        let parameter_rune = self.parameter_rune(db);
+        if parameter_rune.is_some() {
+            f.write_str("(")?
+        }
+        f.write_str(self.variance(db).as_str())?;
+        if let Some(parameter_rune) = parameter_rune {
+            parameter_rune.display_fmt_with_db(f, db)?;
+            f.write_str(": ")?;
+            self.parameter_ty(db).display_fmt_with_db(f, db)?;
+            f.write_str(") -> ")?;
+            self.return_ty(db).display_fmt_with_db(f, db)
+        } else {
+            self.parameter_ty(db).display_fmt_with_db(f, db)?;
+            f.write_str(" -> ")?;
+            self.return_ty(db).display_fmt_with_db(f, db)
+        }
     }
 }

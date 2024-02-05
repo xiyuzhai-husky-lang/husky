@@ -59,3 +59,11 @@ cargo update -p bson:0.11.1 --precise 0.10.0
 ```
 
 https://stackoverflow.com/questions/43143327/how-to-allow-optional-trailing-commas-in-macros
+
+# lldb not showing full path
+
+type command:
+
+```
+settings set frame-format frame #${frame.index}: ${frame.pc}{ ${module.file.basename}{\`${function.name}}}{ at ${line.file.fullpath}:${line.number}}\n
+```

@@ -87,18 +87,6 @@ impl EthApplication {
     pub(crate) fn declarative_ty(self, db: &::salsa::Db) -> EthTermResult<DecTerm> {
         ethereal_term_application_declarative_ty(db, self)
     }
-
-    #[inline(never)]
-    pub(crate) fn display_fmt_with_db_and_ctx(
-        self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-        ctx: &mut TermShowContext,
-    ) -> std::fmt::Result {
-        self.function(db).display_fmt_with_db_and_ctx(f, db, ctx)?;
-        f.write_str(" ")?;
-        self.argument(db).display_fmt_with_db_and_ctx(f, db, ctx)
-    }
 }
 
 #[salsa::tracked(jar = EthTermJar)]
@@ -296,7 +284,9 @@ impl salsa::DisplayWithDb for EthApplication {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        self.display_fmt_with_db_and_ctx(f, db, &mut Default::default())
+        self.function(db).display_fmt_with_db(f, db)?;
+        f.write_str(" ")?;
+        self.argument(db).display_fmt_with_db(f, db)
     }
 }
 
@@ -313,12 +303,6 @@ impl EthApplication {
             return self.into();
         }
         EthApplication::new_inner(db, m, n, self.shift(db)).reduce(db)
-    }
-}
-
-impl std::fmt::Display for EthApplication {
-    fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
     }
 }
 

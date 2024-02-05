@@ -3,8 +3,6 @@
 #![doc = include_str ! ("../README.md")]
 #![feature(let_chains)]
 #![feature(if_let_guard)]
-// #![deny(unsafe_code, missing_docs, clippy::unwrap_used)]
-mod context;
 mod conversion;
 mod db;
 mod error;
@@ -26,10 +24,8 @@ pub use self::rewrite::substitute::*;
 pub use self::template_parameter::*;
 pub use self::ty::*;
 
-use self::context::*;
 use self::term::EthTerm;
 use either::*;
-use husky_coword::Ident;
 use husky_dec_signature::*;
 use husky_dec_term::{term::*, *};
 use husky_entity_path::*;

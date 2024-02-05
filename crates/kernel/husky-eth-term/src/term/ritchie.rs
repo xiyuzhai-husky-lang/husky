@@ -94,25 +94,6 @@ impl EthRitchie {
     pub fn from_dec(db: &::salsa::Db, declarative_term_ritchie: DecRitchie) -> EthTermResult<Self> {
         ethereal_term_ritchie_from_dec_term_ritchie(db, declarative_term_ritchie)
     }
-
-    #[inline(never)]
-    pub(crate) fn display_fmt_with_db_and_ctx(
-        self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-        ctx: &mut TermShowContext,
-    ) -> std::fmt::Result {
-        f.write_str(self.ritchie_kind(db).code())?;
-        f.write_str("(")?;
-        for (i, parameter_contracted_ty) in self.parameter_contracted_tys(db).iter().enumerate() {
-            if i > 0 {
-                f.write_str(", ")?
-            }
-            parameter_contracted_ty.display_fmt_with_db_and_ctx(f, db, ctx)?
-        }
-        f.write_str(") -> ")?;
-        self.return_ty(db).display_fmt_with_db_and_ctx(f, db, ctx)
-    }
 }
 
 #[salsa::tracked(jar = EthTermJar)]
@@ -189,23 +170,6 @@ impl EtherealRitchieParameter {
             EtherealRitchieParameter::Regular(param) => param.reduce(db).into(),
             EtherealRitchieParameter::Variadic(param) => param.reduce(db).into(),
             EtherealRitchieParameter::Keyed(param) => param.reduce(db).into(),
-        }
-    }
-
-    fn display_fmt_with_db_and_ctx(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-        ctx: &mut TermShowContext,
-    ) -> std::fmt::Result {
-        match self {
-            EtherealRitchieParameter::Regular(param) => {
-                param.display_fmt_with_db_and_ctx(f, db, ctx)
-            }
-            EtherealRitchieParameter::Variadic(param) => {
-                param.display_fmt_with_db_and_ctx(f, db, ctx)
-            }
-            EtherealRitchieParameter::Keyed(param) => param.display_fmt_with_db_and_ctx(f, db, ctx),
         }
     }
 }
