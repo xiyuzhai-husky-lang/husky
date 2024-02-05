@@ -44,7 +44,7 @@ pub(crate) fn symbol_name(symbol: EthSymbol, db: &::salsa::Db) -> SymbolName {
 pub fn with_eth_term_fmt_context(
     ctx: EthTermFmtContext,
     f: impl FnOnce() -> std::fmt::Result,
-    db: &::salsa::Db,
+    _db: &::salsa::Db,
 ) -> std::fmt::Result {
     let old_ctx = ETH_TERM_FMT_CONTEXT_CELL.get();
     ETH_TERM_FMT_CONTEXT_CELL.set(Some(ctx));

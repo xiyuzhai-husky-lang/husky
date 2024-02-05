@@ -39,7 +39,7 @@ impl<T> WithFmtContext for WithFmtContextTest<T> {
     fn with_fmt_context(
         &self,
         f: impl FnOnce() -> ::std::fmt::Result,
-        db: &crate::Db,
+        _db: &crate::Db,
     ) -> ::std::fmt::Result {
         f()
     }
