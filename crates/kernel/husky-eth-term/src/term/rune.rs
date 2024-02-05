@@ -20,7 +20,7 @@ impl EthRune {
     pub(crate) fn display_fmt_with_db(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
+        _db: &::salsa::Db,
     ) -> std::fmt::Result {
         f.write_str("variable_ad_hoc_fmt")
     }

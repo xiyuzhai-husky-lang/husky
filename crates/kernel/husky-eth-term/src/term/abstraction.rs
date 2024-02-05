@@ -59,8 +59,8 @@ impl EthInstantiate for EthAbstraction {
 impl salsa::DisplayWithDb for EthAbstraction {
     fn display_fmt_with_db(
         &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
+        _f: &mut std::fmt::Formatter<'_>,
+        _db: &::salsa::Db,
     ) -> std::fmt::Result {
         // use std::fmt::Write;
         // f.write_char(husky_unicode_symbols::greek::GREEK_LETTER_LOWERCASE_LAMBDA);
