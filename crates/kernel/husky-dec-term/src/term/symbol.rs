@@ -8,7 +8,6 @@ pub use self::set::*;
 
 use super::*;
 use husky_entity_tree::SynNodeRegionPath;
-use husky_term_prelude::symbol::SymbolName;
 use salsa::DisplayWithDb;
 use thiserror::Error;
 use vec_like::VecSet;
