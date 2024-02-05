@@ -22,6 +22,7 @@ husky-vfs.workspace = true
 husky-dec-signature.workspace = true
 # kernel
 husky-coword.workspace = true
+husky-entity-kind.workspace = true
 husky-entity-path.workspace = true
 husky-term-prelude.workspace = true
 husky-dec-term.workspace = true

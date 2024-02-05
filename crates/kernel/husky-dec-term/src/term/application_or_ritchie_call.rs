@@ -5,7 +5,7 @@ use std::fmt::Debug;
 pub struct DecApplicationOrRitchieCall {
     pub function: DecTerm,
     #[return_ref]
-    pub generic_arguments: Vec<DecTerm>,
+    pub template_arguments: Vec<DecTerm>,
     #[return_ref]
     pub items: Vec<DecTerm>,
     pub extra_comma: bool,
@@ -30,8 +30,8 @@ impl DecApplicationOrRitchieCall {
         ctx: &DecSymbolNameMap,
     ) -> std::fmt::Result {
         self.function(db).display_fmt_with_db_and_ctx(f, db, ctx)?;
-        let generic_arguments = self.generic_arguments(db);
-        if generic_arguments.len() > 0 {
+        let template_arguments = self.template_arguments(db);
+        if template_arguments.len() > 0 {
             todo!()
         }
         f.write_str("(")?;

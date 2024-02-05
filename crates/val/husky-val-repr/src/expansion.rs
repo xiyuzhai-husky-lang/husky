@@ -373,7 +373,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                         FugitiveKind::FunctionGn => todo!(),
                         FugitiveKind::Const => todo!(),
                         FugitiveKind::Val => return ValRepr::new_val_item(path, self.db),
-                        FugitiveKind::AliasType | FugitiveKind::Formal => unreachable!(),
+                        FugitiveKind::TypeAlias | FugitiveKind::Formal => unreachable!(),
                     },
                 },
                 PrincipalEntityPath::TypeVariant(path) => (ValOpn::TypeVariant(path), smallvec![]),

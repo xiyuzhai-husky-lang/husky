@@ -153,7 +153,7 @@ where
                                             path_expr_idx,
                                             symbol_modifier_tokens,
                                         ),
-                                        FugitiveKind::AliasType => todo!(),
+                                        FugitiveKind::TypeAlias => todo!(),
                                         FugitiveKind::Formal => todo!(),
                                         FugitiveKind::Const => todo!(),
                                     },

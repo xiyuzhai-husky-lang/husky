@@ -7,7 +7,7 @@ use salsa::DisplayWithDb;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
 pub enum ItemPathTerm {
-    Fugitive(MajorFugitivePath),
+    MajorFugitive(MajorFugitivePath),
     Trait(TraitPath),
     TypeOntology(TypePath),
     TypeInstance(TypePath),
@@ -26,7 +26,7 @@ impl ItemPathTerm {
     pub fn ty_ontology(self) -> Option<TypePath> {
         match self {
             ItemPathTerm::TypeOntology(path) => Some(path),
-            ItemPathTerm::Fugitive(_)
+            ItemPathTerm::MajorFugitive(_)
             | ItemPathTerm::Trait(_)
             | ItemPathTerm::TypeInstance(_)
             | ItemPathTerm::TypeVariant(_) => None,
@@ -35,7 +35,7 @@ impl ItemPathTerm {
 
     pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         match self {
-            ItemPathTerm::Fugitive(path) => path.toolchain(db),
+            ItemPathTerm::MajorFugitive(path) => path.toolchain(db),
             ItemPathTerm::Trait(path) => path.toolchain(db),
             ItemPathTerm::TypeOntology(path) => path.toolchain(db),
             ItemPathTerm::TypeInstance(path) => path.toolchain(db),
@@ -45,7 +45,7 @@ impl ItemPathTerm {
 
     pub fn ident(self, db: &::salsa::Db) -> Ident {
         match self {
-            ItemPathTerm::Fugitive(path) => path.ident(db),
+            ItemPathTerm::MajorFugitive(path) => path.ident(db),
             ItemPathTerm::Trait(path) => path.ident(db),
             ItemPathTerm::TypeOntology(path) => path.ident(db),
             ItemPathTerm::TypeInstance(path) => path.ident(db),
@@ -56,7 +56,7 @@ impl ItemPathTerm {
 
 impl From<MajorFugitivePath> for ItemPathTerm {
     fn from(value: MajorFugitivePath) -> Self {
-        ItemPathTerm::Fugitive(value)
+        ItemPathTerm::MajorFugitive(value)
     }
 }
 

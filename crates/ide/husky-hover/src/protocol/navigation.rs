@@ -54,7 +54,7 @@ pub enum Symbol {
     Struct,
     ToolModule,
     Trait,
-    AliasType,
+    TypeAlias,
     TypeParam,
     Union,
     ValueParam,

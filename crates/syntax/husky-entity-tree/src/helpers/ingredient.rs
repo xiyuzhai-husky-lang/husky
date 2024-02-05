@@ -52,7 +52,7 @@ impl IngredientPath {
                     FugitiveKind::FunctionFn => false,
                     // gn doesn't directly needs jars
                     FugitiveKind::FunctionGn => false,
-                    FugitiveKind::AliasType => false,
+                    FugitiveKind::TypeAlias => false,
                     FugitiveKind::Val => true,
                     FugitiveKind::Formal => false,
                     FugitiveKind::Const => false,

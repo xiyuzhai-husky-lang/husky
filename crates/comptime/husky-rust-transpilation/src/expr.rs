@@ -155,7 +155,7 @@ impl HirEagerExprSite {
                             FugitiveKind::FunctionFn | FugitiveKind::Const => (),
                             FugitiveKind::Val => builder.bracketed(RustBracket::Par, |_| ()),
                             FugitiveKind::FunctionGn
-                            | FugitiveKind::AliasType
+                            | FugitiveKind::TypeAlias
                             | FugitiveKind::Formal => unreachable!(),
                         }
                     }

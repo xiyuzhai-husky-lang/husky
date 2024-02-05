@@ -22,7 +22,7 @@ impl IsAstChildren for MajorItems {
             EntityKindKeywordGroup::Gn(_) => FugitiveKind::FunctionGn.into(),
             EntityKindKeywordGroup::FormalEntity(_) => FugitiveKind::Formal.into(),
             EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),
-            EntityKindKeywordGroup::AliasOrAssociateType(_) => FugitiveKind::AliasType.into(),
+            EntityKindKeywordGroup::AliasOrAssociateType(_) => FugitiveKind::TypeAlias.into(),
             EntityKindKeywordGroup::Trait(_) => MajorItemKind::Trait,
         };
         Ok(EntityKind::MajorItem {

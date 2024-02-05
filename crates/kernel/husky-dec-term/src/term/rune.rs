@@ -58,7 +58,7 @@ impl DecRune {
             RuneIndex {
                 ty_family: match ty {
                     Ok(ty) => ty.family(db),
-                    Err(_) => todo!(),
+                    Err(_) => DecTermFamily::Other,
                 },
                 disambiguator,
             },

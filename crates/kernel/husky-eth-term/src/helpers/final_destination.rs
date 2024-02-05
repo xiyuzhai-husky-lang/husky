@@ -1,3 +1,5 @@
+use husky_entity_kind::FugitiveKind;
+
 use super::*;
 
 impl EthTerm {
@@ -6,11 +8,18 @@ impl EthTerm {
             EthTerm::Literal(_) => FinalDestination::AnyDerived,
             EthTerm::Symbol(_) | EthTerm::Rune(_) => FinalDestination::AnyOriginal,
             EthTerm::EntityPath(path) => match path {
-                ItemPathTerm::Fugitive(_) => todo!(),
-                ItemPathTerm::Trait(_) => todo!(),
+                ItemPathTerm::MajorFugitive(path) => match path.fugitive_kind(db) {
+                    FugitiveKind::TypeAlias => todo!(),
+                    FugitiveKind::FunctionFn
+                    | FugitiveKind::FunctionGn
+                    | FugitiveKind::Val
+                    | FugitiveKind::Formal
+                    | FugitiveKind::Const => FinalDestination::AnyDerived,
+                },
                 ItemPathTerm::TypeOntology(_) => FinalDestination::TypeOntology,
-                ItemPathTerm::TypeInstance(_) => todo!(),
-                ItemPathTerm::TypeVariant(_) => todo!(),
+                ItemPathTerm::Trait(_)
+                | ItemPathTerm::TypeInstance(_)
+                | ItemPathTerm::TypeVariant(_) => FinalDestination::AnyDerived,
             },
             EthTerm::Category(_) => FinalDestination::Sort,
             EthTerm::Universe(_) => unreachable!("expect ty term"),
@@ -26,10 +35,10 @@ impl EthTerm {
 
 #[salsa::tracked(jar = EthTermJar)]
 fn application_ethereal_term_final_destination(
-    _db: &::salsa::Db,
-    _term_application: EthApplication,
+    db: &::salsa::Db,
+    application: EthApplication,
 ) -> FinalDestination {
-    todo!()
+    application.function(db).final_destination(db)
 }
 
 #[salsa::tracked(jar = EthTermJar)]

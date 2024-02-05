@@ -137,7 +137,7 @@ impl Trace {
             FugitiveKind::Val => Some(Trace::from_val_item_path(fugitive_path, db).into()),
             FugitiveKind::FunctionFn
             | FugitiveKind::FunctionGn
-            | FugitiveKind::AliasType
+            | FugitiveKind::TypeAlias
             | FugitiveKind::Formal => None,
         }
     }

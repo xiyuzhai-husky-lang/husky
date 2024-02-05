@@ -3,8 +3,8 @@ use crate::helpers::DecTermFamily;
 use super::*;
 
 impl DecTerm {
-    // variable should only be created in curry or abstraction
-    /// the only way to create new variable
+    // rune should only be created in curry or abstraction
+    /// the only way to create new rune
     ///
     /// this is not cached because
     /// - it's not called frequently
@@ -28,42 +28,41 @@ impl DecTerm {
         db: &::salsa::Db,
         symbol: DecSymbol,
     ) -> (Self, Option<DecRune>) {
-        let Some(idx) = self.new_variable_idx(db, symbol) else {
+        let Some(idx) = self.new_rune_idx(db, symbol) else {
             return (self, None);
         };
-        let variable = DecRune::new(symbol.ty(db), idx, db);
+        let rune = DecRune::new(symbol.ty(db), idx, db);
         (
-            self.substitute_symbol_with_variable(db, symbol, variable),
-            Some(variable),
+            self.substitute_symbol_with_rune(db, symbol, rune),
+            Some(rune),
         )
     }
 
-    pub fn new_curry_variable() -> Self {
+    pub fn new_curry_rune() -> Self {
         todo!()
     }
 
-    /// returns the variable idx if turning this symbol into variable
+    /// returns the rune idx if turning this symbol into rune
     /// returns None if symbol is not present
     #[inline(always)]
-    fn new_variable_idx(self, db: &::salsa::Db, symbol: DecSymbol) -> Option<u8> {
-        self.new_variable_idx_with_ty_family(db, symbol, symbol.ty_family(db))
+    fn new_rune_idx(self, db: &::salsa::Db, symbol: DecSymbol) -> Option<u8> {
+        self.new_rune_idx_with_ty_family(db, symbol, symbol.ty_family(db))
     }
 
     /// with symbol_ty_family already fetched from db
     #[inline(always)]
-    fn new_variable_idx_with_ty_family(
+    fn new_rune_idx_with_ty_family(
         self,
         db: &::salsa::Db,
         symbol: DecSymbol,
         symbol_ty_family: DecTermFamily,
     ) -> Option<u8> {
-        self.contains_symbol(db, symbol).then(|| {
-            self.new_variable_disambiguator_if_symbol_is_present(db, symbol, symbol_ty_family)
-        })
+        self.contains_symbol(db, symbol)
+            .then(|| self.new_rune_disambiguator_if_symbol_is_present(db, symbol, symbol_ty_family))
     }
 
     // todo: needs thorough testing
-    fn new_variable_disambiguator_if_symbol_is_present(
+    fn new_rune_disambiguator_if_symbol_is_present(
         self,
         db: &::salsa::Db,
         symbol: DecSymbol,
@@ -79,8 +78,7 @@ impl DecTerm {
             _ => 0,
         };
         let mut t = |term: DecTerm| {
-            if let Some(subidx) = term.new_variable_idx_with_ty_family(db, symbol, symbol_ty_family)
-            {
+            if let Some(subidx) = term.new_rune_idx_with_ty_family(db, symbol, symbol_ty_family) {
                 if subidx > disambiguator {
                     disambiguator = subidx
                 }
@@ -137,54 +135,50 @@ impl DecTerm {
 
     // todo: needs thorough testing
     /// not cached on purpose
-    pub(in crate::term) fn substitute_symbol_with_variable(
+    pub(in crate::term) fn substitute_symbol_with_rune(
         self,
         db: &::salsa::Db,
         symbol: DecSymbol,
-        variable: DecRune,
+        rune: DecRune,
     ) -> Self {
         if !self.contains_symbol(db, symbol) {
             return self;
         }
         match self {
-            DecTerm::Symbol(term) if term == symbol => variable.into(),
+            DecTerm::Symbol(term) if term == symbol => rune.into(),
             DecTerm::Universe(_) => self, // ad hoc
-            DecTerm::Curry(term) => term
-                .substitute_symbol_with_variable(db, symbol, variable)
-                .into(),
+            DecTerm::Curry(term) => term.substitute_symbol_with_rune(db, symbol, rune).into(),
             DecTerm::Ritchie(term) => DecRitchie::new(
                 db,
                 term.ritchie_kind(db),
                 term.params(db)
                     .iter()
                     .map(|parameter_ty| {
-                        parameter_ty.substitute_ty(|ty| {
-                            ty.substitute_symbol_with_variable(db, symbol, variable)
-                        })
+                        parameter_ty
+                            .substitute_ty(|ty| ty.substitute_symbol_with_rune(db, symbol, rune))
                     })
                     .collect(),
                 term.return_ty(db)
-                    .substitute_symbol_with_variable(db, symbol, variable),
+                    .substitute_symbol_with_rune(db, symbol, rune),
             )
             .into(),
             DecTerm::Abstraction(term) => {
                 let x = term.x(db);
-                // should be equal by the choice of variable idx and the fact that m contains the symbol
-                debug_assert_ne!(x, variable);
+                // should be equal by the choice of rune idx and the fact that m contains the symbol
+                debug_assert_ne!(x, rune);
                 DecAbstraction::new(
                     db,
                     x,
-                    term.m(db)
-                        .substitute_symbol_with_variable(db, symbol, variable),
+                    term.m(db).substitute_symbol_with_rune(db, symbol, rune),
                 )
                 .into()
             }
             DecTerm::Application(term) => DecApplication::new(
                 db,
                 term.function(db)
-                    .substitute_symbol_with_variable(db, symbol, variable),
+                    .substitute_symbol_with_rune(db, symbol, rune),
                 term.argument(db)
-                    .substitute_symbol_with_variable(db, symbol, variable),
+                    .substitute_symbol_with_rune(db, symbol, rune),
             )
             .into(),
             DecTerm::ApplicationOrRitchieCall(_) => todo!(),

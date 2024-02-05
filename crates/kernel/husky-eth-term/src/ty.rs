@@ -118,7 +118,7 @@ impl EthTerm {
             EthTerm::Symbol(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
             EthTerm::Rune(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
             EthTerm::EntityPath(slf) => match slf {
-                ItemPathTerm::Fugitive(_path) => todo!(),
+                ItemPathTerm::MajorFugitive(_path) => todo!(),
                 ItemPathTerm::Trait(path) => {
                     RawType::Declarative(trai_path_declarative_ty(db, path)?)
                 }

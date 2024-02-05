@@ -61,7 +61,7 @@ impl DecCurry {
         )
     }
 
-    pub(super) fn substitute_symbol_with_variable(
+    pub(super) fn substitute_symbol_with_rune(
         self,
         db: &::salsa::Db,
         symbol: DecSymbol,
@@ -74,9 +74,9 @@ impl DecCurry {
             self.variance(db),
             self.parameter_rune(db),
             self.parameter_ty(db)
-                .substitute_symbol_with_variable(db, symbol, variable),
+                .substitute_symbol_with_rune(db, symbol, variable),
             self.return_ty(db)
-                .substitute_symbol_with_variable(db, symbol, variable),
+                .substitute_symbol_with_rune(db, symbol, variable),
         )
     }
 

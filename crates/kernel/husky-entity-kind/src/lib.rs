@@ -16,7 +16,7 @@ pub enum TypeKind {
 pub enum FugitiveKind {
     FunctionFn,
     FunctionGn,
-    AliasType,
+    TypeAlias,
     Val,
     Formal,
     Const,
@@ -49,7 +49,7 @@ impl EntityKind {
                 MajorItemKind::Fugitive(fugitive_kind) => match fugitive_kind {
                     FugitiveKind::FunctionFn => EntityClass::FunctionFn,
                     FugitiveKind::FunctionGn => EntityClass::FunctionGn,
-                    FugitiveKind::AliasType => EntityClass::AliasType,
+                    FugitiveKind::TypeAlias => EntityClass::TypeAlias,
                     FugitiveKind::Val => EntityClass::Val,
                     FugitiveKind::Formal => EntityClass::Formal,
                     FugitiveKind::Const => EntityClass::Const,

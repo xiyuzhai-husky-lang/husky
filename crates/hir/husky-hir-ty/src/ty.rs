@@ -37,7 +37,7 @@ impl HirType {
         match term {
             EthTerm::Symbol(symbol) => HirTypeSymbol::from_eth(symbol, db).map(Into::into),
             EthTerm::EntityPath(path) => match path {
-                ItemPathTerm::Fugitive(_) => todo!(),
+                ItemPathTerm::MajorFugitive(_) => todo!(),
                 ItemPathTerm::Trait(_) => todo!(),
                 ItemPathTerm::TypeOntology(ty_path) => {
                     Some(HirTypePathLeading::new(db, ty_path, smallvec![], always_copyable).into())

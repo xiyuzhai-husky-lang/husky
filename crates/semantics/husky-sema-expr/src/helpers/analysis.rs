@@ -12,7 +12,7 @@ pub fn sema_expr_region_contains_gn(db: &::salsa::Db, sema_expr_region: SemaExpr
             } => match path.fugitive_kind(db) {
                 FugitiveKind::FunctionGn => return true,
                 FugitiveKind::FunctionFn
-                | FugitiveKind::AliasType
+                | FugitiveKind::TypeAlias
                 | FugitiveKind::Val
                 | FugitiveKind::Formal
                 | FugitiveKind::Const => (),

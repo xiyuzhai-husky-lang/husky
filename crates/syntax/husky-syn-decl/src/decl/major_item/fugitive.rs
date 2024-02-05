@@ -70,7 +70,7 @@ impl<'a> DeclParser<'a> {
         match syn_node_path.fugitive_kind(self.db()) {
             FugitiveKind::Val => self.parse_val_node_decl(syn_node_path).into(),
             FugitiveKind::FunctionFn => self.parse_fn_node_decl(syn_node_path).into(),
-            FugitiveKind::AliasType => {
+            FugitiveKind::TypeAlias => {
                 todo!()
             }
             FugitiveKind::FunctionGn => self.parse_gn_node_decl(syn_node_path).into(),
@@ -87,7 +87,7 @@ pub enum FugitiveSynDecl {
     FunctionFn(FunctionMajorFnSynDecl),
     Val(MajorValSynDecl),
     FunctionGn(MajorGnSynDecl),
-    // todo: AliasType
+    // todo: TypeAlias
 }
 
 impl FugitiveSynDecl {

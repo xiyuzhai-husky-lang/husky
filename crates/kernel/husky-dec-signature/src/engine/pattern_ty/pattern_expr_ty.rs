@@ -30,23 +30,18 @@ impl<'a> DecTermEngine<'a> {
     /// subpattern expressions get its type from its parent
     fn infer_subpattern_expr_tys(&mut self, pattern_expr_idx: SynPatternExprIdx) {
         match self.syn_expr_region_data[pattern_expr_idx] {
-            SynPatternExprData::Literal { .. } | SynPatternExprData::Ident { .. } => (), // there is no subpattern to infer
-            SynPatternExprData::UnitTypeVariant { .. } => todo!(),
+            SynPatternExprData::Literal { .. }
+            | SynPatternExprData::Ident { .. }
+            | SynPatternExprData::UnitTypeVariant { .. } => (), //  no subpatterns to infer
             SynPatternExprData::Tuple { .. } => todo!(),
             SynPatternExprData::TupleStruct { .. } => todo!(),
             SynPatternExprData::TupleTypeVariant { .. } => todo!(),
             SynPatternExprData::Props { name, ref fields } => todo!(),
             SynPatternExprData::OneOf { ref options } => todo!(),
             SynPatternExprData::Binding {
-                ident_token,
-                asperand_token,
-                src,
+                ident_token, src, ..
             } => todo!(),
-            SynPatternExprData::Range {
-                start,
-                dot_dot_token,
-                end,
-            } => todo!(),
+            SynPatternExprData::Range { start, end, .. } => todo!(),
         }
     }
 

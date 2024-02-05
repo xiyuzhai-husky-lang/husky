@@ -102,7 +102,7 @@ impl From<EntityClass> for TokenClass {
             EntityClass::Type => TokenClass::TypeEntity,
             EntityClass::FunctionFn => TokenClass::FunctionEntity,
             EntityClass::FunctionGn => TokenClass::FunctionEntity,
-            EntityClass::AliasType => TokenClass::TypeEntity,
+            EntityClass::TypeAlias => TokenClass::TypeEntity,
             EntityClass::Val => TokenClass::ValEntity,
             EntityClass::Trait => TokenClass::TraitEntity,
             EntityClass::TypeVariant => TokenClass::TypeVariantEntity,
