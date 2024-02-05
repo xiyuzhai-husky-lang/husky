@@ -76,7 +76,7 @@ impl FlyTerm {
     ) -> Self {
         self.rewrite_inner(
             engine.db(),
-            engine.fluffy_terms_mut(),
+            engine.fly_terms_mut(),
             src,
             &[FlyTermSubstitution::new(rune, substitute)],
         )

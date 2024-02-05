@@ -57,7 +57,7 @@
                     },
                 ],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],

@@ -40,8 +40,8 @@ fn collect_expr_ty_diagnostics(
 ) {
     let ctx: RegionDiagnosticsContext = RegionDiagnosticsContext::new(db, syn_expr_region);
     let sema_expr_region_data = ctx.sema_expr_region_data();
-    for (_expr_idx, fluffy_term_result) in sema_expr_region_data.sema_expr_terms().iter() {
-        match fluffy_term_result {
+    for (_expr_idx, fly_term_result) in sema_expr_region_data.sema_expr_terms().iter() {
+        match fly_term_result {
             Err(SemaExprTermError::Original(error)) => diagnostics.push(error.to_diagnostic(&ctx)),
             _ => (),
         }
@@ -54,11 +54,11 @@ fn collect_expr_ty_diagnostics(
             diagnostics.push(e.to_diagnostic(&ctx))
         }
     }
-    let fluffy_term_region = sema_expr_region_data.fluffy_term_region();
-    for (src, error) in fluffy_term_region.hollow_terms().errors() {
+    let fly_term_region = sema_expr_region_data.fly_term_region();
+    for (src, error) in fly_term_region.hollow_terms().errors() {
         diagnostics.push((src, error).to_diagnostic(&ctx))
     }
-    for (src, error) in fluffy_term_region
+    for (src, error) in fly_term_region
         .expectations()
         .iter()
         .filter_map(|entry| Some((entry.src(), entry.original_error()?)))
@@ -98,7 +98,7 @@ impl Diagnose for OriginalSemaExprDataError {
                 format!(
                     "Type Error: no field named {} in {}",
                     ident_token.ident().data(ctx.db()),
-                    owner_ty.show(ctx.db(), ctx.fluffy_term_region().terms())
+                    owner_ty.show(ctx.db(), ctx.fly_term_region().terms())
                 )
             }
             OriginalSemaExprDataError::NoSuchMethod {
@@ -108,7 +108,7 @@ impl Diagnose for OriginalSemaExprDataError {
                 format!(
                     "Type Error: no method named `{}` for type `{}`",
                     ident_token.ident().data(ctx.db()),
-                    self_expr_ty.show(ctx.db(), ctx.fluffy_term_region().terms()) // ad hoc
+                    self_expr_ty.show(ctx.db(), ctx.fly_term_region().terms()) // ad hoc
                 )
             }
             OriginalSemaExprDataError::ExpectedIndices => {
@@ -117,7 +117,7 @@ impl Diagnose for OriginalSemaExprDataError {
             OriginalSemaExprDataError::CannotIndexIntoType { self_expr_ty } => {
                 format!(
                     "Type Error: cannot index into type `{}`",
-                    self_expr_ty.show(ctx.db(), ctx.fluffy_term_region().terms())
+                    self_expr_ty.show(ctx.db(), ctx.fly_term_region().terms())
                 )
             }
             OriginalSemaExprDataError::RitchieParameterArgumentMismatch {
@@ -264,8 +264,8 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFlyTermExpectationError) {
                 expectee_path,
             } => format!(
                 "Type Error: type path mismatch in seeing `{}` as a subtype of `{}`, expected `{}`, but got `{}` instead",
-                expectee.show(ctx.db(), ctx.fluffy_term_region().terms()),
-                expected.show(ctx.db(), ctx.fluffy_term_region().terms()),
+                expectee.show(ctx.db(), ctx.fly_term_region().terms()),
+                expected.show(ctx.db(), ctx.fly_term_region().terms()),
                 expected_path.display(ctx.db()),
                 expectee_path.display(ctx.db())
             ),
@@ -281,15 +281,15 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFlyTermExpectationError) {
             OriginalFlyTermExpectationError::ExpectedCoersion {  expectee, expected, contract } => {
                 format!(
                     "Term Error: expected coersion from `{}` to `{}` under contract `{}`",
-                    expectee.show(ctx.db(), ctx.fluffy_term_region().terms()),
-                    expected.show(ctx.db(), ctx.fluffy_term_region().terms()),
+                    expectee.show(ctx.db(), ctx.fly_term_region().terms()),
+                    expected.show(ctx.db(), ctx.fly_term_region().terms()),
                     contract.as_str(),
                 )
             }
             OriginalFlyTermExpectationError::TypePathMismatchForCoersion { contract, ty_expected, expectee, expected_path, expectee_path } => format!(
                 "Type Error: type path mismatch in coersing `{}` into `{}` of contract `{}`, expected `{}`, but got `{}` instead",
-                expectee.show(ctx.db(), ctx.fluffy_term_region().terms()),
-                ty_expected.show(ctx.db(), ctx.fluffy_term_region().terms()),
+                expectee.show(ctx.db(), ctx.fly_term_region().terms()),
+                ty_expected.show(ctx.db(), ctx.fly_term_region().terms()),
                 contract.as_str(),
                 expected_path.display(ctx.db()),
                 expectee_path.display(ctx.db())

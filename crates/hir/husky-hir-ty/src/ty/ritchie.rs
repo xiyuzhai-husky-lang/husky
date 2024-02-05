@@ -130,11 +130,11 @@ impl HirRitchieRegularParameter {
     pub fn from_fly(
         param: &FlyRitchieRegularParameter,
         db: &::salsa::Db,
-        fluffy_terms: &FlyTerms,
+        fly_terms: &FlyTerms,
     ) -> Self {
         Self {
             contract: HirEagerContract::from_term(param.contract),
-            ty: HirType::from_fly(param.ty, db, fluffy_terms).unwrap(),
+            ty: HirType::from_fly(param.ty, db, fly_terms).unwrap(),
         }
     }
 }

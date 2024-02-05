@@ -15,7 +15,7 @@ impl FlyTerm {
     }
 
     pub fn final_destination(self, engine: &impl FlyTermEngine) -> FinalDestination {
-        self.final_destination_inner(engine.db(), engine.fluffy_terms())
+        self.final_destination_inner(engine.db(), engine.fly_terms())
     }
 
     /// this term as ty, what's its final destination?
@@ -23,12 +23,12 @@ impl FlyTerm {
     pub(crate) fn final_destination_inner(
         self,
         db: &::salsa::Db,
-        fluffy_terms: &FlyTerms,
+        fly_terms: &FlyTerms,
     ) -> FinalDestination {
-        match self.data_inner(db, fluffy_terms) {
+        match self.data_inner(db, fly_terms) {
             FlyTermData::TypeOntology { .. } => FinalDestination::TypeOntology,
             FlyTermData::Curry { return_ty, .. } => {
-                return_ty.final_destination_inner(db, fluffy_terms)
+                return_ty.final_destination_inner(db, fly_terms)
             }
             FlyTermData::Hole(kind, idx) => match kind {
                 HoleKind::UnspecifiedIntegerType
@@ -48,11 +48,11 @@ impl FlyTerm {
     ///
     /// todo: include ritchie??
     pub fn curry_parameter_count(self, engine: &impl FlyTermEngine) -> i8 {
-        self.curry_parameter_count_inner(engine.db(), engine.fluffy_terms())
+        self.curry_parameter_count_inner(engine.db(), engine.fly_terms())
     }
 
-    pub fn curry_parameter_count_inner(self, db: &::salsa::Db, fluffy_terms: &FlyTerms) -> i8 {
-        match self.data_inner(db, fluffy_terms) {
+    pub fn curry_parameter_count_inner(self, db: &::salsa::Db, fly_terms: &FlyTerms) -> i8 {
+        match self.data_inner(db, fly_terms) {
             FlyTermData::Literal(_) => todo!(),
             FlyTermData::TypeOntology {
                 ty_path: path,

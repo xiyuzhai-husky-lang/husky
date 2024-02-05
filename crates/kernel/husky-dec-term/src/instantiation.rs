@@ -1,4 +1,4 @@
-//! Declarative instantiation uses runes as opposed to ethereal term or fluffy term using symbols.
+//! Declarative instantiation uses runes as opposed to ethereal term or fly term using symbols.
 //!
 //! Declarative instantiation happens during the construction of ethereal terms without a regional rule system. More precisely, a declarative term is directly converted to an ethereal term without any delay. It can happen that not all implicit argument can be infered, resulting in partial instantiation or no instantiation at all.
 //!

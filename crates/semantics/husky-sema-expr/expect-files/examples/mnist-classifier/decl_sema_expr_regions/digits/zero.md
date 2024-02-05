@@ -97,7 +97,7 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],
@@ -413,7 +413,7 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],
@@ -869,7 +869,7 @@
                 inherited_syn_symbol_map: [],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],

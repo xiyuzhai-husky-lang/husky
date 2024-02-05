@@ -39,9 +39,9 @@ pub(super) fn ethereal_term_data<'a>(db: &'a ::salsa::Db, term: EthTerm) -> FlyT
             return_ty: term.return_ty(db).into(),
             ty_ethereal_term: Some(term),
         },
-        EthTerm::Ritchie(term) => term_ritchie_fluffy_data(db, term).as_ref(),
+        EthTerm::Ritchie(term) => term_ritchie_fly_data(db, term).as_ref(),
         EthTerm::Abstraction(_) => todo!(),
-        EthTerm::Application(term) => term_application_fluffy_data(db, term).as_ref(),
+        EthTerm::Application(term) => term_application_fly_data(db, term).as_ref(),
         EthTerm::TypeAsTraitItem(_) => todo!(),
         EthTerm::TraitConstraint(_) => todo!(),
     }
@@ -75,7 +75,7 @@ impl TermRitchieFlyData {
 }
 
 #[salsa::tracked(jar = FlyTermJar, return_ref)]
-pub(crate) fn term_ritchie_fluffy_data(db: &::salsa::Db, term: EthRitchie) -> TermRitchieFlyData {
+pub(crate) fn term_ritchie_fly_data(db: &::salsa::Db, term: EthRitchie) -> TermRitchieFlyData {
     TermRitchieFlyData {
         ritchie_kind: term.ritchie_kind(db),
         parameter_contracted_tys: term
@@ -102,7 +102,7 @@ pub(crate) enum TermApplicationFlyData {
 
 /// can't directly return FlyTermData<'_> because of lifetime
 #[salsa::tracked(jar = FlyTermJar, return_ref)]
-pub(crate) fn term_application_fluffy_data(
+pub(crate) fn term_application_fly_data(
     db: &::salsa::Db,
     term: EthApplication,
 ) -> TermApplicationFlyData {
@@ -158,7 +158,7 @@ impl TermApplicationFlyData {
     }
 }
 
-pub(super) fn ethereal_term_fluffy_base_ty_data<'a>(
+pub(super) fn ethereal_term_fly_base_ty_data<'a>(
     db: &'a ::salsa::Db,
     term: EthTerm,
 ) -> FlyBaseTypeData<'a> {
@@ -188,9 +188,9 @@ pub(super) fn ethereal_term_fluffy_base_ty_data<'a>(
             return_ty: term.return_ty(db).into(),
             ty_ethereal_term: Some(term),
         },
-        EthTerm::Ritchie(term) => term_ritchie_fluffy_data(db, term).as_ref2(),
+        EthTerm::Ritchie(term) => term_ritchie_fly_data(db, term).as_ref2(),
         EthTerm::Abstraction(_) => todo!(),
-        EthTerm::Application(term) => term_application_fluffy_data(db, term).as_ref2(),
+        EthTerm::Application(term) => term_application_fly_data(db, term).as_ref2(),
         EthTerm::TypeAsTraitItem(_) => todo!(),
         EthTerm::TraitConstraint(_) => todo!(),
     }

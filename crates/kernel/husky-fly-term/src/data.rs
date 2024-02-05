@@ -177,14 +177,14 @@ impl FlyTerm {
     where
         'b: 'a,
     {
-        self.data_inner(engine.db(), engine.fluffy_terms())
+        self.data_inner(engine.db(), engine.fly_terms())
     }
 
     pub fn data_inner<'a>(self, db: &'a ::salsa::Db, terms: &'a FlyTerms) -> FlyTermData<'a> {
         match self.base_resolved_inner(terms) {
             FlyTermBase::Eth(term) => ethereal_term_data(db, term),
             FlyTermBase::Sol(term) => term.data_inner(terms.solid_terms()).into(),
-            FlyTermBase::Hol(term) => term.fluffy_data(db, terms),
+            FlyTermBase::Hol(term) => term.fly_data(db, terms),
             FlyTermBase::Place => todo!(),
         }
     }
@@ -193,7 +193,7 @@ impl FlyTerm {
     where
         'b: 'a,
     {
-        self.base_ty_data_inner(engine.db(), engine.fluffy_terms())
+        self.base_ty_data_inner(engine.db(), engine.fly_terms())
     }
 
     pub fn base_ty_data_inner<'a>(
@@ -202,9 +202,9 @@ impl FlyTerm {
         terms: &'a FlyTerms,
     ) -> FlyBaseTypeData<'a> {
         match self.base_resolved_inner(terms) {
-            FlyTermBase::Eth(term) => ethereal_term_fluffy_base_ty_data(db, term),
+            FlyTermBase::Eth(term) => ethereal_term_fly_base_ty_data(db, term),
             FlyTermBase::Sol(term) => term.data_inner(terms.solid_terms()).into(),
-            FlyTermBase::Hol(term) => term.fluffy_base_ty_data(db, terms),
+            FlyTermBase::Hol(term) => term.fly_base_ty_data(db, terms),
             FlyTermBase::Place => todo!(),
         }
     }

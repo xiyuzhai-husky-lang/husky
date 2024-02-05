@@ -207,7 +207,7 @@ impl ToHirLazy for SemaExprIdx {
                     opr,
                     builder.expr_ty(opd_sema_expr_idx),
                     builder.db(),
-                    builder.fluffy_terms(),
+                    builder.fly_terms(),
                 ),
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
             },
@@ -263,7 +263,7 @@ impl ToHirLazy for SemaExprIdx {
                         let instantiation = HirInstantiation::from_fly(
                             instantiation,
                             builder.db(),
-                            builder.fluffy_terms(),
+                            builder.fly_terms(),
                         );
                         match path {
                             PrincipalEntityPath::Module(_) => unreachable!(),
@@ -330,12 +330,8 @@ impl ToHirLazy for SemaExprIdx {
             } => match *dispatch.signature() {
                 FlyFieldSignature::PropsStruct { ty: _ } => HirLazyExprData::PropsStructField {
                     owner: owner_sema_expr_idx.to_hir_lazy(builder),
-                    owner_base_ty: HirType::from_fly(
-                        owner_ty,
-                        builder.db(),
-                        builder.fluffy_terms(),
-                    )
-                    .unwrap(),
+                    owner_base_ty: HirType::from_fly(owner_ty, builder.db(), builder.fly_terms())
+                        .unwrap(),
                     ident: ident_token.ident(),
                 },
                 FlyFieldSignature::Memoized {
@@ -352,7 +348,7 @@ impl ToHirLazy for SemaExprIdx {
                         instantiation: HirInstantiation::from_fly(
                             instantiation,
                             builder.db(),
-                            builder.fluffy_terms(),
+                            builder.fly_terms(),
                         ),
                     }
                 }
@@ -387,7 +383,7 @@ impl ToHirLazy for SemaExprIdx {
                     instantiation: HirInstantiation::from_fly(
                         signature.instantiation(),
                         builder.db(),
-                        builder.fluffy_terms(),
+                        builder.fly_terms(),
                     ),
                     indirections: HirIndirections::from_fly(dispatch.indirections()),
                 }
@@ -430,7 +426,7 @@ impl ToHirLazy for SemaExprIdx {
                     .iter()
                     .map(|item| item.sema_expr_idx.to_hir_lazy(builder))
                     .collect(),
-                element_ty: HirType::from_fly(element_ty, builder.db(), builder.fluffy_terms())
+                element_ty: HirType::from_fly(element_ty, builder.db(), builder.fly_terms())
                     .unwrap(),
             },
             SemaExprData::BoxColonList {

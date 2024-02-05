@@ -5,13 +5,13 @@ use husky_stack_location::{StackLocationIdx, StackLocationRegistry};
 pub trait FlyTermEngine<'a>: Sized {
     fn db(&self) -> &'a ::salsa::Db;
     fn trai_in_use_items_table(&self) -> TraitInUseItemsTable<'a>;
-    fn fluffy_term_region(&self) -> &FlyTermRegion;
+    fn fly_term_region(&self) -> &FlyTermRegion;
     fn item_path_menu(&self) -> &'a ItemPathMenu;
     fn term_menu(&self) -> &'a EthTermMenu;
     fn expr_region_data(&self) -> &'a SynExprRegionData;
 
-    fn fluffy_terms(&self) -> &FlyTerms {
-        self.fluffy_term_region().terms()
+    fn fly_terms(&self) -> &FlyTerms {
+        self.fly_term_region().terms()
     }
 
     fn path(&self) -> String {
@@ -21,9 +21,9 @@ pub trait FlyTermEngine<'a>: Sized {
 
 pub trait FlyTermEngineMut<'a>: FlyTermEngine<'a> {
     fn stack_location_registry_mut(&mut self) -> &mut StackLocationRegistry;
-    fn fluffy_term_region_mut(&mut self) -> &mut FlyTermRegion;
-    fn fluffy_terms_mut(&mut self) -> &mut FlyTerms {
-        self.fluffy_term_region_mut().terms_mut()
+    fn fly_term_region_mut(&mut self) -> &mut FlyTermRegion;
+    fn fly_terms_mut(&mut self) -> &mut FlyTerms {
+        self.fly_term_region_mut().terms_mut()
     }
 
     fn issue_new_stack_location_idx(&mut self) -> StackLocationIdx {
@@ -111,7 +111,7 @@ pub trait FlyTermEngineMut<'a>: FlyTermEngine<'a> {
         expectation: impl Into<Expectation>,
     ) -> (FlyTermExpectationIdx, FlyTerm) {
         let db = self.db();
-        self.fluffy_term_region_mut()
+        self.fly_term_region_mut()
             .add_expectation(src, expectee, expectation, db)
     }
 }

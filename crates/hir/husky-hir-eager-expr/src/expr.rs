@@ -228,7 +228,7 @@ impl ToHirEager for SemaExprIdx {
                     opr,
                     builder.expr_ty(opd_sema_expr_idx),
                     builder.db(),
-                    builder.fluffy_terms(),
+                    builder.fly_terms(),
                 ),
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
             },
@@ -291,7 +291,7 @@ impl ToHirEager for SemaExprIdx {
                                 instantiation: HirInstantiation::from_fly(
                                     instantiation.as_ref().unwrap(),
                                     db,
-                                    builder.fluffy_terms(),
+                                    builder.fly_terms(),
                                 ),
                                 item_groups,
                             },
@@ -301,7 +301,7 @@ impl ToHirEager for SemaExprIdx {
                                 instantiation: HirInstantiation::from_fly(
                                     instantiation.as_ref().unwrap(),
                                     db,
-                                    builder.fluffy_terms(),
+                                    builder.fly_terms(),
                                 ),
                                 item_groups,
                             },
@@ -312,7 +312,7 @@ impl ToHirEager for SemaExprIdx {
                                 instantiation: HirInstantiation::from_fly(
                                     instantiation.as_ref().unwrap(),
                                     db,
-                                    builder.fluffy_terms(),
+                                    builder.fly_terms(),
                                 ),
                                 item_groups,
                             }
@@ -328,7 +328,7 @@ impl ToHirEager for SemaExprIdx {
                                 instantiation: HirInstantiation::from_fly(
                                     signature.instantiation(),
                                     db,
-                                    builder.fluffy_terms(),
+                                    builder.fly_terms(),
                                 ),
                                 item_groups,
                             }
@@ -348,7 +348,7 @@ impl ToHirEager for SemaExprIdx {
                 FlyFieldSignature::PropsStruct { ty } => HirEagerExprData::PropsStructField {
                     owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
                     ident: ident_token.ident(),
-                    field_ty: HirType::from_fly(ty, builder.db(), builder.fluffy_terms()).unwrap(),
+                    field_ty: HirType::from_fly(ty, builder.db(), builder.fly_terms()).unwrap(),
                 },
                 FlyFieldSignature::Memoized {
                     ty: _,
@@ -384,7 +384,7 @@ impl ToHirEager for SemaExprIdx {
                     instantiation: HirInstantiation::from_fly(
                         signature.instantiation(),
                         builder.db(),
-                        builder.fluffy_terms(),
+                        builder.fly_terms(),
                     ),
                     item_groups: builder
                         .new_call_list_item_groups(ritchie_parameter_argument_matches),
@@ -422,7 +422,7 @@ impl ToHirEager for SemaExprIdx {
                     .iter()
                     .map(|item| item.sema_expr_idx.to_hir_eager(builder))
                     .collect(),
-                element_ty: HirType::from_fly(element_ty, builder.db(), builder.fluffy_terms())
+                element_ty: HirType::from_fly(element_ty, builder.db(), builder.fly_terms())
                     .unwrap(),
             },
             SemaExprData::BoxColonList {
@@ -463,7 +463,7 @@ impl ToHirEager for SemaExprIdx {
             data,
             ty_place,
             is_ty_always_copyable: ty
-                .is_always_copyable(builder.db(), builder.fluffy_terms())
+                .is_always_copyable(builder.db(), builder.fly_terms())
                 .unwrap()
                 .unwrap(),
         };

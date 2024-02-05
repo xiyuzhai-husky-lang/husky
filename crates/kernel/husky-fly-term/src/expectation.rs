@@ -99,12 +99,12 @@ pub trait ExpectFlyTerm: Into<Expectation> + Clone {
 
     #[inline(always)]
     fn final_destination(&self, engine: &impl FlyTermEngine<'_>) -> FinalDestination {
-        self.final_destination_inner(engine.db(), engine.fluffy_terms())
+        self.final_destination_inner(engine.db(), engine.fly_terms())
     }
 
     #[inline(always)]
     fn disambiguate_ty_path(&self, engine: &impl FlyTermEngine<'_>) -> TypePathDisambiguation {
-        self.disambiguate_ty_path_inner(engine.db(), engine.fluffy_terms())
+        self.disambiguate_ty_path_inner(engine.db(), engine.fly_terms())
     }
 
     /// if ty_path's type is under this expectation, disambiguate whether it's an ontology or constructor
@@ -132,10 +132,10 @@ pub trait ExpectFlyTerm: Into<Expectation> + Clone {
     fn destination_term_data<'a>(
         &self,
         db: &'a ::salsa::Db,
-        fluffy_terms: &'a FlyTerms,
+        fly_terms: &'a FlyTerms,
     ) -> Option<FlyTermData<'a>> {
         self.destination()
-            .map(|destination| destination.data_inner(db, fluffy_terms))
+            .map(|destination| destination.data_inner(db, fly_terms))
     }
 
     /// needs to return option to indicate whether something has been changed

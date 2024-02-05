@@ -27,7 +27,7 @@ impl ExpectFlyTerm for ExpectAnyDerived {
     fn resolve(
         &self,
         db: &::salsa::Db,
-        fluffy_terms: &mut FlyTerms,
+        fly_terms: &mut FlyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FlyTermEffect> {
         AltNone

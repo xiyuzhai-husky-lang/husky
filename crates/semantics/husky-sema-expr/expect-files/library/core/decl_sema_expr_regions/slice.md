@@ -57,7 +57,7 @@
                     },
                 ],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],
@@ -138,7 +138,7 @@
                     },
                 ],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],
@@ -402,7 +402,7 @@
                     },
                 ],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],
@@ -654,7 +654,7 @@
                 ],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],
@@ -917,7 +917,7 @@
                 ],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],
@@ -1295,7 +1295,7 @@
                     },
                 ],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],
@@ -1615,7 +1615,7 @@
                 ],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],
@@ -1914,7 +1914,7 @@
                     },
                 ],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],
@@ -2166,7 +2166,7 @@
                 ],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],
@@ -2338,7 +2338,7 @@
                 ],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],
@@ -2510,7 +2510,7 @@
                 ],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],
@@ -2778,7 +2778,7 @@
                 ],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],
@@ -3108,7 +3108,7 @@
                 ],
                 current_syn_symbol_map: [],
             },
-            fluffy_term_region: FlyTermRegion {
+            fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
                     solid_terms: SolTerms {
                         entries: [],

@@ -41,7 +41,7 @@ impl<'a> SemaExprEngine<'a> {
                                 syn_expr_idx,
                                 tmpl.template_parameters(db),
                                 None,
-                                self.fluffy_terms_mut(),
+                                self.fly_terms_mut(),
                                 db,
                             );
                             (
@@ -65,7 +65,7 @@ impl<'a> SemaExprEngine<'a> {
                             syn_expr_idx,
                             tmpl.template_parameters(db),
                             None,
-                            self.fluffy_terms_mut(),
+                            self.fly_terms_mut(),
                             db,
                         );
                         let ty = match tmpl {
@@ -111,7 +111,7 @@ impl<'a> SemaExprEngine<'a> {
                     syn_expr_idx,
                     parent_ty_tmpl.template_parameters(db),
                     None, // tmpl.template_parameters(db),
-                    self.fluffy_terms_mut(),
+                    self.fly_terms_mut(),
                     db,
                 );
                 let ty = FlyInstantiate::instantiate(

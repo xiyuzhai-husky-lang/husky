@@ -8,7 +8,7 @@ impl<'a> SemaExprEngine<'a> {
     ) -> SemaExprTypeResult<FlyTerm> {
         todo!()
         // let element_ty: FlyTerm = self
-        //     .fluffy_term_region
+        //     .fly_term_region
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType)
         //     .into();
         // for item in items {

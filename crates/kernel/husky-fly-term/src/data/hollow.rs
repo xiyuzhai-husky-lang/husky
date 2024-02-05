@@ -61,26 +61,26 @@ impl Into<FlyTerm> for Hole {
 }
 
 impl HolTerm {
-    pub(crate) fn fluffy_data<'a>(
+    pub(crate) fn fly_data<'a>(
         self,
         db: &'a ::salsa::Db,
-        fluffy_terms: &'a FlyTerms,
+        fly_terms: &'a FlyTerms,
     ) -> FlyTermData<'a> {
-        match self.resolve_progress(fluffy_terms) {
-            TermResolveProgress::UnresolvedHol => self.fluffy_data_aux(db, fluffy_terms),
+        match self.resolve_progress(fly_terms) {
+            TermResolveProgress::UnresolvedHol => self.fly_data_aux(db, fly_terms),
             TermResolveProgress::ResolvedEth(term) => ethereal_term_data(db, term),
             TermResolveProgress::ResolvedSol(term) => {
-                term.data_inner(fluffy_terms.solid_terms()).into()
+                term.data_inner(fly_terms.solid_terms()).into()
             }
             TermResolveProgress::Err => todo!(),
         }
     }
-    pub(crate) fn fluffy_data_aux<'a>(
+    pub(crate) fn fly_data_aux<'a>(
         self,
         db: &'a ::salsa::Db,
-        fluffy_terms: &'a FlyTerms,
+        fly_terms: &'a FlyTerms,
     ) -> FlyTermData<'a> {
-        match fluffy_terms.hollow_terms().hollow_term_data(self) {
+        match fly_terms.hollow_terms().hollow_term_data(self) {
             HolTermData::TypeOntology {
                 path,
                 refined_path,
@@ -109,7 +109,7 @@ impl HolTerm {
             },
             HolTermData::Hole {
                 fill: Some(fill), ..
-            } => fill.data_inner(db, fluffy_terms),
+            } => fill.data_inner(db, fly_terms),
             HolTermData::Hole {
                 hole_kind,
                 fill: None,
@@ -127,27 +127,27 @@ impl HolTerm {
         }
     }
 
-    pub(crate) fn fluffy_base_ty_data<'a>(
+    pub(crate) fn fly_base_ty_data<'a>(
         self,
         db: &'a ::salsa::Db,
-        fluffy_terms: &'a FlyTerms,
+        fly_terms: &'a FlyTerms,
     ) -> FlyBaseTypeData<'a> {
-        match self.resolve_progress(fluffy_terms) {
-            TermResolveProgress::UnresolvedHol => self.fluffy_base_ty_data_aux(db, fluffy_terms),
-            TermResolveProgress::ResolvedEth(term) => ethereal_term_fluffy_base_ty_data(db, term),
+        match self.resolve_progress(fly_terms) {
+            TermResolveProgress::UnresolvedHol => self.fly_base_ty_data_aux(db, fly_terms),
+            TermResolveProgress::ResolvedEth(term) => ethereal_term_fly_base_ty_data(db, term),
             TermResolveProgress::ResolvedSol(term) => {
-                term.data_inner(fluffy_terms.solid_terms()).into()
+                term.data_inner(fly_terms.solid_terms()).into()
             }
             TermResolveProgress::Err => todo!(),
         }
     }
 
-    pub(crate) fn fluffy_base_ty_data_aux<'a>(
+    pub(crate) fn fly_base_ty_data_aux<'a>(
         self,
         db: &'a ::salsa::Db,
-        fluffy_terms: &'a FlyTerms,
+        fly_terms: &'a FlyTerms,
     ) -> FlyBaseTypeData<'a> {
-        match fluffy_terms.hollow_terms().hollow_term_data(self) {
+        match fly_terms.hollow_terms().hollow_term_data(self) {
             HolTermData::TypeOntology {
                 path,
                 refined_path,
@@ -175,7 +175,7 @@ impl HolTerm {
             },
             HolTermData::Hole {
                 fill: Some(fill), ..
-            } => fill.base_ty_data_inner(db, fluffy_terms),
+            } => fill.base_ty_data_inner(db, fly_terms),
             HolTermData::Hole {
                 hole_kind,
                 fill: None,

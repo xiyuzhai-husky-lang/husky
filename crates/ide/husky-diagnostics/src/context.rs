@@ -95,8 +95,8 @@ impl<'a> RegionDiagnosticsContext<'a> {
         self.sema_expr_region_data
     }
 
-    pub(crate) fn fluffy_term_region(&self) -> &FlyTermRegion {
-        self.sema_expr_region_data.fluffy_term_region()
+    pub(crate) fn fly_term_region(&self) -> &FlyTermRegion {
+        self.sema_expr_region_data.fly_term_region()
     }
 
     pub(crate) fn expr_text_range(&self, expr_idx: SynExprIdx) -> TextRange {
