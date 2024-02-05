@@ -1,43 +1,17 @@
 [
     SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Type(
-                    TypeSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Type(
-                                    TypeSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypePath(`core::mem::Ref`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Decl(
+            ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`core::mem::Ref`, `Extern`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Decl(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Type(
-                        TypeSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Type(
-                                        TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::mem::Ref`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Decl(
+                ItemPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::mem::Ref`, `Extern`),
                     ),
                 ),
             ),
@@ -94,7 +68,7 @@
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`t`),
+                            EthTerm(`E`),
                         ),
                     },
                 ],
@@ -118,49 +92,23 @@
             },
             return_ty: None,
             self_ty: Some(
-                EthTerm(`Ref 'a t`),
+                EthTerm(`Ref 'a E`),
             ),
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Type(
-                    TypeSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Type(
-                                    TypeSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypePath(`core::mem::RefMut`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Decl(
+            ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`core::mem::RefMut`, `Extern`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Decl(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Type(
-                        TypeSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Type(
-                                        TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::mem::RefMut`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Decl(
+                ItemPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::mem::RefMut`, `Extern`),
                     ),
                 ),
             ),
@@ -217,7 +165,7 @@
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`t`),
+                            EthTerm(`E`),
                         ),
                     },
                 ],
@@ -241,49 +189,23 @@
             },
             return_ty: None,
             self_ty: Some(
-                EthTerm(`RefMut 'a t`),
+                EthTerm(`RefMut 'a E`),
             ),
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Type(
-                    TypeSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Type(
-                                    TypeSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypePath(`core::mem::Leash`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Decl(
+            ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`core::mem::Leash`, `Extern`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Decl(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Type(
-                        TypeSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Type(
-                                        TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::mem::Leash`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Decl(
+                ItemPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::mem::Leash`, `Extern`),
                     ),
                 ),
             ),
@@ -324,7 +246,7 @@
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`t`),
+                            EthTerm(`E`),
                         ),
                     },
                 ],
@@ -348,49 +270,23 @@
             },
             return_ty: None,
             self_ty: Some(
-                EthTerm(`Leash t`),
+                EthTerm(`Leash E`),
             ),
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Type(
-                    TypeSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Type(
-                                    TypeSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypePath(`core::mem::At`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Decl(
+            ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`core::mem::At`, `Extern`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Decl(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Type(
-                        TypeSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Type(
-                                        TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::mem::At`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Decl(
+                ItemPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::mem::At`, `Extern`),
                     ),
                 ),
             ),
@@ -441,13 +337,13 @@
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`a`),
+                            EthTerm(`'α`),
                         ),
                     },
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`t`),
+                            EthTerm(`E`),
                         ),
                     },
                 ],
@@ -471,61 +367,41 @@
             },
             return_ty: None,
             self_ty: Some(
-                EthTerm(`At a t`),
+                EthTerm(`At 'α E`),
             ),
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::ImplBlock(
-                ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::mem`,
-                                                trai_path: TraitPath(`core::marker::Copy`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::mem::Leash`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    },
-                                ),
+        path: RegionPath::Decl(
+            ItemPath::ImplBlock(
+                ImplBlockPath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
+                            module_path: `core::mem`,
+                            trai_path: TraitPath(`core::marker::Copy`),
+                            ty_sketch: TypeSketch::Path(
+                                TypePath(`core::mem::Leash`, `Extern`),
                             ),
+                            disambiguator: 0,
                         },
-                    ),
+                    },
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Decl(
-                ItemSynNodePath::ImplBlock(
-                    ImplBlockSynNodePath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::ImplBlock(
-                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `core::mem`,
-                                                    trai_path: TraitPath(`core::marker::Copy`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::mem::Leash`, `Extern`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        },
-                                    ),
+            path: RegionPath::Decl(
+                ItemPath::ImplBlock(
+                    ImplBlockPath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::mem`,
+                                trai_path: TraitPath(`core::marker::Copy`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::mem::Leash`, `Extern`),
                                 ),
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
             ),
@@ -688,7 +564,7 @@
                         SemaExprIdx(
                             1,
                         ),
-                        Trait,
+                        SynExprRootKind::Trait,
                     ),
                 ),
                 (
@@ -697,7 +573,7 @@
                         SemaExprIdx(
                             4,
                         ),
-                        SelfType,
+                        SynExprRootKind::SelfType,
                     ),
                 ),
             ],
@@ -713,18 +589,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    Trait(
-                                        TraitPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 36,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Copy`),
                             ),
                         },
                     ),
@@ -736,18 +602,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 40,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Leash`),
                             ),
                         },
                     ),
@@ -759,14 +615,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Symbol(
-                                    EthSymbol(
-                                        Id {
-                                            value: 8,
-                                        },
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`E`),
                             ),
                         },
                     ),
@@ -778,14 +628,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Application(
-                                    EthApplication(
-                                        Id {
-                                            value: 12,
-                                        },
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Leash E`),
                             ),
                         },
                     ),
@@ -812,7 +656,7 @@
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`t`),
+                            EthTerm(`E`),
                         ),
                     },
                 ],
@@ -906,14 +750,8 @@
                                     ExpectCurryDestination {
                                         curry_destination: FlyTerm {
                                             place: None,
-                                            base: Eth(
-                                                Category(
-                                                    Category {
-                                                        universe: Universe(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
+                                            base: FlyTermBase::Eth(
+                                                EthTerm(`Type`),
                                             ),
                                         },
                                     },
@@ -975,7 +813,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EthTerm(`Leash t`),
+                EthTerm(`Leash E`),
             ),
         },
     },

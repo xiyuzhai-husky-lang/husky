@@ -1,43 +1,17 @@
 [
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Fugitive(
-                                    FugitiveSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::MajorItem(
+                MajorItemPath::Fugitive(
+                    FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                     ),
                 ),
             ),
@@ -148,6 +122,11 @@
                                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
+                                                path: ItemPath::AssociatedItem(
+                                                    AssociatedItemPath::TypeItem(
+                                                        TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
+                                                    ),
+                                                ),
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -589,7 +568,7 @@
                         SemaExprIdx(
                             9,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -653,16 +632,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    F32(
-                                        TermF32Literal(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`4.0f32`),
                             ),
                         },
                     ),
@@ -674,16 +645,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    F32(
-                                        TermF32Literal(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0.0f32`),
                             ),
                         },
                     ),
@@ -1062,44 +1025,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Fugitive(
-                                    FugitiveSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::MajorItem(
+                MajorItemPath::Fugitive(
+                    FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                     ),
                 ),
             ),
@@ -3798,7 +3735,7 @@
                         SemaExprIdx(
                             52,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -3900,12 +3837,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -3917,12 +3850,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -3934,12 +3863,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -3951,12 +3876,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -3968,12 +3889,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -3985,12 +3902,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -6262,44 +6175,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Fugitive(
-                                    FugitiveSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::MajorItem(
+                MajorItemPath::Fugitive(
+                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                     ),
                 ),
             ),
@@ -6563,6 +6450,18 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::ImplBlock(
+                                                        ImplBlockPath::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::clone`,
+                                                                    trai_path: TraitPath(`core::clone::Clone`),
+                                                                    ty_sketch: TypeSketch::DeriveAny,
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             location: StackLocationIdx(
@@ -6574,26 +6473,12 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 3,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`Self`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        EntityPath(
-                                                                            TypeOntology(
-                                                                                TypePath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 273,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`BinaryImage28`),
                                                                     ),
                                                                 },
                                                             ),
@@ -7225,6 +7110,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
@@ -7331,6 +7221,17 @@
                                                 ),
                                             },
                                             instantiation: FlyInstantiation {
+                                                path: AssociatedItem(
+                                                    TypeItem(
+                                                        TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 322,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
                                                 env: AssociatedFn,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -7620,6 +7521,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -8819,6 +8725,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -10598,6 +10509,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -12569,6 +12485,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -12782,6 +12703,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
                                                             location: StackLocationIdx(
@@ -12793,37 +12719,19 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        EntityPath(
-                                                                            TypeOntology(
-                                                                                TypePath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 12,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`ConnectedComponent`),
                                                                     ),
                                                                 },
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 4,
-                                                                },
-                                                            ),
-                                                            SelfLifetime,
+                                                            EthSymbol(`'self_lifetime`),
+                                                            FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
                                                     separator: Some(
@@ -14149,7 +14057,7 @@
                         SemaExprIdx(
                             118,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -14673,18 +14581,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 151,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Vec`),
                             ),
                         },
                     ),
@@ -14696,18 +14594,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`ConnectedComponent`),
                             ),
                         },
                     ),
@@ -14719,14 +14607,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Application(
-                                    EthApplication(
-                                        Id {
-                                            value: 27,
-                                        },
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Vec ConnectedComponent`),
                             ),
                         },
                     ),
@@ -14738,12 +14620,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        30,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`30`),
                             ),
                         },
                     ),
@@ -14755,12 +14633,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    R32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1r32`),
                             ),
                         },
                     ),
@@ -14772,12 +14646,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    Bool(
-                                        false,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`false`),
                             ),
                         },
                     ),
@@ -14789,12 +14659,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    Bool(
-                                        true,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`true`),
                             ),
                         },
                     ),
@@ -14806,12 +14672,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        30,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`30`),
                             ),
                         },
                     ),
@@ -14823,12 +14685,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -14840,12 +14698,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -14857,12 +14711,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -14874,12 +14724,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    Bool(
-                                        false,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`false`),
                             ),
                         },
                     ),
@@ -14891,12 +14737,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -14908,12 +14750,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -14925,12 +14763,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    Bool(
-                                        false,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`false`),
                             ),
                         },
                     ),
@@ -14942,12 +14776,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        30,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`30`),
                             ),
                         },
                     ),
@@ -15332,14 +15162,8 @@
                                     ExpectCurryDestination {
                                         curry_destination: FlyTerm {
                                             place: None,
-                                            base: Eth(
-                                                Category(
-                                                    Category {
-                                                        universe: Universe(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
+                                            base: FlyTermBase::Eth(
+                                                EthTerm(`Type`),
                                             ),
                                         },
                                     },
@@ -19597,39 +19421,26 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TraitForTypeItem(
-                                    TraitForTypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TraitForTypeItem(
-                                                            TraitForTypeItemPathData {
-                                                                impl_block: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `mnist_classifier::connected_component`,
-                                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                                ident: `visualize`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
+        path: RegionPath::Defn(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TraitForTypeItem(
+                    TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist_classifier::connected_component`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
                                         },
+                                        ident: `visualize`,
+                                        item_kind: MethodFn,
                                     },
                                 ),
                             ),
@@ -19639,39 +19450,26 @@
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TraitForTypeItem(
-                        TraitForTypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TraitForTypeItem(
-                                        TraitForTypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitForTypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TraitForTypeItem(
-                                                                TraitForTypeItemPathData {
-                                                                    impl_block: TraitForTypeImplBlock {
-                                                                        data: TraitForTypeImplBlockPathData {
-                                                                            module_path: `mnist_classifier::connected_component`,
-                                                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                                                            ty_sketch: TypeSketch::Path(
-                                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                            ),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                    ident: `visualize`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
+            path: RegionPath::Defn(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TraitForTypeItem(
+                        TraitForTypeItemPath(
+                            ItemPathId {
+                                data: ItemPathData::AssociatedItem(
+                                    AssociatedItemPathData::TraitForTypeItem(
+                                        TraitForTypeItemPathData {
+                                            impl_block: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `mnist_classifier::connected_component`,
+                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
                                             },
+                                            ident: `visualize`,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                 ),
@@ -19899,6 +19697,20 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::ImplBlock(
+                                                        ImplBlockPath::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `mnist`,
+                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             location: StackLocationIdx(
@@ -20023,7 +19835,7 @@
                         SemaExprIdx(
                             4,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -20203,44 +20015,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TypeItem(
-                                        TypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TypeItem(
+                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
                     ),
                 ),
             ),
@@ -20259,6 +20045,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -20454,7 +20245,7 @@
                         SemaExprIdx(
                             4,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -20669,44 +20460,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TypeItem(
-                                        TypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TypeItem(
+                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                     ),
                 ),
             ),
@@ -20786,6 +20551,11 @@
                                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
+                                                path: ItemPath::AssociatedItem(
+                                                    AssociatedItemPath::TypeItem(
+                                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
+                                                    ),
+                                                ),
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -20864,31 +20634,22 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed,
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        EntityPath(
-                                                                            TypeOntology(
-                                                                                TypePath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 15,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`RawContour`),
                                                                     ),
                                                                 },
                                                             ),
@@ -21189,6 +20950,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -21284,6 +21050,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
                                                             location: StackLocationIdx(
@@ -21295,33 +21066,19 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        Application(
-                                                                            EthApplication(
-                                                                                Id {
-                                                                                    value: 23,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`Leash RawContour`),
                                                                     ),
                                                                 },
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 4,
-                                                                },
-                                                            ),
-                                                            SelfLifetime,
+                                                            EthSymbol(`'self_lifetime`),
+                                                            FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
                                                     separator: Some(
@@ -21498,6 +21255,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -21593,6 +21355,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
                                                             location: StackLocationIdx(
@@ -21604,33 +21371,19 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        Application(
-                                                                            EthApplication(
-                                                                                Id {
-                                                                                    value: 23,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`Leash RawContour`),
                                                                     ),
                                                                 },
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 4,
-                                                                },
-                                                            ),
-                                                            SelfLifetime,
+                                                            EthSymbol(`'self_lifetime`),
+                                                            FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
                                                     separator: Some(
@@ -21765,6 +21518,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
                                                             location: StackLocationIdx(
@@ -21776,33 +21534,19 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        Application(
-                                                                            EthApplication(
-                                                                                Id {
-                                                                                    value: 41,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`Option Leash RawContour`),
                                                                     ),
                                                                 },
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 4,
-                                                                },
-                                                            ),
-                                                            SelfLifetime,
+                                                            EthSymbol(`'self_lifetime`),
+                                                            FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
                                                     separator: Some(
@@ -21979,6 +21723,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -22074,6 +21823,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
                                                             location: StackLocationIdx(
@@ -22085,33 +21839,19 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        Application(
-                                                                            EthApplication(
-                                                                                Id {
-                                                                                    value: 23,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`Leash RawContour`),
                                                                     ),
                                                                 },
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 4,
-                                                                },
-                                                            ),
-                                                            SelfLifetime,
+                                                            EthSymbol(`'self_lifetime`),
+                                                            FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
                                                     separator: Some(
@@ -22246,6 +21986,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
                                                             location: StackLocationIdx(
@@ -22257,33 +22002,19 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        Application(
-                                                                            EthApplication(
-                                                                                Id {
-                                                                                    value: 41,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`Option Leash RawContour`),
                                                                     ),
                                                                 },
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 4,
-                                                                },
-                                                            ),
-                                                            SelfLifetime,
+                                                            EthSymbol(`'self_lifetime`),
+                                                            FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
                                                     separator: Some(
@@ -22362,6 +22093,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -22769,7 +22505,7 @@
                         SemaExprIdx(
                             26,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -22855,18 +22591,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 151,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Vec`),
                             ),
                         },
                     ),
@@ -22878,18 +22604,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 15,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`RawContour`),
                             ),
                         },
                     ),
@@ -22901,14 +22617,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Application(
-                                    EthApplication(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Leash RawContour`),
                             ),
                         },
                     ),
@@ -22920,14 +22630,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Application(
-                                    EthApplication(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Option Leash RawContour`),
                             ),
                         },
                     ),
@@ -22939,14 +22643,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Application(
-                                    EthApplication(
-                                        Id {
-                                            value: 42,
-                                        },
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Vec Option Leash RawContour`),
                             ),
                         },
                     ),
@@ -23126,14 +22824,8 @@
                                     ExpectCurryDestination {
                                         curry_destination: FlyTerm {
                                             place: None,
-                                            base: Eth(
-                                                Category(
-                                                    Category {
-                                                        universe: Universe(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
+                                            base: FlyTermBase::Eth(
+                                                EthTerm(`Type`),
                                             ),
                                         },
                                     },
@@ -23192,14 +22884,8 @@
                                     ExpectCurryDestination {
                                         curry_destination: FlyTerm {
                                             place: None,
-                                            base: Eth(
-                                                Category(
-                                                    Category {
-                                                        universe: Universe(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
+                                            base: FlyTermBase::Eth(
+                                                EthTerm(`Type`),
                                             ),
                                         },
                                     },
@@ -23929,44 +23615,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TypeItem(
-                                        TypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TypeItem(
+                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
                     ),
                 ),
             ),
@@ -24087,6 +23747,11 @@
                                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
+                                                path: ItemPath::AssociatedItem(
+                                                    AssociatedItemPath::TypeItem(
+                                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
+                                                    ),
+                                                ),
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -24243,31 +23908,22 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed,
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        EntityPath(
-                                                                            TypeOntology(
-                                                                                TypePath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 15,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`RawContour`),
                                                                     ),
                                                                 },
                                                             ),
@@ -24623,31 +24279,22 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed,
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        EntityPath(
-                                                                            TypeOntology(
-                                                                                TypePath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 30,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`Point2d`),
                                                                     ),
                                                                 },
                                                             ),
@@ -25437,7 +25084,7 @@
                         SemaExprIdx(
                             22,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -25565,18 +25212,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 139,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`f32`),
                             ),
                         },
                     ),
@@ -25588,12 +25225,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        0,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),
@@ -25605,12 +25238,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        0,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),
@@ -26507,44 +26136,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TypeItem(
-                                        TypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TypeItem(
+                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
                     ),
                 ),
             ),
@@ -27111,6 +26714,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed,
                                                     },
@@ -27220,6 +26828,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::num::i32(0)::max`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
                                                             location: StackLocationIdx(
@@ -27689,7 +27302,7 @@
                         SemaExprIdx(
                             18,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -27749,18 +27362,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 123,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`i32`),
                             ),
                         },
                     ),
@@ -27772,18 +27375,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 139,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`f32`),
                             ),
                         },
                     ),
@@ -27795,12 +27388,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        0,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),
@@ -27812,12 +27401,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        0,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),
@@ -27829,12 +27414,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        29,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`29`),
                             ),
                         },
                     ),
@@ -28551,44 +28132,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TypeItem(
-                                        TypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TypeItem(
+                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
                     ),
                 ),
             ),
@@ -29081,6 +28636,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed,
                                                     },
@@ -29505,7 +29065,7 @@
                         SemaExprIdx(
                             15,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -29553,18 +29113,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 139,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`f32`),
                             ),
                         },
                     ),
@@ -29576,12 +29126,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        0,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),
@@ -29593,12 +29139,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        0,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),
@@ -29610,12 +29152,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        29,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`29`),
                             ),
                         },
                     ),
@@ -30279,44 +29817,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TypeItem(
-                                        TypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TypeItem(
+                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
                     ),
                 ),
             ),
@@ -32127,6 +31639,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed,
                                                     },
@@ -32841,6 +32358,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed,
                                                     },
@@ -32939,6 +32461,11 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -34074,7 +33601,7 @@
                         SemaExprIdx(
                             56,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -34308,12 +33835,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -34325,12 +33848,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        29,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`29`),
                             ),
                         },
                     ),
@@ -34342,12 +33861,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -34359,12 +33874,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        29,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`29`),
                             ),
                         },
                     ),
@@ -34376,12 +33887,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        2,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`2`),
                             ),
                         },
                     ),
@@ -34393,12 +33900,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        0,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),
@@ -34410,12 +33913,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        0,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),
@@ -36871,44 +36370,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TypeItem(
-                                        TypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TypeItem(
+                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
                     ),
                 ),
             ),
@@ -37021,6 +36494,11 @@
                                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
+                                                path: ItemPath::AssociatedItem(
+                                                    AssociatedItemPath::TypeItem(
+                                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
+                                                    ),
+                                                ),
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -37240,7 +36718,7 @@
                         SemaExprIdx(
                             6,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -37256,18 +36734,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 139,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`f32`),
                             ),
                         },
                     ),
@@ -37493,44 +36961,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TypeItem(
-                                        TypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TypeItem(
+                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
                     ),
                 ),
             ),
@@ -37643,6 +37085,11 @@
                                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
+                                                path: ItemPath::AssociatedItem(
+                                                    AssociatedItemPath::TypeItem(
+                                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
+                                                    ),
+                                                ),
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -37862,7 +37309,7 @@
                         SemaExprIdx(
                             6,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -37878,18 +37325,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 139,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`f32`),
                             ),
                         },
                     ),
@@ -38115,44 +37552,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TypeItem(
-                                        TypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TypeItem(
+                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
                     ),
                 ),
             ),
@@ -39398,6 +38809,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             location: StackLocationIdx(
@@ -40002,7 +39418,7 @@
                         SemaExprIdx(
                             27,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -40080,18 +39496,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 139,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`f32`),
                             ),
                         },
                     ),
@@ -40103,12 +39509,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        0,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),
@@ -40120,12 +39522,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        0,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),
@@ -40137,12 +39535,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -40154,12 +39548,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        29,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`29`),
                             ),
                         },
                     ),
@@ -41335,44 +40725,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TypeItem(
-                                        TypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TypeItem(
+                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
                     ),
                 ),
             ),
@@ -42618,6 +41982,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             location: StackLocationIdx(
@@ -43222,7 +42591,7 @@
                         SemaExprIdx(
                             27,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -43300,18 +42669,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 139,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`f32`),
                             ),
                         },
                     ),
@@ -43323,12 +42682,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        0,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),
@@ -43340,12 +42695,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        0,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),
@@ -43357,12 +42708,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -43374,12 +42721,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        29,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`29`),
                             ),
                         },
                     ),

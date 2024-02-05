@@ -28,7 +28,7 @@ fn attr_eth_template(
 ) -> EtherealSignatureResult<AttrEthTemplate> {
     match path.dec_template(db)? {
         AttrDecTemplate::Derive(dec_template) => {
-            DeriveAttrEthTemplate::from_declarative(db, dec_template).map(Into::into)
+            DeriveAttrEthTemplate::from_dec(db, dec_template).map(Into::into)
         }
     }
 }

@@ -8,7 +8,7 @@ use with_db::PartialOrdWithDb;
 #[cfg(test)]
 use with_db::WithDb;
 
-#[salsa::interned(jar = VfsJar, override_debug, constructor = new_inner)]
+#[salsa::interned(jar = VfsJar, constructor = new_inner, override_debug)]
 pub struct ModulePath {
     pub data: ModulePathData,
 }

@@ -15,7 +15,7 @@ fn term_trait_constraint_size_works() {
 }
 
 impl EthTraitConstraint {
-    pub(crate) fn from_declarative(
+    pub(crate) fn from_dec(
         _db: &::salsa::Db,
         _valid_term: DecTraitConstraint,
         _term_ty_expectation: TypeFinalDestinationExpectation,
@@ -49,10 +49,10 @@ impl EthTraitConstraint {
     }
 }
 
-impl EthTermInstantiate for EthTraitConstraint {
+impl EthInstantiate for EthTraitConstraint {
     type Output = Self;
 
-    fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+    fn instantiate(self, db: &salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
         Self::new(
             db,
             self.ty(db).instantiate(db, instantiation),

@@ -51,10 +51,10 @@ fn ty_variant_eth_template(
     Ok(match path.dec_template(db)? {
         TypeVariantDecTemplate::Props(_) => todo!(),
         TypeVariantDecTemplate::Unit(dec_template) => {
-            EnumUnitTypeVariantEthTemplate::from_declarative(db, path, dec_template)?.into()
+            EnumUnitTypeVariantEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TypeVariantDecTemplate::Tuple(dec_template) => {
-            EnumTupleVariantEthTemplate::from_declarative(db, path, dec_template)?.into()
+            EnumTupleVariantEthTemplate::from_dec(db, path, dec_template)?.into()
         }
     })
 }

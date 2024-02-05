@@ -46,11 +46,11 @@ impl EthCurry {
         )
     }
 
-    pub(crate) fn from_declarative(
+    pub(crate) fn from_dec(
         db: &::salsa::Db,
         declarative_term_curry: DecCurry,
     ) -> EthTermResult<Self> {
-        term_curry_from_declarative(db, declarative_term_curry)
+        term_curry_from_dec(db, declarative_term_curry)
     }
 
     #[inline(never)]
@@ -67,7 +67,13 @@ impl EthCurry {
         f.write_str(self.variance(db).as_str())?;
         if let Some(parameter_rune) = parameter_rune {
             ctx.fmt_with_variable(db, parameter_rune, |ctx| {
-                ctx.fmt_rune(db, parameter_rune, f)?;
+                {
+                    let this = &mut *ctx;
+                    let _db = db;
+                    let _rune = parameter_rune;
+                    // ad hoc
+                    f.write_str("variable_ad_hoc_fmt")
+                }?;
                 f.write_str(": ")?;
                 self.parameter_ty(db)
                     .display_fmt_with_db_and_ctx(f, db, ctx)?;
@@ -103,10 +109,10 @@ impl EthCurry {
     }
 }
 
-impl EthTermInstantiate for EthCurry {
+impl EthInstantiate for EthCurry {
     type Output = Self;
 
-    fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+    fn instantiate(self, db: &salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
         Self::new(
             self.toolchain(db),
             self.curry_kind(db),
@@ -120,17 +126,14 @@ impl EthTermInstantiate for EthCurry {
 }
 
 #[salsa::tracked(jar = EthTermJar)]
-pub(crate) fn term_curry_from_declarative(
-    db: &::salsa::Db,
-    curry: DecCurry,
-) -> EthTermResult<EthCurry> {
-    let t = |declarative_ty| EthTerm::ty_from_declarative(db, declarative_ty);
+pub(crate) fn term_curry_from_dec(db: &::salsa::Db, curry: DecCurry) -> EthTermResult<EthCurry> {
+    let t = |declarative_ty| EthTerm::ty_from_dec(db, declarative_ty);
     Ok(EthCurry::new(
         curry.toolchain(db),
         curry.curry_kind(db),
         curry.variance(db),
         match curry.parameter_rune(db) {
-            Some(parameter_rune) => Some(EthRune::from_declarative(db, parameter_rune)?),
+            Some(parameter_rune) => Some(EthRune::from_dec(db, parameter_rune)?),
             None => None,
         },
         t(curry.parameter_ty(db))?,

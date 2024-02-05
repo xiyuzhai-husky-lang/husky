@@ -1,7 +1,7 @@
 use thiserror::Error;
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum ManifestAstError {
     #[error("{0}")]
     Original(#[from] OriginalManifestAstError),
@@ -9,8 +9,8 @@ pub enum ManifestAstError {
     Derived(#[from] DerivedManifestAstError),
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalManifestAstError {
     #[error("MissingPackageSection")]
     MissingPackageSection,
@@ -20,8 +20,8 @@ pub enum OriginalManifestAstError {
     Todo,
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedManifestAstError {
     #[error("todo")]
     Todo,

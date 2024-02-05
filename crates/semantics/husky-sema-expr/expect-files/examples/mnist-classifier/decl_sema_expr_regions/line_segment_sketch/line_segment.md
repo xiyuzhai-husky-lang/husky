@@ -1,43 +1,17 @@
 [
     SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Type(
-                    TypeSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Type(
-                                    TypeSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Decl(
+            ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Decl(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Type(
-                        TypeSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Type(
-                                        TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Decl(
+                ItemPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                     ),
                 ),
             ),
@@ -125,15 +99,9 @@
                         SemaExprIdx(
                             1,
                         ),
-                        PropsStructFieldType {
+                        SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 122,
-                                        },
-                                    ),
-                                ),
+                                ident: `start`,
                                 regional_token_idx: RegionalTokenIdx(
                                     5,
                                 ),
@@ -147,15 +115,9 @@
                         SemaExprIdx(
                             2,
                         ),
-                        PropsStructFieldType {
+                        SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 123,
-                                        },
-                                    ),
-                                ),
+                                ident: `end`,
                                 regional_token_idx: RegionalTokenIdx(
                                     9,
                                 ),
@@ -176,18 +138,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 30,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Point2d`),
                             ),
                         },
                     ),
@@ -199,18 +151,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 30,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Point2d`),
                             ),
                         },
                     ),
@@ -346,27 +288,17 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::ImplBlock(
-                ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TypeImplBlock(
-                                    TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+        path: RegionPath::Decl(
+            ItemPath::ImplBlock(
+                ImplBlockPath::TypeImplBlock(
+                    TypeImplBlockPath(
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                        disambiguator: 0,
                                     },
                                 ),
                             ),
@@ -376,27 +308,17 @@
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Decl(
-                ItemSynNodePath::ImplBlock(
-                    ImplBlockSynNodePath::TypeImplBlock(
-                        TypeImplBlockSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::ImplBlock(
-                                    ImplBlockSynNodePathData::TypeImplBlock(
-                                        TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
+            path: RegionPath::Decl(
+                ItemPath::ImplBlock(
+                    ImplBlockPath::TypeImplBlock(
+                        TypeImplBlockPath(
+                            ItemPathId {
+                                data: ItemPathData::ImplBlock(
+                                    ImplBlockPathData::TypeImplBlock(
+                                        TypeImplBlockPathData {
+                                            module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                            disambiguator: 0,
                                         },
                                     ),
                                 ),
@@ -456,7 +378,7 @@
                         SemaExprIdx(
                             1,
                         ),
-                        SelfType,
+                        SynExprRootKind::SelfType,
                     ),
                 ),
             ],
@@ -472,18 +394,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 51,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`LineSegment`),
                             ),
                         },
                     ),
@@ -554,44 +466,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodFn`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Decl(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Decl(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TypeItem(
-                                        TypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodFn`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Decl(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TypeItem(
+                        TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodFn`),
                     ),
                 ),
             ),
@@ -646,7 +532,7 @@
                         SemaExprIdx(
                             1,
                         ),
-                        ReturnType,
+                        SynExprRootKind::ReturnType,
                     ),
                 ),
             ],
@@ -662,18 +548,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 32,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Vector2d`),
                             ),
                         },
                     ),
@@ -744,44 +620,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`, `MethodFn`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Decl(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Decl(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TypeItem(
-                                        TypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`, `MethodFn`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Decl(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TypeItem(
+                        TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`, `MethodFn`),
                     ),
                 ),
             ),
@@ -869,7 +719,7 @@
                         SemaExprIdx(
                             1,
                         ),
-                        ExplicitParameterType,
+                        SynExprRootKind::ExplicitParameterType,
                     ),
                 ),
                 (
@@ -878,7 +728,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        ReturnType,
+                        SynExprRootKind::ReturnType,
                     ),
                 ),
             ],
@@ -896,18 +746,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 30,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Point2d`),
                             ),
                         },
                     ),
@@ -919,18 +759,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 139,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`f32`),
                             ),
                         },
                     ),

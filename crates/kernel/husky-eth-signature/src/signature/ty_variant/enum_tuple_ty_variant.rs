@@ -8,7 +8,7 @@ pub struct EnumTupleVariantEthTemplate {
 }
 
 impl EnumTupleVariantEthTemplate {
-    pub(super) fn from_declarative(
+    pub(super) fn from_dec(
         db: &::salsa::Db,
         path: TypeVariantPath,
         tmpl: EnumTupleVariantDecTemplate,
@@ -17,8 +17,7 @@ impl EnumTupleVariantEthTemplate {
         else {
             unreachable!()
         };
-        let instance_constructor_ty =
-            EthRitchie::from_declarative(db, tmpl.instance_constructor_ty(db))?;
+        let instance_constructor_ty = EthRitchie::from_dec(db, tmpl.instance_constructor_ty(db))?;
         Ok(Self::new(db, parent_ty_template, instance_constructor_ty))
     }
 

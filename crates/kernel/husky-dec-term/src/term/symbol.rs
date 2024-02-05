@@ -9,6 +9,7 @@ pub use self::set::*;
 use super::*;
 use husky_entity_tree::SynNodeRegionPath;
 use husky_term_prelude::symbol::SymbolName;
+use salsa::DisplayWithDb;
 use thiserror::Error;
 use vec_like::VecSet;
 
@@ -171,17 +172,9 @@ impl DecSymbol {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        name_map: &SymbolDecTermNameMap,
+        name_map: &DecSymbolNameMap,
     ) -> std::fmt::Result {
-        match name_map[self] {
-            SymbolName::Ident(ident) => f.write_str(ident.data(db)),
-            SymbolName::Label(label) => {
-                f.write_str("'")?;
-                f.write_str(label.data(db))
-            }
-            SymbolName::SelfType => f.write_str("Self"),
-            SymbolName::SelfValue => f.write_str("self"),
-        }
+        name_map[self].display_fmt_with_db(f, db)
     }
 }
 

@@ -51,17 +51,23 @@ impl InheritedSynSymbol {
         self.parent_symbol_idx
     }
 
-    pub fn ident(&self) -> Option<Ident> {
+    pub fn name(&self) -> SymbolName {
         match self.kind {
-            InheritedSynSymbolKind::TemplateParameter(kind) => match kind {
-                InheritedTemplateParameterSynSymbol::Lifetime { .. }
-                | InheritedTemplateParameterSynSymbol::Place { .. } => None,
+            InheritedSynSymbolKind::TemplateParameter(
+                InheritedTemplateParameterSynSymbol::Lifetime { label, .. }
+                | InheritedTemplateParameterSynSymbol::Place { label, .. },
+            ) => label.into(),
+            InheritedSynSymbolKind::TemplateParameter(
                 InheritedTemplateParameterSynSymbol::Type { ident }
-                | InheritedTemplateParameterSynSymbol::Constant { ident } => Some(ident),
-            },
-            InheritedSynSymbolKind::ParenateParameter { ident } => Some(ident),
-            InheritedSynSymbolKind::FieldVariable { ident } => Some(ident),
+                | InheritedTemplateParameterSynSymbol::Constant { ident },
+            )
+            | InheritedSynSymbolKind::ParenateParameter { ident }
+            | InheritedSynSymbolKind::FieldVariable { ident } => ident.into(),
         }
+    }
+
+    pub fn ident(&self) -> Option<Ident> {
+        self.name().ident()
     }
 }
 

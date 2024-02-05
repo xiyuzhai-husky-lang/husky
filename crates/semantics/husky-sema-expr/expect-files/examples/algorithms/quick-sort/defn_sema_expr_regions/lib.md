@@ -1,43 +1,17 @@
 [
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Fugitive(
-                                    FugitiveSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::MajorItem(
+                MajorItemPath::Fugitive(
+                    FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                     ),
                 ),
             ),
@@ -71,7 +45,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`Slice t`),
+                                        EthTerm(`Slice T`),
                                     ),
                                 },
                             ),
@@ -91,7 +65,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                 ),
@@ -145,7 +119,7 @@
                                                     ty: FlyTerm {
                                                         place: None,
                                                         base: FlyTermBase::Eth(
-                                                            EthTerm(`Slice t`),
+                                                            EthTerm(`Slice T`),
                                                         ),
                                                     },
                                                 },
@@ -157,6 +131,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: RefMut {
                                                             guard: Left(
@@ -170,22 +149,12 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        Symbol(
-                                                                            EthSymbol(
-                                                                                Id {
-                                                                                    value: 1,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`E`),
                                                                     ),
                                                                 },
                                                             ),
@@ -240,18 +209,19 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`T`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     0,
                                                                 ),
@@ -316,7 +286,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`Slice t`),
+                                        EthTerm(`Slice T`),
                                     ),
                                 },
                             ),
@@ -336,7 +306,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                 ),
@@ -859,7 +829,7 @@
                         SemaExprIdx(
                             13,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -919,18 +889,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 16,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`isize`),
                             ),
                         },
                     ),
@@ -942,16 +902,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    ISize(
-                                        TermISizeLiteral(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),
@@ -963,16 +915,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    USize(
-                                        TermUSizeLiteral(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -1004,7 +948,7 @@
                                 },
                             ),
                             base: FlyTermBase::Eth(
-                                EthTerm(`Slice t`),
+                                EthTerm(`Slice T`),
                             ),
                         },
                     ),
@@ -1033,7 +977,7 @@
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`t`),
+                            EthTerm(`T`),
                         ),
                     },
                 ],
@@ -1056,7 +1000,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`t`),
+                                                EthTerm(`T`),
                                             ),
                                         },
                                     ),
@@ -1065,14 +1009,14 @@
                                             target: FlyTerm {
                                                 place: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`t`),
+                                                    EthTerm(`T`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`t`),
+                                    EthTerm(`T`),
                                 ),
                             },
                             HolTermEntry {
@@ -1095,7 +1039,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`Slice t`),
+                                    EthTerm(`Slice T`),
                                 ),
                             },
                             HolTermEntry {
@@ -1148,7 +1092,7 @@
                                     },
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`fn((borrow mut Slice t,  isize,  isize) -> unit`),
+                                    EthTerm(`fn((borrow mut Slice T,  isize,  isize) -> unit`),
                                 ),
                             },
                         ],
@@ -1181,7 +1125,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -1320,7 +1264,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -1371,7 +1315,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`t`),
+                                            EthTerm(`T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -1680,44 +1624,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Fugitive(
-                                    FugitiveSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::MajorItem(
+                MajorItemPath::Fugitive(
+                    FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                     ),
                 ),
             ),
@@ -1879,18 +1797,19 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`T`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     0,
                                                                 ),
@@ -1955,7 +1874,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`Slice t`),
+                                        EthTerm(`Slice T`),
                                     ),
                                 },
                             ),
@@ -1975,7 +1894,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                 ),
@@ -2236,18 +2155,19 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`T`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     3,
                                                                 ),
@@ -2312,7 +2232,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`Slice t`),
+                                        EthTerm(`Slice T`),
                                     ),
                                 },
                             ),
@@ -2332,7 +2252,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                 ),
@@ -2669,18 +2589,19 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
+                                            path: ItemPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                                ),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
-                                                    Explicit(
+                                                    EthSymbol(`T`),
+                                                    FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hol(
+                                                            base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     6,
                                                                 ),
@@ -2745,7 +2666,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`Slice t`),
+                                        EthTerm(`Slice T`),
                                     ),
                                 },
                             ),
@@ -2765,7 +2686,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                 ),
@@ -3266,7 +3187,7 @@
                         SemaExprIdx(
                             23,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -3326,16 +3247,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    ISize(
-                                        TermISizeLiteral(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -3347,16 +3260,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    ISize(
-                                        TermISizeLiteral(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -3388,7 +3293,7 @@
                                 },
                             ),
                             base: FlyTermBase::Eth(
-                                EthTerm(`Slice t`),
+                                EthTerm(`Slice T`),
                             ),
                         },
                     ),
@@ -3449,7 +3354,7 @@
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`t`),
+                            EthTerm(`T`),
                         ),
                     },
                 ],
@@ -3472,7 +3377,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`t`),
+                                                EthTerm(`T`),
                                             ),
                                         },
                                     ),
@@ -3481,14 +3386,14 @@
                                             target: FlyTerm {
                                                 place: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`t`),
+                                                    EthTerm(`T`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`t`),
+                                    EthTerm(`T`),
                                 ),
                             },
                             HolTermEntry {
@@ -3511,7 +3416,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`Slice t`),
+                                    EthTerm(`Slice T`),
                                 ),
                             },
                             HolTermEntry {
@@ -3564,7 +3469,7 @@
                                     },
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`fn((borrow mut Slice t,  isize,  isize) -> isize`),
+                                    EthTerm(`fn((borrow mut Slice T,  isize,  isize) -> isize`),
                                 ),
                             },
                             HolTermEntry {
@@ -3577,7 +3482,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`t`),
+                                                EthTerm(`T`),
                                             ),
                                         },
                                     ),
@@ -3586,14 +3491,14 @@
                                             target: FlyTerm {
                                                 place: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`t`),
+                                                    EthTerm(`T`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`t`),
+                                    EthTerm(`T`),
                                 ),
                             },
                             HolTermEntry {
@@ -3616,7 +3521,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`Slice t`),
+                                    EthTerm(`Slice T`),
                                 ),
                             },
                             HolTermEntry {
@@ -3669,7 +3574,7 @@
                                     },
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`fn((borrow mut Slice t,  isize,  isize) -> unit`),
+                                    EthTerm(`fn((borrow mut Slice T,  isize,  isize) -> unit`),
                                 ),
                             },
                             HolTermEntry {
@@ -3682,7 +3587,7 @@
                                         FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`t`),
+                                                EthTerm(`T`),
                                             ),
                                         },
                                     ),
@@ -3691,14 +3596,14 @@
                                             target: FlyTerm {
                                                 place: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`t`),
+                                                    EthTerm(`T`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`t`),
+                                    EthTerm(`T`),
                                 ),
                             },
                             HolTermEntry {
@@ -3721,7 +3626,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`Slice t`),
+                                    EthTerm(`Slice T`),
                                 ),
                             },
                             HolTermEntry {
@@ -3774,7 +3679,7 @@
                                     },
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`fn((borrow mut Slice t,  isize,  isize) -> unit`),
+                                    EthTerm(`fn((borrow mut Slice T,  isize,  isize) -> unit`),
                                 ),
                             },
                         ],
@@ -4014,7 +3919,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -4065,7 +3970,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`t`),
+                                            EthTerm(`T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -4318,7 +4223,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -4369,7 +4274,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`t`),
+                                            EthTerm(`T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -4706,7 +4611,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -4757,7 +4662,7 @@
                                     expectee: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`t`),
+                                            EthTerm(`T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -4992,44 +4897,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Fugitive(
-                                    FugitiveSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::MajorItem(
+                MajorItemPath::Fugitive(
+                    FugitivePath(`quick_sort::partition`, `FunctionFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`quick_sort::partition`, `FunctionFn`),
                     ),
                 ),
             ),
@@ -5534,7 +5413,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`Slice t`),
+                                        EthTerm(`Slice T`),
                                     ),
                                 },
                             ),
@@ -5554,7 +5433,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                 ),
@@ -5731,7 +5610,7 @@
                                             element_ty: FlyTerm {
                                                 place: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`t`),
+                                                    EthTerm(`T`),
                                                 ),
                                             },
                                         },
@@ -5752,7 +5631,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`t`),
+                                        EthTerm(`T`),
                                     ),
                                 },
                             ),
@@ -5772,7 +5651,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`t`),
+                                            EthTerm(`T`),
                                         ),
                                     },
                                 ),
@@ -5805,7 +5684,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`Slice t`),
+                                        EthTerm(`Slice T`),
                                     ),
                                 },
                             ),
@@ -5825,7 +5704,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                 ),
@@ -5926,7 +5805,7 @@
                                             element_ty: FlyTerm {
                                                 place: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`t`),
+                                                    EthTerm(`T`),
                                                 ),
                                             },
                                         },
@@ -5947,7 +5826,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`t`),
+                                        EthTerm(`T`),
                                     ),
                                 },
                             ),
@@ -5967,7 +5846,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`t`),
+                                            EthTerm(`T`),
                                         ),
                                     },
                                 ),
@@ -6438,7 +6317,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`Slice t`),
+                                        EthTerm(`Slice T`),
                                     ),
                                 },
                             ),
@@ -6458,7 +6337,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                 ),
@@ -6635,7 +6514,7 @@
                                             element_ty: FlyTerm {
                                                 place: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`t`),
+                                                    EthTerm(`T`),
                                                 ),
                                             },
                                         },
@@ -6656,7 +6535,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`t`),
+                                        EthTerm(`T`),
                                     ),
                                 },
                             ),
@@ -6676,7 +6555,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`t`),
+                                            EthTerm(`T`),
                                         ),
                                     },
                                 ),
@@ -6709,7 +6588,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`Slice t`),
+                                        EthTerm(`Slice T`),
                                     ),
                                 },
                             ),
@@ -6729,7 +6608,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                 ),
@@ -6830,7 +6709,7 @@
                                             element_ty: FlyTerm {
                                                 place: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`t`),
+                                                    EthTerm(`T`),
                                                 ),
                                             },
                                         },
@@ -6851,7 +6730,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`t`),
+                                        EthTerm(`T`),
                                     ),
                                 },
                             ),
@@ -6871,7 +6750,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`t`),
+                                            EthTerm(`T`),
                                         ),
                                     },
                                 ),
@@ -7268,7 +7147,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`Slice t`),
+                                        EthTerm(`Slice T`),
                                     ),
                                 },
                             ),
@@ -7288,7 +7167,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                 ),
@@ -7592,7 +7471,7 @@
                                                     ty: FlyTerm {
                                                         place: None,
                                                         base: FlyTermBase::Eth(
-                                                            EthTerm(`Slice t`),
+                                                            EthTerm(`Slice T`),
                                                         ),
                                                     },
                                                 },
@@ -7627,6 +7506,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: RefMut {
                                                             guard: Left(
@@ -7640,33 +7524,19 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        Symbol(
-                                                                            EthSymbol(
-                                                                                Id {
-                                                                                    value: 1,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`E`),
                                                                     ),
                                                                 },
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 2,
-                                                                },
-                                                            ),
-                                                            SelfLifetime,
+                                                            EthSymbol(`'self_lifetime`),
+                                                            FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
                                                     separator: Some(
@@ -7790,7 +7660,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`Slice t`),
+                                        EthTerm(`Slice T`),
                                     ),
                                 },
                             ),
@@ -7810,7 +7680,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                 ),
@@ -8114,7 +7984,7 @@
                                                     ty: FlyTerm {
                                                         place: None,
                                                         base: FlyTermBase::Eth(
-                                                            EthTerm(`Slice t`),
+                                                            EthTerm(`Slice T`),
                                                         ),
                                                     },
                                                 },
@@ -8149,6 +8019,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: RefMut {
                                                             guard: Left(
@@ -8162,33 +8037,19 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        Symbol(
-                                                                            EthSymbol(
-                                                                                Id {
-                                                                                    value: 1,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`E`),
                                                                     ),
                                                                 },
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 2,
-                                                                },
-                                                            ),
-                                                            SelfLifetime,
+                                                            EthSymbol(`'self_lifetime`),
+                                                            FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
                                                     separator: Some(
@@ -8931,7 +8792,7 @@
                         SemaExprIdx(
                             63,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -9091,18 +8952,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`usize`),
                             ),
                         },
                     ),
@@ -9114,18 +8965,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`usize`),
                             ),
                         },
                     ),
@@ -9137,18 +8978,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`usize`),
                             ),
                         },
                     ),
@@ -9160,18 +8991,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`usize`),
                             ),
                         },
                     ),
@@ -9183,18 +9004,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`usize`),
                             ),
                         },
                     ),
@@ -9206,18 +9017,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`usize`),
                             ),
                         },
                     ),
@@ -9229,18 +9030,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`usize`),
                             ),
                         },
                     ),
@@ -9252,16 +9043,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    ISize(
-                                        TermISizeLiteral(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -9273,12 +9056,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    Bool(
-                                        true,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`true`),
                             ),
                         },
                     ),
@@ -9290,16 +9069,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    ISize(
-                                        TermISizeLiteral(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -9311,16 +9082,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    ISize(
-                                        TermISizeLiteral(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -9332,16 +9095,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    ISize(
-                                        TermISizeLiteral(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -9353,16 +9108,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    ISize(
-                                        TermISizeLiteral(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),
@@ -9374,16 +9121,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    ISize(
-                                        TermISizeLiteral(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -9415,7 +9154,7 @@
                                 },
                             ),
                             base: FlyTermBase::Eth(
-                                EthTerm(`Slice t`),
+                                EthTerm(`Slice T`),
                             ),
                         },
                     ),
@@ -9508,7 +9247,7 @@
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`t`),
+                            EthTerm(`T`),
                         ),
                     },
                 ],
@@ -9903,7 +9642,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -10020,7 +9759,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`t`),
+                                            EthTerm(`T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -10050,7 +9789,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -10102,7 +9841,7 @@
                                                 },
                                             ),
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`t`),
+                                                EthTerm(`T`),
                                             ),
                                         },
                                     },
@@ -10126,7 +9865,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`t`),
+                                            EthTerm(`T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -10542,7 +10281,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -10659,7 +10398,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`t`),
+                                            EthTerm(`T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -10689,7 +10428,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -10741,7 +10480,7 @@
                                                 },
                                             ),
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`t`),
+                                                EthTerm(`T`),
                                             ),
                                         },
                                     },
@@ -10765,7 +10504,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`t`),
+                                            EthTerm(`T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -11111,7 +10850,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -11395,7 +11134,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`Slice t`),
+                                            EthTerm(`Slice T`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
@@ -11776,44 +11515,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Fugitive(
-                                    FugitiveSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::MajorItem(
+                MajorItemPath::Fugitive(
+                    FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                     ),
                 ),
             ),
@@ -12567,7 +12280,7 @@
                         SemaExprIdx(
                             16,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -12619,18 +12332,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 41,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Vec`),
                             ),
                         },
                     ),
@@ -12642,18 +12345,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`i32`),
                             ),
                         },
                     ),
@@ -12665,14 +12358,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Application(
-                                    EthApplication(
-                                        Id {
-                                            value: 5,
-                                        },
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Vec i32`),
                             ),
                         },
                     ),
@@ -12684,12 +12371,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        4,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`4`),
                             ),
                         },
                     ),
@@ -12701,12 +12384,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        65,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`65`),
                             ),
                         },
                     ),
@@ -12718,12 +12397,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        2,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`2`),
                             ),
                         },
                     ),
@@ -12735,12 +12410,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        31,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`31`),
                             ),
                         },
                     ),
@@ -12752,12 +12423,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        0,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),
@@ -12769,12 +12436,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        99,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`99`),
                             ),
                         },
                     ),
@@ -12786,12 +12449,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        2,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`2`),
                             ),
                         },
                     ),
@@ -12803,12 +12462,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        83,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`83`),
                             ),
                         },
                     ),
@@ -12820,12 +12475,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        782,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`782`),
                             ),
                         },
                     ),
@@ -12837,12 +12488,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -12972,14 +12619,8 @@
                                     ExpectCurryDestination {
                                         curry_destination: FlyTerm {
                                             place: None,
-                                            base: Eth(
-                                                Category(
-                                                    Category {
-                                                        universe: Universe(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
+                                            base: FlyTermBase::Eth(
+                                                EthTerm(`Type`),
                                             ),
                                         },
                                     },
@@ -13548,44 +13189,18 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Fugitive(
-                                    FugitiveSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::MajorItem(
+                MajorItemPath::Fugitive(
+                    FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                     ),
                 ),
             ),
@@ -13996,7 +13611,7 @@
                         SemaExprIdx(
                             8,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -14048,16 +13663,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    String(
-                                        StringLiteralTokenData(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`"beach"`),
                             ),
                         },
                     ),
@@ -14069,16 +13676,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    String(
-                                        StringLiteralTokenData(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`"hotel"`),
                             ),
                         },
                     ),
@@ -14090,16 +13689,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    String(
-                                        StringLiteralTokenData(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`"airplane"`),
                             ),
                         },
                     ),
@@ -14111,16 +13702,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    String(
-                                        StringLiteralTokenData(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`"car"`),
                             ),
                         },
                     ),
@@ -14132,16 +13715,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    String(
-                                        StringLiteralTokenData(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`"house"`),
                             ),
                         },
                     ),
@@ -14153,16 +13728,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    String(
-                                        StringLiteralTokenData(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`"art"`),
                             ),
                         },
                     ),

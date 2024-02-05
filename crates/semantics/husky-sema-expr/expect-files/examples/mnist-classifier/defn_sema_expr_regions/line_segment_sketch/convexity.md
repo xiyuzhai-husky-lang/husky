@@ -1,43 +1,17 @@
 [
     SemaExprRegion {
-        path: SynNodeRegionPath::Defn(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Fugitive(
-                                    FugitiveSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Defn(
+            ItemPath::MajorItem(
+                MajorItemPath::Fugitive(
+                    FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Defn(
+                ItemPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                     ),
                 ),
             ),
@@ -244,6 +218,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             location: StackLocationIdx(
@@ -255,26 +234,12 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        EntityPath(
-                                                                            TypeOntology(
-                                                                                TypePath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 40,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`LineSegmentStroke`),
                                                                     ),
                                                                 },
                                                             ),
@@ -745,6 +710,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             location: StackLocationIdx(
@@ -1336,6 +1306,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             location: StackLocationIdx(
@@ -1549,6 +1524,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
@@ -2529,31 +2509,22 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed,
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        EntityPath(
-                                                                            TypeOntology(
-                                                                                TypePath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 30,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`Point2d`),
                                                                     ),
                                                                 },
                                                             ),
@@ -2697,31 +2668,22 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed,
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        EntityPath(
-                                                                            TypeOntology(
-                                                                                TypePath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 30,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`Point2d`),
                                                                     ),
                                                                 },
                                                             ),
@@ -3058,31 +3020,22 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed,
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        EntityPath(
-                                                                            TypeOntology(
-                                                                                TypePath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 30,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`Point2d`),
                                                                     ),
                                                                 },
                                                             ),
@@ -3249,6 +3202,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed,
                                                     },
@@ -3625,6 +3583,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
@@ -3773,6 +3736,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
                                                             location: StackLocationIdx(
@@ -4543,31 +4511,22 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed,
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        EntityPath(
-                                                                            TypeOntology(
-                                                                                TypePath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 30,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`Point2d`),
                                                                     ),
                                                                 },
                                                             ),
@@ -4711,31 +4670,22 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed,
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        EntityPath(
-                                                                            TypeOntology(
-                                                                                TypePath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 30,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`Point2d`),
                                                                     ),
                                                                 },
                                                             ),
@@ -5072,31 +5022,22 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed,
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbol(`E`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        EntityPath(
-                                                                            TypeOntology(
-                                                                                TypePath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 30,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`Point2d`),
                                                                     ),
                                                                 },
                                                             ),
@@ -5263,6 +5204,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed,
                                                     },
@@ -5639,6 +5585,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
@@ -5787,6 +5738,11 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
+                                                    path: ItemPath::AssociatedItem(
+                                                        AssociatedItemPath::TypeItem(
+                                                            TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
+                                                        ),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
                                                             location: StackLocationIdx(
@@ -6927,7 +6883,7 @@
                         SemaExprIdx(
                             90,
                         ),
-                        BlockExpr,
+                        SynExprRootKind::BlockExpr,
                     ),
                 ),
             ],
@@ -7357,12 +7313,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -7374,12 +7326,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        0,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),
@@ -7391,16 +7339,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    F32(
-                                        TermF32Literal(
-                                            Id {
-                                                value: 33,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`999999.0f32`),
                             ),
                         },
                     ),
@@ -7412,12 +7352,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        1,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`1`),
                             ),
                         },
                     ),
@@ -7429,16 +7365,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    F32(
-                                        TermF32Literal(
-                                            Id {
-                                                value: 33,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`999999.0f32`),
                             ),
                         },
                     ),
@@ -7450,12 +7378,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Literal(
-                                    I32(
-                                        0,
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`0`),
                             ),
                         },
                     ),

@@ -1,43 +1,17 @@
 [
     SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Type(
-                    TypeSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Type(
-                                    TypeSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Decl(
+            ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Decl(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Type(
-                        TypeSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Type(
-                                        TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Decl(
+                ItemPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                     ),
                 ),
             ),
@@ -253,15 +227,9 @@
                         SemaExprIdx(
                             2,
                         ),
-                        PropsStructFieldType {
+                        SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 16,
-                                        },
-                                    ),
-                                ),
+                                ident: `line_segment_sketch`,
                                 regional_token_idx: RegionalTokenIdx(
                                     4,
                                 ),
@@ -275,15 +243,9 @@
                         SemaExprIdx(
                             6,
                         ),
-                        PropsStructFieldType {
+                        SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 242,
-                                        },
-                                    ),
-                                ),
+                                ident: `line_segments`,
                                 regional_token_idx: RegionalTokenIdx(
                                     9,
                                 ),
@@ -304,18 +266,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 41,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`LineSegmentSketch`),
                             ),
                         },
                     ),
@@ -327,14 +279,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Application(
-                                    EthApplication(
-                                        Id {
-                                            value: 28,
-                                        },
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Leash LineSegmentSketch`),
                             ),
                         },
                     ),
@@ -346,18 +292,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 154,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`CyclicSlice`),
                             ),
                         },
                     ),
@@ -369,18 +305,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 40,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`LineSegmentStroke`),
                             ),
                         },
                     ),
@@ -392,14 +318,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Application(
-                                    EthApplication(
-                                        Id {
-                                            value: 29,
-                                        },
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`CyclicSlice LineSegmentStroke`),
                             ),
                         },
                     ),
@@ -411,14 +331,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Application(
-                                    EthApplication(
-                                        Id {
-                                            value: 30,
-                                        },
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                             ),
                         },
                     ),
@@ -483,14 +397,8 @@
                                     ExpectCurryDestination {
                                         curry_destination: FlyTerm {
                                             place: None,
-                                            base: Eth(
-                                                Category(
-                                                    Category {
-                                                        universe: Universe(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
+                                            base: FlyTermBase::Eth(
+                                                EthTerm(`Type`),
                                             ),
                                         },
                                     },
@@ -599,14 +507,8 @@
                                     ExpectCurryDestination {
                                         curry_destination: FlyTerm {
                                             place: None,
-                                            base: Eth(
-                                                Category(
-                                                    Category {
-                                                        universe: Universe(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
+                                            base: FlyTermBase::Eth(
+                                                EthTerm(`Type`),
                                             ),
                                         },
                                     },
@@ -632,14 +534,8 @@
                                     ExpectCurryDestination {
                                         curry_destination: FlyTerm {
                                             place: None,
-                                            base: Eth(
-                                                Category(
-                                                    Category {
-                                                        universe: Universe(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
+                                            base: FlyTermBase::Eth(
+                                                EthTerm(`Type`),
                                             ),
                                         },
                                     },
@@ -704,56 +600,36 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::ImplBlock(
-                ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    },
-                                ),
+        path: RegionPath::Decl(
+            ItemPath::ImplBlock(
+                ImplBlockPath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
+                            module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_sketch: TypeSketch::Path(
+                                TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                             ),
+                            disambiguator: 0,
                         },
-                    ),
+                    },
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Decl(
-                ItemSynNodePath::ImplBlock(
-                    ImplBlockSynNodePath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::ImplBlock(
-                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        },
-                                    ),
+            path: RegionPath::Decl(
+                ItemPath::ImplBlock(
+                    ImplBlockPath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                 ),
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
             ),
@@ -841,7 +717,7 @@
                         SemaExprIdx(
                             1,
                         ),
-                        Trait,
+                        SynExprRootKind::Trait,
                     ),
                 ),
                 (
@@ -850,7 +726,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SelfType,
+                        SynExprRootKind::SelfType,
                     ),
                 ),
             ],
@@ -866,18 +742,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    Trait(
-                                        TraitPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 181,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Visualize`),
                             ),
                         },
                     ),
@@ -889,18 +755,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 49,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`ConvexComponent`),
                             ),
                         },
                     ),
@@ -991,39 +847,26 @@
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TraitForTypeItem(
-                                    TraitForTypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TraitForTypeItem(
-                                                            TraitForTypeItemPathData {
-                                                                impl_block: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                                ident: `visualize`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
+        path: RegionPath::Decl(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TraitForTypeItem(
+                    TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
                                         },
+                                        ident: `visualize`,
+                                        item_kind: MethodFn,
                                     },
                                 ),
                             ),
@@ -1033,39 +876,26 @@
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Decl(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TraitForTypeItem(
-                        TraitForTypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TraitForTypeItem(
-                                        TraitForTypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitForTypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TraitForTypeItem(
-                                                                TraitForTypeItemPathData {
-                                                                    impl_block: TraitForTypeImplBlock {
-                                                                        data: TraitForTypeImplBlockPathData {
-                                                                            module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                                                            ty_sketch: TypeSketch::Path(
-                                                                                TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                                            ),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                    ident: `visualize`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
+            path: RegionPath::Decl(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TraitForTypeItem(
+                        TraitForTypeItemPath(
+                            ItemPathId {
+                                data: ItemPathData::AssociatedItem(
+                                    AssociatedItemPathData::TraitForTypeItem(
+                                        TraitForTypeItemPathData {
+                                            impl_block: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
                                             },
+                                            ident: `visualize`,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                 ),
@@ -1125,7 +955,7 @@
                         SemaExprIdx(
                             1,
                         ),
-                        ReturnType,
+                        SynExprRootKind::ReturnType,
                     ),
                 ),
             ],
@@ -1141,18 +971,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 144,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Visual`),
                             ),
                         },
                     ),

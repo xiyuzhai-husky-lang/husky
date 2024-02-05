@@ -1,22 +1,79 @@
-use husky_eth_term::term::EthTerm;
-use husky_print_utils::p;
-use vec_like::VecPairMap;
-
 use crate::*;
+use husky_entity_path::region::RegionPath;
+use husky_eth_term::{
+    fmt::EthTermFmtContext,
+    term::{symbol::EthSymbol, EthTerm},
+};
+use husky_term_prelude::symbol::SymbolName;
+use salsa::fmt::WithFmtContext;
+use vec_like::{VecMap, VecPairMap};
 
 #[salsa::tracked(db = SemaExprDb, jar = SemaExprJar, constructor = new_inner)]
 pub struct SemaExprRegion {
     #[id]
-    pub path: SynNodeRegionPath,
+    pub path: RegionPath,
     #[skip_fmt]
     pub syn_expr_region: SynExprRegion,
     #[return_ref]
     pub data: SemaExprRegionData,
 }
 
+impl WithFmtContext for SemaExprRegion {
+    fn with_fmt_context(
+        &self,
+        f: impl FnOnce() -> ::std::fmt::Result,
+        db: &::salsa::Db,
+    ) -> ::std::fmt::Result {
+        use husky_eth_term::fmt::with_eth_term_fmt_context;
+
+        let ctx = sema_expr_region_eth_term_fmt_context(db, *self);
+        with_eth_term_fmt_context(ctx, f, db)
+    }
+}
+
+#[salsa::tracked(jar = SemaExprJar)]
+fn sema_expr_region_eth_term_fmt_context(
+    db: &::salsa::Db,
+    region: SemaExprRegion,
+) -> EthTermFmtContext {
+    let syn_expr_region_data = region.syn_expr_region(db).data(db);
+    let sema_expr_region_data = region.data(db);
+    let fluffy_terms = sema_expr_region_data.fluffy_term_region().terms();
+    let symbol_names = VecMap::from_iter_assuming_no_repetitions(
+        sema_expr_region_data
+            .symbol_terms
+            .inherited_syn_symbol_map()
+            .key_value_iter()
+            .map(|(idx, term)| {
+                let FlyTermBase::Eth(EthTerm::Symbol(symbol)) =
+                    term.base_resolved_inner(fluffy_terms)
+                else {
+                    todo!();
+                };
+                (symbol, syn_expr_region_data.symbol_region()[idx].name())
+            })
+            .chain(
+                sema_expr_region_data
+                    .symbol_terms
+                    .current_syn_symbol_map()
+                    .key_value_iter()
+                    .map(|(idx, term)| {
+                        let FlyTermBase::Eth(EthTerm::Symbol(symbol)) =
+                            term.base_resolved_inner(fluffy_terms)
+                        else {
+                            todo!();
+                        };
+                        (symbol, syn_expr_region_data.symbol_region()[idx].name())
+                    }),
+            ),
+    )
+    .expect("no repetitions");
+    EthTermFmtContext::new(db, sema_expr_region_data.path, symbol_names)
+}
+
 impl SemaExprRegion {
     pub(crate) fn new(
-        path: SynNodeRegionPath,
+        path: RegionPath,
         syn_expr_region: SynExprRegion,
         sema_expr_arena: SemaExprArena,
         sema_stmt_arena: SemaStmtArena,
@@ -56,7 +113,7 @@ impl SemaExprRegion {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaExprRegionData {
-    path: SynNodeRegionPath,
+    path: RegionPath,
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,
     sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
@@ -125,7 +182,7 @@ impl SemaExprRegionData {
         &self.symbol_terms
     }
 
-    pub fn path(&self) -> SynNodeRegionPath {
+    pub fn path(&self) -> RegionPath {
         self.path
     }
 

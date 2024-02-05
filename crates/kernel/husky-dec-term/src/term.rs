@@ -28,7 +28,7 @@ pub use self::ty_as_trai_item::*;
 pub use self::wrapper::*;
 
 use self::abstraction::*;
-use self::name::SymbolDecTermNameMap;
+use self::name::DecSymbolNameMap;
 use crate::*;
 
 #[enum_class::from_variants]

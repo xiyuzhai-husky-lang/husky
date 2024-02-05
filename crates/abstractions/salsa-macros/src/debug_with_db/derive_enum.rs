@@ -50,11 +50,12 @@ pub(super) fn enum_debug_with_db_impl(item: &mut ItemEnum) -> proc_macro2::Token
         quote! {
             impl #generics_without_trais ::salsa::DebugWithDb for #self_ty #where_clause {
                 fn debug_with_db_fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db,) -> ::std::fmt::Result {
+                    use ::salsa::fmt::{WithFmtContext, WithFmtContextTest};
                     #[allow(unused_imports)]
                     use ::salsa::debug::helper::Fallback;
-                    match self {
+                    WithFmtContextTest(self).with_fmt_context(|| match self {
                         #variants
-                    }
+                    }, _db)
                 }
             }
         }

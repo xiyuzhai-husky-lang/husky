@@ -7,12 +7,12 @@ pub struct ValFugitiveEthTemplate {
 }
 
 impl ValFugitiveEthTemplate {
-    pub(super) fn from_declarative(
+    pub(super) fn from_dec(
         db: &::salsa::Db,
         path: MajorFugitivePath,
         dec_template: MajorValDecTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let return_ty = EthTerm::ty_from_declarative(db, dec_template.return_ty(db))?;
+        let return_ty = EthTerm::ty_from_dec(db, dec_template.return_ty(db))?;
         Ok(Self::new(db, path, return_ty))
     }
 }

@@ -52,7 +52,7 @@ pub(crate) fn trai_for_ty_impl_block_syn_dec_template(
     let trai_expr = decl.trai_expr(db);
     let trai = declarative_term_region.expr_term(trai_expr.syn_expr_idx())?;
     let self_ty_term = declarative_term_region
-        .term_symbol_region()
+        .dec_symbol_region()
         .self_ty()
         .ok_or(DecSignatureError::SelfTypeNotInferred)?;
     let self_ty = match decl.self_ty_decl(db) {

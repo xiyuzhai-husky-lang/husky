@@ -1,6 +1,6 @@
 use super::*;
 use crate::place::HirPlace;
-use husky_eth_term::instantiation::EtherealInstantiation;
+use husky_eth_term::instantiation::EthInstantiation;
 use husky_fly_term::{
     instantiation::{FlyInstantiation, FlyTermSymbolResolution},
     FlyTerms,
@@ -83,7 +83,7 @@ impl HirInstantiation {
         }
     }
 
-    pub fn from_eth(ethereal_instantiation: &EtherealInstantiation, db: &::salsa::Db) -> Self {
+    pub fn from_eth(ethereal_instantiation: &EthInstantiation, db: &::salsa::Db) -> Self {
         let (symbol_map0, symbol_map1) = &ethereal_instantiation.symbol_map_splitted();
         let t = |&(symbol, term)| match HirTemplateSymbol::from_eth(symbol, db) {
             Some(symbol) => Some((

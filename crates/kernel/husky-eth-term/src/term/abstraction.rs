@@ -16,7 +16,7 @@ fn term_abstraction_size_works() {
 }
 
 impl EthAbstraction {
-    pub(crate) fn from_declarative(
+    pub(crate) fn from_dec(
         _db: &::salsa::Db,
         _precise_term: DecAbstraction,
         _term_ty_expectation: TypeFinalDestinationExpectation,
@@ -54,10 +54,10 @@ impl EthAbstraction {
     }
 }
 
-impl EthTermInstantiate for EthAbstraction {
+impl EthInstantiate for EthAbstraction {
     type Output = EthAbstraction;
 
-    fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+    fn instantiate(self, db: &salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
         Self::new(
             db,
             self.x(db).instantiate(db, instantiation),

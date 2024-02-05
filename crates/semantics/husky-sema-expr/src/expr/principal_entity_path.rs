@@ -1,7 +1,7 @@
 use super::*;
 use either::*;
 use husky_eth_signature::{FugitiveEthTemplate, HasEthTemplate, TypeVariantEthTemplate};
-use husky_eth_term::instantiation::EthTermInstantiate;
+use husky_eth_term::instantiation::EthInstantiate;
 use husky_fly_term::instantiation::{
     FlyInstantiate, FlyInstantiation, FlyInstantiationEnvironment, FlyTermSymbolResolution,
 };
@@ -36,6 +36,7 @@ impl<'a> SemaExprEngine<'a> {
                     TypePathDisambiguation::InstanceConstructor => match path.eth_template(db) {
                         Ok(tmpl) => {
                             let instantiation = FlyInstantiation::from_template_parameters(
+                                path,
                                 FlyInstantiationEnvironment::TypeOntologyConstructor,
                                 syn_expr_idx,
                                 tmpl.template_parameters(db),
@@ -59,6 +60,7 @@ impl<'a> SemaExprEngine<'a> {
                 MajorItemPath::Fugitive(path) => match path.eth_template(db) {
                     Ok(tmpl) => {
                         let instantiation = FlyInstantiation::from_template_parameters(
+                            path,
                             FlyInstantiationEnvironment::TypeOntologyConstructor,
                             syn_expr_idx,
                             tmpl.template_parameters(db),
@@ -104,6 +106,7 @@ impl<'a> SemaExprEngine<'a> {
                     Err(_) => todo!(),
                 };
                 let instantiation = FlyInstantiation::from_template_parameters(
+                    path,
                     FlyInstantiationEnvironment::TypeOntologyConstructor,
                     syn_expr_idx,
                     parent_ty_tmpl.template_parameters(db),

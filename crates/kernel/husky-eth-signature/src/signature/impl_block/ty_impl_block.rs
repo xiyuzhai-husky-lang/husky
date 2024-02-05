@@ -22,7 +22,7 @@ pub(crate) fn ty_impl_block_eth_template(
 ) -> EtherealSignatureResult<TypeImplBlockEthTemplate> {
     let dec_template = path.dec_template(db)?;
     let template_parameters =
-        EthTemplateParameters::from_declarative(db, dec_template.template_parameters(db))?;
-    let ty = EthTerm::ty_from_declarative(db, dec_template.ty(db))?;
+        EthTemplateParameters::from_dec(db, dec_template.template_parameters(db))?;
+    let ty = EthTerm::ty_from_dec(db, dec_template.ty(db))?;
     Ok(TypeImplBlockEthTemplate::new(db, template_parameters, ty))
 }

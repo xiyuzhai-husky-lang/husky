@@ -17,21 +17,19 @@ pub struct TypeAssociatedFnEthTemplate {
 }
 
 impl TypeAssociatedFnEthTemplate {
-    pub(super) fn from_declarative(
+    pub(super) fn from_dec(
         db: &::salsa::Db,
         path: TypeItemPath,
         declarative_signature: TypeAssociatedFnDecTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let self_ty = EthTerm::ty_from_declarative(db, declarative_signature.self_ty(db))?;
-        let template_parameters = EthTemplateParameters::from_declarative(
-            db,
-            declarative_signature.template_parameters(db),
-        )?;
-        let parenate_parameters = EtherealParenateParameters::from_declarative(
+        let self_ty = EthTerm::ty_from_dec(db, declarative_signature.self_ty(db))?;
+        let template_parameters =
+            EthTemplateParameters::from_dec(db, declarative_signature.template_parameters(db))?;
+        let parenate_parameters = EtherealParenateParameters::from_dec(
             db,
             declarative_signature.parenate_parameters(db),
         )?;
-        let return_ty = EthTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
+        let return_ty = EthTerm::ty_from_dec(db, declarative_signature.return_ty(db))?;
         let ty = EthRitchie::new(
             db,
             TypeRitchieKind::Fn.into(),

@@ -10,14 +10,14 @@ pub struct UnitStructTypeEthTemplate {
 }
 
 impl UnitStructTypeEthTemplate {
-    pub(super) fn from_declarative(
+    pub(super) fn from_dec(
         db: &::salsa::Db,
         path: TypePath,
         tmpl: UnitStructTypeDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters =
-            EthTemplateParameters::from_declarative(db, tmpl.template_parameters(db))?;
-        let self_ty = EthTerm::ty_from_declarative(db, tmpl.self_ty(db))?;
+            EthTemplateParameters::from_dec(db, tmpl.template_parameters(db))?;
+        let self_ty = EthTerm::ty_from_dec(db, tmpl.self_ty(db))?;
         Ok(Self::new(db, path, template_parameters, self_ty))
     }
 }

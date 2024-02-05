@@ -1,43 +1,17 @@
 [
     SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Trait(
-                    TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::clone::Clone`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+        path: RegionPath::Decl(
+            ItemPath::MajorItem(
+                MajorItemPath::Trait(
+                    TraitPath(`core::clone::Clone`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Decl(
-                ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Trait(
-                        TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::clone::Clone`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+            path: RegionPath::Decl(
+                ItemPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::clone::Clone`),
                     ),
                 ),
             ),
@@ -84,57 +58,37 @@
             },
             return_ty: None,
             self_ty: Some(
-                EthTerm(`t`),
+                EthTerm(`Self`),
             ),
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::ImplBlock(
-                ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::clone`,
-                                                trai_path: TraitPath(`core::clone::Clone`),
-                                                ty_sketch: TypeSketch::DeriveAny,
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    },
-                                ),
-                            ),
+        path: RegionPath::Decl(
+            ItemPath::ImplBlock(
+                ImplBlockPath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
+                            module_path: `core::clone`,
+                            trai_path: TraitPath(`core::clone::Clone`),
+                            ty_sketch: TypeSketch::DeriveAny,
+                            disambiguator: 0,
                         },
-                    ),
+                    },
                 ),
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Decl(
-                ItemSynNodePath::ImplBlock(
-                    ImplBlockSynNodePath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::ImplBlock(
-                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `core::clone`,
-                                                    trai_path: TraitPath(`core::clone::Clone`),
-                                                    ty_sketch: TypeSketch::DeriveAny,
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        },
-                                    ),
-                                ),
+            path: RegionPath::Decl(
+                ItemPath::ImplBlock(
+                    ImplBlockPath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::clone`,
+                                trai_path: TraitPath(`core::clone::Clone`),
+                                ty_sketch: TypeSketch::DeriveAny,
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
             ),
@@ -189,7 +143,7 @@
                         SemaExprIdx(
                             1,
                         ),
-                        Trait,
+                        SynExprRootKind::Trait,
                     ),
                 ),
             ],
@@ -205,18 +159,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                EntityPath(
-                                    Trait(
-                                        TraitPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 29,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Clone`),
                             ),
                         },
                     ),
@@ -270,42 +214,29 @@
             },
             return_ty: None,
             self_ty: Some(
-                EthTerm(`t`),
+                EthTerm(`Self`),
             ),
         },
     },
     SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TraitForTypeItem(
-                                    TraitForTypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TraitForTypeItem(
-                                                            TraitForTypeItemPathData {
-                                                                impl_block: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::clone`,
-                                                                        trai_path: TraitPath(`core::clone::Clone`),
-                                                                        ty_sketch: TypeSketch::DeriveAny,
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                                ident: `clone`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
+        path: RegionPath::Decl(
+            ItemPath::AssociatedItem(
+                AssociatedItemPath::TraitForTypeItem(
+                    TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::clone`,
+                                                trai_path: TraitPath(`core::clone::Clone`),
+                                                ty_sketch: TypeSketch::DeriveAny,
+                                                disambiguator: 0,
+                                            },
                                         },
+                                        ident: `clone`,
+                                        item_kind: MethodFn,
                                     },
                                 ),
                             ),
@@ -315,37 +246,24 @@
             ),
         ),
         data: SemaExprRegionData {
-            path: SynNodeRegionPath::Decl(
-                ItemSynNodePath::AssociatedItem(
-                    AssociatedItemSynNodePath::TraitForTypeItem(
-                        TraitForTypeItemSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::AssociatedItem(
-                                    AssociatedItemSynNodePathData::TraitForTypeItem(
-                                        TraitForTypeItemSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitForTypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TraitForTypeItem(
-                                                                TraitForTypeItemPathData {
-                                                                    impl_block: TraitForTypeImplBlock {
-                                                                        data: TraitForTypeImplBlockPathData {
-                                                                            module_path: `core::clone`,
-                                                                            trai_path: TraitPath(`core::clone::Clone`),
-                                                                            ty_sketch: TypeSketch::DeriveAny,
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                    ident: `clone`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
+            path: RegionPath::Decl(
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TraitForTypeItem(
+                        TraitForTypeItemPath(
+                            ItemPathId {
+                                data: ItemPathData::AssociatedItem(
+                                    AssociatedItemPathData::TraitForTypeItem(
+                                        TraitForTypeItemPathData {
+                                            impl_block: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::clone`,
+                                                    trai_path: TraitPath(`core::clone::Clone`),
+                                                    ty_sketch: TypeSketch::DeriveAny,
+                                                    disambiguator: 0,
+                                                },
                                             },
+                                            ident: `clone`,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                 ),
@@ -400,7 +318,7 @@
                         SemaExprIdx(
                             1,
                         ),
-                        ReturnType,
+                        SynExprRootKind::ReturnType,
                     ),
                 ),
             ],
@@ -416,14 +334,8 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Eth(
-                                Symbol(
-                                    EthSymbol(
-                                        Id {
-                                            value: 3,
-                                        },
-                                    ),
-                                ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`Self`),
                             ),
                         },
                     ),
@@ -489,7 +401,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EthTerm(`t`),
+                EthTerm(`Self`),
             ),
         },
     },

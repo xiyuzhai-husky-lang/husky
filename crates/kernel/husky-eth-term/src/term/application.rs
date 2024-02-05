@@ -71,13 +71,13 @@ impl EthApplication {
     }
 
     /// returns EthTerm instead of EthTermApplication because it might reduce to a non application term
-    pub(crate) fn from_declarative(
+    pub(crate) fn from_dec(
         db: &::salsa::Db,
         declarative_term_application: DecApplication,
         term_ty_expectation: TypeFinalDestinationExpectation,
     ) -> EthTermResult<EthTerm> {
         // todo: implicit arguments
-        ethereal_term_from_declarative_term_application(
+        ethereal_term_from_dec_term_application(
             db,
             declarative_term_application,
             term_ty_expectation,
@@ -102,15 +102,15 @@ impl EthApplication {
 }
 
 #[salsa::tracked(jar = EthTermJar)]
-pub(crate) fn ethereal_term_from_declarative_term_application(
+pub(crate) fn ethereal_term_from_dec_term_application(
     db: &::salsa::Db,
     declarative_term_application: DecApplication,
     declarative_ty_expectation: TypeFinalDestinationExpectation,
 ) -> EthTermResult<EthTerm> {
     // todo: implicit arguments
-    term_uncheck_from_declarative_term_application_aux(
+    term_uncheck_from_dec_term_application_aux(
         db,
-        EthTerm::from_declarative(
+        EthTerm::from_dec(
             db,
             declarative_term_application.function(db),
             declarative_ty_expectation,
@@ -122,7 +122,7 @@ pub(crate) fn ethereal_term_from_declarative_term_application(
 
 /// argument is `DecTerm` instead of `EthTerm` is because we need to read function type to get expectation for argument
 ///
-pub(crate) fn term_uncheck_from_declarative_term_application_aux(
+pub(crate) fn term_uncheck_from_dec_term_application_aux(
     db: &::salsa::Db,
     function: EthTerm,
     argument: DecTerm,
@@ -141,7 +141,7 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
             _ => Err(EthTermError::ExpectedCurryForApplicationFunctionType)?,
         }
     };
-    let argument = EthTerm::from_declarative(db, argument, argument_expectation)?;
+    let argument = EthTerm::from_dec(db, argument, argument_expectation)?;
     let argument_ty_curry_parameter_count = argument.ty_curry_parameter_count(db)?;
     if argument_ty_curry_parameter_count < function_parameter_ty_curry_parameter_count {
         todo!()
@@ -322,10 +322,10 @@ impl std::fmt::Display for EthApplication {
     }
 }
 
-impl EthTermInstantiate for EthApplication {
+impl EthInstantiate for EthApplication {
     type Output = EthTerm;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
         Self::new_reduced(
             db,
             self.function(db).instantiate(db, instantiation),

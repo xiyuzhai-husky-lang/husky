@@ -8,13 +8,13 @@ pub struct EthRitchieRegularParameter {
 }
 
 impl EthRitchieRegularParameter {
-    pub fn from_declarative(
+    pub fn from_dec(
         db: &::salsa::Db,
         param: DeclarativeRitchieRegularParameter,
     ) -> EthTermResult<Self> {
         Ok(EthRitchieRegularParameter {
             contract: param.contract(),
-            ty: EthTerm::ty_from_declarative(db, param.ty())?,
+            ty: EthTerm::ty_from_dec(db, param.ty())?,
         })
     }
 
@@ -39,10 +39,10 @@ impl EthRitchieRegularParameter {
     }
 }
 
-impl EthTermInstantiate for EthRitchieRegularParameter {
+impl EthInstantiate for EthRitchieRegularParameter {
     type Output = Self;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self {
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EthInstantiation) -> Self {
         Self {
             contract: self.contract,
             ty: self.ty.instantiate(db, instantiation),

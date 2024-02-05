@@ -4,9 +4,10 @@ mod set;
 pub use self::index::*;
 
 use super::*;
+use crate::fmt::symbol_name;
 use thiserror::Error;
 
-#[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = pub new_inner)]
+#[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = pub new_inner, override_debug)]
 pub struct EthSymbol {
     pub toolchain: Toolchain,
     pub ty: EthTerm,
@@ -23,28 +24,15 @@ fn term_symbol_size_works() {
 
 impl EthSymbol {
     #[inline(always)]
-    pub fn from_declarative(
-        db: &::salsa::Db,
-        declarative_term_symbol: DecSymbol,
-    ) -> EthTermResult<Self> {
+    pub fn from_dec(db: &::salsa::Db, declarative_term_symbol: DecSymbol) -> EthTermResult<Self> {
         let ty = declarative_term_symbol.ty(db)?;
-        let ty = EthTerm::ty_from_declarative(db, ty)?;
+        let ty = EthTerm::ty_from_dec(db, ty)?;
         Ok(Self::new_inner(
             db,
             declarative_term_symbol.toolchain(db),
             ty,
-            EthTermSymbolIndex::from_declarative(declarative_term_symbol.index(db)),
+            EthTermSymbolIndex::from_dec(declarative_term_symbol.index(db)),
         ))
-    }
-
-    #[inline(never)]
-    pub(crate) fn display_fmt_with_db_and_ctx(
-        self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-        ctx: &mut TermShowContext,
-    ) -> std::fmt::Result {
-        ctx.fmt_symbol(db, self, f)
     }
 }
 
@@ -57,21 +45,30 @@ pub enum TermSymbolTypeErrorKind {
 }
 pub type TermSymbolTypeResult<T> = Result<T, TermSymbolTypeErrorKind>;
 
+impl salsa::DebugWithDb for EthSymbol {
+    fn debug_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        f.write_fmt(format_args!("EthSymbol(`{}`)", self.display(db)))
+    }
+}
+
 impl salsa::DisplayWithDb for EthSymbol {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        // ad hoc
-        f.write_fmt(format_args!("${:?}", self.index(db)))
+        symbol_name(*self, db).display_fmt_with_db(f, db)
     }
 }
 
-impl EthTermInstantiate for EthSymbol {
+impl EthInstantiate for EthSymbol {
     type Output = EthTerm;
 
-    fn instantiate(self, _db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+    fn instantiate(self, _db: &::salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
         // it's assumed that all symbols will be replaced by its map
         // otherwise it's illegal
         instantiation.symbol_instantiation(self)

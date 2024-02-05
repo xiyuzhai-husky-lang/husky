@@ -8,13 +8,13 @@ pub struct EtherealRitchieVariadicParameter {
 }
 
 impl EtherealRitchieVariadicParameter {
-    pub(super) fn from_declarative(
+    pub(super) fn from_dec(
         db: &::salsa::Db,
         param: DeclarativeRitchieVariadicParameter,
     ) -> EthTermResult<Self> {
         Ok(EtherealRitchieVariadicParameter {
             contract: param.contract(),
-            ty: EthTerm::ty_from_declarative(db, param.ty())?,
+            ty: EthTerm::ty_from_dec(db, param.ty())?,
         })
     }
 

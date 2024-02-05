@@ -74,10 +74,10 @@ fn trai_for_ty_item_eth_template(
     Ok(match path.dec_template(db)? {
         TraitForTypeItemDecTemplate::AssociatedFn(_) => todo!(),
         TraitForTypeItemDecTemplate::MethodFn(dec_template) => {
-            TraitForTypeMethodFnEthTemplate::from_declarative(db, path, dec_template)?.into()
+            TraitForTypeMethodFnEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TraitForTypeItemDecTemplate::AssociatedType(dec_template) => {
-            TraitForTypeAssociatedTypeEthTemplate::from_declarative(db, path, dec_template)?.into()
+            TraitForTypeAssociatedTypeEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TraitForTypeItemDecTemplate::AssociatedVal(_) => todo!(),
     })

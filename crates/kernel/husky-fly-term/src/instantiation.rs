@@ -1,20 +1,36 @@
 use super::*;
 use husky_eth_term::{
-    instantiation::EtherealInstantiation,
+    instantiation::EthInstantiation,
     term::{
         application::{EthApplication, TermFunctionReduced},
         ritchie::EthRitchie,
         symbol::{EthSymbol, EthTermSymbolIndexImpl},
     },
 };
+use salsa::fmt::WithFmtContext;
 use vec_like::SmallVecPairMap;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FlyInstantiation {
+    path: ItemPath,
     env: FlyInstantiationEnvironment,
     symbol_map: SmallVecPairMap<EthSymbol, FlyTermSymbolResolution, 4>,
     separator: Option<u8>,
+}
+
+impl WithFmtContext for FlyInstantiation {
+    fn with_fmt_context(
+        &self,
+        f: impl FnOnce() -> std::fmt::Result,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        use husky_eth_term::fmt::with_eth_term_fmt_context;
+        use husky_eth_term::instantiation::instantiation_eth_term_fmt_context;
+
+        let ctx = instantiation_eth_term_fmt_context(db, *self.path);
+        with_eth_term_fmt_context(ctx, f, db)
+    }
 }
 
 impl std::ops::Index<EthSymbol> for FlyInstantiation {
@@ -25,6 +41,7 @@ impl std::ops::Index<EthSymbol> for FlyInstantiation {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FlyTermSymbolResolution {
     Explicit(FlyTerm),
@@ -43,6 +60,7 @@ pub enum FlyInstantiationEnvironment {
 
 impl FlyInstantiation {
     pub fn from_template_parameters(
+        path: impl Into<PrincipalItemPath>,
         env: FlyInstantiationEnvironment,
         syn_expr_idx: SynExprIdx,
         template_parameters1: &[EthTemplateParameter],
@@ -54,6 +72,7 @@ impl FlyInstantiation {
             .is_some()
             .then_some(template_parameters1.len().try_into().unwrap());
         Self {
+            path: path.into().into(),
             env,
             symbol_map: template_parameters1
                 .iter()
@@ -80,9 +99,10 @@ impl FlyInstantiation {
 
     pub(crate) fn from_eth(
         env: FlyInstantiationEnvironment,
-        instantiation: &EtherealInstantiation,
+        instantiation: &EthInstantiation,
     ) -> Self {
         FlyInstantiation {
+            path: instantiation.path(),
             env,
             symbol_map: instantiation
                 .symbol_map()
@@ -165,6 +185,7 @@ pub(crate) trait FlyInstantiateRef {
 }
 
 pub struct FlyTermInstantiationBuilder {
+    path: ItemPath,
     env: FlyInstantiationEnvironment,
     symbol_map: SmallVecPairMap<EthSymbol, Option<FlyTermSymbolResolution>, 4>,
     separator: Option<u8>,
@@ -180,12 +201,14 @@ impl std::ops::Index<EthSymbol> for FlyTermInstantiationBuilder {
 
 impl FlyTermInstantiationBuilder {
     pub fn new_associated(
+        path: impl Into<AssociatedItemPath>,
         env: FlyInstantiationEnvironment,
         impl_block_template_parameters: &[EthTemplateParameter],
         associated_item_template_parameters: &[EthTemplateParameter],
         db: &::salsa::Db,
     ) -> Self {
         Self {
+            path: path.into().into(),
             env,
             symbol_map: impl_block_template_parameters
                 .iter()
@@ -262,6 +285,7 @@ impl FlyTermInstantiationBuilder {
 
     pub(crate) fn finish(self, db: &::salsa::Db) -> FlyInstantiation {
         FlyInstantiation {
+            path: self.path,
             env: self.env,
             symbol_map: self
                 .symbol_map

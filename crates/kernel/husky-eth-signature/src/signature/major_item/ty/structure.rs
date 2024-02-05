@@ -9,19 +9,19 @@ pub struct StructureTypeEthTemplate {
 }
 
 impl StructureTypeEthTemplate {
-    pub(super) fn from_declarative(
+    pub(super) fn from_dec(
         db: &::salsa::Db,
         path: TypePath,
         dec_template: StructureTypeDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters =
-            EthTemplateParameters::from_declarative(db, dec_template.template_parameters(db))?;
+            EthTemplateParameters::from_dec(db, dec_template.template_parameters(db))?;
         // let fields = dec_template
         //     .fields(db)
         //     .iter()
         //     .copied()
         //     .map(|dec_template| {
-        //         PropsFieldEthTemplate::from_declarative(
+        //         PropsFieldEthTemplate::from_dec(
         //             db,
         //             dec_template,
         //         )

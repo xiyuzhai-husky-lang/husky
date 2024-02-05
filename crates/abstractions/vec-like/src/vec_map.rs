@@ -204,7 +204,7 @@ where
             .find(|(_, entry)| entry.key() == key)
     }
 
-    pub fn has(&self, key: K) -> bool
+    pub fn contains(&self, key: K) -> bool
     where
         K: Copy,
     {
@@ -232,7 +232,7 @@ where
     where
         K: Copy,
     {
-        if self.has(new.key()) {
+        if self.contains(new.key()) {
             let new_key = new.key();
             Err(InsertEntryRepeatError {
                 old: self
@@ -258,7 +258,7 @@ where
     where
         K: Copy,
     {
-        if self.has(value.key()) {
+        if self.contains(value.key()) {
             ()
         } else {
             self.entries.push(value)
@@ -269,7 +269,7 @@ where
         Entry: Clone,
         K: Copy,
     {
-        if self.has(value.key()) {
+        if self.contains(value.key()) {
             ()
         } else {
             self.entries.push(value.clone())

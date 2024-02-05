@@ -19,11 +19,11 @@ impl EtherealRitchieKeyedParameter {
         }
     }
 
-    pub(super) fn from_declarative(
+    pub(super) fn from_dec(
         db: &::salsa::Db,
         param: DeclarativeRitchieKeyedParameter,
     ) -> EthTermResult<Self> {
-        let ty = EthTerm::ty_from_declarative(db, param.ty())?;
+        let ty = EthTerm::ty_from_dec(db, param.ty())?;
         let has_default = param.has_default();
         Ok(EtherealRitchieKeyedParameter {
             key: param.key(),

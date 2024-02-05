@@ -115,6 +115,48 @@ impl DebugWithDb for () {
     }
 }
 
+impl DebugWithDb for bool {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+        <Self as std::fmt::Debug>::fmt(self, f)
+    }
+}
+
+impl DebugWithDb for i8 {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+        <Self as std::fmt::Debug>::fmt(self, f)
+    }
+}
+
+impl DebugWithDb for i16 {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+        <Self as std::fmt::Debug>::fmt(self, f)
+    }
+}
+
+impl DebugWithDb for i32 {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+        <Self as std::fmt::Debug>::fmt(self, f)
+    }
+}
+
+impl DebugWithDb for i64 {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+        <Self as std::fmt::Debug>::fmt(self, f)
+    }
+}
+
+impl DebugWithDb for i128 {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+        <Self as std::fmt::Debug>::fmt(self, f)
+    }
+}
+
+impl DebugWithDb for isize {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+        <Self as std::fmt::Debug>::fmt(self, f)
+    }
+}
+
 impl DebugWithDb for u8 {
     fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
         <Self as std::fmt::Debug>::fmt(self, f)
@@ -139,11 +181,18 @@ impl DebugWithDb for u64 {
     }
 }
 
+impl DebugWithDb for u128 {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+        <Self as std::fmt::Debug>::fmt(self, f)
+    }
+}
+
 impl DebugWithDb for usize {
     fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
         <Self as std::fmt::Debug>::fmt(self, f)
     }
 }
+
 impl DebugWithDb for String {
     fn debug_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, _db: &Db) -> std::fmt::Result {
         std::fmt::Debug::fmt(&self, f)

@@ -356,6 +356,7 @@ impl std::ops::Index<SemaExprIdx> for SemaExprArena {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy)]
 pub struct SemaExprArenaRef<'a>(ArenaRef<'a, SemaExprEntry>);
 
@@ -385,6 +386,7 @@ impl<'a> std::ops::Index<SemaExprIdx> for SemaExprArenaRef<'a> {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct SemaExprIdx(ArenaIdx<SemaExprEntry>);
 
@@ -420,6 +422,7 @@ impl SemaExprIdx {
 
 pub type SemaExprIdxRange = ArenaIdxRange<SemaExprEntry>;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaExprMap<V>(ArenaMap<SemaExprEntry, V>);
 
@@ -449,12 +452,6 @@ impl<V> std::ops::Index<SemaExprIdx> for SemaExprMap<V> {
     fn index(&self, index: SemaExprIdx) -> &Self::Output {
         &self.0[index.0]
     }
-}
-
-pub(crate) enum ExprTypeResolveProgress<E: ExpectFlyTerm> {
-    Unresolved,
-    Outcome(E::Outcome),
-    ResolvedErr,
 }
 
 impl<'a> SemaExprEngine<'a> {

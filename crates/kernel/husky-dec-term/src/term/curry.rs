@@ -98,7 +98,7 @@ impl DecCurry {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &SymbolDecTermNameMap,
+        ctx: &DecSymbolNameMap,
     ) -> std::fmt::Result {
         use salsa::DisplayWithDb;
 

@@ -8,7 +8,7 @@ pub struct EthTemplateSymbolAttrs {
 }
 
 impl EthTemplateSymbolAttrs {
-    pub fn from_declarative(attrs: DeclarativeTemplateSymbolAttrs) -> Self {
+    pub fn from_dec(attrs: DeclarativeTemplateSymbolAttrs) -> Self {
         EthTemplateSymbolAttrs { class: attrs.class }
     }
 
@@ -33,14 +33,14 @@ pub enum EthTemplateSymbolAttr {
 pub struct EthTermSymbolIndex(EthTermSymbolIndexImpl);
 
 impl EthTermSymbolIndex {
-    pub(super) fn from_declarative(index: DecTermSymbolIndex) -> Self {
+    pub(super) fn from_dec(index: DecTermSymbolIndex) -> Self {
         EthTermSymbolIndex(match index.inner() {
             DecTermSymbolIndexImpl::ExplicitLifetime {
                 attrs,
                 variance,
                 disambiguator,
             } => EthTermSymbolIndexImpl::ExplicitLifetime {
-                attrs: EthTemplateSymbolAttrs::from_declarative(attrs),
+                attrs: EthTemplateSymbolAttrs::from_dec(attrs),
                 variance,
                 disambiguator,
             },
@@ -49,7 +49,7 @@ impl EthTermSymbolIndex {
                 variance,
                 disambiguator,
             } => EthTermSymbolIndexImpl::ExplicitPlace {
-                attrs: EthTemplateSymbolAttrs::from_declarative(attrs),
+                attrs: EthTemplateSymbolAttrs::from_dec(attrs),
                 variance,
                 disambiguator,
             },
@@ -58,7 +58,7 @@ impl EthTermSymbolIndex {
                 variance,
                 disambiguator,
             } => EthTermSymbolIndexImpl::Type {
-                attrs: EthTemplateSymbolAttrs::from_declarative(attrs),
+                attrs: EthTemplateSymbolAttrs::from_dec(attrs),
                 variance,
                 disambiguator,
             },
@@ -68,7 +68,7 @@ impl EthTermSymbolIndex {
                 disambiguator,
                 ty_path,
             } => EthTermSymbolIndexImpl::ConstPathLeading {
-                attrs: EthTemplateSymbolAttrs::from_declarative(attrs),
+                attrs: EthTemplateSymbolAttrs::from_dec(attrs),
                 disambiguator,
                 ty_path,
             },
@@ -76,7 +76,7 @@ impl EthTermSymbolIndex {
                 attrs,
                 disambiguator,
             } => EthTermSymbolIndexImpl::ConstOther {
-                attrs: EthTemplateSymbolAttrs::from_declarative(attrs),
+                attrs: EthTemplateSymbolAttrs::from_dec(attrs),
                 disambiguator,
             },
             DecTermSymbolIndexImpl::ConstErr {

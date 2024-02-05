@@ -16,27 +16,27 @@ pub struct DeriveAttrShardEthTemplate {
 }
 
 impl DeriveAttrEthTemplate {
-    pub(super) fn from_declarative(
+    pub(super) fn from_dec(
         db: &::salsa::Db,
         declarative_template: DeriveAttrDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let trai_term = declarative_template
             .shards(db)
             .iter()
-            .map(|&shard| DeriveAttrShardEthTemplate::from_declarative(shard, db))
+            .map(|&shard| DeriveAttrShardEthTemplate::from_dec(shard, db))
             .collect::<EtherealSignatureResult<_>>()?;
         Ok(DeriveAttrEthTemplate::new(db, trai_term))
     }
 }
 
 impl DeriveAttrShardEthTemplate {
-    fn from_declarative(
+    fn from_dec(
         declarative_template: DeriveAttrShardDecTemplate,
         db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self> {
         Ok(Self::new(
             db,
-            EthTerm::from_declarative(
+            EthTerm::from_dec(
                 db,
                 declarative_template.trai_term(db),
                 TypeFinalDestinationExpectation::Any,

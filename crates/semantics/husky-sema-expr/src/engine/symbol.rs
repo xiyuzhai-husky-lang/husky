@@ -10,13 +10,13 @@ impl<'a> SemaExprEngine<'a> {
         {
             let Some(signature) = self
                 .declarative_term_region
-                .term_symbol_region()
+                .dec_symbol_region()
                 .current_parameter_symbol_signature(current_syn_symbol_idx)
             else {
                 return;
             };
             if let Some(symbol) = signature.term_symbol() {
-                if let Ok(symbol) = EthSymbol::from_declarative(self.db, symbol) {
+                if let Ok(symbol) = EthSymbol::from_dec(self.db, symbol) {
                     self.symbol_terms
                         .insert_new(current_syn_symbol_idx, symbol.into())
                 }

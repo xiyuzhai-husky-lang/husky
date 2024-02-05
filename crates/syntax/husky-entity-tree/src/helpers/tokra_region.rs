@@ -7,6 +7,7 @@ pub use self::defn::*;
 pub use self::snippet::*;
 
 use crate::*;
+use husky_entity_path::region::RegionPath;
 use husky_regional_token::*;
 use husky_token::TokenIdx;
 
@@ -42,6 +43,20 @@ impl SynNodeRegionPath {
             SynNodeRegionPath::Snippet(_) => Some(RegionalTokenIdxBase::new_snippet()),
             SynNodeRegionPath::Decl(slf) => Some(slf.decl_regional_token_idx_base(db)),
             SynNodeRegionPath::Defn(slf) => slf.defn_regional_token_idx_base(db),
+        }
+    }
+}
+
+pub trait HasRegionalTokenIdxBase {
+    fn regional_token_idx_base(self, db: &::salsa::Db) -> Option<RegionalTokenIdxBase>;
+}
+
+impl HasRegionalTokenIdxBase for RegionPath {
+    fn regional_token_idx_base(self, db: &salsa::Db) -> Option<RegionalTokenIdxBase> {
+        match self {
+            RegionPath::Snippet(_) => Some(RegionalTokenIdxBase::new_snippet()),
+            RegionPath::Decl(slf) => Some(slf.syn_node_path(db).decl_regional_token_idx_base(db)),
+            RegionPath::Defn(slf) => slf.syn_node_path(db).defn_regional_token_idx_base(db),
         }
     }
 }

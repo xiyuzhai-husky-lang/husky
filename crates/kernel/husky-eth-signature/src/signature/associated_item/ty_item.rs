@@ -52,15 +52,15 @@ pub(crate) fn ty_item_eth_template(
 ) -> EtherealSignatureResult<TypeItemEthTemplate> {
     Ok(match path.dec_template(db)? {
         TypeItemDecTemplate::AssociatedFn(template) => {
-            TypeAssociatedFnEthTemplate::from_declarative(db, path, template)?.into()
+            TypeAssociatedFnEthTemplate::from_dec(db, path, template)?.into()
         }
         TypeItemDecTemplate::MethodFn(template) => {
-            TypeMethodFnEthTemplate::from_declarative(db, path, template)?.into()
+            TypeMethodFnEthTemplate::from_dec(db, path, template)?.into()
         }
         TypeItemDecTemplate::AssociatedType(_) => todo!(),
         TypeItemDecTemplate::AssociatedVal(_) => todo!(),
         TypeItemDecTemplate::MemoizedField(template) => {
-            TypeMemoizedFieldEthTemplate::from_declarative(db, path, template)?.into()
+            TypeMemoizedFieldEthTemplate::from_dec(db, path, template)?.into()
         }
     })
 }

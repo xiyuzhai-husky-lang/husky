@@ -1,5 +1,5 @@
 mod db;
-mod engine;
+pub mod engine;
 mod error;
 mod parameter;
 mod region;

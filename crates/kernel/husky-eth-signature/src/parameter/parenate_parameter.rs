@@ -9,7 +9,7 @@ pub struct EtherealParenateParameters {
 }
 
 impl EtherealParenateParameters {
-    pub(crate) fn from_declarative(
+    pub(crate) fn from_dec(
         db: &::salsa::Db,
         params: &DeclarativeParenateParameters,
     ) -> EtherealSignatureResult<Self> {
@@ -17,7 +17,7 @@ impl EtherealParenateParameters {
             data: params
                 .iter()
                 .copied()
-                .map(|param| EtherealRitchieParameter::from_declarative(param, db))
+                .map(|param| EtherealRitchieParameter::from_dec(param, db))
                 .collect::<EthTermResult<_>>()?,
         })
     }

@@ -14,7 +14,7 @@ pub(super) struct DecTermEngine<'a> {
     toolchain: Toolchain,
     syn_expr_region_data: &'a SynExprRegionData,
     declarative_term_menu: &'a DecTermMenu,
-    symbol_declarative_term_region: SymbolDecTermRegion,
+    symbol_declarative_term_region: DecSymbolRegion,
     expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
     /// todo: change this to ordered
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
@@ -22,14 +22,14 @@ pub(super) struct DecTermEngine<'a> {
 }
 
 #[salsa::tracked(jar = DecSignatureJar, return_ref)]
-pub(crate) fn syn_expr_dec_term_region(
+pub fn syn_expr_dec_term_region(
     db: &::salsa::Db,
     syn_expr_region: SynExprRegion,
 ) -> SynExprDecTermRegion {
     let expr_region_data = syn_expr_region.data(db);
     let parent_expr_region = expr_region_data.parent();
     let parent_term_symbol_region =
-        parent_expr_region.map(|r| syn_expr_dec_term_region(db, r).term_symbol_region());
+        parent_expr_region.map(|r| syn_expr_dec_term_region(db, r).dec_symbol_region());
     let engine = DecTermEngine::new(db, syn_expr_region, parent_term_symbol_region);
     engine.infer_all()
 }
@@ -38,7 +38,7 @@ impl<'a> DecTermEngine<'a> {
     fn new(
         db: &'a ::salsa::Db,
         syn_expr_region: SynExprRegion,
-        parent_term_symbol_region: Option<&'a SymbolDecTermRegion>,
+        parent_term_symbol_region: Option<&'a DecSymbolRegion>,
     ) -> Self {
         let toolchain = syn_expr_region.toolchain(db);
         // ad hoc
@@ -50,7 +50,7 @@ impl<'a> DecTermEngine<'a> {
             toolchain,
             syn_expr_region_data,
             declarative_term_menu,
-            symbol_declarative_term_region: SymbolDecTermRegion::new(
+            symbol_declarative_term_region: DecSymbolRegion::new(
                 parent_term_symbol_region,
                 syn_expr_region_data,
                 declarative_term_menu,
