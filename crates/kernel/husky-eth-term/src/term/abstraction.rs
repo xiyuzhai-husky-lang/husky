@@ -27,16 +27,6 @@ impl EthAbstraction {
     pub fn ty(&self) -> EthTerm {
         todo!()
     }
-
-    #[inline(never)]
-    pub(crate) fn display_fmt_with_db_and_ctx(
-        self,
-        _f: &mut std::fmt::Formatter<'_>,
-        _db: &::salsa::Db,
-        _ctx: &mut TermShowContext,
-    ) -> std::fmt::Result {
-        todo!()
-    }
 }
 
 /// # rewrite
@@ -75,6 +65,6 @@ impl salsa::DisplayWithDb for EthAbstraction {
         // use std::fmt::Write;
         // f.write_char(husky_unicode_symbols::greek::GREEK_LETTER_LOWERCASE_LAMBDA);
         // todo!()
-        self.display_fmt_with_db_and_ctx(f, db, &mut Default::default())
+        todo!()
     }
 }

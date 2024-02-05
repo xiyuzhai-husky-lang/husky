@@ -24,19 +24,6 @@ impl EthRitchieRegularParameter {
             ty: self.ty.reduce(db),
         }
     }
-
-    #[inline(never)]
-    pub(super) fn display_fmt_with_db_and_ctx(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-        ctx: &mut TermShowContext,
-    ) -> std::fmt::Result {
-        // ad hoc
-        f.write_str(self.contract.as_str())?;
-        f.write_str(" ")?;
-        self.ty.display_fmt_with_db_and_ctx(f, db, ctx)
-    }
 }
 
 impl EthInstantiate for EthRitchieRegularParameter {
@@ -56,8 +43,10 @@ impl salsa::DisplayWithDb for EthRitchieRegularParameter {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        self.ty
-            .display_fmt_with_db_and_ctx(f, db, &mut Default::default())
+        // ad hoc
+        f.write_str(self.contract.as_str())?;
+        f.write_str(" ")?;
+        self.ty.display_fmt_with_db(f, db)
     }
 }
 

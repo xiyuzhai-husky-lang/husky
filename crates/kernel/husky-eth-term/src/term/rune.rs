@@ -17,11 +17,10 @@ impl EthRune {
     }
 
     #[inline(never)]
-    pub(crate) fn display_fmt_with_db_and_ctx(
+    pub(crate) fn display_fmt_with_db(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         f.write_str("variable_ad_hoc_fmt")
     }

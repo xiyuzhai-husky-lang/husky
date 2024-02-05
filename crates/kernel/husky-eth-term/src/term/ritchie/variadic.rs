@@ -24,17 +24,6 @@ impl EtherealRitchieVariadicParameter {
             ty: self.ty.reduce(db),
         }
     }
-
-    #[inline(never)]
-    pub(super) fn display_fmt_with_db_and_ctx(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-        ctx: &mut TermShowContext,
-    ) -> std::fmt::Result {
-        // todo!();
-        self.ty.display_fmt_with_db_and_ctx(f, db, ctx)
-    }
 }
 
 impl salsa::DisplayWithDb for EtherealRitchieVariadicParameter {
@@ -43,8 +32,7 @@ impl salsa::DisplayWithDb for EtherealRitchieVariadicParameter {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        self.ty
-            .display_fmt_with_db_and_ctx(f, db, &mut Default::default())
+        self.ty.display_fmt_with_db(f, db)
     }
 }
 

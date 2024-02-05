@@ -111,9 +111,17 @@ impl Literal {
             Literal::StaticLifetime => PreludeTypePath::Lifetime,
         }
     }
+}
 
-    pub fn display_fmt_with_db_and_ctx(
-        self,
+/// allowing representing very large number
+#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct TermNatLiteral {
+    pub bits: Vec<usize>,
+}
+
+impl salsa::DisplayWithDb for Literal {
+    fn display_fmt_with_db(
+        &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
@@ -145,21 +153,5 @@ impl Literal {
             Literal::R128(val) => f.write_fmt(format_args!("{}", val.value(db))),
             Literal::RSize(val) => f.write_fmt(format_args!("{}", val.value(db))),
         }
-    }
-}
-
-/// allowing representing very large number
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermNatLiteral {
-    pub bits: Vec<usize>,
-}
-
-impl salsa::DisplayWithDb for Literal {
-    fn display_fmt_with_db(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        self.display_fmt_with_db_and_ctx(f, db)
     }
 }

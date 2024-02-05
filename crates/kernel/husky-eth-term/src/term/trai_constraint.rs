@@ -24,11 +24,10 @@ impl EthTraitConstraint {
     }
 
     #[inline(never)]
-    pub(crate) fn display_fmt_with_db_and_ctx(
+    pub(crate) fn display_fmt_with_db(
         self,
         _f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,
-        _ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         todo!()
     }

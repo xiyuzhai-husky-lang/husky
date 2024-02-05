@@ -66,48 +66,12 @@ impl From<TraitPath> for ItemPathTerm {
     }
 }
 
-impl ItemPathTerm {
-    pub fn display_fmt_with_db_and_ctx(
-        self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        f.write_str(self.ident(db).data(db))
-    }
-}
-
 impl DisplayWithDb for ItemPathTerm {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        match self {
-            ItemPathTerm::Fugitive(path) => {
-                f.write_str("Form(")?;
-                path.display_fmt_with_db(f, db)?;
-                f.write_str(")")
-            }
-            ItemPathTerm::Trait(path) => {
-                f.write_str("Trait(")?;
-                path.display_fmt_with_db(f, db)?;
-                f.write_str(")")
-            }
-            ItemPathTerm::TypeOntology(path) => {
-                f.write_str("TypeOntology(")?;
-                path.display_fmt_with_db(f, db)?;
-                f.write_str(")")
-            }
-            ItemPathTerm::TypeInstance(path) => {
-                f.write_str("TypeConstructor(")?;
-                path.display_fmt_with_db(f, db)?;
-                f.write_str(")")
-            }
-            ItemPathTerm::TypeVariant(path) => {
-                f.write_str("TypeVariant(")?;
-                path.display_fmt_with_db(f, db)?;
-                f.write_str(")")
-            }
-        }
+        f.write_str(self.ident(db).data(db))
     }
 }
