@@ -4,7 +4,7 @@ use husky_eth_term::term::application::EthApplication;
 impl FlyTerm {
     #[inline(always)]
     pub fn new_application(
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         function: impl Into<FlyTerm>,
         argument: impl Into<FlyTerm>,
     ) -> EthTermResult<Self> {
@@ -54,7 +54,7 @@ impl FlyTerm {
         }
     }
 
-    pub fn new_leashed(engine: &mut impl FlyTermEngine, ty: FlyTerm) -> EthTermResult<Self> {
+    pub fn new_leashed(engine: &mut impl FlyTermEngineMut, ty: FlyTerm) -> EthTermResult<Self> {
         let function: FlyTerm = engine.term_menu().leash_ty_ontology().into();
         Self::new_application(engine, function, ty)
     }

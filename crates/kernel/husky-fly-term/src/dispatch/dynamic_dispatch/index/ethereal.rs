@@ -6,7 +6,7 @@ use super::*;
 use husky_eth_term::term::application::TermFunctionReduced;
 
 pub(super) fn ethereal_owner_ty_index_dispatch(
-    engine: &mut impl FlyTermEngine,
+    engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
     owner_ty: EthTerm,
     index_ty: FlyTerm,
@@ -16,7 +16,7 @@ pub(super) fn ethereal_owner_ty_index_dispatch(
 }
 
 pub(super) fn ethereal_owner_ty_index_dispatch_aux(
-    engine: &mut impl FlyTermEngine,
+    engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
     owner_ty: EthTerm,
     index_ty: FlyTerm,

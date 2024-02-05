@@ -6,7 +6,7 @@ use super::*;
 impl SolTerm {
     pub(super) fn method_dispatch_aux(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         ident: Ident,
         available_traits: &[TraitPath],

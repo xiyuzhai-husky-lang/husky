@@ -40,7 +40,7 @@ impl FlyTerm {
     /// returns None if no such field
     pub fn field_dispatch(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         ident: Ident,
         available_traits: &[TraitPath],
     ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
@@ -54,7 +54,7 @@ impl FlyTerm {
 
     fn field_dispatch_aux(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         ident: Ident,
         available_traits: &[TraitPath],
         mut indirections: FlyIndirections,

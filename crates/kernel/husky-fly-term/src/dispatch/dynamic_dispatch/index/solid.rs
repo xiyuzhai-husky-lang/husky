@@ -3,7 +3,7 @@ use super::*;
 impl SolTerm {
     pub(super) fn disambiguate_index(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         index_ty: FlyTerm,
     ) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
@@ -12,7 +12,7 @@ impl SolTerm {
 
     pub(super) fn disambiguate_index_aux(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         index_ty: FlyTerm,
         mut indirections: FlyIndirections,

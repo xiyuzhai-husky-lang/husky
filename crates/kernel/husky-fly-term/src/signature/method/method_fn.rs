@@ -62,7 +62,7 @@ impl MethodFnFlySignature {
 pub struct MethodFunctionFlySignature {}
 
 pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FlyTerm>>(
-    engine: &mut impl FlyTermEngine,
+    engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
     ty_path: TypePath,
     ty_template_arguments: &[Term],
@@ -106,7 +106,7 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FlyTerm>>(
 }
 
 fn ty_method_fn_fluffy_signature<Term: Copy + Into<FlyTerm>>(
-    engine: &mut impl FlyTermEngine,
+    engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
     template: TypeMethodFnEthTemplate,
     ty_template_arguments: &[Term],
@@ -197,7 +197,7 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FlyTerm>>(
 }
 
 fn ty_method_function_fluffy_signature<Term: Copy + Into<FlyTerm>>(
-    engine: &mut impl FlyTermEngine,
+    engine: &mut impl FlyTermEngineMut,
     template: &TypeMethodFunctionEthTemplate,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FlyTerm],

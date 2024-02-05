@@ -69,7 +69,7 @@ impl FlyTermSubstitution {
 impl FlyTerm {
     pub fn substitute_rune(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         src: HoleSource,
         rune: RuneFlyTerm,
         substitute: FlyTerm,

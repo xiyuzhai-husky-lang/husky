@@ -16,7 +16,7 @@ pub enum StaticDispatch {
 impl FlyTerm {
     pub fn static_dispatch(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         syn_expr_idx: SynExprIdx,
         ident: Ident,
         all_available_traits: &[()],

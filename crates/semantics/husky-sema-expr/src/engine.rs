@@ -63,16 +63,8 @@ impl<'a> FlyTermEngine<'a> for SemaExprEngine<'a> {
         self.db
     }
 
-    fn stack_location_registry_mut(&mut self) -> &mut StackLocationRegistry {
-        &mut self.stack_location_registry
-    }
-
     fn fluffy_term_region(&self) -> &FlyTermRegion {
         &self.fluffy_term_region
-    }
-
-    fn fluffy_term_region_mut(&mut self) -> &mut FlyTermRegion {
-        &mut self.fluffy_term_region
     }
 
     fn expr_region_data(&self) -> &'a SynExprRegionData {
@@ -89,6 +81,16 @@ impl<'a> FlyTermEngine<'a> for SemaExprEngine<'a> {
 
     fn trai_in_use_items_table(&self) -> TraitInUseItemsTable<'a> {
         self.trai_in_use_items_table
+    }
+}
+
+impl<'a> FlyTermEngineMut<'a> for SemaExprEngine<'a> {
+    fn stack_location_registry_mut(&mut self) -> &mut StackLocationRegistry {
+        &mut self.stack_location_registry
+    }
+
+    fn fluffy_term_region_mut(&mut self) -> &mut FlyTermRegion {
+        &mut self.fluffy_term_region
     }
 }
 

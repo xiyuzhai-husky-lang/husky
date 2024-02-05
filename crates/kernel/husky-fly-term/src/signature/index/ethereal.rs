@@ -4,7 +4,7 @@ use self::int_index::*;
 use super::*;
 
 pub(crate) fn ethereal_owner_ty_index_signature(
-    engine: &mut impl FlyTermEngine,
+    engine: &mut impl FlyTermEngineMut,
     syn_expr_idx: SynExprIdx,
     owner_ty: EthTerm,
     refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
@@ -47,7 +47,7 @@ pub(crate) fn ethereal_owner_ty_index_signature(
 /// handles common cases in a quick way
 /// option means confident or not
 fn prelude_ethereal_owner_ty_index_signature(
-    engine: &mut impl FlyTermEngine,
+    engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
     prelude_ty_path: PreludeTypePath,
     owner_ty_arguments: &[EthTerm],

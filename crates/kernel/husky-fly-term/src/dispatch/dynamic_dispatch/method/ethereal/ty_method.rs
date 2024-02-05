@@ -6,7 +6,7 @@ use crate::signature::method::method_fn::ty_method_fluffy_signature;
 impl HasFlyTypeMethodDispatch for EthTerm {
     fn ty_method_dispatch(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         indirections: FlyIndirections,
@@ -35,7 +35,7 @@ impl HasFlyTypeMethodDispatch for EthTerm {
 }
 
 fn ethereal_ty_ontology_path_ty_method_dispatch(
-    engine: &mut impl FlyTermEngine,
+    engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
     ty_path: TypePath,
     ident_token: IdentRegionalToken,
@@ -45,7 +45,7 @@ fn ethereal_ty_ontology_path_ty_method_dispatch(
 }
 
 fn ethereal_term_application_ty_method_dispatch(
-    engine: &mut impl FlyTermEngine,
+    engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
     ty_term: EthApplication,
     ident_token: IdentRegionalToken,
@@ -66,7 +66,7 @@ fn ethereal_term_application_ty_method_dispatch(
 }
 
 fn ethereal_ty_method_dispatch_aux(
-    engine: &mut impl FlyTermEngine,
+    engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
     ty_path: TypePath,
     arguments: &[EthTerm],
