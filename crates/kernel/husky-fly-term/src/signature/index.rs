@@ -26,7 +26,7 @@ impl MemberSignature for FlyIndexSignature {
 
 // to: better name
 fn list_like_index_signature(
-    engine: &mut impl FlyTermEngine,
+    engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
     element_ty: FlyTerm,
     index_ty: FlyTerm,

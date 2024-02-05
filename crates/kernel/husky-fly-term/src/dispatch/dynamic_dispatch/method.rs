@@ -12,7 +12,7 @@ pub type FlyMethodDynamicDispatch = FlyDynamicDispatch<MethodFlySignature>;
 pub trait HasFlyTraitMethodDispatch: Copy {
     fn trai_method_dispatch(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         ident_regional_token: IdentRegionalToken,
         indirections: FlyIndirections,
@@ -30,7 +30,7 @@ pub trait HasFlyTraitMethodDispatch: Copy {
 
     fn trai_method_dispatch_aux(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
@@ -41,7 +41,7 @@ pub trait HasFlyTraitMethodDispatch: Copy {
 pub trait HasFlyTypeMethodDispatch: Copy {
     fn ty_method_dispatch(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         indirections: FlyIndirections,
@@ -58,7 +58,7 @@ pub trait HasFlyTypeMethodDispatch: Copy {
 pub trait HasFlyMethodDispatch: HasFlyTypeMethodDispatch + HasFlyTraitMethodDispatch {
     fn method_dispatch(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
     ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
@@ -88,7 +88,7 @@ pub trait HasFlyMethodDispatch: HasFlyTypeMethodDispatch + HasFlyTraitMethodDisp
 impl HasFlyTypeMethodDispatch for FlyTerm {
     fn ty_method_dispatch(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         indirections: FlyIndirections,
@@ -111,7 +111,7 @@ impl HasFlyTypeMethodDispatch for FlyTerm {
 impl HasFlyTraitMethodDispatch for FlyTerm {
     fn trai_method_dispatch_aux(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,

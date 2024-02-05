@@ -22,7 +22,7 @@ impl FlyInstantiate for EtherealRitchieVariadicParameter {
 
     fn instantiate(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         instantiation: &FlyInstantiation,
     ) -> Self::Target {

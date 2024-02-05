@@ -2,7 +2,7 @@ use super::*;
 use husky_eth_signature::helpers::trai_for_ty::ty_side_trai_for_ty_impl_block_signature_templates;
 
 pub(super) fn ethereal_owner_ty_int_index_signature(
-    engine: &mut impl FlyTermEngine,
+    engine: &mut impl FlyTermEngineMut,
     syn_expr_idx: SynExprIdx,
     owner_ty: EthTerm,
     custom_ty_path: CustomTypePath,
@@ -35,7 +35,7 @@ pub(super) fn ethereal_owner_ty_int_index_signature(
     })
 }
 
-fn coersible_to_int(engine: &mut impl FlyTermEngine, index_ty: FlyTerm) -> bool {
+fn coersible_to_int(engine: &mut impl FlyTermEngineMut, index_ty: FlyTerm) -> bool {
     match index_ty.data(engine) {
         FlyTermData::Literal(_) => unreachable!(),
         FlyTermData::TypeOntology {

@@ -23,7 +23,7 @@ impl Into<FlyTerm> for SymbolType {
 impl SymbolType {
     #[inline(always)]
     pub fn new_parameter_ty_from_signature(
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
         signature: DecSymbolSignature,
     ) -> FlyTermResult<Self> {
@@ -37,7 +37,7 @@ impl SymbolType {
     }
 
     pub fn new_parameter_ty(
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
         modifier: SymbolModifier,
         ty: FlyTerm,
@@ -65,7 +65,7 @@ impl SymbolType {
     }
 
     pub fn new_variable_ty(
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
         modifier: SymbolModifier,
         ty: FlyTerm,

@@ -12,7 +12,7 @@ use husky_eth_term::term::ritchie::{EthRitchie, EtherealRitchieParameter};
 
 impl FlyTerm {
     pub fn new_ritchie(
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         ritchie_kind: RitchieKind,
         params: Vec<FlyRitchieParameter>,
         return_ty: FlyTerm,
@@ -99,7 +99,7 @@ impl FlyInstantiate for EtherealRitchieParameter {
 
     fn instantiate(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         instantiation: &FlyInstantiation,
     ) -> Self::Target {

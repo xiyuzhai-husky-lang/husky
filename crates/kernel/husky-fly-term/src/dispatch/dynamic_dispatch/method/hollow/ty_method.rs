@@ -3,7 +3,7 @@ use super::*;
 impl HasFlyTypeMethodDispatch for HolTerm {
     fn ty_method_dispatch(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         indirections: FlyIndirections,

@@ -147,7 +147,7 @@ pub trait FlyInstantiate: Copy {
 
     fn instantiate(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         instantiation: &FlyInstantiation,
     ) -> Self::Target;
@@ -155,7 +155,7 @@ pub trait FlyInstantiate: Copy {
     // set flag to true if target is different
     fn instantiate_with_flag(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         instantiation: &FlyInstantiation,
         flag: &mut bool,
@@ -178,7 +178,7 @@ pub(crate) trait FlyInstantiateRef {
 
     fn instantiate(
         &self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         instantiation: &mut FlyInstantiation,
     ) -> Self::Target;
@@ -302,7 +302,7 @@ impl FlyInstantiate for EthTerm {
 
     fn instantiate(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         instantiation: &FlyInstantiation,
     ) -> Self::Target {
@@ -337,7 +337,7 @@ impl FlyInstantiate for EthApplication {
 
     fn instantiate(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         instantiation: &FlyInstantiation,
     ) -> Self::Target {
@@ -398,7 +398,7 @@ impl FlyInstantiate for EthRitchie {
 
     fn instantiate(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         instantiation: &FlyInstantiation,
     ) -> Self::Target {

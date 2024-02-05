@@ -5,29 +5,29 @@ use husky_stack_location::{StackLocationIdx, StackLocationRegistry};
 pub trait FlyTermEngine<'a>: Sized {
     fn db(&self) -> &'a ::salsa::Db;
     fn trai_in_use_items_table(&self) -> TraitInUseItemsTable<'a>;
-    fn stack_location_registry_mut(&mut self) -> &mut StackLocationRegistry;
-    fn issue_new_stack_location_idx(&mut self) -> StackLocationIdx {
-        self.stack_location_registry_mut().issue_new()
-    }
     fn fluffy_term_region(&self) -> &FlyTermRegion;
-    fn fluffy_term_region_mut(&mut self) -> &mut FlyTermRegion;
-    fn fluffy_terms(&self) -> &FlyTerms {
-        self.fluffy_term_region().terms()
-    }
-    fn fluffy_terms_mut(&mut self) -> &mut FlyTerms {
-        self.fluffy_term_region_mut().terms_mut()
-    }
     fn item_path_menu(&self) -> &'a ItemPathMenu;
     fn term_menu(&self) -> &'a EthTermMenu;
     fn expr_region_data(&self) -> &'a SynExprRegionData;
 
-    fn new_ty_ontology_application(
-        &mut self,
-        src: HoleSource,
-        path: TypePath,
-        arguments: SmallVec<[FlyTerm; 2]>,
-    ) -> FlyTerm {
-        todo!()
+    fn fluffy_terms(&self) -> &FlyTerms {
+        self.fluffy_term_region().terms()
+    }
+
+    fn path(&self) -> String {
+        format!("{:?}", self.expr_region_data().path().debug(self.db()))
+    }
+}
+
+pub trait FlyTermEngineMut<'a>: FlyTermEngine<'a> {
+    fn stack_location_registry_mut(&mut self) -> &mut StackLocationRegistry;
+    fn fluffy_term_region_mut(&mut self) -> &mut FlyTermRegion;
+    fn fluffy_terms_mut(&mut self) -> &mut FlyTerms {
+        self.fluffy_term_region_mut().terms_mut()
+    }
+
+    fn issue_new_stack_location_idx(&mut self) -> StackLocationIdx {
+        self.stack_location_registry_mut().issue_new()
     }
 
     fn new_hole(&mut self, src: impl Into<HoleSource>, hole_kind: HoleKind) -> FlyTerm {
@@ -104,10 +104,6 @@ pub trait FlyTermEngine<'a>: Sized {
         }
     }
 
-    fn path(&self) -> String {
-        format!("{:?}", self.expr_region_data().path().debug(self.db()))
-    }
-
     fn add_expectation(
         &mut self,
         src: ExpectationSource,
@@ -119,5 +115,3 @@ pub trait FlyTermEngine<'a>: Sized {
             .add_expectation(src, expectee, expectation, db)
     }
 }
-
-pub trait FlyTermEngineMut<'a>: FlyTermEngine<'a> {}

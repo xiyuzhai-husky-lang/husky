@@ -10,7 +10,7 @@ pub type FlyIndexDynamicDispatch = FlyDynamicDispatch<FlyIndexSignature>;
 impl FlyTerm {
     pub fn dispatch_index(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         index_ty: FlyTerm,
     ) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
@@ -24,7 +24,7 @@ impl FlyTerm {
 
     fn dispatch_index_aux(
         self,
-        engine: &mut impl FlyTermEngine,
+        engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         index_ty: FlyTerm,
         indirections: FlyIndirections,
