@@ -47,7 +47,7 @@ impl EthApplication {
                         parameter_ty.ty_final_destination_expectation(db)?,
                     )
                 }
-                _ => return Err(todo!()),
+                _ => Err(EthTermError::ExpectedCurryForApplicationFunctionType)?,
             }
         };
         let argument_ty_curry_parameter_count = argument.ty_curry_parameter_count(db)?;
@@ -164,7 +164,7 @@ pub(crate) fn ethereal_term_application_declarative_ty(
                 term_application.shift(db),
             ),
         },
-        _ => return Err(todo!()),
+        _ => Err(EthTermError::ExpectedCurryForApplicationFunctionType)?,
     }
 }
 
@@ -233,7 +233,7 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
                     )
                     .into())
                 }
-                _ => Err(todo!()),
+                _ => Err(EthTermError::ExpectedCurryForApplicationFunctionType)?,
             }
         }
     }
@@ -264,7 +264,7 @@ pub(crate) fn ethereal_term_application_declarative_ty_nondependent_aux(
                 )?,
             )
             .into()),
-            _ => Err(todo!()),
+            _ => Err(EthTermError::ExpectedCurryForApplicationFunctionType)?,
         },
     }
 }
