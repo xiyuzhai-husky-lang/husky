@@ -4,8 +4,8 @@ pub(crate) mod settings;
 
 use crate::*;
 use egui::{
-    vec2, Align, Color32, FontFamily, Frame, Label, Layout, Margin, RichText, Sense, SidePanel,
-    TextStyle, TopBottomPanel, Ui, Vec2, Widget,
+    vec2, Color32, FontFamily, Frame, Label, Margin, RichText, Sense, SidePanel, TextStyle,
+    TopBottomPanel, Ui, Vec2, Widget,
 };
 use husky_task_interface::{pedestal::IsPedestal, val_control_flow::ValControlFlow};
 use husky_trace_protocol::{
@@ -68,16 +68,4 @@ where
     {
         self.action_buffer.push(action)
     }
-}
-
-fn horizontal_split(
-    left: impl FnOnce(&mut egui::Ui),
-    right: impl FnOnce(&mut egui::Ui),
-    ui: &mut egui::Ui,
-) {
-    let desired_size = Vec2::new(ui.available_width() / 2.0, ui.available_height());
-    ui.allocate_ui_with_layout(desired_size, Layout::left_to_right(Align::Center), |ui| {
-        left(ui);
-        right(ui);
-    });
 }

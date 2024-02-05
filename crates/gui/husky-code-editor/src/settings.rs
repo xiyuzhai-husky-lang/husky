@@ -1,4 +1,4 @@
-mod atom_one_dark;
+pub mod atom_one_dark;
 
 use ecolor::Color32;
 use enum_index::full_map::{EnumFullMapRef, EnumFullVecMap};
