@@ -2,13 +2,10 @@ mod r#abstract;
 mod index;
 mod set;
 
-use salsa::DisplayWithDb;
-
-use crate::helpers::DecTermFamily;
-
 pub use self::set::*;
 
 use super::*;
+use crate::helpers::DecTermFamily;
 
 /// variables are externalized symbols, derived from symbols, and defined in a bottom-up manner
 ///
