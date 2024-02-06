@@ -4817,10 +4817,12 @@ dependencies = [
  "husky-eth-term",
  "husky-hir-ty",
  "husky-instruction",
+ "husky-linkage",
  "husky-opr",
  "husky-print-utils",
  "husky-standard-value",
  "husky-task-interface",
+ "idx-arena",
  "salsa",
  "shifted-unsigned-int",
 ]
