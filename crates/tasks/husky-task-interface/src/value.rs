@@ -94,6 +94,3 @@ pub trait IsValue:
 
     fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
 }
-
-#[derive(Debug, PartialEq, Eq)]
-pub enum LiteralValue {}

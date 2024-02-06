@@ -1,8 +1,8 @@
 use crate::*;
 
-#[derive(Debug)]
-pub struct InstructionRegion {
-    arena: InstructionArena,
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum InstructionRegion {
+    Block(Instructions),
 }
 
 fn item_instruction_sheet(_db: &::salsa::Db, _item_path: ItemPath) -> Option<InstructionRegion> {

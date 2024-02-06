@@ -1,9 +1,8 @@
 use husky_coword::Ident;
 use husky_hir_ty::HirType;
-use husky_linkage::linkage::Linkage;
-use husky_task_interface::value::LiteralValue;
-use idx_arena::Arena;
-use idx_arena::{ArenaIdx, ArenaIdxRange};
+use husky_task_interface::IsLinkageImpl;
+use shifted_unsigned_int::ShiftedU32;
+use std::marker::PhantomData;
 
 // ad hoc
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -27,12 +26,15 @@ pub enum InstructionData {
         explicit: bool,
     },
     PushLiteralValue {
-        value: LiteralValue,
+        value: LinkageImpl::Value,
         ty: HirType,
         explicit: bool,
     },
+    WrapInSome {
+        number_of_somes: u8,
+    },
     CallRoutine {
-        resolved_linkage: Linkage,
+        resolved_linkage: LinkageImpl,
         nargs: u8,
         return_ty: HirType,
         discard: bool,
@@ -43,8 +45,17 @@ pub enum InstructionData {
         return_ty: HirType,
         discard: bool,
     },
+    VirtualStructField {
+        field_idx: u8,
+        field_binding: Binding,
+        field_ty: HirType,
+    },
+    NewVirtualStruct {
+        ty: HirType,
+        fields: Vec<Ident>,
+    },
     Loop {
-        body: InstructionIdxRange,
+        body: InstructionBlockId<LinkageImpl>,
         loop_kind: VMLoopKind,
     },
     Return {
@@ -67,7 +78,7 @@ pub enum InstructionData {
     PushEntityFp {
         // opt_linkage: Option<__LinkageGroup>,
         ty: HirType,
-        opt_instruction_sheet: Option<InstructionIdxRange>,
+        opt_instruction_sheet: Option<InstructionBlockId<LinkageImpl>>,
     },
 }
 
