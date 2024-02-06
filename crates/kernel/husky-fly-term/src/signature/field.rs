@@ -8,7 +8,7 @@ pub enum FlyFieldSignature {
     },
     Memoized {
         ty: FlyTerm,
-        path: AssociatedItemPath,
+        path: AssocItemPath,
         instantiation: FlyInstantiation,
     },
 }

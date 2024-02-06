@@ -10,12 +10,12 @@
         },
     },
     Linkage {
-        data: LinkageData::AssociatedFunctionFn {
-            path: AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::AssocFunctionFn {
+            path: AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
+                        data: ItemPathData::AssocItem(
+                            AssocItemPathData::TraitForTypeItem(
                                 TraitForTypeItemPathData {
                                     impl_block: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
@@ -28,7 +28,7 @@
                                         },
                                     },
                                     ident: `default`,
-                                    item_kind: AssociatedFunctionFn,
+                                    item_kind: AssocFunctionFn,
                                 },
                             ),
                         ),
@@ -44,12 +44,12 @@
         },
     },
     Linkage {
-        data: LinkageData::AssociatedFunctionFn {
-            path: AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::AssocFunctionFn {
+            path: AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
+                        data: ItemPathData::AssocItem(
+                            AssocItemPathData::TraitForTypeItem(
                                 TraitForTypeItemPathData {
                                     impl_block: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
@@ -62,7 +62,7 @@
                                         },
                                     },
                                     ident: `unveil`,
-                                    item_kind: AssociatedFunctionFn,
+                                    item_kind: AssocFunctionFn,
                                 },
                             ),
                         ),
@@ -78,11 +78,11 @@
         },
     },
     Linkage {
-        data: LinkageData::UnveilAssociatedFunctionFn {
+        data: LinkageData::UnveilAssocFunctionFn {
             path: TraitForTypeItemPath(
                 ItemPathId {
-                    data: ItemPathData::AssociatedItem(
-                        AssociatedItemPathData::TraitForTypeItem(
+                    data: ItemPathData::AssocItem(
+                        AssocItemPathData::TraitForTypeItem(
                             TraitForTypeItemPathData {
                                 impl_block: TraitForTypeImplBlock {
                                     data: TraitForTypeImplBlockPathData {
@@ -95,7 +95,7 @@
                                     },
                                 },
                                 ident: `unveil`,
-                                item_kind: AssociatedFunctionFn,
+                                item_kind: AssocFunctionFn,
                             },
                         ),
                     ),

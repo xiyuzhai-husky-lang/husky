@@ -117,7 +117,7 @@ impl DecTerm {
                 t(term.argument(db))
             }
             DecTerm::ApplicationOrRitchieCall(_) => todo!(),
-            DecTerm::AssociatedItem(_) => todo!(),
+            DecTerm::AssocItem(_) => todo!(),
             DecTerm::TypeAsTraitItem(_) => todo!(),
             DecTerm::TraitConstraint(_) => todo!(),
             DecTerm::LeashOrBitNot(_) => todo!(),
@@ -182,7 +182,7 @@ impl DecTerm {
             )
             .into(),
             DecTerm::ApplicationOrRitchieCall(_) => todo!(),
-            DecTerm::AssociatedItem(_) => todo!(),
+            DecTerm::AssocItem(_) => todo!(),
             DecTerm::TypeAsTraitItem(_) => todo!(),
             DecTerm::TraitConstraint(_) => todo!(),
             DecTerm::LeashOrBitNot(_) => todo!(),

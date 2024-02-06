@@ -4,14 +4,12 @@ mod ty_item;
 
 use super::*;
 
-impl TranspileToRustWith for AssociatedItemHirDefn {
+impl TranspileToRustWith for AssocItemHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         match self {
-            AssociatedItemHirDefn::TypeItem(hir_defn) => hir_defn.transpile_to_rust(builder),
-            AssociatedItemHirDefn::TraitItem(hir_defn) => hir_defn.transpile_to_rust(builder),
-            AssociatedItemHirDefn::TraitForTypeItem(hir_defn) => {
-                hir_defn.transpile_to_rust(builder)
-            }
+            AssocItemHirDefn::TypeItem(hir_defn) => hir_defn.transpile_to_rust(builder),
+            AssocItemHirDefn::TraitItem(hir_defn) => hir_defn.transpile_to_rust(builder),
+            AssocItemHirDefn::TraitForTypeItem(hir_defn) => hir_defn.transpile_to_rust(builder),
         }
     }
 }

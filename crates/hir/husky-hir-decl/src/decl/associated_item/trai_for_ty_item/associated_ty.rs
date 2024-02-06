@@ -1,8 +1,8 @@
 use super::*;
-use husky_syn_decl::TraitForTypeAssociatedTypeSynDecl;
+use husky_syn_decl::TraitForTypeAssocTypeSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
-pub struct TraitForTypeAssociatedTypeHirDecl {
+pub struct TraitForTypeAssocTypeHirDecl {
     pub path: TraitForTypeItemPath,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
@@ -10,10 +10,10 @@ pub struct TraitForTypeAssociatedTypeHirDecl {
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
-impl TraitForTypeAssociatedTypeHirDecl {
+impl TraitForTypeAssocTypeHirDecl {
     pub(super) fn from_syn(
         path: TraitForTypeItemPath,
-        syn_decl: TraitForTypeAssociatedTypeSynDecl,
+        syn_decl: TraitForTypeAssocTypeSynDecl,
         db: &::salsa::Db,
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);

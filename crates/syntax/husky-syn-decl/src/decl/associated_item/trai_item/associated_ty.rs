@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TraitAssociatedTypeSynNodeDecl {
+pub struct TraitAssocTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
     #[return_ref]
@@ -13,7 +13,7 @@ pub struct TraitAssociatedTypeSynNodeDecl {
 }
 
 /// # getters
-impl TraitAssociatedTypeSynNodeDecl {
+impl TraitAssocTypeSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.generics(db)
@@ -30,7 +30,7 @@ impl<'a> DeclParser<'a> {
     pub(super) fn parse_trai_associated_ty_node_decl(
         &self,
         syn_node_path: TraitItemSynNodePath,
-    ) -> TraitAssociatedTypeSynNodeDecl {
+    ) -> TraitAssocTypeSynNodeDecl {
         let db = self.db();
         let parent_trai_syn_node_decl = syn_node_path
             .data(db)
@@ -42,15 +42,14 @@ impl<'a> DeclParser<'a> {
             AllowSelfValue::False,
             None,
         );
-        let eq_token =
-            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqForAssociatedType);
+        let eq_token = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqForAssocType);
         let ty_term_expr_idx = parser.parse_expr_expected2(
             None,
-            SynExprRootKind::AssociatedTypeTerm,
-            OriginalSynExprError::ExpectedTypeTermForAssociatedType,
+            SynExprRootKind::AssocTypeTerm,
+            OriginalSynExprError::ExpectedTypeTermForAssocType,
         );
         let template_parameters = parser.try_parse_option();
-        TraitAssociatedTypeSynNodeDecl::new(
+        TraitAssocTypeSynNodeDecl::new(
             db,
             syn_node_path,
             template_parameters,
@@ -62,7 +61,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TraitAssociatedTypeSynDecl {
+pub struct TraitAssocTypeSynDecl {
     #[id]
     pub path: TraitItemPath,
     #[return_ref]
@@ -70,10 +69,10 @@ pub struct TraitAssociatedTypeSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TraitAssociatedTypeSynDecl {
+impl TraitAssocTypeSynDecl {
     pub(super) fn from_node_decl(
         _path: TraitItemPath,
-        _syn_node_decl: TraitAssociatedTypeSynNodeDecl,
+        _syn_node_decl: TraitAssocTypeSynNodeDecl,
         _db: &::salsa::Db,
     ) -> DeclResult<Self> {
         todo!()

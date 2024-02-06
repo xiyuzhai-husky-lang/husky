@@ -1,5 +1,5 @@
 use super::*;
-use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
+use crate::registry::associated_trace::VoidAssocTraceRegistry;
 use husky_hir_eager_expr::HirEagerExprIdx;
 use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
 
@@ -76,7 +76,7 @@ impl EagerCallInputTraceData {
                 TraceViewLines::new(
                     caller_region_path.module_path(db),
                     argument_token_idx_range,
-                    VoidAssociatedTraceRegistry,
+                    VoidAssocTraceRegistry,
                     db,
                 )
             }

@@ -18,46 +18,46 @@ use husky_entity_kind::TypeItemKind;
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeItemSynNodeDecl {
-    AssociatedFn(TypeAssociatedFnSynNodeDecl),
+    AssocFn(TypeAssocFnSynNodeDecl),
     MethodFn(TypeMethodFnSynNodeDecl),
-    AssociatedType(TypeAssociatedTypeSynNodeDecl),
-    AssociatedVal(TypeAssociatedValSynNodeDecl),
+    AssocType(TypeAssocTypeSynNodeDecl),
+    AssocVal(TypeAssocValSynNodeDecl),
     MemoizedField(TypeMemoizedFieldSynNodeDecl),
 }
 
 impl From<TypeItemSynNodeDecl> for ItemSynNodeDecl {
     fn from(decl: TypeItemSynNodeDecl) -> Self {
-        ItemSynNodeDecl::AssociatedItem(decl.into())
+        ItemSynNodeDecl::AssocItem(decl.into())
     }
 }
 
 impl TypeItemSynNodeDecl {
     pub fn syn_node_path(self, db: &::salsa::Db) -> TypeItemSynNodePath {
         match self {
-            TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeItemSynNodeDecl::AssocFn(syn_node_decl) => syn_node_decl.syn_node_path(db),
             TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.syn_node_path(db),
-            TypeItemSynNodeDecl::AssociatedType(_) => todo!(),
-            TypeItemSynNodeDecl::AssociatedVal(_) => todo!(),
+            TypeItemSynNodeDecl::AssocType(_) => todo!(),
+            TypeItemSynNodeDecl::AssocVal(_) => todo!(),
             TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => syn_node_decl.syn_node_path(db),
         }
     }
 
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
-            TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TypeItemSynNodeDecl::AssocFn(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.syn_expr_region(db),
-            TypeItemSynNodeDecl::AssociatedType(syn_node_decl) => syn_node_decl.syn_expr_region(db),
-            TypeItemSynNodeDecl::AssociatedVal(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TypeItemSynNodeDecl::AssocType(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TypeItemSynNodeDecl::AssocVal(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => syn_node_decl.syn_expr_region(db),
         }
     }
 
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
-            TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.errors(db),
+            TypeItemSynNodeDecl::AssocFn(syn_node_decl) => syn_node_decl.errors(db),
             TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.errors(db),
-            TypeItemSynNodeDecl::AssociatedType(syn_node_decl) => syn_node_decl.errors(db),
-            TypeItemSynNodeDecl::AssociatedVal(syn_node_decl) => syn_node_decl.errors(db),
+            TypeItemSynNodeDecl::AssocType(syn_node_decl) => syn_node_decl.errors(db),
+            TypeItemSynNodeDecl::AssocVal(syn_node_decl) => syn_node_decl.errors(db),
             TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => syn_node_decl.errors(db),
         }
     }
@@ -88,15 +88,15 @@ impl<'a> DeclParser<'a> {
         let db = self.db();
         match syn_node_path.data(db).item_kind(self.db()) {
             TypeItemKind::MethodFn => self.parse_ty_method_node_decl(syn_node_path).into(),
-            TypeItemKind::AssociatedFunctionFn => {
+            TypeItemKind::AssocFunctionFn => {
                 self.parse_ty_associated_fn_node_decl(syn_node_path).into()
             }
             TypeItemKind::MemoizedField => self.parse_ty_memo_decl(syn_node_path).into(),
-            TypeItemKind::AssociatedVal => todo!(),
-            TypeItemKind::AssociatedType => todo!(),
-            TypeItemKind::AssociatedFunctionGn => todo!(),
-            TypeItemKind::AssociatedFormal => todo!(),
-            TypeItemKind::AssociatedConst => todo!(),
+            TypeItemKind::AssocVal => todo!(),
+            TypeItemKind::AssocType => todo!(),
+            TypeItemKind::AssocFunctionGn => todo!(),
+            TypeItemKind::AssocFormal => todo!(),
+            TypeItemKind::AssocConst => todo!(),
         }
     }
 }
@@ -105,38 +105,38 @@ impl<'a> DeclParser<'a> {
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeItemSynDecl {
-    AssociatedFn(TypeAssociatedFnSynDecl),
+    AssocFn(TypeAssocFnSynDecl),
     MethodFn(TypeMethodFnSynDecl),
     // MethodFunction(TypeMethodFunctionSynDecl),
-    AssociatedType(TypeAssociatedTypeSynDecl),
-    AssociatedVal(TypeAssociatedValSynDecl),
+    AssocType(TypeAssocTypeSynDecl),
+    AssocVal(TypeAssocValSynDecl),
     MemoizedField(TypeMemoizedFieldSynDecl),
 }
 
 impl From<TypeItemSynDecl> for SynDecl {
     fn from(decl: TypeItemSynDecl) -> Self {
-        SynDecl::AssociatedItem(decl.into())
+        SynDecl::AssocItem(decl.into())
     }
 }
 
 impl TypeItemSynDecl {
     pub fn path(self, db: &::salsa::Db) -> TypeItemPath {
         match self {
-            TypeItemSynDecl::AssociatedFn(slf) => slf.path(db),
+            TypeItemSynDecl::AssocFn(slf) => slf.path(db),
             TypeItemSynDecl::MethodFn(slf) => slf.path(db),
-            TypeItemSynDecl::AssociatedType(slf) => slf.path(db),
-            TypeItemSynDecl::AssociatedVal(slf) => slf.path(db),
+            TypeItemSynDecl::AssocType(slf) => slf.path(db),
+            TypeItemSynDecl::AssocVal(slf) => slf.path(db),
             TypeItemSynDecl::MemoizedField(slf) => slf.path(db),
         }
     }
 
     pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         match self {
-            TypeItemSynDecl::AssociatedFn(slf) => slf.template_parameters(db),
+            TypeItemSynDecl::AssocFn(slf) => slf.template_parameters(db),
             TypeItemSynDecl::MethodFn(slf) => slf.template_parameters(db),
             // TypeItemSynDecl::MethodFunction(decl) => todo!(),
-            TypeItemSynDecl::AssociatedType(slf) => slf.template_parameters(db),
-            TypeItemSynDecl::AssociatedVal(_slf) => &[],
+            TypeItemSynDecl::AssocType(slf) => slf.template_parameters(db),
+            TypeItemSynDecl::AssocVal(_slf) => &[],
             TypeItemSynDecl::MemoizedField(_slf) => &[],
         }
     }
@@ -146,21 +146,21 @@ impl TypeItemSynDecl {
         db: &'a ::salsa::Db,
     ) -> Option<&'a [ParenateSynParameterData]> {
         match self {
-            TypeItemSynDecl::AssociatedFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),
+            TypeItemSynDecl::AssocFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),
             TypeItemSynDecl::MethodFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),
-            TypeItemSynDecl::AssociatedType(_) => None,
-            TypeItemSynDecl::AssociatedVal(_) => None,
+            TypeItemSynDecl::AssocType(_) => None,
+            TypeItemSynDecl::AssocVal(_) => None,
             TypeItemSynDecl::MemoizedField(_) => None,
         }
     }
 
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
-            TypeItemSynDecl::AssociatedFn(decl) => decl.syn_expr_region(db),
+            TypeItemSynDecl::AssocFn(decl) => decl.syn_expr_region(db),
             TypeItemSynDecl::MethodFn(decl) => decl.syn_expr_region(db),
             // TypeItemSynDecl::MethodFunction(decl) => decl.syn_expr_region(db),
-            TypeItemSynDecl::AssociatedType(decl) => decl.syn_expr_region(db),
-            TypeItemSynDecl::AssociatedVal(decl) => decl.syn_expr_region(db),
+            TypeItemSynDecl::AssocType(decl) => decl.syn_expr_region(db),
+            TypeItemSynDecl::AssocVal(decl) => decl.syn_expr_region(db),
             TypeItemSynDecl::MemoizedField(decl) => decl.syn_expr_region(db),
         }
     }
@@ -170,11 +170,11 @@ impl TypeItemSynDecl {
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeItemDecls {
-    AssociatedFn(SmallVecImpl<TypeAssociatedFnSynDecl>),
+    AssocFn(SmallVecImpl<TypeAssocFnSynDecl>),
     MethodFn(SmallVecImpl<TypeMethodFnSynDecl>),
     MethodFunction(/* adhoc */),
-    AssociatedType(SmallVecImpl<TypeAssociatedTypeSynDecl>),
-    AssociatedVal(SmallVecImpl<TypeAssociatedValSynDecl>),
+    AssocType(SmallVecImpl<TypeAssocTypeSynDecl>),
+    AssocVal(SmallVecImpl<TypeAssocValSynDecl>),
     MemoizedField(SmallVecImpl<TypeMemoizedFieldSynDecl>),
 }
 
@@ -192,15 +192,15 @@ pub(crate) fn ty_item_syn_decl(
     path: TypeItemPath,
 ) -> DeclResult<TypeItemSynDecl> {
     match path.syn_node_path(db).syn_node_decl(db) {
-        TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => {
-            TypeAssociatedFnSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+        TypeItemSynNodeDecl::AssocFn(syn_node_decl) => {
+            TypeAssocFnSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
         }
         TypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
             TypeMethodFnSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
         }
-        TypeItemSynNodeDecl::AssociatedType(_) => todo!(),
-        TypeItemSynNodeDecl::AssociatedVal(syn_node_decl) => {
-            TypeAssociatedValSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+        TypeItemSynNodeDecl::AssocType(_) => todo!(),
+        TypeItemSynNodeDecl::AssocVal(syn_node_decl) => {
+            TypeAssocValSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
         }
         TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => {
             TypeMemoizedFieldSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)

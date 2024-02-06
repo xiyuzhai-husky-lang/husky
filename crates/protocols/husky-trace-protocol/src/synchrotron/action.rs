@@ -10,7 +10,7 @@ pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
     ToggleExpansion(TraceSynchrotronToggleExpansion),
     SetSubtraces(TraceSynchrotronSetSubtraces),
     Phantom(TraceSynchrotronActionTraceProtocol<TraceProtocol>),
-    ToggleAssociatedTrace {
+    ToggleAssocTrace {
         trace_id: TraceId,
         associated_trace_id: TraceId,
     },
@@ -80,7 +80,7 @@ where
             TraceSynchrotronAction::ToggleExpansion(action) => action.act(synchrotron),
             TraceSynchrotronAction::SetSubtraces(action) => action.act(synchrotron),
             TraceSynchrotronAction::Phantom(action) => action.act(synchrotron),
-            &TraceSynchrotronAction::ToggleAssociatedTrace {
+            &TraceSynchrotronAction::ToggleAssocTrace {
                 trace_id,
                 associated_trace_id,
             } => {

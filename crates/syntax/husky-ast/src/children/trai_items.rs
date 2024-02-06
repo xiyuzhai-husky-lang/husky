@@ -25,21 +25,21 @@ impl IsAstChildren for TraitItems {
                 Err(OriginalAstError::UnexpectedModUnderFugitive)?
             }
             EntityKindKeywordGroup::FugitiveFn(_) => TraitItemKind::MethodFn,
-            EntityKindKeywordGroup::StaticFn(_, _) => TraitItemKind::AssociatedFunctionFn,
-            EntityKindKeywordGroup::Gn(_) => TraitItemKind::AssociatedFunctionGn,
-            EntityKindKeywordGroup::FormalEntity(_) => TraitItemKind::AssociatedFormal,
+            EntityKindKeywordGroup::StaticFn(_, _) => TraitItemKind::AssocFunctionFn,
+            EntityKindKeywordGroup::Gn(_) => TraitItemKind::AssocFunctionGn,
+            EntityKindKeywordGroup::FormalEntity(_) => TraitItemKind::AssocFormal,
             EntityKindKeywordGroup::MajorType(_) => {
                 Err(OriginalAstError::UnexpectedMajorTypeInsideImplBlock)?
             }
-            EntityKindKeywordGroup::AliasOrAssociateType(_) => TraitItemKind::AssociatedType,
+            EntityKindKeywordGroup::AliasOrAssociateType(_) => TraitItemKind::AssocType,
             EntityKindKeywordGroup::Trait(_) => Err(OriginalAstError::UnexpectedTraitInsideTrait)?,
-            EntityKindKeywordGroup::Val(_) => TraitItemKind::AssociatedVal,
+            EntityKindKeywordGroup::Val(_) => TraitItemKind::AssocVal,
             EntityKindKeywordGroup::Memo(_) => TraitItemKind::MemoizedField,
-            EntityKindKeywordGroup::Const(_) => TraitItemKind::AssociatedConst,
+            EntityKindKeywordGroup::Const(_) => TraitItemKind::AssocConst,
         };
         let trai_item_kind = trait_item_kind;
-        Ok(EntityKind::AssociatedItem {
-            associated_item_kind: AssociatedItemKind::TraitItem(trai_item_kind),
+        Ok(EntityKind::AssocItem {
+            associated_item_kind: AssocItemKind::TraitItem(trai_item_kind),
         })
     }
 }

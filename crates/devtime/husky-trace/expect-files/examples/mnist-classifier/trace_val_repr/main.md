@@ -1230,7 +1230,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -1328,7 +1328,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                             ),
                             instantiation: LinInstantiation {
@@ -2149,7 +2149,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -2363,7 +2363,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -2577,7 +2577,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -3039,7 +3039,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -3286,7 +3286,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -3641,7 +3641,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -4010,7 +4010,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -4428,7 +4428,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -4532,7 +4532,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
                             ),
                             instantiation: LinInstantiation {
@@ -4736,7 +4736,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -4840,7 +4840,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                             ),
                             instantiation: LinInstantiation {
@@ -5104,7 +5104,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -5208,7 +5208,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
                             ),
                             instantiation: LinInstantiation {
@@ -5363,7 +5363,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -5467,7 +5467,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                             ),
                             instantiation: LinInstantiation {
@@ -6300,7 +6300,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -7030,7 +7030,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -8248,7 +8248,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -11811,7 +11811,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -12072,7 +12072,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -12224,7 +12224,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -13394,7 +13394,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -13848,7 +13848,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -14359,7 +14359,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -14558,7 +14558,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -14770,7 +14770,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -14874,7 +14874,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                             ),
                             instantiation: LinInstantiation {
@@ -15197,7 +15197,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -33631,7 +33631,7 @@
                                 value: 454,
                             },
                         ),
-                        callee_path: AssociatedItem(
+                        callee_path: AssocItem(
                             TypeItem(
                                 TypeItemPath(
                                     ItemPathId(
@@ -33657,7 +33657,7 @@
                             value: 516,
                         },
                     ),
-                    callee_path: AssociatedItem(
+                    callee_path: AssocItem(
                         TypeItem(
                             TypeItemPath(
                                 ItemPathId(
@@ -34603,7 +34603,7 @@
                                 value: 466,
                             },
                         ),
-                        callee_path: AssociatedItem(
+                        callee_path: AssocItem(
                             TypeItem(
                                 TypeItemPath(
                                     ItemPathId(
@@ -34629,7 +34629,7 @@
                             value: 533,
                         },
                     ),
-                    callee_path: AssociatedItem(
+                    callee_path: AssocItem(
                         TypeItem(
                             TypeItemPath(
                                 ItemPathId(
@@ -36863,7 +36863,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -38081,7 +38081,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -41126,7 +41126,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -41387,7 +41387,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -41539,7 +41539,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -42709,7 +42709,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -43163,7 +43163,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -43674,7 +43674,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -43873,7 +43873,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -44085,7 +44085,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -44189,7 +44189,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                             ),
                             instantiation: LinInstantiation {
@@ -44512,7 +44512,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -45855,7 +45855,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -45953,7 +45953,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                             ),
                             instantiation: LinInstantiation {
@@ -46774,7 +46774,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -46988,7 +46988,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -47202,7 +47202,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -47664,7 +47664,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -47911,7 +47911,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -48266,7 +48266,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -48635,7 +48635,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -49053,7 +49053,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -49157,7 +49157,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
                             ),
                             instantiation: LinInstantiation {
@@ -49361,7 +49361,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -49465,7 +49465,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                             ),
                             instantiation: LinInstantiation {
@@ -49729,7 +49729,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -49833,7 +49833,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
                             ),
                             instantiation: LinInstantiation {
@@ -49988,7 +49988,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {
@@ -50092,7 +50092,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                             ),
                             instantiation: LinInstantiation {
@@ -50925,7 +50925,7 @@
                 opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
-                            path: AssociatedItemPath::TypeItem(
+                            path: AssocItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
                             instantiation: LinInstantiation {

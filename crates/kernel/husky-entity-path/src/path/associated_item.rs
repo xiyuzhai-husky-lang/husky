@@ -11,13 +11,13 @@ use crate::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum AssociatedItemPath {
+pub enum AssocItemPath {
     TypeItem(TypeItemPath),
     TraitItem(TraitItemPath),
     TraitForTypeItem(TraitForTypeItemPath),
 }
 
-impl std::ops::Deref for AssociatedItemPath {
+impl std::ops::Deref for AssocItemPath {
     type Target = ItemPathId;
 
     fn deref(&self) -> &Self::Target {
@@ -28,7 +28,7 @@ impl std::ops::Deref for AssociatedItemPath {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum AssociatedItemPathData {
+pub enum AssocItemPathData {
     TypeItem(TypeItemPathData),
     TraitItem(TraitItemPathData),
     TraitForTypeItem(TraitForTypeItemPathData),
@@ -36,61 +36,61 @@ pub enum AssociatedItemPathData {
 
 impl From<TraitItemPath> for ItemPath {
     fn from(v: TraitItemPath) -> Self {
-        ItemPath::AssociatedItem(v.into())
+        ItemPath::AssocItem(v.into())
     }
 }
 
 impl From<TypeItemPath> for ItemPath {
     fn from(v: TypeItemPath) -> Self {
-        ItemPath::AssociatedItem(v.into())
+        ItemPath::AssocItem(v.into())
     }
 }
 
-impl AssociatedItemPathData {
+impl AssocItemPathData {
     #[inline(always)]
-    pub(super) fn item_path(self, id: ItemPathId) -> AssociatedItemPath {
+    pub(super) fn item_path(self, id: ItemPathId) -> AssocItemPath {
         match self {
-            AssociatedItemPathData::TypeItem(slf) => slf.item_path(id).into(),
-            AssociatedItemPathData::TraitItem(slf) => slf.item_path(id).into(),
-            AssociatedItemPathData::TraitForTypeItem(slf) => slf.item_path(id).into(),
+            AssocItemPathData::TypeItem(slf) => slf.item_path(id).into(),
+            AssocItemPathData::TraitItem(slf) => slf.item_path(id).into(),
+            AssocItemPathData::TraitForTypeItem(slf) => slf.item_path(id).into(),
         }
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         match self {
-            AssociatedItemPathData::TypeItem(data) => data.module_path(db),
-            AssociatedItemPathData::TraitItem(data) => data.module_path(db),
-            AssociatedItemPathData::TraitForTypeItem(data) => data.module_path(db),
+            AssocItemPathData::TypeItem(data) => data.module_path(db),
+            AssocItemPathData::TraitItem(data) => data.module_path(db),
+            AssocItemPathData::TraitForTypeItem(data) => data.module_path(db),
         }
     }
 
     pub fn ident(self, _db: &::salsa::Db) -> Ident {
         match self {
-            AssociatedItemPathData::TypeItem(slf) => slf.ident,
-            AssociatedItemPathData::TraitItem(slf) => slf.ident,
-            AssociatedItemPathData::TraitForTypeItem(slf) => slf.ident,
+            AssocItemPathData::TypeItem(slf) => slf.ident,
+            AssocItemPathData::TraitItem(slf) => slf.ident,
+            AssocItemPathData::TraitForTypeItem(slf) => slf.ident,
         }
     }
 
     pub(crate) fn entity_kind(self, db: &::salsa::Db) -> EntityKind {
         match self {
-            AssociatedItemPathData::TypeItem(slf) => slf.entity_kind(db),
-            AssociatedItemPathData::TraitItem(slf) => slf.entity_kind(db),
-            AssociatedItemPathData::TraitForTypeItem(slf) => slf.entity_kind(db),
+            AssocItemPathData::TypeItem(slf) => slf.entity_kind(db),
+            AssocItemPathData::TraitItem(slf) => slf.entity_kind(db),
+            AssocItemPathData::TraitForTypeItem(slf) => slf.entity_kind(db),
         }
     }
 }
 
-impl salsa::DisplayWithDb for AssociatedItemPath {
+impl salsa::DisplayWithDb for AssocItemPath {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
         match self {
-            AssociatedItemPath::TypeItem(path) => path.display_fmt_with_db(f, db),
-            AssociatedItemPath::TraitItem(path) => path.display_fmt_with_db(f, db),
-            AssociatedItemPath::TraitForTypeItem(path) => path.display_fmt_with_db(f, db),
+            AssocItemPath::TypeItem(path) => path.display_fmt_with_db(f, db),
+            AssocItemPath::TraitItem(path) => path.display_fmt_with_db(f, db),
+            AssocItemPath::TraitForTypeItem(path) => path.display_fmt_with_db(f, db),
         }
     }
 }

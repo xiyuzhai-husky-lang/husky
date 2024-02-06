@@ -5,7 +5,7 @@ use crate::{
 use either::*;
 use husky_coword::Ident;
 use husky_entity_kind::{FugitiveKind, TraitItemKind, TypeItemKind, TypeKind};
-use husky_entity_path::{AssociatedItemPath, MajorFugitivePath, PreludeTraitPath, TypeVariantPath};
+use husky_entity_path::{AssocItemPath, MajorFugitivePath, PreludeTraitPath, TypeVariantPath};
 use husky_entity_path::{TraitForTypeItemPath, TypePath};
 use husky_hir_decl::decl::{HasHirDecl, TypeHirDecl};
 use husky_hir_decl::helpers::enum_ty_has_only_unit_variants;
@@ -40,18 +40,18 @@ pub enum LinkageData {
         instantiation: LinInstantiation,
     },
     MemoizedField {
-        path: AssociatedItemPath,
+        path: AssocItemPath,
         instantiation: LinInstantiation,
     },
     MethodFn {
-        path: AssociatedItemPath,
+        path: AssocItemPath,
         instantiation: LinInstantiation,
     },
-    AssociatedFunctionFn {
-        path: AssociatedItemPath,
+    AssocFunctionFn {
+        path: AssocItemPath,
         instantiation: LinInstantiation,
     },
-    UnveilAssociatedFunctionFn {
+    UnveilAssocFunctionFn {
         path: TraitForTypeItemPath,
         instantiation: LinInstantiation,
     },
@@ -129,7 +129,7 @@ impl Linkage {
 
     // todo: lin_instantiation
     pub fn new_memoized_field(
-        path: AssociatedItemPath,
+        path: AssocItemPath,
         hir_instantiation: &HirInstantiation,
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
@@ -144,7 +144,7 @@ impl Linkage {
     }
 
     pub fn new_method(
-        path: AssociatedItemPath,
+        path: AssocItemPath,
         hir_instantiation: &HirInstantiation,
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
@@ -238,14 +238,14 @@ impl Linkage {
     }
 
     pub fn new_associated_function_fn_item(
-        path: AssociatedItemPath,
+        path: AssocItemPath,
         hir_instantiation: &HirInstantiation,
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         Self::new(
             db,
-            LinkageData::AssociatedFunctionFn {
+            LinkageData::AssocFunctionFn {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -260,7 +260,7 @@ impl Linkage {
     ) -> Self {
         Self::new(
             db,
-            LinkageData::UnveilAssociatedFunctionFn {
+            LinkageData::UnveilAssocFunctionFn {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -364,12 +364,12 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         },
                         db,
                     ),
-                    TypeItemKind::AssociatedFunctionFn => build(
+                    TypeItemKind::AssocFunctionFn => build(
                         instantiation,
                         |instantiation| {
                             Linkage::new(
                                 db,
-                                LinkageData::AssociatedFunctionFn {
+                                LinkageData::AssocFunctionFn {
                                     path: path.into(),
                                     instantiation,
                                 },
@@ -377,9 +377,9 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         },
                         db,
                     ),
-                    TypeItemKind::AssociatedFunctionGn => todo!(),
-                    TypeItemKind::AssociatedVal => todo!(),
-                    TypeItemKind::AssociatedType => smallvec![],
+                    TypeItemKind::AssocFunctionGn => todo!(),
+                    TypeItemKind::AssocVal => todo!(),
+                    TypeItemKind::AssocType => smallvec![],
                     TypeItemKind::MemoizedField => build(
                         instantiation,
                         |instantiation| {
@@ -393,8 +393,8 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         },
                         db,
                     ),
-                    TypeItemKind::AssociatedFormal => todo!(),
-                    TypeItemKind::AssociatedConst => todo!(),
+                    TypeItemKind::AssocFormal => todo!(),
+                    TypeItemKind::AssocConst => todo!(),
                 },
                 JavPath::TraitItem(_) => todo!(),
                 JavPath::TraitForTypeItem(path) => match path.item_kind(db) {
@@ -412,9 +412,9 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         },
                         db,
                     ),
-                    TraitItemKind::AssociatedType => smallvec![],
-                    TraitItemKind::AssociatedVal => todo!(),
-                    TraitItemKind::AssociatedFunctionFn => {
+                    TraitItemKind::AssocType => smallvec![],
+                    TraitItemKind::AssocVal => todo!(),
+                    TraitItemKind::AssocFunctionFn => {
                         match path.impl_block(db).trai_path(db).refine(db) {
                             Left(PreludeTraitPath::UNVEIL) => {
                                 LinInstantiation::from_javelin(instantiation, db)
@@ -423,14 +423,14 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                         [
                                             Linkage::new(
                                                 db,
-                                                LinkageData::AssociatedFunctionFn {
+                                                LinkageData::AssocFunctionFn {
                                                     path: path.into(),
                                                     instantiation: instantiation.clone(),
                                                 },
                                             ),
                                             Linkage::new(
                                                 db,
-                                                LinkageData::UnveilAssociatedFunctionFn {
+                                                LinkageData::UnveilAssocFunctionFn {
                                                     path: path.into(),
                                                     instantiation,
                                                 },
@@ -445,7 +445,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                 |instantiation| {
                                     Linkage::new(
                                         db,
-                                        LinkageData::AssociatedFunctionFn {
+                                        LinkageData::AssocFunctionFn {
                                             path: path.into(),
                                             instantiation,
                                         },
@@ -455,9 +455,9 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             ),
                         }
                     }
-                    TraitItemKind::AssociatedFunctionGn => todo!(),
-                    TraitItemKind::AssociatedFormal => todo!(),
-                    TraitItemKind::AssociatedConst => todo!(),
+                    TraitItemKind::AssocFunctionGn => todo!(),
+                    TraitItemKind::AssocFormal => todo!(),
+                    TraitItemKind::AssocConst => todo!(),
                 },
                 JavPath::TypeConstructor(path) => {
                     match path.ty_kind(db) {

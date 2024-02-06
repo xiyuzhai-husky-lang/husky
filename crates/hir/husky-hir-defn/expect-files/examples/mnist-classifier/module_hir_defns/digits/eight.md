@@ -247,7 +247,7 @@
                                             data: HirEagerExprData::MemoizedField {
                                                 owner_hir_expr_idx: 1,
                                                 ident: `relative_bounding_box`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
                                                 ),
                                             },
@@ -259,7 +259,7 @@
                                                 self_argument: 2,
                                                 self_contract: Pure,
                                                 ident: `ymax`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -351,7 +351,7 @@
                                                 self_argument: 7,
                                                 self_contract: Pure,
                                                 ident: `first`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -478,7 +478,7 @@
                                                 self_argument: 13,
                                                 self_contract: Pure,
                                                 ident: `first`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -580,7 +580,7 @@
                                             data: HirEagerExprData::MemoizedField {
                                                 owner_hir_expr_idx: 19,
                                                 ident: `relative_bounding_box`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
                                                 ),
                                             },
@@ -592,7 +592,7 @@
                                                 self_argument: 20,
                                                 self_contract: Pure,
                                                 ident: `ymax`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {

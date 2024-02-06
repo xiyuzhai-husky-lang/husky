@@ -26699,7 +26699,7 @@
                                 value: 454,
                             },
                         ),
-                        callee_path: AssociatedItem(
+                        callee_path: AssocItem(
                             TypeItem(
                                 TypeItemPath(
                                     ItemPathId(
@@ -26725,7 +26725,7 @@
                             value: 516,
                         },
                     ),
-                    callee_path: AssociatedItem(
+                    callee_path: AssocItem(
                         TypeItem(
                             TypeItemPath(
                                 ItemPathId(
@@ -27591,7 +27591,7 @@
                                 value: 466,
                             },
                         ),
-                        callee_path: AssociatedItem(
+                        callee_path: AssocItem(
                             TypeItem(
                                 TypeItemPath(
                                     ItemPathId(
@@ -27617,7 +27617,7 @@
                             value: 533,
                         },
                     ),
-                    callee_path: AssociatedItem(
+                    callee_path: AssocItem(
                         TypeItem(
                             TypeItemPath(
                                 ItemPathId(

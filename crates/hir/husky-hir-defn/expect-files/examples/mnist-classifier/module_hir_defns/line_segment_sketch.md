@@ -168,7 +168,7 @@
                                             self_argument: 1,
                                             self_contract: Pure,
                                             ident: `first`,
-                                            path: AssociatedItemPath::TypeItem(
+                                            path: AssocItemPath::TypeItem(
                                                 TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
@@ -217,11 +217,11 @@
                                             self_argument: 3,
                                             self_contract: Pure,
                                             ident: `clone`,
-                                            path: AssociatedItemPath::TraitForTypeItem(
+                                            path: AssocItemPath::TraitForTypeItem(
                                                 TraitForTypeItemPath(
                                                     ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TraitForTypeItem(
+                                                        data: ItemPathData::AssocItem(
+                                                            AssocItemPathData::TraitForTypeItem(
                                                                 TraitForTypeItemPathData {
                                                                     impl_block: TraitForTypeImplBlock {
                                                                         data: TraitForTypeImplBlockPathData {
@@ -285,7 +285,7 @@
                                             self_argument: 5,
                                             self_contract: Pure,
                                             ident: `last`,
-                                            path: AssociatedItemPath::TypeItem(
+                                            path: AssocItemPath::TypeItem(
                                                 TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
@@ -334,11 +334,11 @@
                                             self_argument: 7,
                                             self_contract: Pure,
                                             ident: `clone`,
-                                            path: AssociatedItemPath::TraitForTypeItem(
+                                            path: AssocItemPath::TraitForTypeItem(
                                                 TraitForTypeItemPath(
                                                     ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TraitForTypeItem(
+                                                        data: ItemPathData::AssocItem(
+                                                            AssocItemPathData::TraitForTypeItem(
                                                                 TraitForTypeItemPathData {
                                                                     impl_block: TraitForTypeImplBlock {
                                                                         data: TraitForTypeImplBlockPathData {
@@ -811,7 +811,7 @@
                                                 self_argument: 11,
                                                 self_contract: Pure,
                                                 ident: `sqrt`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -989,7 +989,7 @@
                                                 self_argument: 25,
                                                 self_contract: Pure,
                                                 ident: `sqrt`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -1782,7 +1782,7 @@
                                                 self_argument: 11,
                                                 self_contract: Pure,
                                                 ident: `sqrt`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -1960,7 +1960,7 @@
                                                 self_argument: 25,
                                                 self_contract: Pure,
                                                 ident: `sqrt`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -2687,7 +2687,7 @@
                                                 self_argument: 2,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -2787,7 +2787,7 @@
                                                 self_argument: 9,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -2916,7 +2916,7 @@
                                                 self_argument: 17,
                                                 self_contract: Pure,
                                                 ident: `norm`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -3063,7 +3063,7 @@
                                                 self_argument: 25,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -3147,7 +3147,7 @@
                                                 self_argument: 32,
                                                 self_contract: Pure,
                                                 ident: `norm`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -3454,7 +3454,7 @@
                                                 self_argument: 47,
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -3555,7 +3555,7 @@
                                                 self_argument: 53,
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -3643,7 +3643,7 @@
                                                 self_argument: 59,
                                                 self_contract: Pure,
                                                 ident: `norm`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -4032,7 +4032,7 @@
                                                 self_argument: 81,
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -4157,7 +4157,7 @@
                                                 self_argument: 89,
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -4349,7 +4349,7 @@
                                                 self_argument: 100,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -5163,7 +5163,7 @@
                                                 self_argument: 2,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -5276,7 +5276,7 @@
                                                 self_argument: 10,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -5379,7 +5379,7 @@
                                                 self_argument: 16,
                                                 self_contract: Pure,
                                                 ident: `norm`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -5526,7 +5526,7 @@
                                                 self_argument: 24,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -5610,7 +5610,7 @@
                                                 self_argument: 31,
                                                 self_contract: Pure,
                                                 ident: `norm`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -5679,7 +5679,7 @@
                                                 self_argument: 35,
                                                 self_contract: Pure,
                                                 ident: `min`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::i32(0)::min`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -6007,7 +6007,7 @@
                                                 self_argument: 48,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -6082,7 +6082,7 @@
                                                 self_argument: 54,
                                                 self_contract: Pure,
                                                 ident: `norm`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -6471,7 +6471,7 @@
                                                 self_argument: 76,
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -6596,7 +6596,7 @@
                                                 self_argument: 84,
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -6721,7 +6721,7 @@
                                                 self_argument: 92,
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -6848,7 +6848,7 @@
                                                 self_argument: 100,
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -6938,7 +6938,7 @@
                                                 self_argument: 105,
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -7825,7 +7825,7 @@
                                                 self_argument: 5,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -8085,9 +8085,9 @@
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::AssociatedFunctionFnCall {
-                                                path: AssociatedItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
+                                            data: HirEagerExprData::AssocFunctionFnCall {
+                                                path: AssocItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -8200,7 +8200,7 @@
                                                 self_argument: 21,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -8275,7 +8275,7 @@
                                                 self_argument: 25,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -8307,7 +8307,7 @@
                                                 self_argument: 27,
                                                 self_contract: At,
                                                 ident: `last`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -8376,7 +8376,7 @@
                                                 self_argument: 29,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -8421,7 +8421,7 @@
                                                 self_argument: 31,
                                                 self_contract: Pure,
                                                 ident: `cross`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -8465,7 +8465,7 @@
                                                 self_argument: 33,
                                                 self_contract: Pure,
                                                 ident: `abs`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -8535,7 +8535,7 @@
                                                 self_argument: 37,
                                                 self_contract: Pure,
                                                 ident: `dot`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -8653,7 +8653,7 @@
                                                 self_argument: 44,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -8708,7 +8708,7 @@
                                                 self_argument: 46,
                                                 self_contract: At,
                                                 ident: `last`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -8803,7 +8803,7 @@
                                                 self_argument: 50,
                                                 self_contract: At,
                                                 ident: `last`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -8913,7 +8913,7 @@
                                                 self_argument: 53,
                                                 self_contract: Pure,
                                                 ident: `start`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -8964,9 +8964,9 @@
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::AssociatedFunctionFnCall {
-                                                path: AssociatedItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
+                                            data: HirEagerExprData::AssocFunctionFnCall {
+                                                path: AssocItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -9322,9 +9322,9 @@
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::AssociatedFunctionFnCall {
-                                                path: AssociatedItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
+                                            data: HirEagerExprData::AssocFunctionFnCall {
+                                                path: AssocItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -9428,7 +9428,7 @@
                                                 self_argument: 73,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -9503,7 +9503,7 @@
                                                 self_argument: 77,
                                                 self_contract: At,
                                                 ident: `last`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -9587,7 +9587,7 @@
                                                 self_argument: 80,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -9619,7 +9619,7 @@
                                                 self_argument: 82,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -9710,7 +9710,7 @@
                                                 self_argument: 85,
                                                 self_contract: Pure,
                                                 ident: `to`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -9780,7 +9780,7 @@
                                                 self_argument: 89,
                                                 self_contract: Pure,
                                                 ident: `cross`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -9824,7 +9824,7 @@
                                                 self_argument: 91,
                                                 self_contract: Pure,
                                                 ident: `abs`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -9894,7 +9894,7 @@
                                                 self_argument: 95,
                                                 self_contract: Pure,
                                                 ident: `dot`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -10000,7 +10000,7 @@
                                                 self_argument: 101,
                                                 self_contract: Pure,
                                                 ident: `cross`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -10044,7 +10044,7 @@
                                                 self_argument: 103,
                                                 self_contract: Pure,
                                                 ident: `abs`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -10125,7 +10125,7 @@
                                                 self_argument: 108,
                                                 self_contract: Pure,
                                                 ident: `dot`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -10218,7 +10218,7 @@
                                                 self_argument: 114,
                                                 self_contract: BorrowMut,
                                                 ident: `pop`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -10353,7 +10353,7 @@
                                                 self_argument: 120,
                                                 self_contract: Pure,
                                                 ident: `start`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -10449,7 +10449,7 @@
                                                 self_argument: 123,
                                                 self_contract: Pure,
                                                 ident: `end`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -10487,9 +10487,9 @@
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::AssociatedFunctionFnCall {
-                                                path: AssociatedItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
+                                            data: HirEagerExprData::AssocFunctionFnCall {
+                                                path: AssocItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -10641,7 +10641,7 @@
                                                 self_argument: 130,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -10729,7 +10729,7 @@
                                                 self_argument: 134,
                                                 self_contract: BorrowMut,
                                                 ident: `push`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -10930,7 +10930,7 @@
                                                 self_argument: 146,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -10985,7 +10985,7 @@
                                                 self_argument: 148,
                                                 self_contract: At,
                                                 ident: `first`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -11095,7 +11095,7 @@
                                                 self_argument: 151,
                                                 self_contract: Pure,
                                                 ident: `end`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -11150,7 +11150,7 @@
                                                 self_argument: 153,
                                                 self_contract: At,
                                                 ident: `last`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -11277,7 +11277,7 @@
                                                 self_argument: 157,
                                                 self_contract: Pure,
                                                 ident: `end`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -11380,7 +11380,7 @@
                                                 self_argument: 163,
                                                 self_contract: BorrowMut,
                                                 ident: `pop`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -11448,7 +11448,7 @@
                                                 self_argument: 166,
                                                 self_contract: At,
                                                 ident: `first`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -11584,7 +11584,7 @@
                                                 self_argument: 171,
                                                 self_contract: Pure,
                                                 ident: `start`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -11663,7 +11663,7 @@
                                                 self_argument: 175,
                                                 self_contract: At,
                                                 ident: `first`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -11773,7 +11773,7 @@
                                                 self_argument: 178,
                                                 self_contract: Pure,
                                                 ident: `end`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -11831,9 +11831,9 @@
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::AssociatedFunctionFnCall {
-                                                path: AssociatedItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
+                                            data: HirEagerExprData::AssocFunctionFnCall {
+                                                path: AssocItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -12662,14 +12662,14 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TraitForTypeItem(
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -12691,8 +12691,8 @@
                     hir_decl: TraitForTypeMethodFnHirDecl {
                         path: TraitForTypeItemPath(
                             ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TraitForTypeItem(
+                                data: ItemPathData::AssocItem(
+                                    AssocItemPathData::TraitForTypeItem(
                                         TraitForTypeItemPathData {
                                             impl_block: TraitForTypeImplBlock {
                                                 data: TraitForTypeImplBlockPathData {
@@ -12736,12 +12736,12 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TraitForTypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -12797,12 +12797,12 @@
                             6,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
-                                    ItemPath::AssociatedItem(
-                                        AssociatedItemPath::TraitForTypeItem(
+                                    ItemPath::AssocItem(
+                                        AssocItemPath::TraitForTypeItem(
                                             TraitForTypeItemPath(
                                                 ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TraitForTypeItem(
+                                                    data: ItemPathData::AssocItem(
+                                                        AssocItemPathData::TraitForTypeItem(
                                                             TraitForTypeItemPathData {
                                                                 impl_block: TraitForTypeImplBlock {
                                                                     data: TraitForTypeImplBlockPathData {
@@ -13049,13 +13049,13 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TypeItem(
-            TypeItemHirDefn::AssociatedFn(
-                TypeAssociatedFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
-                    hir_decl: TypeAssociatedFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TypeItem(
+            TypeItemHirDefn::AssocFn(
+                TypeAssocFnHirDefn {
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
+                    hir_decl: TypeAssocFnHirDecl {
+                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -13115,9 +13115,9 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
                                     ),
                                 ),
                             ),
@@ -13186,9 +13186,9 @@
                             12,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
-                                    ItemPath::AssociatedItem(
-                                        AssociatedItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
+                                    ItemPath::AssocItem(
+                                        AssocItemPath::TypeItem(
+                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
                                         ),
                                     ),
                                 ),
@@ -13320,7 +13320,7 @@
                                                 self_argument: 5,
                                                 self_contract: Leash,
                                                 ident: `cyclic_slice_leashed`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -13503,8 +13503,8 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TypeItem(
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
                     path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
@@ -13535,8 +13535,8 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
                                     ),
                                 ),
@@ -13575,8 +13575,8 @@
                             6,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
-                                    ItemPath::AssociatedItem(
-                                        AssociatedItemPath::TypeItem(
+                                    ItemPath::AssocItem(
+                                        AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
                                         ),
                                     ),
@@ -13656,7 +13656,7 @@
                                                 self_argument: 2,
                                                 self_contract: Pure,
                                                 ident: `to`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -13819,14 +13819,14 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TraitForTypeItem(
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -13848,8 +13848,8 @@
                     hir_decl: TraitForTypeMethodFnHirDecl {
                         path: TraitForTypeItemPath(
                             ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TraitForTypeItem(
+                                data: ItemPathData::AssocItem(
+                                    AssocItemPathData::TraitForTypeItem(
                                         TraitForTypeItemPathData {
                                             impl_block: TraitForTypeImplBlock {
                                                 data: TraitForTypeImplBlockPathData {
@@ -13893,12 +13893,12 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TraitForTypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -13954,12 +13954,12 @@
                             4,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
-                                    ItemPath::AssociatedItem(
-                                        AssociatedItemPath::TraitForTypeItem(
+                                    ItemPath::AssocItem(
+                                        AssocItemPath::TraitForTypeItem(
                                             TraitForTypeItemPath(
                                                 ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TraitForTypeItem(
+                                                    data: ItemPathData::AssocItem(
+                                                        AssocItemPathData::TraitForTypeItem(
                                                             TraitForTypeItemPathData {
                                                                 impl_block: TraitForTypeImplBlock {
                                                                     data: TraitForTypeImplBlockPathData {
@@ -14032,11 +14032,11 @@
                                                 self_argument: 2,
                                                 self_contract: Pure,
                                                 ident: `visualize`,
-                                                path: AssociatedItemPath::TraitForTypeItem(
+                                                path: AssocItemPath::TraitForTypeItem(
                                                     TraitForTypeItemPath(
                                                         ItemPathId {
-                                                            data: ItemPathData::AssociatedItem(
-                                                                AssociatedItemPathData::TraitForTypeItem(
+                                                            data: ItemPathData::AssocItem(
+                                                                AssocItemPathData::TraitForTypeItem(
                                                                     TraitForTypeItemPathData {
                                                                         impl_block: TraitForTypeImplBlock {
                                                                             data: TraitForTypeImplBlockPathData {
@@ -14218,8 +14218,8 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TypeItem(
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
                     path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
@@ -14244,8 +14244,8 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
                                     ),
                                 ),
@@ -14284,8 +14284,8 @@
                             3,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
-                                    ItemPath::AssociatedItem(
-                                        AssociatedItemPath::TypeItem(
+                                    ItemPath::AssocItem(
+                                        AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
                                         ),
                                     ),
@@ -14380,8 +14380,8 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TypeItem(
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
                     path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
@@ -14396,8 +14396,8 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                                     ),
                                 ),
@@ -14436,8 +14436,8 @@
                             53,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
-                                    ItemPath::AssociatedItem(
-                                        AssociatedItemPath::TypeItem(
+                                    ItemPath::AssocItem(
+                                        AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                                         ),
                                     ),
@@ -14637,7 +14637,7 @@
                                                 self_argument: 15,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -14797,7 +14797,7 @@
                                                 self_argument: 23,
                                                 self_contract: Pure,
                                                 ident: `min`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -14892,7 +14892,7 @@
                                                 self_argument: 29,
                                                 self_contract: Pure,
                                                 ident: `max`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -14987,7 +14987,7 @@
                                                 self_argument: 35,
                                                 self_contract: Pure,
                                                 ident: `min`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -15082,7 +15082,7 @@
                                                 self_argument: 41,
                                                 self_contract: Pure,
                                                 ident: `max`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -15600,13 +15600,13 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TypeItem(
-            TypeItemHirDefn::AssociatedFn(
-                TypeAssociatedFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssociatedFunctionFn`),
-                    hir_decl: TypeAssociatedFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssociatedFunctionFn`),
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TypeItem(
+            TypeItemHirDefn::AssocFn(
+                TypeAssocFnHirDefn {
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocFunctionFn`),
+                    hir_decl: TypeAssocFnHirDecl {
+                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocFunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -15655,9 +15655,9 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssociatedFunctionFn`),
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocFunctionFn`),
                                     ),
                                 ),
                             ),
@@ -15716,9 +15716,9 @@
                             6,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
-                                    ItemPath::AssociatedItem(
-                                        AssociatedItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssociatedFunctionFn`),
+                                    ItemPath::AssocItem(
+                                        AssocItemPath::TypeItem(
+                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocFunctionFn`),
                                         ),
                                     ),
                                 ),

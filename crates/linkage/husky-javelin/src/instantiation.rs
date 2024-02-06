@@ -56,7 +56,7 @@ impl JavInstantiation {
             separator: match item_path {
                 ItemPath::Submodule(_, _) => todo!(),
                 ItemPath::MajorItem(_) => None,
-                ItemPath::AssociatedItem(_) => Some(0),
+                ItemPath::AssocItem(_) => Some(0),
                 ItemPath::TypeVariant(_, _) => None,
                 ItemPath::ImplBlock(_) => todo!(),
                 ItemPath::Attr(_, _) => todo!(),

@@ -76,7 +76,7 @@ pub enum OriginalSynNodeDeclError {
     #[error("expected `{{` `(` or `;` for struct")]
     ExpectedLcurlOrLparOrSemicolonForStruct(RegionalTokenStreamState),
     #[error("expected `=` for associated type")]
-    ExpectedEqForAssociatedType(RegionalTokenStreamState),
+    ExpectedEqForAssocType(RegionalTokenStreamState),
     #[error("expected `(` for derive")]
     ExpectLeftBracketInDerive(RegionalTokenStreamState),
     #[error("expected `)` for derive")]

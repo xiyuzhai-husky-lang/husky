@@ -1,27 +1,27 @@
 use super::*;
-use husky_hir_decl::decl::TraitAssociatedTypeHirDecl;
+use husky_hir_decl::decl::TraitAssocTypeHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
-pub struct TraitAssociatedTypeHirDefn {
+pub struct TraitAssocTypeHirDefn {
     pub path: TraitItemPath,
-    pub hir_decl: TraitAssociatedTypeHirDecl,
+    pub hir_decl: TraitAssocTypeHirDecl,
     pub hir_expr_region: HirEagerExprRegion,
     pub hir_eager_expr_region: Option<HirEagerExprRegion>,
 }
 
-impl From<TraitAssociatedTypeHirDefn> for AssociatedItemHirDefn {
-    fn from(hir_defn: TraitAssociatedTypeHirDefn) -> Self {
-        AssociatedItemHirDefn::TraitItem(hir_defn.into())
+impl From<TraitAssocTypeHirDefn> for AssocItemHirDefn {
+    fn from(hir_defn: TraitAssocTypeHirDefn) -> Self {
+        AssocItemHirDefn::TraitItem(hir_defn.into())
     }
 }
 
-impl From<TraitAssociatedTypeHirDefn> for HirDefn {
-    fn from(hir_defn: TraitAssociatedTypeHirDefn) -> Self {
-        HirDefn::AssociatedItem(hir_defn.into())
+impl From<TraitAssocTypeHirDefn> for HirDefn {
+    fn from(hir_defn: TraitAssocTypeHirDefn) -> Self {
+        HirDefn::AssocItem(hir_defn.into())
     }
 }
 
-impl TraitAssociatedTypeHirDefn {
+impl TraitAssocTypeHirDefn {
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         trai_associated_ty_hir_defn_dependencies(db, self)
     }
@@ -34,7 +34,7 @@ impl TraitAssociatedTypeHirDefn {
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_associated_ty_hir_defn_dependencies(
     db: &::salsa::Db,
-    hir_defn: TraitAssociatedTypeHirDefn,
+    hir_defn: TraitAssocTypeHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
@@ -50,7 +50,7 @@ fn trai_associated_ty_hir_defn_dependencies(
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_associated_ty_hir_defn_version_stamp(
     db: &::salsa::Db,
-    hir_defn: TraitAssociatedTypeHirDefn,
+    hir_defn: TraitAssocTypeHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

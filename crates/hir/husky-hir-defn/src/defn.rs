@@ -29,7 +29,7 @@ pub enum HirDefn {
     MajorItem(MajorItemHirDefn),
     TypeVariant(TypeVariantHirDefn),
     ImplBlock(ImplBlockHirDefn),
-    AssociatedItem(AssociatedItemHirDefn),
+    AssocItem(AssocItemHirDefn),
     Attr(AttrHirDefn),
 }
 
@@ -40,7 +40,7 @@ impl HirDefn {
             HirDefn::MajorItem(hir_defn) => hir_defn.hir_decl(db).into(),
             HirDefn::TypeVariant(hir_defn) => hir_defn.hir_decl(db).into(),
             HirDefn::ImplBlock(hir_decl) => hir_decl.hir_decl().into(),
-            HirDefn::AssociatedItem(hir_defn) => hir_defn.hir_decl(db).into(),
+            HirDefn::AssocItem(hir_defn) => hir_defn.hir_decl(db).into(),
             HirDefn::Attr(hir_defn) => hir_defn.hir_decl().into(),
         }
     }
@@ -53,7 +53,7 @@ impl HirDefn {
         match self {
             HirDefn::Submodule(_) => None,
             HirDefn::MajorItem(hir_defn) => hir_defn.hir_expr_region(db),
-            HirDefn::AssociatedItem(hir_defn) => hir_defn.hir_expr_region(db),
+            HirDefn::AssocItem(hir_defn) => hir_defn.hir_expr_region(db),
             HirDefn::TypeVariant(_defn) => None,
             HirDefn::ImplBlock(_) => None,
             HirDefn::Attr(_) => None,
@@ -63,7 +63,7 @@ impl HirDefn {
     pub fn path(self, db: &::salsa::Db) -> ItemPath {
         match self {
             HirDefn::MajorItem(hir_defn) => hir_defn.path(db).into(),
-            HirDefn::AssociatedItem(hir_defn) => hir_defn.path(db).into(),
+            HirDefn::AssocItem(hir_defn) => hir_defn.path(db).into(),
             HirDefn::TypeVariant(hir_defn) => hir_defn.path(db).into(),
             HirDefn::ImplBlock(hir_defn) => hir_defn.path(db).into(),
             HirDefn::Submodule(hir_defn) => hir_defn.path(db).into(),
@@ -78,7 +78,7 @@ impl HirDefn {
             // ask its parent
             HirDefn::TypeVariant(hir_defn) => Some(hir_defn.dependencies(db)),
             HirDefn::ImplBlock(hir_defn) => Some(hir_defn.dependencies(db)),
-            HirDefn::AssociatedItem(hir_defn) => Some(hir_defn.dependencies(db)),
+            HirDefn::AssocItem(hir_defn) => Some(hir_defn.dependencies(db)),
             HirDefn::Attr(_) => None,
         }
     }
@@ -89,7 +89,7 @@ impl HirDefn {
             HirDefn::MajorItem(hir_defn) => Some(hir_defn.version_stamp(db)),
             HirDefn::TypeVariant(hir_defn) => Some(hir_defn.version_stamp(db)),
             HirDefn::ImplBlock(hir_defn) => Some(hir_defn.version_stamp(db)),
-            HirDefn::AssociatedItem(hir_defn) => Some(hir_defn.version_stamp(db)),
+            HirDefn::AssocItem(hir_defn) => Some(hir_defn.version_stamp(db)),
             HirDefn::Attr(_) => None,
         }
     }
@@ -117,7 +117,7 @@ impl HasHirDefn for ItemPath {
             ItemPath::Submodule(_, path) => path.hir_defn(db)?.into(),
             ItemPath::MajorItem(path) => path.hir_defn(db)?.into(),
             ItemPath::ImplBlock(path) => path.hir_defn(db)?.into(),
-            ItemPath::AssociatedItem(path) => path.hir_defn(db)?.into(),
+            ItemPath::AssocItem(path) => path.hir_defn(db)?.into(),
             ItemPath::TypeVariant(_, path) => path.hir_defn(db)?.into(),
             ItemPath::Attr(_, _) => todo!(),
         })

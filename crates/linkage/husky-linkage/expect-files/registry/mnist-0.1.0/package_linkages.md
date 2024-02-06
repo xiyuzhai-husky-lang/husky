@@ -14,9 +14,9 @@
         },
     },
     Linkage {
-        data: LinkageData::AssociatedFunctionFn {
-            path: AssociatedItemPath::TypeItem(
-                TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
+        data: LinkageData::AssocFunctionFn {
+            path: AssocItemPath::TypeItem(
+                TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocFunctionFn`),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -27,9 +27,9 @@
         },
     },
     Linkage {
-        data: LinkageData::AssociatedFunctionFn {
-            path: AssociatedItemPath::TypeItem(
-                TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
+        data: LinkageData::AssocFunctionFn {
+            path: AssocItemPath::TypeItem(
+                TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocFunctionFn`),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],

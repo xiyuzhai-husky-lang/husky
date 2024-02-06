@@ -21,46 +21,46 @@ pub fn item_syn_node_defn(
         ItemSynNodePath::MajorItem(MajorItemSynNodePath::Fugitive(_path)) => {
             (AllowSelfType::False, AllowSelfValue::False)
         }
-        ItemSynNodePath::AssociatedItem(path) => (
+        ItemSynNodePath::AssocItem(path) => (
             AllowSelfType::True,
             match path {
-                AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
+                AssocItemSynNodePath::TypeItem(syn_node_path) => {
                     match syn_node_path.data(db).item_kind(db) {
                         TypeItemKind::MethodFn => AllowSelfValue::True,
-                        TypeItemKind::AssociatedFunctionFn => AllowSelfValue::False,
-                        TypeItemKind::AssociatedFunctionGn => AllowSelfValue::False,
-                        TypeItemKind::AssociatedVal => AllowSelfValue::True,
-                        TypeItemKind::AssociatedType => AllowSelfValue::False,
+                        TypeItemKind::AssocFunctionFn => AllowSelfValue::False,
+                        TypeItemKind::AssocFunctionGn => AllowSelfValue::False,
+                        TypeItemKind::AssocVal => AllowSelfValue::True,
+                        TypeItemKind::AssocType => AllowSelfValue::False,
                         TypeItemKind::MemoizedField => AllowSelfValue::True,
-                        TypeItemKind::AssociatedFormal => todo!(),
-                        TypeItemKind::AssociatedConst => AllowSelfValue::False,
+                        TypeItemKind::AssocFormal => todo!(),
+                        TypeItemKind::AssocConst => AllowSelfValue::False,
                     }
                 }
-                AssociatedItemSynNodePath::TraitItem(syn_node_path) => {
+                AssocItemSynNodePath::TraitItem(syn_node_path) => {
                     match syn_node_path.data(db).item_kind(db) {
                         TraitItemKind::MemoizedField => AllowSelfValue::True,
                         TraitItemKind::MethodFn => AllowSelfValue::True,
-                        TraitItemKind::AssociatedType => AllowSelfValue::False,
-                        TraitItemKind::AssociatedVal => AllowSelfValue::True,
-                        TraitItemKind::AssociatedFunctionFn => AllowSelfValue::False,
-                        TraitItemKind::AssociatedFunctionGn => AllowSelfValue::False,
-                        TraitItemKind::AssociatedFormal => todo!(),
-                        TraitItemKind::AssociatedConst => AllowSelfValue::False,
+                        TraitItemKind::AssocType => AllowSelfValue::False,
+                        TraitItemKind::AssocVal => AllowSelfValue::True,
+                        TraitItemKind::AssocFunctionFn => AllowSelfValue::False,
+                        TraitItemKind::AssocFunctionGn => AllowSelfValue::False,
+                        TraitItemKind::AssocFormal => todo!(),
+                        TraitItemKind::AssocConst => AllowSelfValue::False,
                     }
                 }
-                AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
+                AssocItemSynNodePath::TraitForTypeItem(syn_node_path) => {
                     match syn_node_path.data(db).item_kind(db) {
                         TraitItemKind::MemoizedField => AllowSelfValue::True,
                         TraitItemKind::MethodFn => AllowSelfValue::True,
-                        TraitItemKind::AssociatedType => AllowSelfValue::False,
-                        TraitItemKind::AssociatedVal => AllowSelfValue::True,
-                        TraitItemKind::AssociatedFunctionFn => AllowSelfValue::False,
-                        TraitItemKind::AssociatedFunctionGn => AllowSelfValue::False,
-                        TraitItemKind::AssociatedFormal => todo!(),
-                        TraitItemKind::AssociatedConst => AllowSelfValue::False,
+                        TraitItemKind::AssocType => AllowSelfValue::False,
+                        TraitItemKind::AssocVal => AllowSelfValue::True,
+                        TraitItemKind::AssocFunctionFn => AllowSelfValue::False,
+                        TraitItemKind::AssocFunctionGn => AllowSelfValue::False,
+                        TraitItemKind::AssocFormal => todo!(),
+                        TraitItemKind::AssocConst => AllowSelfValue::False,
                     }
                 }
-                AssociatedItemSynNodePath::IllFormedItem(_) => todo!(),
+                AssocItemSynNodePath::IllFormedItem(_) => todo!(),
             },
         ),
         _ => return None,

@@ -8,15 +8,15 @@ pub struct TraitForTypeMethodFnHirDefn {
     pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
-impl From<TraitForTypeMethodFnHirDefn> for AssociatedItemHirDefn {
+impl From<TraitForTypeMethodFnHirDefn> for AssocItemHirDefn {
     fn from(hir_defn: TraitForTypeMethodFnHirDefn) -> Self {
-        AssociatedItemHirDefn::TraitForTypeItem(hir_defn.into())
+        AssocItemHirDefn::TraitForTypeItem(hir_defn.into())
     }
 }
 
 impl From<TraitForTypeMethodFnHirDefn> for HirDefn {
     fn from(hir_defn: TraitForTypeMethodFnHirDefn) -> Self {
-        HirDefn::AssociatedItem(hir_defn.into())
+        HirDefn::AssocItem(hir_defn.into())
     }
 }
 

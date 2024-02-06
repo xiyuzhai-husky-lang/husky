@@ -330,7 +330,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -352,7 +352,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -396,7 +396,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -440,7 +440,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -462,7 +462,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -506,7 +506,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -550,7 +550,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -572,7 +572,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -594,7 +594,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -638,7 +638,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -682,7 +682,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -726,7 +726,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -770,7 +770,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -814,7 +814,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -858,7 +858,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -902,7 +902,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -946,7 +946,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -990,7 +990,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -1034,7 +1034,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -1078,7 +1078,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -1122,7 +1122,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -1166,7 +1166,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -1210,7 +1210,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -1254,7 +1254,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -1298,7 +1298,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -1342,7 +1342,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -1386,7 +1386,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -1430,7 +1430,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -1474,7 +1474,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -1496,7 +1496,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -1518,7 +1518,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -1540,7 +1540,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -1562,7 +1562,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -1584,7 +1584,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -1606,7 +1606,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -1628,7 +1628,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -1672,7 +1672,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -1716,7 +1716,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -1738,7 +1738,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TypeItem(
                 TypeItemPath(
                     ItemPathId(
@@ -1782,7 +1782,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(

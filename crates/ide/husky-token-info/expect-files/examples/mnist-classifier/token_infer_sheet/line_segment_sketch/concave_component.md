@@ -502,18 +502,18 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId {
-                                                                data: ItemPathData::AssociatedItem(
-                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                data: ItemPathData::AssocItem(
+                                                                    AssocItemPathData::TraitForTypeItem(
                                                                         TraitForTypeItemPathData {
                                                                             impl_block: TraitForTypeImplBlock {
                                                                                 data: TraitForTypeImplBlockPathData {
@@ -541,7 +541,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TraitForTypeItem(
                                 MethodFn,
                             ),
@@ -632,12 +632,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
@@ -650,7 +650,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MemoizedField,
                             ),
@@ -705,12 +705,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
@@ -723,7 +723,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MemoizedField,
                             ),
@@ -815,12 +815,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
@@ -833,7 +833,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MemoizedField,
                             ),
@@ -1344,12 +1344,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
@@ -1362,7 +1362,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MemoizedField,
                             ),
@@ -1771,12 +1771,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
@@ -1789,7 +1789,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MemoizedField,
                             ),
@@ -2693,12 +2693,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
@@ -2711,7 +2711,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MemoizedField,
                             ),
@@ -2811,12 +2811,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`, `MethodFn`),
@@ -2829,7 +2829,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -3023,12 +3023,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`, `MethodFn`),
@@ -3041,7 +3041,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -3136,12 +3136,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
@@ -3154,7 +3154,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -3249,12 +3249,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
@@ -3267,7 +3267,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -3339,12 +3339,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodFn`),
@@ -3357,7 +3357,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -3441,12 +3441,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`, `MethodFn`),
@@ -3459,7 +3459,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),

@@ -2,7 +2,7 @@ use husky_entity_kind::{
     FugitiveKind, TraitItemKind,
     TypeItemKind::{self},
 };
-use husky_entity_path::{region::RegionPath, AssociatedItemPath, ItemPath, MajorItemPath};
+use husky_entity_path::{region::RegionPath, AssocItemPath, ItemPath, MajorItemPath};
 use husky_hir_eager_expr::{
     builder::hir_eager_expr_region_with_source_map,
     helpers::{hir_eager_body_with_expr_region, hir_eager_expr_region},
@@ -79,23 +79,17 @@ fn is_lazy(sema_expr_region: husky_sema_expr::SemaExprRegion, db: &salsa::Db) ->
                 },
                 _ => false,
             },
-            ItemPath::AssociatedItem(path) => match path {
-                AssociatedItemPath::TypeItem(path) => match path.item_kind(db) {
-                    TypeItemKind::AssociatedVal => {
-                        sema_expr_region_contains_gn(db, sema_expr_region)
-                    }
+            ItemPath::AssocItem(path) => match path {
+                AssocItemPath::TypeItem(path) => match path.item_kind(db) {
+                    TypeItemKind::AssocVal => sema_expr_region_contains_gn(db, sema_expr_region),
                     _ => false,
                 },
-                AssociatedItemPath::TraitItem(path) => match path.item_kind(db) {
-                    TraitItemKind::AssociatedVal => {
-                        sema_expr_region_contains_gn(db, sema_expr_region)
-                    }
+                AssocItemPath::TraitItem(path) => match path.item_kind(db) {
+                    TraitItemKind::AssocVal => sema_expr_region_contains_gn(db, sema_expr_region),
                     _ => false,
                 },
-                AssociatedItemPath::TraitForTypeItem(path) => match path.item_kind(db) {
-                    TraitItemKind::AssociatedVal => {
-                        sema_expr_region_contains_gn(db, sema_expr_region)
-                    }
+                AssocItemPath::TraitForTypeItem(path) => match path.item_kind(db) {
+                    TraitItemKind::AssocVal => sema_expr_region_contains_gn(db, sema_expr_region),
                     _ => false,
                 },
             },

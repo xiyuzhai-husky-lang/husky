@@ -294,7 +294,7 @@ impl<'a> DecTermEngine<'a> {
                 | SynExprRootKind::ReturnType
                 | SynExprRootKind::TupleStructFieldType
                 | SynExprRootKind::ExplicitParameterDefaultValue { .. }
-                | SynExprRootKind::AssociatedTypeTerm => (),
+                | SynExprRootKind::AssocTypeTerm => (),
                 SynExprRootKind::SelfType => {
                     let self_ty_term = self.infer_new_expr_term(expr_root.syn_expr_idx()).ok();
                     self.symbol_declarative_term_region
@@ -368,7 +368,7 @@ impl<'a> DecTermEngine<'a> {
                 })),
                 None => Err(DerivedDecTermError2::InvalidEntityPath.into()),
             },
-            SynExprData::AssociatedItem {
+            SynExprData::AssocItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,

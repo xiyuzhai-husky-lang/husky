@@ -79,7 +79,7 @@ pub(super) fn hir_eager_expr_precedence(data: &HirEagerExprData) -> RustPreceden
         | HirEagerExprData::EmptyHtmlTag { .. }
         | HirEagerExprData::Todo
         | HirEagerExprData::Unreachable
-        | HirEagerExprData::AssociatedFn { .. } => RustPrecedence::Atom,
+        | HirEagerExprData::AssocFn { .. } => RustPrecedence::Atom,
         HirEagerExprData::Binary { opr, .. } => match opr {
             HirBinaryOpr::Closed(opr) => match opr {
                 BinaryClosedOpr::Add => RustPrecedence::Additive,
@@ -114,7 +114,7 @@ pub(super) fn hir_eager_expr_precedence(data: &HirEagerExprData) -> RustPreceden
         | HirEagerExprData::TypeConstructorFnCall { .. }
         | HirEagerExprData::TypeVariantConstructorCall { .. }
         | HirEagerExprData::FunctionFnCall { .. }
-        | HirEagerExprData::AssociatedFunctionFnCall { .. }
+        | HirEagerExprData::AssocFunctionFnCall { .. }
         | HirEagerExprData::PropsStructField { .. }
         | HirEagerExprData::MemoizedField { .. }
         | HirEagerExprData::MethodFnCall { .. }

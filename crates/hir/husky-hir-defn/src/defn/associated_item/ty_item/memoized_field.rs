@@ -8,15 +8,15 @@ pub struct TypeMemoizedFieldHirDefn {
     pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
-impl From<TypeMemoizedFieldHirDefn> for AssociatedItemHirDefn {
+impl From<TypeMemoizedFieldHirDefn> for AssocItemHirDefn {
     fn from(hir_defn: TypeMemoizedFieldHirDefn) -> Self {
-        AssociatedItemHirDefn::TypeItem(hir_defn.into())
+        AssocItemHirDefn::TypeItem(hir_defn.into())
     }
 }
 
 impl From<TypeMemoizedFieldHirDefn> for HirDefn {
     fn from(hir_defn: TypeMemoizedFieldHirDefn) -> Self {
-        HirDefn::AssociatedItem(hir_defn.into())
+        HirDefn::AssocItem(hir_defn.into())
     }
 }
 

@@ -2,7 +2,7 @@ use super::*;
 use husky_coword::coword_menu;
 use husky_eth_signature::{
     helpers::trai_for_ty::*, EtherealSignatureError, EtherealSignatureMaybeResult,
-    EtherealSignatureResult, TraitForTypeAssociatedTypeEtherealSignature,
+    EtherealSignatureResult, TraitForTypeAssocTypeEtherealSignature,
     TraitForTypeImplBlockEthTemplate, TraitForTypeImplBlockEtherealSignature,
     TraitForTypeImplBlockEtherealSignatureBuilder,
 };
@@ -152,7 +152,7 @@ pub(crate) enum Unveiler {
         opd_ty: EthTerm,
         unveil_output_ty: EthTerm,
         unveil_output_ty_final_destination: FinalDestination,
-        unveil_output_ty_signature: TraitForTypeAssociatedTypeEtherealSignature,
+        unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature,
         unveil_associated_fn_path: TraitForTypeItemPath,
     },
     UniquePartiallyInstanted {
@@ -215,7 +215,7 @@ impl Unveiler {
 }
 
 fn unveil_associated_fn_path(
-    unveil_output_ty_signature: &TraitForTypeAssociatedTypeEtherealSignature,
+    unveil_output_ty_signature: &TraitForTypeAssocTypeEtherealSignature,
     db: &::salsa::Db,
 ) -> TraitForTypeItemPath {
     let snake_case_unveil_ident = coword_menu(db).snake_case_unveil_ident();

@@ -1,4 +1,4 @@
-use husky_entity_kind::{AssociatedItemKind, EntityKind};
+use husky_entity_kind::{AssocItemKind, EntityKind};
 use vec_like::SmallVecPairMap;
 
 use super::*;
@@ -205,9 +205,8 @@ impl TraitForTypeImplBlockSynNode {
                         ..
                     } => {
                         let item_kind = match item_kind {
-                            EntityKind::AssociatedItem {
-                                associated_item_kind:
-                                    AssociatedItemKind::TraitForTypeItem(ty_item_kind),
+                            EntityKind::AssocItem {
+                                associated_item_kind: AssocItemKind::TraitForTypeItem(ty_item_kind),
                             } => *ty_item_kind,
                             _ => unreachable!(),
                         };
@@ -231,10 +230,10 @@ impl TraitForTypeImplBlockSynNode {
     }
 }
 
-impl HasAssociatedItemPaths for TraitForTypeImplBlockPath {
-    type AssociatedItemPath = TraitForTypeItemPath;
+impl HasAssocItemPaths for TraitForTypeImplBlockPath {
+    type AssocItemPath = TraitForTypeItemPath;
 
-    fn associated_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssociatedItemPath)] {
+    fn associated_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssocItemPath)] {
         trai_for_ty_impl_block_item_paths(db, self)
     }
 }

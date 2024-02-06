@@ -206,15 +206,15 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
+                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocFunctionFn`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -224,9 +224,9 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
-                                AssociatedFunctionFn,
+                                AssocFunctionFn,
                             ),
                         },
                     ),
@@ -449,12 +449,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
@@ -467,7 +467,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -585,12 +585,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
@@ -603,7 +603,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -811,12 +811,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
@@ -829,7 +829,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -967,12 +967,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
@@ -985,7 +985,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -1359,12 +1359,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
@@ -1377,7 +1377,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -1496,12 +1496,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
@@ -1514,7 +1514,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -1722,12 +1722,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
@@ -1740,7 +1740,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -1878,12 +1878,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
@@ -1896,7 +1896,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -2065,12 +2065,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
@@ -2083,7 +2083,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -2252,12 +2252,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
@@ -2270,7 +2270,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -2554,12 +2554,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
@@ -2572,7 +2572,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -2694,12 +2694,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
@@ -2712,7 +2712,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -3356,12 +3356,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
@@ -3374,7 +3374,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -3788,12 +3788,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
@@ -3806,7 +3806,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -4130,12 +4130,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
@@ -4148,7 +4148,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -4381,12 +4381,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
@@ -4399,7 +4399,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -4632,12 +4632,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
@@ -4650,7 +4650,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -4718,12 +4718,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
@@ -4736,7 +4736,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -4804,12 +4804,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
@@ -4822,7 +4822,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -4890,12 +4890,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
@@ -4908,7 +4908,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -5112,12 +5112,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
@@ -5130,7 +5130,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -5198,12 +5198,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
@@ -5216,7 +5216,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -5284,12 +5284,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
@@ -5302,7 +5302,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -5370,12 +5370,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
@@ -5388,7 +5388,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),

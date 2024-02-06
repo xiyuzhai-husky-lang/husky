@@ -1,18 +1,18 @@
 use super::*;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct TraitForTypeAssociatedTypeEthTemplate {
+pub struct TraitForTypeAssocTypeEthTemplate {
     pub path: TraitForTypeItemPath,
     #[return_ref]
     pub template_parameters: EthTemplateParameters,
     pub associated_ty: EthTerm,
 }
 
-impl TraitForTypeAssociatedTypeEthTemplate {
+impl TraitForTypeAssocTypeEthTemplate {
     pub(super) fn from_dec(
         db: &::salsa::Db,
         path: TraitForTypeItemPath,
-        dec_template: TraitForTypeAssociatedTypeDecTemplate,
+        dec_template: TraitForTypeAssocTypeDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters =
             EthTemplateParameters::from_dec(db, dec_template.template_parameters(db))?;
@@ -24,26 +24,26 @@ impl TraitForTypeAssociatedTypeEthTemplate {
         self,
         db: &::salsa::Db,
         impl_block_signature_builder: TraitForTypeImplBlockEtherealSignatureBuilder,
-    ) -> TraitForTypeAssociatedTypeEtherealSignatureBuilder {
+    ) -> TraitForTypeAssocTypeEtherealSignatureBuilder {
         let instantiation_builder = impl_block_signature_builder
             .instantiation_builder(db)
             .merge_with_item_template_parameters(self.template_parameters(db));
-        TraitForTypeAssociatedTypeEtherealSignatureBuilder::new(db, self, instantiation_builder)
+        TraitForTypeAssocTypeEtherealSignatureBuilder::new(db, self, instantiation_builder)
     }
 }
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = pub(super) new)]
-pub struct TraitForTypeAssociatedTypeEtherealSignatureBuilder {
-    pub template: TraitForTypeAssociatedTypeEthTemplate,
+pub struct TraitForTypeAssocTypeEtherealSignatureBuilder {
+    pub template: TraitForTypeAssocTypeEthTemplate,
     #[return_ref]
     pub instantiation_builder: EtherealInstantiationBuilder,
 }
 
-impl TraitForTypeAssociatedTypeEtherealSignatureBuilder {
+impl TraitForTypeAssocTypeEtherealSignatureBuilder {
     pub fn try_into_signature(
         self,
         db: &::salsa::Db,
-    ) -> Option<TraitForTypeAssociatedTypeEtherealSignature> {
+    ) -> Option<TraitForTypeAssocTypeEtherealSignature> {
         trai_for_ty_associated_ty_ethereal_signature_signature_builder_try_into_signature(db, self)
     }
 }
@@ -51,13 +51,13 @@ impl TraitForTypeAssociatedTypeEtherealSignatureBuilder {
 #[salsa::tracked(jar = EtherealSignatureJar)]
 fn trai_for_ty_associated_ty_ethereal_signature_signature_builder_try_into_signature(
     db: &::salsa::Db,
-    signature_builder: TraitForTypeAssociatedTypeEtherealSignatureBuilder,
-) -> Option<TraitForTypeAssociatedTypeEtherealSignature> {
+    signature_builder: TraitForTypeAssocTypeEtherealSignatureBuilder,
+) -> Option<TraitForTypeAssocTypeEtherealSignature> {
     let instantiation = signature_builder
         .instantiation_builder(db)
         .try_into_instantiation()?;
     let template = signature_builder.template(db);
-    Some(TraitForTypeAssociatedTypeEtherealSignature {
+    Some(TraitForTypeAssocTypeEtherealSignature {
         path: template.path(db),
         ty_term: template.associated_ty(db).instantiate(db, &instantiation),
         instantiation,
@@ -66,13 +66,13 @@ fn trai_for_ty_associated_ty_ethereal_signature_signature_builder_try_into_signa
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct TraitForTypeAssociatedTypeEtherealSignature {
+pub struct TraitForTypeAssocTypeEtherealSignature {
     path: TraitForTypeItemPath,
     instantiation: EthInstantiation,
     ty_term: EthTerm,
 }
 
-impl TraitForTypeAssociatedTypeEtherealSignature {
+impl TraitForTypeAssocTypeEtherealSignature {
     pub fn path(&self) -> TraitForTypeItemPath {
         self.path
     }

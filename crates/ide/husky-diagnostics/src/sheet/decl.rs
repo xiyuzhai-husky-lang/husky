@@ -76,7 +76,7 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectedLcurlOrLparOrSemicolonForStruct(_) => {
                 format!("Syntax Error: expected `{{` `(` or `;` for struct",)
             }
-            OriginalSynNodeDeclError::ExpectedEqForAssociatedType(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedEqForAssocType(_) => todo!(),
             OriginalSynNodeDeclError::ExpectLeftBracketInDerive(_) => todo!(),
             OriginalSynNodeDeclError::ExpectRightBracketInDerive(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType(_) => todo!(),
@@ -113,7 +113,7 @@ impl Diagnose for OriginalSynNodeDeclError {
             | OriginalSynNodeDeclError::ExpectedLcurlOrLparOrSemicolonForStruct(
                 regional_token_stream_state,
             ) => ctx.token_stream_state_text_range(*regional_token_stream_state),
-            OriginalSynNodeDeclError::ExpectedEqForAssociatedType(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedEqForAssocType(_) => todo!(),
             OriginalSynNodeDeclError::ExpectLeftBracketInDerive(_) => todo!(),
             OriginalSynNodeDeclError::ExpectRightBracketInDerive(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType(_) => todo!(),

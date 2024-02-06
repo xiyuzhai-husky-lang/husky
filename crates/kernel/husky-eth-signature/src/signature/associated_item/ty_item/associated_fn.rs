@@ -3,7 +3,7 @@ use husky_eth_term::term::ritchie::EthRitchie;
 use husky_term_prelude::TypeRitchieKind;
 
 #[salsa::tracked(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct TypeAssociatedFnEthTemplate {
+pub struct TypeAssocFnEthTemplate {
     #[id]
     pub path: TypeItemPath,
     // todo: is this necessary?
@@ -16,11 +16,11 @@ pub struct TypeAssociatedFnEthTemplate {
     pub ty: EthTerm,
 }
 
-impl TypeAssociatedFnEthTemplate {
+impl TypeAssocFnEthTemplate {
     pub(super) fn from_dec(
         db: &::salsa::Db,
         path: TypeItemPath,
-        declarative_signature: TypeAssociatedFnDecTemplate,
+        declarative_signature: TypeAssocFnDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let self_ty = EthTerm::ty_from_dec(db, declarative_signature.self_ty(db))?;
         let template_parameters =

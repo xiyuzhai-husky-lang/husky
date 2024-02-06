@@ -14,10 +14,10 @@ use super::*;
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemDecTemplate {
-    AssociatedFn(TraitForTypeAssociatedFnDecTemplate),
+    AssocFn(TraitForTypeAssocFnDecTemplate),
     MethodFn(TraitForTypeMethodFnDecTemplate),
-    AssociatedType(TraitForTypeAssociatedTypeDecTemplate),
-    AssociatedVal(TraitForTypeAssociatedValDecTemplate),
+    AssocType(TraitForTypeAssocTypeDecTemplate),
+    AssocVal(TraitForTypeAssocValDecTemplate),
 }
 
 impl HasDecTemplate for TraitForTypeItemPath {
@@ -35,17 +35,17 @@ pub(crate) fn trai_for_ty_item_syn_declarative_signature_from_decl(
 ) -> DecSignatureResult<TraitForTypeItemDecTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
-        TraitForTypeItemSynDecl::AssociatedFn(decl) => {
-            TraitForTypeAssociatedFnDecTemplate::from_decl(db, decl).map(Into::into)
+        TraitForTypeItemSynDecl::AssocFn(decl) => {
+            TraitForTypeAssocFnDecTemplate::from_decl(db, decl).map(Into::into)
         }
         TraitForTypeItemSynDecl::MethodFn(decl) => {
             TraitForTypeMethodFnDecTemplate::from_decl(db, decl).map(Into::into)
         }
-        TraitForTypeItemSynDecl::AssociatedType(decl) => {
-            TraitForTypeAssociatedTypeDecTemplate::from_decl(db, path, decl).map(Into::into)
+        TraitForTypeItemSynDecl::AssocType(decl) => {
+            TraitForTypeAssocTypeDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
-        TraitForTypeItemSynDecl::AssociatedVal(decl) => {
-            TraitForTypeAssociatedValDecTemplate::from_decl(db, decl).map(Into::into)
+        TraitForTypeItemSynDecl::AssocVal(decl) => {
+            TraitForTypeAssocValDecTemplate::from_decl(db, decl).map(Into::into)
         }
     }
 }
@@ -53,10 +53,10 @@ pub(crate) fn trai_for_ty_item_syn_declarative_signature_from_decl(
 impl TraitForTypeItemDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
-            TraitForTypeItemDecTemplate::AssociatedFn(tmpl) => tmpl.template_parameters(db),
+            TraitForTypeItemDecTemplate::AssocFn(tmpl) => tmpl.template_parameters(db),
             TraitForTypeItemDecTemplate::MethodFn(tmpl) => tmpl.template_parameters(db),
-            TraitForTypeItemDecTemplate::AssociatedType(tmpl) => tmpl.template_parameters(db),
-            TraitForTypeItemDecTemplate::AssociatedVal(tmpl) => &[],
+            TraitForTypeItemDecTemplate::AssocType(tmpl) => tmpl.template_parameters(db),
+            TraitForTypeItemDecTemplate::AssocVal(tmpl) => &[],
         }
     }
 }

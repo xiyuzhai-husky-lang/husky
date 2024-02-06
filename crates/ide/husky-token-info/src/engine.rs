@@ -300,7 +300,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             },
             SemaExprData::Literal(_, _)
             | SemaExprData::PrincipalEntityPath { .. }
-            | SemaExprData::AssociatedItem { .. }
+            | SemaExprData::AssocItem { .. }
             | SemaExprData::Binary { .. }
             | SemaExprData::Suffix { .. }
             | SemaExprData::Unveil { .. }

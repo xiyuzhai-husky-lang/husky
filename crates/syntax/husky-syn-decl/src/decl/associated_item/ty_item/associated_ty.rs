@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TypeAssociatedTypeSynNodeDecl {
+pub struct TypeAssocTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     #[return_ref]
@@ -12,7 +12,7 @@ pub struct TypeAssociatedTypeSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TypeAssociatedTypeSynNodeDecl {
+impl TypeAssocTypeSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameters(db)
@@ -25,7 +25,7 @@ impl TypeAssociatedTypeSynNodeDecl {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TypeAssociatedTypeSynDecl {
+pub struct TypeAssocTypeSynDecl {
     #[id]
     pub path: TypeItemPath,
     #[return_ref]

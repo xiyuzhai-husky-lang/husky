@@ -1,5 +1,5 @@
 use super::*;
-use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
+use crate::registry::associated_trace::VoidAssocTraceRegistry;
 use husky_coword::IdentPairMap;
 use husky_hir_lazy_expr::{
     variable::HirLazyVariableIdx, HirLazyExprRegion, HirLazyPatternExpr, HirLazyPatternExprIdx,
@@ -91,7 +91,7 @@ impl LazyPatternExprTraceData {
         TraceViewLines::new(
             region_path.module_path(db),
             token_idx_range,
-            VoidAssociatedTraceRegistry,
+            VoidAssocTraceRegistry,
             db,
         )
     }

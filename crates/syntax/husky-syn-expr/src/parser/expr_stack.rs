@@ -59,7 +59,7 @@ impl SynExprData {
                 &Some(path) => BaseEntityPath::Some(path.into()),
                 None => todo!(),
             },
-            SynExprData::AssociatedItem {
+            SynExprData::AssocItem {
                 parent_expr_idx: _,
                 parent_path: _,
                 colon_colon_regional_token: _,

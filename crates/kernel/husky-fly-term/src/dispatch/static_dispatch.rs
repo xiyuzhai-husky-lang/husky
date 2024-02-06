@@ -9,8 +9,8 @@ use husky_eth_signature::{HasTypeItemTemplates, TypeItemEthTemplates};
 #[derive(Debug, PartialEq, Eq)]
 #[enum_class::from_variants]
 pub enum StaticDispatch {
-    AssociatedFn(AssociatedFnFlySignature),
-    AssociatedGn,
+    AssocFn(AssocFnFlySignature),
+    AssocGn,
 }
 
 impl FlyTerm {
@@ -31,7 +31,7 @@ impl FlyTerm {
                 ..
             } => match ty_path.ty_item_eth_templates(db, ident) {
                 JustOk(templates) => match templates {
-                    TypeItemEthTemplates::AssociatedFn(templates) => {
+                    TypeItemEthTemplates::AssocFn(templates) => {
                         let dst_ty_arguments: SmallVec<[_; 2]> = ty_arguments.to_smallvec();
                         let signatures: Vec<_> = templates
                             .iter()

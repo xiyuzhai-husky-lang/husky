@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TypeAssociatedFnSynNodeDecl {
+pub struct TypeAssocFnSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     #[return_ref]
@@ -16,7 +16,7 @@ pub struct TypeAssociatedFnSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TypeAssociatedFnSynNodeDecl {
+impl TypeAssocFnSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
@@ -39,7 +39,7 @@ impl<'a> DeclParser<'a> {
     pub(super) fn parse_ty_associated_fn_node_decl(
         &self,
         syn_node_path: TypeItemSynNodePath,
-    ) -> TypeAssociatedFnSynNodeDecl {
+    ) -> TypeAssocFnSynNodeDecl {
         let db = self.db();
         let mut parser = self.expr_parser(
             Some(
@@ -65,7 +65,7 @@ impl<'a> DeclParser<'a> {
             Ok(None)
         };
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
-        TypeAssociatedFnSynNodeDecl::new(
+        TypeAssocFnSynNodeDecl::new(
             db,
             syn_node_path,
             template_parameter_decl_list,
@@ -79,7 +79,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
-pub struct TypeAssociatedFnSynDecl {
+pub struct TypeAssocFnSynDecl {
     #[id]
     pub path: TypeItemPath,
     #[return_ref]
@@ -90,11 +90,11 @@ pub struct TypeAssociatedFnSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TypeAssociatedFnSynDecl {
+impl TypeAssocFnSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: TypeItemPath,
-        syn_node_decl: TypeAssociatedFnSynNodeDecl,
+        syn_node_decl: TypeAssocFnSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
@@ -116,7 +116,7 @@ impl TypeAssociatedFnSynDecl {
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(TypeAssociatedFnSynDecl::new(
+        Ok(TypeAssocFnSynDecl::new(
             db,
             path,
             template_parameters,

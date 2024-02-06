@@ -235,12 +235,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
@@ -253,7 +253,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MemoizedField,
                             ),
@@ -491,12 +491,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
@@ -509,7 +509,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MemoizedField,
                             ),
@@ -747,12 +747,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
@@ -765,7 +765,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MemoizedField,
                             ),

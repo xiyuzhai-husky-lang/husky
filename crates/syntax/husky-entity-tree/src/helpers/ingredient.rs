@@ -59,15 +59,13 @@ impl IngredientPath {
                 },
                 MajorItemKind::Trait => false,
             },
-            EntityKind::AssociatedItem {
+            EntityKind::AssocItem {
                 associated_item_kind,
             } => match associated_item_kind {
-                AssociatedItemKind::TraitItem(TraitItemKind::AssociatedVal)
-                | AssociatedItemKind::TypeItem(
-                    TypeItemKind::MemoizedField | TypeItemKind::AssociatedVal,
-                )
-                | AssociatedItemKind::TraitForTypeItem(
-                    TraitItemKind::MemoizedField | TraitItemKind::AssociatedVal,
+                AssocItemKind::TraitItem(TraitItemKind::AssocVal)
+                | AssocItemKind::TypeItem(TypeItemKind::MemoizedField | TypeItemKind::AssocVal)
+                | AssocItemKind::TraitForTypeItem(
+                    TraitItemKind::MemoizedField | TraitItemKind::AssocVal,
                 ) => true,
                 _ => false,
             },

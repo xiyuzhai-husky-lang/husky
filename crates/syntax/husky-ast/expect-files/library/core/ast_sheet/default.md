@@ -11,9 +11,9 @@ AstSheet {
                         `core::default`,
                     ),
                 },
-                item_kind: AssociatedItem {
+                item_kind: AssocItem {
                     associated_item_kind: TraitItem(
-                        AssociatedFunctionFn,
+                        AssocFunctionFn,
                     ),
                 },
                 ident_token: IdentToken {
@@ -29,7 +29,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::AssociatedItem {
+                block: DefnBlock::AssocItem {
                     body: None,
                 },
             },

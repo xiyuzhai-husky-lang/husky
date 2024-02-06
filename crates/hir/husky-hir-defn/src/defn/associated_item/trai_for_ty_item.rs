@@ -16,63 +16,61 @@ use super::*;
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemHirDefn {
-    AssociatedFn(TraitForTypeAssociatedFnHirDefn),
+    AssocFn(TraitForTypeAssocFnHirDefn),
     MethodFn(TraitForTypeMethodFnHirDefn),
-    AssociatedType(TraitForTypeAssociatedTypeHirDefn),
-    AssociatedVal(TraitForTypeAssociatedValHirDefn),
+    AssocType(TraitForTypeAssocTypeHirDefn),
+    AssocVal(TraitForTypeAssocValHirDefn),
 }
 
 impl From<TraitForTypeItemHirDefn> for HirDefn {
     fn from(hir_defn: TraitForTypeItemHirDefn) -> Self {
-        HirDefn::AssociatedItem(hir_defn.into())
+        HirDefn::AssocItem(hir_defn.into())
     }
 }
 
 impl TraitForTypeItemHirDefn {
     pub fn path(self, db: &::salsa::Db) -> TraitForTypeItemPath {
         match self {
-            TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.path(db),
+            TraitForTypeItemHirDefn::AssocFn(hir_defn) => hir_defn.path(db),
             TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.path(db),
-            TraitForTypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.path(db),
-            TraitForTypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.path(db),
+            TraitForTypeItemHirDefn::AssocType(hir_defn) => hir_defn.path(db),
+            TraitForTypeItemHirDefn::AssocVal(hir_defn) => hir_defn.path(db),
         }
     }
 
     pub fn hir_decl(self, db: &::salsa::Db) -> TraitForTypeItemHirDecl {
         match self {
-            TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.hir_decl(db).into(),
+            TraitForTypeItemHirDefn::AssocFn(hir_defn) => hir_defn.hir_decl(db).into(),
             TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.hir_decl(db).into(),
-            TraitForTypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.hir_decl(db).into(),
-            TraitForTypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.hir_decl(db).into(),
+            TraitForTypeItemHirDefn::AssocType(hir_defn) => hir_defn.hir_decl(db).into(),
+            TraitForTypeItemHirDefn::AssocVal(hir_defn) => hir_defn.hir_decl(db).into(),
         }
     }
 
     pub fn hir_expr_region(self, db: &::salsa::Db) -> Option<HirExprRegion> {
         match self {
-            TraitForTypeItemHirDefn::AssociatedFn(slf) => {
-                slf.hir_eager_expr_region(db).map(Into::into)
-            }
+            TraitForTypeItemHirDefn::AssocFn(slf) => slf.hir_eager_expr_region(db).map(Into::into),
             TraitForTypeItemHirDefn::MethodFn(slf) => slf.hir_eager_expr_region(db).map(Into::into),
-            TraitForTypeItemHirDefn::AssociatedType(_slf) => None,
-            TraitForTypeItemHirDefn::AssociatedVal(slf) => slf.hir_expr_region(db),
+            TraitForTypeItemHirDefn::AssocType(_slf) => None,
+            TraitForTypeItemHirDefn::AssocVal(slf) => slf.hir_expr_region(db),
         }
     }
 
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         match self {
-            TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.dependencies(db),
+            TraitForTypeItemHirDefn::AssocFn(hir_defn) => hir_defn.dependencies(db),
             TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.dependencies(db),
-            TraitForTypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.dependencies(db),
-            TraitForTypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.dependencies(db),
+            TraitForTypeItemHirDefn::AssocType(hir_defn) => hir_defn.dependencies(db),
+            TraitForTypeItemHirDefn::AssocVal(hir_defn) => hir_defn.dependencies(db),
         }
     }
 
     pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         match self {
-            TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.version_stamp(db),
+            TraitForTypeItemHirDefn::AssocFn(hir_defn) => hir_defn.version_stamp(db),
             TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.version_stamp(db),
-            TraitForTypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.version_stamp(db),
-            TraitForTypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.version_stamp(db),
+            TraitForTypeItemHirDefn::AssocType(hir_defn) => hir_defn.version_stamp(db),
+            TraitForTypeItemHirDefn::AssocVal(hir_defn) => hir_defn.version_stamp(db),
         }
     }
 }
@@ -91,17 +89,17 @@ pub(crate) fn trai_for_ty_item_hir_defn(
     path: TraitForTypeItemPath,
 ) -> Option<TraitForTypeItemHirDefn> {
     match path.hir_decl(db)? {
-        TraitForTypeItemHirDecl::AssociatedFn(hir_decl) => {
-            Some(TraitForTypeAssociatedFnHirDefn::new(db, path, hir_decl).into())
+        TraitForTypeItemHirDecl::AssocFn(hir_decl) => {
+            Some(TraitForTypeAssocFnHirDefn::new(db, path, hir_decl).into())
         }
         TraitForTypeItemHirDecl::MethodFn(hir_decl) => {
             Some(TraitForTypeMethodFnHirDefn::new(db, path, hir_decl).into())
         }
-        TraitForTypeItemHirDecl::AssociatedType(hir_decl) => {
-            Some(TraitForTypeAssociatedTypeHirDefn::new(db, path, hir_decl).into())
+        TraitForTypeItemHirDecl::AssocType(hir_decl) => {
+            Some(TraitForTypeAssocTypeHirDefn::new(db, path, hir_decl).into())
         }
-        TraitForTypeItemHirDecl::AssociatedVal(hir_decl) => {
-            Some(TraitForTypeAssociatedValHirDefn::new(db, path, hir_decl).into())
+        TraitForTypeItemHirDecl::AssocVal(hir_decl) => {
+            Some(TraitForTypeAssocValHirDefn::new(db, path, hir_decl).into())
         }
     }
 }

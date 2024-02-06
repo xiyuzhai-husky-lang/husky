@@ -20,7 +20,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum TypeItemEthTemplate {
-    AssociatedFn(TypeAssociatedFnEthTemplate),
+    AssocFn(TypeAssocFnEthTemplate),
     MethodFn(TypeMethodFnEthTemplate),
     MethodFunction(TypeMethodFunctionEthTemplate),
     MemoizedField(TypeMemoizedFieldEthTemplate),
@@ -29,7 +29,7 @@ pub enum TypeItemEthTemplate {
 impl TypeItemEthTemplate {
     pub fn self_ty(self, db: &::salsa::Db) -> Option<EthTerm> {
         match self {
-            TypeItemEthTemplate::AssociatedFn(_) => None,
+            TypeItemEthTemplate::AssocFn(_) => None,
             TypeItemEthTemplate::MethodFn(template) => Some(template.self_ty(db)),
             TypeItemEthTemplate::MethodFunction(_) => todo!(),
             TypeItemEthTemplate::MemoizedField(template) => Some(template.self_ty(db)),
@@ -51,14 +51,14 @@ pub(crate) fn ty_item_eth_template(
     path: TypeItemPath,
 ) -> EtherealSignatureResult<TypeItemEthTemplate> {
     Ok(match path.dec_template(db)? {
-        TypeItemDecTemplate::AssociatedFn(template) => {
-            TypeAssociatedFnEthTemplate::from_dec(db, path, template)?.into()
+        TypeItemDecTemplate::AssocFn(template) => {
+            TypeAssocFnEthTemplate::from_dec(db, path, template)?.into()
         }
         TypeItemDecTemplate::MethodFn(template) => {
             TypeMethodFnEthTemplate::from_dec(db, path, template)?.into()
         }
-        TypeItemDecTemplate::AssociatedType(_) => todo!(),
-        TypeItemDecTemplate::AssociatedVal(_) => todo!(),
+        TypeItemDecTemplate::AssocType(_) => todo!(),
+        TypeItemDecTemplate::AssocVal(_) => todo!(),
         TypeItemDecTemplate::MemoizedField(template) => {
             TypeMemoizedFieldEthTemplate::from_dec(db, path, template)?.into()
         }
@@ -87,7 +87,7 @@ pub trait HasTypeItemTemplates: Copy {
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum TypeItemEthTemplates {
-    AssociatedFn(SmallVecImpl<TypeAssociatedFnEthTemplate>),
+    AssocFn(SmallVecImpl<TypeAssocFnEthTemplate>),
     MethodFn(SmallVecImpl<TypeMethodFnEthTemplate>),
     MethodFunction(SmallVecImpl<TypeMethodFunctionEthTemplate>),
     MemoizedField(SmallVecImpl<TypeMemoizedFieldEthTemplate>),
@@ -130,21 +130,21 @@ pub(crate) fn ty_item_eth_templates_map(
                             })
                             .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
                             .map(TypeItemEthTemplates::MethodFn),
-                        TypeItemKind::AssociatedFunctionFn => paths
+                        TypeItemKind::AssocFunctionFn => paths
                             .iter()
                             .copied()
                             .map(|path| match path.eth_template(db) {
-                                Ok(TypeItemEthTemplate::AssociatedFn(template)) => {
+                                Ok(TypeItemEthTemplate::AssocFn(template)) => {
                                     Ok(template)
                                 }
                                 Err(e) => Err(e),
                                 _ => unreachable!(),
                             })
                             .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
-                            .map(TypeItemEthTemplates::AssociatedFn),
-                        TypeItemKind::AssociatedFunctionGn => todo!(),
-                        TypeItemKind::AssociatedVal => todo!(),
-                        TypeItemKind::AssociatedType => todo!(),
+                            .map(TypeItemEthTemplates::AssocFn),
+                        TypeItemKind::AssocFunctionGn => todo!(),
+                        TypeItemKind::AssocVal => todo!(),
+                        TypeItemKind::AssocType => todo!(),
                         TypeItemKind::MemoizedField => paths
                             .iter()
                             .copied()
@@ -157,8 +157,8 @@ pub(crate) fn ty_item_eth_templates_map(
                             })
                             .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
                             .map(TypeItemEthTemplates::MemoizedField),
-                        TypeItemKind::AssociatedFormal => todo!(),
-                        TypeItemKind::AssociatedConst => todo!(),
+                        TypeItemKind::AssocFormal => todo!(),
+                        TypeItemKind::AssocConst => todo!(),
                     },
                     Err(_e) => Err(EtherealSignatureError::EntityTreeError),
                 };

@@ -1,5 +1,5 @@
 use super::*;
-use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
+use crate::registry::associated_trace::VoidAssocTraceRegistry;
 use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{ItemPath, MajorItemPath, SubmoduleItemPath};
 use husky_entity_tree::helpers::paths::module_item_paths;
@@ -47,7 +47,7 @@ impl SubmoduleTraceData {
         TraceViewLines::new(
             submodule_item_path.module_path(db),
             token_idx_range,
-            VoidAssociatedTraceRegistry,
+            VoidAssocTraceRegistry,
             db,
         )
     }

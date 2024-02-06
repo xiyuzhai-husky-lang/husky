@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct TraitForTypeAssociatedFnEthTemplate {
+pub struct TraitForTypeAssocFnEthTemplate {
     #[return_ref]
     pub template_parameters: EthTemplateParameters,
     #[return_ref]

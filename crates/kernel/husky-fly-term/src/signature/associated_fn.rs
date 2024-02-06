@@ -2,8 +2,8 @@ use super::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct AssociatedFnFlySignature {
-    path: AssociatedItemPath,
+pub struct AssocFnFlySignature {
+    path: AssocItemPath,
     parenate_parameters: SmallVec<[FlyRitchieParameter; 4]>,
     return_ty: FlyTerm,
     ty: FlyTerm,
@@ -11,7 +11,7 @@ pub struct AssociatedFnFlySignature {
     self_ty: FlyTerm,
 }
 
-impl AssociatedFnFlySignature {
+impl AssocFnFlySignature {
     pub fn parenate_parameter_contracted_tys(&self) -> &[FlyRitchieParameter] {
         &self.parenate_parameters
     }
@@ -20,7 +20,7 @@ impl AssociatedFnFlySignature {
         self.ty
     }
 
-    pub fn path(&self) -> AssociatedItemPath {
+    pub fn path(&self) -> AssocItemPath {
         self.path
     }
 
@@ -36,10 +36,10 @@ impl AssociatedFnFlySignature {
 pub(crate) fn ty_associated_fn_fly_signature<Term: Copy + Into<FlyTerm>>(
     engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
-    template: TypeAssociatedFnEthTemplate,
+    template: TypeAssocFnEthTemplate,
     ty_template_arguments: &[Term],
     associated_fn_template_arguments: &[FlyTerm],
-) -> FlyTermMaybeResult<AssociatedFnFlySignature> {
+) -> FlyTermMaybeResult<AssocFnFlySignature> {
     let db = engine.db();
     let self_ty_application_expansion = template.self_ty(db).application_expansion(db);
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
@@ -47,7 +47,7 @@ pub(crate) fn ty_associated_fn_fly_signature<Term: Copy + Into<FlyTerm>>(
     }
     let mut instantiation_builder = FlyTermInstantiationBuilder::new_associated(
         template.path(db),
-        FlyInstantiationEnvironment::AssociatedFn,
+        FlyInstantiationEnvironment::AssocFn,
         template
             .path(db)
             .impl_block(db)
@@ -69,7 +69,7 @@ pub(crate) fn ty_associated_fn_fly_signature<Term: Copy + Into<FlyTerm>>(
         instantiation_builder.try_add_rule(src.symbol().into(), dst.into())
     })?;
     let instantiation = instantiation_builder.finish(db);
-    JustOk(AssociatedFnFlySignature {
+    JustOk(AssocFnFlySignature {
         path: template.path(db).into(),
         parenate_parameters: template
             .parenate_parameters(db)

@@ -246,7 +246,7 @@ impl<'a> SynExprRangeCalculator<'a> {
             }
             SynExprData::Binary { lopd, ropd, .. } => self[lopd].join(self[ropd]),
             SynExprData::PrincipalEntityPath { path_expr_idx, .. } => self[*path_expr_idx],
-            SynExprData::AssociatedItem {
+            SynExprData::AssocItem {
                 parent_expr_idx,
                 ident_token,
                 ..

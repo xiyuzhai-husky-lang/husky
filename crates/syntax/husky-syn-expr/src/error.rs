@@ -162,8 +162,8 @@ pub enum OriginalSynExprError {
     ExpectedTypeAfterLightArrow {
         light_arrow_token: LightArrowRegionalToken,
     },
-    #[error("ExpectedTypeTermForAssociatedType")]
-    ExpectedTypeTermForAssociatedType(RegionalTokenStreamState),
+    #[error("ExpectedTypeTermForAssocType")]
+    ExpectedTypeTermForAssocType(RegionalTokenStreamState),
     #[error("entity tree error")]
     EntityTree {
         regional_token_idx: RegionalTokenIdx,
@@ -266,7 +266,7 @@ impl OriginalSynExprError {
             }
             OriginalSynExprError::ExpectedBlock(_) => todo!(),
             OriginalSynExprError::ExpectedTypeAfterLightArrow { .. } => todo!(),
-            OriginalSynExprError::ExpectedTypeTermForAssociatedType(_) => todo!(),
+            OriginalSynExprError::ExpectedTypeTermForAssocType(_) => todo!(),
             OriginalSynExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
             OriginalSynExprError::EntityTree { .. } => todo!(),
         }

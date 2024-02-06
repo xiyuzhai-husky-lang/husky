@@ -25,11 +25,11 @@ impl<'a> SemaExprEngine<'a> {
         };
         match parent_term.static_dispatch(self, expr_idx, ident_token.ident(), /*ad hoc */ &[]) {
             JustOk(static_dispatch) => match static_dispatch {
-                StaticDispatch::AssociatedFn(ref signature) => {
+                StaticDispatch::AssocFn(ref signature) => {
                     let ty = signature.ty();
                     (Ok(static_dispatch), Ok(ty))
                 }
-                StaticDispatch::AssociatedGn => todo!(),
+                StaticDispatch::AssocGn => todo!(),
             },
             JustErr(_) => todo!(),
             Nothing => todo!(),
@@ -37,10 +37,10 @@ impl<'a> SemaExprEngine<'a> {
         // self.infer_new_expr_ty_discarded(parent_expr_idx, ExpectEqsCategory::new_any_sort());
         // let parent_term = self
         //     .infer_expr_term(parent_expr_idx)
-        //     .ok_or(DerivedSemaExprError::UnableToInferAssociatedItemParentTerm)?;
+        //     .ok_or(DerivedSemaExprError::UnableToInferAssocItemParentTerm)?;
         // match parent_term.static_dispatch(self, expr_idx, ident_token.ident(), /*ad hoc */ &[]) {
         //     JustOk(disambiguation) => match disambiguation {
-        //         StaticDispatch::AssociatedFn(ref signature) => {
+        //         StaticDispatch::AssocFn(ref signature) => {
         //             let ty = signature.ty();
         //             Ok((disambiguation.into(), Ok(ty)))
         //         }

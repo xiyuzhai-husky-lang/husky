@@ -8,7 +8,7 @@ pub enum IdentifiableEntityPathExpr {
         path_expr_idx: SynPrincipalEntityPathExprIdx,
         opt_path: Option<PrincipalEntityPath>,
     },
-    AssociatedItem {
+    AssocItem {
         parent_expr_idx: SynPrincipalEntityPathExprIdx,
         parent_path: MajorItemPath,
         colon_colon_regional_token: ColonColonRegionalToken,

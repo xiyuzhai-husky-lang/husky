@@ -183,7 +183,7 @@ impl<'a> SemaExprEngine<'a> {
                 *ty_path_disambiguation,
                 instantiation.as_ref(),
             )),
-            SemaExprData::AssociatedItem {
+            SemaExprData::AssocItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,

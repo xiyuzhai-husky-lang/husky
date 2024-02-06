@@ -28,7 +28,7 @@ impl TypeItemSynNodePath {
     ) -> Self {
         Self(ItemSynNodePathId::new(
             db,
-            ItemSynNodePathData::AssociatedItem(AssociatedItemSynNodePathData::TypeItem(
+            ItemSynNodePathData::AssocItem(AssocItemSynNodePathData::TypeItem(
                 TypeItemSynNodePathData {
                     maybe_ambiguous_path: registry.issue_maybe_ambiguous_path(path),
                 },
@@ -47,16 +47,14 @@ impl TypeItemSynNodePath {
 
     pub fn data(self, db: &::salsa::Db) -> TypeItemSynNodePathData {
         match self.0.data(db) {
-            ItemSynNodePathData::AssociatedItem(AssociatedItemSynNodePathData::TypeItem(data)) => {
-                data
-            }
+            ItemSynNodePathData::AssocItem(AssocItemSynNodePathData::TypeItem(data)) => data,
             _ => unreachable!(),
         }
     }
 
     pub fn path(self, db: &::salsa::Db) -> Option<TypeItemPath> {
         Some(match self.0.path(db)? {
-            ItemPath::AssociatedItem(AssociatedItemPath::TypeItem(path)) => path,
+            ItemPath::AssocItem(AssocItemPath::TypeItem(path)) => path,
             _ => unreachable!(),
         })
     }
@@ -94,7 +92,7 @@ impl TypeItemSynNodePathData {
 
 impl From<TypeItemSynNodePath> for ItemSynNodePath {
     fn from(id: TypeItemSynNodePath) -> Self {
-        ItemSynNodePath::AssociatedItem(id.into())
+        ItemSynNodePath::AssocItem(id.into())
     }
 }
 
@@ -104,7 +102,7 @@ impl HasSynNodePath for TypeItemPath {
     fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
         TypeItemSynNodePath(ItemSynNodePathId::new(
             db,
-            ItemSynNodePathData::AssociatedItem(AssociatedItemSynNodePathData::TypeItem(
+            ItemSynNodePathData::AssocItem(AssocItemSynNodePathData::TypeItem(
                 TypeItemSynNodePathData {
                     maybe_ambiguous_path: MaybeAmbiguousPath::from_path(self),
                 },
@@ -176,8 +174,8 @@ pub(crate) fn ty_impl_block_items(
                     ..
                 } => {
                     let item_kind = match item_kind {
-                        EntityKind::AssociatedItem {
-                            associated_item_kind: AssociatedItemKind::TypeItem(ty_item_kind),
+                        EntityKind::AssocItem {
+                            associated_item_kind: AssocItemKind::TypeItem(ty_item_kind),
                         } => *ty_item_kind,
                         _ => unreachable!(),
                     };

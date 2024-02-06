@@ -1,6 +1,6 @@
 use super::*;
 use crate::builder::keyword::RustKeyword;
-use husky_entity_tree::HasAssociatedItemPaths;
+use husky_entity_tree::HasAssocItemPaths;
 use husky_hir_decl::decl::TraitHirDecl;
 
 impl TranspileToRustWith for TraitHirDefn {

@@ -3,7 +3,7 @@ pub mod db;
 use self::db::DevComptimeDb;
 
 use husky_entity_kind::{FugitiveKind, TraitItemKind, TypeItemKind};
-use husky_entity_path::{AssociatedItemPath, ItemPath, MajorItemPath};
+use husky_entity_path::{AssocItemPath, ItemPath, MajorItemPath};
 use husky_entity_tree::helpers::ingredient::{HasIngredientPaths, IngredientPath};
 use husky_linkage::linkage::Linkage;
 use husky_manifest::HasAllPackages;
@@ -136,21 +136,19 @@ fn ingredient_vals(
                             {
                                 Some(ValRepr::new_val_item(path, db))
                             }
-                            ItemPath::AssociatedItem(path) => match path {
-                                AssociatedItemPath::TypeItem(path) => match path.item_kind(db) {
-                                    TypeItemKind::AssociatedVal => todo!(),
+                            ItemPath::AssocItem(path) => match path {
+                                AssocItemPath::TypeItem(path) => match path.item_kind(db) {
+                                    TypeItemKind::AssocVal => todo!(),
                                     _ => None,
                                 },
-                                AssociatedItemPath::TraitItem(path) => match path.item_kind(db) {
-                                    TraitItemKind::AssociatedVal => todo!(),
+                                AssocItemPath::TraitItem(path) => match path.item_kind(db) {
+                                    TraitItemKind::AssocVal => todo!(),
                                     _ => None,
                                 },
-                                AssociatedItemPath::TraitForTypeItem(path) => {
-                                    match path.item_kind(db) {
-                                        TraitItemKind::AssociatedVal => todo!(),
-                                        _ => None,
-                                    }
-                                }
+                                AssocItemPath::TraitForTypeItem(path) => match path.item_kind(db) {
+                                    TraitItemKind::AssocVal => todo!(),
+                                    _ => None,
+                                },
                             },
                             _ => None,
                         };

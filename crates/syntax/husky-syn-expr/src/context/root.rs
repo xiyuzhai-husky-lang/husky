@@ -42,7 +42,7 @@ pub enum SynExprRootKind {
     Snippet,
     ValExpr,
     EvalExpr,
-    AssociatedTypeTerm,
+    AssocTypeTerm,
 }
 
 #[salsa::debug_with_db]

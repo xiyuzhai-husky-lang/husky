@@ -14,7 +14,7 @@ use husky_sema_expr::{
 use husky_syn_defn::ItemSynDefn;
 use husky_token_info::TokenInfoSource;
 
-use crate::registry::associated_trace::IsAssociatedTraceRegistry;
+use crate::registry::associated_trace::IsAssocTraceRegistry;
 
 use super::*;
 
@@ -440,7 +440,7 @@ impl EagerStmtTraceData {
         };
         let token_idx_range = regional_token_idx_range
             .token_idx_range(region_path.regional_token_idx_base(db).unwrap());
-        let registry = EagerStmtAssociatedTraceRegistry::new(trace_id, sema_expr_region, db);
+        let registry = EagerStmtAssocTraceRegistry::new(trace_id, sema_expr_region, db);
         TraceViewLines::new(region_path.module_path(db), token_idx_range, registry, db)
     }
 
@@ -469,7 +469,7 @@ impl EagerStmtTraceData {
     }
 }
 
-struct EagerStmtAssociatedTraceRegistry<'a> {
+struct EagerStmtAssocTraceRegistry<'a> {
     parent_trace: Trace,
     sema_expr_region: SemaExprRegion,
     hir_eager_expr_region: HirEagerExprRegion,
@@ -482,11 +482,11 @@ struct EagerStmtAssociatedTraceRegistry<'a> {
     eager_pattern_expr_traces_issued: VecPairMap<SynPatternExprIdx, Trace>,
 }
 
-impl<'a> EagerStmtAssociatedTraceRegistry<'a> {
+impl<'a> EagerStmtAssocTraceRegistry<'a> {
     fn new(parent_trace: Trace, sema_expr_region: SemaExprRegion, db: &'a ::salsa::Db) -> Self {
         let (hir_eager_expr_region, hir_eager_expr_source_map) =
             hir_eager_expr_region_with_source_map(db, sema_expr_region);
-        EagerStmtAssociatedTraceRegistry {
+        EagerStmtAssocTraceRegistry {
             parent_trace,
             sema_expr_region,
             syn_expr_region_data: sema_expr_region.syn_expr_region(db).data(db),
@@ -501,7 +501,7 @@ impl<'a> EagerStmtAssociatedTraceRegistry<'a> {
     }
 }
 
-impl<'a> IsAssociatedTraceRegistry for EagerStmtAssociatedTraceRegistry<'a> {
+impl<'a> IsAssocTraceRegistry for EagerStmtAssocTraceRegistry<'a> {
     fn get_or_issue_associated_trace(
         &mut self,
         source: TokenInfoSource,

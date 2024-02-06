@@ -54,11 +54,11 @@ where
                 match self.db().subitem_path(parent_path, ident) {
                     Ok(subitem_path) => match subitem_path {
                         SubitemPath::Principal(path) => Ok(path),
-                        SubitemPath::Associated => {
+                        SubitemPath::Assoc => {
                             let MajorEntityPath::MajorItem(parent_path) = parent_path else {
                                 unreachable!()
                             };
-                            return IdentifiableEntityPathExpr::AssociatedItem {
+                            return IdentifiableEntityPathExpr::AssocItem {
                                 parent_expr_idx,
                                 parent_path,
                                 colon_colon_regional_token,

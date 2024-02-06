@@ -51,7 +51,7 @@ pub enum DefnBlock {
         items: Option<TraitItems>,
     },
     // doesn't have a path field because the impl block might be ill-formed
-    AssociatedItem {
+    AssocItem {
         body: Option<FugitiveBody>,
     },
 }
@@ -64,7 +64,7 @@ impl DefnBlock {
             DefnBlock::Submodule { .. } => None,
             DefnBlock::Type { variants, .. } => variants.map(|v| v.ast_idx_range()),
             DefnBlock::Trait { items, .. } => items.map(|items| items.ast_idx_range()),
-            DefnBlock::AssociatedItem { body } => body.map(|v| v.ast_idx_range()),
+            DefnBlock::AssocItem { body } => body.map(|v| v.ast_idx_range()),
         }
     }
 
@@ -76,7 +76,7 @@ impl DefnBlock {
             DefnBlock::Submodule { path } => Some(path.into()),
             DefnBlock::Type { path, .. } => Some(path.into()),
             DefnBlock::Trait { path, .. } => Some(path.into()),
-            DefnBlock::AssociatedItem { .. } => None,
+            DefnBlock::AssocItem { .. } => None,
         }
     }
 }

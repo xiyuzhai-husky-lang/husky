@@ -14,10 +14,10 @@ use super::*;
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TraitItemHirDecl {
-    AssociatedFn(TraitAssociatedFnHirDecl),
+    AssocFn(TraitAssocFnHirDecl),
     MethodFn(TraitMethodFnHirDecl),
-    AssociatedType(TraitAssociatedTypeHirDecl),
-    AssociatedVal(TraitAssociatedValHirDecl),
+    AssocType(TraitAssocTypeHirDecl),
+    AssocVal(TraitAssocValHirDecl),
 }
 
 impl HasHirDecl for TraitItemPath {
@@ -32,10 +32,10 @@ impl HasHirDecl for TraitItemPath {
 impl TraitItemHirDecl {
     pub fn path(self, _db: &::salsa::Db) -> TraitItemPath {
         match self {
-            TraitItemHirDecl::AssociatedFn(_) => todo!(),
+            TraitItemHirDecl::AssocFn(_) => todo!(),
             TraitItemHirDecl::MethodFn(_) => todo!(),
-            TraitItemHirDecl::AssociatedType(_) => todo!(),
-            TraitItemHirDecl::AssociatedVal(_) => todo!(),
+            TraitItemHirDecl::AssocType(_) => todo!(),
+            TraitItemHirDecl::AssocVal(_) => todo!(),
         }
     }
 
@@ -44,19 +44,19 @@ impl TraitItemHirDecl {
         _db: &'a ::salsa::Db,
     ) -> Option<&'a HirTemplateParameters> {
         match self {
-            TraitItemHirDecl::AssociatedFn(_) => todo!(),
+            TraitItemHirDecl::AssocFn(_) => todo!(),
             TraitItemHirDecl::MethodFn(_) => todo!(),
-            TraitItemHirDecl::AssociatedType(_) => todo!(),
-            TraitItemHirDecl::AssociatedVal(_) => todo!(),
+            TraitItemHirDecl::AssocType(_) => todo!(),
+            TraitItemHirDecl::AssocVal(_) => todo!(),
         }
     }
 
     pub fn hir_expr_region(self, db: &::salsa::Db) -> HirExprRegion {
         match self {
-            TraitItemHirDecl::AssociatedFn(hir_decl) => hir_decl.hir_eager_expr_region(db).into(),
+            TraitItemHirDecl::AssocFn(hir_decl) => hir_decl.hir_eager_expr_region(db).into(),
             TraitItemHirDecl::MethodFn(hir_decl) => hir_decl.hir_eager_expr_region(db).into(),
-            TraitItemHirDecl::AssociatedType(hir_decl) => hir_decl.hir_eager_expr_region(db).into(),
-            TraitItemHirDecl::AssociatedVal(hir_decl) => hir_decl.hir_eager_expr_region(db).into(),
+            TraitItemHirDecl::AssocType(hir_decl) => hir_decl.hir_eager_expr_region(db).into(),
+            TraitItemHirDecl::AssocVal(hir_decl) => hir_decl.hir_eager_expr_region(db).into(),
         }
     }
 }

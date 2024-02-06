@@ -12,13 +12,13 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum TraitItemEthTemplate {
-    AssociatedFn(TraitAssociatedFnEthTemplate),
+    AssocFn(TraitAssocFnEthTemplate),
 }
 
 impl TraitItemEthTemplate {
     pub fn self_ty(self, _db: &::salsa::Db) -> Option<EthTerm> {
         match self {
-            TraitItemEthTemplate::AssociatedFn(_) => None,
+            TraitItemEthTemplate::AssocFn(_) => None,
         }
     }
 }

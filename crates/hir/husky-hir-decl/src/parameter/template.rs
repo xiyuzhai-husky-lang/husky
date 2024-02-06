@@ -189,16 +189,16 @@ pub fn item_hir_template_parameter_stats(
         }
     }
     match item_path {
-        ItemPath::AssociatedItem(associated_item_path) => match associated_item_path {
-            AssociatedItemPath::TypeItem(ty_item_path) => {
+        ItemPath::AssocItem(associated_item_path) => match associated_item_path {
+            AssocItemPath::TypeItem(ty_item_path) => {
                 stats +=
                     item_hir_template_parameter_stats(db, *ty_item_path.impl_block(db)).unwrap()
             }
-            AssociatedItemPath::TraitItem(trai_item_path) => {
+            AssocItemPath::TraitItem(trai_item_path) => {
                 stats +=
                     item_hir_template_parameter_stats(db, *trai_item_path.trai_path(db)).unwrap()
             }
-            AssociatedItemPath::TraitForTypeItem(trai_for_ty_item_path) => {
+            AssocItemPath::TraitForTypeItem(trai_for_ty_item_path) => {
                 stats +=
                     item_hir_template_parameter_stats(db, *trai_for_ty_item_path.impl_block(db))
                         .unwrap()

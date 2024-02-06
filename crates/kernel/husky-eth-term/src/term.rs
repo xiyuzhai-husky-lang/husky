@@ -130,7 +130,7 @@ impl EthTerm {
                     ty_expectation,
                 )?
             }
-            DecTerm::AssociatedItem(_declarative_term) => {
+            DecTerm::AssocItem(_declarative_term) => {
                 todo!()
                 // EthTermSubitem::from_dec(db, declarative_term, ty_expectation)?
             }

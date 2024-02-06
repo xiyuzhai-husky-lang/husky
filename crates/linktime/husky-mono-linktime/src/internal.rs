@@ -46,14 +46,14 @@ where
             use salsa::DebugWithDb;
             let _linkages: Vec<Linkage> = self.linkage_impls.clone().into_keys().collect();
             // let old_linkage: Linkage = unsafe { std::mem::transmute(194u32) };
-            // let LinkageData::UnveilAssociatedFunctionFn {
+            // let LinkageData::UnveilAssocFunctionFn {
             //     path: old_path,
             //     instantiation: old_instantiation,
             // } = old_linkage.data(db)
             // else {
             //     unreachable!()
             // };
-            // let LinkageData::UnveilAssociatedFunctionFn {
+            // let LinkageData::UnveilAssocFunctionFn {
             //     path,
             //     instantiation,
             // } = linkage.data(db)

@@ -26,7 +26,7 @@ pub use self::template_argument::*;
 use crate::*;
 use husky_coword::{Ident, IdentMap};
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
-use husky_eth_signature::TraitForTypeAssociatedTypeEtherealSignature;
+use husky_eth_signature::TraitForTypeAssocTypeEtherealSignature;
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::{
     dispatch::{
@@ -70,7 +70,7 @@ pub enum SemaExprData {
         /// only None if `path` is an ontology constructor
         instantiation: Option<FlyInstantiation>,
     },
-    AssociatedItem {
+    AssocItem {
         parent_expr_idx: SynPrincipalEntityPathExprIdx,
         parent_path: MajorItemPath,
         colon_colon_regional_token: ColonColonRegionalToken,
@@ -122,7 +122,7 @@ pub enum SemaExprData {
     Unveil {
         opd_sema_expr_idx: SemaExprIdx,
         opr_regional_token_idx: RegionalTokenIdx,
-        unveil_output_ty_signature: TraitForTypeAssociatedTypeEtherealSignature,
+        unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature,
         unveil_associated_fn_path: TraitForTypeItemPath,
         return_ty: EthTerm,
     },
@@ -465,7 +465,7 @@ impl<'a> SemaExprEngine<'a> {
                 | SynExprRootKind::TupleStructFieldType
                 | SynExprRootKind::ConstantImplicitParameterType
                 | SynExprRootKind::ExplicitParameterType
-                | SynExprRootKind::AssociatedTypeTerm => {
+                | SynExprRootKind::AssocTypeTerm => {
                     let sema_expr_idx = self.build_sema_expr(
                         root.syn_expr_idx(),
                         ExpectEqsCategory::new_expect_eqs_ty_kind(),
@@ -667,7 +667,7 @@ impl<'a> SemaExprEngine<'a> {
                     todo!()
                 }
             },
-            SynExprData::AssociatedItem {
+            SynExprData::AssocItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
@@ -676,7 +676,7 @@ impl<'a> SemaExprEngine<'a> {
                 let (static_dispatch_result, ty_result) =
                     self.calc_associated_item_ty(syn_expr_idx, parent_path, ident_token);
                 let data_result =
-                    static_dispatch_result.map(|static_dispatch| SemaExprData::AssociatedItem {
+                    static_dispatch_result.map(|static_dispatch| SemaExprData::AssocItem {
                         parent_expr_idx,
                         parent_path,
                         colon_colon_regional_token,

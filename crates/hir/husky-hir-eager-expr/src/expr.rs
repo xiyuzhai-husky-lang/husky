@@ -38,8 +38,8 @@ pub struct HirEagerExprEntry {
 pub enum HirEagerExprData {
     Literal(Literal),
     PrincipalEntityPath(PrincipalEntityPath),
-    AssociatedFn {
-        associated_item_path: AssociatedItemPath,
+    AssocFn {
+        associated_item_path: AssocItemPath,
     },
     ConstSymbol {
         ident: Ident,
@@ -91,8 +91,8 @@ pub enum HirEagerExprData {
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
     },
-    AssociatedFunctionFnCall {
-        path: AssociatedItemPath,
+    AssocFunctionFnCall {
+        path: AssocItemPath,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
     },
@@ -104,13 +104,13 @@ pub enum HirEagerExprData {
     MemoizedField {
         owner_hir_expr_idx: HirEagerExprIdx,
         ident: Ident,
-        path: AssociatedItemPath,
+        path: AssocItemPath,
     },
     MethodFnCall {
         self_argument: HirEagerExprIdx,
         self_contract: HirEagerContract,
         ident: Ident,
-        path: AssociatedItemPath,
+        path: AssocItemPath,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
     },
@@ -154,14 +154,14 @@ impl ToHirEager for SemaExprIdx {
                 // ad hoc
                 HirEagerExprData::PrincipalEntityPath(path)
             }
-            SemaExprData::AssociatedItem {
+            SemaExprData::AssocItem {
                 ref static_dispatch,
                 ..
             } => match static_dispatch {
-                StaticDispatch::AssociatedFn(signature) => HirEagerExprData::AssociatedFn {
+                StaticDispatch::AssocFn(signature) => HirEagerExprData::AssocFn {
                     associated_item_path: signature.path(),
                 },
-                StaticDispatch::AssociatedGn => unreachable!(),
+                StaticDispatch::AssocGn => unreachable!(),
             },
             SemaExprData::InheritedSynSymbol {
                 inherited_syn_symbol_idx,
@@ -318,12 +318,12 @@ impl ToHirEager for SemaExprIdx {
                             }
                         }
                     },
-                    SemaExprData::AssociatedItem {
+                    SemaExprData::AssocItem {
                         ref static_dispatch,
                         ..
                     } => match static_dispatch {
-                        StaticDispatch::AssociatedFn(signature) => {
-                            HirEagerExprData::AssociatedFunctionFnCall {
+                        StaticDispatch::AssocFn(signature) => {
+                            HirEagerExprData::AssocFunctionFnCall {
                                 path: signature.path(),
                                 instantiation: HirInstantiation::from_fly(
                                     signature.instantiation(),
@@ -333,7 +333,7 @@ impl ToHirEager for SemaExprIdx {
                                 item_groups,
                             }
                         }
-                        StaticDispatch::AssociatedGn => unreachable!(),
+                        StaticDispatch::AssocGn => unreachable!(),
                     },
                     _ => todo!(),
                 }

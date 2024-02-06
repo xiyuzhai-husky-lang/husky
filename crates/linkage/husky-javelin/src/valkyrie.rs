@@ -135,7 +135,7 @@ impl ValkyrieRides {
         for entry in hir_eager_expr_region.expr_arena(db) {
             #[deprecated(note = "incomplete")]
             match entry.data {
-                HirEagerExprData::AssociatedFn {
+                HirEagerExprData::AssocFn {
                     associated_item_path: _,
                 } => (), // ad hoc
                 HirEagerExprData::PrincipalEntityPath(path) => match path {
@@ -163,7 +163,7 @@ impl ValkyrieRides {
                     ref instantiation,
                     ..
                 } => self.try_add_path_leading_ride(path.into(), instantiation),
-                HirEagerExprData::AssociatedFunctionFnCall {
+                HirEagerExprData::AssocFunctionFnCall {
                     path,
                     ref instantiation,
                     ..
@@ -246,7 +246,7 @@ impl ValkyrieRides {
     ) {
         for data in hir_lazy_expr_region.hir_lazy_expr_arena(db) {
             match *data {
-                HirLazyExprData::AssociatedFn { path: _ } => (),
+                HirLazyExprData::AssocFn { path: _ } => (),
                 HirLazyExprData::PrincipalEntityPath(_) => (),
                 HirLazyExprData::Be {
                     src: _,
@@ -278,7 +278,7 @@ impl ValkyrieRides {
                 } => {
                     self.try_add_path_leading_ride(path.into(), instantiation);
                 }
-                HirLazyExprData::AssociatedFunctionFnCall {
+                HirLazyExprData::AssocFunctionFnCall {
                     path,
                     ref instantiation,
                     ..

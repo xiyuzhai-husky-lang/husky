@@ -75,11 +75,11 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssociatedTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
                                         path: TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -92,7 +92,7 @@
                                                                 },
                                                             },
                                                             ident: `Output`,
-                                                            item_kind: AssociatedType,
+                                                            item_kind: AssocType,
                                                         },
                                                     ),
                                                 ),
@@ -131,8 +131,8 @@
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -145,7 +145,7 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssociatedFunctionFn,
+                                                        item_kind: AssocFunctionFn,
                                                     },
                                                 ),
                                             ),
@@ -231,11 +231,11 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssociatedTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
                                         path: TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -248,7 +248,7 @@
                                                                 },
                                                             },
                                                             ident: `Output`,
-                                                            item_kind: AssociatedType,
+                                                            item_kind: AssocType,
                                                         },
                                                     ),
                                                 ),
@@ -287,8 +287,8 @@
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -301,7 +301,7 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssociatedFunctionFn,
+                                                        item_kind: AssocFunctionFn,
                                                     },
                                                 ),
                                             ),
@@ -387,11 +387,11 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         6,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssociatedTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
                                         path: TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -404,7 +404,7 @@
                                                                 },
                                                             },
                                                             ident: `Output`,
-                                                            item_kind: AssociatedType,
+                                                            item_kind: AssocType,
                                                         },
                                                     ),
                                                 ),
@@ -443,8 +443,8 @@
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -457,7 +457,7 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssociatedFunctionFn,
+                                                        item_kind: AssocFunctionFn,
                                                     },
                                                 ),
                                             ),
@@ -543,11 +543,11 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         8,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssociatedTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
                                         path: TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -560,7 +560,7 @@
                                                                 },
                                                             },
                                                             ident: `Output`,
-                                                            item_kind: AssociatedType,
+                                                            item_kind: AssocType,
                                                         },
                                                     ),
                                                 ),
@@ -599,8 +599,8 @@
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -613,7 +613,7 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssociatedFunctionFn,
+                                                        item_kind: AssocFunctionFn,
                                                     },
                                                 ),
                                             ),
@@ -699,11 +699,11 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssociatedTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
                                         path: TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -716,7 +716,7 @@
                                                                 },
                                                             },
                                                             ident: `Output`,
-                                                            item_kind: AssociatedType,
+                                                            item_kind: AssocType,
                                                         },
                                                     ),
                                                 ),
@@ -755,8 +755,8 @@
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -769,7 +769,7 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssociatedFunctionFn,
+                                                        item_kind: AssocFunctionFn,
                                                     },
                                                 ),
                                             ),
@@ -855,11 +855,11 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         12,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssociatedTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
                                         path: TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -872,7 +872,7 @@
                                                                 },
                                                             },
                                                             ident: `Output`,
-                                                            item_kind: AssociatedType,
+                                                            item_kind: AssocType,
                                                         },
                                                     ),
                                                 ),
@@ -911,8 +911,8 @@
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -925,7 +925,7 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssociatedFunctionFn,
+                                                        item_kind: AssocFunctionFn,
                                                     },
                                                 ),
                                             ),
@@ -1011,11 +1011,11 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         14,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssociatedTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
                                         path: TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -1028,7 +1028,7 @@
                                                                 },
                                                             },
                                                             ident: `Output`,
-                                                            item_kind: AssociatedType,
+                                                            item_kind: AssocType,
                                                         },
                                                     ),
                                                 ),
@@ -1067,8 +1067,8 @@
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -1081,7 +1081,7 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssociatedFunctionFn,
+                                                        item_kind: AssocFunctionFn,
                                                     },
                                                 ),
                                             ),
@@ -1167,11 +1167,11 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssociatedTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
                                         path: TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -1184,7 +1184,7 @@
                                                                 },
                                                             },
                                                             ident: `Output`,
-                                                            item_kind: AssociatedType,
+                                                            item_kind: AssocType,
                                                         },
                                                     ),
                                                 ),
@@ -1223,8 +1223,8 @@
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -1237,7 +1237,7 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssociatedFunctionFn,
+                                                        item_kind: AssocFunctionFn,
                                                     },
                                                 ),
                                             ),
@@ -1323,11 +1323,11 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         18,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssociatedTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
                                         path: TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -1340,7 +1340,7 @@
                                                                 },
                                                             },
                                                             ident: `Output`,
-                                                            item_kind: AssociatedType,
+                                                            item_kind: AssocType,
                                                         },
                                                     ),
                                                 ),
@@ -1379,8 +1379,8 @@
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -1393,7 +1393,7 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssociatedFunctionFn,
+                                                        item_kind: AssocFunctionFn,
                                                     },
                                                 ),
                                             ),

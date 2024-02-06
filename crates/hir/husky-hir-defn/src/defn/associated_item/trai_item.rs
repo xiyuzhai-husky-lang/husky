@@ -9,22 +9,22 @@ pub use self::associated_val::*;
 pub use self::method_fn::*;
 
 use super::*;
-use husky_entity_path::AssociatedItemPath;
+use husky_entity_path::AssocItemPath;
 use husky_hir_decl::decl::TraitItemHirDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum TraitItemHirDefn {
-    AssociatedFn(TraitAssociatedFnHirDefn),
+    AssocFn(TraitAssocFnHirDefn),
     MethodFn(TraitMethodFnHirDefn),
-    AssociatedType(TraitAssociatedTypeHirDefn),
-    AssociatedVal(TraitAssociatedValHirDefn),
+    AssocType(TraitAssocTypeHirDefn),
+    AssocVal(TraitAssocValHirDefn),
 }
 
 impl From<TraitItemHirDefn> for HirDefn {
     fn from(hir_defn: TraitItemHirDefn) -> Self {
-        HirDefn::AssociatedItem(hir_defn.into())
+        HirDefn::AssocItem(hir_defn.into())
     }
 }
 
@@ -33,7 +33,7 @@ impl TraitItemHirDefn {
         todo!()
     }
 
-    pub fn path(self, _db: &::salsa::Db) -> AssociatedItemPath {
+    pub fn path(self, _db: &::salsa::Db) -> AssocItemPath {
         todo!()
     }
     pub fn hir_expr_region(self, _db: &::salsa::Db) -> HirExprRegion {
@@ -42,19 +42,19 @@ impl TraitItemHirDefn {
 
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         match self {
-            TraitItemHirDefn::AssociatedFn(hir_defn) => hir_defn.dependencies(db),
+            TraitItemHirDefn::AssocFn(hir_defn) => hir_defn.dependencies(db),
             TraitItemHirDefn::MethodFn(hir_defn) => hir_defn.dependencies(db),
-            TraitItemHirDefn::AssociatedType(hir_defn) => hir_defn.dependencies(db),
-            TraitItemHirDefn::AssociatedVal(hir_defn) => hir_defn.dependencies(db),
+            TraitItemHirDefn::AssocType(hir_defn) => hir_defn.dependencies(db),
+            TraitItemHirDefn::AssocVal(hir_defn) => hir_defn.dependencies(db),
         }
     }
 
     pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         match self {
-            TraitItemHirDefn::AssociatedFn(hir_defn) => hir_defn.version_stamp(db),
+            TraitItemHirDefn::AssocFn(hir_defn) => hir_defn.version_stamp(db),
             TraitItemHirDefn::MethodFn(hir_defn) => hir_defn.version_stamp(db),
-            TraitItemHirDefn::AssociatedType(hir_defn) => hir_defn.version_stamp(db),
-            TraitItemHirDefn::AssociatedVal(hir_defn) => hir_defn.version_stamp(db),
+            TraitItemHirDefn::AssocType(hir_defn) => hir_defn.version_stamp(db),
+            TraitItemHirDefn::AssocVal(hir_defn) => hir_defn.version_stamp(db),
         }
     }
 }
@@ -74,14 +74,14 @@ pub(crate) fn trai_item_hir_defn(
 ) -> Option<TraitItemHirDefn> {
     let hir_decl = path.hir_decl(db)?;
     match hir_decl {
-        TraitItemHirDecl::AssociatedFn(_hir_decl) => {
+        TraitItemHirDecl::AssocFn(_hir_decl) => {
             todo!()
-            // TraitAssociatedFnHirDefn::new(db, path, hir_decl)?.into()
+            // TraitAssocFnHirDefn::new(db, path, hir_decl)?.into()
         }
         TraitItemHirDecl::MethodFn(hir_decl) => {
             Some(TraitMethodFnHirDefn::new(db, path, hir_decl).into())
         }
-        TraitItemHirDecl::AssociatedType(_hir_decl) => todo!(),
-        TraitItemHirDecl::AssociatedVal(_hir_decl) => todo!(),
+        TraitItemHirDecl::AssocType(_hir_decl) => todo!(),
+        TraitItemHirDecl::AssocVal(_hir_decl) => todo!(),
     }
 }

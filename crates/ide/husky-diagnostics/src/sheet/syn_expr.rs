@@ -315,7 +315,7 @@ impl Diagnose for OriginalSynExprError {
                 light_arrow_token: _,
             } => todo!(),
             OriginalSynExprError::ExpectedExplicitParameterDefaultValue(_) => todo!(),
-            OriginalSynExprError::ExpectedTypeTermForAssociatedType(_) => todo!(),
+            OriginalSynExprError::ExpectedTypeTermForAssocType(_) => todo!(),
             OriginalSynExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
             OriginalSynExprError::EntityTree {
                 regional_token_idx: _,

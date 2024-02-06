@@ -17,7 +17,7 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
                 },
-                item_kind: AssociatedItem {
+                item_kind: AssocItem {
                     associated_item_kind: TraitForTypeItem(
                         MethodFn,
                     ),
@@ -35,7 +35,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::AssociatedItem {
+                block: DefnBlock::AssocItem {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(

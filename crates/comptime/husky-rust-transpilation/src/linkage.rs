@@ -2,7 +2,7 @@ use crate::*;
 use either::*;
 use husky_corgi_config::transpilation_setup::TranspilationSetup;
 use husky_entity_path::{
-    AssociatedItemPath, MajorFugitivePath, PreludeTypePath, TraitForTypeItemPath, TraitItemPath,
+    AssocItemPath, MajorFugitivePath, PreludeTypePath, TraitForTypeItemPath, TraitItemPath,
     TypeItemPath, TypeVariantPath,
 };
 use husky_eth_signature::signature::HasEthTemplate;
@@ -92,13 +92,13 @@ impl TranspileToRustWith<()> for Linkage {
                 .macro_call(RustMacroName::EnumU8Presenter, |builder| {
                     ty_path.transpile_to_rust(builder)
                 }),
-            LinkageData::AssociatedFunctionFn {
+            LinkageData::AssocFunctionFn {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 (path, instantiation).transpile_to_rust(builder)
             }),
-            LinkageData::UnveilAssociatedFunctionFn {
+            LinkageData::UnveilAssocFunctionFn {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::UnveilFnLinkageImpl, |builder| {
@@ -145,15 +145,13 @@ impl TranspileToRustWith<()> for Linkage {
     }
 }
 
-impl<E> TranspileToRustWith<E> for (AssociatedItemPath, &LinInstantiation) {
+impl<E> TranspileToRustWith<E> for (AssocItemPath, &LinInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let (path, instantiation) = self;
         match path {
-            AssociatedItemPath::TypeItem(slf) => (slf, instantiation).transpile_to_rust(builder),
-            AssociatedItemPath::TraitItem(slf) => (slf, instantiation).transpile_to_rust(builder),
-            AssociatedItemPath::TraitForTypeItem(slf) => {
-                (slf, instantiation).transpile_to_rust(builder)
-            }
+            AssocItemPath::TypeItem(slf) => (slf, instantiation).transpile_to_rust(builder),
+            AssocItemPath::TraitItem(slf) => (slf, instantiation).transpile_to_rust(builder),
+            AssocItemPath::TraitForTypeItem(slf) => (slf, instantiation).transpile_to_rust(builder),
         }
     }
 }

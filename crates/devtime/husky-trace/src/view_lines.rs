@@ -1,4 +1,4 @@
-use crate::{registry::associated_trace::IsAssociatedTraceRegistry, *};
+use crate::{registry::associated_trace::IsAssocTraceRegistry, *};
 use husky_text::{HasText, Text};
 use husky_token::{RangedTokenSheet, TokenIdx, TokenIdxRange};
 use husky_token_info::TokenInfoSheetRef;
@@ -14,14 +14,14 @@ impl TraceViewLines {
         self.data
     }
 
-    pub(crate) fn new<AssociatedTraceRegistry>(
+    pub(crate) fn new<AssocTraceRegistry>(
         module_path: ModulePath,
         token_idx_range: TokenIdxRange,
-        registry: AssociatedTraceRegistry,
+        registry: AssocTraceRegistry,
         db: &::salsa::Db,
     ) -> Self
     where
-        AssociatedTraceRegistry: IsAssociatedTraceRegistry,
+        AssocTraceRegistry: IsAssocTraceRegistry,
     {
         let mut builder = TraceViewTokensBuilder::new(db, module_path, registry);
         builder.generate_tokens(token_idx_range);
@@ -29,9 +29,9 @@ impl TraceViewLines {
     }
 }
 
-struct TraceViewTokensBuilder<'a, AssociatedTraceRegistry>
+struct TraceViewTokensBuilder<'a, AssocTraceRegistry>
 where
-    AssociatedTraceRegistry: IsAssociatedTraceRegistry,
+    AssocTraceRegistry: IsAssocTraceRegistry,
 {
     db: &'a ::salsa::Db,
     text: Text<'a>,
@@ -39,17 +39,17 @@ where
     token_info_sheet: TokenInfoSheetRef<'a>,
     lines_data: Vec<TraceViewLineData>,
     tokens_data: Vec<TraceViewTokenData>,
-    associated_trace_registry: AssociatedTraceRegistry,
+    associated_trace_registry: AssocTraceRegistry,
 }
 
-impl<'a, AssociatedTraceRegistry> TraceViewTokensBuilder<'a, AssociatedTraceRegistry>
+impl<'a, AssocTraceRegistry> TraceViewTokensBuilder<'a, AssocTraceRegistry>
 where
-    AssociatedTraceRegistry: IsAssociatedTraceRegistry,
+    AssocTraceRegistry: IsAssocTraceRegistry,
 {
     fn new(
         db: &'a ::salsa::Db,
         module_path: ModulePath,
-        associated_trace_registry: AssociatedTraceRegistry,
+        associated_trace_registry: AssocTraceRegistry,
     ) -> Self {
         // db.text
         Self {

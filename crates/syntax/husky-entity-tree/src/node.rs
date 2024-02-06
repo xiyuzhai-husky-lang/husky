@@ -25,7 +25,7 @@ pub enum ItemSynNodePath {
     MajorItem(MajorItemSynNodePath),
     TypeVariant(Room32, TypeVariantSynNodePath),
     ImplBlock(ImplBlockSynNodePath),
-    AssociatedItem(AssociatedItemSynNodePath),
+    AssocItem(AssocItemSynNodePath),
     Attr(Room32, AttrSynNodePath),
 }
 
@@ -50,7 +50,7 @@ pub enum ItemSynNodePathData {
     MajorItem(MajorItemSynNodePathData),
     TypeVariant(TypeVariantSynNodePathData),
     ImplBlock(ImplBlockSynNodePathData),
-    AssociatedItem(AssociatedItemSynNodePathData),
+    AssocItem(AssocItemSynNodePathData),
     Attr(AttrSynNodePathData),
 }
 
@@ -61,7 +61,7 @@ impl ItemSynNodePathId {
             ItemSynNodePathData::MajorItem(data) => data.syn_node_path(self).into(),
             ItemSynNodePathData::TypeVariant(data) => data.syn_node_path(self).into(),
             ItemSynNodePathData::ImplBlock(data) => data.syn_node_path(self).into(),
-            ItemSynNodePathData::AssociatedItem(data) => data.syn_node_path(self).into(),
+            ItemSynNodePathData::AssocItem(data) => data.syn_node_path(self).into(),
             ItemSynNodePathData::Attr(data) => data.syn_node_path(self).into(),
         }
     }
@@ -104,7 +104,7 @@ impl ItemSynNodePathData {
             ItemSynNodePathData::MajorItem(slf) => slf.path().map(Into::into),
             ItemSynNodePathData::TypeVariant(slf) => slf.path().map(Into::into),
             ItemSynNodePathData::ImplBlock(slf) => slf.path().map(Into::into),
-            ItemSynNodePathData::AssociatedItem(slf) => slf.path().map(Into::into),
+            ItemSynNodePathData::AssocItem(slf) => slf.path().map(Into::into),
             ItemSynNodePathData::Attr(slf) => slf.path().map(Into::into),
         }
     }
@@ -115,7 +115,7 @@ impl ItemSynNodePathData {
             ItemSynNodePathData::MajorItem(slf) => slf.module_path(db),
             ItemSynNodePathData::TypeVariant(slf) => slf.module_path(db),
             ItemSynNodePathData::ImplBlock(slf) => slf.module_path(db),
-            ItemSynNodePathData::AssociatedItem(slf) => slf.module_path(db),
+            ItemSynNodePathData::AssocItem(slf) => slf.module_path(db),
             ItemSynNodePathData::Attr(slf) => slf.module_path(db),
         }
     }
@@ -126,7 +126,7 @@ impl ItemSynNodePathData {
             ItemSynNodePathData::MajorItem(slf) => slf.ast_idx(id, db),
             ItemSynNodePathData::TypeVariant(slf) => slf.ast_idx(id, db),
             ItemSynNodePathData::ImplBlock(slf) => slf.ast_idx(id, db),
-            ItemSynNodePathData::AssociatedItem(slf) => slf.ast_idx(id, db),
+            ItemSynNodePathData::AssocItem(slf) => slf.ast_idx(id, db),
             ItemSynNodePathData::Attr(slf) => slf.ast_idx(id, db),
         }
     }
@@ -141,9 +141,7 @@ impl ItemSynNodePath {
                 syn_node_path.unambiguous_path(db).map(Into::into)
             }
             ItemSynNodePath::ImplBlock(syn_node_path) => syn_node_path.path(db).map(Into::into),
-            ItemSynNodePath::AssociatedItem(syn_node_path) => {
-                syn_node_path.path(db).map(Into::into)
-            }
+            ItemSynNodePath::AssocItem(syn_node_path) => syn_node_path.path(db).map(Into::into),
             ItemSynNodePath::Attr(_, syn_node_path) => syn_node_path.path(db).map(Into::into),
         }
     }
@@ -159,7 +157,7 @@ impl ItemSynNodePath {
             ItemSynNodePath::MajorItem(path) => path.attrs(db),
             ItemSynNodePath::TypeVariant(_, _) => &[],
             ItemSynNodePath::ImplBlock(_) => &[],
-            ItemSynNodePath::AssociatedItem(_) => &[],
+            ItemSynNodePath::AssocItem(_) => &[],
             ItemSynNodePath::Attr(_, _) => &[],
         }
     }
@@ -178,7 +176,7 @@ impl HasSynNodePath for ItemPath {
         match self {
             ItemPath::Submodule(_, path) => path.syn_node_path(db).into(),
             ItemPath::MajorItem(path) => path.syn_node_path(db).into(),
-            ItemPath::AssociatedItem(path) => path.syn_node_path(db).into(),
+            ItemPath::AssocItem(path) => path.syn_node_path(db).into(),
             ItemPath::TypeVariant(_, path) => path.syn_node_path(db).into(),
             ItemPath::ImplBlock(path) => path.syn_node_path(db).into(),
             ItemPath::Attr(_, path) => path.syn_node_path(db).into(),
@@ -274,7 +272,7 @@ impl ItemSynNode {
                 )
                 .into(),
             ),
-            ItemPath::AssociatedItem(_) | ItemPath::TypeVariant(_, _) => None,
+            ItemPath::AssocItem(_) | ItemPath::TypeVariant(_, _) => None,
             ItemPath::ImplBlock(_) | ItemPath::Attr(_, _) => unreachable!(),
         }
     }
@@ -290,10 +288,10 @@ impl ItemSynNode {
     }
 }
 
-pub trait HasAssociatedItemPaths: Copy {
-    type AssociatedItemPath;
+pub trait HasAssocItemPaths: Copy {
+    type AssocItemPath;
 
-    fn associated_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssociatedItemPath)];
+    fn associated_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssocItemPath)];
 }
 
 pub trait HasAttrPaths: Copy {

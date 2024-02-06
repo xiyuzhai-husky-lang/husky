@@ -21,28 +21,28 @@
             ),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodFn`),
         ),
     ),

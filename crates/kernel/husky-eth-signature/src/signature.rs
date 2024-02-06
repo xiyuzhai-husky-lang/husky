@@ -20,7 +20,7 @@ pub enum ItemEthTemplate {
     Submodule,
     MajorItem(MajorItemEthTemplate),
     ImplBlock(ImplBlockEthTemplate),
-    AssociatedItem(AssociatedItemEthTemplate),
+    AssocItem(AssocItemEthTemplate),
     Variant(TypeVariantEthTemplate),
     Attr(AttrEthTemplate),
 }
@@ -31,7 +31,7 @@ impl ItemEthTemplate {
             ItemEthTemplate::Submodule => None,
             ItemEthTemplate::MajorItem(_) => None,
             ItemEthTemplate::ImplBlock(template) => Some(template.self_ty(db)),
-            ItemEthTemplate::AssociatedItem(template) => template.self_ty(db),
+            ItemEthTemplate::AssocItem(template) => template.self_ty(db),
             ItemEthTemplate::Variant(template) => Some(template.self_ty(db)),
             ItemEthTemplate::Attr(_) => None,
         }
@@ -51,7 +51,7 @@ impl HasEthTemplate for ItemPath {
         Ok(match self {
             ItemPath::Submodule(_, _) => ItemEthTemplate::Submodule,
             ItemPath::MajorItem(path) => path.eth_template(db)?.into(),
-            ItemPath::AssociatedItem(path) => path.eth_template(db)?.into(),
+            ItemPath::AssocItem(path) => path.eth_template(db)?.into(),
             ItemPath::TypeVariant(_, path) => path.eth_template(db)?.into(),
             ItemPath::ImplBlock(path) => path.eth_template(db)?.into(),
             ItemPath::Attr(_, path) => path.eth_template(db)?.into(),

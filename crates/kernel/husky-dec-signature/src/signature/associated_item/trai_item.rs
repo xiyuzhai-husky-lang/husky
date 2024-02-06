@@ -15,20 +15,20 @@ use super::*;
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum TraitItemDecTemplate {
-    AssociatedFn(TraitAssociatedFnDecTemplate),
+    AssocFn(TraitAssocFnDecTemplate),
     MethodFn(TraitMethodFnDecTemplate),
-    AssociatedType(TraitAssociatedTypeDecTemplate),
-    AssociatedVal(TraitAssociatedValDecTemplate),
+    AssocType(TraitAssocTypeDecTemplate),
+    AssocVal(TraitAssocValDecTemplate),
 }
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum TraitItemDecTemplates {
-    AssociatedFn(SmallVecImpl<TraitAssociatedFnDecTemplate>),
+    AssocFn(SmallVecImpl<TraitAssocFnDecTemplate>),
     MethodFn(SmallVecImpl<TraitMethodFnDecTemplate>),
-    AssociatedType(SmallVecImpl<TraitAssociatedTypeDecTemplate>),
-    AssociatedVal(SmallVecImpl<TraitAssociatedValDecTemplate>),
+    AssocType(SmallVecImpl<TraitAssocTypeDecTemplate>),
+    AssocVal(SmallVecImpl<TraitAssocValDecTemplate>),
     // MemoizedField(SmallVecImpl<TraitMemoizedFieldDecTemplate>),
 }
 
@@ -47,17 +47,17 @@ pub(crate) fn trai_item_syn_dec_template(
 ) -> DecSignatureResult<TraitItemDecTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
-        TraitItemSynDecl::AssociatedFn(decl) => {
-            TraitAssociatedFnDecTemplate::from_decl(db, decl).map(Into::into)
+        TraitItemSynDecl::AssocFn(decl) => {
+            TraitAssocFnDecTemplate::from_decl(db, decl).map(Into::into)
         }
         TraitItemSynDecl::MethodFn(decl) => {
             TraitMethodFnDecTemplate::from_decl(db, decl).map(Into::into)
         }
-        TraitItemSynDecl::AssociatedType(decl) => {
-            TraitAssociatedTypeDecTemplate::from_decl(db, decl).map(Into::into)
+        TraitItemSynDecl::AssocType(decl) => {
+            TraitAssocTypeDecTemplate::from_decl(db, decl).map(Into::into)
         }
-        TraitItemSynDecl::AssociatedVal(decl) => {
-            TraitAssociatedValDecTemplate::from_decl(db, decl).map(Into::into)
+        TraitItemSynDecl::AssocVal(decl) => {
+            TraitAssocValDecTemplate::from_decl(db, decl).map(Into::into)
         }
     }
 }
@@ -65,13 +65,13 @@ pub(crate) fn trai_item_syn_dec_template(
 impl TraitItemDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
-            TraitItemDecTemplate::AssociatedFn(slf) => slf.template_parameters(db),
+            TraitItemDecTemplate::AssocFn(slf) => slf.template_parameters(db),
             TraitItemDecTemplate::MethodFn(slf) => slf.template_parameters(db),
-            TraitItemDecTemplate::AssociatedType(slf) => {
+            TraitItemDecTemplate::AssocType(slf) => {
                 // slf.template_parameters(db)
                 &[]
             }
-            TraitItemDecTemplate::AssociatedVal(slf) => &[],
+            TraitItemDecTemplate::AssocVal(slf) => &[],
         }
     }
 }

@@ -19,8 +19,8 @@ impl HirTypeDb for ::salsa::Db {
 #[salsa::jar]
 pub struct HirTypeJar(
     HirTypePathLeading,
-    HirTypeTypeAssociatedType,
-    HirTypeTraitAssociatedType,
+    HirTypeTypeAssocType,
+    HirTypeTraitAssocType,
     hir_template_symbol_from_eth,
     HirConstSymbol,
     crate::ty::ritchie::hir_ty_from_eth_term_ritchie,

@@ -18,7 +18,7 @@ pub struct Binding;
 pub struct VMLoopKind;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum Instruction {
+pub enum InstructionData {
     PushVariable {
         stack_idx: VMStackIdx,
         binding: Binding,
@@ -71,6 +71,6 @@ pub enum Instruction {
     },
 }
 
-pub type InstructionArena = Arena<Instruction>;
-pub type InstructionIdx = ArenaIdx<Instruction>;
-pub type InstructionIdxRange = ArenaIdxRange<Instruction>;
+pub type InstructionArena = Arena<InstructionData>;
+pub type InstructionIdx = ArenaIdx<InstructionData>;
+pub type InstructionIdxRange = ArenaIdxRange<InstructionData>;

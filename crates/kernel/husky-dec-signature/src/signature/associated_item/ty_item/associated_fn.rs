@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
-pub struct TypeAssociatedFnDecTemplate {
+pub struct TypeAssocFnDecTemplate {
     pub path: TypeItemPath,
     /// the term for `Self`
     /// not necessarily equal to the type of `self`
@@ -15,11 +15,11 @@ pub struct TypeAssociatedFnDecTemplate {
     pub return_ty: DecTerm,
 }
 
-impl TypeAssociatedFnDecTemplate {
+impl TypeAssocFnDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
         path: TypeItemPath,
-        decl: TypeAssociatedFnSynDecl,
+        decl: TypeAssocFnSynDecl,
     ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let expr_region_data = syn_expr_region.data(db);
@@ -43,7 +43,7 @@ impl TypeAssociatedFnDecTemplate {
             Some(return_ty) => declarative_term_region.expr_term(return_ty.syn_expr_idx())?,
             None => declarative_term_menu.unit(),
         };
-        Ok(TypeAssociatedFnDecTemplate::new(
+        Ok(TypeAssocFnDecTemplate::new(
             db,
             path,
             self_ty,

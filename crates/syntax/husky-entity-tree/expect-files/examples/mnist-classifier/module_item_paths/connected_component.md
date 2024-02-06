@@ -43,12 +43,12 @@
             },
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TraitForTypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
                 ItemPathId {
-                    data: ItemPathData::AssociatedItem(
-                        AssociatedItemPathData::TraitForTypeItem(
+                    data: ItemPathData::AssocItem(
+                        AssocItemPathData::TraitForTypeItem(
                             TraitForTypeItemPathData {
                                 impl_block: TraitForTypeImplBlock {
                                     data: TraitForTypeImplBlockPathData {
@@ -86,53 +86,53 @@
             ),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
         ),
     ),

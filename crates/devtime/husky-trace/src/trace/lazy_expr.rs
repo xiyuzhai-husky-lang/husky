@@ -1,5 +1,5 @@
 use super::*;
-use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
+use crate::registry::associated_trace::VoidAssocTraceRegistry;
 use husky_hir_lazy_expr::{
     source_map::{HirLazyExprSourceMap, HirLazyExprSourceMapData},
     HirLazyExprData, HirLazyExprIdx, HirLazyExprRegion,
@@ -83,7 +83,7 @@ impl LazyExprTraceData {
         TraceViewLines::new(
             region_path.module_path(db),
             token_idx_range,
-            VoidAssociatedTraceRegistry,
+            VoidAssocTraceRegistry,
             db,
         )
     }
@@ -95,9 +95,9 @@ impl LazyExprTraceData {
         };
         match self.hir_lazy_expr_region.hir_lazy_expr_arena(db)[hir_eager_expr_idx] {
             HirLazyExprData::FunctionFnItemCall { path, .. } => path.hir_defn(db).is_some(),
-            HirLazyExprData::AssociatedFunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
+            HirLazyExprData::AssocFunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
             HirLazyExprData::MethodFnCall { path, .. } => path.hir_defn(db).is_some(),
-            HirLazyExprData::AssociatedFn { path } => path.hir_defn(db).is_some(),
+            HirLazyExprData::AssocFn { path } => path.hir_defn(db).is_some(),
             HirLazyExprData::FunctionGnItemCall { path, .. } => path.hir_defn(db).is_some(),
             HirLazyExprData::Block { stmts: _ } => unreachable!(),
             _ => false,
@@ -140,7 +140,7 @@ impl LazyExprTraceData {
                 );
                 subtraces
             }
-            HirLazyExprData::AssociatedFunctionFnCall { path, .. } => {
+            HirLazyExprData::AssocFunctionFnCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..

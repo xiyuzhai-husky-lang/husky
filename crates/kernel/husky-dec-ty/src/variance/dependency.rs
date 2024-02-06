@@ -46,7 +46,7 @@ pub(crate) fn item_variance_crate_dependencies(
                 //     .map(|t| t.as_ref())
             }
         },
-        ItemPath::AssociatedItem(_) => todo!(),
+        ItemPath::AssocItem(_) => todo!(),
         ItemPath::TypeVariant(_, _) => todo!(),
         ItemPath::ImplBlock(_) => todo!(),
         ItemPath::Attr(_, _) => todo!(),

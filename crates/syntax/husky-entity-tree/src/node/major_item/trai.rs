@@ -106,10 +106,10 @@ impl HasSynNodePath for TraitPath {
     }
 }
 
-impl HasAssociatedItemPaths for TraitPath {
-    type AssociatedItemPath = TraitItemPath;
+impl HasAssocItemPaths for TraitPath {
+    type AssocItemPath = TraitItemPath;
 
-    fn associated_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssociatedItemPath)] {
+    fn associated_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssocItemPath)] {
         trai_item_paths(db, self)
     }
 }

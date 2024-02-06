@@ -15,7 +15,7 @@ use husky_entity_kind::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum AssociatedItemSynNodePath {
+pub enum AssocItemSynNodePath {
     TypeItem(TypeItemSynNodePath),
     TraitItem(TraitItemSynNodePath),
     TraitForTypeItem(TraitForTypeItemSynNodePath),
@@ -25,13 +25,13 @@ pub enum AssociatedItemSynNodePath {
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[enum_class::from_variants]
-pub enum AssociatedItemSynNodePathData {
+pub enum AssocItemSynNodePathData {
     TypeItem(TypeItemSynNodePathData),
     TraitItem(TraitItemSynNodePathData),
     TraitForTypeItem(TraitForTypeItemSynNodePathData),
 }
 
-impl std::ops::Deref for AssociatedItemSynNodePath {
+impl std::ops::Deref for AssocItemSynNodePath {
     type Target = ItemSynNodePathId;
 
     fn deref(&self) -> &Self::Target {
@@ -40,58 +40,58 @@ impl std::ops::Deref for AssociatedItemSynNodePath {
     }
 }
 
-impl AssociatedItemSynNodePath {
-    pub fn path(self, db: &::salsa::Db) -> Option<AssociatedItemPath> {
+impl AssocItemSynNodePath {
+    pub fn path(self, db: &::salsa::Db) -> Option<AssocItemPath> {
         Some(match (*self).path(db)? {
-            ItemPath::AssociatedItem(path) => path,
+            ItemPath::AssocItem(path) => path,
             _ => unreachable!(),
         })
     }
 }
 
-impl AssociatedItemSynNodePathData {
+impl AssocItemSynNodePathData {
     #[inline(always)]
-    pub fn syn_node_path(self, id: ItemSynNodePathId) -> AssociatedItemSynNodePath {
+    pub fn syn_node_path(self, id: ItemSynNodePathId) -> AssocItemSynNodePath {
         match self {
-            AssociatedItemSynNodePathData::TypeItem(slf) => slf.syn_node_path(id).into(),
-            AssociatedItemSynNodePathData::TraitItem(slf) => slf.syn_node_path(id).into(),
-            AssociatedItemSynNodePathData::TraitForTypeItem(slf) => slf.syn_node_path(id).into(),
+            AssocItemSynNodePathData::TypeItem(slf) => slf.syn_node_path(id).into(),
+            AssocItemSynNodePathData::TraitItem(slf) => slf.syn_node_path(id).into(),
+            AssocItemSynNodePathData::TraitForTypeItem(slf) => slf.syn_node_path(id).into(),
         }
     }
 
-    pub fn path(self) -> Option<AssociatedItemPath> {
+    pub fn path(self) -> Option<AssocItemPath> {
         match self {
-            AssociatedItemSynNodePathData::TypeItem(slf) => slf.path().map(Into::into),
-            AssociatedItemSynNodePathData::TraitItem(slf) => slf.path().map(Into::into),
-            AssociatedItemSynNodePathData::TraitForTypeItem(slf) => slf.path().map(Into::into),
+            AssocItemSynNodePathData::TypeItem(slf) => slf.path().map(Into::into),
+            AssocItemSynNodePathData::TraitItem(slf) => slf.path().map(Into::into),
+            AssocItemSynNodePathData::TraitForTypeItem(slf) => slf.path().map(Into::into),
         }
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         match self {
-            AssociatedItemSynNodePathData::TypeItem(slf) => slf.module_path(db),
-            AssociatedItemSynNodePathData::TraitItem(slf) => slf.module_path(db),
-            AssociatedItemSynNodePathData::TraitForTypeItem(slf) => slf.module_path(db),
+            AssocItemSynNodePathData::TypeItem(slf) => slf.module_path(db),
+            AssocItemSynNodePathData::TraitItem(slf) => slf.module_path(db),
+            AssocItemSynNodePathData::TraitForTypeItem(slf) => slf.module_path(db),
         }
     }
 
     pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
         match self {
-            AssociatedItemSynNodePathData::TypeItem(slf) => slf.ast_idx(id, db),
-            AssociatedItemSynNodePathData::TraitItem(slf) => slf.ast_idx(id, db),
-            AssociatedItemSynNodePathData::TraitForTypeItem(slf) => slf.ast_idx(id, db),
+            AssocItemSynNodePathData::TypeItem(slf) => slf.ast_idx(id, db),
+            AssocItemSynNodePathData::TraitItem(slf) => slf.ast_idx(id, db),
+            AssocItemSynNodePathData::TraitForTypeItem(slf) => slf.ast_idx(id, db),
         }
     }
 }
 
-impl HasSynNodePath for AssociatedItemPath {
-    type SynNodePath = AssociatedItemSynNodePath;
+impl HasSynNodePath for AssocItemPath {
+    type SynNodePath = AssocItemSynNodePath;
 
     fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
         match self {
-            AssociatedItemPath::TypeItem(slf) => slf.syn_node_path(db).into(),
-            AssociatedItemPath::TraitItem(slf) => slf.syn_node_path(db).into(),
-            AssociatedItemPath::TraitForTypeItem(slf) => slf.syn_node_path(db).into(),
+            AssocItemPath::TypeItem(slf) => slf.syn_node_path(db).into(),
+            AssocItemPath::TraitItem(slf) => slf.syn_node_path(db).into(),
+            AssocItemPath::TraitForTypeItem(slf) => slf.syn_node_path(db).into(),
         }
     }
 }

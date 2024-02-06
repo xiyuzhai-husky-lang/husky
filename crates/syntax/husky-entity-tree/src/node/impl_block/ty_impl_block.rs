@@ -145,10 +145,10 @@ impl TypeImplBlockSynNode {
     }
 }
 
-impl HasAssociatedItemPaths for TypeImplBlockPath {
-    type AssociatedItemPath = TypeItemPath;
+impl HasAssocItemPaths for TypeImplBlockPath {
+    type AssocItemPath = TypeItemPath;
 
-    fn associated_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssociatedItemPath)] {
+    fn associated_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssocItemPath)] {
         ty_impl_block_item_paths(db, self)
     }
 }
