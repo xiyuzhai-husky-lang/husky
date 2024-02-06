@@ -480,7 +480,7 @@
                                     ),
                                     HirTermSymbolResolution::SelfPlace(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -676,7 +676,7 @@
                                     ),
                                     HirTermSymbolResolution::SelfPlace(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),

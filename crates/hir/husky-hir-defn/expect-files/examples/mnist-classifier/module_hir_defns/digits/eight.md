@@ -235,7 +235,7 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -303,7 +303,7 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -430,7 +430,7 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -568,7 +568,7 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),

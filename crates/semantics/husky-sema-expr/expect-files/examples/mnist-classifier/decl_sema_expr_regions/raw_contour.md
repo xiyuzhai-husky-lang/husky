@@ -298,7 +298,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -314,7 +314,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -798,7 +798,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -814,7 +814,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -1160,7 +1160,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -1176,7 +1176,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -1522,7 +1522,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -1538,7 +1538,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -1940,7 +1940,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -1956,7 +1956,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -1972,7 +1972,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             3,
                                         ),
@@ -2350,7 +2350,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -2366,7 +2366,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -2824,7 +2824,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -2840,7 +2840,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -2856,7 +2856,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             3,
                                         ),
@@ -2872,7 +2872,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             4,
                                         ),
@@ -3238,7 +3238,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -3254,7 +3254,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -3602,7 +3602,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -4071,7 +4071,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -5727,7 +5727,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -5743,7 +5743,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             3,
                                         ),

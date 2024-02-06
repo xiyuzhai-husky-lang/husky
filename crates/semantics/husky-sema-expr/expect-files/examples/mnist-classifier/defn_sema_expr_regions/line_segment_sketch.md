@@ -35,7 +35,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -53,7 +53,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -76,7 +76,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -99,7 +99,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -107,7 +107,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -130,7 +130,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -148,7 +148,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -179,7 +179,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -197,7 +197,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -220,7 +220,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -243,7 +243,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -251,7 +251,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -274,7 +274,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -292,7 +292,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -368,7 +368,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -386,7 +386,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -409,7 +409,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -432,7 +432,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -440,7 +440,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -463,7 +463,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -481,7 +481,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -512,7 +512,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -530,7 +530,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -553,7 +553,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -576,7 +576,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -584,7 +584,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -607,7 +607,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -625,7 +625,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -870,7 +870,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -888,7 +888,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -919,7 +919,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -937,7 +937,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -1013,7 +1013,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -1031,7 +1031,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -1062,7 +1062,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -1080,7 +1080,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -1156,7 +1156,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -1174,7 +1174,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -1205,7 +1205,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -1223,7 +1223,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -1299,7 +1299,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -1317,7 +1317,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -1348,7 +1348,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -1366,7 +1366,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -1656,7 +1656,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -1674,7 +1674,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -1705,7 +1705,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -1723,7 +1723,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -1746,7 +1746,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -1769,7 +1769,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -1777,7 +1777,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -1800,7 +1800,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -1818,7 +1818,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -1894,7 +1894,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -1912,7 +1912,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -1988,7 +1988,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -2006,7 +2006,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -2036,7 +2036,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -2054,7 +2054,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -2085,7 +2085,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -2103,7 +2103,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2126,7 +2126,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2149,7 +2149,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2157,7 +2157,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2180,7 +2180,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -2198,7 +2198,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2274,7 +2274,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -2292,7 +2292,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2412,7 +2412,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -2430,7 +2430,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2453,7 +2453,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2476,7 +2476,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2484,7 +2484,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2507,7 +2507,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -2525,7 +2525,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2556,7 +2556,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -2574,7 +2574,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -2650,7 +2650,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -2668,7 +2668,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2691,7 +2691,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2714,7 +2714,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2722,7 +2722,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2745,7 +2745,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -2763,7 +2763,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2794,7 +2794,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -2812,7 +2812,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -3407,7 +3407,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -3423,7 +3423,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -3441,7 +3441,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -3457,7 +3457,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -3473,7 +3473,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             3,
                                         ),
@@ -3489,7 +3489,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             4,
                                         ),
@@ -3533,7 +3533,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -3561,7 +3561,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -3589,7 +3589,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -3611,7 +3611,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -3633,7 +3633,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -3652,7 +3652,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -3699,7 +3699,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -3727,7 +3727,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -3755,7 +3755,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -3777,7 +3777,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -3799,7 +3799,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -3818,7 +3818,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -3945,7 +3945,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -3967,7 +3967,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -3989,7 +3989,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -4008,7 +4008,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -4063,7 +4063,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -4085,7 +4085,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             2,
                                                         ),
@@ -4107,7 +4107,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -4126,7 +4126,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -4173,7 +4173,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -4195,7 +4195,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -4217,7 +4217,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -4236,7 +4236,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -4283,7 +4283,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -4305,7 +4305,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             2,
                                                         ),
@@ -4327,7 +4327,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -4346,7 +4346,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -4513,7 +4513,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -4541,7 +4541,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -4563,7 +4563,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             2,
                                                         ),
@@ -4585,7 +4585,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -4604,7 +4604,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -4659,7 +4659,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -4678,7 +4678,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -4725,7 +4725,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -4753,7 +4753,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -4781,7 +4781,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -4803,7 +4803,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             2,
                                                         ),
@@ -4825,7 +4825,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -4844,7 +4844,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -4899,7 +4899,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -4918,7 +4918,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -5029,7 +5029,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5057,7 +5057,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5079,7 +5079,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -5101,7 +5101,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -5120,7 +5120,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -5187,7 +5187,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5215,7 +5215,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5237,7 +5237,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -5259,7 +5259,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -5278,7 +5278,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         4,
                                                                     ),
@@ -5459,7 +5459,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -5477,7 +5477,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5500,7 +5500,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5523,7 +5523,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5531,7 +5531,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5554,7 +5554,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -5572,7 +5572,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5603,7 +5603,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -5621,7 +5621,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5644,7 +5644,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5667,7 +5667,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5675,7 +5675,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5698,7 +5698,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -5716,7 +5716,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5792,7 +5792,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -5810,7 +5810,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5833,7 +5833,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5856,7 +5856,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5864,7 +5864,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5887,7 +5887,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -5905,7 +5905,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5936,7 +5936,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -5954,7 +5954,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -5977,7 +5977,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -6000,7 +6000,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -6008,7 +6008,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -6031,7 +6031,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -6049,7 +6049,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -6294,7 +6294,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -6312,7 +6312,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -6343,7 +6343,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -6361,7 +6361,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -6437,7 +6437,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -6455,7 +6455,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -6486,7 +6486,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -6504,7 +6504,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -6580,7 +6580,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -6598,7 +6598,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -6629,7 +6629,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -6647,7 +6647,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -6723,7 +6723,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -6741,7 +6741,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -6772,7 +6772,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -6790,7 +6790,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -7080,7 +7080,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -7098,7 +7098,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -7128,7 +7128,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -7146,7 +7146,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -7177,7 +7177,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -7195,7 +7195,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7218,7 +7218,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7241,7 +7241,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7249,7 +7249,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7272,7 +7272,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -7290,7 +7290,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7366,7 +7366,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -7384,7 +7384,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7460,7 +7460,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -7478,7 +7478,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -7509,7 +7509,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -7527,7 +7527,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7550,7 +7550,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7573,7 +7573,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7581,7 +7581,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7604,7 +7604,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -7622,7 +7622,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7698,7 +7698,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -7716,7 +7716,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7836,7 +7836,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -7854,7 +7854,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7877,7 +7877,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7900,7 +7900,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7908,7 +7908,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7931,7 +7931,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -7949,7 +7949,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -7980,7 +7980,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -7998,7 +7998,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -8074,7 +8074,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -8092,7 +8092,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -8115,7 +8115,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -8138,7 +8138,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -8146,7 +8146,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -8169,7 +8169,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -8187,7 +8187,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -8218,7 +8218,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -8236,7 +8236,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -8831,7 +8831,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -8847,7 +8847,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -8865,7 +8865,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -8881,7 +8881,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -8897,7 +8897,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             3,
                                         ),
@@ -8913,7 +8913,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             4,
                                         ),
@@ -8957,7 +8957,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -8985,7 +8985,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -9013,7 +9013,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -9035,7 +9035,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -9057,7 +9057,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -9076,7 +9076,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -9123,7 +9123,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -9151,7 +9151,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -9179,7 +9179,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -9201,7 +9201,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -9223,7 +9223,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -9242,7 +9242,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -9369,7 +9369,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -9391,7 +9391,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -9413,7 +9413,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -9432,7 +9432,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -9487,7 +9487,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -9509,7 +9509,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             2,
                                                         ),
@@ -9531,7 +9531,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -9550,7 +9550,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -9597,7 +9597,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -9619,7 +9619,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -9641,7 +9641,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -9660,7 +9660,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -9707,7 +9707,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -9729,7 +9729,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             2,
                                                         ),
@@ -9751,7 +9751,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -9770,7 +9770,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -9937,7 +9937,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -9965,7 +9965,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -9993,7 +9993,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -10015,7 +10015,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             2,
                                                         ),
@@ -10037,7 +10037,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -10056,7 +10056,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -10111,7 +10111,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -10130,7 +10130,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -10177,7 +10177,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -10205,7 +10205,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -10227,7 +10227,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             2,
                                                         ),
@@ -10249,7 +10249,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -10268,7 +10268,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -10323,7 +10323,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -10342,7 +10342,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -10453,7 +10453,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -10481,7 +10481,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -10503,7 +10503,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -10525,7 +10525,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -10544,7 +10544,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -10611,7 +10611,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -10639,7 +10639,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -10661,7 +10661,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -10683,7 +10683,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -10702,7 +10702,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         4,
                                                                     ),
@@ -10883,7 +10883,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -10901,7 +10901,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -10932,7 +10932,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -10950,7 +10950,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -10981,7 +10981,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -10999,7 +10999,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -11030,7 +11030,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -11048,7 +11048,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -11163,7 +11163,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -11259,7 +11259,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -11345,7 +11345,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -11363,7 +11363,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -11386,7 +11386,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -11409,7 +11409,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -11575,7 +11575,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -11593,7 +11593,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -11624,7 +11624,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -11642,7 +11642,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -11718,7 +11718,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -11736,7 +11736,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -11767,7 +11767,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -11785,7 +11785,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -11861,7 +11861,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -11879,7 +11879,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -11912,7 +11912,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -11920,7 +11920,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -11956,7 +11956,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     2,
                                                                 ),
@@ -12018,7 +12018,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -12036,7 +12036,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -12157,7 +12157,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -12175,7 +12175,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -12238,7 +12238,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -12256,7 +12256,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -12287,7 +12287,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -12305,7 +12305,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -12336,7 +12336,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -12354,7 +12354,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -12385,7 +12385,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -12403,7 +12403,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -12518,7 +12518,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -12614,7 +12614,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -12743,7 +12743,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -12761,7 +12761,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -12794,7 +12794,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -12802,7 +12802,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -12838,7 +12838,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     2,
                                                                 ),
@@ -12900,7 +12900,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -12918,7 +12918,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -12994,7 +12994,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -13012,7 +13012,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -13087,7 +13087,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -13105,7 +13105,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -13136,7 +13136,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -13154,7 +13154,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -13198,7 +13198,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -13234,7 +13234,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             3,
                                                                         ),
@@ -13334,7 +13334,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -13352,7 +13352,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -13383,7 +13383,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -13401,7 +13401,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -13445,7 +13445,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -13481,7 +13481,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             3,
                                                                         ),
@@ -13582,7 +13582,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -13600,7 +13600,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -13631,7 +13631,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -13649,7 +13649,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -13725,7 +13725,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     5,
                                                 ),
@@ -13743,7 +13743,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -13774,7 +13774,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -13792,7 +13792,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -13825,7 +13825,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -13833,7 +13833,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -13881,7 +13881,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     5,
                                                                 ),
@@ -13920,7 +13920,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -14103,7 +14103,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -14121,7 +14121,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -14152,7 +14152,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     6,
                                                 ),
@@ -14170,7 +14170,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         6,
                                                     ),
@@ -14203,7 +14203,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -14211,7 +14211,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -14259,7 +14259,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     2,
                                                                 ),
@@ -14298,7 +14298,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             6,
                                                                         ),
@@ -14481,7 +14481,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -14499,7 +14499,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -14532,7 +14532,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -14540,7 +14540,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -14576,7 +14576,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     2,
                                                                 ),
@@ -14638,7 +14638,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     8,
                                                 ),
@@ -14656,7 +14656,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -14687,7 +14687,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     7,
                                                 ),
@@ -14707,7 +14707,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -14740,7 +14740,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -14758,7 +14758,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -14879,7 +14879,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     8,
                                                 ),
@@ -14897,7 +14897,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -14928,7 +14928,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     7,
                                                 ),
@@ -14948,7 +14948,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -15026,7 +15026,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     7,
                                                 ),
@@ -15046,7 +15046,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -15079,7 +15079,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     8,
                                                 ),
@@ -15097,7 +15097,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -15171,7 +15171,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     8,
                                                 ),
@@ -15189,7 +15189,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -15220,7 +15220,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -15238,7 +15238,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -15358,7 +15358,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -15376,7 +15376,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -15407,7 +15407,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -15425,7 +15425,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -15469,7 +15469,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -15505,7 +15505,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             3,
                                                                         ),
@@ -15605,7 +15605,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -15623,7 +15623,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -15654,7 +15654,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -15672,7 +15672,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -15716,7 +15716,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -15752,7 +15752,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             3,
                                                                         ),
@@ -15808,7 +15808,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     5,
                                                 ),
@@ -15826,7 +15826,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -15857,7 +15857,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     9,
                                                 ),
@@ -15875,7 +15875,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         9,
                                                     ),
@@ -15908,7 +15908,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -15916,7 +15916,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -15964,7 +15964,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     5,
                                                                 ),
@@ -16003,7 +16003,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: ImmutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             9,
                                                                         ),
@@ -16141,7 +16141,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     5,
                                                 ),
@@ -16159,7 +16159,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -16190,7 +16190,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     9,
                                                 ),
@@ -16208,7 +16208,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         9,
                                                     ),
@@ -16282,7 +16282,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     10,
                                                 ),
@@ -16300,7 +16300,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -16331,7 +16331,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     6,
                                                 ),
@@ -16349,7 +16349,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         6,
                                                     ),
@@ -16382,7 +16382,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -16390,7 +16390,7 @@
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -16438,7 +16438,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     10,
                                                                 ),
@@ -16477,7 +16477,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             6,
                                                                         ),
@@ -16615,7 +16615,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     6,
                                                 ),
@@ -16633,7 +16633,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         6,
                                                     ),
@@ -16664,7 +16664,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     10,
                                                 ),
@@ -16682,7 +16682,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -16756,7 +16756,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -16774,7 +16774,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -16837,7 +16837,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -16855,7 +16855,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -16886,7 +16886,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -16904,7 +16904,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -16935,7 +16935,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -16953,7 +16953,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -16984,7 +16984,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -17002,7 +17002,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -17117,7 +17117,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -17213,7 +17213,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -17342,7 +17342,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -17360,7 +17360,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -17391,7 +17391,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -17409,7 +17409,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -17485,7 +17485,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -17503,7 +17503,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -17631,7 +17631,7 @@
                                             coersion: Trivial(
                                                 TrivialFlyCoersion {
                                                     expectee_place: MutableStackOwned {
-                                                        location: StackLocationIdx(
+                                                        location: PlaceIdx(
                                                             ShiftedU32(
                                                                 1,
                                                             ),
@@ -18550,7 +18550,7 @@
                                             coersion: Trivial(
                                                 TrivialFlyCoersion {
                                                     expectee_place: MutableStackOwned {
-                                                        location: StackLocationIdx(
+                                                        location: PlaceIdx(
                                                             ShiftedU32(
                                                                 1,
                                                             ),
@@ -18591,7 +18591,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -18797,7 +18797,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -19127,7 +19127,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -19143,7 +19143,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -19159,7 +19159,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             3,
                                         ),
@@ -19177,7 +19177,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -19193,7 +19193,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -19209,7 +19209,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             3,
                                         ),
@@ -19225,7 +19225,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             4,
                                         ),
@@ -19241,7 +19241,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             5,
                                         ),
@@ -19257,7 +19257,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             6,
                                         ),
@@ -19273,7 +19273,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             7,
                                         ),
@@ -19291,7 +19291,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             8,
                                         ),
@@ -19307,7 +19307,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             9,
                                         ),
@@ -19323,7 +19323,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             10,
                                         ),
@@ -19358,7 +19358,7 @@
                                         FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             3,
                                                         ),
@@ -19375,7 +19375,7 @@
                                             target: FlyTerm {
                                                 place: Some(
                                                     StackPure {
-                                                        location: StackLocationIdx(
+                                                        location: PlaceIdx(
                                                             ShiftedU32(
                                                                 3,
                                                             ),
@@ -19413,7 +19413,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -19441,7 +19441,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -19477,7 +19477,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -19496,7 +19496,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -19523,7 +19523,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -19545,7 +19545,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -19661,7 +19661,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -19731,7 +19731,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -19753,7 +19753,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             2,
                                                         ),
@@ -19775,7 +19775,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -19794,7 +19794,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -19841,7 +19841,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -19863,7 +19863,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -19885,7 +19885,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -19904,7 +19904,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         4,
                                                                     ),
@@ -19971,7 +19971,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -20027,7 +20027,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -20046,7 +20046,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -20141,7 +20141,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -20160,7 +20160,7 @@
                                                     placeless_num_ty: FlyTerm {
                                                         place: Some(
                                                             MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -20240,7 +20240,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -20268,7 +20268,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -20304,7 +20304,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -20323,7 +20323,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -20350,7 +20350,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -20372,7 +20372,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -20528,7 +20528,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -20584,7 +20584,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -20603,7 +20603,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -20666,7 +20666,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -20685,7 +20685,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -20784,7 +20784,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -20803,7 +20803,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -20838,7 +20838,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -20857,7 +20857,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -20976,7 +20976,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -20995,7 +20995,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -21030,7 +21030,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -21049,7 +21049,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -21120,7 +21120,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -21142,7 +21142,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -21164,7 +21164,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -21183,7 +21183,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         4,
                                                                     ),
@@ -21250,7 +21250,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -21286,7 +21286,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -21305,7 +21305,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -21474,7 +21474,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -21510,7 +21510,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         6,
                                                     ),
@@ -21529,7 +21529,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         6,
                                                                     ),
@@ -21686,7 +21686,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -21734,7 +21734,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -21762,7 +21762,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -21786,7 +21786,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             7,
                                                         ),
@@ -21810,7 +21810,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -21829,7 +21829,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -21850,7 +21850,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             8,
                                                         ),
@@ -21932,7 +21932,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -21954,7 +21954,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             8,
                                                         ),
@@ -21976,7 +21976,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -21997,7 +21997,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         7,
                                                                     ),
@@ -22052,7 +22052,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -22082,7 +22082,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -22150,7 +22150,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -22172,7 +22172,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             8,
                                                         ),
@@ -22194,7 +22194,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -22213,7 +22213,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -22340,7 +22340,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -22359,7 +22359,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -22394,7 +22394,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -22413,7 +22413,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -22532,7 +22532,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -22551,7 +22551,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -22586,7 +22586,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -22605,7 +22605,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -22652,7 +22652,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -22688,7 +22688,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         9,
                                                     ),
@@ -22707,7 +22707,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         9,
                                                                     ),
@@ -22824,7 +22824,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -22852,7 +22852,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         9,
                                                     ),
@@ -22920,7 +22920,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -22956,7 +22956,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         6,
                                                     ),
@@ -22975,7 +22975,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         6,
                                                                     ),
@@ -23092,7 +23092,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         6,
                                                     ),
@@ -23120,7 +23120,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -23188,7 +23188,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -23207,7 +23207,7 @@
                                                     placeless_num_ty: FlyTerm {
                                                         place: Some(
                                                             MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -23287,7 +23287,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -23315,7 +23315,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -23351,7 +23351,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -23370,7 +23370,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -23397,7 +23397,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -23419,7 +23419,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -23575,7 +23575,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -23597,7 +23597,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -23619,7 +23619,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -23638,7 +23638,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -23701,7 +23701,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -23720,7 +23720,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -23817,7 +23817,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -23835,7 +23835,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -23866,7 +23866,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -23884,7 +23884,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -23915,7 +23915,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -23933,7 +23933,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -23964,7 +23964,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -23982,7 +23982,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -24097,7 +24097,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -24193,7 +24193,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             3,
                                                                         ),
@@ -24279,7 +24279,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -24297,7 +24297,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -24328,7 +24328,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -24346,7 +24346,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -24369,7 +24369,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -24392,7 +24392,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -24603,7 +24603,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -24621,7 +24621,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -24652,7 +24652,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -24670,7 +24670,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -24746,7 +24746,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -24764,7 +24764,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -24797,7 +24797,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -24805,7 +24805,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -24841,7 +24841,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     2,
                                                                 ),
@@ -24903,7 +24903,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -24921,7 +24921,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -25042,7 +25042,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -25060,7 +25060,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -25123,7 +25123,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -25141,7 +25141,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -25172,7 +25172,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -25190,7 +25190,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -25221,7 +25221,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -25239,7 +25239,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -25270,7 +25270,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -25288,7 +25288,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -25403,7 +25403,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -25499,7 +25499,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             3,
                                                                         ),
@@ -25628,7 +25628,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -25646,7 +25646,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -25679,7 +25679,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -25687,7 +25687,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -25723,7 +25723,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     2,
                                                                 ),
@@ -25785,7 +25785,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -25803,7 +25803,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -25879,7 +25879,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -25897,7 +25897,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -25928,7 +25928,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -25946,7 +25946,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -25979,7 +25979,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -25987,7 +25987,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -26035,7 +26035,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -26074,7 +26074,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -26174,7 +26174,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -26192,7 +26192,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -26223,7 +26223,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -26241,7 +26241,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -26285,7 +26285,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -26321,7 +26321,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             4,
                                                                         ),
@@ -26421,7 +26421,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -26439,7 +26439,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -26470,7 +26470,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -26488,7 +26488,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -26532,7 +26532,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -26568,7 +26568,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             4,
                                                                         ),
@@ -26669,7 +26669,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -26687,7 +26687,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -26718,7 +26718,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -26736,7 +26736,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -26812,7 +26812,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -26830,7 +26830,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -26861,7 +26861,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -26879,7 +26879,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -26910,7 +26910,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -26928,7 +26928,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -27043,7 +27043,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -27139,7 +27139,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             3,
                                                                         ),
@@ -27225,7 +27225,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     7,
                                                 ),
@@ -27243,7 +27243,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -27276,7 +27276,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -27284,7 +27284,7 @@
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -27320,7 +27320,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     7,
                                                                 ),
@@ -27382,7 +27382,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     8,
                                                 ),
@@ -27400,7 +27400,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -27431,7 +27431,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     6,
                                                 ),
@@ -27451,7 +27451,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         6,
                                                     ),
@@ -27484,7 +27484,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -27502,7 +27502,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -27623,7 +27623,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     8,
                                                 ),
@@ -27641,7 +27641,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -27672,7 +27672,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     6,
                                                 ),
@@ -27692,7 +27692,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         6,
                                                     ),
@@ -27770,7 +27770,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     6,
                                                 ),
@@ -27790,7 +27790,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         6,
                                                     ),
@@ -27823,7 +27823,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     8,
                                                 ),
@@ -27841,7 +27841,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -27915,7 +27915,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     8,
                                                 ),
@@ -27933,7 +27933,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -27964,7 +27964,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -27982,7 +27982,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -28102,7 +28102,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     7,
                                                 ),
@@ -28120,7 +28120,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -28151,7 +28151,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -28169,7 +28169,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -28213,7 +28213,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: ImmutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             7,
                                                                         ),
@@ -28249,7 +28249,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             4,
                                                                         ),
@@ -28349,7 +28349,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     7,
                                                 ),
@@ -28367,7 +28367,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -28398,7 +28398,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -28416,7 +28416,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -28460,7 +28460,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: ImmutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             7,
                                                                         ),
@@ -28496,7 +28496,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             4,
                                                                         ),
@@ -28552,7 +28552,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -28570,7 +28570,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -28601,7 +28601,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     9,
                                                 ),
@@ -28619,7 +28619,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         9,
                                                     ),
@@ -28652,7 +28652,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -28660,7 +28660,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -28708,7 +28708,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     4,
                                                                 ),
@@ -28747,7 +28747,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: ImmutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             9,
                                                                         ),
@@ -28885,7 +28885,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -28903,7 +28903,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -28934,7 +28934,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     9,
                                                 ),
@@ -28952,7 +28952,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         9,
                                                     ),
@@ -29026,7 +29026,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     10,
                                                 ),
@@ -29044,7 +29044,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -29075,7 +29075,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     5,
                                                 ),
@@ -29093,7 +29093,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -29126,7 +29126,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -29134,7 +29134,7 @@
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -29182,7 +29182,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     10,
                                                                 ),
@@ -29221,7 +29221,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             5,
                                                                         ),
@@ -29359,7 +29359,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     5,
                                                 ),
@@ -29377,7 +29377,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -29408,7 +29408,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     10,
                                                 ),
@@ -29426,7 +29426,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -29500,7 +29500,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -29518,7 +29518,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -29549,7 +29549,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     5,
                                                 ),
@@ -29567,7 +29567,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -29600,7 +29600,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -29608,7 +29608,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -29656,7 +29656,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     4,
                                                                 ),
@@ -29695,7 +29695,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             5,
                                                                         ),
@@ -29833,7 +29833,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -29851,7 +29851,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -29882,7 +29882,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -29900,7 +29900,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -29976,7 +29976,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -29994,7 +29994,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -30025,7 +30025,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     7,
                                                 ),
@@ -30043,7 +30043,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -30076,7 +30076,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -30084,7 +30084,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -30132,7 +30132,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     4,
                                                                 ),
@@ -30171,7 +30171,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: ImmutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             7,
                                                                         ),
@@ -30309,7 +30309,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     7,
                                                 ),
@@ -30327,7 +30327,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -30358,7 +30358,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     5,
                                                 ),
@@ -30376,7 +30376,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -30409,7 +30409,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -30417,7 +30417,7 @@
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -30465,7 +30465,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     7,
                                                                 ),
@@ -30504,7 +30504,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             5,
                                                                         ),
@@ -30798,7 +30798,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -30816,7 +30816,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -30879,7 +30879,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -30897,7 +30897,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -30928,7 +30928,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -30946,7 +30946,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -31022,7 +31022,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -31040,7 +31040,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -31071,7 +31071,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -31089,7 +31089,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -31861,7 +31861,7 @@
                                             coersion: Trivial(
                                                 TrivialFlyCoersion {
                                                     expectee_place: MutableStackOwned {
-                                                        location: StackLocationIdx(
+                                                        location: PlaceIdx(
                                                             ShiftedU32(
                                                                 1,
                                                             ),
@@ -31898,7 +31898,7 @@
                                             coersion: Trivial(
                                                 TrivialFlyCoersion {
                                                     expectee_place: StackPure {
-                                                        location: StackLocationIdx(
+                                                        location: PlaceIdx(
                                                             ShiftedU32(
                                                                 2,
                                                             ),
@@ -32343,7 +32343,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             3,
                                         ),
@@ -32549,7 +32549,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -32892,7 +32892,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -32908,7 +32908,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -32924,7 +32924,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             3,
                                         ),
@@ -32940,7 +32940,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             4,
                                         ),
@@ -32958,7 +32958,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -32974,7 +32974,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -32990,7 +32990,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             3,
                                         ),
@@ -33006,7 +33006,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             4,
                                         ),
@@ -33022,7 +33022,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             5,
                                         ),
@@ -33038,7 +33038,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             6,
                                         ),
@@ -33056,7 +33056,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             7,
                                         ),
@@ -33072,7 +33072,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             8,
                                         ),
@@ -33088,7 +33088,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             9,
                                         ),
@@ -33104,7 +33104,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             10,
                                         ),
@@ -33139,7 +33139,7 @@
                                         FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             4,
                                                         ),
@@ -33156,7 +33156,7 @@
                                             target: FlyTerm {
                                                 place: Some(
                                                     StackPure {
-                                                        location: StackLocationIdx(
+                                                        location: PlaceIdx(
                                                             ShiftedU32(
                                                                 4,
                                                             ),
@@ -33194,7 +33194,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -33222,7 +33222,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -33258,7 +33258,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -33277,7 +33277,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -33304,7 +33304,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -33326,7 +33326,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -33442,7 +33442,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -33470,7 +33470,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -33514,7 +33514,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             3,
                                                         ),
@@ -33588,7 +33588,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -33610,7 +33610,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -33632,7 +33632,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -33651,7 +33651,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -33718,7 +33718,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -33774,7 +33774,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -33793,7 +33793,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         4,
                                                                     ),
@@ -33888,7 +33888,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -33907,7 +33907,7 @@
                                                     placeless_num_ty: FlyTerm {
                                                         place: Some(
                                                             MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -33987,7 +33987,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -34015,7 +34015,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -34051,7 +34051,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -34070,7 +34070,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -34097,7 +34097,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -34119,7 +34119,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -34275,7 +34275,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -34331,7 +34331,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -34350,7 +34350,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         4,
                                                                     ),
@@ -34405,7 +34405,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -34441,7 +34441,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -34460,7 +34460,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -34599,7 +34599,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -34618,7 +34618,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -34653,7 +34653,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -34672,7 +34672,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         4,
                                                                     ),
@@ -34791,7 +34791,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -34810,7 +34810,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -34845,7 +34845,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -34864,7 +34864,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         4,
                                                                     ),
@@ -34935,7 +34935,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -34957,7 +34957,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -34979,7 +34979,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -34998,7 +34998,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -35053,7 +35053,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -35089,7 +35089,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -35108,7 +35108,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -35135,7 +35135,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -35157,7 +35157,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -35273,7 +35273,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -35321,7 +35321,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -35349,7 +35349,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         6,
                                                     ),
@@ -35373,7 +35373,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             6,
                                                         ),
@@ -35397,7 +35397,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -35416,7 +35416,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         4,
                                                                     ),
@@ -35437,7 +35437,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             8,
                                                         ),
@@ -35519,7 +35519,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -35541,7 +35541,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             8,
                                                         ),
@@ -35563,7 +35563,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         6,
                                                     ),
@@ -35584,7 +35584,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         6,
                                                                     ),
@@ -35639,7 +35639,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         6,
                                                     ),
@@ -35669,7 +35669,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -35737,7 +35737,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -35759,7 +35759,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             8,
                                                         ),
@@ -35781,7 +35781,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -35800,7 +35800,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         4,
                                                                     ),
@@ -35927,7 +35927,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -35946,7 +35946,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         7,
                                                                     ),
@@ -35981,7 +35981,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -36000,7 +36000,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         4,
                                                                     ),
@@ -36119,7 +36119,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -36138,7 +36138,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         7,
                                                                     ),
@@ -36173,7 +36173,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -36192,7 +36192,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         4,
                                                                     ),
@@ -36239,7 +36239,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -36275,7 +36275,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         9,
                                                     ),
@@ -36294,7 +36294,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         9,
                                                                     ),
@@ -36411,7 +36411,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -36439,7 +36439,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         9,
                                                     ),
@@ -36507,7 +36507,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -36543,7 +36543,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -36562,7 +36562,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         5,
                                                                     ),
@@ -36679,7 +36679,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -36707,7 +36707,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -36775,7 +36775,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -36811,7 +36811,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -36830,7 +36830,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         5,
                                                                     ),
@@ -36947,7 +36947,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -36969,7 +36969,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -36991,7 +36991,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -37010,7 +37010,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -37077,7 +37077,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -37113,7 +37113,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -37132,7 +37132,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         7,
                                                                     ),
@@ -37261,7 +37261,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -37297,7 +37297,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -37316,7 +37316,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         5,
                                                                     ),
@@ -37569,7 +37569,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -37588,7 +37588,7 @@
                                                     placeless_num_ty: FlyTerm {
                                                         place: Some(
                                                             MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -37668,7 +37668,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -37690,7 +37690,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -37712,7 +37712,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -37731,7 +37731,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -37794,7 +37794,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -37813,7 +37813,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -37848,7 +37848,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -37867,7 +37867,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -38179,7 +38179,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -38197,7 +38197,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -38220,7 +38220,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -38243,7 +38243,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -38409,7 +38409,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -38429,7 +38429,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -38462,7 +38462,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -38480,7 +38480,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -38556,7 +38556,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -38576,7 +38576,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -38653,7 +38653,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -38671,7 +38671,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -38702,7 +38702,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -38722,7 +38722,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -38755,7 +38755,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -38773,7 +38773,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -38817,7 +38817,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -38853,7 +38853,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -38889,7 +38889,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -39164,7 +39164,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -39182,7 +39182,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -39213,7 +39213,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -39233,7 +39233,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -39266,7 +39266,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -39286,7 +39286,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -39332,7 +39332,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -39368,7 +39368,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -39404,7 +39404,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             3,
                                                                         ),
@@ -39495,7 +39495,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -39513,7 +39513,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -39546,7 +39546,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -39554,7 +39554,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -39590,7 +39590,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -39746,7 +39746,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     5,
                                                 ),
@@ -39764,7 +39764,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -39797,7 +39797,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -39805,7 +39805,7 @@
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -39841,7 +39841,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     5,
                                                                 ),
@@ -39903,7 +39903,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -39921,7 +39921,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -39954,7 +39954,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -39962,7 +39962,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -40000,7 +40000,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -40023,7 +40023,7 @@
                                                             EthSymbol(`'self_place`),
                                                             FlyTermSymbolResolution::SelfPlace(
                                                                 MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -40088,7 +40088,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -40106,7 +40106,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -40139,7 +40139,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -40147,7 +40147,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -40183,7 +40183,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -40245,7 +40245,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     7,
                                                 ),
@@ -40263,7 +40263,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -40294,7 +40294,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     8,
                                                 ),
@@ -40312,7 +40312,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -40345,7 +40345,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -40353,7 +40353,7 @@
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -40401,7 +40401,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     7,
                                                                 ),
@@ -40440,7 +40440,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: ImmutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             8,
                                                                         ),
@@ -40672,7 +40672,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     7,
                                                 ),
@@ -40690,7 +40690,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -40721,7 +40721,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     8,
                                                 ),
@@ -40739,7 +40739,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -40772,7 +40772,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -40780,7 +40780,7 @@
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -40828,7 +40828,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     7,
                                                                 ),
@@ -40867,7 +40867,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: ImmutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             8,
                                                                         ),
@@ -41054,7 +41054,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -41072,7 +41072,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -41095,7 +41095,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -41118,7 +41118,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -41284,7 +41284,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -41302,7 +41302,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -41335,7 +41335,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -41343,7 +41343,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -41381,7 +41381,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -41404,7 +41404,7 @@
                                                             EthSymbol(`'self_place`),
                                                             FlyTermSymbolResolution::SelfPlace(
                                                                 MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -41469,7 +41469,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -41487,7 +41487,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -41694,7 +41694,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -41712,7 +41712,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -41743,7 +41743,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -41761,7 +41761,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -41794,7 +41794,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -41802,7 +41802,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -41840,7 +41840,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -41863,7 +41863,7 @@
                                                             EthSymbol(`'self_place`),
                                                             FlyTermSymbolResolution::SelfPlace(
                                                                 MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -41928,7 +41928,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -41946,7 +41946,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -41969,7 +41969,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -41992,7 +41992,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -42000,7 +42000,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -42023,7 +42023,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -42041,7 +42041,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -42074,7 +42074,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -42182,7 +42182,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -42202,7 +42202,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -42248,7 +42248,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -42314,7 +42314,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             3,
                                                                         ),
@@ -42413,7 +42413,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     6,
                                                 ),
@@ -42431,7 +42431,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         6,
                                                     ),
@@ -42540,7 +42540,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     6,
                                                 ),
@@ -42558,7 +42558,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         6,
                                                     ),
@@ -42589,7 +42589,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -42609,7 +42609,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -42686,7 +42686,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -42704,7 +42704,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -42735,7 +42735,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -42755,7 +42755,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -42788,7 +42788,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -42808,7 +42808,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -42841,7 +42841,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -42859,7 +42859,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -42903,7 +42903,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -42939,7 +42939,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -42975,7 +42975,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             3,
                                                                         ),
@@ -43011,7 +43011,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -43286,7 +43286,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -43304,7 +43304,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -43335,7 +43335,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -43355,7 +43355,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -43388,7 +43388,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -43408,7 +43408,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -43454,7 +43454,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -43490,7 +43490,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -43526,7 +43526,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             3,
                                                                         ),
@@ -43582,7 +43582,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -43600,7 +43600,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -43633,7 +43633,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -43641,7 +43641,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -43677,7 +43677,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -43833,7 +43833,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -43851,7 +43851,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -43884,7 +43884,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -43892,7 +43892,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -43930,7 +43930,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -43953,7 +43953,7 @@
                                                             EthSymbol(`'self_place`),
                                                             FlyTermSymbolResolution::SelfPlace(
                                                                 MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -44018,7 +44018,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -44036,7 +44036,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -44068,7 +44068,7 @@
                                     place: Some(
                                         Ref {
                                             guard: Left(
-                                                StackLocationIdx(
+                                                PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -44088,7 +44088,7 @@
                                         place: Some(
                                             Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -44123,7 +44123,7 @@
                                         indirections: FlyIndirections {
                                             initial_place: Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -44133,7 +44133,7 @@
                                             indirections: [],
                                             final_place: Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -44171,7 +44171,7 @@
                                                     env: MethodFn {
                                                         self_place: Ref {
                                                             guard: Left(
-                                                                StackLocationIdx(
+                                                                PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -44234,7 +44234,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     10,
                                                 ),
@@ -44252,7 +44252,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -44285,7 +44285,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -44293,7 +44293,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -44329,7 +44329,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     10,
                                                                 ),
@@ -44392,7 +44392,7 @@
                                     place: Some(
                                         Ref {
                                             guard: Left(
-                                                StackLocationIdx(
+                                                PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -44412,7 +44412,7 @@
                                         place: Some(
                                             Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -44437,7 +44437,7 @@
                                         place: Some(
                                             Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -44462,7 +44462,7 @@
                                         indirections: FlyIndirections {
                                             initial_place: Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -44472,7 +44472,7 @@
                                             indirections: [],
                                             final_place: Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -44497,7 +44497,7 @@
                                     place: Some(
                                         Ref {
                                             guard: Left(
-                                                StackLocationIdx(
+                                                PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -44517,7 +44517,7 @@
                                         place: Some(
                                             Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -44549,7 +44549,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     10,
                                                 ),
@@ -44567,7 +44567,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -44590,7 +44590,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -44613,7 +44613,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -44621,7 +44621,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -44644,7 +44644,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     10,
                                                 ),
@@ -44662,7 +44662,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -44696,7 +44696,7 @@
                                         indirections: FlyIndirections {
                                             initial_place: Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -44706,7 +44706,7 @@
                                             indirections: [],
                                             final_place: Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -44756,7 +44756,7 @@
                                                     env: MethodFn {
                                                         self_place: Ref {
                                                             guard: Left(
-                                                                StackLocationIdx(
+                                                                PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -44796,7 +44796,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             10,
                                                                         ),
@@ -44852,7 +44852,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     12,
                                                 ),
@@ -44870,7 +44870,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         12,
                                                     ),
@@ -44901,7 +44901,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     11,
                                                 ),
@@ -44919,7 +44919,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         11,
                                                     ),
@@ -44952,7 +44952,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         12,
                                                     ),
@@ -44960,7 +44960,7 @@
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         12,
                                                     ),
@@ -45008,7 +45008,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     12,
                                                                 ),
@@ -45047,7 +45047,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: ImmutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             11,
                                                                         ),
@@ -45279,7 +45279,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     12,
                                                 ),
@@ -45297,7 +45297,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         12,
                                                     ),
@@ -45328,7 +45328,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     11,
                                                 ),
@@ -45346,7 +45346,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         11,
                                                     ),
@@ -45379,7 +45379,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         12,
                                                     ),
@@ -45387,7 +45387,7 @@
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         12,
                                                     ),
@@ -45435,7 +45435,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     12,
                                                                 ),
@@ -45474,7 +45474,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: ImmutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             11,
                                                                         ),
@@ -45661,7 +45661,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     12,
                                                 ),
@@ -45679,7 +45679,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         12,
                                                     ),
@@ -45710,7 +45710,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     13,
                                                 ),
@@ -45728,7 +45728,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         13,
                                                     ),
@@ -45761,7 +45761,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         12,
                                                     ),
@@ -45769,7 +45769,7 @@
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         12,
                                                     ),
@@ -45817,7 +45817,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     12,
                                                                 ),
@@ -45856,7 +45856,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: ImmutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             13,
                                                                         ),
@@ -46133,7 +46133,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     12,
                                                 ),
@@ -46151,7 +46151,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         12,
                                                     ),
@@ -46182,7 +46182,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     13,
                                                 ),
@@ -46200,7 +46200,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         13,
                                                     ),
@@ -46233,7 +46233,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         12,
                                                     ),
@@ -46241,7 +46241,7 @@
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         12,
                                                     ),
@@ -46289,7 +46289,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     12,
                                                                 ),
@@ -46328,7 +46328,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: ImmutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             13,
                                                                         ),
@@ -46515,7 +46515,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -46533,7 +46533,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -46566,7 +46566,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -46574,7 +46574,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -46610,7 +46610,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -46719,7 +46719,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     10,
                                                 ),
@@ -46737,7 +46737,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -46944,7 +46944,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -46962,7 +46962,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -46993,7 +46993,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     14,
                                                 ),
@@ -47011,7 +47011,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         14,
                                                     ),
@@ -47034,7 +47034,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         14,
                                                     ),
@@ -47057,7 +47057,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         14,
                                                     ),
@@ -47065,7 +47065,7 @@
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         14,
                                                     ),
@@ -47088,7 +47088,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     14,
                                                 ),
@@ -47106,7 +47106,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         14,
                                                     ),
@@ -47139,7 +47139,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         14,
                                                     ),
@@ -47247,7 +47247,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     10,
                                                 ),
@@ -47265,7 +47265,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -47288,7 +47288,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -47311,7 +47311,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -47319,7 +47319,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -47342,7 +47342,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     10,
                                                 ),
@@ -47360,7 +47360,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -47393,7 +47393,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -47514,7 +47514,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -47673,7 +47673,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -47691,7 +47691,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -47722,7 +47722,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -47742,7 +47742,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -47775,7 +47775,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -47793,7 +47793,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -47816,7 +47816,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -47839,7 +47839,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -48093,7 +48093,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -48111,7 +48111,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -48142,7 +48142,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     10,
                                                 ),
@@ -48160,7 +48160,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -48193,7 +48193,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -48201,7 +48201,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -48249,7 +48249,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -48304,7 +48304,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             10,
                                                                         ),
@@ -48360,7 +48360,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -48380,7 +48380,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -48413,7 +48413,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -48433,7 +48433,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -48509,7 +48509,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -48529,7 +48529,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -48562,7 +48562,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -48582,7 +48582,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -48740,7 +48740,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -48758,7 +48758,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -48781,7 +48781,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -48804,7 +48804,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -48970,7 +48970,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -48988,7 +48988,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -49021,7 +49021,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -49029,7 +49029,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -49067,7 +49067,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -49090,7 +49090,7 @@
                                                             EthSymbol(`'self_place`),
                                                             FlyTermSymbolResolution::SelfPlace(
                                                                 MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -49155,7 +49155,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -49173,7 +49173,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -49196,7 +49196,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -49219,7 +49219,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -49227,7 +49227,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -49250,7 +49250,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -49268,7 +49268,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -49301,7 +49301,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -49409,7 +49409,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -49427,7 +49427,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -49460,7 +49460,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -49468,7 +49468,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -49506,7 +49506,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -49529,7 +49529,7 @@
                                                             EthSymbol(`'self_place`),
                                                             FlyTermSymbolResolution::SelfPlace(
                                                                 MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -49594,7 +49594,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -49612,7 +49612,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -49644,7 +49644,7 @@
                                     place: Some(
                                         Ref {
                                             guard: Left(
-                                                StackLocationIdx(
+                                                PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -49664,7 +49664,7 @@
                                         place: Some(
                                             Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -49689,7 +49689,7 @@
                                         place: Some(
                                             Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -49714,7 +49714,7 @@
                                         indirections: FlyIndirections {
                                             initial_place: Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -49724,7 +49724,7 @@
                                             indirections: [],
                                             final_place: Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -49749,7 +49749,7 @@
                                     place: Some(
                                         Ref {
                                             guard: Left(
-                                                StackLocationIdx(
+                                                PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -49769,7 +49769,7 @@
                                         place: Some(
                                             Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -49804,7 +49804,7 @@
                                         indirections: FlyIndirections {
                                             initial_place: Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -49913,7 +49913,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     16,
                                                 ),
@@ -49931,7 +49931,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         16,
                                                     ),
@@ -49962,7 +49962,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     15,
                                                 ),
@@ -49980,7 +49980,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         15,
                                                     ),
@@ -50101,7 +50101,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -50119,7 +50119,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -50152,7 +50152,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -50160,7 +50160,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -50196,7 +50196,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -50305,7 +50305,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -50323,7 +50323,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -50356,7 +50356,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -50364,7 +50364,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -50402,7 +50402,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -50425,7 +50425,7 @@
                                                             EthSymbol(`'self_place`),
                                                             FlyTermSymbolResolution::SelfPlace(
                                                                 MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -50490,7 +50490,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -50508,7 +50508,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -50715,7 +50715,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -50733,7 +50733,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -50764,7 +50764,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     17,
                                                 ),
@@ -50782,7 +50782,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         17,
                                                     ),
@@ -50805,7 +50805,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         17,
                                                     ),
@@ -50828,7 +50828,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         17,
                                                     ),
@@ -50836,7 +50836,7 @@
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         17,
                                                     ),
@@ -50859,7 +50859,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     17,
                                                 ),
@@ -50877,7 +50877,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         17,
                                                     ),
@@ -50910,7 +50910,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         17,
                                                     ),
@@ -51018,7 +51018,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     15,
                                                 ),
@@ -51036,7 +51036,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         15,
                                                     ),
@@ -51112,7 +51112,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -51130,7 +51130,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -51163,7 +51163,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -51171,7 +51171,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -51209,7 +51209,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -51232,7 +51232,7 @@
                                                             EthSymbol(`'self_place`),
                                                             FlyTermSymbolResolution::SelfPlace(
                                                                 MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -51297,7 +51297,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -51315,7 +51315,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -51338,7 +51338,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -51361,7 +51361,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -51369,7 +51369,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -51392,7 +51392,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -51410,7 +51410,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -51443,7 +51443,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -51646,7 +51646,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -51805,7 +51805,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -51823,7 +51823,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -51851,7 +51851,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -51869,7 +51869,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -53259,7 +53259,7 @@
                                                 coersion: Trivial(
                                                     TrivialFlyCoersion {
                                                         expectee_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -53279,7 +53279,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -53498,7 +53498,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -53646,7 +53646,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -53904,7 +53904,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -54066,7 +54066,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -54343,7 +54343,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -54359,7 +54359,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -54377,7 +54377,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -54393,7 +54393,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -54411,7 +54411,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             3,
                                         ),
@@ -54429,7 +54429,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             4,
                                         ),
@@ -54445,7 +54445,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             5,
                                         ),
@@ -54461,7 +54461,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             6,
                                         ),
@@ -54477,7 +54477,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             7,
                                         ),
@@ -54493,7 +54493,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             8,
                                         ),
@@ -54509,7 +54509,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             9,
                                         ),
@@ -54525,7 +54525,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             10,
                                         ),
@@ -54542,7 +54542,7 @@
                             place: Some(
                                 Ref {
                                     guard: Left(
-                                        StackLocationIdx(
+                                        PlaceIdx(
                                             ShiftedU32(
                                                 1,
                                             ),
@@ -54559,7 +54559,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             11,
                                         ),
@@ -54575,7 +54575,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             12,
                                         ),
@@ -54591,7 +54591,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             13,
                                         ),
@@ -54607,7 +54607,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             14,
                                         ),
@@ -54623,7 +54623,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             15,
                                         ),
@@ -54639,7 +54639,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             16,
                                         ),
@@ -54656,7 +54656,7 @@
                             place: Some(
                                 Ref {
                                     guard: Left(
-                                        StackLocationIdx(
+                                        PlaceIdx(
                                             ShiftedU32(
                                                 1,
                                             ),
@@ -54673,7 +54673,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             17,
                                         ),
@@ -54704,7 +54704,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -54760,7 +54760,7 @@
                                         FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             4,
                                                         ),
@@ -54777,7 +54777,7 @@
                                             target: FlyTerm {
                                                 place: Some(
                                                     MutableStackOwned {
-                                                        location: StackLocationIdx(
+                                                        location: PlaceIdx(
                                                             ShiftedU32(
                                                                 4,
                                                             ),
@@ -55013,7 +55013,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -55083,7 +55083,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -55107,7 +55107,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             3,
                                                         ),
@@ -55131,7 +55131,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -55150,7 +55150,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         4,
                                                                     ),
@@ -55205,7 +55205,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -55318,7 +55318,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -55337,7 +55337,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -55372,7 +55372,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -55393,7 +55393,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -55428,7 +55428,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -55447,7 +55447,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -55617,7 +55617,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -55636,7 +55636,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -55671,7 +55671,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -55692,7 +55692,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -55727,7 +55727,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -55748,7 +55748,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -55817,7 +55817,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -55935,7 +55935,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -55983,7 +55983,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -56033,7 +56033,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -56081,7 +56081,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -56117,7 +56117,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -56136,7 +56136,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         8,
                                                                     ),
@@ -56285,7 +56285,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         7,
                                                     ),
@@ -56321,7 +56321,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         8,
                                                     ),
@@ -56340,7 +56340,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         8,
                                                                     ),
@@ -56497,7 +56497,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -56567,7 +56567,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -56617,7 +56617,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -56728,7 +56728,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -56747,7 +56747,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -56774,7 +56774,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -56824,7 +56824,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -56852,7 +56852,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -56928,7 +56928,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -56949,7 +56949,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -57036,7 +57036,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         6,
                                                     ),
@@ -57126,7 +57126,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         6,
                                                     ),
@@ -57162,7 +57162,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -57286,7 +57286,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -57305,7 +57305,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -57340,7 +57340,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -57361,7 +57361,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -57396,7 +57396,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -57417,7 +57417,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -57452,7 +57452,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -57471,7 +57471,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -57641,7 +57641,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -57660,7 +57660,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -57695,7 +57695,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -57716,7 +57716,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -57751,7 +57751,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -57772,7 +57772,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -57819,7 +57819,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -57937,7 +57937,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -57987,7 +57987,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -58016,7 +58016,7 @@
                                         place: Some(
                                             Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -58065,7 +58065,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -58114,7 +58114,7 @@
                                         place: Some(
                                             Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -58144,7 +58144,7 @@
                                         place: Some(
                                             Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -58173,7 +58173,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -58209,7 +58209,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -58228,7 +58228,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         10,
                                                                     ),
@@ -58275,7 +58275,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         12,
                                                     ),
@@ -58311,7 +58311,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         11,
                                                     ),
@@ -58330,7 +58330,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         11,
                                                                     ),
@@ -58479,7 +58479,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         12,
                                                     ),
@@ -58515,7 +58515,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         11,
                                                     ),
@@ -58534,7 +58534,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         11,
                                                                     ),
@@ -58703,7 +58703,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         12,
                                                     ),
@@ -58739,7 +58739,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         13,
                                                     ),
@@ -58758,7 +58758,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         13,
                                                                     ),
@@ -58947,7 +58947,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         12,
                                                     ),
@@ -58983,7 +58983,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         13,
                                                     ),
@@ -59002,7 +59002,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         13,
                                                                     ),
@@ -59159,7 +59159,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -59227,7 +59227,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -59338,7 +59338,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -59357,7 +59357,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -59384,7 +59384,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         14,
                                                     ),
@@ -59412,7 +59412,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         14,
                                                     ),
@@ -59480,7 +59480,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -59508,7 +59508,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -59636,7 +59636,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -59664,7 +59664,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -59694,7 +59694,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -59738,7 +59738,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             2,
                                                         ),
@@ -59854,7 +59854,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -59890,7 +59890,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         10,
                                                     ),
@@ -59909,7 +59909,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         10,
                                                                     ),
@@ -59976,7 +59976,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -60006,7 +60006,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -60076,7 +60076,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -60106,7 +60106,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -60130,7 +60130,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 MutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             2,
                                                         ),
@@ -60248,7 +60248,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -60318,7 +60318,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -60368,7 +60368,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -60396,7 +60396,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -60444,7 +60444,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -60494,7 +60494,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -60523,7 +60523,7 @@
                                         place: Some(
                                             Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -60553,7 +60553,7 @@
                                         place: Some(
                                             Ref {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -60602,7 +60602,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         16,
                                                     ),
@@ -60624,7 +60624,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             16,
                                                         ),
@@ -60646,7 +60646,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         15,
                                                     ),
@@ -60665,7 +60665,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         15,
                                                                     ),
@@ -60760,7 +60760,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -60828,7 +60828,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -60878,7 +60878,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -60989,7 +60989,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -61008,7 +61008,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -61035,7 +61035,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         17,
                                                     ),
@@ -61063,7 +61063,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         17,
                                                     ),
@@ -61119,7 +61119,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         15,
                                                     ),
@@ -61138,7 +61138,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         15,
                                                                     ),
@@ -61205,7 +61205,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -61255,7 +61255,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -61283,7 +61283,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -61481,7 +61481,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -61500,7 +61500,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -61535,7 +61535,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -61554,7 +61554,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -61652,7 +61652,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -61670,7 +61670,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -61693,7 +61693,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -61716,7 +61716,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -61724,7 +61724,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -61747,7 +61747,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -61765,7 +61765,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -61791,7 +61791,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -61809,7 +61809,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -61832,7 +61832,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -61855,7 +61855,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -61863,7 +61863,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -61886,7 +61886,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -61904,7 +61904,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -62143,7 +62143,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -62171,7 +62171,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -62199,7 +62199,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -62227,7 +62227,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -62371,7 +62371,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -62389,7 +62389,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -62420,7 +62420,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -62438,7 +62438,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -62558,7 +62558,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -62576,7 +62576,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -62599,7 +62599,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -62622,7 +62622,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -62686,7 +62686,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -62704,7 +62704,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -62735,7 +62735,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -62753,7 +62753,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -62968,7 +62968,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -63231,7 +63231,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -63247,7 +63247,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -63263,7 +63263,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             3,
                                         ),
@@ -63308,7 +63308,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -63330,7 +63330,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             2,
                                                         ),
@@ -63352,7 +63352,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -63371,7 +63371,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -63479,7 +63479,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -63537,7 +63537,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -63556,7 +63556,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -63583,7 +63583,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -63605,7 +63605,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 StackPure {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             3,
                                                         ),
@@ -63852,7 +63852,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -63870,7 +63870,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -63893,7 +63893,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -63916,7 +63916,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -63924,7 +63924,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -63947,7 +63947,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -63965,7 +63965,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -63991,7 +63991,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -64009,7 +64009,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64032,7 +64032,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64055,7 +64055,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64063,7 +64063,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64086,7 +64086,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -64104,7 +64104,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64137,7 +64137,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64145,7 +64145,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64193,7 +64193,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: StackPure {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -64232,7 +64232,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -64391,7 +64391,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64419,7 +64419,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64447,7 +64447,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64483,7 +64483,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64502,7 +64502,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -64682,7 +64682,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -64700,7 +64700,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64723,7 +64723,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64746,7 +64746,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64754,7 +64754,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64777,7 +64777,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -64795,7 +64795,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64828,7 +64828,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64836,7 +64836,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -64898,7 +64898,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: StackPure {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -65075,7 +65075,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -65103,7 +65103,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -66563,7 +66563,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     5,
                                                 ),
@@ -66581,7 +66581,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -66709,7 +66709,7 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     5,
                                                 ),
@@ -66727,7 +66727,7 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -66884,7 +66884,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -66902,7 +66902,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -66933,7 +66933,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -66951,7 +66951,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -67086,7 +67086,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -67094,7 +67094,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -67142,7 +67142,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     1,
                                                                 ),
@@ -67274,7 +67274,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -67292,7 +67292,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -67323,7 +67323,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -67341,7 +67341,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -67476,7 +67476,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -67484,7 +67484,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -67532,7 +67532,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     2,
                                                                 ),
@@ -67664,7 +67664,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -67682,7 +67682,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -67713,7 +67713,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -67731,7 +67731,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -67866,7 +67866,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -67874,7 +67874,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -67922,7 +67922,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     3,
                                                                 ),
@@ -68054,7 +68054,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -68072,7 +68072,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -68103,7 +68103,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -68121,7 +68121,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -68256,7 +68256,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -68264,7 +68264,7 @@
                                             },
                                             indirections: [],
                                             final_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -68312,7 +68312,7 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     4,
                                                                 ),
@@ -68532,7 +68532,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -68550,7 +68550,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -68581,7 +68581,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -68599,7 +68599,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -68643,7 +68643,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -68679,7 +68679,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -68779,7 +68779,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     3,
                                                 ),
@@ -68797,7 +68797,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -68828,7 +68828,7 @@
                                 FlyTerm {
                                     place: Some(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     4,
                                                 ),
@@ -68846,7 +68846,7 @@
                                     FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -68890,7 +68890,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             3,
                                                                         ),
@@ -68926,7 +68926,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             4,
                                                                         ),
@@ -69873,7 +69873,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -69889,7 +69889,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -69905,7 +69905,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             3,
                                         ),
@@ -69921,7 +69921,7 @@
                         FlyTerm {
                             place: Some(
                                 MutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             4,
                                         ),
@@ -69937,7 +69937,7 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             5,
                                         ),
@@ -70411,7 +70411,7 @@
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: StackLocationIdx(
+                                                    location: PlaceIdx(
                                                         ShiftedU32(
                                                             5,
                                                         ),
@@ -70433,7 +70433,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -70452,7 +70452,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         5,
                                                                     ),
@@ -70523,7 +70523,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         5,
                                                     ),
@@ -70595,7 +70595,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -70623,7 +70623,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -70775,7 +70775,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -70803,7 +70803,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -70955,7 +70955,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -70983,7 +70983,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -71135,7 +71135,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -71163,7 +71163,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -71451,7 +71451,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -71470,7 +71470,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -71505,7 +71505,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -71524,7 +71524,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
@@ -71663,7 +71663,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -71682,7 +71682,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         3,
                                                                     ),
@@ -71717,7 +71717,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -71736,7 +71736,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         4,
                                                                     ),
@@ -71959,7 +71959,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -71977,7 +71977,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -72052,7 +72052,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -72070,7 +72070,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -72101,7 +72101,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     2,
                                                 ),
@@ -72119,7 +72119,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -72163,7 +72163,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -72199,7 +72199,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -72268,7 +72268,7 @@
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -72429,7 +72429,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -72445,7 +72445,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             2,
                                         ),
@@ -72562,7 +72562,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -72581,7 +72581,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -72680,7 +72680,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -72699,7 +72699,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         1,
                                                                     ),
@@ -72734,7 +72734,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -72753,7 +72753,7 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
-                                                                location: StackLocationIdx(
+                                                                location: PlaceIdx(
                                                                     ShiftedU32(
                                                                         2,
                                                                     ),
