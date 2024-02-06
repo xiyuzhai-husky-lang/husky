@@ -1082,7 +1082,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),
@@ -1490,7 +1490,7 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: StackLocationIdx(
+                                    location: PlaceIdx(
                                         ShiftedU32(
                                             1,
                                         ),

@@ -237,7 +237,7 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -258,7 +258,7 @@
                                                 ),
                                             },
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -271,7 +271,7 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -292,7 +292,7 @@
                                                 ),
                                             },
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -330,7 +330,7 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             1,
                                                                         ),
@@ -506,7 +506,7 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -538,7 +538,7 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -559,7 +559,7 @@
                                                 ),
                                             },
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -572,7 +572,7 @@
                                                 2,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -610,7 +610,7 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -629,7 +629,7 @@
                                                 3,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -642,7 +642,7 @@
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -680,7 +680,7 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: ImmutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             3,
                                                                         ),
@@ -724,7 +724,7 @@
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -756,7 +756,7 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -777,7 +777,7 @@
                                                 ),
                                             },
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -790,7 +790,7 @@
                                                 2,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -828,7 +828,7 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -847,7 +847,7 @@
                                                 3,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -860,7 +860,7 @@
                                                 5,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -898,7 +898,7 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: ImmutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             4,
                                                                         ),
@@ -942,7 +942,7 @@
                                                 5,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         4,
                                                     ),
@@ -974,7 +974,7 @@
                                                 3,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -987,7 +987,7 @@
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -1025,7 +1025,7 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: ImmutableStackOwned {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             3,
                                                                         ),
@@ -1063,7 +1063,7 @@
                                                 3,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),

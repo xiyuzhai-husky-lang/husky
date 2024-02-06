@@ -143,7 +143,7 @@
                                             ),
                                             ty_place: RefMut {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -202,7 +202,7 @@
                                             ),
                                             ty_place: RefMut {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -227,7 +227,7 @@
                                                 2,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -320,7 +320,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: RefMut {
                                                                     guard: Left(
-                                                                        StackLocationIdx(
+                                                                        PlaceIdx(
                                                                             ShiftedU32(
                                                                                 1,
                                                                             ),
@@ -640,7 +640,7 @@
                                                 2,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -653,7 +653,7 @@
                                                 3,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -678,7 +678,7 @@
                                             ),
                                             ty_place: RefMut {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -692,7 +692,7 @@
                                                 2,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -705,7 +705,7 @@
                                                 3,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -762,7 +762,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: RefMut {
                                                                     guard: Left(
-                                                                        StackLocationIdx(
+                                                                        PlaceIdx(
                                                                             ShiftedU32(
                                                                                 1,
                                                                             ),
@@ -787,7 +787,7 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -811,7 +811,7 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             3,
                                                                         ),
@@ -831,7 +831,7 @@
                                             ),
                                             ty_place: RefMut {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -845,7 +845,7 @@
                                                 2,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -858,7 +858,7 @@
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -937,7 +937,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: RefMut {
                                                                     guard: Left(
-                                                                        StackLocationIdx(
+                                                                        PlaceIdx(
                                                                             ShiftedU32(
                                                                                 1,
                                                                             ),
@@ -962,7 +962,7 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             2,
                                                                         ),
@@ -1000,7 +1000,7 @@
                                             ),
                                             ty_place: RefMut {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -1014,7 +1014,7 @@
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -1049,7 +1049,7 @@
                                                 3,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -1106,7 +1106,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: RefMut {
                                                                     guard: Left(
-                                                                        StackLocationIdx(
+                                                                        PlaceIdx(
                                                                             ShiftedU32(
                                                                                 1,
                                                                             ),
@@ -1149,7 +1149,7 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
+                                                                    location: PlaceIdx(
                                                                         ShiftedU32(
                                                                             3,
                                                                         ),
@@ -1468,7 +1468,7 @@
                                                 3,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -1495,7 +1495,7 @@
                                                 2,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -1530,7 +1530,7 @@
                                                 3,
                                             ),
                                             ty_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -1552,7 +1552,7 @@
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -1588,7 +1588,7 @@
                                             ),
                                             ty_place: RefMut {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -1602,7 +1602,7 @@
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -1633,7 +1633,7 @@
                                             },
                                             ty_place: RefMut {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -1648,7 +1648,7 @@
                                             ),
                                             ty_place: RefMut {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -1662,7 +1662,7 @@
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -1679,7 +1679,7 @@
                                             },
                                             ty_place: RefMut {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -1704,7 +1704,7 @@
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -1739,7 +1739,7 @@
                                                 6,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -1774,7 +1774,7 @@
                                                 6,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -1810,7 +1810,7 @@
                                             ),
                                             ty_place: RefMut {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -1824,7 +1824,7 @@
                                                 6,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -1855,7 +1855,7 @@
                                             },
                                             ty_place: RefMut {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -1870,7 +1870,7 @@
                                             ),
                                             ty_place: RefMut {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -1884,7 +1884,7 @@
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -1901,7 +1901,7 @@
                                             },
                                             ty_place: RefMut {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -1937,7 +1937,7 @@
                                                 6,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -1972,7 +1972,7 @@
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -1985,7 +1985,7 @@
                                                 6,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -2010,7 +2010,7 @@
                                             ),
                                             ty_place: RefMut {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -2024,7 +2024,7 @@
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -2051,7 +2051,7 @@
                                                 6,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         3,
                                                     ),
@@ -2166,7 +2166,7 @@
                                             ),
                                             ty_place: RefMut {
                                                 guard: Left(
-                                                    StackLocationIdx(
+                                                    PlaceIdx(
                                                         ShiftedU32(
                                                             1,
                                                         ),
@@ -2180,7 +2180,7 @@
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -2207,7 +2207,7 @@
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -2321,7 +2321,7 @@
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -2336,7 +2336,7 @@
                                                 ),
                                             },
                                             ty_place: MutableStackOwned {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         2,
                                                     ),
@@ -2494,7 +2494,7 @@
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
                                                         expectee_place: MutableStackOwned {
-                                                            location: StackLocationIdx(
+                                                            location: PlaceIdx(
                                                                 ShiftedU32(
                                                                     2,
                                                                 ),

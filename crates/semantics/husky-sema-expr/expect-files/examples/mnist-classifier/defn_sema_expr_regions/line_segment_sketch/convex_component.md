@@ -72,7 +72,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -90,7 +90,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -113,7 +113,7 @@
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -136,7 +136,7 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -144,7 +144,7 @@
                                             },
                                             indirections: [],
                                             final_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -167,7 +167,7 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     1,
                                                 ),
@@ -185,7 +185,7 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -218,7 +218,7 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -455,7 +455,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),
@@ -483,7 +483,7 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: StackLocationIdx(
+                                                location: PlaceIdx(
                                                     ShiftedU32(
                                                         1,
                                                     ),

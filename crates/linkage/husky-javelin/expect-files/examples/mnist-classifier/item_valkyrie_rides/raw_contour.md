@@ -270,7 +270,7 @@
                                     ),
                                     HirTermSymbolResolution::SelfPlace(
                                         MutableStackOwned {
-                                            location: StackLocationIdx(
+                                            location: PlaceIdx(
                                                 ShiftedU32(
                                                     9,
                                                 ),
