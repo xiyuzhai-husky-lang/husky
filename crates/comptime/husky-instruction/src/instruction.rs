@@ -1,8 +1,9 @@
 use husky_coword::Ident;
 use husky_hir_ty::HirType;
-use husky_task_interface::IsLinkageImpl;
-use shifted_unsigned_int::ShiftedU32;
-use std::marker::PhantomData;
+use husky_linkage::linkage::Linkage;
+use husky_task_interface::value::LiteralValue;
+use idx_arena::Arena;
+use idx_arena::{ArenaIdx, ArenaIdxRange};
 
 // ad hoc
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -17,7 +18,7 @@ pub struct Binding;
 pub struct VMLoopKind;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum Instruction<LinkageImpl: IsLinkageImpl> {
+pub enum Instruction {
     PushVariable {
         stack_idx: VMStackIdx,
         binding: Binding,
@@ -26,15 +27,12 @@ pub enum Instruction<LinkageImpl: IsLinkageImpl> {
         explicit: bool,
     },
     PushLiteralValue {
-        value: LinkageImpl::Value,
+        value: LiteralValue,
         ty: HirType,
         explicit: bool,
     },
-    WrapInSome {
-        number_of_somes: u8,
-    },
     CallRoutine {
-        resolved_linkage: LinkageImpl,
+        resolved_linkage: Linkage,
         nargs: u8,
         return_ty: HirType,
         discard: bool,
@@ -45,17 +43,8 @@ pub enum Instruction<LinkageImpl: IsLinkageImpl> {
         return_ty: HirType,
         discard: bool,
     },
-    VirtualStructField {
-        field_idx: u8,
-        field_binding: Binding,
-        field_ty: HirType,
-    },
-    NewVirtualStruct {
-        ty: HirType,
-        fields: Vec<Ident>,
-    },
     Loop {
-        body: InstructionBlockId<LinkageImpl>,
+        body: InstructionIdxRange,
         loop_kind: VMLoopKind,
     },
     Return {
@@ -78,38 +67,10 @@ pub enum Instruction<LinkageImpl: IsLinkageImpl> {
     PushEntityFp {
         // opt_linkage: Option<__LinkageGroup>,
         ty: HirType,
-        opt_instruction_sheet: Option<InstructionBlockId<LinkageImpl>>,
+        opt_instruction_sheet: Option<InstructionIdxRange>,
     },
 }
 
-#[derive(Debug)]
-pub struct InstructionBlock<LinkageImpl: IsLinkageImpl> {
-    instructions: Vec<Instruction<LinkageImpl>>,
-}
-
-#[derive(Debug)]
-pub struct InstructionStorage<LinkageImpl: IsLinkageImpl> {
-    instruction_blocks: Vec<InstructionBlock<LinkageImpl>>,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct InstructionBlockId<LinkageImpl: IsLinkageImpl>(ShiftedU32, PhantomData<LinkageImpl>);
-
-impl<LinkageImpl: IsLinkageImpl> InstructionBlockId<LinkageImpl> {
-    fn index(self) -> usize {
-        self.0.into()
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct InstructionId<LinkageImpl: IsLinkageImpl>(InstructionBlockId<LinkageImpl>, ShiftedU32);
-
-impl<LinkageImpl: IsLinkageImpl> std::ops::Index<InstructionBlockId<LinkageImpl>>
-    for InstructionStorage<LinkageImpl>
-{
-    type Output = InstructionBlock<LinkageImpl>;
-
-    fn index(&self, id: InstructionBlockId<LinkageImpl>) -> &Self::Output {
-        &self.instruction_blocks[id.index()]
-    }
-}
+pub type InstructionArena = Arena<Instruction>;
+pub type InstructionIdx = ArenaIdx<Instruction>;
+pub type InstructionIdxRange = ArenaIdxRange<Instruction>;
