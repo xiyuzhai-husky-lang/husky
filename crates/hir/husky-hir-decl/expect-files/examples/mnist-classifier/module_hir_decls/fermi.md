@@ -364,8 +364,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
                 TypeMemoizedFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
@@ -378,8 +378,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                 ),
                             ),
@@ -416,8 +416,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
                 TypeMemoizedFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
@@ -430,8 +430,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
                                 ),
                             ),
@@ -468,8 +468,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
                 TypeMemoizedFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
@@ -482,8 +482,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
                                 ),
                             ),

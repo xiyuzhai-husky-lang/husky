@@ -5,16 +5,16 @@ use super::*;
 impl TranspileToRustWith for TypeItemHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         match self {
-            TypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.transpile_to_rust(builder),
+            TypeItemHirDefn::AssocFn(hir_defn) => hir_defn.transpile_to_rust(builder),
             TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.transpile_to_rust(builder),
-            TypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.transpile_to_rust(builder),
-            TypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.transpile_to_rust(builder),
+            TypeItemHirDefn::AssocType(hir_defn) => hir_defn.transpile_to_rust(builder),
+            TypeItemHirDefn::AssocVal(hir_defn) => hir_defn.transpile_to_rust(builder),
             TypeItemHirDefn::MemoizedField(hir_defn) => hir_defn.transpile_to_rust(builder),
         }
     }
 }
 
-impl TranspileToRustWith for TypeAssociatedFnHirDefn {
+impl TranspileToRustWith for TypeAssocFnHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let Some((body, hir_eager_expr_region)) = self.eager_body_with_hir_eager_expr_region(db)
@@ -65,13 +65,13 @@ impl TranspileToRustWith for TypeMethodFnHirDecl {
     }
 }
 
-impl TranspileToRustWith for TypeAssociatedTypeHirDefn {
+impl TranspileToRustWith for TypeAssocTypeHirDefn {
     fn transpile_to_rust(self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
 }
 
-impl TranspileToRustWith for TypeAssociatedValHirDefn {
+impl TranspileToRustWith for TypeAssocValHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);

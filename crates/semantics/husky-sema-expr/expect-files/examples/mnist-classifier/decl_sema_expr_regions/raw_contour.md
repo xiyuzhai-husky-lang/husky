@@ -4529,12 +4529,12 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -4558,12 +4558,12 @@
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TraitForTypeItem(
                         TraitForTypeItemPath(
                             ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TraitForTypeItem(
+                                data: ItemPathData::AssocItem(
+                                    AssocItemPathData::TraitForTypeItem(
                                         TraitForTypeItemPathData {
                                             impl_block: TraitForTypeImplBlock {
                                                 data: TraitForTypeImplBlockPathData {
@@ -4903,16 +4903,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
                     ),
                 ),
@@ -5057,16 +5057,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                     ),
                 ),
@@ -5211,16 +5211,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                     ),
                 ),
@@ -5365,16 +5365,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
                     ),
                 ),
@@ -5519,16 +5519,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
                     ),
                 ),

@@ -206,15 +206,15 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
+                                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocFunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -341,15 +341,15 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
+                                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocFunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -603,15 +603,15 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
+                                                            path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocFunctionFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -903,12 +903,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
@@ -1038,12 +1038,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
@@ -1133,12 +1133,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
@@ -1304,12 +1304,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
@@ -1439,12 +1439,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
@@ -1622,12 +1622,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
@@ -1867,12 +1867,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
@@ -2002,12 +2002,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
@@ -2097,12 +2097,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
@@ -2311,12 +2311,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
@@ -2446,12 +2446,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
@@ -2629,12 +2629,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
@@ -2816,12 +2816,12 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
@@ -2951,12 +2951,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
@@ -3046,12 +3046,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
@@ -3217,12 +3217,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
@@ -3352,12 +3352,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
@@ -3535,12 +3535,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
@@ -3780,12 +3780,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
@@ -3915,12 +3915,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
@@ -4010,12 +4010,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
@@ -4224,12 +4224,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
@@ -4359,12 +4359,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
@@ -4542,12 +4542,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
@@ -4747,12 +4747,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
@@ -4882,12 +4882,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
@@ -5065,12 +5065,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
@@ -5270,12 +5270,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
@@ -5405,12 +5405,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
@@ -5588,12 +5588,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
@@ -6246,12 +6246,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
@@ -6381,12 +6381,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
@@ -6564,12 +6564,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
@@ -6721,12 +6721,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
@@ -6856,12 +6856,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
@@ -7118,12 +7118,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
@@ -8246,12 +8246,12 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
@@ -8381,12 +8381,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
@@ -8564,12 +8564,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
@@ -9233,12 +9233,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
@@ -9368,12 +9368,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
@@ -9551,12 +9551,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
@@ -9874,12 +9874,12 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
@@ -10009,12 +10009,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
@@ -10192,12 +10192,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
@@ -10471,12 +10471,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
@@ -10606,12 +10606,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
@@ -10789,12 +10789,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
@@ -11068,12 +11068,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
@@ -11203,12 +11203,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
@@ -11298,12 +11298,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
@@ -11414,12 +11414,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
@@ -11549,12 +11549,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
@@ -11644,12 +11644,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
@@ -11760,12 +11760,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
@@ -11895,12 +11895,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
@@ -11990,12 +11990,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
@@ -12106,12 +12106,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
@@ -12241,12 +12241,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
@@ -12336,12 +12336,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
@@ -12482,12 +12482,12 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
@@ -12617,12 +12617,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
@@ -12712,12 +12712,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
@@ -12828,12 +12828,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
@@ -12963,12 +12963,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
@@ -13058,12 +13058,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
@@ -13174,12 +13174,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
@@ -13309,12 +13309,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
@@ -13404,12 +13404,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
@@ -13520,12 +13520,12 @@
         ),
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
@@ -13655,12 +13655,12 @@
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
@@ -13750,12 +13750,12 @@
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::AssociatedItem(
-                                AssociatedItemSynNodePath::TypeItem(
+                            ItemSynNodePath::AssocItem(
+                                AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
                                         ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssociatedItem(
-                                                AssociatedItemSynNodePathData::TypeItem(
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),

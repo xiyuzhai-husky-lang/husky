@@ -190,8 +190,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
@@ -220,8 +220,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                 ),
                             ),
@@ -274,8 +274,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
@@ -318,8 +318,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                                 ),
                             ),
@@ -385,8 +385,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
@@ -442,8 +442,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
                                 ),
                             ),
@@ -496,8 +496,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
@@ -553,8 +553,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
                                 ),
                             ),
@@ -607,8 +607,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
@@ -649,8 +649,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
                                 ),
                             ),
@@ -703,8 +703,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
@@ -755,8 +755,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
                                 ),
                             ),
@@ -809,8 +809,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
@@ -884,8 +884,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
                                 ),
                             ),
@@ -959,8 +959,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
@@ -1046,8 +1046,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
                                 ),
                             ),

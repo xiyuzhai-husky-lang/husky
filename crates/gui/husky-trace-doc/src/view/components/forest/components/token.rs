@@ -29,7 +29,7 @@ where
         let label_response = label.ui(ui);
         if let Some(associated_trace_id) = token_data.associated_trace_id() {
             if label_response.clicked() {
-                self.add_action(TraceViewAction::ToggleAssociatedTrace {
+                self.add_action(TraceViewAction::ToggleAssocTrace {
                     trace_id,
                     associated_trace_id,
                 })

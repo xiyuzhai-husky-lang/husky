@@ -13,7 +13,7 @@ pub enum TraceViewAction<TraceProtocol: IsTraceProtocol> {
     Marker {
         _marker: PhantomData<TraceProtocol>,
     },
-    ToggleAssociatedTrace {
+    ToggleAssocTrace {
         trace_id: TraceId,
         associated_trace_id: TraceId,
     },

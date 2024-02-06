@@ -1,30 +1,30 @@
 use super::*;
-use husky_hir_decl::decl::TypeAssociatedValHirDecl;
+use husky_hir_decl::decl::TypeAssocValHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
-pub struct TypeAssociatedValHirDefn {
+pub struct TypeAssocValHirDefn {
     pub path: TypeItemPath,
-    pub hir_decl: TypeAssociatedValHirDecl,
+    pub hir_decl: TypeAssocValHirDecl,
     pub hir_expr_region: Option<HirExprRegion>,
 }
 
-impl From<TypeAssociatedValHirDefn> for AssociatedItemHirDefn {
-    fn from(hir_defn: TypeAssociatedValHirDefn) -> Self {
-        AssociatedItemHirDefn::TypeItem(hir_defn.into())
+impl From<TypeAssocValHirDefn> for AssocItemHirDefn {
+    fn from(hir_defn: TypeAssocValHirDefn) -> Self {
+        AssocItemHirDefn::TypeItem(hir_defn.into())
     }
 }
 
-impl From<TypeAssociatedValHirDefn> for HirDefn {
-    fn from(hir_defn: TypeAssociatedValHirDefn) -> Self {
-        HirDefn::AssociatedItem(hir_defn.into())
+impl From<TypeAssocValHirDefn> for HirDefn {
+    fn from(hir_defn: TypeAssocValHirDefn) -> Self {
+        HirDefn::AssocItem(hir_defn.into())
     }
 }
 
-impl TypeAssociatedValHirDefn {
+impl TypeAssocValHirDefn {
     pub(super) fn new(
         _db: &::salsa::Db,
         _path: TypeItemPath,
-        _hir_decl: TypeAssociatedValHirDecl,
+        _hir_decl: TypeAssocValHirDecl,
     ) -> Self {
         todo!()
     }
@@ -41,7 +41,7 @@ impl TypeAssociatedValHirDefn {
 #[salsa::tracked(jar = HirDefnJar)]
 fn ty_associated_val_hir_defn_dependencies(
     db: &::salsa::Db,
-    hir_defn: TypeAssociatedValHirDefn,
+    hir_defn: TypeAssocValHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
@@ -57,7 +57,7 @@ fn ty_associated_val_hir_defn_dependencies(
 #[salsa::tracked(jar = HirDefnJar)]
 fn ty_associated_val_hir_defn_version_stamp(
     db: &::salsa::Db,
-    hir_defn: TypeAssociatedValHirDefn,
+    hir_defn: TypeAssocValHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

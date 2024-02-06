@@ -8,15 +8,15 @@ pub struct TypeMethodFnHirDefn {
     pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
-impl From<TypeMethodFnHirDefn> for AssociatedItemHirDefn {
+impl From<TypeMethodFnHirDefn> for AssocItemHirDefn {
     fn from(hir_defn: TypeMethodFnHirDefn) -> Self {
-        AssociatedItemHirDefn::TypeItem(hir_defn.into())
+        AssocItemHirDefn::TypeItem(hir_defn.into())
     }
 }
 
 impl From<TypeMethodFnHirDefn> for HirDefn {
     fn from(hir_defn: TypeMethodFnHirDefn) -> Self {
-        HirDefn::AssociatedItem(hir_defn.into())
+        HirDefn::AssocItem(hir_defn.into())
     }
 }
 

@@ -154,7 +154,7 @@ where
                 Some(TraceSynchrotronToggleExpansion::new(trace_id).into())
             }
             TraceViewAction::Marker { _marker } => todo!(),
-            TraceViewAction::ToggleAssociatedTrace {
+            TraceViewAction::ToggleAssocTrace {
                 trace_id,
                 associated_trace_id,
             } => {
@@ -164,7 +164,7 @@ where
                 {
                     return None;
                 }
-                Some(TraceSynchrotronAction::ToggleAssociatedTrace {
+                Some(TraceSynchrotronAction::ToggleAssocTrace {
                     trace_id,
                     associated_trace_id,
                 })

@@ -14,6 +14,9 @@ doctest = false
 idx-arena.workspace = true
 salsa.workspace = true
 shifted-unsigned-int.workspace = true
+# hir
+husky-hir-opr.workspace = true
+husky-hir-eager-expr.workspace = true
 # kernel
 husky-entity-path.workspace = true
 husky-eth-term.workspace = true

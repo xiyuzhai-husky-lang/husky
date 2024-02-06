@@ -7,7 +7,7 @@ pub enum SubitemPath {
     // submodules, module items, type variants
     Principal(PrincipalEntityPath),
     // associated items
-    Associated,
+    Assoc,
 }
 
 pub(crate) fn subitem_path(
@@ -34,10 +34,10 @@ pub(crate) fn subitem_path(
                     if let Some((_, path)) = path.ty_variant_paths(db).get_entry(ident).copied() {
                         Ok(SubitemPath::Principal(path.into()))
                     } else {
-                        Ok(SubitemPath::Associated)
+                        Ok(SubitemPath::Assoc)
                     }
                 }
-                MajorItemPath::Trait(_) => Ok(SubitemPath::Associated),
+                MajorItemPath::Trait(_) => Ok(SubitemPath::Assoc),
                 MajorItemPath::Fugitive(_) => {
                     Err(OriginalEntityTreeError::NoSubitemForFugitive.into())
                 }

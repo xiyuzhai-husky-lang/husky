@@ -16,7 +16,7 @@ pub struct TraitItemSynNodePathData {
 
 impl From<TraitItemSynNodePath> for ItemSynNodePath {
     fn from(path: TraitItemSynNodePath) -> Self {
-        ItemSynNodePath::AssociatedItem(path.into())
+        ItemSynNodePath::AssocItem(path.into())
     }
 }
 
@@ -29,7 +29,7 @@ impl TraitItemSynNodePath {
     ) -> Self {
         Self(ItemSynNodePathId::new(
             db,
-            ItemSynNodePathData::AssociatedItem(AssociatedItemSynNodePathData::TraitItem(
+            ItemSynNodePathData::AssocItem(AssocItemSynNodePathData::TraitItem(
                 TraitItemSynNodePathData {
                     parent_trai_syn_node_path,
                     maybe_ambiguous_path: registry.issue_maybe_ambiguous_path(path),
@@ -40,16 +40,14 @@ impl TraitItemSynNodePath {
 
     pub fn path(self, db: &::salsa::Db) -> Option<TraitItemPath> {
         Some(match self.0.path(db)? {
-            ItemPath::AssociatedItem(AssociatedItemPath::TraitItem(path)) => path,
+            ItemPath::AssocItem(AssocItemPath::TraitItem(path)) => path,
             _ => unreachable!(),
         })
     }
 
     pub fn data(self, db: &::salsa::Db) -> TraitItemSynNodePathData {
         match self.0.data(db) {
-            ItemSynNodePathData::AssociatedItem(AssociatedItemSynNodePathData::TraitItem(data)) => {
-                data
-            }
+            ItemSynNodePathData::AssocItem(AssocItemSynNodePathData::TraitItem(data)) => data,
             _ => unreachable!(),
         }
     }
@@ -104,7 +102,7 @@ impl HasSynNodePath for TraitItemPath {
     fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
         TraitItemSynNodePath(ItemSynNodePathId::new(
             db,
-            ItemSynNodePathData::AssociatedItem(AssociatedItemSynNodePathData::TraitItem(
+            ItemSynNodePathData::AssocItem(AssocItemSynNodePathData::TraitItem(
                 TraitItemSynNodePathData {
                     parent_trai_syn_node_path: self.trai_path(db).syn_node_path(db),
                     maybe_ambiguous_path: MaybeAmbiguousPath::from_path(self),
@@ -191,8 +189,8 @@ pub(crate) fn trai_item_syn_nodes(
                     is_generic,
                     ..
                 } => {
-                    let EntityKind::AssociatedItem {
-                        associated_item_kind: AssociatedItemKind::TraitItem(item_kind),
+                    let EntityKind::AssocItem {
+                        associated_item_kind: AssocItemKind::TraitItem(item_kind),
                     } = item_kind
                     else {
                         unreachable!()

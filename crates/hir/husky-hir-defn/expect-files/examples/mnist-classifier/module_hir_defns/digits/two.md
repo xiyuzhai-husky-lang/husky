@@ -186,7 +186,7 @@
                                                 self_argument: 1,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -500,7 +500,7 @@
                                                 self_argument: 1,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -814,7 +814,7 @@
                                                 self_argument: 1,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {

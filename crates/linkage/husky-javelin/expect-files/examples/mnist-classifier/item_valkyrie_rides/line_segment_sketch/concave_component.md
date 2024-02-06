@@ -178,12 +178,12 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TraitForTypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
+                        data: ItemPathData::AssocItem(
+                            AssocItemPathData::TraitForTypeItem(
                                 TraitForTypeItemPathData {
                                     impl_block: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
@@ -245,8 +245,8 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
             ),
         ),
@@ -258,8 +258,8 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
             ),
         ),
@@ -271,8 +271,8 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
             ),
         ),
@@ -387,8 +387,8 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
             ),
         ),
@@ -469,8 +469,8 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
             ),
         ),
@@ -585,8 +585,8 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
             ),
         ),
@@ -598,8 +598,8 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`, `MethodFn`),
             ),
         ),
@@ -649,8 +649,8 @@
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -731,8 +731,8 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`, `MethodFn`),
             ),
         ),
@@ -782,8 +782,8 @@
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -830,8 +830,8 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
             ),
         ),
@@ -881,8 +881,8 @@
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -929,8 +929,8 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
             ),
         ),
@@ -946,8 +946,8 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodFn`),
             ),
         ),
@@ -998,8 +998,8 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`, `MethodFn`),
             ),
         ),

@@ -11,7 +11,7 @@ AstSheet {
                         `core::visual`,
                     ),
                 },
-                item_kind: AssociatedItem {
+                item_kind: AssocItem {
                     associated_item_kind: TraitItem(
                         MethodFn,
                     ),
@@ -29,7 +29,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::AssociatedItem {
+                block: DefnBlock::AssocItem {
                     body: None,
                 },
             },
@@ -43,7 +43,7 @@ AstSheet {
                         `core::visual`,
                     ),
                 },
-                item_kind: AssociatedItem {
+                item_kind: AssocItem {
                     associated_item_kind: TraitForTypeItem(
                         MethodFn,
                     ),
@@ -61,7 +61,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::AssociatedItem {
+                block: DefnBlock::AssocItem {
                     body: None,
                 },
             },

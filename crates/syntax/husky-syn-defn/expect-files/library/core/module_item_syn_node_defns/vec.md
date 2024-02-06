@@ -101,12 +101,12 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
@@ -122,12 +122,12 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
@@ -143,12 +143,12 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
@@ -164,12 +164,12 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
@@ -185,12 +185,12 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
@@ -206,12 +206,12 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
@@ -227,12 +227,12 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
@@ -248,12 +248,12 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),

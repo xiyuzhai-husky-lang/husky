@@ -327,7 +327,7 @@
                                                 self_argument: 1,
                                                 self_contract: Leash,
                                                 ident: `collect_leashes`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -416,7 +416,7 @@
                                                 self_argument: 4,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -580,7 +580,7 @@
                                                 self_argument: 10,
                                                 self_contract: BorrowMut,
                                                 ident: `pop_with_largest_opt_f32`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -663,7 +663,7 @@
                                                 self_argument: 9,
                                                 self_contract: BorrowMut,
                                                 ident: `push`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -1083,8 +1083,8 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TypeItem(
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
                     path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
@@ -1099,8 +1099,8 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                     ),
                                 ),
@@ -1139,8 +1139,8 @@
                             15,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
-                                    ItemPath::AssociatedItem(
-                                        AssociatedItemPath::TypeItem(
+                                    ItemPath::AssocItem(
+                                        AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                         ),
                                     ),
@@ -1208,7 +1208,7 @@
                                                 self_argument: 3,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -1350,7 +1350,7 @@
                                             data: HirEagerExprData::MemoizedField {
                                                 owner_hir_expr_idx: 10,
                                                 ident: `norm`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
                                                 ),
                                             },
@@ -1362,7 +1362,7 @@
                                                 self_argument: 6,
                                                 self_contract: Pure,
                                                 ident: `max`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -1556,8 +1556,8 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TypeItem(
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
                     path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
@@ -1572,8 +1572,8 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
                                     ),
                                 ),
@@ -1612,8 +1612,8 @@
                             15,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
-                                    ItemPath::AssociatedItem(
-                                        AssociatedItemPath::TypeItem(
+                                    ItemPath::AssocItem(
+                                        AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
                                         ),
                                     ),
@@ -1681,7 +1681,7 @@
                                                 self_argument: 3,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -1823,7 +1823,7 @@
                                             data: HirEagerExprData::MemoizedField {
                                                 owner_hir_expr_idx: 10,
                                                 ident: `rel_norm`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
                                                 ),
                                             },
@@ -1835,7 +1835,7 @@
                                                 self_argument: 6,
                                                 self_contract: Pure,
                                                 ident: `max`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -2029,8 +2029,8 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TypeItem(
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
                     path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
@@ -2045,8 +2045,8 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
                                     ),
                                 ),
@@ -2085,8 +2085,8 @@
                             16,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
-                                    ItemPath::AssociatedItem(
-                                        AssociatedItemPath::TypeItem(
+                                    ItemPath::AssocItem(
+                                        AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
                                         ),
                                     ),
@@ -2154,7 +2154,7 @@
                                                 self_argument: 3,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -2296,7 +2296,7 @@
                                             data: HirEagerExprData::MemoizedField {
                                                 owner_hir_expr_idx: 10,
                                                 ident: `angle_change`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
                                                 ),
                                             },
@@ -2308,7 +2308,7 @@
                                                 self_argument: 11,
                                                 self_contract: Pure,
                                                 ident: `abs`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -2327,7 +2327,7 @@
                                                 self_argument: 6,
                                                 self_contract: Pure,
                                                 ident: `max`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {

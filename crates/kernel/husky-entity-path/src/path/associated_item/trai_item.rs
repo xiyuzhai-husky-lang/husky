@@ -23,7 +23,7 @@ impl TraitItemPath {
     ) -> Self {
         Self(ItemPathId::new(
             db,
-            ItemPathData::AssociatedItem(AssociatedItemPathData::TraitItem(TraitItemPathData {
+            ItemPathData::AssocItem(AssocItemPathData::TraitItem(TraitItemPathData {
                 trai_path,
                 ident,
                 item_kind,
@@ -33,7 +33,7 @@ impl TraitItemPath {
 
     pub fn data(self, db: &::salsa::Db) -> TraitItemPathData {
         match self.0.data(db) {
-            ItemPathData::AssociatedItem(AssociatedItemPathData::TraitItem(data)) => data,
+            ItemPathData::AssocItem(AssocItemPathData::TraitItem(data)) => data,
             _ => unreachable!(),
         }
     }
@@ -85,8 +85,8 @@ impl TraitItemPathData {
     }
 
     pub fn entity_kind(self, _db: &::salsa::Db) -> EntityKind {
-        EntityKind::AssociatedItem {
-            associated_item_kind: AssociatedItemKind::TraitItem(self.item_kind),
+        EntityKind::AssocItem {
+            associated_item_kind: AssocItemKind::TraitItem(self.item_kind),
         }
     }
 }

@@ -28,40 +28,40 @@
         None,
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodFn`),
             ),
         ),
         None,
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodFn`),
             ),
         ),
         None,
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
             ),
         ),
         None,
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
             ),
         ),
         None,
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodFn`),
             ),
         ),

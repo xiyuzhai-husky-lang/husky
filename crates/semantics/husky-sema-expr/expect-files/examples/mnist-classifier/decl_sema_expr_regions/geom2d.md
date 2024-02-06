@@ -1907,17 +1907,17 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocFunctionFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
+                        TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocFunctionFn`),
                     ),
                 ),
             ),
@@ -2271,16 +2271,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
                     ),
                 ),
@@ -2425,16 +2425,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                     ),
                 ),
@@ -2685,16 +2685,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
                     ),
                 ),
@@ -2839,16 +2839,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
                     ),
                 ),
@@ -3277,16 +3277,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
                     ),
                 ),
@@ -3431,16 +3431,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
                     ),
                 ),
@@ -3691,16 +3691,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                     ),
                 ),
@@ -3845,16 +3845,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
                     ),
                 ),
@@ -4105,16 +4105,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
                     ),
                 ),
@@ -4365,16 +4365,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
                     ),
                 ),
@@ -4625,16 +4625,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
                     ),
                 ),
@@ -4885,16 +4885,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
                     ),
                 ),
@@ -5427,16 +5427,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
                     ),
                 ),
@@ -5687,16 +5687,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
                     ),
                 ),
@@ -6125,16 +6125,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
                     ),
                 ),
@@ -6385,16 +6385,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
                     ),
                 ),
@@ -6645,16 +6645,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
                     ),
                 ),
@@ -6799,16 +6799,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
                     ),
                 ),
@@ -6953,16 +6953,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                     ),
                 ),
@@ -7107,16 +7107,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
                     ),
                 ),
@@ -7439,16 +7439,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
                     ),
                 ),
@@ -7593,16 +7593,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
                     ),
                 ),
@@ -7747,16 +7747,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
                     ),
                 ),
@@ -7901,16 +7901,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                     ),
                 ),

@@ -1,12 +1,12 @@
 [
     SemaExprRegion {
         path: RegionPath::Defn(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -30,12 +30,12 @@
         ),
         data: SemaExprRegionData {
             path: RegionPath::Defn(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TraitForTypeItem(
                         TraitForTypeItemPath(
                             ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TraitForTypeItem(
+                                data: ItemPathData::AssocItem(
+                                    AssocItemPathData::TraitForTypeItem(
                                         TraitForTypeItemPathData {
                                             impl_block: TraitForTypeImplBlock {
                                                 data: TraitForTypeImplBlockPathData {
@@ -231,11 +231,11 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TraitForTypeItem(
+                                                path: AssocItemPath::TraitForTypeItem(
                                                     TraitForTypeItemPath(
                                                         ItemPathId {
-                                                            data: ItemPathData::AssociatedItem(
-                                                                AssociatedItemPathData::TraitForTypeItem(
+                                                            data: ItemPathData::AssocItem(
+                                                                AssocItemPathData::TraitForTypeItem(
                                                                     TraitForTypeItemPathData {
                                                                         impl_block: TraitForTypeImplBlock {
                                                                             data: TraitForTypeImplBlockPathData {

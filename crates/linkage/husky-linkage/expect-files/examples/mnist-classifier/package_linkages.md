@@ -166,7 +166,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -179,7 +179,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -192,7 +192,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -205,7 +205,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -218,7 +218,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -231,7 +231,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -244,7 +244,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -257,7 +257,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -270,7 +270,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -283,7 +283,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -459,7 +459,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -472,7 +472,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -485,7 +485,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -498,7 +498,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -511,7 +511,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -781,9 +781,9 @@
         },
     },
     Linkage {
-        data: LinkageData::AssociatedFunctionFn {
-            path: AssociatedItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
+        data: LinkageData::AssocFunctionFn {
+            path: AssocItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocFunctionFn`),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -795,7 +795,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -808,7 +808,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -821,7 +821,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -834,7 +834,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -847,7 +847,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -860,7 +860,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -873,7 +873,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -886,7 +886,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -899,7 +899,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -912,7 +912,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -925,7 +925,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -938,7 +938,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -951,7 +951,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -964,7 +964,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -977,7 +977,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -990,7 +990,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1003,7 +1003,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1016,7 +1016,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1029,7 +1029,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1042,7 +1042,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1055,7 +1055,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1068,7 +1068,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1081,7 +1081,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1094,7 +1094,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1254,9 +1254,9 @@
         },
     },
     Linkage {
-        data: LinkageData::AssociatedFunctionFn {
-            path: AssociatedItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
+        data: LinkageData::AssocFunctionFn {
+            path: AssocItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1268,7 +1268,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1281,7 +1281,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -1294,7 +1294,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -1306,9 +1306,9 @@
         },
     },
     Linkage {
-        data: LinkageData::AssociatedFunctionFn {
-            path: AssociatedItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssociatedFunctionFn`),
+        data: LinkageData::AssocFunctionFn {
+            path: AssocItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocFunctionFn`),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1372,7 +1372,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -1385,7 +1385,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -1398,7 +1398,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -1411,7 +1411,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -1424,7 +1424,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -1437,7 +1437,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -1450,7 +1450,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1463,7 +1463,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1476,7 +1476,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1489,7 +1489,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1502,7 +1502,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1515,7 +1515,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1623,7 +1623,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1636,7 +1636,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -1701,7 +1701,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -1714,7 +1714,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -1727,7 +1727,7 @@
     },
     Linkage {
         data: LinkageData::MemoizedField {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
             ),
             instantiation: LinInstantiation {
@@ -2207,12 +2207,12 @@
         },
     },
     Linkage {
-        data: LinkageData::AssociatedFunctionFn {
-            path: AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::AssocFunctionFn {
+            path: AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
+                        data: ItemPathData::AssocItem(
+                            AssocItemPathData::TraitForTypeItem(
                                 TraitForTypeItemPathData {
                                     impl_block: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
@@ -2225,7 +2225,7 @@
                                         },
                                     },
                                     ident: `unveil`,
-                                    item_kind: AssociatedFunctionFn,
+                                    item_kind: AssocFunctionFn,
                                 },
                             ),
                         ),
@@ -2264,11 +2264,11 @@
         },
     },
     Linkage {
-        data: LinkageData::UnveilAssociatedFunctionFn {
+        data: LinkageData::UnveilAssocFunctionFn {
             path: TraitForTypeItemPath(
                 ItemPathId {
-                    data: ItemPathData::AssociatedItem(
-                        AssociatedItemPathData::TraitForTypeItem(
+                    data: ItemPathData::AssocItem(
+                        AssocItemPathData::TraitForTypeItem(
                             TraitForTypeItemPathData {
                                 impl_block: TraitForTypeImplBlock {
                                     data: TraitForTypeImplBlockPathData {
@@ -2281,7 +2281,7 @@
                                     },
                                 },
                                 ident: `unveil`,
-                                item_kind: AssociatedFunctionFn,
+                                item_kind: AssocFunctionFn,
                             },
                         ),
                     ),
@@ -2330,11 +2330,11 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TraitForTypeItem(
+            path: AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
+                        data: ItemPathData::AssocItem(
+                            AssocItemPathData::TraitForTypeItem(
                                 TraitForTypeItemPathData {
                                     impl_block: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
@@ -2379,7 +2379,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -2421,7 +2421,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -2485,7 +2485,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -2527,7 +2527,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -2569,7 +2569,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -2605,7 +2605,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -2661,7 +2661,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -2705,7 +2705,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -2749,7 +2749,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -2791,7 +2791,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -2833,7 +2833,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -2875,7 +2875,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -2911,11 +2911,11 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TraitForTypeItem(
+            path: AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
+                        data: ItemPathData::AssocItem(
+                            AssocItemPathData::TraitForTypeItem(
                                 TraitForTypeItemPathData {
                                     impl_block: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
@@ -2960,7 +2960,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3006,7 +3006,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3042,7 +3042,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3086,7 +3086,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3130,7 +3130,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3166,7 +3166,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3208,7 +3208,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3244,7 +3244,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3286,7 +3286,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3330,7 +3330,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3374,7 +3374,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3420,7 +3420,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3456,7 +3456,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3498,7 +3498,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3534,7 +3534,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3570,7 +3570,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3606,7 +3606,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3642,7 +3642,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3706,7 +3706,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3742,7 +3742,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3784,7 +3784,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3826,7 +3826,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3897,7 +3897,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
             ),
             instantiation: LinInstantiation {
@@ -3975,7 +3975,7 @@
     },
     Linkage {
         data: LinkageData::MethodFn {
-            path: AssociatedItemPath::TypeItem(
+            path: AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
             ),
             instantiation: LinInstantiation {

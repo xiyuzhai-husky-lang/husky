@@ -15,7 +15,7 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssociatedItem {
+                item_kind: AssocItem {
                     associated_item_kind: TypeItem(
                         MethodFn,
                     ),
@@ -33,7 +33,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::AssociatedItem {
+                block: DefnBlock::AssocItem {
                     body: None,
                 },
             },
@@ -51,7 +51,7 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssociatedItem {
+                item_kind: AssocItem {
                     associated_item_kind: TypeItem(
                         MethodFn,
                     ),
@@ -69,7 +69,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::AssociatedItem {
+                block: DefnBlock::AssocItem {
                     body: None,
                 },
             },
@@ -83,9 +83,9 @@ AstSheet {
                         `core::slice`,
                     ),
                 },
-                item_kind: AssociatedItem {
+                item_kind: AssocItem {
                     associated_item_kind: TraitForTypeItem(
-                        AssociatedType,
+                        AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -101,7 +101,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::AssociatedItem {
+                block: DefnBlock::AssocItem {
                     body: None,
                 },
             },
@@ -119,7 +119,7 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssociatedItem {
+                item_kind: AssocItem {
                     associated_item_kind: TypeItem(
                         MethodFn,
                     ),
@@ -137,7 +137,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::AssociatedItem {
+                block: DefnBlock::AssocItem {
                     body: None,
                 },
             },
@@ -155,7 +155,7 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssociatedItem {
+                item_kind: AssocItem {
                     associated_item_kind: TypeItem(
                         MethodFn,
                     ),
@@ -173,7 +173,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::AssociatedItem {
+                block: DefnBlock::AssocItem {
                     body: None,
                 },
             },
@@ -191,7 +191,7 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssociatedItem {
+                item_kind: AssocItem {
                     associated_item_kind: TypeItem(
                         MethodFn,
                     ),
@@ -209,7 +209,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::AssociatedItem {
+                block: DefnBlock::AssocItem {
                     body: None,
                 },
             },
@@ -227,7 +227,7 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssociatedItem {
+                item_kind: AssocItem {
                     associated_item_kind: TypeItem(
                         MethodFn,
                     ),
@@ -245,7 +245,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::AssociatedItem {
+                block: DefnBlock::AssocItem {
                     body: None,
                 },
             },
@@ -263,7 +263,7 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssociatedItem {
+                item_kind: AssocItem {
                     associated_item_kind: TypeItem(
                         MethodFn,
                     ),
@@ -281,7 +281,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::AssociatedItem {
+                block: DefnBlock::AssocItem {
                     body: None,
                 },
             },

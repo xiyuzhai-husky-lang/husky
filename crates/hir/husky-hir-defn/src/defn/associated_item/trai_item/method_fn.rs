@@ -8,15 +8,15 @@ pub struct TraitMethodFnHirDefn {
     pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
-impl From<TraitMethodFnHirDefn> for AssociatedItemHirDefn {
+impl From<TraitMethodFnHirDefn> for AssocItemHirDefn {
     fn from(hir_defn: TraitMethodFnHirDefn) -> Self {
-        AssociatedItemHirDefn::TraitItem(hir_defn.into())
+        AssocItemHirDefn::TraitItem(hir_defn.into())
     }
 }
 
 impl From<TraitMethodFnHirDefn> for HirDefn {
     fn from(hir_defn: TraitMethodFnHirDefn) -> Self {
-        HirDefn::AssociatedItem(hir_defn.into())
+        HirDefn::AssocItem(hir_defn.into())
     }
 }
 

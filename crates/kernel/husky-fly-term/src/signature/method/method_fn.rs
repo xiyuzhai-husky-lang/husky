@@ -5,7 +5,7 @@ use husky_regional_token::IdentRegionalToken;
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct MethodFnFlySignature {
-    pub path: AssociatedItemPath,
+    pub path: AssocItemPath,
     pub self_value_parameter: FlyRitchieRegularParameter,
     pub parenate_parameters: SmallVec<[FlyRitchieParameter; 4]>,
     pub return_ty: FlyTerm,
@@ -53,7 +53,7 @@ impl MethodFnFlySignature {
         self.return_ty
     }
 
-    pub fn path(&self) -> AssociatedItemPath {
+    pub fn path(&self) -> AssocItemPath {
         self.path
     }
 }
@@ -100,7 +100,7 @@ pub(crate) fn ty_method_fly_signature<Term: Copy + Into<FlyTerm>>(
             }
             Nothing
         }
-        TypeItemEthTemplates::AssociatedFn(_) => todo!(),
+        TypeItemEthTemplates::AssocFn(_) => todo!(),
         TypeItemEthTemplates::MemoizedField(_) => todo!(),
     }
 }

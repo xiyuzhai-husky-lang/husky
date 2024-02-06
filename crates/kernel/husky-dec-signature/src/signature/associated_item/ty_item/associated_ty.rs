@@ -1,18 +1,18 @@
 use crate::*;
 
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
-pub struct TypeAssociatedTypeDecTemplate {
+pub struct TypeAssocTypeDecTemplate {
     pub path: TypeItemPath,
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
 }
 
-impl TypeAssociatedTypeDecTemplate {
+impl TypeAssocTypeDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
         path: TypeItemPath,
-        decl: TypeAssociatedTypeSynDecl,
-    ) -> DecSignatureResult<TypeAssociatedTypeDecTemplate> {
+        decl: TypeAssocTypeSynDecl,
+    ) -> DecSignatureResult<TypeAssocTypeDecTemplate> {
         let syn_expr_region = decl.syn_expr_region(db);
         let declarative_term_region = syn_expr_dec_term_region(db, syn_expr_region);
         let declarative_term_menu = db
@@ -23,10 +23,6 @@ impl TypeAssociatedTypeDecTemplate {
             declarative_term_region,
             declarative_term_menu,
         );
-        Ok(TypeAssociatedTypeDecTemplate::new(
-            db,
-            path,
-            template_parameters,
-        ))
+        Ok(TypeAssocTypeDecTemplate::new(db, path, template_parameters))
     }
 }

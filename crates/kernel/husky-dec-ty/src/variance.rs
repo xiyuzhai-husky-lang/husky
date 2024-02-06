@@ -56,7 +56,7 @@ pub fn item_variances(db: &::salsa::Db, path: ItemPath) -> VarianceResultRef<&[V
                 // form_item_variances(db, path).as_ref().map(Vec::as_ref)
             }
         },
-        ItemPath::AssociatedItem(_) => todo!(),
+        ItemPath::AssocItem(_) => todo!(),
         ItemPath::TypeVariant(_, _) => todo!(),
         ItemPath::ImplBlock(_) => todo!(),
         ItemPath::Attr(_, _) => todo!(),

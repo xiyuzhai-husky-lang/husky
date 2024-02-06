@@ -248,7 +248,7 @@
                                                 self_argument: 1,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -338,7 +338,7 @@
                                             data: HirEagerExprData::MemoizedField {
                                                 owner_hir_expr_idx: 7,
                                                 ident: `bounding_box`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
                                                 ),
                                             },
@@ -350,7 +350,7 @@
                                                 self_argument: 8,
                                                 self_contract: Pure,
                                                 ident: `ymin`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -643,7 +643,7 @@
                                                 self_argument: 1,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -733,7 +733,7 @@
                                             data: HirEagerExprData::MemoizedField {
                                                 owner_hir_expr_idx: 7,
                                                 ident: `bounding_box`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
                                                 ),
                                             },
@@ -745,7 +745,7 @@
                                                 self_argument: 8,
                                                 self_contract: Pure,
                                                 ident: `ymin`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -1038,7 +1038,7 @@
                                                 self_argument: 1,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -1128,7 +1128,7 @@
                                             data: HirEagerExprData::MemoizedField {
                                                 owner_hir_expr_idx: 7,
                                                 ident: `bounding_box`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
                                                 ),
                                             },
@@ -1140,7 +1140,7 @@
                                                 self_argument: 8,
                                                 self_contract: Pure,
                                                 ident: `ymin`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {

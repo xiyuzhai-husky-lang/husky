@@ -783,18 +783,18 @@ SynNodeDeclSheet {
             ),
         ),
         (
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TraitForTypeItem(
+            ItemSynNodePath::AssocItem(
+                AssocItemSynNodePath::TraitForTypeItem(
                     TraitForTypeItemSynNodePath(
                         ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TraitForTypeItemPath(
                                                 ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TraitForTypeItem(
+                                                    data: ItemPathData::AssocItem(
+                                                        AssocItemPathData::TraitForTypeItem(
                                                             TraitForTypeItemPathData {
                                                                 impl_block: TraitForTypeImplBlock {
                                                                     data: TraitForTypeImplBlockPathData {
@@ -807,7 +807,7 @@ SynNodeDeclSheet {
                                                                     },
                                                                 },
                                                                 ident: `Continue`,
-                                                                item_kind: AssociatedType,
+                                                                item_kind: AssocType,
                                                             },
                                                         ),
                                                     ),
@@ -822,20 +822,20 @@ SynNodeDeclSheet {
                     ),
                 ),
             ),
-            ItemSynNodeDecl::AssociatedItem(
-                AssociatedItemSynNodeDecl::TraitForTypeItem(
-                    TraitForTypeItemSynNodeDecl::AssociatedType(
-                        TraitForTypeAssociatedTypeSynNodeDecl {
+            ItemSynNodeDecl::AssocItem(
+                AssocItemSynNodeDecl::TraitForTypeItem(
+                    TraitForTypeItemSynNodeDecl::AssocType(
+                        TraitForTypeAssocTypeSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitForTypeItemPath(
                                                         ItemPathId {
-                                                            data: ItemPathData::AssociatedItem(
-                                                                AssociatedItemPathData::TraitForTypeItem(
+                                                            data: ItemPathData::AssocItem(
+                                                                AssocItemPathData::TraitForTypeItem(
                                                                     TraitForTypeItemPathData {
                                                                         impl_block: TraitForTypeImplBlock {
                                                                             data: TraitForTypeImplBlockPathData {
@@ -848,7 +848,7 @@ SynNodeDeclSheet {
                                                                             },
                                                                         },
                                                                         ident: `Continue`,
-                                                                        item_kind: AssociatedType,
+                                                                        item_kind: AssocType,
                                                                     },
                                                                 ),
                                                             ),
@@ -1273,18 +1273,18 @@ SynNodeDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TraitForTypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TraitForTypeItemPath(
                                                                             ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                                data: ItemPathData::AssocItem(
+                                                                                    AssocItemPathData::TraitForTypeItem(
                                                                                         TraitForTypeItemPathData {
                                                                                             impl_block: TraitForTypeImplBlock {
                                                                                                 data: TraitForTypeImplBlockPathData {
@@ -1297,7 +1297,7 @@ SynNodeDeclSheet {
                                                                                                 },
                                                                                             },
                                                                                             ident: `Continue`,
-                                                                                            item_kind: AssociatedType,
+                                                                                            item_kind: AssocType,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -1409,7 +1409,7 @@ SynNodeDeclSheet {
                                     syn_pattern_expr_roots: [],
                                     syn_expr_roots: [
                                         SynExprRoot {
-                                            kind: SynExprRootKind::AssociatedTypeTerm,
+                                            kind: SynExprRootKind::AssocTypeTerm,
                                             syn_expr_idx: 1,
                                         },
                                     ],
@@ -1424,18 +1424,18 @@ SynNodeDeclSheet {
             ),
         ),
         (
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TraitForTypeItem(
+            ItemSynNodePath::AssocItem(
+                AssocItemSynNodePath::TraitForTypeItem(
                     TraitForTypeItemSynNodePath(
                         ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TraitForTypeItemPath(
                                                 ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TraitForTypeItem(
+                                                    data: ItemPathData::AssocItem(
+                                                        AssocItemPathData::TraitForTypeItem(
                                                             TraitForTypeItemPathData {
                                                                 impl_block: TraitForTypeImplBlock {
                                                                     data: TraitForTypeImplBlockPathData {
@@ -1448,7 +1448,7 @@ SynNodeDeclSheet {
                                                                     },
                                                                 },
                                                                 ident: `unveil`,
-                                                                item_kind: AssociatedFunctionFn,
+                                                                item_kind: AssocFunctionFn,
                                                             },
                                                         ),
                                                     ),
@@ -1463,20 +1463,20 @@ SynNodeDeclSheet {
                     ),
                 ),
             ),
-            ItemSynNodeDecl::AssociatedItem(
-                AssociatedItemSynNodeDecl::TraitForTypeItem(
-                    TraitForTypeItemSynNodeDecl::AssociatedFn(
-                        TraitForTypeAssociatedFnSynNodeDecl {
+            ItemSynNodeDecl::AssocItem(
+                AssocItemSynNodeDecl::TraitForTypeItem(
+                    TraitForTypeItemSynNodeDecl::AssocFn(
+                        TraitForTypeAssocFnSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitForTypeItemPath(
                                                         ItemPathId {
-                                                            data: ItemPathData::AssociatedItem(
-                                                                AssociatedItemPathData::TraitForTypeItem(
+                                                            data: ItemPathData::AssocItem(
+                                                                AssocItemPathData::TraitForTypeItem(
                                                                     TraitForTypeItemPathData {
                                                                         impl_block: TraitForTypeImplBlock {
                                                                             data: TraitForTypeImplBlockPathData {
@@ -1489,7 +1489,7 @@ SynNodeDeclSheet {
                                                                             },
                                                                         },
                                                                         ident: `unveil`,
-                                                                        item_kind: AssociatedFunctionFn,
+                                                                        item_kind: AssocFunctionFn,
                                                                     },
                                                                 ),
                                                             ),
@@ -1964,18 +1964,18 @@ SynNodeDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TraitForTypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TraitForTypeItemPath(
                                                                             ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                                data: ItemPathData::AssocItem(
+                                                                                    AssocItemPathData::TraitForTypeItem(
                                                                                         TraitForTypeItemPathData {
                                                                                             impl_block: TraitForTypeImplBlock {
                                                                                                 data: TraitForTypeImplBlockPathData {
@@ -1988,7 +1988,7 @@ SynNodeDeclSheet {
                                                                                                 },
                                                                                             },
                                                                                             ident: `unveil`,
-                                                                                            item_kind: AssociatedFunctionFn,
+                                                                                            item_kind: AssocFunctionFn,
                                                                                         },
                                                                                     ),
                                                                                 ),

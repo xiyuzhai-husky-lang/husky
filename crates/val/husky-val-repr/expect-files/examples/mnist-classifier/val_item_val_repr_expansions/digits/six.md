@@ -278,7 +278,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -347,7 +347,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -416,7 +416,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -513,7 +513,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -713,7 +713,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -782,7 +782,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -957,11 +957,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssociatedFunctionFn {
+                                data: LinkageData::UnveilAssocFunctionFn {
                                     path: TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -974,7 +974,7 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssociatedFunctionFn,
+                                                        item_kind: AssocFunctionFn,
                                                     },
                                                 ),
                                             ),
@@ -1259,7 +1259,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -1312,7 +1312,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -1492,7 +1492,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -1691,7 +1691,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -2321,11 +2321,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssociatedFunctionFn {
+                                data: LinkageData::UnveilAssocFunctionFn {
                                     path: TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -2338,7 +2338,7 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssociatedFunctionFn,
+                                                        item_kind: AssocFunctionFn,
                                                     },
                                                 ),
                                             ),
@@ -2455,7 +2455,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -2578,7 +2578,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -2631,7 +2631,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -2862,7 +2862,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -3057,11 +3057,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssociatedFunctionFn {
+                                data: LinkageData::UnveilAssocFunctionFn {
                                     path: TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -3074,7 +3074,7 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssociatedFunctionFn,
+                                                        item_kind: AssocFunctionFn,
                                                     },
                                                 ),
                                             ),
@@ -3130,7 +3130,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -3431,7 +3431,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -3601,11 +3601,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssociatedFunctionFn {
+                                data: LinkageData::UnveilAssocFunctionFn {
                                     path: TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -3618,7 +3618,7 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssociatedFunctionFn,
+                                                        item_kind: AssocFunctionFn,
                                                     },
                                                 ),
                                             ),
@@ -3693,7 +3693,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -3846,7 +3846,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -3980,7 +3980,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -4197,7 +4197,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -4247,7 +4247,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -4384,7 +4384,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -4565,7 +4565,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -4782,7 +4782,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -4832,7 +4832,7 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
-                                    path: AssociatedItemPath::TypeItem(
+                                    path: AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                                     ),
                                     instantiation: LinInstantiation {
@@ -5963,11 +5963,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssociatedFunctionFn {
+                                data: LinkageData::UnveilAssocFunctionFn {
                                     path: TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -5980,7 +5980,7 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssociatedFunctionFn,
+                                                        item_kind: AssocFunctionFn,
                                                     },
                                                 ),
                                             ),

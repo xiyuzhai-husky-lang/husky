@@ -99,12 +99,12 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TraitForTypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
+                        data: ItemPathData::AssocItem(
+                            AssocItemPathData::TraitForTypeItem(
                                 TraitForTypeItemPathData {
                                     impl_block: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
@@ -124,8 +124,8 @@
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TraitForTypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
                             self_ty: Symbol(

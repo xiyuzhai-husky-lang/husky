@@ -55,8 +55,8 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirType {
                 }
             }
             HirType::Symbol(symbol) => builder.hir_template_symbol(symbol),
-            HirType::TypeAssociatedType(_) => todo!(),
-            HirType::TraitAssociatedType(_) => todo!(),
+            HirType::TypeAssocType(_) => todo!(),
+            HirType::TraitAssocType(_) => todo!(),
             HirType::Ritchie(hir_ritchie_ty) => hir_ritchie_ty.transpile_to_rust(builder),
         }
     }

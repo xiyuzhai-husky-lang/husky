@@ -507,7 +507,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 );
                 (opn, arguments)
             }
-            HirLazyExprData::AssociatedFunctionFnCall {
+            HirLazyExprData::AssocFunctionFnCall {
                 path,
                 ref instantiation,
                 ref item_groups,
@@ -653,7 +653,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
             } => todo!(),
             HirLazyExprData::Todo => todo!(),
             HirLazyExprData::Unreachable => todo!(),
-            HirLazyExprData::AssociatedFn { .. } => todo!(),
+            HirLazyExprData::AssocFn { .. } => todo!(),
             HirLazyExprData::As { opd, ty } => todo!(),
         };
         val_domain_repr_guard.new_expr_val_repr(

@@ -607,14 +607,14 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TraitForTypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -658,12 +658,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TraitForTypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -787,8 +787,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
                 TypeMemoizedFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
@@ -811,8 +811,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
                                 ),
                             ),
@@ -849,8 +849,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
                 TypeMemoizedFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
@@ -863,8 +863,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                                 ),
                             ),
@@ -901,8 +901,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
                 TypeMemoizedFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
@@ -915,8 +915,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
                                 ),
                             ),
@@ -953,8 +953,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
                 TypeMemoizedFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
@@ -967,8 +967,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
                                 ),
                             ),
@@ -1005,8 +1005,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
                 TypeMemoizedFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
@@ -1019,8 +1019,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
                                 ),
                             ),
@@ -1057,8 +1057,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
                 TypeMemoizedFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
@@ -1071,8 +1071,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
                                 ),
                             ),
@@ -1109,8 +1109,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
                 TypeMemoizedFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
@@ -1123,8 +1123,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
                                 ),
                             ),
@@ -1161,8 +1161,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
                 TypeMemoizedFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
@@ -1175,8 +1175,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
                                 ),
                             ),
@@ -1213,8 +1213,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
@@ -1255,8 +1255,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
                                 ),
                             ),
@@ -1304,8 +1304,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
@@ -1346,8 +1346,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
                                 ),
                             ),

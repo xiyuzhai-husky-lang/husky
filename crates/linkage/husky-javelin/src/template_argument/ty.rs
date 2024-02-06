@@ -1,5 +1,3 @@
-
-
 use super::*;
 use husky_entity_path::TypePath;
 use husky_hir_ty::{
@@ -79,8 +77,8 @@ impl JavelinType {
             )
             .into(),
             HirType::Symbol(symbol) => javelin_instantiation.resolve_ty(symbol),
-            HirType::TypeAssociatedType(_) => todo!(),
-            HirType::TraitAssociatedType(_) => todo!(),
+            HirType::TypeAssocType(_) => todo!(),
+            HirType::TraitAssocType(_) => todo!(),
             HirType::Ritchie(hir_ty) => JavelinRitchieType::new(
                 db,
                 hir_ty

@@ -20,16 +20,16 @@ use husky_term_prelude::ItemPathTerm;
 pub enum HirType {
     PathLeading(HirTypePathLeading),
     Symbol(HirTypeSymbol),
-    TypeAssociatedType(HirTypeTypeAssociatedType),
-    TraitAssociatedType(HirTypeTraitAssociatedType),
+    TypeAssocType(HirTypeTypeAssocType),
+    TraitAssocType(HirTypeTraitAssocType),
     Ritchie(HirRitchieType),
 }
 
 #[salsa::interned(jar = HirTypeJar)]
-pub struct HirTypeTypeAssociatedType {}
+pub struct HirTypeTypeAssocType {}
 
 #[salsa::interned(jar = HirTypeJar)]
-pub struct HirTypeTraitAssociatedType {}
+pub struct HirTypeTraitAssocType {}
 
 impl HirType {
     pub fn from_eth(term: EthTerm, db: &::salsa::Db) -> Option<Self> {
@@ -85,8 +85,8 @@ impl HirType {
         match self {
             HirType::PathLeading(slf) => slf.always_copyable(db),
             HirType::Symbol(_slf) => false, // ad hoc: todo check traits
-            HirType::TypeAssociatedType(_slf) => false, // ad hoc: todo check traits
-            HirType::TraitAssociatedType(_slf) => false, // ad hoc: todo check traits
+            HirType::TypeAssocType(_slf) => false, // ad hoc: todo check traits
+            HirType::TraitAssocType(_slf) => false, // ad hoc: todo check traits
             HirType::Ritchie(_slf) => true,
         }
     }

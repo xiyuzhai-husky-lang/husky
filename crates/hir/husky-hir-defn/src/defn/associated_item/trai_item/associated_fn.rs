@@ -1,31 +1,31 @@
 use super::*;
-use husky_hir_decl::decl::TraitAssociatedFnHirDecl;
+use husky_hir_decl::decl::TraitAssocFnHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
-pub struct TraitAssociatedFnHirDefn {
+pub struct TraitAssocFnHirDefn {
     pub path: TraitItemPath,
-    pub hir_decl: TraitAssociatedFnHirDecl,
+    pub hir_decl: TraitAssocFnHirDecl,
     pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
-impl From<TraitAssociatedFnHirDefn> for AssociatedItemHirDefn {
-    fn from(hir_defn: TraitAssociatedFnHirDefn) -> Self {
-        AssociatedItemHirDefn::TraitItem(hir_defn.into())
+impl From<TraitAssocFnHirDefn> for AssocItemHirDefn {
+    fn from(hir_defn: TraitAssocFnHirDefn) -> Self {
+        AssocItemHirDefn::TraitItem(hir_defn.into())
     }
 }
 
-impl From<TraitAssociatedFnHirDefn> for HirDefn {
-    fn from(hir_defn: TraitAssociatedFnHirDefn) -> Self {
-        HirDefn::AssociatedItem(hir_defn.into())
+impl From<TraitAssocFnHirDefn> for HirDefn {
+    fn from(hir_defn: TraitAssocFnHirDefn) -> Self {
+        HirDefn::AssocItem(hir_defn.into())
     }
 }
 
-impl TraitAssociatedFnHirDefn {
+impl TraitAssocFnHirDefn {
     pub(super) fn new(
         _db: &::salsa::Db,
         _path: TraitItemPath,
-        _hir_decl: TraitAssociatedFnHirDecl,
-    ) -> TraitAssociatedFnHirDefn {
+        _hir_decl: TraitAssocFnHirDecl,
+    ) -> TraitAssocFnHirDefn {
         todo!()
         // let syn_node_path = hir_decl.syn_node_path(db);
         // let mut parser = expr_parser(
@@ -38,7 +38,7 @@ impl TraitAssociatedFnHirDefn {
         // let ast_idx = hir_decl.ast_idx(db);
         // let body = match parser.ast_sheet()[ast_idx] {
         //     Ast::Defn {
-        //         block: DefnBlock::AssociatedItem { body },
+        //         block: DefnBlock::AssocItem { body },
         //         ..
         //     } => body.map(|body| parser.parse_block_expr(body)),
         //     _ => unreachable!(),
@@ -63,7 +63,7 @@ impl TraitAssociatedFnHirDefn {
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_associated_fn_hir_defn_dependencies(
     db: &::salsa::Db,
-    hir_defn: TraitAssociatedFnHirDefn,
+    hir_defn: TraitAssocFnHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
@@ -86,7 +86,7 @@ fn trai_associated_fn_hir_defn_dependencies(
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_associated_fn_hir_defn_version_stamp(
     db: &::salsa::Db,
-    hir_defn: TraitAssociatedFnHirDefn,
+    hir_defn: TraitAssocFnHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

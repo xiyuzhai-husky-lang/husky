@@ -1,5 +1,5 @@
 use super::*;
-use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
+use crate::registry::associated_trace::VoidAssocTraceRegistry;
 use husky_hir_eager_expr::{
     HirEagerExprData, HirEagerExprIdx, HirEagerExprRegion, HirEagerExprSourceMap,
     HirEagerExprSourceMapData,
@@ -86,7 +86,7 @@ impl EagerExprTraceData {
         TraceViewLines::new(
             region_path.module_path(db),
             token_idx_range,
-            VoidAssociatedTraceRegistry,
+            VoidAssocTraceRegistry,
             db,
         )
     }
@@ -98,10 +98,10 @@ impl EagerExprTraceData {
         };
         match self.hir_eager_expr_region.expr_arena(db)[hir_eager_expr_idx].data {
             HirEagerExprData::FunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
-            HirEagerExprData::AssociatedFunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
+            HirEagerExprData::AssocFunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
             HirEagerExprData::MethodFnCall { path, .. } => path.hir_defn(db).is_some(),
             HirEagerExprData::Block { stmts: _ } => unreachable!(),
-            HirEagerExprData::AssociatedFn {
+            HirEagerExprData::AssocFn {
                 associated_item_path,
             } => associated_item_path.hir_defn(db).is_some(),
             _ => false,
@@ -148,7 +148,7 @@ impl EagerExprTraceData {
                 );
                 subtraces
             }
-            HirEagerExprData::AssociatedFunctionFnCall { path, .. } => {
+            HirEagerExprData::AssocFunctionFnCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
@@ -207,7 +207,7 @@ impl EagerExprTraceData {
                 subtraces
             }
             HirEagerExprData::Block { .. } => unreachable!(),
-            HirEagerExprData::AssociatedFn {
+            HirEagerExprData::AssocFn {
                 associated_item_path: _,
             } => todo!(),
             _ => vec![],

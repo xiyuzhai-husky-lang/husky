@@ -3,15 +3,15 @@ use super::*;
 impl TranspileToRustWith for TraitItemHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         match self {
-            TraitItemHirDefn::AssociatedFn(hir_defn) => hir_defn.transpile_to_rust(builder),
+            TraitItemHirDefn::AssocFn(hir_defn) => hir_defn.transpile_to_rust(builder),
             TraitItemHirDefn::MethodFn(hir_defn) => hir_defn.transpile_to_rust(builder),
-            TraitItemHirDefn::AssociatedType(hir_defn) => hir_defn.transpile_to_rust(builder),
-            TraitItemHirDefn::AssociatedVal(hir_defn) => hir_defn.transpile_to_rust(builder),
+            TraitItemHirDefn::AssocType(hir_defn) => hir_defn.transpile_to_rust(builder),
+            TraitItemHirDefn::AssocVal(hir_defn) => hir_defn.transpile_to_rust(builder),
         }
     }
 }
 
-impl TranspileToRustWith for TraitAssociatedFnHirDefn {
+impl TranspileToRustWith for TraitAssocFnHirDefn {
     fn transpile_to_rust(self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
@@ -23,13 +23,13 @@ impl TranspileToRustWith for TraitMethodFnHirDefn {
     }
 }
 
-impl TranspileToRustWith for TraitAssociatedTypeHirDefn {
+impl TranspileToRustWith for TraitAssocTypeHirDefn {
     fn transpile_to_rust(self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
 }
 
-impl TranspileToRustWith for TraitAssociatedValHirDefn {
+impl TranspileToRustWith for TraitAssocValHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);

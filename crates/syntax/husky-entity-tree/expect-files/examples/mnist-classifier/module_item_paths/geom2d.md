@@ -46,28 +46,28 @@
             ),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
-            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocFunctionFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
         ),
     ),
@@ -88,43 +88,43 @@
             ),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
         ),
     ),
@@ -145,13 +145,13 @@
             ),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
         ),
     ),
@@ -172,33 +172,33 @@
             ),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
         ),
     ),
@@ -219,23 +219,23 @@
             ),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
         ),
     ),

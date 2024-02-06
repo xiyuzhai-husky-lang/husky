@@ -46,8 +46,8 @@ impl LinkageInstantiate for HirType {
                 LinTermSymbolResolution::SelfLifetime => todo!(),
                 LinTermSymbolResolution::SelfPlace(_) => todo!(),
             },
-            HirType::TypeAssociatedType(_) => todo!(),
-            HirType::TraitAssociatedType(_) => todo!(),
+            HirType::TypeAssocType(_) => todo!(),
+            HirType::TraitAssocType(_) => todo!(),
             HirType::Ritchie(_) => todo!(),
         }
     }
@@ -139,8 +139,8 @@ impl LinType {
                 },
                 None => todo!(),
             },
-            HirType::TypeAssociatedType(_) => unreachable!(),
-            HirType::TraitAssociatedType(_) => unreachable!(),
+            HirType::TypeAssocType(_) => unreachable!(),
+            HirType::TraitAssocType(_) => unreachable!(),
             HirType::Ritchie(hir_ty) => LinkageRitchieType::new(
                 db,
                 hir_ty

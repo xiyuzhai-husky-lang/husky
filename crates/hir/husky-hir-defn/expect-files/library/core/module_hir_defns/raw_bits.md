@@ -115,8 +115,8 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TypeItem(
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
                     path: TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodFn`),
@@ -159,8 +159,8 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TypeItem(
                                         TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodFn`),
                                     ),
                                 ),
@@ -210,8 +210,8 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TypeItem(
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
                     path: TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodFn`),
@@ -242,8 +242,8 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TypeItem(
                                         TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodFn`),
                                     ),
                                 ),
@@ -282,8 +282,8 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TypeItem(
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
                     path: TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
@@ -314,8 +314,8 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TypeItem(
                                         TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
                                     ),
                                 ),
@@ -354,8 +354,8 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TypeItem(
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
                     path: TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
@@ -386,8 +386,8 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TypeItem(
                                         TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
                                     ),
                                 ),
@@ -426,8 +426,8 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TypeItem(
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
                     path: TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodFn`),
@@ -458,8 +458,8 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TypeItem(
                                         TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodFn`),
                                     ),
                                 ),

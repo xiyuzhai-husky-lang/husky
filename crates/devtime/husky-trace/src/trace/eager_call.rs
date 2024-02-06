@@ -1,5 +1,5 @@
 use super::*;
-use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
+use crate::registry::associated_trace::VoidAssocTraceRegistry;
 use husky_entity_tree::HasSynNodePath;
 use husky_syn_defn::item_syn_defn;
 
@@ -51,7 +51,7 @@ impl EagerCallTraceData {
             callee_path
                 .syn_node_path(db)
                 .decl_tokra_region_token_idx_range(db),
-            VoidAssociatedTraceRegistry,
+            VoidAssocTraceRegistry,
             db,
         )
     }

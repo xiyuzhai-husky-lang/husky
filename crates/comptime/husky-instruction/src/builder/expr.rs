@@ -1,20 +1,98 @@
-use crate::*;
+use super::*;
+use crate::instruction::Binding;
+use husky_entity_path::AssocItemPath;
+use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx};
+use husky_hir_opr::{binary::HirBinaryOpr, suffix::HirSuffixOpr};
+use husky_linkage::template_argument::ty::LinType;
 
-use husky_linkage_table::ResolveLinkage;
-use husky_vm::{
-    __root::{__ASSIGN_LINKAGE, __EQ_LINKAGE, __NEQ_LINKAGE, __VALUE_CALL_LINKAGE},
-    *,
-};
-use map_collect::MapCollect;
-
-impl<'a> InstructionBlockBuilder<'a> {
+impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
     pub(super) fn compile_eager_expr(
         &mut self,
         expr: HirEagerExprIdx,
         output_stack_idx: VMStackIdx,
         discard: bool,
     ) {
-        todo!()
+        match self.expr_arena[expr].data {
+            HirEagerExprData::Literal(_) => todo!(),
+            HirEagerExprData::PrincipalEntityPath(_) => todo!(),
+            HirEagerExprData::AssocFn {
+                associated_item_path,
+            } => todo!(),
+            HirEagerExprData::ConstSymbol { ident } => todo!(),
+            HirEagerExprData::Variable(_) => todo!(),
+            HirEagerExprData::Binary { lopd, opr, ropd } => todo!(),
+            HirEagerExprData::Be { src, ref target } => todo!(),
+            HirEagerExprData::Prefix {
+                opr,
+                opd_hir_expr_idx,
+            } => todo!(),
+            HirEagerExprData::Suffix {
+                opd_hir_expr_idx,
+                opr,
+            } => todo!(),
+            HirEagerExprData::Unveil {
+                unveil_associated_fn_path,
+                ref instantiation,
+                return_ty,
+                opd_hir_expr_idx,
+            } => todo!(),
+            HirEagerExprData::Unwrap { opd_hir_expr_idx } => todo!(),
+            HirEagerExprData::As { opd, ty } => todo!(),
+            HirEagerExprData::TypeConstructorFnCall {
+                path,
+                ref instantiation,
+                ref item_groups,
+            } => todo!(),
+            HirEagerExprData::TypeVariantConstructorCall {
+                path,
+                ref instantiation,
+                ref item_groups,
+            } => todo!(),
+            HirEagerExprData::FunctionFnCall {
+                path,
+                ref instantiation,
+                ref item_groups,
+            } => todo!(),
+            HirEagerExprData::AssocFunctionFnCall {
+                path,
+                ref instantiation,
+                ref item_groups,
+            } => todo!(),
+            HirEagerExprData::PropsStructField {
+                owner_hir_expr_idx,
+                ident,
+                field_ty,
+            } => todo!(),
+            HirEagerExprData::MemoizedField {
+                owner_hir_expr_idx,
+                ident,
+                path,
+            } => todo!(),
+            HirEagerExprData::MethodFnCall {
+                self_argument,
+                self_contract,
+                ident,
+                path,
+                ref instantiation,
+                ref item_groups,
+            } => todo!(),
+            HirEagerExprData::NewTuple { ref items } => todo!(),
+            HirEagerExprData::Index {
+                owner_hir_expr_idx,
+                ref items,
+            } => todo!(),
+            HirEagerExprData::NewList {
+                ref items,
+                element_ty,
+            } => todo!(),
+            HirEagerExprData::Block { stmts } => todo!(),
+            HirEagerExprData::EmptyHtmlTag {
+                function_ident,
+                ref arguments,
+            } => todo!(),
+            HirEagerExprData::Todo => todo!(),
+            HirEagerExprData::Unreachable => todo!(),
+        }
         // match expr.variant {
         //     EagerExprVariant::Variable { varname, binding } => {
         //         // no discard
@@ -171,20 +249,9 @@ impl<'a> InstructionBlockBuilder<'a> {
         // }
     }
 
-    fn compile_opn(
-        &mut self,
-        opn_variant: &EagerOpnVariant,
-        opds: &[HirEagerExprIdx],
-        expr: HirEagerExprIdx,
-        output_stack_idx: VMStackIdx,
-        discard: bool,
-    ) {
-        todo!()
-    }
-
     fn compile_suffix(
         &mut self,
-        _opr: &EagerSuffixOpr,
+        _opr: &HirSuffixOpr,
         _opds: &[HirEagerExprIdx],
         _expr: HirEagerExprIdx,
         _discard: bool,
@@ -194,7 +261,7 @@ impl<'a> InstructionBlockBuilder<'a> {
 
     fn compile_binary_opn(
         &mut self,
-        opr: SynBinaryOpr,
+        opr: HirBinaryOpr,
         opds: &[HirEagerExprIdx],
         expr: HirEagerExprIdx,
         discard: bool,
@@ -204,7 +271,7 @@ impl<'a> InstructionBlockBuilder<'a> {
 
     fn compile_prefix_opn(
         &mut self,
-        prefix: SynPrefixOpr,
+        prefix: HirBinaryOpr,
         opds: &[HirEagerExprIdx],
         expr: HirEagerExprIdx,
         discard: bool,
@@ -218,55 +285,36 @@ impl<'a> InstructionBlockBuilder<'a> {
         opds: &[HirEagerExprIdx],
         element_binding: Binding,
     ) {
-        let index_linkage = self.db.index_linkage(opds.map(|opd| opd.intrinsic_ty()));
-        self.push_instruction(Instruction::new(
-            InstructionData::CallRoutine {
-                return_ty: expr.intrinsic_ty(),
-                nargs: opds.len().try_into().unwrap(),
-                resolved_linkage: index_linkage.bind(element_binding),
-                discard: false,
-            },
-            expr,
-        ))
+        todo!()
+        // let index_linkage = self.db.index_linkage(opds.map(|opd| opd.intrinsic_ty()));
+        // self.push_instruction(Instruction::new(
+        //     InstructionData::CallRoutine {
+        //         return_ty: expr.intrinsic_ty(),
+        //         nargs: opds.len().try_into().unwrap(),
+        //         resolved_linkage: index_linkage.bind(element_binding),
+        //         discard: false,
+        //     },
+        //     expr,
+        // ))
     }
 
     fn method_call_instruction_variant(
         &self,
-        method_route: EthTerm,
-        return_ty: HirType,
-        output_binding: Binding,
+        method_item_path: AssocItemPath,
+        return_ty: LinType,
         nargs: u8,
         discard: bool,
     ) -> InstructionData {
-        if let Some(linkage) = self.db.method_linkage(method_route) {
-            match linkage {
-                __LinkageGroup::Member { .. } => InstructionData::CallRoutine {
-                    resolved_linkage: linkage.bind(output_binding),
-                    nargs,
-                    return_ty,
-                    discard,
-                },
-                __LinkageGroup::Transfer(linkage) => InstructionData::CallRoutine {
-                    return_ty,
-                    nargs,
-
-                    resolved_linkage: linkage,
-                    discard,
-                },
-                __LinkageGroup::Model(_) => todo!(),
-            }
-        } else {
-            todo!()
-            // let method_uid = self.db.item_uid(method_route);
-            // let call_fugitive_syn_decl = self.db.item_call_fugitive_syn_decl(method_route).unwrap();
-            // InstructionData::CallInterpreted {
-            //     routine_uid: method_uid,
-            //     nargs: (call_fugitive_syn_decl.primary_parameters.len() + 1)
-            //         .try_into()
-            //         .unwrap(),
-            //     return_ty,
-            //     discard,
-            // }
-        }
+        todo!()
+        // let method_uid = self.db.item_uid(method_route);
+        // let call_fugitive_syn_decl = self.db.item_call_fugitive_syn_decl(method_route).unwrap();
+        // InstructionData::CallInterpreted {
+        //     routine_uid: method_uid,
+        //     nargs: (call_fugitive_syn_decl.primary_parameters.len() + 1)
+        //         .try_into()
+        //         .unwrap(),
+        //     return_ty,
+        //     discard,
+        // }
     }
 }

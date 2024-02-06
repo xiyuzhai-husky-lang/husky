@@ -14,7 +14,7 @@ pub struct TraitForTypeItemSynNodePathData {
 
 impl From<TraitForTypeItemSynNodePath> for ItemSynNodePath {
     fn from(path: TraitForTypeItemSynNodePath) -> Self {
-        ItemSynNodePath::AssociatedItem(path.into())
+        ItemSynNodePath::AssocItem(path.into())
     }
 }
 
@@ -26,7 +26,7 @@ impl TraitForTypeItemSynNodePath {
     ) -> Self {
         Self(ItemSynNodePathId::new(
             db,
-            ItemSynNodePathData::AssociatedItem(AssociatedItemSynNodePathData::TraitForTypeItem(
+            ItemSynNodePathData::AssocItem(AssocItemSynNodePathData::TraitForTypeItem(
                 TraitForTypeItemSynNodePathData {
                     maybe_ambiguous_path: registry.issue_maybe_ambiguous_path(path),
                 },
@@ -36,16 +36,16 @@ impl TraitForTypeItemSynNodePath {
 
     pub fn data(self, db: &::salsa::Db) -> TraitForTypeItemSynNodePathData {
         match self.0.data(db) {
-            ItemSynNodePathData::AssociatedItem(
-                AssociatedItemSynNodePathData::TraitForTypeItem(data),
-            ) => data,
+            ItemSynNodePathData::AssocItem(AssocItemSynNodePathData::TraitForTypeItem(data)) => {
+                data
+            }
             _ => unreachable!(),
         }
     }
 
     pub fn path(self, db: &::salsa::Db) -> Option<TraitForTypeItemPath> {
         Some(match self.0.path(db)? {
-            ItemPath::AssociatedItem(AssociatedItemPath::TraitForTypeItem(path)) => path,
+            ItemPath::AssocItem(AssocItemPath::TraitForTypeItem(path)) => path,
             _ => unreachable!(),
         })
     }
@@ -99,7 +99,7 @@ impl HasSynNodePath for TraitForTypeItemPath {
     fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
         TraitForTypeItemSynNodePath(ItemSynNodePathId::new(
             db,
-            ItemSynNodePathData::AssociatedItem(AssociatedItemSynNodePathData::TraitForTypeItem(
+            ItemSynNodePathData::AssocItem(AssocItemSynNodePathData::TraitForTypeItem(
                 TraitForTypeItemSynNodePathData {
                     maybe_ambiguous_path: MaybeAmbiguousPath::from_path(self),
                 },

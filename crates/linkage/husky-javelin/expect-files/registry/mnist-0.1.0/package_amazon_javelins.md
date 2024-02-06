@@ -29,7 +29,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
+                    TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocFunctionFn`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -46,8 +46,8 @@
                 path: JavPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -60,7 +60,7 @@
                                             },
                                         },
                                         ident: `Output`,
-                                        item_kind: AssociatedType,
+                                        item_kind: AssocType,
                                     },
                                 ),
                             ),
@@ -80,7 +80,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
+                    TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocFunctionFn`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -97,8 +97,8 @@
                 path: JavPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -111,7 +111,7 @@
                                             },
                                         },
                                         ident: `Output`,
-                                        item_kind: AssociatedType,
+                                        item_kind: AssocType,
                                     },
                                 ),
                             ),

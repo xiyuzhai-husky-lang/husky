@@ -67,7 +67,7 @@ impl DecTerm {
                 declarative_term_application_runes(db, declarative_term)
             }
             DecTerm::ApplicationOrRitchieCall(_declarative_ty) => todo!(),
-            DecTerm::AssociatedItem(_) => todo!(),
+            DecTerm::AssocItem(_) => todo!(),
             DecTerm::TypeAsTraitItem(_) => todo!(),
             DecTerm::TraitConstraint(_) => todo!(),
             DecTerm::LeashOrBitNot(_) => todo!(),

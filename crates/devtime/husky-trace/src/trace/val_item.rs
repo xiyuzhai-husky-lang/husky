@@ -1,5 +1,5 @@
 use super::*;
-use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
+use crate::registry::associated_trace::VoidAssocTraceRegistry;
 use husky_hir_defn::HasHirDefn;
 use husky_sema_expr::{helpers::analysis::sema_expr_region_contains_gn, SemaExprData, SemaExprDb};
 use husky_syn_defn::{item_syn_defn, ItemSynDefn};
@@ -43,7 +43,7 @@ impl ValItemTraceData {
         TraceViewLines::new(
             val_item_path.module_path(db),
             token_idx_range,
-            VoidAssociatedTraceRegistry,
+            VoidAssocTraceRegistry,
             db,
         )
     }

@@ -110,7 +110,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -154,7 +154,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -176,7 +176,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -220,7 +220,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(
@@ -242,7 +242,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(

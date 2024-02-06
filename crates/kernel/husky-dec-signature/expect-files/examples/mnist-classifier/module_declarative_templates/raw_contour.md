@@ -832,12 +832,12 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TraitForTypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
+                        data: ItemPathData::AssocItem(
+                            AssocItemPathData::TraitForTypeItem(
                                 TraitForTypeItemPathData {
                                     impl_block: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
@@ -859,8 +859,8 @@
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TraitForTypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
                             self_ty: EntityPath(
@@ -953,14 +953,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
@@ -998,14 +998,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
@@ -1043,14 +1043,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
@@ -1088,14 +1088,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
@@ -1133,14 +1133,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),

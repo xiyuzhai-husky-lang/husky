@@ -1,16 +1,16 @@
 [
     SemaExprRegion {
         path: RegionPath::Defn(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Defn(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodFn`),
                     ),
                 ),
@@ -332,7 +332,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -364,8 +364,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                                                         ),
                                                     ),
@@ -789,16 +789,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Defn(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Defn(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`, `MethodFn`),
                     ),
                 ),
@@ -886,7 +886,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -906,8 +906,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodFn`),
                                                         ),
                                                     ),
@@ -1182,7 +1182,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -1214,8 +1214,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                                                         ),
                                                     ),
@@ -1433,7 +1433,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -1465,8 +1465,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
                                                         ),
                                                     ),
@@ -1721,7 +1721,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -1741,8 +1741,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                         ),
                                                     ),
@@ -2017,7 +2017,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -2049,8 +2049,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                                                         ),
                                                     ),
@@ -2268,7 +2268,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -2300,8 +2300,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
                                                         ),
                                                     ),
@@ -2556,7 +2556,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -2576,8 +2576,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                         ),
                                                     ),
@@ -2762,7 +2762,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -2794,8 +2794,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
                                                         ),
                                                     ),
@@ -2903,7 +2903,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -2923,8 +2923,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                                         ),
                                                     ),
@@ -3054,7 +3054,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -3074,8 +3074,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                         ),
                                                     ),

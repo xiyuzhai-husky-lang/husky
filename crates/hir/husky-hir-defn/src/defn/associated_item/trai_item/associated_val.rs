@@ -1,26 +1,26 @@
 use super::*;
-use husky_hir_decl::decl::TraitAssociatedValHirDecl;
+use husky_hir_decl::decl::TraitAssocValHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
-pub struct TraitAssociatedValHirDefn {
+pub struct TraitAssocValHirDefn {
     pub path: TraitItemPath,
-    pub hir_decl: TraitAssociatedValHirDecl,
+    pub hir_decl: TraitAssocValHirDecl,
     pub hir_expr_region: Option<HirExprRegion>,
 }
 
-impl From<TraitAssociatedValHirDefn> for AssociatedItemHirDefn {
-    fn from(hir_defn: TraitAssociatedValHirDefn) -> Self {
-        AssociatedItemHirDefn::TraitItem(hir_defn.into())
+impl From<TraitAssocValHirDefn> for AssocItemHirDefn {
+    fn from(hir_defn: TraitAssocValHirDefn) -> Self {
+        AssocItemHirDefn::TraitItem(hir_defn.into())
     }
 }
 
-impl From<TraitAssociatedValHirDefn> for HirDefn {
-    fn from(hir_defn: TraitAssociatedValHirDefn) -> Self {
-        HirDefn::AssociatedItem(hir_defn.into())
+impl From<TraitAssocValHirDefn> for HirDefn {
+    fn from(hir_defn: TraitAssocValHirDefn) -> Self {
+        HirDefn::AssocItem(hir_defn.into())
     }
 }
 
-impl TraitAssociatedValHirDefn {
+impl TraitAssocValHirDefn {
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         trai_associated_val_hir_defn_dependencies(db, self)
     }
@@ -33,7 +33,7 @@ impl TraitAssociatedValHirDefn {
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_associated_val_hir_defn_dependencies(
     db: &::salsa::Db,
-    hir_defn: TraitAssociatedValHirDefn,
+    hir_defn: TraitAssocValHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
@@ -49,7 +49,7 @@ fn trai_associated_val_hir_defn_dependencies(
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_associated_val_hir_defn_version_stamp(
     db: &::salsa::Db,
-    hir_defn: TraitAssociatedValHirDefn,
+    hir_defn: TraitAssocValHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

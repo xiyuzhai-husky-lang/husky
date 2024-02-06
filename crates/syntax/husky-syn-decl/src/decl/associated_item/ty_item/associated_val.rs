@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TypeAssociatedValSynNodeDecl {
+pub struct TypeAssocValSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     #[return_ref]
@@ -14,7 +14,7 @@ pub struct TypeAssociatedValSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TypeAssociatedValSynNodeDecl {
+impl TypeAssocValSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         chain_as_ref_err_collect!(self.colon_token(db), self.return_ty(db), self.eq_token(db))
     }
@@ -23,7 +23,7 @@ impl TypeAssociatedValSynNodeDecl {
 impl<'a> DeclParser<'a> {}
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TypeAssociatedValSynDecl {
+pub struct TypeAssocValSynDecl {
     #[id]
     pub path: TypeItemPath,
     pub return_ty: ReturnTypeBeforeEqSyndicate,
@@ -31,16 +31,16 @@ pub struct TypeAssociatedValSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TypeAssociatedValSynDecl {
+impl TypeAssocValSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: TypeItemPath,
-        syn_node_decl: TypeAssociatedValSynNodeDecl,
+        syn_node_decl: TypeAssocValSynNodeDecl,
     ) -> DeclResult<Self> {
         let val_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let expr = syn_node_decl.expr(db);
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(TypeAssociatedValSynDecl::new(
+        Ok(TypeAssocValSynDecl::new(
             db,
             path,
             val_ty,

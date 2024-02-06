@@ -2213,18 +2213,18 @@ SynNodeDeclSheet {
             ),
         ),
         (
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TraitForTypeItem(
+            ItemSynNodePath::AssocItem(
+                AssocItemSynNodePath::TraitForTypeItem(
                     TraitForTypeItemSynNodePath(
                         ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TraitForTypeItemPath(
                                                 ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TraitForTypeItem(
+                                                    data: ItemPathData::AssocItem(
+                                                        AssocItemPathData::TraitForTypeItem(
                                                             TraitForTypeItemPathData {
                                                                 impl_block: TraitForTypeImplBlock {
                                                                     data: TraitForTypeImplBlockPathData {
@@ -2252,20 +2252,20 @@ SynNodeDeclSheet {
                     ),
                 ),
             ),
-            ItemSynNodeDecl::AssociatedItem(
-                AssociatedItemSynNodeDecl::TraitForTypeItem(
+            ItemSynNodeDecl::AssocItem(
+                AssocItemSynNodeDecl::TraitForTypeItem(
                     TraitForTypeItemSynNodeDecl::MethodFn(
                         TraitForTypeMethodFnSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitForTypeItemPath(
                                                         ItemPathId {
-                                                            data: ItemPathData::AssociatedItem(
-                                                                AssociatedItemPathData::TraitForTypeItem(
+                                                            data: ItemPathData::AssocItem(
+                                                                AssocItemPathData::TraitForTypeItem(
                                                                     TraitForTypeItemPathData {
                                                                         impl_block: TraitForTypeImplBlock {
                                                                             data: TraitForTypeImplBlockPathData {
@@ -2474,18 +2474,18 @@ SynNodeDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TraitForTypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TraitForTypeItemPath(
                                                                             ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                                data: ItemPathData::AssocItem(
+                                                                                    AssocItemPathData::TraitForTypeItem(
                                                                                         TraitForTypeItemPathData {
                                                                                             impl_block: TraitForTypeImplBlock {
                                                                                                 data: TraitForTypeImplBlockPathData {
@@ -2778,12 +2778,12 @@ SynNodeDeclSheet {
             ),
         ),
         (
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
+            ItemSynNodePath::AssocItem(
+                AssocItemSynNodePath::TypeItem(
                     TypeItemSynNodePath(
                         ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
@@ -2796,14 +2796,14 @@ SynNodeDeclSheet {
                     ),
                 ),
             ),
-            ItemSynNodeDecl::AssociatedItem(
-                AssociatedItemSynNodeDecl::TypeItem(
+            ItemSynNodeDecl::AssocItem(
+                AssocItemSynNodeDecl::TypeItem(
                     TypeItemSynNodeDecl::MemoizedField(
                         TypeMemoizedFieldSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TypeItem(
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
@@ -2949,12 +2949,12 @@ SynNodeDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
@@ -3061,12 +3061,12 @@ SynNodeDeclSheet {
             ),
         ),
         (
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
+            ItemSynNodePath::AssocItem(
+                AssocItemSynNodePath::TypeItem(
                     TypeItemSynNodePath(
                         ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
@@ -3079,14 +3079,14 @@ SynNodeDeclSheet {
                     ),
                 ),
             ),
-            ItemSynNodeDecl::AssociatedItem(
-                AssociatedItemSynNodeDecl::TypeItem(
+            ItemSynNodeDecl::AssocItem(
+                AssocItemSynNodeDecl::TypeItem(
                     TypeItemSynNodeDecl::MemoizedField(
                         TypeMemoizedFieldSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TypeItem(
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
@@ -3232,12 +3232,12 @@ SynNodeDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
@@ -3331,12 +3331,12 @@ SynNodeDeclSheet {
             ),
         ),
         (
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
+            ItemSynNodePath::AssocItem(
+                AssocItemSynNodePath::TypeItem(
                     TypeItemSynNodePath(
                         ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
@@ -3349,14 +3349,14 @@ SynNodeDeclSheet {
                     ),
                 ),
             ),
-            ItemSynNodeDecl::AssociatedItem(
-                AssociatedItemSynNodeDecl::TypeItem(
+            ItemSynNodeDecl::AssocItem(
+                AssocItemSynNodeDecl::TypeItem(
                     TypeItemSynNodeDecl::MemoizedField(
                         TypeMemoizedFieldSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TypeItem(
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
@@ -3502,12 +3502,12 @@ SynNodeDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
@@ -3601,12 +3601,12 @@ SynNodeDeclSheet {
             ),
         ),
         (
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
+            ItemSynNodePath::AssocItem(
+                AssocItemSynNodePath::TypeItem(
                     TypeItemSynNodePath(
                         ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
@@ -3619,14 +3619,14 @@ SynNodeDeclSheet {
                     ),
                 ),
             ),
-            ItemSynNodeDecl::AssociatedItem(
-                AssociatedItemSynNodeDecl::TypeItem(
+            ItemSynNodeDecl::AssocItem(
+                AssocItemSynNodeDecl::TypeItem(
                     TypeItemSynNodeDecl::MemoizedField(
                         TypeMemoizedFieldSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TypeItem(
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
@@ -3772,12 +3772,12 @@ SynNodeDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
@@ -3871,12 +3871,12 @@ SynNodeDeclSheet {
             ),
         ),
         (
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
+            ItemSynNodePath::AssocItem(
+                AssocItemSynNodePath::TypeItem(
                     TypeItemSynNodePath(
                         ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
@@ -3889,14 +3889,14 @@ SynNodeDeclSheet {
                     ),
                 ),
             ),
-            ItemSynNodeDecl::AssociatedItem(
-                AssociatedItemSynNodeDecl::TypeItem(
+            ItemSynNodeDecl::AssocItem(
+                AssocItemSynNodeDecl::TypeItem(
                     TypeItemSynNodeDecl::MemoizedField(
                         TypeMemoizedFieldSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TypeItem(
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
@@ -4042,12 +4042,12 @@ SynNodeDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
@@ -4141,12 +4141,12 @@ SynNodeDeclSheet {
             ),
         ),
         (
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
+            ItemSynNodePath::AssocItem(
+                AssocItemSynNodePath::TypeItem(
                     TypeItemSynNodePath(
                         ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
@@ -4159,14 +4159,14 @@ SynNodeDeclSheet {
                     ),
                 ),
             ),
-            ItemSynNodeDecl::AssociatedItem(
-                AssociatedItemSynNodeDecl::TypeItem(
+            ItemSynNodeDecl::AssocItem(
+                AssocItemSynNodeDecl::TypeItem(
                     TypeItemSynNodeDecl::MemoizedField(
                         TypeMemoizedFieldSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TypeItem(
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
@@ -4312,12 +4312,12 @@ SynNodeDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
@@ -4411,12 +4411,12 @@ SynNodeDeclSheet {
             ),
         ),
         (
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
+            ItemSynNodePath::AssocItem(
+                AssocItemSynNodePath::TypeItem(
                     TypeItemSynNodePath(
                         ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
@@ -4429,14 +4429,14 @@ SynNodeDeclSheet {
                     ),
                 ),
             ),
-            ItemSynNodeDecl::AssociatedItem(
-                AssociatedItemSynNodeDecl::TypeItem(
+            ItemSynNodeDecl::AssocItem(
+                AssocItemSynNodeDecl::TypeItem(
                     TypeItemSynNodeDecl::MemoizedField(
                         TypeMemoizedFieldSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TypeItem(
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
@@ -4582,12 +4582,12 @@ SynNodeDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
@@ -4681,12 +4681,12 @@ SynNodeDeclSheet {
             ),
         ),
         (
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
+            ItemSynNodePath::AssocItem(
+                AssocItemSynNodePath::TypeItem(
                     TypeItemSynNodePath(
                         ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
@@ -4699,14 +4699,14 @@ SynNodeDeclSheet {
                     ),
                 ),
             ),
-            ItemSynNodeDecl::AssociatedItem(
-                AssociatedItemSynNodeDecl::TypeItem(
+            ItemSynNodeDecl::AssocItem(
+                AssocItemSynNodeDecl::TypeItem(
                     TypeItemSynNodeDecl::MemoizedField(
                         TypeMemoizedFieldSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TypeItem(
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
@@ -4852,12 +4852,12 @@ SynNodeDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
@@ -4951,12 +4951,12 @@ SynNodeDeclSheet {
             ),
         ),
         (
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
+            ItemSynNodePath::AssocItem(
+                AssocItemSynNodePath::TypeItem(
                     TypeItemSynNodePath(
                         ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
@@ -4969,14 +4969,14 @@ SynNodeDeclSheet {
                     ),
                 ),
             ),
-            ItemSynNodeDecl::AssociatedItem(
-                AssociatedItemSynNodeDecl::TypeItem(
+            ItemSynNodeDecl::AssocItem(
+                AssocItemSynNodeDecl::TypeItem(
                     TypeItemSynNodeDecl::MethodFn(
                         TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TypeItem(
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
@@ -5159,12 +5159,12 @@ SynNodeDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
@@ -5346,12 +5346,12 @@ SynNodeDeclSheet {
             ),
         ),
         (
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
+            ItemSynNodePath::AssocItem(
+                AssocItemSynNodePath::TypeItem(
                     TypeItemSynNodePath(
                         ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
@@ -5364,14 +5364,14 @@ SynNodeDeclSheet {
                     ),
                 ),
             ),
-            ItemSynNodeDecl::AssociatedItem(
-                AssociatedItemSynNodeDecl::TypeItem(
+            ItemSynNodeDecl::AssocItem(
+                AssocItemSynNodeDecl::TypeItem(
                     TypeItemSynNodeDecl::MethodFn(
                         TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TypeItem(
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
@@ -5554,12 +5554,12 @@ SynNodeDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),

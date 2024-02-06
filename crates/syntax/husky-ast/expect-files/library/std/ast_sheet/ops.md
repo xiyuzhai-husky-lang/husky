@@ -11,9 +11,9 @@ AstSheet {
                         `std::ops`,
                     ),
                 },
-                item_kind: AssociatedItem {
+                item_kind: AssocItem {
                     associated_item_kind: TraitItem(
-                        AssociatedType,
+                        AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -29,7 +29,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::AssociatedItem {
+                block: DefnBlock::AssocItem {
                     body: None,
                 },
             },
@@ -43,7 +43,7 @@ AstSheet {
                         `std::ops`,
                     ),
                 },
-                item_kind: AssociatedItem {
+                item_kind: AssocItem {
                     associated_item_kind: TraitItem(
                         MethodFn,
                     ),
@@ -61,7 +61,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::AssociatedItem {
+                block: DefnBlock::AssocItem {
                     body: None,
                 },
             },

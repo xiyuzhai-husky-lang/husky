@@ -347,7 +347,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
             }
             SemaExprData::Binary { lopd, ropd, .. } => self[lopd].join(self[ropd]),
             SemaExprData::PrincipalEntityPath { path_expr_idx, .. } => self[*path_expr_idx],
-            SemaExprData::AssociatedItem {
+            SemaExprData::AssocItem {
                 parent_expr_idx,
                 ident_token,
                 ..

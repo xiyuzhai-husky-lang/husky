@@ -459,16 +459,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                     ),
                 ),
@@ -631,16 +631,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                     ),
                 ),
@@ -830,16 +830,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
                     ),
                 ),
@@ -1342,16 +1342,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
                     ),
                 ),
@@ -1854,16 +1854,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
                     ),
                 ),
@@ -2202,16 +2202,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
                     ),
                 ),
@@ -2620,16 +2620,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
                     ),
                 ),
@@ -3250,16 +3250,16 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
                         TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
                     ),
                 ),

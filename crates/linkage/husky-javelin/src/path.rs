@@ -59,8 +59,8 @@ impl JavPath {
                 MajorItemPath::Trait(_) => None,
                 MajorItemPath::Fugitive(path) => Some(path.into()),
             },
-            ItemPath::AssociatedItem(path) => match path {
-                AssociatedItemPath::TraitForTypeItem(path) => {
+            ItemPath::AssocItem(path) => match path {
+                AssocItemPath::TraitForTypeItem(path) => {
                     if path.impl_block(db).trai_path(db).refine(db)
                         == Left(PreludeTraitPath::Visualize)
                     {
@@ -68,8 +68,8 @@ impl JavPath {
                     }
                     Some(JavPath::TraitForTypeItem(path))
                 }
-                AssociatedItemPath::TypeItem(path) => Some(JavPath::TypeItem(path)),
-                AssociatedItemPath::TraitItem(path) => Some(JavPath::TraitItem(path)),
+                AssocItemPath::TypeItem(path) => Some(JavPath::TypeItem(path)),
+                AssocItemPath::TraitItem(path) => Some(JavPath::TraitItem(path)),
             },
             ItemPath::TypeVariant(_, path) => Some(path.into()),
             ItemPath::ImplBlock(_) => None,

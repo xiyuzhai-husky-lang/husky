@@ -537,11 +537,11 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
-            TypeItemHirDecl::AssociatedFn(
-                TypeAssociatedFnHirDecl {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
+            TypeItemHirDecl::AssocFn(
+                TypeAssocFnHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocFunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -580,9 +580,9 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
-                                    TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocFunctionFn`),
                                 ),
                             ),
                         ),
@@ -639,8 +639,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
@@ -669,8 +669,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
                                 ),
                             ),
@@ -707,8 +707,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
@@ -749,8 +749,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                                 ),
                             ),
@@ -798,8 +798,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
@@ -828,8 +828,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
                                 ),
                             ),
@@ -866,8 +866,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
@@ -908,8 +908,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
                                 ),
                             ),
@@ -1027,8 +1027,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
@@ -1057,8 +1057,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
                                 ),
                             ),
@@ -1095,8 +1095,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
@@ -1137,8 +1137,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
                                 ),
                             ),
@@ -1186,8 +1186,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
@@ -1216,8 +1216,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                 ),
                             ),
@@ -1254,8 +1254,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
@@ -1296,8 +1296,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
                                 ),
                             ),
@@ -1345,8 +1345,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
@@ -1387,8 +1387,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
                                 ),
                             ),
@@ -1436,8 +1436,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
@@ -1478,8 +1478,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
                                 ),
                             ),
@@ -1527,8 +1527,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
@@ -1569,8 +1569,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
                                 ),
                             ),
@@ -1618,8 +1618,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
@@ -1671,8 +1671,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
                                 ),
                             ),
@@ -1800,8 +1800,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
@@ -1842,8 +1842,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
                                 ),
                             ),
@@ -1891,8 +1891,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
@@ -1933,8 +1933,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
                                 ),
                             ),
@@ -2052,8 +2052,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
@@ -2094,8 +2094,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
                                 ),
                             ),
@@ -2143,8 +2143,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
@@ -2185,8 +2185,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
                                 ),
                             ),
@@ -2234,8 +2234,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
@@ -2264,8 +2264,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
                                 ),
                             ),
@@ -2302,8 +2302,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
@@ -2332,8 +2332,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
                                 ),
                             ),
@@ -2370,8 +2370,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
@@ -2400,8 +2400,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                                 ),
                             ),
@@ -2438,8 +2438,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
@@ -2468,8 +2468,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
                                 ),
                             ),
@@ -2576,8 +2576,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
@@ -2606,8 +2606,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
                                 ),
                             ),
@@ -2644,8 +2644,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
@@ -2674,8 +2674,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
                                 ),
                             ),
@@ -2712,8 +2712,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
@@ -2742,8 +2742,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
                                 ),
                             ),
@@ -2780,8 +2780,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
@@ -2810,8 +2810,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                                 ),
                             ),

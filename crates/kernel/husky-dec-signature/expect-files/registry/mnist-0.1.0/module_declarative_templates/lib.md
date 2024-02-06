@@ -150,12 +150,12 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TraitForTypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
+                        data: ItemPathData::AssocItem(
+                            AssocItemPathData::TraitForTypeItem(
                                 TraitForTypeItemPathData {
                                     impl_block: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
@@ -177,8 +177,8 @@
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TraitForTypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
                             self_ty: EntityPath(
@@ -271,17 +271,17 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
-                TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocFunctionFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::AssociatedFn(
-                        TypeAssociatedFnDecTemplate {
-                            path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::AssocFn(
+                        TypeAssocFnDecTemplate {
+                            path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocFunctionFn`),
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -368,12 +368,12 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TraitForTypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
+                        data: ItemPathData::AssocItem(
+                            AssocItemPathData::TraitForTypeItem(
                                 TraitForTypeItemPathData {
                                     impl_block: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
@@ -386,7 +386,7 @@
                                         },
                                     },
                                     ident: `Output`,
-                                    item_kind: AssociatedType,
+                                    item_kind: AssocType,
                                 },
                             ),
                         ),
@@ -395,14 +395,14 @@
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::AssociatedType(
-                        TraitForTypeAssociatedTypeDecTemplate {
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TraitForTypeItem(
+                    TraitForTypeItemDecTemplate::AssocType(
+                        TraitForTypeAssocTypeDecTemplate {
                             path: TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -415,7 +415,7 @@
                                                     },
                                                 },
                                                 ident: `Output`,
-                                                item_kind: AssociatedType,
+                                                item_kind: AssocType,
                                             },
                                         ),
                                     ),
@@ -493,12 +493,12 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TraitForTypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
+                        data: ItemPathData::AssocItem(
+                            AssocItemPathData::TraitForTypeItem(
                                 TraitForTypeItemPathData {
                                     impl_block: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
@@ -520,8 +520,8 @@
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TraitForTypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
                             self_ty: EntityPath(
@@ -614,17 +614,17 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
-                TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocFunctionFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::AssociatedFn(
-                        TypeAssociatedFnDecTemplate {
-                            path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::AssocFn(
+                        TypeAssocFnDecTemplate {
+                            path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocFunctionFn`),
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -711,12 +711,12 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TraitForTypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
+                        data: ItemPathData::AssocItem(
+                            AssocItemPathData::TraitForTypeItem(
                                 TraitForTypeItemPathData {
                                     impl_block: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
@@ -729,7 +729,7 @@
                                         },
                                     },
                                     ident: `Output`,
-                                    item_kind: AssociatedType,
+                                    item_kind: AssocType,
                                 },
                             ),
                         ),
@@ -738,14 +738,14 @@
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::AssociatedType(
-                        TraitForTypeAssociatedTypeDecTemplate {
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TraitForTypeItem(
+                    TraitForTypeItemDecTemplate::AssocType(
+                        TraitForTypeAssocTypeDecTemplate {
                             path: TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -758,7 +758,7 @@
                                                     },
                                                 },
                                                 ident: `Output`,
-                                                item_kind: AssociatedType,
+                                                item_kind: AssocType,
                                             },
                                         ),
                                     ),

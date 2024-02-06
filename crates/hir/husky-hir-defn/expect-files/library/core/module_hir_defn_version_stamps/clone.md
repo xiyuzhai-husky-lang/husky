@@ -44,7 +44,7 @@
         ),
     ),
     (
-        AssociatedItem(
+        AssocItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId(

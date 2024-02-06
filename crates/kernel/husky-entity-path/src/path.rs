@@ -53,7 +53,7 @@ impl ItemPathId {
 pub enum ItemPathData {
     SubmoduleItem(SubmoduleItemPathData),
     MajorItem(MajorItemPathData),
-    AssociatedItem(AssociatedItemPathData),
+    AssocItem(AssocItemPathData),
     TypeVariant(TypeVariantPathData),
     ImplBlock(ImplBlockPathData),
     Attr(AttrItemPathData),
@@ -65,7 +65,7 @@ impl ItemPathData {
         match self {
             ItemPathData::SubmoduleItem(slf) => slf.item_path(id).into(),
             ItemPathData::MajorItem(slf) => slf.item_path(id).into(),
-            ItemPathData::AssociatedItem(slf) => slf.item_path(id).into(),
+            ItemPathData::AssocItem(slf) => slf.item_path(id).into(),
             ItemPathData::TypeVariant(slf) => slf.item_path(id).into(),
             ItemPathData::ImplBlock(slf) => slf.item_path(id).into(),
             ItemPathData::Attr(slf) => slf.item_path(id).into(),
@@ -76,7 +76,7 @@ impl ItemPathData {
         match self {
             ItemPathData::SubmoduleItem(slf) => slf.module_path(db),
             ItemPathData::MajorItem(slf) => slf.module_path(db),
-            ItemPathData::AssociatedItem(slf) => slf.module_path(db),
+            ItemPathData::AssocItem(slf) => slf.module_path(db),
             ItemPathData::TypeVariant(slf) => slf.module_path(db),
             ItemPathData::ImplBlock(slf) => slf.module_path(db),
             ItemPathData::Attr(slf) => slf.module_path(db),
@@ -87,7 +87,7 @@ impl ItemPathData {
         match self {
             ItemPathData::SubmoduleItem(slf) => Some(slf.ident(db)),
             ItemPathData::MajorItem(slf) => Some(slf.ident()),
-            ItemPathData::AssociatedItem(slf) => Some(slf.ident(db)),
+            ItemPathData::AssocItem(slf) => Some(slf.ident(db)),
             ItemPathData::TypeVariant(slf) => Some(slf.ident),
             ItemPathData::ImplBlock(_) => None,
             ItemPathData::Attr(slf) => Some(slf.ident),
@@ -98,7 +98,7 @@ impl ItemPathData {
         match self {
             ItemPathData::SubmoduleItem(_) => EntityKind::Module,
             ItemPathData::MajorItem(slf) => slf.entity_kind(db),
-            ItemPathData::AssociatedItem(slf) => slf.entity_kind(db),
+            ItemPathData::AssocItem(slf) => slf.entity_kind(db),
             ItemPathData::TypeVariant(_slf) => EntityKind::TypeVariant,
             ItemPathData::ImplBlock(_slf) => EntityKind::ImplBlock,
             ItemPathData::Attr(_slf) => EntityKind::Attr,
@@ -112,7 +112,7 @@ impl ItemPathData {
 pub enum EntityPath {
     Module(ModulePath),
     MajorItem(MajorItemPath),
-    AssociatedItem(AssociatedItemPath),
+    AssocItem(AssocItemPath),
     TypeVariant(Room32, TypeVariantPath),
     ImplBlock(ImplBlockPath),
     Attr(Room32, AttrItemPath),
@@ -123,7 +123,7 @@ impl EntityPath {
         match self {
             EntityPath::Module(path) => Some(path.ident(db)),
             EntityPath::MajorItem(path) => Some(path.ident(db)),
-            EntityPath::AssociatedItem(path) => path.ident(db),
+            EntityPath::AssocItem(path) => path.ident(db),
             EntityPath::TypeVariant(_, path) => Some(path.ident(db)),
             EntityPath::ImplBlock(_) => None,
             EntityPath::Attr(_, _) => None,
@@ -145,7 +145,7 @@ impl EntityPath {
         match self {
             EntityPath::Module(path) => path.crate_path(db),
             EntityPath::MajorItem(path) => path.crate_path(db),
-            EntityPath::AssociatedItem(path) => path.crate_path(db),
+            EntityPath::AssocItem(path) => path.crate_path(db),
             EntityPath::TypeVariant(_, path) => path.crate_path(db),
             EntityPath::ImplBlock(path) => path.crate_path(db),
             EntityPath::Attr(_, path) => path.crate_path(db),
@@ -160,7 +160,7 @@ impl EntityPath {
         match self {
             EntityPath::Module(_path) => EntityKind::Module,
             EntityPath::MajorItem(path) => path.item_kind(db),
-            EntityPath::AssociatedItem(path) => path.item_kind(db),
+            EntityPath::AssocItem(path) => path.item_kind(db),
             EntityPath::TypeVariant(_, _) => EntityKind::TypeVariant,
             EntityPath::ImplBlock(_) => EntityKind::ImplBlock,
             EntityPath::Attr(_, _) => todo!(),
@@ -172,9 +172,9 @@ impl EntityPath {
         match self {
             EntityPath::Module(path) => Some(path.into()),
             EntityPath::MajorItem(path) => Some(path.into()),
-            EntityPath::AssociatedItem(_)
-            | EntityPath::TypeVariant(_, _)
-            | EntityPath::ImplBlock(_) => None,
+            EntityPath::AssocItem(_) | EntityPath::TypeVariant(_, _) | EntityPath::ImplBlock(_) => {
+                None
+            }
             EntityPath::Attr(_, _) => todo!(),
         }
     }
@@ -204,7 +204,7 @@ impl From<TraitPath> for EntityPath {
 pub enum IdentifiableEntityPath {
     Module(ModulePath),
     MajorItem(MajorItemPath),
-    AssociatedItem(AssociatedItemPath),
+    AssocItem(AssocItemPath),
     TypeVariant(TypeVariantPath),
 }
 
@@ -214,7 +214,7 @@ pub enum IdentifiableEntityPath {
 pub enum ItemPath {
     Submodule(Room32, SubmoduleItemPath),
     MajorItem(MajorItemPath),
-    AssociatedItem(AssociatedItemPath),
+    AssocItem(AssocItemPath),
     TypeVariant(Room32, TypeVariantPath),
     ImplBlock(ImplBlockPath),
     Attr(Room32, AttrItemPath),
@@ -252,7 +252,7 @@ impl ItemPath {
         match self {
             ItemPath::Submodule(_, path) => Some(path.self_module_path(db).into()),
             ItemPath::MajorItem(path) => Some(path.into()),
-            ItemPath::AssociatedItem(_)
+            ItemPath::AssocItem(_)
             | ItemPath::TypeVariant(_, _)
             | ItemPath::ImplBlock(_)
             | ItemPath::Attr(_, _) => None,
@@ -269,7 +269,7 @@ impl salsa::DisplayWithDb for ItemPath {
         match self {
             ItemPath::Submodule(_, path) => path.display_fmt_with_db(f, db),
             ItemPath::MajorItem(path) => path.display_fmt_with_db(f, db),
-            ItemPath::AssociatedItem(path) => path.display_fmt_with_db(f, db),
+            ItemPath::AssocItem(path) => path.display_fmt_with_db(f, db),
             ItemPath::TypeVariant(_, path) => path.display_fmt_with_db(f, db),
             ItemPath::ImplBlock(_path) => todo!(),
             ItemPath::Attr(_, _) => todo!(),

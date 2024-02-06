@@ -7,8 +7,8 @@ pub use self::html::*;
 use crate::*;
 use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{
-    AssociatedItemPath, MajorFugitivePath, MajorItemPath, PrincipalEntityPath,
-    TraitForTypeItemPath, TypePath, TypeVariantPath,
+    AssocItemPath, MajorFugitivePath, MajorItemPath, PrincipalEntityPath, TraitForTypeItemPath,
+    TypePath, TypeVariantPath,
 };
 use husky_fly_term::signature::{FlyFieldSignature, MethodFlySignature};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
@@ -74,8 +74,8 @@ pub enum HirLazyExprData {
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
     },
-    AssociatedFunctionFnCall {
-        path: AssociatedItemPath,
+    AssocFunctionFnCall {
+        path: AssocItemPath,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
     },
@@ -87,14 +87,14 @@ pub enum HirLazyExprData {
     MemoizedField {
         owner: HirLazyExprIdx,
         ident: Ident,
-        path: AssociatedItemPath,
+        path: AssocItemPath,
         indirections: HirIndirections,
         instantiation: HirInstantiation,
     },
     MethodFnCall {
         self_argument: HirLazyExprIdx,
         ident: Ident,
-        path: AssociatedItemPath,
+        path: AssocItemPath,
         indirections: HirIndirections,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
@@ -122,9 +122,9 @@ pub enum HirLazyExprData {
     },
     Todo,
     Unreachable,
-    AssociatedFn {
+    AssocFn {
         // ad hoc, needs more
-        path: AssociatedItemPath,
+        path: AssocItemPath,
     },
     Unveil {
         unveil_associated_fn_path: TraitForTypeItemPath,
@@ -150,7 +150,7 @@ impl ToHirLazy for SemaExprIdx {
             SemaExprData::PrincipalEntityPath { path, .. } => {
                 HirLazyExprData::PrincipalEntityPath(path)
             }
-            SemaExprData::AssociatedItem { .. } => todo!(),
+            SemaExprData::AssocItem { .. } => todo!(),
             SemaExprData::InheritedSynSymbol {
                 inherited_syn_symbol_idx,
                 ..
@@ -308,7 +308,7 @@ impl ToHirLazy for SemaExprIdx {
                             }
                         }
                     }
-                    SemaExprData::AssociatedItem { .. } => todo!(),
+                    SemaExprData::AssocItem { .. } => todo!(),
                     _ => todo!(),
                 }
             }

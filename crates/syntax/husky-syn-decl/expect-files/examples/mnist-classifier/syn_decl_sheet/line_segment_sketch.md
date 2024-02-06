@@ -3024,12 +3024,12 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -3050,14 +3050,14 @@ SynDeclSheet {
                     ),
                 ),
             ),
-            SynDecl::AssociatedItem(
-                AssociatedItemSynDecl::TraitForTypeItem(
+            SynDecl::AssocItem(
+                AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -3221,18 +3221,18 @@ SynDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TraitForTypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TraitForTypeItemPath(
                                                                             ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                                data: ItemPathData::AssocItem(
+                                                                                    AssocItemPathData::TraitForTypeItem(
                                                                                         TraitForTypeItemPathData {
                                                                                             impl_block: TraitForTypeImplBlock {
                                                                                                 data: TraitForTypeImplBlockPathData {
@@ -3489,16 +3489,16 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
                 ),
             ),
-            SynDecl::AssociatedItem(
-                AssociatedItemSynDecl::TypeItem(
-                    TypeItemSynDecl::AssociatedFn(
-                        TypeAssociatedFnSynDecl {
-                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
+            SynDecl::AssocItem(
+                AssocItemSynDecl::TypeItem(
+                    TypeItemSynDecl::AssocFn(
+                        TypeAssocFnSynDecl {
+                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 ParenateSynParameterData::Ordinary {
@@ -3660,15 +3660,15 @@ SynDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -4012,13 +4012,13 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
                 ),
             ),
-            SynDecl::AssociatedItem(
-                AssociatedItemSynDecl::TypeItem(
+            SynDecl::AssocItem(
+                AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
                             path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
@@ -4141,12 +4141,12 @@ SynDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
@@ -4413,12 +4413,12 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -4439,14 +4439,14 @@ SynDeclSheet {
                     ),
                 ),
             ),
-            SynDecl::AssociatedItem(
-                AssociatedItemSynDecl::TraitForTypeItem(
+            SynDecl::AssocItem(
+                AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -4610,18 +4610,18 @@ SynDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TraitForTypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TraitForTypeItemPath(
                                                                             ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                                data: ItemPathData::AssocItem(
+                                                                                    AssocItemPathData::TraitForTypeItem(
                                                                                         TraitForTypeItemPathData {
                                                                                             impl_block: TraitForTypeImplBlock {
                                                                                                 data: TraitForTypeImplBlockPathData {
@@ -4878,13 +4878,13 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
                 ),
             ),
-            SynDecl::AssociatedItem(
-                AssociatedItemSynDecl::TypeItem(
+            SynDecl::AssocItem(
+                AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MemoizedField(
                         TypeMemoizedFieldSynDecl {
                             path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
@@ -5005,12 +5005,12 @@ SynDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
@@ -5117,13 +5117,13 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                 ),
             ),
-            SynDecl::AssociatedItem(
-                AssociatedItemSynDecl::TypeItem(
+            SynDecl::AssocItem(
+                AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MemoizedField(
                         TypeMemoizedFieldSynDecl {
                             path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
@@ -5244,12 +5244,12 @@ SynDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
@@ -5343,16 +5343,16 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssociatedFunctionFn`),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocFunctionFn`),
                 ),
             ),
-            SynDecl::AssociatedItem(
-                AssociatedItemSynDecl::TypeItem(
-                    TypeItemSynDecl::AssociatedFn(
-                        TypeAssociatedFnSynDecl {
-                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssociatedFunctionFn`),
+            SynDecl::AssocItem(
+                AssocItemSynDecl::TypeItem(
+                    TypeItemSynDecl::AssocFn(
+                        TypeAssocFnSynDecl {
+                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocFunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
                                 ParenateSynParameterData::Ordinary {
@@ -5500,15 +5500,15 @@ SynDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssociatedFunctionFn`),
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocFunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

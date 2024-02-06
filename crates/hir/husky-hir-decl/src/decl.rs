@@ -30,7 +30,7 @@ impl HasHirDecl for ItemPath {
         Some(match self {
             ItemPath::Submodule(_, path) => path.hir_decl(db)?.into(),
             ItemPath::MajorItem(path) => path.hir_decl(db)?.into(),
-            ItemPath::AssociatedItem(path) => path.hir_decl(db)?.into(),
+            ItemPath::AssocItem(path) => path.hir_decl(db)?.into(),
             ItemPath::TypeVariant(_, path) => path.hir_decl(db)?.into(),
             ItemPath::ImplBlock(path) => path.hir_decl(db)?.into(),
             ItemPath::Attr(_, _) => todo!(),
@@ -45,7 +45,7 @@ pub enum HirDecl {
     Submodule(SubmoduleHirDecl),
     MajorItem(MajorItemHirDecl),
     ImplBlock(ImplBlockHirDecl),
-    AssociatedItem(AssociatedItemHirDecl),
+    AssocItem(AssocItemHirDecl),
     TypeVariant(TypeVariantHirDecl),
     Attr(AttrHirDecl),
 }
@@ -56,7 +56,7 @@ impl HirDecl {
             HirDecl::Submodule(_) => None,
             HirDecl::MajorItem(decl) => decl.template_parameters(db),
             HirDecl::ImplBlock(decl) => Some(decl.template_parameters(db)),
-            HirDecl::AssociatedItem(decl) => decl.template_parameters(db),
+            HirDecl::AssocItem(decl) => decl.template_parameters(db),
             HirDecl::TypeVariant(_decl) => None,
             HirDecl::Attr(_) => todo!(),
         }
@@ -67,7 +67,7 @@ impl HirDecl {
             HirDecl::Submodule(decl) => None,
             HirDecl::MajorItem(decl) => Some(decl.hir_expr_region(db)),
             HirDecl::ImplBlock(decl) => Some(decl.hir_eager_expr_region(db).into()),
-            HirDecl::AssociatedItem(decl) => Some(decl.hir_expr_region(db)),
+            HirDecl::AssocItem(decl) => Some(decl.hir_expr_region(db)),
             HirDecl::TypeVariant(decl) => Some(decl.hir_expr_region(db)),
             HirDecl::Attr(decl) => None,
         }
@@ -78,7 +78,7 @@ impl HirDecl {
             HirDecl::Submodule(_) => todo!(),
             HirDecl::MajorItem(decl) => decl.path(db).into(),
             HirDecl::ImplBlock(decl) => decl.path(db).into(),
-            HirDecl::AssociatedItem(decl) => decl.path(db).into(),
+            HirDecl::AssocItem(decl) => decl.path(db).into(),
             HirDecl::TypeVariant(decl) => decl.path(db).into(),
             HirDecl::Attr(decl) => decl.path(db).into(),
         }

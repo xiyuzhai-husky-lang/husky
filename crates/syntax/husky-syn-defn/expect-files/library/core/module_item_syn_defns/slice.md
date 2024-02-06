@@ -36,16 +36,16 @@
         None,
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
             ),
         ),
         None,
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
             ),
         ),
@@ -69,12 +69,12 @@
         None,
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TraitForTypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
+                        data: ItemPathData::AssocItem(
+                            AssocItemPathData::TraitForTypeItem(
                                 TraitForTypeItemPathData {
                                     impl_block: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
@@ -87,7 +87,7 @@
                                         },
                                     },
                                     ident: `Output`,
-                                    item_kind: AssociatedType,
+                                    item_kind: AssocType,
                                 },
                             ),
                         ),
@@ -118,40 +118,40 @@
         None,
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodFn`),
             ),
         ),
         None,
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
             ),
         ),
         None,
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
             ),
         ),
         None,
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
             ),
         ),
         None,
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
             ),
         ),

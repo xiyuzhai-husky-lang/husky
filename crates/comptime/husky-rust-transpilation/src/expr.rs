@@ -105,7 +105,7 @@ impl HirEagerExprSite {
             },
             HirEagerExprData::ConstSymbol { .. }
             | HirEagerExprData::FunctionFnCall { .. }
-            | HirEagerExprData::AssociatedFunctionFnCall { .. }
+            | HirEagerExprData::AssocFunctionFnCall { .. }
             | HirEagerExprData::MemoizedField { .. }
             | HirEagerExprData::MethodFnCall { .. }
             | HirEagerExprData::Suffix { .. }
@@ -308,7 +308,7 @@ impl HirEagerExprSite {
                     item_groups.iter().map(|item_group| (item_group, self)),
                 )
             }
-            HirEagerExprData::AssociatedFunctionFnCall {
+            HirEagerExprData::AssocFunctionFnCall {
                 path,
                 instantiation: _,
                 ref item_groups,
@@ -454,7 +454,7 @@ impl HirEagerExprSite {
                 builder.macro_name(RustMacroName::Unreachable);
                 builder.bracketed(RustBracket::Par, |_| ())
             }
-            HirEagerExprData::AssociatedFn {
+            HirEagerExprData::AssocFn {
                 associated_item_path,
             } => associated_item_path.transpile_to_rust(builder),
             HirEagerExprData::As { opd, ty } => {

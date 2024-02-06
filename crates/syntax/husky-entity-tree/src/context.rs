@@ -103,7 +103,7 @@ where
                     // ad hoc
                     Some(EntitySymbol::PackageDependency { item_path })
                 }
-                SubitemPath::Associated => None,
+                SubitemPath::Assoc => None,
             }
         }
     }

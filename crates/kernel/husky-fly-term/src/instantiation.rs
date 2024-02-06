@@ -53,7 +53,7 @@ pub enum FlyTermSymbolResolution {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FlyInstantiationEnvironment {
     TypeOntologyConstructor,
-    AssociatedFn,
+    AssocFn,
     MethodFn { self_place: FlyPlace },
     MemoizedField,
 }
@@ -201,7 +201,7 @@ impl std::ops::Index<EthSymbol> for FlyTermInstantiationBuilder {
 
 impl FlyTermInstantiationBuilder {
     pub fn new_associated(
-        path: impl Into<AssociatedItemPath>,
+        path: impl Into<AssocItemPath>,
         env: FlyInstantiationEnvironment,
         impl_block_template_parameters: &[EthTemplateParameter],
         associated_item_template_parameters: &[EthTemplateParameter],
@@ -222,7 +222,7 @@ impl FlyTermInstantiationBuilder {
                                 Some(FlyTermSymbolResolution::SelfLifetime)
                             }
                             EthTermSymbolIndexImpl::SelfPlace => Some(match env {
-                                FlyInstantiationEnvironment::AssociatedFn => todo!(),
+                                FlyInstantiationEnvironment::AssocFn => todo!(),
                                 FlyInstantiationEnvironment::MethodFn { self_place } => {
                                     FlyTermSymbolResolution::SelfPlace(self_place)
                                 }

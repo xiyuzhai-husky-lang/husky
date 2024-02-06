@@ -310,7 +310,7 @@
                                                 self_argument: 1,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -624,7 +624,7 @@
                                                 self_argument: 1,
                                                 self_contract: Pure,
                                                 ident: `displacement`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -789,7 +789,7 @@
                                                 self_argument: 12,
                                                 self_contract: Pure,
                                                 ident: `abs`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -845,7 +845,7 @@
                                             data: HirEagerExprData::MemoizedField {
                                                 owner_hir_expr_idx: 16,
                                                 ident: `relative_bounding_box`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
                                                 ),
                                             },
@@ -857,7 +857,7 @@
                                                 self_argument: 17,
                                                 self_contract: Pure,
                                                 ident: `ymax`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -938,7 +938,7 @@
                                             data: HirEagerExprData::MemoizedField {
                                                 owner_hir_expr_idx: 22,
                                                 ident: `bounding_box`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                                                 ),
                                             },
@@ -963,7 +963,7 @@
                                                 self_argument: 24,
                                                 self_contract: Pure,
                                                 ident: `end`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -982,7 +982,7 @@
                                                 self_argument: 23,
                                                 self_contract: Pure,
                                                 ident: `relative_point`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -1092,7 +1092,7 @@
                                                 self_argument: 31,
                                                 self_contract: Pure,
                                                 ident: `end`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {

@@ -589,12 +589,12 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -618,12 +618,12 @@
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TraitForTypeItem(
                         TraitForTypeItemPath(
                             ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TraitForTypeItem(
+                                data: ItemPathData::AssocItem(
+                                    AssocItemPathData::TraitForTypeItem(
                                         TraitForTypeItemPathData {
                                             impl_block: TraitForTypeImplBlock {
                                                 data: TraitForTypeImplBlockPathData {
@@ -963,17 +963,17 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
-                    TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocFunctionFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
+                        TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocFunctionFn`),
                     ),
                 ),
             ),
@@ -1359,12 +1359,12 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -1377,7 +1377,7 @@
                                             },
                                         },
                                         ident: `Output`,
-                                        item_kind: AssociatedType,
+                                        item_kind: AssocType,
                                     },
                                 ),
                             ),
@@ -1388,12 +1388,12 @@
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TraitForTypeItem(
                         TraitForTypeItemPath(
                             ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TraitForTypeItem(
+                                data: ItemPathData::AssocItem(
+                                    AssocItemPathData::TraitForTypeItem(
                                         TraitForTypeItemPathData {
                                             impl_block: TraitForTypeImplBlock {
                                                 data: TraitForTypeImplBlockPathData {
@@ -1406,7 +1406,7 @@
                                                 },
                                             },
                                             ident: `Output`,
-                                            item_kind: AssociatedType,
+                                            item_kind: AssocType,
                                         },
                                     ),
                                 ),
@@ -1466,7 +1466,7 @@
                         SemaExprIdx(
                             1,
                         ),
-                        SynExprRootKind::AssociatedTypeTerm,
+                        SynExprRootKind::AssocTypeTerm,
                     ),
                 ),
             ],
@@ -1802,12 +1802,12 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -1831,12 +1831,12 @@
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TraitForTypeItem(
                         TraitForTypeItemPath(
                             ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TraitForTypeItem(
+                                data: ItemPathData::AssocItem(
+                                    AssocItemPathData::TraitForTypeItem(
                                         TraitForTypeItemPathData {
                                             impl_block: TraitForTypeImplBlock {
                                                 data: TraitForTypeImplBlockPathData {
@@ -2176,17 +2176,17 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
-                    TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocFunctionFn`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
+                ItemPath::AssocItem(
+                    AssocItemPath::TypeItem(
+                        TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocFunctionFn`),
                     ),
                 ),
             ),
@@ -2572,12 +2572,12 @@
     },
     SemaExprRegion {
         path: RegionPath::Decl(
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -2590,7 +2590,7 @@
                                             },
                                         },
                                         ident: `Output`,
-                                        item_kind: AssociatedType,
+                                        item_kind: AssocType,
                                     },
                                 ),
                             ),
@@ -2601,12 +2601,12 @@
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
-                ItemPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
+                ItemPath::AssocItem(
+                    AssocItemPath::TraitForTypeItem(
                         TraitForTypeItemPath(
                             ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TraitForTypeItem(
+                                data: ItemPathData::AssocItem(
+                                    AssocItemPathData::TraitForTypeItem(
                                         TraitForTypeItemPathData {
                                             impl_block: TraitForTypeImplBlock {
                                                 data: TraitForTypeImplBlockPathData {
@@ -2619,7 +2619,7 @@
                                                 },
                                             },
                                             ident: `Output`,
-                                            item_kind: AssociatedType,
+                                            item_kind: AssocType,
                                         },
                                     ),
                                 ),
@@ -2679,7 +2679,7 @@
                         SemaExprIdx(
                             1,
                         ),
-                        SynExprRootKind::AssociatedTypeTerm,
+                        SynExprRootKind::AssocTypeTerm,
                     ),
                 ),
             ],

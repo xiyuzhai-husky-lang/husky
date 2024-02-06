@@ -23,7 +23,7 @@ impl TypeItemPath {
     ) -> Self {
         Self(ItemPathId::new(
             db,
-            ItemPathData::AssociatedItem(AssociatedItemPathData::TypeItem(TypeItemPathData {
+            ItemPathData::AssocItem(AssocItemPathData::TypeItem(TypeItemPathData {
                 impl_block,
                 ident,
                 item_kind,
@@ -33,7 +33,7 @@ impl TypeItemPath {
 
     pub fn data(self, db: &::salsa::Db) -> TypeItemPathData {
         match self.0.data(db) {
-            ItemPathData::AssociatedItem(AssociatedItemPathData::TypeItem(data)) => data,
+            ItemPathData::AssocItem(AssocItemPathData::TypeItem(data)) => data,
             _ => unreachable!(),
         }
     }
@@ -100,8 +100,8 @@ impl TypeItemPathData {
     }
 
     pub fn entity_kind(self, _db: &::salsa::Db) -> EntityKind {
-        EntityKind::AssociatedItem {
-            associated_item_kind: AssociatedItemKind::TypeItem(self.item_kind),
+        EntityKind::AssocItem {
+            associated_item_kind: AssocItemKind::TypeItem(self.item_kind),
         }
     }
 

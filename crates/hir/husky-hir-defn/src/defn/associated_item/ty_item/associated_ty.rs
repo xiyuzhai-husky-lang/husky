@@ -1,31 +1,31 @@
 use super::*;
-use husky_hir_decl::decl::TypeAssociatedTypeHirDecl;
+use husky_hir_decl::decl::TypeAssocTypeHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
-pub struct TypeAssociatedTypeHirDefn {
+pub struct TypeAssocTypeHirDefn {
     pub path: TypeItemPath,
-    pub hir_decl: TypeAssociatedTypeHirDecl,
+    pub hir_decl: TypeAssocTypeHirDecl,
     pub hir_expr_region: HirEagerExprRegion,
     pub hir_eager_expr_region: Option<HirEagerExprRegion>,
 }
 
-impl From<TypeAssociatedTypeHirDefn> for AssociatedItemHirDefn {
-    fn from(hir_defn: TypeAssociatedTypeHirDefn) -> Self {
-        AssociatedItemHirDefn::TypeItem(hir_defn.into())
+impl From<TypeAssocTypeHirDefn> for AssocItemHirDefn {
+    fn from(hir_defn: TypeAssocTypeHirDefn) -> Self {
+        AssocItemHirDefn::TypeItem(hir_defn.into())
     }
 }
 
-impl From<TypeAssociatedTypeHirDefn> for HirDefn {
-    fn from(hir_defn: TypeAssociatedTypeHirDefn) -> Self {
-        HirDefn::AssociatedItem(hir_defn.into())
+impl From<TypeAssocTypeHirDefn> for HirDefn {
+    fn from(hir_defn: TypeAssocTypeHirDefn) -> Self {
+        HirDefn::AssocItem(hir_defn.into())
     }
 }
 
-impl TypeAssociatedTypeHirDefn {
+impl TypeAssocTypeHirDefn {
     pub(super) fn new(
         _db: &::salsa::Db,
         _path: TypeItemPath,
-        _hir_decl: TypeAssociatedTypeHirDecl,
+        _hir_decl: TypeAssocTypeHirDecl,
     ) -> Self {
         todo!()
     }
@@ -42,7 +42,7 @@ impl TypeAssociatedTypeHirDefn {
 #[salsa::tracked(jar = HirDefnJar)]
 fn ty_associated_ty_hir_defn_dependencies(
     db: &::salsa::Db,
-    hir_defn: TypeAssociatedTypeHirDefn,
+    hir_defn: TypeAssocTypeHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
@@ -58,7 +58,7 @@ fn ty_associated_ty_hir_defn_dependencies(
 #[salsa::tracked(jar = HirDefnJar)]
 fn ty_associated_ty_hir_defn_version_stamp(
     db: &::salsa::Db,
-    hir_defn: TypeAssociatedTypeHirDefn,
+    hir_defn: TypeAssocTypeHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

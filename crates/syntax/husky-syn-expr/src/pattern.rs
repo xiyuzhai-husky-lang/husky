@@ -190,7 +190,7 @@ where
                             },
                             None => todo!(),
                         },
-                        IdentifiableEntityPathExpr::AssociatedItem { .. } => todo!(),
+                        IdentifiableEntityPathExpr::AssocItem { .. } => todo!(),
                     },
                     DisambiguatedTokenData::InheritedSynSymbol {
                         regional_token_idx,

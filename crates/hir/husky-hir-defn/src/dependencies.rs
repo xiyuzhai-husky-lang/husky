@@ -77,7 +77,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                     self.add_item_path(path.parent_ty_path(db))
                 }
                 HirEagerExprData::FunctionFnCall { path, .. } => self.add_item_path(path),
-                HirEagerExprData::AssociatedFunctionFnCall { path, .. } => self.add_item_path(path),
+                HirEagerExprData::AssocFunctionFnCall { path, .. } => self.add_item_path(path),
                 HirEagerExprData::PropsStructField { .. } => (),
                 HirEagerExprData::MemoizedField { path, .. } => self.add_item_path(path),
                 HirEagerExprData::MethodFnCall {
@@ -100,7 +100,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirEagerExprData::EmptyHtmlTag { .. } => (),
                 HirEagerExprData::Todo => (),
                 HirEagerExprData::Unreachable => (),
-                HirEagerExprData::AssociatedFn {
+                HirEagerExprData::AssocFn {
                     associated_item_path,
                 } => self.add_item_path(associated_item_path),
                 HirEagerExprData::As { opd: _, ty } => self.add_hir_ty(ty),
@@ -138,7 +138,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 }
                 HirLazyExprData::FunctionFnItemCall { path, .. } => self.add_item_path(path),
                 HirLazyExprData::FunctionGnItemCall { path, .. } => self.add_item_path(path),
-                HirLazyExprData::AssociatedFunctionFnCall { path, .. } => self.add_item_path(path),
+                HirLazyExprData::AssocFunctionFnCall { path, .. } => self.add_item_path(path),
                 HirLazyExprData::PropsStructField { .. } => (),
                 HirLazyExprData::MemoizedField {
                     path,
@@ -166,7 +166,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirLazyExprData::EmptyHtmlTag { .. } => (),
                 HirLazyExprData::Todo => (),
                 HirLazyExprData::Unreachable => (),
-                HirLazyExprData::AssociatedFn { path } => self.add_item_path(path),
+                HirLazyExprData::AssocFn { path } => self.add_item_path(path),
                 HirLazyExprData::As { ty, .. } => self.add_hir_ty(ty),
             }
         }
@@ -186,8 +186,8 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 self.add_hir_template_arguments(hir_ty.template_arguments(db))
             }
             HirType::Symbol(_) => (),
-            HirType::TypeAssociatedType(_) => (),
-            HirType::TraitAssociatedType(_) => (),
+            HirType::TypeAssocType(_) => (),
+            HirType::TraitAssocType(_) => (),
             HirType::Ritchie(hir_ty) => {
                 for param in hir_ty.parameters(db).iter() {
                     match param {

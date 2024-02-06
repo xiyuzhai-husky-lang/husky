@@ -46,11 +46,11 @@ pub trait HuskyCompletionQuery {
 //         MemberDecl::TypeField(field) => CompletionItemKind::FIELD,
 //         MemberDecl::TypeMethod(_) => CompletionItemKind::METHOD,
 //         MemberDecl::TraitMethodImpl { .. } => CompletionItemKind::METHOD,
-//         MemberDecl::AssociatedType
-//         | MemberDecl::AssociatedCall
-//         | MemberDecl::TypeAssociatedCall(_)
-//         | MemberDecl::TraitAssociatedTypeImpl { .. }
-//         | MemberDecl::TraitAssociatedConstSizeImpl { .. } => return None,
+//         MemberDecl::AssocType
+//         | MemberDecl::AssocCall
+//         | MemberDecl::TypeAssocCall(_)
+//         | MemberDecl::TraitAssocTypeImpl { .. }
+//         | MemberDecl::TraitAssocConstSizeImpl { .. } => return None,
 //     };
 //     Some(CompletionItem {
 //         label,

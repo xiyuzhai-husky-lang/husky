@@ -67,7 +67,7 @@ pub enum DecTerm {
     Application(DecApplication),
     ApplicationOrRitchieCall(DecApplicationOrRitchieCall),
     /// ::<ident>
-    AssociatedItem(DecAssociatedItem),
+    AssocItem(DecAssocItem),
     /// (<type> as <trait>)::<ident>
     TypeAsTraitItem(DecTypeAsTraitItem),
     /// <type> : <trait>

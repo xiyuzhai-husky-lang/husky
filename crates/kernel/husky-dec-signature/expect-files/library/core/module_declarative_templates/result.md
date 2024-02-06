@@ -126,12 +126,12 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TraitForTypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
+                        data: ItemPathData::AssocItem(
+                            AssocItemPathData::TraitForTypeItem(
                                 TraitForTypeItemPathData {
                                     impl_block: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
@@ -144,7 +144,7 @@
                                         },
                                     },
                                     ident: `Continue`,
-                                    item_kind: AssociatedType,
+                                    item_kind: AssocType,
                                 },
                             ),
                         ),
@@ -153,14 +153,14 @@
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::AssociatedType(
-                        TraitForTypeAssociatedTypeDecTemplate {
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TraitForTypeItem(
+                    TraitForTypeItemDecTemplate::AssocType(
+                        TraitForTypeAssocTypeDecTemplate {
                             path: TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -173,7 +173,7 @@
                                                     },
                                                 },
                                                 ident: `Continue`,
-                                                item_kind: AssociatedType,
+                                                item_kind: AssocType,
                                             },
                                         ),
                                     ),
@@ -196,12 +196,12 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TraitForTypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
+                        data: ItemPathData::AssocItem(
+                            AssocItemPathData::TraitForTypeItem(
                                 TraitForTypeItemPathData {
                                     impl_block: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
@@ -214,7 +214,7 @@
                                         },
                                     },
                                     ident: `unveil`,
-                                    item_kind: AssociatedFunctionFn,
+                                    item_kind: AssocFunctionFn,
                                 },
                             ),
                         ),
@@ -223,10 +223,10 @@
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::AssociatedFn(
-                        TraitForTypeAssociatedFnDecTemplate {
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TraitForTypeItem(
+                    TraitForTypeItemDecTemplate::AssocFn(
+                        TraitForTypeAssocFnDecTemplate {
                             self_ty: Application(
                                 DecApplication(
                                     Id {

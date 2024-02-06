@@ -197,14 +197,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
@@ -242,14 +242,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
@@ -287,14 +287,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),

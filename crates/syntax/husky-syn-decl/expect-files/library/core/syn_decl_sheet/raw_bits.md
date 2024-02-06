@@ -231,13 +231,13 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodFn`),
                 ),
             ),
-            SynDecl::AssociatedItem(
-                AssociatedItemSynDecl::TypeItem(
+            SynDecl::AssocItem(
+                AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
                             path: TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodFn`),
@@ -375,12 +375,12 @@ SynDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodFn`),
@@ -562,13 +562,13 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodFn`),
                 ),
             ),
-            SynDecl::AssociatedItem(
-                AssociatedItemSynDecl::TypeItem(
+            SynDecl::AssocItem(
+                AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
                             path: TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodFn`),
@@ -691,12 +691,12 @@ SynDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodFn`),
@@ -790,13 +790,13 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
                 ),
             ),
-            SynDecl::AssociatedItem(
-                AssociatedItemSynDecl::TypeItem(
+            SynDecl::AssocItem(
+                AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
                             path: TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
@@ -919,12 +919,12 @@ SynDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
@@ -1018,13 +1018,13 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
                 ),
             ),
-            SynDecl::AssociatedItem(
-                AssociatedItemSynDecl::TypeItem(
+            SynDecl::AssocItem(
+                AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
                             path: TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
@@ -1147,12 +1147,12 @@ SynDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
@@ -1246,13 +1246,13 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
                     TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodFn`),
                 ),
             ),
-            SynDecl::AssociatedItem(
-                AssociatedItemSynDecl::TypeItem(
+            SynDecl::AssocItem(
+                AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
                             path: TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodFn`),
@@ -1375,12 +1375,12 @@ SynDeclSheet {
                                         },
                                     ),
                                     path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TypeItem(
+                                        ItemSynNodePath::AssocItem(
+                                            AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
                                                     ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssociatedItem(
-                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodFn`),

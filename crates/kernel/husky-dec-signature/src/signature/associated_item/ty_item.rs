@@ -18,10 +18,10 @@ use crate::*;
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeItemDecTemplate {
-    AssociatedFn(TypeAssociatedFnDecTemplate),
+    AssocFn(TypeAssocFnDecTemplate),
     MethodFn(TypeMethodFnDecTemplate),
-    AssociatedType(TypeAssociatedTypeDecTemplate),
-    AssociatedVal(TypeAssociatedValDecTemplate),
+    AssocType(TypeAssocTypeDecTemplate),
+    AssocVal(TypeAssocValDecTemplate),
     MemoizedField(TypeMemoizedFieldDecTemplate),
 }
 
@@ -29,20 +29,20 @@ pub enum TypeItemDecTemplate {
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeItemDecTemplates {
-    AssociatedFn(SmallVecImpl<TypeAssociatedFnDecTemplate>),
+    AssocFn(SmallVecImpl<TypeAssocFnDecTemplate>),
     MethodFn(SmallVecImpl<TypeMethodFnDecTemplate>),
-    AssociatedType(SmallVecImpl<TypeAssociatedTypeDecTemplate>),
-    AssociatedVal(SmallVecImpl<TypeAssociatedValDecTemplate>),
+    AssocType(SmallVecImpl<TypeAssocTypeDecTemplate>),
+    AssocVal(SmallVecImpl<TypeAssocValDecTemplate>),
     MemoizedField(SmallVecImpl<TypeMemoizedFieldDecTemplate>),
 }
 
 impl TypeItemDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
-            TypeItemDecTemplate::AssociatedFn(signature) => signature.template_parameters(db),
+            TypeItemDecTemplate::AssocFn(signature) => signature.template_parameters(db),
             TypeItemDecTemplate::MethodFn(signature) => signature.template_parameters(db),
-            TypeItemDecTemplate::AssociatedType(signature) => signature.template_parameters(db),
-            TypeItemDecTemplate::AssociatedVal(_) => &[],
+            TypeItemDecTemplate::AssocType(signature) => signature.template_parameters(db),
+            TypeItemDecTemplate::AssocVal(_) => &[],
             TypeItemDecTemplate::MemoizedField(_) => &[],
         }
     }
@@ -63,17 +63,17 @@ pub(crate) fn ty_item_syn_dec_template(
 ) -> DecSignatureResult<TypeItemDecTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
-        TypeItemSynDecl::AssociatedFn(decl) => {
-            TypeAssociatedFnDecTemplate::from_decl(db, path, decl).map(Into::into)
+        TypeItemSynDecl::AssocFn(decl) => {
+            TypeAssocFnDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TypeItemSynDecl::MethodFn(decl) => {
             TypeMethodFnDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
-        TypeItemSynDecl::AssociatedType(decl) => {
-            TypeAssociatedTypeDecTemplate::from_decl(db, path, decl).map(Into::into)
+        TypeItemSynDecl::AssocType(decl) => {
+            TypeAssocTypeDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
-        TypeItemSynDecl::AssociatedVal(decl) => {
-            TypeAssociatedValDecTemplate::from_decl(db, path, decl).map(Into::into)
+        TypeItemSynDecl::AssocVal(decl) => {
+            TypeAssocValDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TypeItemSynDecl::MemoizedField(decl) => {
             TypeMemoizedFieldDecTemplate::from_decl(db, path, decl).map(Into::into)

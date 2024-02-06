@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TraitAssociatedFnSynNodeDecl {
+pub struct TraitAssocFnSynNodeDecl {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
     #[return_ref]
@@ -16,7 +16,7 @@ pub struct TraitAssociatedFnSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TraitAssociatedFnSynNodeDecl {
+impl TraitAssocFnSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
@@ -35,7 +35,7 @@ impl TraitAssociatedFnSynNodeDecl {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TraitAssociatedFnSynDecl {
+pub struct TraitAssocFnSynDecl {
     #[id]
     pub path: TraitItemPath,
     #[return_ref]
@@ -46,11 +46,11 @@ pub struct TraitAssociatedFnSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TraitAssociatedFnSynDecl {
+impl TraitAssocFnSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: TraitItemPath,
-        syn_node_decl: TraitAssociatedFnSynNodeDecl,
+        syn_node_decl: TraitAssocFnSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
@@ -72,7 +72,7 @@ impl TraitAssociatedFnSynDecl {
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(TraitAssociatedFnSynDecl::new(
+        Ok(TraitAssocFnSynDecl::new(
             db,
             path,
             template_parameters,

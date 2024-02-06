@@ -157,7 +157,7 @@
                                                 self_argument: 1,
                                                 self_contract: Pure,
                                                 ident: `len`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -2078,7 +2078,7 @@
                                                 self_argument: 43,
                                                 self_contract: BorrowMut,
                                                 ident: `swap`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -2234,7 +2234,7 @@
                                                 self_argument: 49,
                                                 self_contract: BorrowMut,
                                                 ident: `swap`,
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {

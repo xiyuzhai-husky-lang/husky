@@ -270,12 +270,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::i8(0)::abs`, `MethodFn`),
@@ -288,7 +288,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -325,12 +325,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::i8(0)::max`, `MethodFn`),
@@ -343,7 +343,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -474,18 +474,18 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId {
-                                                                data: ItemPathData::AssociatedItem(
-                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                data: ItemPathData::AssocItem(
+                                                                    AssocItemPathData::TraitForTypeItem(
                                                                         TraitForTypeItemPathData {
                                                                             impl_block: TraitForTypeImplBlock {
                                                                                 data: TraitForTypeImplBlockPathData {
@@ -513,7 +513,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TraitForTypeItem(
                                 MethodFn,
                             ),
@@ -749,12 +749,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::i16(0)::abs`, `MethodFn`),
@@ -767,7 +767,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -804,12 +804,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::i16(0)::max`, `MethodFn`),
@@ -822,7 +822,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -953,18 +953,18 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId {
-                                                                data: ItemPathData::AssociatedItem(
-                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                data: ItemPathData::AssocItem(
+                                                                    AssocItemPathData::TraitForTypeItem(
                                                                         TraitForTypeItemPathData {
                                                                             impl_block: TraitForTypeImplBlock {
                                                                                 data: TraitForTypeImplBlockPathData {
@@ -992,7 +992,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TraitForTypeItem(
                                 MethodFn,
                             ),
@@ -1228,12 +1228,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::i32(0)::abs`, `MethodFn`),
@@ -1246,7 +1246,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -1283,12 +1283,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::i32(0)::max`, `MethodFn`),
@@ -1301,7 +1301,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -1372,12 +1372,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::i32(0)::min`, `MethodFn`),
@@ -1390,7 +1390,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -1520,18 +1520,18 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId {
-                                                                data: ItemPathData::AssociatedItem(
-                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                data: ItemPathData::AssocItem(
+                                                                    AssocItemPathData::TraitForTypeItem(
                                                                         TraitForTypeItemPathData {
                                                                             impl_block: TraitForTypeImplBlock {
                                                                                 data: TraitForTypeImplBlockPathData {
@@ -1559,7 +1559,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TraitForTypeItem(
                                 MethodFn,
                             ),
@@ -1795,12 +1795,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::i64(0)::abs`, `MethodFn`),
@@ -1813,7 +1813,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -1910,18 +1910,18 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId {
-                                                                data: ItemPathData::AssociatedItem(
-                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                data: ItemPathData::AssocItem(
+                                                                    AssocItemPathData::TraitForTypeItem(
                                                                         TraitForTypeItemPathData {
                                                                             impl_block: TraitForTypeImplBlock {
                                                                                 data: TraitForTypeImplBlockPathData {
@@ -1949,7 +1949,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TraitForTypeItem(
                                 MethodFn,
                             ),
@@ -2185,12 +2185,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::i128(0)::abs`, `MethodFn`),
@@ -2203,7 +2203,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -2300,18 +2300,18 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId {
-                                                                data: ItemPathData::AssociatedItem(
-                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                data: ItemPathData::AssocItem(
+                                                                    AssocItemPathData::TraitForTypeItem(
                                                                         TraitForTypeItemPathData {
                                                                             impl_block: TraitForTypeImplBlock {
                                                                                 data: TraitForTypeImplBlockPathData {
@@ -2339,7 +2339,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TraitForTypeItem(
                                 MethodFn,
                             ),
@@ -2575,12 +2575,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::isize(0)::abs`, `MethodFn`),
@@ -2593,7 +2593,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -2690,18 +2690,18 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId {
-                                                                data: ItemPathData::AssociatedItem(
-                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                data: ItemPathData::AssocItem(
+                                                                    AssocItemPathData::TraitForTypeItem(
                                                                         TraitForTypeItemPathData {
                                                                             impl_block: TraitForTypeImplBlock {
                                                                                 data: TraitForTypeImplBlockPathData {
@@ -2729,7 +2729,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TraitForTypeItem(
                                 MethodFn,
                             ),
@@ -2965,12 +2965,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::u8(0)::abs`, `MethodFn`),
@@ -2983,7 +2983,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -3080,18 +3080,18 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId {
-                                                                data: ItemPathData::AssociatedItem(
-                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                data: ItemPathData::AssocItem(
+                                                                    AssocItemPathData::TraitForTypeItem(
                                                                         TraitForTypeItemPathData {
                                                                             impl_block: TraitForTypeImplBlock {
                                                                                 data: TraitForTypeImplBlockPathData {
@@ -3119,7 +3119,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TraitForTypeItem(
                                 MethodFn,
                             ),
@@ -3355,12 +3355,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::u16(0)::abs`, `MethodFn`),
@@ -3373,7 +3373,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -3470,18 +3470,18 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId {
-                                                                data: ItemPathData::AssociatedItem(
-                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                data: ItemPathData::AssocItem(
+                                                                    AssocItemPathData::TraitForTypeItem(
                                                                         TraitForTypeItemPathData {
                                                                             impl_block: TraitForTypeImplBlock {
                                                                                 data: TraitForTypeImplBlockPathData {
@@ -3509,7 +3509,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TraitForTypeItem(
                                 MethodFn,
                             ),
@@ -3745,12 +3745,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::u32(0)::abs`, `MethodFn`),
@@ -3763,7 +3763,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -3860,18 +3860,18 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId {
-                                                                data: ItemPathData::AssociatedItem(
-                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                data: ItemPathData::AssocItem(
+                                                                    AssocItemPathData::TraitForTypeItem(
                                                                         TraitForTypeItemPathData {
                                                                             impl_block: TraitForTypeImplBlock {
                                                                                 data: TraitForTypeImplBlockPathData {
@@ -3899,7 +3899,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TraitForTypeItem(
                                 MethodFn,
                             ),
@@ -4135,12 +4135,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::u64(0)::abs`, `MethodFn`),
@@ -4153,7 +4153,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -4250,18 +4250,18 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId {
-                                                                data: ItemPathData::AssociatedItem(
-                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                data: ItemPathData::AssocItem(
+                                                                    AssocItemPathData::TraitForTypeItem(
                                                                         TraitForTypeItemPathData {
                                                                             impl_block: TraitForTypeImplBlock {
                                                                                 data: TraitForTypeImplBlockPathData {
@@ -4289,7 +4289,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TraitForTypeItem(
                                 MethodFn,
                             ),
@@ -4525,12 +4525,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::u128(0)::abs`, `MethodFn`),
@@ -4543,7 +4543,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -4640,18 +4640,18 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId {
-                                                                data: ItemPathData::AssociatedItem(
-                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                data: ItemPathData::AssocItem(
+                                                                    AssocItemPathData::TraitForTypeItem(
                                                                         TraitForTypeItemPathData {
                                                                             impl_block: TraitForTypeImplBlock {
                                                                                 data: TraitForTypeImplBlockPathData {
@@ -4679,7 +4679,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TraitForTypeItem(
                                 MethodFn,
                             ),
@@ -4915,12 +4915,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::usize(0)::abs`, `MethodFn`),
@@ -4933,7 +4933,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -5030,18 +5030,18 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId {
-                                                                data: ItemPathData::AssociatedItem(
-                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                data: ItemPathData::AssocItem(
+                                                                    AssocItemPathData::TraitForTypeItem(
                                                                         TraitForTypeItemPathData {
                                                                             impl_block: TraitForTypeImplBlock {
                                                                                 data: TraitForTypeImplBlockPathData {
@@ -5069,7 +5069,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TraitForTypeItem(
                                 MethodFn,
                             ),
@@ -5305,12 +5305,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
@@ -5323,7 +5323,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -5360,12 +5360,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
@@ -5378,7 +5378,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -5415,12 +5415,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
@@ -5433,7 +5433,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -5504,12 +5504,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
@@ -5522,7 +5522,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -5593,12 +5593,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodFn`),
@@ -5611,7 +5611,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -5648,12 +5648,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::f32(0)::cos`, `MethodFn`),
@@ -5666,7 +5666,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -5703,12 +5703,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::f32(0)::sin`, `MethodFn`),
@@ -5721,7 +5721,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -5758,12 +5758,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::f32(0)::acos`, `MethodFn`),
@@ -5776,7 +5776,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -5872,18 +5872,18 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId {
-                                                                data: ItemPathData::AssociatedItem(
-                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                data: ItemPathData::AssocItem(
+                                                                    AssocItemPathData::TraitForTypeItem(
                                                                         TraitForTypeItemPathData {
                                                                             impl_block: TraitForTypeImplBlock {
                                                                                 data: TraitForTypeImplBlockPathData {
@@ -5911,7 +5911,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TraitForTypeItem(
                                 MethodFn,
                             ),
@@ -6147,12 +6147,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::f64(0)::abs`, `MethodFn`),
@@ -6165,7 +6165,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -6202,12 +6202,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(`(core::num::f64(0)::acos`, `MethodFn`),
@@ -6220,7 +6220,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TypeItem(
                                 MethodFn,
                             ),
@@ -6317,18 +6317,18 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
                                     ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId {
-                                                                data: ItemPathData::AssociatedItem(
-                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                data: ItemPathData::AssocItem(
+                                                                    AssocItemPathData::TraitForTypeItem(
                                                                         TraitForTypeItemPathData {
                                                                             impl_block: TraitForTypeImplBlock {
                                                                                 data: TraitForTypeImplBlockPathData {
@@ -6356,7 +6356,7 @@ Ok(
                                 ),
                             ),
                         ),
-                        AssociatedItem {
+                        AssocItem {
                             associated_item_kind: TraitForTypeItem(
                                 MethodFn,
                             ),

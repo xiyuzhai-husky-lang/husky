@@ -643,8 +643,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::i8(0)::abs`, `MethodFn`),
@@ -673,8 +673,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i8(0)::abs`, `MethodFn`),
                                 ),
                             ),
@@ -711,8 +711,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::i8(0)::max`, `MethodFn`),
@@ -753,8 +753,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i8(0)::max`, `MethodFn`),
                                 ),
                             ),
@@ -880,14 +880,14 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TraitForTypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -943,12 +943,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TraitForTypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -1083,8 +1083,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::i16(0)::abs`, `MethodFn`),
@@ -1113,8 +1113,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i16(0)::abs`, `MethodFn`),
                                 ),
                             ),
@@ -1151,8 +1151,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::i16(0)::max`, `MethodFn`),
@@ -1193,8 +1193,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i16(0)::max`, `MethodFn`),
                                 ),
                             ),
@@ -1320,14 +1320,14 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TraitForTypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -1383,12 +1383,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TraitForTypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -1523,8 +1523,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::i32(0)::abs`, `MethodFn`),
@@ -1553,8 +1553,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i32(0)::abs`, `MethodFn`),
                                 ),
                             ),
@@ -1591,8 +1591,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::i32(0)::max`, `MethodFn`),
@@ -1633,8 +1633,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i32(0)::max`, `MethodFn`),
                                 ),
                             ),
@@ -1682,8 +1682,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::i32(0)::min`, `MethodFn`),
@@ -1724,8 +1724,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i32(0)::min`, `MethodFn`),
                                 ),
                             ),
@@ -1851,14 +1851,14 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TraitForTypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -1914,12 +1914,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TraitForTypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -2054,8 +2054,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::i64(0)::abs`, `MethodFn`),
@@ -2084,8 +2084,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i64(0)::abs`, `MethodFn`),
                                 ),
                             ),
@@ -2200,14 +2200,14 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TraitForTypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -2263,12 +2263,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TraitForTypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -2403,8 +2403,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::i128(0)::abs`, `MethodFn`),
@@ -2433,8 +2433,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i128(0)::abs`, `MethodFn`),
                                 ),
                             ),
@@ -2549,14 +2549,14 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TraitForTypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -2612,12 +2612,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TraitForTypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -2752,8 +2752,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::isize(0)::abs`, `MethodFn`),
@@ -2782,8 +2782,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::isize(0)::abs`, `MethodFn`),
                                 ),
                             ),
@@ -2898,14 +2898,14 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TraitForTypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -2961,12 +2961,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TraitForTypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -3101,8 +3101,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::u8(0)::abs`, `MethodFn`),
@@ -3131,8 +3131,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::u8(0)::abs`, `MethodFn`),
                                 ),
                             ),
@@ -3247,14 +3247,14 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TraitForTypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -3310,12 +3310,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TraitForTypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -3450,8 +3450,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::u16(0)::abs`, `MethodFn`),
@@ -3480,8 +3480,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::u16(0)::abs`, `MethodFn`),
                                 ),
                             ),
@@ -3596,14 +3596,14 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TraitForTypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -3659,12 +3659,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TraitForTypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -3799,8 +3799,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::u32(0)::abs`, `MethodFn`),
@@ -3829,8 +3829,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::u32(0)::abs`, `MethodFn`),
                                 ),
                             ),
@@ -3945,14 +3945,14 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TraitForTypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -4008,12 +4008,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TraitForTypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -4148,8 +4148,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::u64(0)::abs`, `MethodFn`),
@@ -4178,8 +4178,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::u64(0)::abs`, `MethodFn`),
                                 ),
                             ),
@@ -4294,14 +4294,14 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TraitForTypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -4357,12 +4357,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TraitForTypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -4497,8 +4497,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::u128(0)::abs`, `MethodFn`),
@@ -4527,8 +4527,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::u128(0)::abs`, `MethodFn`),
                                 ),
                             ),
@@ -4643,14 +4643,14 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TraitForTypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -4706,12 +4706,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TraitForTypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -4846,8 +4846,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::usize(0)::abs`, `MethodFn`),
@@ -4876,8 +4876,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::usize(0)::abs`, `MethodFn`),
                                 ),
                             ),
@@ -4992,14 +4992,14 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TraitForTypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -5055,12 +5055,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TraitForTypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -5195,8 +5195,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
@@ -5225,8 +5225,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                 ),
                             ),
@@ -5263,8 +5263,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
@@ -5293,8 +5293,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
                                 ),
                             ),
@@ -5331,8 +5331,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
@@ -5373,8 +5373,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
                                 ),
                             ),
@@ -5422,8 +5422,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
@@ -5464,8 +5464,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
                                 ),
                             ),
@@ -5513,8 +5513,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodFn`),
@@ -5543,8 +5543,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodFn`),
                                 ),
                             ),
@@ -5581,8 +5581,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::f32(0)::cos`, `MethodFn`),
@@ -5611,8 +5611,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f32(0)::cos`, `MethodFn`),
                                 ),
                             ),
@@ -5649,8 +5649,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::f32(0)::sin`, `MethodFn`),
@@ -5679,8 +5679,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f32(0)::sin`, `MethodFn`),
                                 ),
                             ),
@@ -5717,8 +5717,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::f32(0)::acos`, `MethodFn`),
@@ -5747,8 +5747,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f32(0)::acos`, `MethodFn`),
                                 ),
                             ),
@@ -5863,14 +5863,14 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TraitForTypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -5926,12 +5926,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TraitForTypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {
@@ -6066,8 +6066,8 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::f64(0)::abs`, `MethodFn`),
@@ -6096,8 +6096,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f64(0)::abs`, `MethodFn`),
                                 ),
                             ),
@@ -6134,8 +6134,8 @@
             ),
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
                     path: TypeItemPath(`(core::num::f64(0)::acos`, `MethodFn`),
@@ -6164,8 +6164,8 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f64(0)::acos`, `MethodFn`),
                                 ),
                             ),
@@ -6280,14 +6280,14 @@
             },
         ),
     ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TraitForTypeItem(
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -6343,12 +6343,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(
-                            ItemPath::AssociatedItem(
-                                AssociatedItemPath::TraitForTypeItem(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
                                         ItemPathId {
-                                            data: ItemPathData::AssociatedItem(
-                                                AssociatedItemPathData::TraitForTypeItem(
+                                            data: ItemPathData::AssocItem(
+                                                AssocItemPathData::TraitForTypeItem(
                                                     TraitForTypeItemPathData {
                                                         impl_block: TraitForTypeImplBlock {
                                                             data: TraitForTypeImplBlockPathData {

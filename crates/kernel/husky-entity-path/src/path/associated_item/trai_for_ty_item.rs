@@ -16,7 +16,7 @@ pub struct TraitForTypeItemPathData {
 
 impl From<TraitForTypeItemPath> for ItemPath {
     fn from(path: TraitForTypeItemPath) -> Self {
-        ItemPath::AssociatedItem(path.into())
+        ItemPath::AssocItem(path.into())
     }
 }
 
@@ -29,7 +29,7 @@ impl TraitForTypeItemPath {
     ) -> Self {
         Self(ItemPathId::new(
             db,
-            ItemPathData::AssociatedItem(AssociatedItemPathData::TraitForTypeItem(
+            ItemPathData::AssocItem(AssocItemPathData::TraitForTypeItem(
                 TraitForTypeItemPathData {
                     impl_block,
                     ident,
@@ -41,7 +41,7 @@ impl TraitForTypeItemPath {
 
     pub fn data(self, db: &::salsa::Db) -> TraitForTypeItemPathData {
         match self.0.data(db) {
-            ItemPathData::AssociatedItem(AssociatedItemPathData::TraitForTypeItem(data)) => data,
+            ItemPathData::AssocItem(AssocItemPathData::TraitForTypeItem(data)) => data,
             _ => unreachable!(),
         }
     }
@@ -75,8 +75,8 @@ impl TraitForTypeItemPathData {
     }
 
     pub fn entity_kind(self, _db: &::salsa::Db) -> EntityKind {
-        EntityKind::AssociatedItem {
-            associated_item_kind: AssociatedItemKind::TraitForTypeItem(self.item_kind),
+        EntityKind::AssocItem {
+            associated_item_kind: AssocItemKind::TraitForTypeItem(self.item_kind),
         }
     }
 }

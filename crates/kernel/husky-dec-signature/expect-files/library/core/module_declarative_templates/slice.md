@@ -111,14 +111,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
@@ -185,14 +185,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
@@ -359,12 +359,12 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TraitForTypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
+                        data: ItemPathData::AssocItem(
+                            AssocItemPathData::TraitForTypeItem(
                                 TraitForTypeItemPathData {
                                     impl_block: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
@@ -377,7 +377,7 @@
                                         },
                                     },
                                     ident: `Output`,
-                                    item_kind: AssociatedType,
+                                    item_kind: AssocType,
                                 },
                             ),
                         ),
@@ -386,14 +386,14 @@
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::AssociatedType(
-                        TraitForTypeAssociatedTypeDecTemplate {
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TraitForTypeItem(
+                    TraitForTypeItemDecTemplate::AssocType(
+                        TraitForTypeAssocTypeDecTemplate {
                             path: TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -406,7 +406,7 @@
                                                     },
                                                 },
                                                 ident: `Output`,
-                                                item_kind: AssociatedType,
+                                                item_kind: AssocType,
                                             },
                                         ),
                                     ),
@@ -476,14 +476,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodFn`),
@@ -550,14 +550,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
@@ -624,14 +624,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
@@ -698,14 +698,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
@@ -768,14 +768,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),

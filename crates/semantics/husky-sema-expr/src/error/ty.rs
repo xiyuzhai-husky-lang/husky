@@ -159,8 +159,8 @@ pub enum DerivedSemaExprTypeError {
     UnableToInferSuffixOperandType,
     #[error("UnableToInferFunctionApplicationArgumentType")]
     UnableToInferFunctionApplicationArgumentType,
-    #[error("UnableToInferAssociatedItemParentTerm")]
-    UnableToInferAssociatedItemParentTerm,
+    #[error("UnableToInferAssocItemParentTerm")]
+    UnableToInferAssocItemParentTerm,
     #[error("UnableToInferArgumentTermForDependentType")]
     UnableToInferArgumentTermForDependentType,
     #[error("UnableToInferReturnTypeForUnveiling")]

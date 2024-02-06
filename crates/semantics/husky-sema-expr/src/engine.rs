@@ -20,7 +20,7 @@ use husky_eth_term::term::{symbol::EthSymbol, EthTerm};
 use husky_place::PlaceRegistry;
 use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};
 use husky_syn_decl::{
-    AssociatedItemSynNodeDecl, HasSynNodeDecl, ItemSynNodeDecl, TraitForTypeItemSynNodeDecl,
+    AssocItemSynNodeDecl, HasSynNodeDecl, ItemSynNodeDecl, TraitForTypeItemSynNodeDecl,
     TraitItemSynNodeDecl, TypeItemSynNodeDecl,
 };
 use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData, TokenData};
@@ -323,8 +323,8 @@ fn calc_self_value_ty(
         SynNodeRegionPath::Snippet(_) => None, // ad hoc
         SynNodeRegionPath::Decl(syn_node_path) | SynNodeRegionPath::Defn(syn_node_path) => {
             match syn_node_path.syn_node_decl(db) {
-                ItemSynNodeDecl::AssociatedItem(syn_node_decl) => match syn_node_decl {
-                    AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => match syn_node_decl {
+                ItemSynNodeDecl::AssocItem(syn_node_decl) => match syn_node_decl {
+                    AssocItemSynNodeDecl::TypeItem(syn_node_decl) => match syn_node_decl {
                         TypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
                             Some(method_fn_self_value_modifier_from_self_value_parameter(
                                 syn_node_decl
@@ -337,25 +337,23 @@ fn calc_self_value_ty(
                         TypeItemSynNodeDecl::MemoizedField(_) => Some(SymbolModifier::Le),
                         _ => None,
                     },
-                    AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => match syn_node_decl {
+                    AssocItemSynNodeDecl::TraitItem(syn_node_decl) => match syn_node_decl {
                         TraitItemSynNodeDecl::MethodFn(_) => todo!(),
                         _ => None,
                     },
-                    AssociatedItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => {
-                        match syn_node_decl {
-                            TraitForTypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
-                                Some(method_fn_self_value_modifier_from_self_value_parameter(
-                                    syn_node_decl
-                                        .parenate_parameter_decl_list(db)
-                                        .as_ref()
-                                        .ok()?
-                                        .self_value_parameter(),
-                                ))
-                            }
-                            _ => None,
+                    AssocItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => match syn_node_decl {
+                        TraitForTypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
+                            Some(method_fn_self_value_modifier_from_self_value_parameter(
+                                syn_node_decl
+                                    .parenate_parameter_decl_list(db)
+                                    .as_ref()
+                                    .ok()?
+                                    .self_value_parameter(),
+                            ))
                         }
-                    }
-                    AssociatedItemSynNodeDecl::IllFormedItem(_) => None,
+                        _ => None,
+                    },
+                    AssocItemSynNodeDecl::IllFormedItem(_) => None,
                 },
                 _ => None,
             }

@@ -132,8 +132,8 @@
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -146,7 +146,7 @@
                                                     },
                                                 },
                                                 ident: `unveil`,
-                                                item_kind: AssociatedFunctionFn,
+                                                item_kind: AssocFunctionFn,
                                             },
                                         ),
                                     ),
@@ -221,8 +221,8 @@
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -235,7 +235,7 @@
                                                     },
                                                 },
                                                 ident: `unveil`,
-                                                item_kind: AssociatedFunctionFn,
+                                                item_kind: AssocFunctionFn,
                                             },
                                         ),
                                     ),
@@ -310,8 +310,8 @@
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -324,7 +324,7 @@
                                                     },
                                                 },
                                                 ident: `unveil`,
-                                                item_kind: AssociatedFunctionFn,
+                                                item_kind: AssocFunctionFn,
                                             },
                                         ),
                                     ),
@@ -399,8 +399,8 @@
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -413,7 +413,7 @@
                                                     },
                                                 },
                                                 ident: `unveil`,
-                                                item_kind: AssociatedFunctionFn,
+                                                item_kind: AssocFunctionFn,
                                             },
                                         ),
                                     ),
@@ -488,8 +488,8 @@
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -502,7 +502,7 @@
                                                     },
                                                 },
                                                 ident: `unveil`,
-                                                item_kind: AssociatedFunctionFn,
+                                                item_kind: AssocFunctionFn,
                                             },
                                         ),
                                     ),
@@ -577,8 +577,8 @@
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -591,7 +591,7 @@
                                                     },
                                                 },
                                                 ident: `unveil`,
-                                                item_kind: AssociatedFunctionFn,
+                                                item_kind: AssocFunctionFn,
                                             },
                                         ),
                                     ),
@@ -666,8 +666,8 @@
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -680,7 +680,7 @@
                                                     },
                                                 },
                                                 ident: `unveil`,
-                                                item_kind: AssociatedFunctionFn,
+                                                item_kind: AssocFunctionFn,
                                             },
                                         ),
                                     ),
@@ -755,8 +755,8 @@
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -769,7 +769,7 @@
                                                     },
                                                 },
                                                 ident: `unveil`,
-                                                item_kind: AssociatedFunctionFn,
+                                                item_kind: AssocFunctionFn,
                                             },
                                         ),
                                     ),
@@ -844,8 +844,8 @@
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
+                                    data: ItemPathData::AssocItem(
+                                        AssocItemPathData::TraitForTypeItem(
                                             TraitForTypeItemPathData {
                                                 impl_block: TraitForTypeImplBlock {
                                                     data: TraitForTypeImplBlockPathData {
@@ -858,7 +858,7 @@
                                                     },
                                                 },
                                                 ident: `unveil`,
-                                                item_kind: AssociatedFunctionFn,
+                                                item_kind: AssocFunctionFn,
                                             },
                                         ),
                                     ),

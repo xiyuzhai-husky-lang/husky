@@ -152,7 +152,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
             | HirLazyExprData::FunctionFnItemCall {
                 ref item_groups, ..
             }
-            | HirLazyExprData::AssociatedFunctionFnCall {
+            | HirLazyExprData::AssocFunctionFnCall {
                 ref item_groups, ..
             } => self.infer_new_item_groups(item_groups)?,
             HirLazyExprData::FunctionGnItemCall {
@@ -198,7 +198,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
             }
             HirLazyExprData::Todo => (),
             HirLazyExprData::Unreachable => (),
-            HirLazyExprData::AssociatedFn { .. } => (),
+            HirLazyExprData::AssocFn { .. } => (),
             HirLazyExprData::As { opd, .. } => self.expr_has_control_flow(opd)?,
         }
         HasControlFlow::False

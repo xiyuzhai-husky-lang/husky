@@ -250,14 +250,14 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TraitForTypeItem(
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -279,8 +279,8 @@
                     hir_decl: TraitForTypeMethodFnHirDecl {
                         path: TraitForTypeItemPath(
                             ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TraitForTypeItem(
+                                data: ItemPathData::AssocItem(
+                                    AssocItemPathData::TraitForTypeItem(
                                         TraitForTypeItemPathData {
                                             impl_block: TraitForTypeImplBlock {
                                                 data: TraitForTypeImplBlockPathData {
@@ -324,12 +324,12 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TraitForTypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -457,13 +457,13 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TypeItem(
-            TypeItemHirDefn::AssociatedFn(
-                TypeAssociatedFnHirDefn {
-                    path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
-                    hir_decl: TypeAssociatedFnHirDecl {
-                        path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TypeItem(
+            TypeItemHirDefn::AssocFn(
+                TypeAssocFnHirDefn {
+                    path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocFunctionFn`),
+                    hir_decl: TypeAssocFnHirDecl {
+                        path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocFunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -479,9 +479,9 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TypeItem(
+                                        TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocFunctionFn`),
                                     ),
                                 ),
                             ),
@@ -589,14 +589,14 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TraitForTypeItem(
-            TraitForTypeItemHirDefn::AssociatedType(
-                TraitForTypeAssociatedTypeHirDefn {
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TraitForTypeItem(
+            TraitForTypeItemHirDefn::AssocType(
+                TraitForTypeAssocTypeHirDefn {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -609,17 +609,17 @@
                                             },
                                         },
                                         ident: `Output`,
-                                        item_kind: AssociatedType,
+                                        item_kind: AssocType,
                                     },
                                 ),
                             ),
                         },
                     ),
-                    hir_decl: TraitForTypeAssociatedTypeHirDecl {
+                    hir_decl: TraitForTypeAssocTypeHirDecl {
                         path: TraitForTypeItemPath(
                             ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TraitForTypeItem(
+                                data: ItemPathData::AssocItem(
+                                    AssocItemPathData::TraitForTypeItem(
                                         TraitForTypeItemPathData {
                                             impl_block: TraitForTypeImplBlock {
                                                 data: TraitForTypeImplBlockPathData {
@@ -632,7 +632,7 @@
                                                 },
                                             },
                                             ident: `Output`,
-                                            item_kind: AssociatedType,
+                                            item_kind: AssocType,
                                         },
                                     ),
                                 ),
@@ -650,12 +650,12 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TraitForTypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -668,7 +668,7 @@
                                                                 },
                                                             },
                                                             ident: `Output`,
-                                                            item_kind: AssociatedType,
+                                                            item_kind: AssocType,
                                                         },
                                                     ),
                                                 ),
@@ -773,14 +773,14 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TraitForTypeItem(
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -802,8 +802,8 @@
                     hir_decl: TraitForTypeMethodFnHirDecl {
                         path: TraitForTypeItemPath(
                             ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TraitForTypeItem(
+                                data: ItemPathData::AssocItem(
+                                    AssocItemPathData::TraitForTypeItem(
                                         TraitForTypeItemPathData {
                                             impl_block: TraitForTypeImplBlock {
                                                 data: TraitForTypeImplBlockPathData {
@@ -847,12 +847,12 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TraitForTypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -980,13 +980,13 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TypeItem(
-            TypeItemHirDefn::AssociatedFn(
-                TypeAssociatedFnHirDefn {
-                    path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
-                    hir_decl: TypeAssociatedFnHirDecl {
-                        path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TypeItem(
+            TypeItemHirDefn::AssocFn(
+                TypeAssocFnHirDefn {
+                    path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocFunctionFn`),
+                    hir_decl: TypeAssocFnHirDecl {
+                        path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocFunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1002,9 +1002,9 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TypeItem(
+                                        TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocFunctionFn`),
                                     ),
                                 ),
                             ),
@@ -1112,14 +1112,14 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
-        AssociatedItemHirDefn::TraitForTypeItem(
-            TraitForTypeItemHirDefn::AssociatedType(
-                TraitForTypeAssociatedTypeHirDefn {
+    HirDefn::AssocItem(
+        AssocItemHirDefn::TraitForTypeItem(
+            TraitForTypeItemHirDefn::AssocType(
+                TraitForTypeAssocTypeHirDefn {
                     path: TraitForTypeItemPath(
                         ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
+                            data: ItemPathData::AssocItem(
+                                AssocItemPathData::TraitForTypeItem(
                                     TraitForTypeItemPathData {
                                         impl_block: TraitForTypeImplBlock {
                                             data: TraitForTypeImplBlockPathData {
@@ -1132,17 +1132,17 @@
                                             },
                                         },
                                         ident: `Output`,
-                                        item_kind: AssociatedType,
+                                        item_kind: AssocType,
                                     },
                                 ),
                             ),
                         },
                     ),
-                    hir_decl: TraitForTypeAssociatedTypeHirDecl {
+                    hir_decl: TraitForTypeAssocTypeHirDecl {
                         path: TraitForTypeItemPath(
                             ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TraitForTypeItem(
+                                data: ItemPathData::AssocItem(
+                                    AssocItemPathData::TraitForTypeItem(
                                         TraitForTypeItemPathData {
                                             impl_block: TraitForTypeImplBlock {
                                                 data: TraitForTypeImplBlockPathData {
@@ -1155,7 +1155,7 @@
                                                 },
                                             },
                                             ident: `Output`,
-                                            item_kind: AssociatedType,
+                                            item_kind: AssocType,
                                         },
                                     ),
                                 ),
@@ -1173,12 +1173,12 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             path: RegionPath::Decl(
-                                ItemPath::AssociatedItem(
-                                    AssociatedItemPath::TraitForTypeItem(
+                                ItemPath::AssocItem(
+                                    AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -1191,7 +1191,7 @@
                                                                 },
                                                             },
                                                             ident: `Output`,
-                                                            item_kind: AssociatedType,
+                                                            item_kind: AssocType,
                                                         },
                                                     ),
                                                 ),

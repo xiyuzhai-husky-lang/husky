@@ -81,7 +81,7 @@ impl<'a> AstParser<'a> {
                     },
                 }
             }
-            EntityKind::AssociatedItem { .. } => DefnBlock::AssociatedItem {
+            EntityKind::AssocItem { .. } => DefnBlock::AssocItem {
                 body: self.try_parse_option()?,
             },
             EntityKind::TypeVariant | EntityKind::ImplBlock | EntityKind::Attr => {

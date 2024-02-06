@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_tree::HasAssociatedItemPaths;
+use husky_entity_tree::HasAssocItemPaths;
 use husky_eth_term::term::symbol::EthSymbol;
 use husky_term_prelude::TypeFinalDestinationExpectation;
 use smallvec::SmallVec;
@@ -194,7 +194,7 @@ impl TraitForTypeImplBlockEtherealSignatureBuilder {
     pub fn associated_output_template(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<TraitForTypeAssociatedTypeEtherealSignatureBuilder> {
+    ) -> EtherealSignatureResult<TraitForTypeAssocTypeEtherealSignatureBuilder> {
         trai_for_ty_impl_block_with_ty_instantiated_associated_output_ethereal_signature_builder(
             db, self,
         )
@@ -213,15 +213,13 @@ impl TraitForTypeImplBlockEtherealSignatureBuilder {
 fn trai_for_ty_impl_block_with_ty_instantiated_associated_output_ethereal_signature_builder(
     db: &::salsa::Db,
     template: TraitForTypeImplBlockEtherealSignatureBuilder,
-) -> EtherealSignatureResult<TraitForTypeAssociatedTypeEtherealSignatureBuilder> {
+) -> EtherealSignatureResult<TraitForTypeAssocTypeEtherealSignatureBuilder> {
     match trai_for_ty_impl_block_with_ty_instantiated_item_eth_template(
         db,
         template,
         coword_menu(db).camel_case_output_ident(),
     )? {
-        TraitForTypeItemEtherealSignatureBuilder::AssociatedType(item_template) => {
-            Ok(item_template)
-        }
+        TraitForTypeItemEtherealSignatureBuilder::AssocType(item_template) => Ok(item_template),
         _ => unreachable!(),
     }
 }

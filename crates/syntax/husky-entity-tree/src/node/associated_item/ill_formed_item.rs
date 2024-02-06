@@ -6,7 +6,7 @@ pub struct IllFormedItemSynNodePath(ItemSynNodePathId);
 
 impl From<IllFormedItemSynNodePath> for ItemSynNodePath {
     fn from(path: IllFormedItemSynNodePath) -> Self {
-        ItemSynNodePath::AssociatedItem(path.into())
+        ItemSynNodePath::AssocItem(path.into())
     }
 }
 

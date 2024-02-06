@@ -13,30 +13,30 @@ type SmallVecImpl<T> = SmallVec<[T; 2]>;
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
-pub enum AssociatedItemEthTemplate {
+pub enum AssocItemEthTemplate {
     TraitForType(TraitForTypeItemEthTemplate),
     Type(TypeItemEthTemplate),
     Trait(TraitItemEthTemplate),
 }
 
-impl AssociatedItemEthTemplate {
+impl AssocItemEthTemplate {
     pub fn self_ty(self, db: &::salsa::Db) -> Option<EthTerm> {
         match self {
-            AssociatedItemEthTemplate::TraitForType(template) => template.self_ty(db),
-            AssociatedItemEthTemplate::Type(template) => template.self_ty(db),
-            AssociatedItemEthTemplate::Trait(template) => template.self_ty(db),
+            AssocItemEthTemplate::TraitForType(template) => template.self_ty(db),
+            AssocItemEthTemplate::Type(template) => template.self_ty(db),
+            AssocItemEthTemplate::Trait(template) => template.self_ty(db),
         }
     }
 }
 
-impl HasEthTemplate for AssociatedItemPath {
-    type EthTemplate = AssociatedItemEthTemplate;
+impl HasEthTemplate for AssocItemPath {
+    type EthTemplate = AssocItemEthTemplate;
 
     fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
         match self {
-            AssociatedItemPath::TypeItem(path) => path.eth_template(db).map(Into::into),
-            AssociatedItemPath::TraitItem(path) => path.eth_template(db).map(Into::into),
-            AssociatedItemPath::TraitForTypeItem(path) => path.eth_template(db).map(Into::into),
+            AssocItemPath::TypeItem(path) => path.eth_template(db).map(Into::into),
+            AssocItemPath::TraitItem(path) => path.eth_template(db).map(Into::into),
+            AssocItemPath::TraitForTypeItem(path) => path.eth_template(db).map(Into::into),
         }
     }
 }

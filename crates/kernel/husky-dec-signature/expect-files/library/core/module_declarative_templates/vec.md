@@ -79,14 +79,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
@@ -153,14 +153,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
@@ -250,14 +250,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
@@ -330,14 +330,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
@@ -410,14 +410,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
@@ -490,14 +490,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
@@ -560,14 +560,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
@@ -663,14 +663,14 @@
         ),
     ),
     (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
             ),
         ),
         Ok(
-            DecTemplate::AssociatedItem(
-                AssociatedItemDecTemplate::TypeItem(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),

@@ -1,18 +1,18 @@
 use super::*;
 use either::*;
 use husky_entity_path::{
-    AssociatedItemPath, MajorFugitivePath, MajorItemPath, PatternPath, PreludeIntTypePath,
+    AssocItemPath, MajorFugitivePath, MajorItemPath, PatternPath, PreludeIntTypePath,
     PreludeNumTypePath, PreludeTypePath, PrincipalEntityPath, TraitForTypeItemPath, TraitItemPath,
     TraitPath, TypeItemPath, TypePath, TypeSketch, TypeVariantPath,
 };
 use husky_vfs::{ModulePathData, PackagePathSource};
 
-impl<E> TranspileToRustWith<E> for AssociatedItemPath {
+impl<E> TranspileToRustWith<E> for AssocItemPath {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         match self {
-            AssociatedItemPath::TypeItem(slf) => slf.transpile_to_rust(builder),
-            AssociatedItemPath::TraitItem(slf) => slf.transpile_to_rust(builder),
-            AssociatedItemPath::TraitForTypeItem(slf) => slf.transpile_to_rust(builder),
+            AssocItemPath::TypeItem(slf) => slf.transpile_to_rust(builder),
+            AssocItemPath::TraitItem(slf) => slf.transpile_to_rust(builder),
+            AssocItemPath::TraitForTypeItem(slf) => slf.transpile_to_rust(builder),
         }
     }
 }

@@ -131,7 +131,7 @@ where
                                             SynBracket::TurboFish,
                                         ),
                                     },
-                                    EntityKind::AssociatedItem {
+                                    EntityKind::AssocItem {
                                         associated_item_kind: _,
                                     } => todo!(),
                                     EntityKind::TypeVariant => todo!(),

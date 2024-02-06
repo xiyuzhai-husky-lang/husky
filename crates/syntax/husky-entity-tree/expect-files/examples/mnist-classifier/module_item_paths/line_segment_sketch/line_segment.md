@@ -21,13 +21,13 @@
             ),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodFn`),
         ),
     ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
             TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`, `MethodFn`),
         ),
     ),

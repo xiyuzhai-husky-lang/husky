@@ -776,7 +776,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -796,8 +796,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                         ),
                                                     ),
@@ -2755,7 +2755,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -2775,8 +2775,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                         ),
                                                     ),
@@ -3151,12 +3151,12 @@
                                                     EthTerm(`RelativeBoundingBox`),
                                                 ),
                                             },
-                                            path: AssociatedItemPath::TypeItem(
+                                            path: AssocItemPath::TypeItem(
                                                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssociatedItem(
-                                                    AssociatedItemPath::TypeItem(
+                                                path: ItemPath::AssocItem(
+                                                    AssocItemPath::TypeItem(
                                                         TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
                                                     ),
                                                 ),
@@ -3218,7 +3218,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -3238,8 +3238,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                                                         ),
                                                     ),
@@ -3451,7 +3451,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -3471,8 +3471,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
                                                         ),
                                                     ),
@@ -4440,7 +4440,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -4460,8 +4460,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                         ),
                                                     ),
@@ -4836,12 +4836,12 @@
                                                     EthTerm(`RelativeBoundingBox`),
                                                 ),
                                             },
-                                            path: AssociatedItemPath::TypeItem(
+                                            path: AssocItemPath::TypeItem(
                                                 TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssociatedItem(
-                                                    AssociatedItemPath::TypeItem(
+                                                path: ItemPath::AssocItem(
+                                                    AssocItemPath::TypeItem(
                                                         TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
                                                     ),
                                                 ),
@@ -4903,7 +4903,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -4923,8 +4923,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
                                                         ),
                                                     ),
@@ -5136,7 +5136,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -5156,8 +5156,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodFn`),
                                                         ),
                                                     ),
@@ -5261,7 +5261,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -5293,8 +5293,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
                                                         ),
                                                     ),
@@ -6762,12 +6762,12 @@
                                                     EthTerm(`f32`),
                                                 ),
                                             },
-                                            path: AssociatedItemPath::TypeItem(
+                                            path: AssocItemPath::TypeItem(
                                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssociatedItem(
-                                                    AssociatedItemPath::TypeItem(
+                                                path: ItemPath::AssocItem(
+                                                    AssocItemPath::TypeItem(
                                                         TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
                                                     ),
                                                 ),
@@ -6976,12 +6976,12 @@
                                                     EthTerm(`f32`),
                                                 ),
                                             },
-                                            path: AssociatedItemPath::TypeItem(
+                                            path: AssocItemPath::TypeItem(
                                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssociatedItem(
-                                                    AssociatedItemPath::TypeItem(
+                                                path: ItemPath::AssocItem(
+                                                    AssocItemPath::TypeItem(
                                                         TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                                     ),
                                                 ),
@@ -7495,12 +7495,12 @@
                                                     EthTerm(`f32`),
                                                 ),
                                             },
-                                            path: AssociatedItemPath::TypeItem(
+                                            path: AssocItemPath::TypeItem(
                                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssociatedItem(
-                                                    AssociatedItemPath::TypeItem(
+                                                path: ItemPath::AssocItem(
+                                                    AssocItemPath::TypeItem(
                                                         TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
                                                     ),
                                                 ),
@@ -7625,12 +7625,12 @@
                                                     EthTerm(`f32`),
                                                 ),
                                             },
-                                            path: AssociatedItemPath::TypeItem(
+                                            path: AssocItemPath::TypeItem(
                                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssociatedItem(
-                                                    AssociatedItemPath::TypeItem(
+                                                path: ItemPath::AssocItem(
+                                                    AssocItemPath::TypeItem(
                                                         TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
                                                     ),
                                                 ),
@@ -8120,7 +8120,7 @@
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
-                                                path: AssociatedItemPath::TypeItem(
+                                                path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
@@ -8140,8 +8140,8 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssociatedItem(
-                                                        AssociatedItemPath::TypeItem(
+                                                    path: ItemPath::AssocItem(
+                                                        AssocItemPath::TypeItem(
                                                             TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`, `MethodFn`),
                                                         ),
                                                     ),
@@ -8827,12 +8827,12 @@
                                                     EthTerm(`f32`),
                                                 ),
                                             },
-                                            path: AssociatedItemPath::TypeItem(
+                                            path: AssocItemPath::TypeItem(
                                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssociatedItem(
-                                                    AssociatedItemPath::TypeItem(
+                                                path: ItemPath::AssocItem(
+                                                    AssocItemPath::TypeItem(
                                                         TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
                                                     ),
                                                 ),
@@ -8957,12 +8957,12 @@
                                                     EthTerm(`f32`),
                                                 ),
                                             },
-                                            path: AssociatedItemPath::TypeItem(
+                                            path: AssocItemPath::TypeItem(
                                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssociatedItem(
-                                                    AssociatedItemPath::TypeItem(
+                                                path: ItemPath::AssocItem(
+                                                    AssocItemPath::TypeItem(
                                                         TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
                                                     ),
                                                 ),

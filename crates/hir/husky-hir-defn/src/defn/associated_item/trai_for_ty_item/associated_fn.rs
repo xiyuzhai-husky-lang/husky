@@ -1,30 +1,30 @@
 use super::*;
-use husky_hir_decl::decl::TraitForTypeAssociatedFnHirDecl;
+use husky_hir_decl::decl::TraitForTypeAssocFnHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
-pub struct TraitForTypeAssociatedFnHirDefn {
+pub struct TraitForTypeAssocFnHirDefn {
     pub path: TraitForTypeItemPath,
-    pub hir_decl: TraitForTypeAssociatedFnHirDecl,
+    pub hir_decl: TraitForTypeAssocFnHirDecl,
     pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
-impl From<TraitForTypeAssociatedFnHirDefn> for AssociatedItemHirDefn {
-    fn from(hir_defn: TraitForTypeAssociatedFnHirDefn) -> Self {
-        AssociatedItemHirDefn::TraitForTypeItem(hir_defn.into())
+impl From<TraitForTypeAssocFnHirDefn> for AssocItemHirDefn {
+    fn from(hir_defn: TraitForTypeAssocFnHirDefn) -> Self {
+        AssocItemHirDefn::TraitForTypeItem(hir_defn.into())
     }
 }
 
-impl From<TraitForTypeAssociatedFnHirDefn> for HirDefn {
-    fn from(hir_defn: TraitForTypeAssociatedFnHirDefn) -> Self {
-        HirDefn::AssociatedItem(hir_defn.into())
+impl From<TraitForTypeAssocFnHirDefn> for HirDefn {
+    fn from(hir_defn: TraitForTypeAssocFnHirDefn) -> Self {
+        HirDefn::AssocItem(hir_defn.into())
     }
 }
 
-impl TraitForTypeAssociatedFnHirDefn {
+impl TraitForTypeAssocFnHirDefn {
     pub(super) fn new(
         db: &::salsa::Db,
         path: TraitForTypeItemPath,
-        hir_decl: TraitForTypeAssociatedFnHirDecl,
+        hir_decl: TraitForTypeAssocFnHirDecl,
     ) -> Self {
         Self::new_inner(
             db,
@@ -51,7 +51,7 @@ impl TraitForTypeAssociatedFnHirDefn {
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_for_ty_associated_fn_hir_defn_dependencies(
     db: &::salsa::Db,
-    hir_defn: TraitForTypeAssociatedFnHirDefn,
+    hir_defn: TraitForTypeAssocFnHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
@@ -74,7 +74,7 @@ fn trai_for_ty_associated_fn_hir_defn_dependencies(
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_for_ty_associated_fn_hir_defn_version_stamp(
     db: &::salsa::Db,
-    hir_defn: TraitForTypeAssociatedFnHirDefn,
+    hir_defn: TraitForTypeAssocFnHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

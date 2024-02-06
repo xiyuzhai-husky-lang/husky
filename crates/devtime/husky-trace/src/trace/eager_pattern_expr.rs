@@ -2,7 +2,7 @@ use husky_coword::IdentPairMap;
 use husky_hir_eager_expr::symbol::runtime_symbol::HirEagerRuntimeSymbolIdx;
 use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
 
-use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
+use crate::registry::associated_trace::VoidAssocTraceRegistry;
 
 use super::*;
 
@@ -76,7 +76,7 @@ impl EagerPatternExprTraceData {
         TraceViewLines::new(
             region_path.module_path(db),
             token_idx_range,
-            VoidAssociatedTraceRegistry,
+            VoidAssocTraceRegistry,
             db,
         )
     }

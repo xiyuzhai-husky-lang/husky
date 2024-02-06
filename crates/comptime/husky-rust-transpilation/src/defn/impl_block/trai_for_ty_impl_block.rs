@@ -1,7 +1,7 @@
 use super::*;
 use either::*;
 use husky_entity_path::PreludeTraitPath;
-use husky_entity_tree::HasAssociatedItemPaths;
+use husky_entity_tree::HasAssocItemPaths;
 use husky_hir_decl::decl::TraitForTypeImplBlockHirDecl;
 use husky_hir_ty::{HirConstSymbol, HirTemplateSymbol, HirTemplateSymbolClass};
 use smallvec::SmallVec;

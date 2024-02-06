@@ -1,6 +1,6 @@
 use super::*;
 use crate::registry::{
-    associated_trace::IsAssociatedTraceRegistry,
+    associated_trace::IsAssocTraceRegistry,
     trace_path::{TracePathDisambiguator, TracePathRegistry},
 };
 use husky_entity_path::PrincipalEntityPath;
@@ -151,7 +151,7 @@ impl LazyStmtTraceData {
         };
         let token_idx_range = regional_token_idx_range
             .token_idx_range(region_path.regional_token_idx_base(db).unwrap());
-        let registry = LazyStmtAssociatedTraceRegistry::new(self.path, trace, sema_expr_region, db);
+        let registry = LazyStmtAssocTraceRegistry::new(self.path, trace, sema_expr_region, db);
         TraceViewLines::new(region_path.module_path(db), token_idx_range, registry, db)
     }
 
@@ -195,7 +195,7 @@ impl LazyStmtTraceData {
     }
 }
 
-struct LazyStmtAssociatedTraceRegistry<'a> {
+struct LazyStmtAssocTraceRegistry<'a> {
     biological_parent_path: TracePath,
     biological_parent: Trace,
     sema_expr_region: SemaExprRegion,
@@ -209,7 +209,7 @@ struct LazyStmtAssociatedTraceRegistry<'a> {
     lazy_pattern_expr_traces_issued: VecPairMap<SynPatternExprIdx, Trace>,
 }
 
-impl<'a> LazyStmtAssociatedTraceRegistry<'a> {
+impl<'a> LazyStmtAssocTraceRegistry<'a> {
     fn new(
         parent_trace_path: TracePath,
         parent_trace: Trace,
@@ -218,7 +218,7 @@ impl<'a> LazyStmtAssociatedTraceRegistry<'a> {
     ) -> Self {
         let (hir_lazy_expr_region, hir_lazy_expr_source_map) =
             hir_lazy_expr_region_with_source_map(db, sema_expr_region);
-        LazyStmtAssociatedTraceRegistry {
+        LazyStmtAssocTraceRegistry {
             biological_parent_path: parent_trace_path,
             biological_parent: parent_trace,
             sema_expr_region,
@@ -234,7 +234,7 @@ impl<'a> LazyStmtAssociatedTraceRegistry<'a> {
     }
 }
 
-impl<'a> IsAssociatedTraceRegistry for LazyStmtAssociatedTraceRegistry<'a> {
+impl<'a> IsAssocTraceRegistry for LazyStmtAssocTraceRegistry<'a> {
     fn get_or_issue_associated_trace(
         &mut self,
         source: TokenInfoSource,

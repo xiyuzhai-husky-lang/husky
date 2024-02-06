@@ -1,7 +1,7 @@
 use crate::Trace;
 use husky_token_info::TokenInfoSource;
 
-pub(crate) trait IsAssociatedTraceRegistry: Sized {
+pub(crate) trait IsAssocTraceRegistry: Sized {
     fn get_or_issue_associated_trace(
         &mut self,
         source: TokenInfoSource,
@@ -18,9 +18,9 @@ pub(crate) trait IsAssociatedTraceRegistry: Sized {
     }
 }
 
-pub(crate) struct VoidAssociatedTraceRegistry;
+pub(crate) struct VoidAssocTraceRegistry;
 
-impl IsAssociatedTraceRegistry for VoidAssociatedTraceRegistry {
+impl IsAssocTraceRegistry for VoidAssocTraceRegistry {
     fn get_or_issue_associated_trace(
         &mut self,
         _source: TokenInfoSource,

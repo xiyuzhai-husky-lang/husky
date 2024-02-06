@@ -161,18 +161,18 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TraitForTypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -233,15 +233,15 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
+                                        path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocFunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -281,18 +281,18 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TraitForTypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -305,7 +305,7 @@
                                                                 },
                                                             },
                                                             ident: `Output`,
-                                                            item_kind: AssociatedType,
+                                                            item_kind: AssocType,
                                                         },
                                                     ),
                                                 ),
@@ -350,18 +350,18 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TraitForTypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -422,15 +422,15 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
+                                        path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocFunctionFn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -470,18 +470,18 @@
         None,
     ),
     (
-        ItemSynNodePath::AssociatedItem(
-            AssociatedItemSynNodePath::TraitForTypeItem(
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
                     ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssociatedItem(
-                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath(
                                             ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                data: ItemPathData::AssocItem(
+                                                    AssocItemPathData::TraitForTypeItem(
                                                         TraitForTypeItemPathData {
                                                             impl_block: TraitForTypeImplBlock {
                                                                 data: TraitForTypeImplBlockPathData {
@@ -494,7 +494,7 @@
                                                                 },
                                                             },
                                                             ident: `Output`,
-                                                            item_kind: AssociatedType,
+                                                            item_kind: AssocType,
                                                         },
                                                     ),
                                                 ),

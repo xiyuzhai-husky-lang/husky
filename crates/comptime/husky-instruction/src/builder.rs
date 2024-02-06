@@ -1,15 +1,19 @@
-use crate::instruction::{Instruction, InstructionArena, InstructionIdxRange, VMStackIdx};
-use husky_coword::Ident;
+mod expr;
 
-pub(crate) struct InstructionBlockBuilder<'a, 'b> {
-    db: &'a ::salsa::Db,
-    arena: &'b mut InstructionArena,
-    buffer: Vec<Instruction>,
+use crate::instruction::{InstructionArena, InstructionData, InstructionIdxRange, VMStackIdx};
+use husky_coword::Ident;
+use husky_hir_eager_expr::HirEagerExprArena;
+
+pub(crate) struct InstructionBlockBuilder<'db, 'arena> {
+    db: &'db ::salsa::Db,
+    expr_arena: &'db HirEagerExprArena,
+    instruction_arena: &'arena mut InstructionArena,
+    buffer: Vec<InstructionData>,
     variables: Vec<Ident>,
 }
 
-impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
-    pub(super) fn push_instruction(&mut self, instruction: Instruction) {
+impl<'db, 'arena> InstructionBlockBuilder<'db, 'arena> {
+    pub(super) fn push_instruction(&mut self, instruction: InstructionData) {
         self.buffer.push(instruction)
     }
 
@@ -23,6 +27,6 @@ impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
     }
 
     pub(crate) fn finish(self) -> InstructionIdxRange {
-        self.arena.alloc_batch(self.buffer)
+        self.instruction_arena.alloc_batch(self.buffer)
     }
 }

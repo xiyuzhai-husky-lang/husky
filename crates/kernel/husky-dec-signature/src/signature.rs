@@ -19,7 +19,7 @@ pub enum DecTemplate {
     Submodule,
     MajorItem(MajorItemDecTemplate),
     ImplBlock(ImplBlockDecTemplate),
-    AssociatedItem(AssociatedItemDecTemplate),
+    AssocItem(AssocItemDecTemplate),
     Variant(TypeVariantDecTemplate),
     Attr(AttrDecTemplate),
 }
@@ -37,7 +37,7 @@ impl HasDecTemplate for ItemPath {
         Ok(match self {
             ItemPath::Submodule(_, _) => DecTemplate::Submodule,
             ItemPath::MajorItem(path) => path.dec_template(db)?.into(),
-            ItemPath::AssociatedItem(path) => path.dec_template(db)?.into(),
+            ItemPath::AssocItem(path) => path.dec_template(db)?.into(),
             ItemPath::TypeVariant(_, path) => path.dec_template(db)?.into(),
             ItemPath::ImplBlock(path) => path.dec_template(db)?.into(),
             ItemPath::Attr(_, _) => todo!(),

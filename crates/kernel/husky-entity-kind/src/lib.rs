@@ -29,8 +29,8 @@ pub enum EntityKind {
         module_item_kind: MajorItemKind,
         connection: MajorItemConnectionKind,
     },
-    AssociatedItem {
-        associated_item_kind: AssociatedItemKind,
+    AssocItem {
+        associated_item_kind: AssocItemKind,
     },
     TypeVariant,
     ImplBlock,
@@ -56,12 +56,12 @@ impl EntityKind {
                 },
                 MajorItemKind::Trait => EntityClass::Trait,
             },
-            EntityKind::AssociatedItem {
+            EntityKind::AssocItem {
                 associated_item_kind,
             } => match associated_item_kind {
-                AssociatedItemKind::TypeItem(ty_item_kind) => ty_item_kind.into(),
-                AssociatedItemKind::TraitItem(trai_item_kind)
-                | AssociatedItemKind::TraitForTypeItem(trai_item_kind) => trai_item_kind.into(),
+                AssocItemKind::TypeItem(ty_item_kind) => ty_item_kind.into(),
+                AssocItemKind::TraitItem(trai_item_kind)
+                | AssocItemKind::TraitForTypeItem(trai_item_kind) => trai_item_kind.into(),
             },
             EntityKind::TypeVariant => EntityClass::TypeVariant,
             EntityKind::ImplBlock => EntityClass::ImplBlock,
@@ -79,7 +79,7 @@ pub enum MajorItemKind {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum AssociatedItemKind {
+pub enum AssocItemKind {
     TypeItem(TypeItemKind),
     TraitItem(TraitItemKind),
     TraitForTypeItem(TraitItemKind),
@@ -88,13 +88,13 @@ pub enum AssociatedItemKind {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum TypeItemKind {
     MethodFn,
-    AssociatedFunctionFn,
-    AssociatedVal,
-    AssociatedType,
+    AssocFunctionFn,
+    AssocVal,
+    AssocType,
     MemoizedField,
-    AssociatedFunctionGn,
-    AssociatedFormal,
-    AssociatedConst,
+    AssocFunctionGn,
+    AssocFormal,
+    AssocConst,
 }
 
 impl Into<EntityClass> for TypeItemKind {
@@ -102,12 +102,12 @@ impl Into<EntityClass> for TypeItemKind {
         match self {
             TypeItemKind::MemoizedField => EntityClass::MemoizedField,
             TypeItemKind::MethodFn => EntityClass::MethodFn,
-            TypeItemKind::AssociatedVal => EntityClass::AssociatedVal,
-            TypeItemKind::AssociatedType => EntityClass::AssociatedType,
-            TypeItemKind::AssociatedFunctionFn => EntityClass::AssociatedFunctionFn,
-            TypeItemKind::AssociatedFunctionGn => EntityClass::AssociatedFunctionGn,
-            TypeItemKind::AssociatedFormal => EntityClass::AssociatedFormal,
-            TypeItemKind::AssociatedConst => EntityClass::Const,
+            TypeItemKind::AssocVal => EntityClass::AssocVal,
+            TypeItemKind::AssocType => EntityClass::AssocType,
+            TypeItemKind::AssocFunctionFn => EntityClass::AssocFunctionFn,
+            TypeItemKind::AssocFunctionGn => EntityClass::AssocFunctionGn,
+            TypeItemKind::AssocFormal => EntityClass::AssocFormal,
+            TypeItemKind::AssocConst => EntityClass::Const,
         }
     }
 }
@@ -116,12 +116,12 @@ impl Into<EntityClass> for TypeItemKind {
 pub enum TraitItemKind {
     MemoizedField,
     MethodFn,
-    AssociatedType,
-    AssociatedVal,
-    AssociatedFunctionFn,
-    AssociatedFunctionGn,
-    AssociatedFormal,
-    AssociatedConst,
+    AssocType,
+    AssocVal,
+    AssocFunctionFn,
+    AssocFunctionGn,
+    AssocFormal,
+    AssocConst,
 }
 
 impl Into<EntityClass> for TraitItemKind {
@@ -129,12 +129,12 @@ impl Into<EntityClass> for TraitItemKind {
         match self {
             TraitItemKind::MemoizedField => EntityClass::MemoizedField,
             TraitItemKind::MethodFn => EntityClass::MethodFn,
-            TraitItemKind::AssociatedType => EntityClass::AssociatedType,
-            TraitItemKind::AssociatedVal => EntityClass::AssociatedVal,
-            TraitItemKind::AssociatedFunctionFn => EntityClass::AssociatedFunctionFn,
-            TraitItemKind::AssociatedFunctionGn => EntityClass::AssociatedFunctionGn,
-            TraitItemKind::AssociatedFormal => EntityClass::AssociatedFormal,
-            TraitItemKind::AssociatedConst => EntityClass::Const,
+            TraitItemKind::AssocType => EntityClass::AssocType,
+            TraitItemKind::AssocVal => EntityClass::AssocVal,
+            TraitItemKind::AssocFunctionFn => EntityClass::AssocFunctionFn,
+            TraitItemKind::AssocFunctionGn => EntityClass::AssocFunctionGn,
+            TraitItemKind::AssocFormal => EntityClass::AssocFormal,
+            TraitItemKind::AssocConst => EntityClass::Const,
         }
     }
 }
@@ -154,8 +154,8 @@ pub enum EnumVariantKind {
 pub enum RoutineKind {
     Normal,
     TypeCall,
-    TypeAssociated,
-    TraitAssociated,
+    TypeAssoc,
+    TraitAssoc,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -169,9 +169,9 @@ pub enum MemberKind {
     Field,
     Method { is_lazy: bool },
     Call,
-    TraitAssociatedType,
-    TraitAssociatedConstSize,
-    TraitAssociatedAny,
+    TraitAssocType,
+    TraitAssocConstSize,
+    TraitAssocAny,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
