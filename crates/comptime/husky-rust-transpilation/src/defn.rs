@@ -1,4 +1,4 @@
-mod associated_item;
+mod assoc_item;
 mod attr;
 mod impl_block;
 mod major_item;

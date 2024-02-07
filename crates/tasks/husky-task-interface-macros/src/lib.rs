@@ -1,4 +1,4 @@
-mod memoized_field;
+mod memo_field;
 mod utils;
 mod val_item;
 mod value;
@@ -18,5 +18,5 @@ pub fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
 
 #[proc_macro_attribute]
 pub fn memoized_field(args: TokenStream, input: TokenStream) -> TokenStream {
-    memoized_field::memoized_field(args, input)
+    memo_field::memoized_field(args, input)
 }

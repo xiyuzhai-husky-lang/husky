@@ -1286,7 +1286,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
-                TypeMemoizedFieldHirDecl {
+                TypeMemoFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -1338,7 +1338,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
-                TypeMemoizedFieldHirDecl {
+                TypeMemoFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -1390,7 +1390,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
-                TypeMemoizedFieldHirDecl {
+                TypeMemoFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -1442,7 +1442,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
-                TypeMemoizedFieldHirDecl {
+                TypeMemoFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {

@@ -2,7 +2,7 @@ use husky_coword::IdentPairMap;
 use husky_hir_eager_expr::symbol::runtime_symbol::HirEagerRuntimeSymbolIdx;
 use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
 
-use crate::registry::associated_trace::VoidAssocTraceRegistry;
+use crate::registry::assoc_trace::VoidAssocTraceRegistry;
 
 use super::*;
 

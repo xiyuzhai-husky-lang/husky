@@ -38,7 +38,7 @@ pub struct DecTermJar(
     crate::term::abstraction::DecAbstraction,
     crate::term::application::DecApplication,
     crate::term::application_or_ritchie_call::DecApplicationOrRitchieCall,
-    crate::term::associated_item::DecAssocItem,
+    crate::term::assoc_item::DecAssocItem,
     crate::term::ty_as_trai_item::DecTypeAsTraitItem,
     crate::term::constraint::DecTraitConstraint,
     crate::term::list::DecList,

@@ -1,5 +1,5 @@
 use super::*;
-use crate::registry::associated_trace::VoidAssocTraceRegistry;
+use crate::registry::assoc_trace::VoidAssocTraceRegistry;
 use husky_hir_defn::HasHirDefn;
 use husky_sema_expr::{helpers::analysis::sema_expr_region_contains_gn, SemaExprData, SemaExprDb};
 use husky_syn_defn::{item_syn_defn, ItemSynDefn};

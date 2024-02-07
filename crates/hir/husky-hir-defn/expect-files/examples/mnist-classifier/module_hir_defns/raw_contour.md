@@ -10423,7 +10423,7 @@
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
                     path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
-                    hir_decl: TypeMemoizedFieldHirDecl {
+                    hir_decl: TypeMemoFieldHirDecl {
                         path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
@@ -10611,7 +10611,7 @@
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
                     path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
-                    hir_decl: TypeMemoizedFieldHirDecl {
+                    hir_decl: TypeMemoFieldHirDecl {
                         path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
@@ -11801,7 +11801,7 @@
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
                     path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
-                    hir_decl: TypeMemoizedFieldHirDecl {
+                    hir_decl: TypeMemoFieldHirDecl {
                         path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
@@ -12050,7 +12050,7 @@
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
                     path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
-                    hir_decl: TypeMemoizedFieldHirDecl {
+                    hir_decl: TypeMemoFieldHirDecl {
                         path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {

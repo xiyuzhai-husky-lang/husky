@@ -1,7 +1,7 @@
 pub mod abstraction;
 pub mod application;
 pub mod application_or_ritchie_call;
-pub mod associated_item;
+pub mod assoc_item;
 pub mod constraint;
 pub mod curry;
 pub mod item_path;
@@ -15,7 +15,7 @@ pub mod wrapper;
 
 pub use self::application::*;
 pub use self::application_or_ritchie_call::*;
-pub use self::associated_item::*;
+pub use self::assoc_item::*;
 pub use self::constraint::*;
 pub use self::curry::*;
 pub use self::item_path::*;

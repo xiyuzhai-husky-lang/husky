@@ -1,5 +1,5 @@
 use super::*;
-use crate::registry::associated_trace::VoidAssocTraceRegistry;
+use crate::registry::assoc_trace::VoidAssocTraceRegistry;
 use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{ItemPath, MajorItemPath, SubmoduleItemPath};
 use husky_entity_tree::helpers::paths::module_item_paths;
