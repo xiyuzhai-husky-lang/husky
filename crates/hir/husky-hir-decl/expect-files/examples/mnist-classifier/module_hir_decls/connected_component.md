@@ -790,7 +790,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
-                TypeMemoizedFieldHirDecl {
+                TypeMemoFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -852,7 +852,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
-                TypeMemoizedFieldHirDecl {
+                TypeMemoFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -904,7 +904,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
-                TypeMemoizedFieldHirDecl {
+                TypeMemoFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -956,7 +956,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
-                TypeMemoizedFieldHirDecl {
+                TypeMemoFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -1008,7 +1008,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
-                TypeMemoizedFieldHirDecl {
+                TypeMemoFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -1060,7 +1060,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
-                TypeMemoizedFieldHirDecl {
+                TypeMemoFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -1112,7 +1112,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
-                TypeMemoizedFieldHirDecl {
+                TypeMemoFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -1164,7 +1164,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
-                TypeMemoizedFieldHirDecl {
+                TypeMemoFieldHirDecl {
                     path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {

@@ -14,7 +14,7 @@ use husky_sema_expr::{
 use husky_syn_defn::ItemSynDefn;
 use husky_token_info::TokenInfoSource;
 
-use crate::registry::associated_trace::IsAssocTraceRegistry;
+use crate::registry::assoc_trace::IsAssocTraceRegistry;
 
 use super::*;
 

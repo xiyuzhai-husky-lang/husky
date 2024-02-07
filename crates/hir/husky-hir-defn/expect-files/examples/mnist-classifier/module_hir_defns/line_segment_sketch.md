@@ -14223,7 +14223,7 @@
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
                     path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
-                    hir_decl: TypeMemoizedFieldHirDecl {
+                    hir_decl: TypeMemoFieldHirDecl {
                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
@@ -14385,7 +14385,7 @@
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
                     path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
-                    hir_decl: TypeMemoizedFieldHirDecl {
+                    hir_decl: TypeMemoFieldHirDecl {
                         path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {

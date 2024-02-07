@@ -1,4 +1,4 @@
-pub mod associated_item;
+pub mod assoc_item;
 pub mod attr;
 pub mod impl_block;
 pub mod major_item;
@@ -7,7 +7,7 @@ pub mod ty_variant;
 
 use enum_class::Room32;
 
-pub use self::associated_item::*;
+pub use self::assoc_item::*;
 pub use self::attr::*;
 pub use self::impl_block::*;
 pub use self::major_item::*;

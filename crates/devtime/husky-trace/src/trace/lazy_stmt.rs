@@ -1,6 +1,6 @@
 use super::*;
 use crate::registry::{
-    associated_trace::IsAssocTraceRegistry,
+    assoc_trace::IsAssocTraceRegistry,
     trace_path::{TracePathDisambiguator, TracePathRegistry},
 };
 use husky_entity_path::PrincipalEntityPath;

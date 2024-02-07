@@ -1088,7 +1088,7 @@
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
                     path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
-                    hir_decl: TypeMemoizedFieldHirDecl {
+                    hir_decl: TypeMemoFieldHirDecl {
                         path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
@@ -1561,7 +1561,7 @@
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
                     path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
-                    hir_decl: TypeMemoizedFieldHirDecl {
+                    hir_decl: TypeMemoFieldHirDecl {
                         path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
@@ -2034,7 +2034,7 @@
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
                     path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
-                    hir_decl: TypeMemoizedFieldHirDecl {
+                    hir_decl: TypeMemoFieldHirDecl {
                         path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {

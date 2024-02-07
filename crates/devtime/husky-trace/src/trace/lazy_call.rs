@@ -1,5 +1,5 @@
 use super::*;
-use crate::registry::associated_trace::VoidAssocTraceRegistry;
+use crate::registry::assoc_trace::VoidAssocTraceRegistry;
 use husky_entity_tree::HasSynNodePath;
 use husky_syn_defn::item_syn_defn;
 

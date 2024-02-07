@@ -1,5 +1,5 @@
 use super::*;
-use crate::registry::associated_trace::VoidAssocTraceRegistry;
+use crate::registry::assoc_trace::VoidAssocTraceRegistry;
 use husky_coword::IdentPairMap;
 use husky_hir_lazy_expr::{
     variable::HirLazyVariableIdx, HirLazyExprRegion, HirLazyPatternExpr, HirLazyPatternExprIdx,

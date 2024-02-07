@@ -1,4 +1,4 @@
-mod associated_item;
+mod assoc_item;
 mod binary;
 mod box_list;
 mod current_syn_symbol;

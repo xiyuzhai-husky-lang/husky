@@ -1,5 +1,5 @@
 use super::*;
-use crate::registry::associated_trace::VoidAssocTraceRegistry;
+use crate::registry::assoc_trace::VoidAssocTraceRegistry;
 use husky_hir_lazy_expr::{
     source_map::{HirLazyExprSourceMap, HirLazyExprSourceMapData},
     HirLazyExprData, HirLazyExprIdx, HirLazyExprRegion,

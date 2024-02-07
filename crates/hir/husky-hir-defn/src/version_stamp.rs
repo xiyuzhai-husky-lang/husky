@@ -1,4 +1,4 @@
-mod associated_item;
+mod assoc_item;
 mod major_item;
 
 use crate::*;
