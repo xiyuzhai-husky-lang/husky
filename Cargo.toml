@@ -60,7 +60,6 @@ egui = { version = "0.25.0", features = [
 either = "1.8.1"
 epaint = "0.25.0"
 expect-test = "1.4.1"
-flurry = "0.4.0"
 futures = "0.3.28"
 futures-util = { version = "0.3", default-features = false, features = [
     "sink",
