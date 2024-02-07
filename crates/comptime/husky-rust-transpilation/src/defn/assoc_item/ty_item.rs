@@ -94,7 +94,7 @@ impl TranspileToRustWith for TypeMemoizedFieldHirDefn {
         };
         let db = builder.db();
         let hir_decl = self.hir_decl(db);
-        builder.memoized_field_attr(
+        builder.memo_field_attr(
             hir_decl.path(db).into(),
             hir_decl.return_ty(db).always_copyable(db),
         );

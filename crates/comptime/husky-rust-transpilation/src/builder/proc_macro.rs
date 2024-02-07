@@ -27,11 +27,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
         .unwrap()
     }
 
-    pub(crate) fn memoized_field_attr(
-        &mut self,
-        path: ItemPath,
-        is_return_ty_always_copyable: bool,
-    ) {
+    pub(crate) fn memo_field_attr(&mut self, path: ItemPath, is_return_ty_always_copyable: bool) {
         use std::fmt::Write;
         let db = self.db;
         let task_dependency_ident = self
@@ -41,7 +37,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
         let return_ref = !is_return_ty_always_copyable;
         write!(
             self.result,
-            "#[{}::memoized_field(ingredient_index = {}{})]\n    ",
+            "#[{}::memo_field(ingredient_index = {}{})]\n    ",
             task_dependency_ident,
             path.ingredient_index(db).unwrap().index(),
             return_ref.then_some(", return_ref").unwrap_or_default(),

@@ -151,7 +151,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         )
     }
 
-    fn eval_memoized_field_with(
+    fn eval_memo_field_with(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
@@ -159,13 +159,8 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>>,
     ) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>> {
-        self.storage.get_or_try_init_memoized_field_value(
-            jar_index,
-            ingredient_index,
-            pedestal,
-            slf,
-            f,
-        )
+        self.storage
+            .get_or_try_init_memo_field_value(jar_index, ingredient_index, pedestal, slf, f)
     }
 
     fn eval_val_runtime_constant(

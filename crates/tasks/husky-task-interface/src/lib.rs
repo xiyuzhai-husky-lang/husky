@@ -59,7 +59,7 @@ macro_rules! init_crate {
             ))
         }
 
-        pub(crate) fn __eval_memoized_field_with<Slf, T>(
+        pub(crate) fn __eval_memo_field_with<Slf, T>(
             slf: &'static Slf,
             ingredient_index: usize,
             f: fn(&'static Slf) -> __ValControlFlow,
@@ -67,7 +67,7 @@ macro_rules! init_crate {
         where
             T: __FromValue + 'static,
         {
-            <T as __FromValue>::from_value_static(__dev_eval_context().eval_memoized_field_with(
+            <T as __FromValue>::from_value_static(__dev_eval_context().eval_memo_field_with(
                 __jar_index(),
                 __TaskIngredientIndex::from_index(ingredient_index),
                 slf,
@@ -75,7 +75,7 @@ macro_rules! init_crate {
             ))
         }
 
-        pub(crate) fn __eval_memoized_field_return_ref_with<Slf, T>(
+        pub(crate) fn __eval_memo_field_return_ref_with<Slf, T>(
             slf: &'static Slf,
             ingredient_index: usize,
             f: fn(&'static Slf) -> __ValControlFlow,
@@ -85,7 +85,7 @@ macro_rules! init_crate {
             &'static T: __FromValue,
         {
             <&'static T as __FromValue>::from_value_static(
-                __dev_eval_context().eval_memoized_field_with(
+                __dev_eval_context().eval_memo_field_with(
                     __jar_index(),
                     __TaskIngredientIndex::from_index(ingredient_index),
                     slf,
@@ -217,7 +217,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
             .eval_val_domain_repr_interface_dyn(val_domain_repr_interface, self.pedestal)
     }
 
-    pub fn eval_memoized_field_with<Slf>(
+    pub fn eval_memo_field_with<Slf>(
         self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
@@ -228,7 +228,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         let f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl> =
             unsafe { std::mem::transmute(f) };
         self.runtime
-            .eval_memoized_field_with_dyn(jar_index, ingredient_index, self.pedestal, slf, f)
+            .eval_memo_field_with_dyn(jar_index, ingredient_index, self.pedestal, slf, f)
             .unwrap()
     }
 
@@ -288,7 +288,7 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         f: impl FnOnce(ValDomainReprInterface) -> LinkageImplValControlFlow<LinkageImpl>,
     ) -> LinkageImplValControlFlow<LinkageImpl>;
 
-    fn eval_memoized_field_with(
+    fn eval_memo_field_with(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
@@ -343,7 +343,7 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         val_argument_reprs: &[ValArgumentReprInterface],
     ) -> LinkageImplValControlFlow<LinkageImpl>;
 
-    fn eval_memoized_field_with_dyn(
+    fn eval_memo_field_with_dyn(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
@@ -428,7 +428,7 @@ where
         )
     }
 
-    fn eval_memoized_field_with_dyn(
+    fn eval_memo_field_with_dyn(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
@@ -436,7 +436,7 @@ where
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
     ) -> LinkageImplValControlFlow<LinkageImpl> {
-        self.eval_memoized_field_with(jar_index, ingredient_index, pedestal, slf, f)
+        self.eval_memo_field_with(jar_index, ingredient_index, pedestal, slf, f)
     }
 
     fn eval_val_runtime_constant_dyn(

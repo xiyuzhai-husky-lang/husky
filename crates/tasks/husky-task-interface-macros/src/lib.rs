@@ -17,6 +17,6 @@ pub fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
 }
 
 #[proc_macro_attribute]
-pub fn memoized_field(args: TokenStream, input: TokenStream) -> TokenStream {
-    memo_field::memoized_field(args, input)
+pub fn memo_field(args: TokenStream, input: TokenStream) -> TokenStream {
+    memo_field::memo_field(args, input)
 }

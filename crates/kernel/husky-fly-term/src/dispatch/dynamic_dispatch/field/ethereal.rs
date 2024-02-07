@@ -84,14 +84,14 @@ fn ethereal_ty_field_dispatch_aux<'a>(
         });
     };
 
-    if let Some(memoized_field_ethereal_signature) = ty_path
-        .ty_memoized_field_ethereal_signature(db, arguments, ident)
+    if let Some(memo_field_ethereal_signature) = ty_path
+        .ty_memo_field_ethereal_signature(db, arguments, ident)
         .into_result_option()?
     {
         return JustOk(FlyFieldDyanmicDispatch {
             indirections,
             ty_path,
-            signature: memoized_field_ethereal_signature.into(),
+            signature: memo_field_ethereal_signature.into(),
         });
     }
     // todo!("trai for ty memoized field");

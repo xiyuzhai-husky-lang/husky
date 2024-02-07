@@ -39,16 +39,16 @@ impl TypeMemoizedFieldHirDefn {
     }
 
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
-        ty_memoized_field_hir_defn_dependencies(db, self)
+        ty_memo_field_hir_defn_dependencies(db, self)
     }
 
     pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
-        ty_memoized_field_hir_defn_version_stamp(db, self)
+        ty_memo_field_hir_defn_version_stamp(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn ty_memoized_field_hir_defn_dependencies(
+fn ty_memo_field_hir_defn_dependencies(
     db: &::salsa::Db,
     hir_defn: TypeMemoizedFieldHirDefn,
 ) -> HirDefnDependencies {
@@ -64,7 +64,7 @@ fn ty_memoized_field_hir_defn_dependencies(
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn ty_memoized_field_hir_defn_version_stamp(
+fn ty_memo_field_hir_defn_version_stamp(
     db: &::salsa::Db,
     hir_defn: TypeMemoizedFieldHirDefn,
 ) -> HirDefnVersionStamp {

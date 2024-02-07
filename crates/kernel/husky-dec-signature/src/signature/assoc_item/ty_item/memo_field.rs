@@ -33,7 +33,7 @@ impl TypeMemoizedFieldDecTemplate {
 }
 
 // pub trait HasTypeMemoizedFieldDecTemplates: Copy {
-//     fn ty_memoized_field_dec_templates_map<'a>(
+//     fn ty_memo_field_dec_templates_map<'a>(
 //         self,
 //         db: &'a ::salsa::Db,
 //     ) -> DecSignatureResult<
@@ -43,7 +43,7 @@ impl TypeMemoizedFieldDecTemplate {
 //         )],
 //     >;
 
-//     fn ty_memoized_field_dec_templates<'a>(
+//     fn ty_memo_field_dec_templates<'a>(
 //         self,
 //         db: &'a ::salsa::Db,
 //         ident: Ident,
@@ -51,7 +51,7 @@ impl TypeMemoizedFieldDecTemplate {
 //     {
 //         use vec_like::VecMapGetEntry;
 //         match self
-//             .ty_memoized_field_dec_templates_map(db)?
+//             .ty_memo_field_dec_templates_map(db)?
 //             .get_entry(ident)
 //         {
 //             Some((_, Ok(templates))) => Ok(Some(templates)),
@@ -62,7 +62,7 @@ impl TypeMemoizedFieldDecTemplate {
 // }
 
 // impl HasTypeMemoizedFieldDecTemplates for TypePath {
-//     fn ty_memoized_field_dec_templates_map<'a>(
+//     fn ty_memo_field_dec_templates_map<'a>(
 //         self,
 //         db: &'a ::salsa::Db,
 //     ) -> DecSignatureResult<
@@ -71,7 +71,7 @@ impl TypeMemoizedFieldDecTemplate {
 //             DecSignatureResult<SmallVecImpl<TypeMemoizedFieldDecTemplate>>,
 //         )],
 //     > {
-//         ty_memoized_field_dec_templates_map(db, self)
+//         ty_memo_field_dec_templates_map(db, self)
 //             .as_ref()
 //             .map(|v| v as &[_])
 //             .map_err(|e| *e)
@@ -79,7 +79,7 @@ impl TypeMemoizedFieldDecTemplate {
 // }
 
 // #[salsa::tracked(jar = DecSignatureJar, return_ref)]
-// pub(crate) fn ty_memoized_field_dec_templates_map(
+// pub(crate) fn ty_memo_field_dec_templates_map(
 //     db: &::salsa::Db,
 //     ty_path: TypePath,
 // ) -> DecSignatureResult<
