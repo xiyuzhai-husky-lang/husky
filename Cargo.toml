@@ -49,16 +49,16 @@ crossbeam = "0.8.1"
 crossbeam-channel = "0.5.0"
 crossbeam-utils = { version = "0.8", default-features = false }
 dashmap = "5.5.1"
-ecolor = { version = "0.25.0", features = ["serde", "bytemuck"] }
-eframe = "0.25.0"
-egui = { version = "0.25.0", features = [
+ecolor = { version = "0.26.0", features = ["serde", "bytemuck"] }
+eframe = "0.26.0"
+egui = { version = "0.26.0", features = [
     "callstack",
     "extra_debug_asserts",
     "extra_asserts",
     "document-features"
 ] }
 either = "1.8.1"
-epaint = "0.25.0"
+epaint = "0.26.0"
 expect-test = "1.4.1"
 futures = "0.3.28"
 futures-util = { version = "0.3", default-features = false, features = [

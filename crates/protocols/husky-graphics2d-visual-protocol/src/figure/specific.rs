@@ -114,19 +114,19 @@ impl SpecificGraphics2dFigure {
                 rect,
                 Rect::from_min_max(pos2(0.0, 0.0), pos2(1.0, 1.0)),
                 egui::Color32::WHITE,
-            )
+            );
         }
         let mnist_visual_rect = VisualRect::mnist();
         let t = |point: Point| point.to_screen(mnist_visual_rect, rect);
         for shape in &self.shapes {
             match shape.data(visual_synchrotron) {
                 &ShapeVisualData::LineSegment { start, end, stroke } => {
-                    ui.painter().line_segment([t(start), t(end)], stroke)
+                    ui.painter().line_segment([t(start), t(end)], stroke);
                 }
                 ShapeVisualData::Contour { points } => {
                     for i in 0..(points.len() - 1) {
                         ui.painter()
-                            .line_segment([t(points[i]), t(points[i + 1])], (2.0, Color32::WHITE))
+                            .line_segment([t(points[i]), t(points[i + 1])], (2.0, Color32::WHITE));
                     }
                 }
             }

@@ -1,5 +1,7 @@
 use super::*;
-use ::egui::{ColorImage, TextureFilter, TextureHandle, TextureId, TextureOptions};
+use ::egui::{
+    ColorImage, TextureFilter, TextureHandle, TextureId, TextureOptions, TextureWrapMode,
+};
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::image::ImageVisual};
 
 impl IsUi for ::egui::Ui {
@@ -14,6 +16,7 @@ impl IsUi for ::egui::Ui {
         let options = TextureOptions {
             magnification: TextureFilter::Nearest,
             minification: TextureFilter::Linear,
+            wrap_mode: TextureWrapMode::default(),
         };
         self.ctx().load_texture("whatever", image, options)
     }
