@@ -9,11 +9,8 @@ pub struct ConcaveComponent {
 }
 
 impl ConcaveComponent {
-    pub fn __constructor(
-        line_segment_sketch: Leash<crate::line_segment_sketch::LineSegmentSketch>,
-        strokes: CyclicSliceLeashed<crate::line_segment_sketch::LineSegmentStroke>,
-    ) -> Self {
-        Self {
+    pub fn __constructor(line_segment_sketch: Leash<crate::line_segment_sketch::LineSegmentSketch>, strokes: CyclicSliceLeashed<crate::line_segment_sketch::LineSegmentStroke>) -> Self {
+        Self{
             line_segment_sketch,
             strokes,
         }
