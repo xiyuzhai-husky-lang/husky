@@ -23,7 +23,11 @@ impl LineSegmentStroke {
     pub fn __constructor(points: CyclicSliceLeashed<crate::geom2d::Point2d>) -> Self {
         let start = points.first().unwrap().clone();
         let end = points.last().unwrap().clone();
-        Self { points, start, end }
+        Self{
+            points,
+            start,
+            end,
+        }
     }
 }
 
@@ -36,11 +40,11 @@ pub struct LineSegmentSketch {
 }
 
 impl LineSegmentSketch {
-    pub fn __constructor(
-        contour: Leash<crate::raw_contour::RawContour>,
-        strokes: Vec<crate::line_segment_sketch::LineSegmentStroke>,
-    ) -> Self {
-        Self { contour, strokes }
+    pub fn __constructor(contour: Leash<crate::raw_contour::RawContour>, strokes: Vec<crate::line_segment_sketch::LineSegmentStroke>) -> Self {
+        Self{
+            contour,
+            strokes,
+        }
     }
 }
 

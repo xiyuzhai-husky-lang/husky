@@ -9,13 +9,11 @@ pub struct FermiMatchResult {
 }
 
 impl FermiMatchResult {
-    pub fn __constructor(
-        matches: Vec<
-            Option<Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>>,
-        >,
-        others: Vec<Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>>,
-    ) -> Self {
-        Self { matches, others }
+    pub fn __constructor(matches: Vec<Option<Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>>>, others: Vec<Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>>) -> Self {
+        Self{
+            matches,
+            others,
+        }
     }
 }
 
