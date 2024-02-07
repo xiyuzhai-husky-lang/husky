@@ -1,22 +1,24 @@
 use crate::*;
+use husky_entity_path::ItemPath;
+use husky_linkage::linkage::Linkage;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum InstructionRegion {
-    Block(Instructions),
+    // Block(Instructions),
 }
 
-fn item_instruction_sheet(_db: &::salsa::Db, _item_path: ItemPath) -> Option<InstructionRegion> {
+fn item_instruction_region(_db: &::salsa::Db, _item_path: ItemPath) -> Option<InstructionRegion> {
     todo!()
 }
 
-fn method_opt_instruction_sheet(
+fn method_linkage_instruction_region(
     _db: &::salsa::Db,
-    _member_route: EthTerm,
+    _member_route: Linkage,
 ) -> Option<InstructionRegion> {
     todo!()
 }
 
-fn dataset_config_instruction_sheet(
+fn dataset_config_instruction_region(
     _db: &::salsa::Db,
     _target_entrance: ItemPath,
 ) -> InstructionRegion {

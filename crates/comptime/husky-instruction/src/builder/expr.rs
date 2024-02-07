@@ -231,7 +231,7 @@ impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
         //     EagerExprVariant::EntityThickFp { route } => self.push_instruction(Instruction::new(
         //         InstructionData::PushEntityFp {
         //             opt_linkage: self.db.routine_linkage(route),
-        //             opt_instruction_sheet: self.db.item_instruction_sheet(route),
+        //             opt_instruction_region: self.db.item_instruction_region(route),
         //             ty: expr.intrinsic_ty(),
         //         },
         //         expr.clone(),

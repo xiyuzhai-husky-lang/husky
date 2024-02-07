@@ -5,7 +5,7 @@
             val_domain_repr: Omni,
             opn: ValOpn::Linkage(
                 Linkage {
-                    data: LinkageData::ValItem {
+                    data: LinkageData::MajorVal {
                         path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                         instantiation: LinInstantiation {
                             symbol_resolutions: [],
@@ -27,7 +27,7 @@
             val_domain_repr: Omni,
             opn: ValOpn::Linkage(
                 Linkage {
-                    data: LinkageData::ValItem {
+                    data: LinkageData::MajorVal {
                         path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         instantiation: LinInstantiation {
                             symbol_resolutions: [],
@@ -49,7 +49,7 @@
             val_domain_repr: Omni,
             opn: ValOpn::Linkage(
                 Linkage {
-                    data: LinkageData::ValItem {
+                    data: LinkageData::MajorVal {
                         path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         instantiation: LinInstantiation {
                             symbol_resolutions: [],
@@ -71,7 +71,7 @@
             val_domain_repr: Omni,
             opn: ValOpn::Linkage(
                 Linkage {
-                    data: LinkageData::ValItem {
+                    data: LinkageData::MajorVal {
                         path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                         instantiation: LinInstantiation {
                             symbol_resolutions: [],
@@ -93,7 +93,7 @@
             val_domain_repr: Omni,
             opn: ValOpn::Linkage(
                 Linkage {
-                    data: LinkageData::ValItem {
+                    data: LinkageData::MajorVal {
                         path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                         instantiation: LinInstantiation {
                             symbol_resolutions: [],
@@ -115,7 +115,7 @@
             val_domain_repr: Omni,
             opn: ValOpn::Linkage(
                 Linkage {
-                    data: LinkageData::ValItem {
+                    data: LinkageData::MajorVal {
                         path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                         instantiation: LinInstantiation {
                             symbol_resolutions: [],
@@ -137,7 +137,7 @@
             val_domain_repr: Omni,
             opn: ValOpn::Linkage(
                 Linkage {
-                    data: LinkageData::ValItem {
+                    data: LinkageData::MajorVal {
                         path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                         instantiation: LinInstantiation {
                             symbol_resolutions: [],

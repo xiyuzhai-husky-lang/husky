@@ -5,7 +5,7 @@
             val_domain_repr: Omni,
             opn: ValOpn::Linkage(
                 Linkage {
-                    data: LinkageData::ValItem {
+                    data: LinkageData::MajorVal {
                         path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                         instantiation: LinInstantiation {
                             symbol_resolutions: [],
@@ -27,7 +27,7 @@
             val_domain_repr: Omni,
             opn: ValOpn::Linkage(
                 Linkage {
-                    data: LinkageData::ValItem {
+                    data: LinkageData::MajorVal {
                         path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         instantiation: LinInstantiation {
                             symbol_resolutions: [],

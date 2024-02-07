@@ -31,11 +31,11 @@ pub struct Linkage {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinkageData {
-    FunctionFnItem {
+    MajorFn {
         path: MajorFugitivePath,
         instantiation: LinInstantiation,
     },
-    ValItem {
+    MajorVal {
         path: MajorFugitivePath,
         instantiation: LinInstantiation,
     },
@@ -47,11 +47,11 @@ pub enum LinkageData {
         path: AssocItemPath,
         instantiation: LinInstantiation,
     },
-    AssocFunctionFn {
+    AssocFn {
         path: AssocItemPath,
         instantiation: LinInstantiation,
     },
-    UnveilAssocFunctionFn {
+    UnveilAssocFn {
         path: TraitForTypeItemPath,
         instantiation: LinInstantiation,
     },
@@ -68,7 +68,7 @@ pub enum LinkageData {
         field: LinkageStructField,
     },
     Index,
-    FunctionGnItem {
+    MajorGn {
         path: MajorFugitivePath,
         instantiation: LinInstantiation,
     },
@@ -99,7 +99,7 @@ impl Linkage {
             Some((HirExprIdx::Lazy(_), _)) => None,
             Some((HirExprIdx::Eager(_), _)) | None => Some(Self::new(
                 db,
-                LinkageData::ValItem {
+                LinkageData::MajorVal {
                     path,
                     // ad hoc
                     instantiation: LinInstantiation::new_empty(false),
@@ -214,7 +214,7 @@ impl Linkage {
         debug_assert_eq!(path.fugitive_kind(db), FugitiveKind::FunctionFn);
         Self::new(
             db,
-            LinkageData::FunctionFnItem {
+            LinkageData::MajorFn {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -230,7 +230,7 @@ impl Linkage {
         debug_assert_eq!(path.fugitive_kind(db), FugitiveKind::FunctionGn);
         Self::new(
             db,
-            LinkageData::FunctionGnItem {
+            LinkageData::MajorGn {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -245,7 +245,7 @@ impl Linkage {
     ) -> Self {
         Self::new(
             db,
-            LinkageData::AssocFunctionFn {
+            LinkageData::AssocFn {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -260,7 +260,7 @@ impl Linkage {
     ) -> Self {
         Self::new(
             db,
-            LinkageData::UnveilAssocFunctionFn {
+            LinkageData::UnveilAssocFn {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -309,7 +309,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         |instantiation| {
                             Linkage::new(
                                 db,
-                                LinkageData::FunctionFnItem {
+                                LinkageData::MajorFn {
                                     path,
                                     instantiation,
                                 },
@@ -328,7 +328,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                 |instantiation| {
                                     Linkage::new(
                                         db,
-                                        LinkageData::FunctionGnItem {
+                                        LinkageData::MajorGn {
                                             path,
                                             instantiation,
                                         },
@@ -341,7 +341,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     FugitiveKind::Val => {
                         smallvec![Linkage::new(
                             db,
-                            LinkageData::ValItem {
+                            LinkageData::MajorVal {
                                 path,
                                 instantiation: LinInstantiation::new_empty(false),
                             }
@@ -369,7 +369,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         |instantiation| {
                             Linkage::new(
                                 db,
-                                LinkageData::AssocFunctionFn {
+                                LinkageData::AssocFn {
                                     path: path.into(),
                                     instantiation,
                                 },
@@ -423,14 +423,14 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                         [
                                             Linkage::new(
                                                 db,
-                                                LinkageData::AssocFunctionFn {
+                                                LinkageData::AssocFn {
                                                     path: path.into(),
                                                     instantiation: instantiation.clone(),
                                                 },
                                             ),
                                             Linkage::new(
                                                 db,
-                                                LinkageData::UnveilAssocFunctionFn {
+                                                LinkageData::UnveilAssocFn {
                                                     path: path.into(),
                                                     instantiation,
                                                 },
@@ -445,7 +445,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                 |instantiation| {
                                     Linkage::new(
                                         db,
-                                        LinkageData::AssocFunctionFn {
+                                        LinkageData::AssocFn {
                                             path: path.into(),
                                             instantiation,
                                         },

@@ -58,19 +58,19 @@ impl TranspileToRustWith<()> for Linkage {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<()>) {
         let db = builder.db;
         match *self.data(db) {
-            LinkageData::FunctionFnItem {
+            LinkageData::MajorFn {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 (path, instantiation).transpile_to_rust(builder)
             }),
-            LinkageData::FunctionGnItem {
+            LinkageData::MajorGn {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::GnLinkageImpl, |builder| {
                 (path, instantiation).transpile_to_rust(builder)
             }),
-            LinkageData::ValItem {
+            LinkageData::MajorVal {
                 path,
                 instantiation: _,
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
@@ -92,13 +92,13 @@ impl TranspileToRustWith<()> for Linkage {
                 .macro_call(RustMacroName::EnumU8Presenter, |builder| {
                     ty_path.transpile_to_rust(builder)
                 }),
-            LinkageData::AssocFunctionFn {
+            LinkageData::AssocFn {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 (path, instantiation).transpile_to_rust(builder)
             }),
-            LinkageData::UnveilAssocFunctionFn {
+            LinkageData::UnveilAssocFn {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::UnveilFnLinkageImpl, |builder| {

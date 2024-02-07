@@ -72,7 +72,7 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::ValItem {
+                                data: LinkageData::MajorVal {
                                     path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -272,7 +272,7 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::ValItem {
+                                data: LinkageData::MajorVal {
                                     path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -475,7 +475,7 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::ValItem {
+                                data: LinkageData::MajorVal {
                                     path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -625,7 +625,7 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::ValItem {
+                                data: LinkageData::MajorVal {
                                     path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -799,7 +799,7 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::ValItem {
+                                data: LinkageData::MajorVal {
                                     path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -1270,7 +1270,7 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::ValItem {
+                                data: LinkageData::MajorVal {
                                     path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -1363,7 +1363,7 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::FunctionFnItem {
+                                data: LinkageData::MajorFn {
                                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -1419,7 +1419,7 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::FunctionFnItem {
+                                data: LinkageData::MajorFn {
                                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -1525,7 +1525,7 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::FunctionFnItem {
+                                data: LinkageData::MajorFn {
                                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -1631,7 +1631,7 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::FunctionFnItem {
+                                data: LinkageData::MajorFn {
                                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -1769,7 +1769,7 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::FunctionGnItem {
+                                data: LinkageData::MajorGn {
                                     path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
@@ -1868,7 +1868,7 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssocFunctionFn {
+                                data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
                                         ItemPathId {
                                             data: ItemPathData::AssocItem(
@@ -1940,7 +1940,7 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::FunctionFnItem {
+                                data: LinkageData::MajorFn {
                                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -2124,7 +2124,7 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::ValItem {
+                                data: LinkageData::MajorVal {
                                     path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -2324,7 +2324,7 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::ValItem {
+                                data: LinkageData::MajorVal {
                                     path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -2524,7 +2524,7 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::ValItem {
+                                data: LinkageData::MajorVal {
                                     path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -3135,7 +3135,7 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::ValItem {
+                                data: LinkageData::MajorVal {
                                     path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -3257,7 +3257,7 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::ValItem {
+                                data: LinkageData::MajorVal {
                                     path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -3704,7 +3704,7 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::FunctionFnItem {
+                                data: LinkageData::MajorFn {
                                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -4354,7 +4354,7 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssocFunctionFn {
+                                data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
                                         ItemPathId {
                                             data: ItemPathData::AssocItem(

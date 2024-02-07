@@ -42,7 +42,7 @@ impl HasVersionStamp for Linkage {
 fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionStamp {
     let mut builder = LinkageVersionStampBuilder::new(linkage, db);
     match linkage.data(db) {
-        LinkageData::FunctionFnItem {
+        LinkageData::MajorFn {
             path,
             instantiation,
         } => {
@@ -50,7 +50,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        LinkageData::FunctionGnItem {
+        LinkageData::MajorGn {
             path,
             instantiation,
         } => {
@@ -58,7 +58,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        LinkageData::ValItem {
+        LinkageData::MajorVal {
             path,
             instantiation,
         } => {
@@ -82,7 +82,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        LinkageData::AssocFunctionFn {
+        LinkageData::AssocFn {
             path,
             instantiation,
         } => {
@@ -90,7 +90,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        LinkageData::UnveilAssocFunctionFn {
+        LinkageData::UnveilAssocFn {
             path,
             instantiation,
         } => {
