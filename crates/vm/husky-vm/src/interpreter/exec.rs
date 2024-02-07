@@ -142,9 +142,9 @@ impl<'temp> Interpreter<'temp> {
         //             return_ty,
         //             discard,
         //         } => {
-        //             let instruction_sheet =
-        //                 self.db.item_opt_instruction_sheet_by_uid(routine_uid);
-        //             let result = self.call_interpreted(&instruction_sheet.unwrap(), nargs, discard);
+        //             let instruction_region =
+        //                 self.db.item_opt_instruction_region_by_uid(routine_uid);
+        //             let result = self.call_interpreted(&instruction_region.unwrap(), nargs, discard);
         //             match mode {
         //                 Mode::Fast | Mode::TrackMutation => (),
         //                 Mode::TrackHistory => {

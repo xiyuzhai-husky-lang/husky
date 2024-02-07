@@ -10,7 +10,7 @@
         },
     },
     Linkage {
-        data: LinkageData::AssocFunctionFn {
+        data: LinkageData::AssocFn {
             path: AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
@@ -44,7 +44,7 @@
         },
     },
     Linkage {
-        data: LinkageData::AssocFunctionFn {
+        data: LinkageData::AssocFn {
             path: AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
@@ -78,7 +78,7 @@
         },
     },
     Linkage {
-        data: LinkageData::UnveilAssocFunctionFn {
+        data: LinkageData::UnveilAssocFn {
             path: TraitForTypeItemPath(
                 ItemPathId {
                     data: ItemPathData::AssocItem(

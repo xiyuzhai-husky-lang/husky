@@ -1,6 +1,6 @@
 [
     Linkage {
-        data: LinkageData::FunctionFnItem {
+        data: LinkageData::MajorFn {
             path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -9,7 +9,7 @@
         },
     },
     Linkage {
-        data: LinkageData::FunctionFnItem {
+        data: LinkageData::MajorFn {
             path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],

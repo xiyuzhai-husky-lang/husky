@@ -5,7 +5,7 @@
             val_domain_repr: Omni,
             opn: ValOpn::Linkage(
                 Linkage {
-                    data: LinkageData::ValItem {
+                    data: LinkageData::MajorVal {
                         path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         instantiation: LinInstantiation {
                             symbol_resolutions: [],

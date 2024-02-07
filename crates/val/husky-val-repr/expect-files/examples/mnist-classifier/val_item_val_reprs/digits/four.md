@@ -5,7 +5,7 @@
             val_domain_repr: Omni,
             opn: ValOpn::Linkage(
                 Linkage {
-                    data: LinkageData::ValItem {
+                    data: LinkageData::MajorVal {
                         path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                         instantiation: LinInstantiation {
                             symbol_resolutions: [],
@@ -27,7 +27,7 @@
             val_domain_repr: Omni,
             opn: ValOpn::Linkage(
                 Linkage {
-                    data: LinkageData::ValItem {
+                    data: LinkageData::MajorVal {
                         path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                         instantiation: LinInstantiation {
                             symbol_resolutions: [],
@@ -49,7 +49,7 @@
             val_domain_repr: Omni,
             opn: ValOpn::Linkage(
                 Linkage {
-                    data: LinkageData::ValItem {
+                    data: LinkageData::MajorVal {
                         path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                         instantiation: LinInstantiation {
                             symbol_resolutions: [],
@@ -71,7 +71,7 @@
             val_domain_repr: Omni,
             opn: ValOpn::Linkage(
                 Linkage {
-                    data: LinkageData::ValItem {
+                    data: LinkageData::MajorVal {
                         path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
                         instantiation: LinInstantiation {
                             symbol_resolutions: [],

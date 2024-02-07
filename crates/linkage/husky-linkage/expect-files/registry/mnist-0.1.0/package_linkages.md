@@ -5,7 +5,7 @@
         },
     },
     Linkage {
-        data: LinkageData::ValItem {
+        data: LinkageData::MajorVal {
             path: FugitivePath(`mnist::input`, `Val`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -14,7 +14,7 @@
         },
     },
     Linkage {
-        data: LinkageData::AssocFunctionFn {
+        data: LinkageData::AssocFn {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocFunctionFn`),
             ),
@@ -27,7 +27,7 @@
         },
     },
     Linkage {
-        data: LinkageData::AssocFunctionFn {
+        data: LinkageData::AssocFn {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocFunctionFn`),
             ),
