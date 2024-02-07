@@ -13,7 +13,7 @@ pub struct MlDevRuntimeStorage {
         MlDevRuntimeValStorageKey,
         Arc<Mutex<Option<(ValVersionStamp, StandardLinkageImplValControlFlow)>>>,
     >,
-    memoized_field_values: DashMap<
+    memo_field_values: DashMap<
         MlDevRuntimeMemoizedFieldStorageKey,
         Arc<Mutex<Option<StandardLinkageImplValControlFlow>>>,
     >,
@@ -67,7 +67,7 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
         }
     }
 
-    fn get_or_try_init_memoized_field_value(
+    fn get_or_try_init_memo_field_value(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
@@ -82,7 +82,7 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
             pedestal,
             slf: AnyPointer(slf as _),
         };
-        let mu = self.memoized_field_values.entry(key).or_default().clone();
+        let mu = self.memo_field_values.entry(key).or_default().clone();
         let mut opt_stored_val_control_flow_store_guard = mu.lock().expect("todo");
         unsafe {
             match *opt_stored_val_control_flow_store_guard {
@@ -102,7 +102,7 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
         println!("{}", self.val_values.len());
         self.val_values.iter().for_each(|_| ());
         // forget(self.val_item_values);
-        // forget(self.memoized_field_values);
+        // forget(self.memo_field_values);
         // todo!();
         // for (key, mu) in self.val_item_values {
         //     todo!();
@@ -113,6 +113,6 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
         //     todo!();
         // }
         // todo!();
-        // forget(self.memoized_field_values);
+        // forget(self.memo_field_values);
     }
 }

@@ -2,7 +2,7 @@ use super::*;
 use quote::quote;
 use syn::{Ident, ItemFn, ReturnType, Signature};
 
-pub(crate) fn memoized_field(args: TokenStream, input: TokenStream) -> TokenStream {
+pub(crate) fn memo_field(args: TokenStream, input: TokenStream) -> TokenStream {
     let MemoizedFieldArgs {
         ingredient_index,
         return_ref,
@@ -33,7 +33,7 @@ pub(crate) fn memoized_field(args: TokenStream, input: TokenStream) -> TokenStre
     if return_ref {
         quote! {
             #vis fn #ident(&'static self) -> &'static #return_ty {
-                __eval_memoized_field_return_ref_with(
+                __eval_memo_field_return_ref_with(
                     self,
                     #ingredient_index,
                     |slf| {
@@ -49,7 +49,7 @@ pub(crate) fn memoized_field(args: TokenStream, input: TokenStream) -> TokenStre
     } else {
         quote! {
             #vis fn #ident(&'static self) -> #return_ty {
-                __eval_memoized_field_with(
+                __eval_memo_field_with(
                     self,
                     #ingredient_index,
                     |slf| {

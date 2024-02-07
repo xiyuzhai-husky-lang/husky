@@ -73,7 +73,7 @@ pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
         db: &::salsa::Db,
     ) -> LinkageImplValControlFlow<LinkageImpl>;
 
-    fn get_or_try_init_memoized_field_value(
+    fn get_or_try_init_memo_field_value(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,

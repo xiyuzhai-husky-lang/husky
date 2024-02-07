@@ -69,8 +69,8 @@ pub struct HirDefnJar(
     crate::defn::ty_associated_val_hir_defn_dependencies,
     crate::defn::ty_associated_val_hir_defn_version_stamp,
     TypeMemoizedFieldHirDefn,
-    crate::defn::ty_memoized_field_hir_defn_dependencies,
-    crate::defn::ty_memoized_field_hir_defn_version_stamp,
+    crate::defn::ty_memo_field_hir_defn_dependencies,
+    crate::defn::ty_memo_field_hir_defn_version_stamp,
     // - trait item
     trai_item_hir_defn,
     TraitAssocFnHirDefn,

@@ -579,7 +579,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref instantiation,
                 ..
             } => (
-                ValOpn::Linkage(Linkage::new_memoized_field(
+                ValOpn::Linkage(Linkage::new_memo_field(
                     path,
                     instantiation,
                     &self.lin_instantiation,

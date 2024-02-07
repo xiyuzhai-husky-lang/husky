@@ -128,7 +128,7 @@ impl Linkage {
     }
 
     // todo: lin_instantiation
-    pub fn new_memoized_field(
+    pub fn new_memo_field(
         path: AssocItemPath,
         hir_instantiation: &HirInstantiation,
         lin_instantiation: &LinInstantiation,
