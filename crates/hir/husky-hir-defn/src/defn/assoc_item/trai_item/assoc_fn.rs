@@ -52,16 +52,16 @@ impl TraitAssocFnHirDefn {
     }
 
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
-        trai_associated_fn_hir_defn_dependencies(db, self)
+        trai_assoc_fn_hir_defn_dependencies(db, self)
     }
 
     pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
-        trai_associated_fn_hir_defn_version_stamp(db, self)
+        trai_assoc_fn_hir_defn_version_stamp(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn trai_associated_fn_hir_defn_dependencies(
+fn trai_assoc_fn_hir_defn_dependencies(
     db: &::salsa::Db,
     hir_defn: TraitAssocFnHirDefn,
 ) -> HirDefnDependencies {
@@ -84,7 +84,7 @@ fn trai_associated_fn_hir_defn_dependencies(
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn trai_associated_fn_hir_defn_version_stamp(
+fn trai_assoc_fn_hir_defn_version_stamp(
     db: &::salsa::Db,
     hir_defn: TraitAssocFnHirDefn,
 ) -> HirDefnVersionStamp {

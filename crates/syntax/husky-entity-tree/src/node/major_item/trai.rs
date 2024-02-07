@@ -58,7 +58,7 @@ impl TraitSynNodePath {
     }
 
     // todo: make this a trait method
-    pub(crate) fn associated_items<'a>(
+    pub(crate) fn assoc_items<'a>(
         self,
         db: &'a ::salsa::Db,
     ) -> &'a [(Ident, TraitItemSynNodePath, TraitItemSynNode)] {
@@ -69,7 +69,7 @@ impl TraitSynNodePath {
         self,
         db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = TraitItemSynNodePath> + 'a {
-        self.associated_items(db)
+        self.assoc_items(db)
             .iter()
             .map(|&(_, syn_node_path, _)| syn_node_path)
     }
@@ -109,7 +109,7 @@ impl HasSynNodePath for TraitPath {
 impl HasAssocItemPaths for TraitPath {
     type AssocItemPath = TraitItemPath;
 
-    fn associated_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssocItemPath)] {
+    fn assoc_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssocItemPath)] {
         trai_item_paths(db, self)
     }
 }
@@ -119,7 +119,7 @@ fn trai_item_paths(
     db: &::salsa::Db,
     path: TraitPath,
 ) -> SmallVecPairMap<Ident, TraitItemPath, APPROXIMATE_UPPER_BOUND_ON_NUMBER_OF_TRAIT_ITEMS> {
-    let item_nodes = path.syn_node_path(db).associated_items(db);
+    let item_nodes = path.syn_node_path(db).assoc_items(db);
     item_nodes
         .iter()
         .filter_map(|&(ident, syn_node_path, _)| Some((ident, syn_node_path.path(db)?)))

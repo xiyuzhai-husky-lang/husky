@@ -183,13 +183,13 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
             TraceViewAction::Marker { _marker } => todo!(),
             TraceViewAction::ToggleAssocTrace {
                 trace_id,
-                associated_trace_id,
+                assoc_trace_id,
             } => {
-                self.cache_trace_if_new(associated_trace_id);
+                self.cache_trace_if_new(assoc_trace_id);
                 self.trace_synchrotron_mut()
                     .take_action(TraceSynchrotronAction::ToggleAssocTrace {
                         trace_id,
-                        associated_trace_id,
+                        assoc_trace_id,
                     })
             }
             TraceViewAction::FollowTrace { trace_id } => self

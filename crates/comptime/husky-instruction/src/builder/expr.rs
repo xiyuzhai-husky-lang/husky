@@ -15,9 +15,7 @@ impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
         match self.expr_arena[expr].data {
             HirEagerExprData::Literal(_) => todo!(),
             HirEagerExprData::PrincipalEntityPath(_) => todo!(),
-            HirEagerExprData::AssocFn {
-                associated_item_path,
-            } => todo!(),
+            HirEagerExprData::AssocFn { assoc_item_path } => todo!(),
             HirEagerExprData::ConstSymbol { ident } => todo!(),
             HirEagerExprData::Variable(_) => todo!(),
             HirEagerExprData::Binary { lopd, opr, ropd } => todo!(),
@@ -31,7 +29,7 @@ impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
                 opr,
             } => todo!(),
             HirEagerExprData::Unveil {
-                unveil_associated_fn_path,
+                unveil_assoc_fn_path,
                 ref instantiation,
                 return_ty,
                 opd_hir_expr_idx,

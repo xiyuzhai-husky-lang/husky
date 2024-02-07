@@ -127,7 +127,7 @@ pub enum HirLazyExprData {
         path: AssocItemPath,
     },
     Unveil {
-        unveil_associated_fn_path: TraitForTypeItemPath,
+        unveil_assoc_fn_path: TraitForTypeItemPath,
         instantiation: HirInstantiation,
         opd_hir_expr_idx: HirLazyExprIdx,
     },
@@ -223,11 +223,11 @@ impl ToHirLazy for SemaExprIdx {
             },
             SemaExprData::Unveil {
                 ref unveil_output_ty_signature,
-                unveil_associated_fn_path,
+                unveil_assoc_fn_path,
                 opd_sema_expr_idx,
                 ..
             } => HirLazyExprData::Unveil {
-                unveil_associated_fn_path,
+                unveil_assoc_fn_path,
                 instantiation: HirInstantiation::from_eth(
                     unveil_output_ty_signature.instantiation(),
                     builder.db(),

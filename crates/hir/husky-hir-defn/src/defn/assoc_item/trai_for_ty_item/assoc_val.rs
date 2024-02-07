@@ -30,16 +30,16 @@ impl TraitForTypeAssocValHirDefn {
     }
 
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
-        trai_for_ty_associated_val_hir_defn_dependencies(db, self)
+        trai_for_ty_assoc_val_hir_defn_dependencies(db, self)
     }
 
     pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
-        trai_for_ty_associated_val_hir_defn_version_stamp(db, self)
+        trai_for_ty_assoc_val_hir_defn_version_stamp(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn trai_for_ty_associated_val_hir_defn_dependencies(
+fn trai_for_ty_assoc_val_hir_defn_dependencies(
     db: &::salsa::Db,
     hir_defn: TraitForTypeAssocValHirDefn,
 ) -> HirDefnDependencies {
@@ -55,7 +55,7 @@ fn trai_for_ty_associated_val_hir_defn_dependencies(
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn trai_for_ty_associated_val_hir_defn_version_stamp(
+fn trai_for_ty_assoc_val_hir_defn_version_stamp(
     db: &::salsa::Db,
     hir_defn: TraitForTypeAssocValHirDefn,
 ) -> HirDefnVersionStamp {

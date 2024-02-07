@@ -6,7 +6,7 @@ pub struct HirDeclJar(
     crate::parameter::item_hir_template_parameter_stats,
     crate::decl::submodule_hir_decl,
     crate::decl::SubmoduleHirDecl,
-    // associated_items
+    // assoc_items
     // - type items
     // ty_item_hir_decl,
     crate::decl::TypeMethodFnHirDecl,

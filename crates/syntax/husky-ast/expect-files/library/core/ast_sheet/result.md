@@ -82,7 +82,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitForTypeItem(
+                    assoc_item_kind: TraitForTypeItem(
                         AssocType,
                     ),
                 },
@@ -114,7 +114,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitForTypeItem(
+                    assoc_item_kind: TraitForTypeItem(
                         AssocFunctionFn,
                     ),
                 },

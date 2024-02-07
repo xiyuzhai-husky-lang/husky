@@ -26,7 +26,7 @@ pub(super) fn ethereal_owner_ty_int_index_signature(
             .into_option_result()
     })
     .next()??
-    .associated_output_template(db)?
+    .assoc_output_template(db)?
     .try_into_signature(db)
     .expect("fully instantiated")
     .ty_term();

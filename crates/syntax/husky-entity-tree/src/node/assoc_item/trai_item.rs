@@ -89,7 +89,7 @@ impl TraitItemSynNodePathData {
         db: &'a ::salsa::Db,
     ) -> &'a TraitItemSynNode {
         self.parent_trai_syn_node_path
-            .associated_items(db)
+            .assoc_items(db)
             .iter()
             .find_map(|&(_, node_path1, ref node)| (node_path1 == syn_node_path).then_some(node))
             .expect("some")
@@ -190,7 +190,7 @@ pub(crate) fn trai_item_syn_nodes(
                     ..
                 } => {
                     let EntityKind::AssocItem {
-                        associated_item_kind: AssocItemKind::TraitItem(item_kind),
+                        assoc_item_kind: AssocItemKind::TraitItem(item_kind),
                     } = item_kind
                     else {
                         unreachable!()

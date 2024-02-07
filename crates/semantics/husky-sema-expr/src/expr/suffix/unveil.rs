@@ -29,7 +29,7 @@ impl<'a> SemaExprEngine<'a> {
                 opd_ty,
                 unveil_output_ty,
                 ref unveil_output_ty_signature,
-                unveil_associated_fn_path,
+                unveil_assoc_fn_path,
                 ..
             } => {
                 let unveil_output_ty_signature = unveil_output_ty_signature.clone();
@@ -42,7 +42,7 @@ impl<'a> SemaExprEngine<'a> {
                         opd_sema_expr_idx,
                         opr_regional_token_idx,
                         unveil_output_ty_signature,
-                        unveil_associated_fn_path,
+                        unveil_assoc_fn_path,
                         return_ty: self.return_ty().unwrap(),
                     }),
                     Ok(unveil_output_ty.into()),
@@ -79,22 +79,21 @@ impl<'a> SemaExprEngine<'a> {
                 match reduced_opd_ty.base_resolved(self) {
                     FlyTermBase::Eth(opd_ty) => match template.instantiate_trai(&[opd_ty], db) {
                         JustOk(template) => {
-                            let associated_output_template =
-                                match template.associated_output_template(db) {
-                                    Ok(associated_output_template) => associated_output_template,
-                                    Err(e) => {
-                                        return (
-                                            Err(DerivedSemaExprDataError::UnveilOutputTemplate {
-                                                opd_sema_expr_idx,
-                                                e,
-                                            }
-                                            .into()),
-                                            Err(e.into()),
-                                        )
-                                    }
-                                };
+                            let assoc_output_template = match template.assoc_output_template(db) {
+                                Ok(assoc_output_template) => assoc_output_template,
+                                Err(e) => {
+                                    return (
+                                        Err(DerivedSemaExprDataError::UnveilOutputTemplate {
+                                            opd_sema_expr_idx,
+                                            e,
+                                        }
+                                        .into()),
+                                        Err(e.into()),
+                                    )
+                                }
+                            };
                             let Some(unveil_output_ty_signature) =
-                                associated_output_template.try_into_signature(db)
+                                assoc_output_template.try_into_signature(db)
                             else {
                                 todo!()
                             };
@@ -103,7 +102,7 @@ impl<'a> SemaExprEngine<'a> {
                                 Ok(SemaExprData::Unveil {
                                     opd_sema_expr_idx,
                                     opr_regional_token_idx,
-                                    unveil_associated_fn_path: unveil_associated_fn_path(
+                                    unveil_assoc_fn_path: unveil_assoc_fn_path(
                                         &unveil_output_ty_signature,
                                         db,
                                     ),
@@ -153,7 +152,7 @@ pub(crate) enum Unveiler {
         unveil_output_ty: EthTerm,
         unveil_output_ty_final_destination: FinalDestination,
         unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature,
-        unveil_associated_fn_path: TraitForTypeItemPath,
+        unveil_assoc_fn_path: TraitForTypeItemPath,
     },
     UniquePartiallyInstanted {
         template: TraitForTypeImplBlockEtherealSignatureBuilder,
@@ -188,7 +187,7 @@ impl Unveiler {
                 let template = templates[0];
                 if let Some(impl_block_signature) = template.try_into_signature(db) {
                     let unveil_output_ty_signature = template
-                        .associated_output_template(db)?
+                        .assoc_output_template(db)?
                         .try_into_signature(db)
                         .expect("no generic parameters for Unveil::Output");
                     let unveil_output_ty = unveil_output_ty_signature.ty_term();
@@ -199,10 +198,7 @@ impl Unveiler {
                             .arguments(db)[0],
                         unveil_output_ty,
                         unveil_output_ty_final_destination: unveil_output_ty.final_destination(db),
-                        unveil_associated_fn_path: unveil_associated_fn_path(
-                            &unveil_output_ty_signature,
-                            db,
-                        ),
+                        unveil_assoc_fn_path: unveil_assoc_fn_path(&unveil_output_ty_signature, db),
                         unveil_output_ty_signature,
                     })
                 } else {
@@ -214,7 +210,7 @@ impl Unveiler {
     }
 }
 
-fn unveil_associated_fn_path(
+fn unveil_assoc_fn_path(
     unveil_output_ty_signature: &TraitForTypeAssocTypeEtherealSignature,
     db: &::salsa::Db,
 ) -> TraitForTypeItemPath {
@@ -222,7 +218,7 @@ fn unveil_associated_fn_path(
     unveil_output_ty_signature
         .path()
         .impl_block(db)
-        .associated_item_paths(db)
+        .assoc_item_paths(db)
         .get_entry(snake_case_unveil_ident)
         .expect("unveil associated fn should exist!")
         .1

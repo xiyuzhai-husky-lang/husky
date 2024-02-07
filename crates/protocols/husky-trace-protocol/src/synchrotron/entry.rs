@@ -1,7 +1,7 @@
 use super::*;
 use rustc_hash::FxHashMap;
 use serde_with::serde_as;
-use vec_like::{SmallVecSet};
+use vec_like::SmallVecSet;
 
 #[serde_as]
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -9,7 +9,7 @@ pub struct TraceSynchrotronEntry<TraceProtocol: IsTraceProtocol> {
     view_data: TraceViewData,
     /// None means not calculated
     subtrace_ids: Option<Vec<TraceId>>,
-    associated_trace_ids_shown: SmallVecSet<TraceId, 2>,
+    assoc_trace_ids_shown: SmallVecSet<TraceId, 2>,
     expanded: bool,
     #[serde_as(as = "Vec<(_, _)>")]
     stalks: FxHashMap<TraceProtocol::Pedestal, TraceStalk>,
@@ -20,7 +20,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
         Self {
             view_data,
             subtrace_ids: None,
-            associated_trace_ids_shown: Default::default(),
+            assoc_trace_ids_shown: Default::default(),
             expanded: false,
             stalks: Default::default(),
         }
@@ -50,12 +50,12 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
         self.expanded = !self.expanded
     }
 
-    pub(super) fn toggle_associated_traces(&mut self, associated_trace_id: TraceId) {
-        self.associated_trace_ids_shown.toggle(associated_trace_id)
+    pub(super) fn toggle_assoc_traces(&mut self, assoc_trace_id: TraceId) {
+        self.assoc_trace_ids_shown.toggle(assoc_trace_id)
     }
 
-    pub fn associated_trace_ids(&self) -> &[TraceId] {
-        self.associated_trace_ids_shown.as_ref()
+    pub fn assoc_trace_ids(&self) -> &[TraceId] {
+        self.assoc_trace_ids_shown.as_ref()
     }
 
     pub(crate) fn cache_subtraces(&mut self, subtrace_ids: Vec<TraceId>) {

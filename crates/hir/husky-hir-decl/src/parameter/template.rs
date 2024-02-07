@@ -189,7 +189,7 @@ pub fn item_hir_template_parameter_stats(
         }
     }
     match item_path {
-        ItemPath::AssocItem(associated_item_path) => match associated_item_path {
+        ItemPath::AssocItem(assoc_item_path) => match assoc_item_path {
             AssocItemPath::TypeItem(ty_item_path) => {
                 stats +=
                     item_hir_template_parameter_stats(db, *ty_item_path.impl_block(db)).unwrap()

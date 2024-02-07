@@ -463,7 +463,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TraitForTypeItem(
+                            assoc_item_kind: TraitForTypeItem(
                                 AssocType,
                             ),
                         },
@@ -535,7 +535,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TraitForTypeItem(
+                            assoc_item_kind: TraitForTypeItem(
                                 AssocFunctionFn,
                             ),
                         },

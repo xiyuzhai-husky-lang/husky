@@ -101,7 +101,7 @@ impl TypeItemPathData {
 
     pub fn entity_kind(self, _db: &::salsa::Db) -> EntityKind {
         EntityKind::AssocItem {
-            associated_item_kind: AssocItemKind::TypeItem(self.item_kind),
+            assoc_item_kind: AssocItemKind::TypeItem(self.item_kind),
         }
     }
 

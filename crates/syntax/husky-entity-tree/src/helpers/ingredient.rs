@@ -59,9 +59,7 @@ impl IngredientPath {
                 },
                 MajorItemKind::Trait => false,
             },
-            EntityKind::AssocItem {
-                associated_item_kind,
-            } => match associated_item_kind {
+            EntityKind::AssocItem { assoc_item_kind } => match assoc_item_kind {
                 AssocItemKind::TraitItem(TraitItemKind::AssocVal)
                 | AssocItemKind::TypeItem(TypeItemKind::MemoizedField | TypeItemKind::AssocVal)
                 | AssocItemKind::TraitForTypeItem(

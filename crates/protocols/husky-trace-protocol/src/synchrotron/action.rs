@@ -12,7 +12,7 @@ pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
     Phantom(TraceSynchrotronActionTraceProtocol<TraceProtocol>),
     ToggleAssocTrace {
         trace_id: TraceId,
-        associated_trace_id: TraceId,
+        assoc_trace_id: TraceId,
     },
     FollowTrace {
         trace_id: TraceId,
@@ -82,13 +82,13 @@ where
             TraceSynchrotronAction::Phantom(action) => action.act(synchrotron),
             &TraceSynchrotronAction::ToggleAssocTrace {
                 trace_id,
-                associated_trace_id,
+                assoc_trace_id,
             } => {
                 synchrotron
                     .entries
                     .get_mut(&trace_id)
                     .unwrap()
-                    .toggle_associated_traces(associated_trace_id);
+                    .toggle_assoc_traces(assoc_trace_id);
             }
             &TraceSynchrotronAction::FollowTrace { trace_id } => {
                 synchrotron.followed_trace_id = Some(trace_id)

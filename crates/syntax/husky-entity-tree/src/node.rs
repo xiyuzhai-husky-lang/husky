@@ -291,7 +291,7 @@ impl ItemSynNode {
 pub trait HasAssocItemPaths: Copy {
     type AssocItemPath;
 
-    fn associated_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssocItemPath)];
+    fn assoc_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssocItemPath)];
 }
 
 pub trait HasAttrPaths: Copy {

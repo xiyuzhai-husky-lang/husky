@@ -156,17 +156,14 @@ where
             TraceViewAction::Marker { _marker } => todo!(),
             TraceViewAction::ToggleAssocTrace {
                 trace_id,
-                associated_trace_id,
+                assoc_trace_id,
             } => {
-                if !self
-                    .trace_synchrotron()
-                    .is_trace_cached(associated_trace_id)
-                {
+                if !self.trace_synchrotron().is_trace_cached(assoc_trace_id) {
                     return None;
                 }
                 Some(TraceSynchrotronAction::ToggleAssocTrace {
                     trace_id,
-                    associated_trace_id,
+                    assoc_trace_id,
                 })
             }
             TraceViewAction::FollowTrace { trace_id } => {

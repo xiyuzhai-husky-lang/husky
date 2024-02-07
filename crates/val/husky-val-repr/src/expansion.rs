@@ -418,11 +418,11 @@ impl<'a> ValReprExpansionBuilder<'a> {
             }
             HirLazyExprData::Unveil {
                 opd_hir_expr_idx,
-                unveil_associated_fn_path,
+                unveil_assoc_fn_path,
                 ref instantiation,
             } => {
-                let opn = ValOpn::Linkage(Linkage::new_unveil_associated_fn(
-                    unveil_associated_fn_path,
+                let opn = ValOpn::Linkage(Linkage::new_unveil_assoc_fn(
+                    unveil_assoc_fn_path,
                     instantiation,
                     &self.lin_instantiation,
                     self.db,
@@ -513,7 +513,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = ValOpn::Linkage(Linkage::new_associated_function_fn_item(
+                let opn = ValOpn::Linkage(Linkage::new_assoc_function_fn_item(
                     path,
                     instantiation,
                     &self.lin_instantiation,

@@ -12,7 +12,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         AssocFunctionFn,
                     ),
                 },

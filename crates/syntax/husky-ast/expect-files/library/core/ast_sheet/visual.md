@@ -12,7 +12,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         MethodFn,
                     ),
                 },
@@ -44,7 +44,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitForTypeItem(
+                    assoc_item_kind: TraitForTypeItem(
                         MethodFn,
                     ),
                 },

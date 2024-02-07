@@ -502,7 +502,7 @@ impl<'a> EagerStmtAssocTraceRegistry<'a> {
 }
 
 impl<'a> IsAssocTraceRegistry for EagerStmtAssocTraceRegistry<'a> {
-    fn get_or_issue_associated_trace(
+    fn get_or_issue_assoc_trace(
         &mut self,
         source: TokenInfoSource,
         db: &::salsa::Db,

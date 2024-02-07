@@ -3010,7 +3010,7 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_associated_fn_path: TraitForTypeItemPath(
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
                                             data: ItemPathData::AssocItem(
                                                 AssocItemPathData::TraitForTypeItem(
@@ -4892,7 +4892,7 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_associated_fn_path: TraitForTypeItemPath(
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
                                             data: ItemPathData::AssocItem(
                                                 AssocItemPathData::TraitForTypeItem(
@@ -6183,7 +6183,7 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_associated_fn_path: TraitForTypeItemPath(
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
                                             data: ItemPathData::AssocItem(
                                                 AssocItemPathData::TraitForTypeItem(
@@ -7066,7 +7066,7 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_associated_fn_path: TraitForTypeItemPath(
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(
                                         ItemPathId {
                                             data: ItemPathData::AssocItem(
                                                 AssocItemPathData::TraitForTypeItem(

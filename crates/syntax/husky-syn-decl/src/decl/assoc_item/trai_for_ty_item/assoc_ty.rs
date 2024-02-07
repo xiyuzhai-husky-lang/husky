@@ -26,7 +26,7 @@ impl TraitForTypeAssocTypeSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_trai_for_ty_associated_ty_node_decl(
+    pub(super) fn parse_trai_for_ty_assoc_ty_node_decl(
         &self,
         syn_node_path: TraitForTypeItemSynNodePath,
     ) -> TraitForTypeAssocTypeSynNodeDecl {

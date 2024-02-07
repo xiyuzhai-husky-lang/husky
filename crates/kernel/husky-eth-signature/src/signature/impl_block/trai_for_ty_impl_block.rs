@@ -191,16 +191,16 @@ impl TraitForTypeImplBlockEtherealSignatureBuilder {
     /// for better caching, many common traits use "Output" as an associated
     /// only use this when you are sure the trait has an associated type
     /// named "Output"
-    pub fn associated_output_template(
+    pub fn assoc_output_template(
         self,
         db: &::salsa::Db,
     ) -> EtherealSignatureResult<TraitForTypeAssocTypeEtherealSignatureBuilder> {
-        trai_for_ty_impl_block_with_ty_instantiated_associated_output_ethereal_signature_builder(
+        trai_for_ty_impl_block_with_ty_instantiated_assoc_output_ethereal_signature_builder(
             db, self,
         )
     }
 
-    pub fn associated_item_eth_template(
+    pub fn assoc_item_eth_template(
         self,
         db: &::salsa::Db,
         ident: Ident,
@@ -210,7 +210,7 @@ impl TraitForTypeImplBlockEtherealSignatureBuilder {
 }
 
 #[salsa::tracked(jar = EtherealSignatureJar)]
-fn trai_for_ty_impl_block_with_ty_instantiated_associated_output_ethereal_signature_builder(
+fn trai_for_ty_impl_block_with_ty_instantiated_assoc_output_ethereal_signature_builder(
     db: &::salsa::Db,
     template: TraitForTypeImplBlockEtherealSignatureBuilder,
 ) -> EtherealSignatureResult<TraitForTypeAssocTypeEtherealSignatureBuilder> {
@@ -233,7 +233,7 @@ fn trai_for_ty_impl_block_with_ty_instantiated_item_eth_template(
     let item_path = signature_builder
         .template(db)
         .path(db)
-        .associated_item_paths(db)
+        .assoc_item_paths(db)
         .get_entry(ident)
         .ok_or(
             EtherealSignatureError::NoSuchItemInTraitForTypeImplBlockEtherealSignatureBuilder {

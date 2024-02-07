@@ -1,4 +1,4 @@
-use crate::{registry::associated_trace::IsAssocTraceRegistry, *};
+use crate::{registry::assoc_trace::IsAssocTraceRegistry, *};
 use husky_text::{HasText, Text};
 use husky_token::{RangedTokenSheet, TokenIdx, TokenIdxRange};
 use husky_token_info::TokenInfoSheetRef;
@@ -39,7 +39,7 @@ where
     token_info_sheet: TokenInfoSheetRef<'a>,
     lines_data: Vec<TraceViewLineData>,
     tokens_data: Vec<TraceViewTokenData>,
-    associated_trace_registry: AssocTraceRegistry,
+    assoc_trace_registry: AssocTraceRegistry,
 }
 
 impl<'a, AssocTraceRegistry> TraceViewTokensBuilder<'a, AssocTraceRegistry>
@@ -49,7 +49,7 @@ where
     fn new(
         db: &'a ::salsa::Db,
         module_path: ModulePath,
-        associated_trace_registry: AssocTraceRegistry,
+        assoc_trace_registry: AssocTraceRegistry,
     ) -> Self {
         // db.text
         Self {
@@ -59,7 +59,7 @@ where
             text: module_path.text(db),
             lines_data: vec![],
             tokens_data: vec![],
-            associated_trace_registry,
+            assoc_trace_registry,
         }
     }
 
@@ -80,10 +80,10 @@ where
                 None,
             ),
         };
-        let associated_trace_id = src
+        let assoc_trace_id = src
             .map(|src| {
-                self.associated_trace_registry
-                    .get_or_issue_associated_trace_id(src, db)
+                self.assoc_trace_registry
+                    .get_or_issue_assoc_trace_id(src, db)
             })
             .flatten();
         // todo: handle inline comments
@@ -102,7 +102,7 @@ where
             text.to_string(),
             token_class,
             spaces_before,
-            associated_trace_id,
+            assoc_trace_id,
         ));
     }
 

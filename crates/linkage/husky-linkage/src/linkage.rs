@@ -237,7 +237,7 @@ impl Linkage {
         )
     }
 
-    pub fn new_associated_function_fn_item(
+    pub fn new_assoc_function_fn_item(
         path: AssocItemPath,
         hir_instantiation: &HirInstantiation,
         lin_instantiation: &LinInstantiation,
@@ -252,7 +252,7 @@ impl Linkage {
         )
     }
 
-    pub fn new_unveil_associated_fn(
+    pub fn new_unveil_assoc_fn(
         path: TraitForTypeItemPath,
         hir_instantiation: &HirInstantiation,
         lin_instantiation: &LinInstantiation,

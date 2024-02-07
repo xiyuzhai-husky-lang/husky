@@ -135,9 +135,7 @@ impl ValkyrieRides {
         for entry in hir_eager_expr_region.expr_arena(db) {
             #[deprecated(note = "incomplete")]
             match entry.data {
-                HirEagerExprData::AssocFn {
-                    associated_item_path: _,
-                } => (), // ad hoc
+                HirEagerExprData::AssocFn { assoc_item_path: _ } => (), // ad hoc
                 HirEagerExprData::PrincipalEntityPath(path) => match path {
                     PrincipalEntityPath::Module(_) => unreachable!(),
                     PrincipalEntityPath::MajorItem(path) => match path {
@@ -204,12 +202,12 @@ impl ValkyrieRides {
                     self.add_vec_constructor_ride(element_ty)
                 }
                 HirEagerExprData::Unveil {
-                    unveil_associated_fn_path,
+                    unveil_assoc_fn_path,
                     ref instantiation,
                     ..
                 } => {
                     if let Some(javelin_path) =
-                        JavPath::try_from_item_path(unveil_associated_fn_path.into(), db)
+                        JavPath::try_from_item_path(unveil_assoc_fn_path.into(), db)
                     {
                         self.try_add_path_leading_ride(javelin_path, instantiation)
                     } else {
@@ -314,7 +312,7 @@ impl ValkyrieRides {
                     self.add_vec_constructor_ride(element_ty)
                 }
                 HirLazyExprData::Unveil {
-                    unveil_associated_fn_path: _,
+                    unveil_assoc_fn_path: _,
                     instantiation: _,
                     opd_hir_expr_idx: _,
                 } => (),
