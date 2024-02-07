@@ -21,7 +21,7 @@ impl IllFormedImplBlockSynNodePath {
         item_tree_sheet.ill_formed_impl_block_syn_node(db, self)
     }
 
-    pub(crate) fn associated_items(
+    pub(crate) fn assoc_items(
         self,
         _db: &::salsa::Db,
     ) -> &[(Ident, IllFormedItemSynNodePath, IllFormedItemSynNode)] {
@@ -34,7 +34,7 @@ impl IllFormedImplBlockSynNodePath {
         self,
         db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = IllFormedItemSynNodePath> + 'a {
-        self.associated_items(db)
+        self.assoc_items(db)
             .iter()
             .map(|&(_, syn_node_path, _)| syn_node_path)
     }

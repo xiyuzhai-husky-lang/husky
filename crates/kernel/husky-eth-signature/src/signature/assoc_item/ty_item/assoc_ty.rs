@@ -5,5 +5,5 @@ pub struct TypeAssocTypeEthTemplate {
     pub path: TraitForTypeItemPath,
     #[return_ref]
     pub template_parameters: EthTemplateParameters,
-    pub associated_ty: EthTerm,
+    pub assoc_ty: EthTerm,
 }

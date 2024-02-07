@@ -47,7 +47,7 @@ impl TraitForTypeImplBlockSynNodePath {
         item_tree_sheet.trai_for_ty_impl_block_syn_node(db, self)
     }
 
-    pub(crate) fn associated_items(
+    pub(crate) fn assoc_items(
         self,
         db: &::salsa::Db,
     ) -> &[(Ident, TraitForTypeItemSynNodePath, TraitForTypeItemSynNode)] {
@@ -58,7 +58,7 @@ impl TraitForTypeImplBlockSynNodePath {
         self,
         db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = TraitForTypeItemSynNodePath> + 'a {
-        self.associated_items(db)
+        self.assoc_items(db)
             .iter()
             .map(|&(_, syn_node_path, _)| syn_node_path)
     }
@@ -206,7 +206,7 @@ impl TraitForTypeImplBlockSynNode {
                     } => {
                         let item_kind = match item_kind {
                             EntityKind::AssocItem {
-                                associated_item_kind: AssocItemKind::TraitForTypeItem(ty_item_kind),
+                                assoc_item_kind: AssocItemKind::TraitForTypeItem(ty_item_kind),
                             } => *ty_item_kind,
                             _ => unreachable!(),
                         };
@@ -233,7 +233,7 @@ impl TraitForTypeImplBlockSynNode {
 impl HasAssocItemPaths for TraitForTypeImplBlockPath {
     type AssocItemPath = TraitForTypeItemPath;
 
-    fn associated_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssocItemPath)] {
+    fn assoc_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssocItemPath)] {
         trai_for_ty_impl_block_item_paths(db, self)
     }
 }
@@ -244,7 +244,7 @@ fn trai_for_ty_impl_block_item_paths(
     path: TraitForTypeImplBlockPath,
 ) -> SmallVecPairMap<Ident, TraitForTypeItemPath, 2> {
     path.syn_node_path(db)
-        .associated_items(db)
+        .assoc_items(db)
         .iter()
         .filter_map(|&(ident, syn_node_path, _)| Some((ident, syn_node_path.path(db)?)))
         .collect()

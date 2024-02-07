@@ -79,11 +79,11 @@ impl<'a> DeclParser<'a> {
                 .parse_trai_for_ty_method_fn_node_decl(syn_node_path)
                 .into(),
             TraitItemKind::AssocType => self
-                .parse_trai_for_ty_associated_ty_node_decl(syn_node_path)
+                .parse_trai_for_ty_assoc_ty_node_decl(syn_node_path)
                 .into(),
             TraitItemKind::AssocVal => todo!(),
             TraitItemKind::AssocFunctionFn => self
-                .parse_trai_for_ty_associated_fn_node_decl(syn_node_path)
+                .parse_trai_for_ty_assoc_fn_node_decl(syn_node_path)
                 .into(),
             TraitItemKind::AssocFunctionGn => todo!(),
             TraitItemKind::AssocFormal => todo!(),

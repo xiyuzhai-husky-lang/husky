@@ -17,7 +17,6 @@ use husky_visual_protocol::synchrotron::{action::VisualSynchrotronStatus, Visual
 use rustc_hash::FxHashMap;
 use std::path::{Path, PathBuf};
 
-
 /// contains information about traces that are synced across server and client
 #[serde_with::serde_as]
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -174,8 +173,8 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
     fn trace_listing_aux(&self, trace_id: TraceId, trace_listings: &mut Vec<TraceId>) {
         trace_listings.push(trace_id);
         let entry = &self[trace_id];
-        for &associated_trace_id in entry.associated_trace_ids() {
-            self.trace_listing_aux(associated_trace_id, trace_listings)
+        for &assoc_trace_id in entry.assoc_trace_ids() {
+            self.trace_listing_aux(assoc_trace_id, trace_listings)
         }
         if entry.expanded() {
             for &subtrace_id in entry.subtrace_ids().unwrap() {

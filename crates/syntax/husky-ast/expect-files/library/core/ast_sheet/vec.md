@@ -16,7 +16,7 @@ AstSheet {
                     visibility: Scope::Pub,
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TypeItem(
+                    assoc_item_kind: TypeItem(
                         MethodFn,
                     ),
                 },
@@ -52,7 +52,7 @@ AstSheet {
                     visibility: Scope::Pub,
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TypeItem(
+                    assoc_item_kind: TypeItem(
                         MethodFn,
                     ),
                 },
@@ -88,7 +88,7 @@ AstSheet {
                     visibility: Scope::Pub,
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TypeItem(
+                    assoc_item_kind: TypeItem(
                         MethodFn,
                     ),
                 },
@@ -124,7 +124,7 @@ AstSheet {
                     visibility: Scope::Pub,
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TypeItem(
+                    assoc_item_kind: TypeItem(
                         MethodFn,
                     ),
                 },
@@ -160,7 +160,7 @@ AstSheet {
                     visibility: Scope::Pub,
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TypeItem(
+                    assoc_item_kind: TypeItem(
                         MethodFn,
                     ),
                 },
@@ -196,7 +196,7 @@ AstSheet {
                     visibility: Scope::Pub,
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TypeItem(
+                    assoc_item_kind: TypeItem(
                         MethodFn,
                     ),
                 },
@@ -232,7 +232,7 @@ AstSheet {
                     visibility: Scope::Pub,
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TypeItem(
+                    assoc_item_kind: TypeItem(
                         MethodFn,
                     ),
                 },
@@ -268,7 +268,7 @@ AstSheet {
                     visibility: Scope::Pub,
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TypeItem(
+                    assoc_item_kind: TypeItem(
                         MethodFn,
                     ),
                 },

@@ -92,8 +92,8 @@ where
         {
             self.render_subtraces(ui, entry.view_data().trace_kind, subtrace_ids);
         }
-        for &associated_trace_id in entry.associated_trace_ids() {
-            self.render_associated_trace(associated_trace_id, ui)
+        for &assoc_trace_id in entry.assoc_trace_ids() {
+            self.render_assoc_trace(assoc_trace_id, ui)
         }
     }
 
@@ -241,12 +241,12 @@ where
         }
     }
 
-    fn render_associated_trace(&mut self, associated_trace_id: TraceId, ui: &mut egui::Ui) {
+    fn render_assoc_trace(&mut self, assoc_trace_id: TraceId, ui: &mut egui::Ui) {
         Frame::none().inner_margin(3.0).show(ui, |ui| {
             Frame::none().show(ui, |ui| {
                 ui.spacing_mut().item_spacing.y = 0.;
                 ui.allocate_space(Vec2::new(ui.available_width(), 0.));
-                self.render_trace_view_tree(associated_trace_id, ui);
+                self.render_trace_view_tree(assoc_trace_id, ui);
             })
         });
     }

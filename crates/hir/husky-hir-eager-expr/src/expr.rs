@@ -39,7 +39,7 @@ pub enum HirEagerExprData {
     Literal(Literal),
     PrincipalEntityPath(PrincipalEntityPath),
     AssocFn {
-        associated_item_path: AssocItemPath,
+        assoc_item_path: AssocItemPath,
     },
     ConstSymbol {
         ident: Ident,
@@ -64,7 +64,7 @@ pub enum HirEagerExprData {
         opr: HirSuffixOpr,
     },
     Unveil {
-        unveil_associated_fn_path: TraitForTypeItemPath,
+        unveil_assoc_fn_path: TraitForTypeItemPath,
         instantiation: HirInstantiation,
         return_ty: HirType,
         opd_hir_expr_idx: HirEagerExprIdx,
@@ -159,7 +159,7 @@ impl ToHirEager for SemaExprIdx {
                 ..
             } => match static_dispatch {
                 StaticDispatch::AssocFn(signature) => HirEagerExprData::AssocFn {
-                    associated_item_path: signature.path(),
+                    assoc_item_path: signature.path(),
                 },
                 StaticDispatch::AssocGn => unreachable!(),
             },
@@ -247,13 +247,13 @@ impl ToHirEager for SemaExprIdx {
             SemaExprData::Unveil {
                 return_ty,
                 ref unveil_output_ty_signature,
-                unveil_associated_fn_path,
+                unveil_assoc_fn_path,
                 opd_sema_expr_idx,
                 ..
             } => {
                 let db = builder.db();
                 HirEagerExprData::Unveil {
-                    unveil_associated_fn_path,
+                    unveil_assoc_fn_path,
                     instantiation: HirInstantiation::from_eth(
                         unveil_output_ty_signature.instantiation(),
                         db,

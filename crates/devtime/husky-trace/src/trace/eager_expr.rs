@@ -101,9 +101,7 @@ impl EagerExprTraceData {
             HirEagerExprData::AssocFunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
             HirEagerExprData::MethodFnCall { path, .. } => path.hir_defn(db).is_some(),
             HirEagerExprData::Block { stmts: _ } => unreachable!(),
-            HirEagerExprData::AssocFn {
-                associated_item_path,
-            } => associated_item_path.hir_defn(db).is_some(),
+            HirEagerExprData::AssocFn { assoc_item_path } => assoc_item_path.hir_defn(db).is_some(),
             _ => false,
         }
     }
@@ -207,9 +205,7 @@ impl EagerExprTraceData {
                 subtraces
             }
             HirEagerExprData::Block { .. } => unreachable!(),
-            HirEagerExprData::AssocFn {
-                associated_item_path: _,
-            } => todo!(),
+            HirEagerExprData::AssocFn { assoc_item_path: _ } => todo!(),
             _ => vec![],
         }
     }

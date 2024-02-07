@@ -33,12 +33,12 @@ impl AssocFnFlySignature {
     }
 }
 
-pub(crate) fn ty_associated_fn_fly_signature<Term: Copy + Into<FlyTerm>>(
+pub(crate) fn ty_assoc_fn_fly_signature<Term: Copy + Into<FlyTerm>>(
     engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
     template: TypeAssocFnEthTemplate,
     ty_template_arguments: &[Term],
-    associated_fn_template_arguments: &[FlyTerm],
+    assoc_fn_template_arguments: &[FlyTerm],
 ) -> FlyTermMaybeResult<AssocFnFlySignature> {
     let db = engine.db();
     let self_ty_application_expansion = template.self_ty(db).application_expansion(db);
@@ -63,7 +63,7 @@ pub(crate) fn ty_associated_fn_fly_signature<Term: Copy + Into<FlyTerm>>(
     .try_for_each(|(&src, dst)| instantiation_builder.try_add_rule(src, dst.into()))?;
     std::iter::zip(
         template.template_parameters(db),
-        associated_fn_template_arguments,
+        assoc_fn_template_arguments,
     )
     .try_for_each(|(src, &dst)| {
         instantiation_builder.try_add_rule(src.symbol().into(), dst.into())

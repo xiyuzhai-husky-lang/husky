@@ -36,7 +36,7 @@ impl TypeAssocFnSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_ty_associated_fn_node_decl(
+    pub(super) fn parse_ty_assoc_fn_node_decl(
         &self,
         syn_node_path: TypeItemSynNodePath,
     ) -> TypeAssocFnSynNodeDecl {

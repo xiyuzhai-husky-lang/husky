@@ -88,9 +88,7 @@ impl<'a> DeclParser<'a> {
         let db = self.db();
         match syn_node_path.data(db).item_kind(self.db()) {
             TypeItemKind::MethodFn => self.parse_ty_method_node_decl(syn_node_path).into(),
-            TypeItemKind::AssocFunctionFn => {
-                self.parse_ty_associated_fn_node_decl(syn_node_path).into()
-            }
+            TypeItemKind::AssocFunctionFn => self.parse_ty_assoc_fn_node_decl(syn_node_path).into(),
             TypeItemKind::MemoizedField => self.parse_ty_memo_decl(syn_node_path).into(),
             TypeItemKind::AssocVal => todo!(),
             TypeItemKind::AssocType => todo!(),

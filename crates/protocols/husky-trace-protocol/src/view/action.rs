@@ -15,7 +15,7 @@ pub enum TraceViewAction<TraceProtocol: IsTraceProtocol> {
     },
     ToggleAssocTrace {
         trace_id: TraceId,
-        associated_trace_id: TraceId,
+        assoc_trace_id: TraceId,
     },
     FollowTrace {
         trace_id: TraceId,

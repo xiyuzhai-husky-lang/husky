@@ -23,18 +23,18 @@ where
                 .family(FontFamily::Monospace)
                 .color(token_foreground_colors[token_data.token_class()]),
         );
-        if token_data.associated_trace_id().is_some() {
+        if token_data.assoc_trace_id().is_some() {
             label = label.sense(Sense::click());
         }
         let label_response = label.ui(ui);
-        if let Some(associated_trace_id) = token_data.associated_trace_id() {
+        if let Some(assoc_trace_id) = token_data.assoc_trace_id() {
             if label_response.clicked() {
                 self.add_action(TraceViewAction::ToggleAssocTrace {
                     trace_id,
-                    associated_trace_id,
+                    assoc_trace_id,
                 })
             }
-            if entry.associated_trace_ids().contains(&associated_trace_id) {
+            if entry.assoc_trace_ids().contains(&assoc_trace_id) {
                 label_response.highlight();
             } else if label_response.hovered() {
                 label_response.highlight();

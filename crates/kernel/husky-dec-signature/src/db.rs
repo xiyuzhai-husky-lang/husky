@@ -49,7 +49,7 @@ pub struct DecSignatureJar(
     EnumPropsVariantDecTemplate,
     EnumTupleVariantDecTemplate,
     // associated items
-    // associated_item_syn_declarative_signature_from_decl,
+    // assoc_item_syn_declarative_signature_from_decl,
     // type item
     // ty_item_syn_dec_template,
     TypeAssocFnDecTemplate,

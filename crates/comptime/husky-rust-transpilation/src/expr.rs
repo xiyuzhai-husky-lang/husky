@@ -248,7 +248,7 @@ impl HirEagerExprSite {
             HirEagerExprData::Unveil {
                 opd_hir_expr_idx,
                 return_ty,
-                unveil_associated_fn_path: _,
+                unveil_assoc_fn_path: _,
                 ref instantiation,
             } => {
                 builder.macro_name(RustMacroName::Unveil);
@@ -454,9 +454,9 @@ impl HirEagerExprSite {
                 builder.macro_name(RustMacroName::Unreachable);
                 builder.bracketed(RustBracket::Par, |_| ())
             }
-            HirEagerExprData::AssocFn {
-                associated_item_path,
-            } => associated_item_path.transpile_to_rust(builder),
+            HirEagerExprData::AssocFn { assoc_item_path } => {
+                assoc_item_path.transpile_to_rust(builder)
+            }
             HirEagerExprData::As { opd, ty } => {
                 (
                     opd,

@@ -5,7 +5,7 @@ use husky_regional_token::IdentRegionalToken;
 use maybe_result::*;
 
 impl<'a> SemaExprEngine<'a> {
-    pub(super) fn calc_associated_item_ty(
+    pub(super) fn calc_assoc_item_ty(
         &mut self,
         expr_idx: SynExprIdx,
         parent_path: MajorItemPath,

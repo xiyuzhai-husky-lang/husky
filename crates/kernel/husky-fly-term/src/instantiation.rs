@@ -204,7 +204,7 @@ impl FlyTermInstantiationBuilder {
         path: impl Into<AssocItemPath>,
         env: FlyInstantiationEnvironment,
         impl_block_template_parameters: &[EthTemplateParameter],
-        associated_item_template_parameters: &[EthTemplateParameter],
+        assoc_item_template_parameters: &[EthTemplateParameter],
         db: &::salsa::Db,
     ) -> Self {
         Self {
@@ -212,7 +212,7 @@ impl FlyTermInstantiationBuilder {
             env,
             symbol_map: impl_block_template_parameters
                 .iter()
-                .chain(associated_item_template_parameters)
+                .chain(assoc_item_template_parameters)
                 .map(|param| {
                     let symbol = param.symbol();
                     (

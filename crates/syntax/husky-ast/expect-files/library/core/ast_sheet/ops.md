@@ -12,7 +12,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         AssocType,
                     ),
                 },
@@ -44,7 +44,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         MethodFn,
                     ),
                 },
@@ -76,7 +76,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         AssocType,
                     ),
                 },
@@ -108,7 +108,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         MethodFn,
                     ),
                 },
@@ -140,7 +140,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         AssocType,
                     ),
                 },
@@ -172,7 +172,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         MethodFn,
                     ),
                 },
@@ -204,7 +204,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         MethodFn,
                     ),
                 },
@@ -236,7 +236,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         AssocType,
                     ),
                 },
@@ -268,7 +268,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         MethodFn,
                     ),
                 },
@@ -300,7 +300,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         MethodFn,
                     ),
                 },
@@ -332,7 +332,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         AssocType,
                     ),
                 },
@@ -364,7 +364,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         MethodFn,
                     ),
                 },
@@ -396,7 +396,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         MethodFn,
                     ),
                 },
@@ -428,7 +428,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         AssocType,
                     ),
                 },
@@ -460,7 +460,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         MethodFn,
                     ),
                 },
@@ -492,7 +492,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         MethodFn,
                     ),
                 },
@@ -524,7 +524,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         AssocType,
                     ),
                 },
@@ -556,7 +556,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         AssocType,
                     ),
                 },
@@ -588,7 +588,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         MethodFn,
                     ),
                 },
@@ -620,7 +620,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         MethodFn,
                     ),
                 },
@@ -652,7 +652,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         AssocType,
                     ),
                 },
@@ -684,7 +684,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         MethodFn,
                     ),
                 },
@@ -716,7 +716,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         AssocType,
                     ),
                 },
@@ -748,7 +748,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         MethodFn,
                     ),
                 },
@@ -780,7 +780,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         AssocType,
                     ),
                 },
@@ -812,7 +812,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         MethodFn,
                     ),
                 },
@@ -844,7 +844,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         AssocType,
                     ),
                 },
@@ -876,7 +876,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitItem(
+                    assoc_item_kind: TraitItem(
                         AssocFunctionFn,
                     ),
                 },

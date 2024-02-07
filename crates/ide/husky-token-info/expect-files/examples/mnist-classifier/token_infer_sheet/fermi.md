@@ -254,7 +254,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MemoizedField,
                             ),
                         },
@@ -510,7 +510,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MemoizedField,
                             ),
                         },
@@ -766,7 +766,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MemoizedField,
                             ),
                         },

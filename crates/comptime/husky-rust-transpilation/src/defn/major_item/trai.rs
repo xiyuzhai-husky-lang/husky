@@ -8,7 +8,7 @@ impl TranspileToRustWith for TraitHirDefn {
         let db = builder.db();
         self.hir_decl(db).transpile_to_rust(builder);
         builder.curly_block(|builder| {
-            for &(_, trai_item_path) in self.path(db).associated_item_paths(db) {
+            for &(_, trai_item_path) in self.path(db).assoc_item_paths(db) {
                 if let Some(trai_item_hir_defn) = trai_item_path.hir_defn(db) {
                     trai_item_hir_defn.transpile_to_rust(builder)
                 }

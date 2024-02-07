@@ -37,7 +37,7 @@ impl IsAstChildren for TypeItems {
             EntityKindKeywordGroup::Const(_) => TypeItemKind::AssocConst,
         };
         Ok(EntityKind::AssocItem {
-            associated_item_kind: AssocItemKind::TypeItem(ty_item_kind),
+            assoc_item_kind: AssocItemKind::TypeItem(ty_item_kind),
         })
     }
 }

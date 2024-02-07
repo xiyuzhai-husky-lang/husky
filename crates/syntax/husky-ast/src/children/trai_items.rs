@@ -39,7 +39,7 @@ impl IsAstChildren for TraitItems {
         };
         let trai_item_kind = trait_item_kind;
         Ok(EntityKind::AssocItem {
-            associated_item_kind: AssocItemKind::TraitItem(trai_item_kind),
+            assoc_item_kind: AssocItemKind::TraitItem(trai_item_kind),
         })
     }
 }

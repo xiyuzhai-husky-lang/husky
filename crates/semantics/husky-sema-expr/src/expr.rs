@@ -123,7 +123,7 @@ pub enum SemaExprData {
         opd_sema_expr_idx: SemaExprIdx,
         opr_regional_token_idx: RegionalTokenIdx,
         unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature,
-        unveil_associated_fn_path: TraitForTypeItemPath,
+        unveil_assoc_fn_path: TraitForTypeItemPath,
         return_ty: EthTerm,
     },
     Unwrap {
@@ -674,7 +674,7 @@ impl<'a> SemaExprEngine<'a> {
                 ident_token,
             } => {
                 let (static_dispatch_result, ty_result) =
-                    self.calc_associated_item_ty(syn_expr_idx, parent_path, ident_token);
+                    self.calc_assoc_item_ty(syn_expr_idx, parent_path, ident_token);
                 let data_result =
                     static_dispatch_result.map(|static_dispatch| SemaExprData::AssocItem {
                         parent_expr_idx,

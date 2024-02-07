@@ -29,7 +29,7 @@ fn impl_weak_static_generic_constraints(generics: &syn::Generics) -> proc_macro2
         .collect::<proc_macro2::TokenStream>()
 }
 
-fn impl_weak_static_associated_ty_static(
+fn impl_weak_static_assoc_ty_static(
     ident: &Ident,
     generics: &syn::Generics,
 ) -> proc_macro2::TokenStream {
@@ -69,7 +69,7 @@ fn impl_static_generic_constraints(generics: &syn::Generics) -> proc_macro2::Tok
         .collect::<proc_macro2::TokenStream>()
 }
 
-fn impl_static_associated_ty_frozen(
+fn impl_static_assoc_ty_frozen(
     ident: &Ident,
     generics: &syn::Generics,
 ) -> proc_macro2::TokenStream {
@@ -109,7 +109,7 @@ fn impl_frozen_generic_constraints(generics: &syn::Generics) -> proc_macro2::Tok
         .collect::<proc_macro2::TokenStream>()
 }
 
-fn impl_frozen_associated_ty_static(
+fn impl_frozen_assoc_ty_static(
     ident: &Ident,
     generics: &syn::Generics,
 ) -> proc_macro2::TokenStream {

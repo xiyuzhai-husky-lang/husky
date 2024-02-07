@@ -30,7 +30,7 @@ pub enum EntityKind {
         connection: MajorItemConnectionKind,
     },
     AssocItem {
-        associated_item_kind: AssocItemKind,
+        assoc_item_kind: AssocItemKind,
     },
     TypeVariant,
     ImplBlock,
@@ -56,9 +56,7 @@ impl EntityKind {
                 },
                 MajorItemKind::Trait => EntityClass::Trait,
             },
-            EntityKind::AssocItem {
-                associated_item_kind,
-            } => match associated_item_kind {
+            EntityKind::AssocItem { assoc_item_kind } => match assoc_item_kind {
                 AssocItemKind::TypeItem(ty_item_kind) => ty_item_kind.into(),
                 AssocItemKind::TraitItem(trai_item_kind)
                 | AssocItemKind::TraitForTypeItem(trai_item_kind) => trai_item_kind.into(),

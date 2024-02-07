@@ -68,9 +68,9 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirEagerExprData::Prefix { .. } => (),
                 HirEagerExprData::Suffix { .. } => (),
                 HirEagerExprData::Unveil {
-                    unveil_associated_fn_path,
+                    unveil_assoc_fn_path,
                     ..
-                } => self.add_item_path(unveil_associated_fn_path),
+                } => self.add_item_path(unveil_assoc_fn_path),
                 HirEagerExprData::Unwrap { .. } => (),
                 HirEagerExprData::TypeConstructorFnCall { path, .. } => self.add_item_path(path),
                 HirEagerExprData::TypeVariantConstructorCall { path, .. } => {
@@ -100,9 +100,9 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirEagerExprData::EmptyHtmlTag { .. } => (),
                 HirEagerExprData::Todo => (),
                 HirEagerExprData::Unreachable => (),
-                HirEagerExprData::AssocFn {
-                    associated_item_path,
-                } => self.add_item_path(associated_item_path),
+                HirEagerExprData::AssocFn { assoc_item_path } => {
+                    self.add_item_path(assoc_item_path)
+                }
                 HirEagerExprData::As { opd: _, ty } => self.add_hir_ty(ty),
             }
         }
@@ -128,9 +128,9 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirLazyExprData::Prefix { .. } => (),
                 HirLazyExprData::Suffix { .. } => (),
                 HirLazyExprData::Unveil {
-                    unveil_associated_fn_path,
+                    unveil_assoc_fn_path,
                     ..
-                } => self.add_item_path(unveil_associated_fn_path),
+                } => self.add_item_path(unveil_assoc_fn_path),
                 HirLazyExprData::Unwrap { .. } => (),
                 HirLazyExprData::TypeConstructorFnCall { path, .. } => self.add_item_path(path),
                 HirLazyExprData::TypeVariantConstructorFnCall { path, .. } => {

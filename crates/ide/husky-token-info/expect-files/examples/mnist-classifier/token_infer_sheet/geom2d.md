@@ -225,7 +225,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 AssocFunctionFn,
                             ),
                         },
@@ -468,7 +468,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -604,7 +604,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -830,7 +830,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -986,7 +986,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -1378,7 +1378,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -1515,7 +1515,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -1741,7 +1741,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -1897,7 +1897,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -2084,7 +2084,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -2271,7 +2271,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -2573,7 +2573,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -2713,7 +2713,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -3375,7 +3375,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -3807,7 +3807,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -4149,7 +4149,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -4400,7 +4400,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -4651,7 +4651,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -4737,7 +4737,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -4823,7 +4823,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -4909,7 +4909,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -5131,7 +5131,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -5217,7 +5217,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -5303,7 +5303,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },
@@ -5389,7 +5389,7 @@ Ok(
                             ),
                         ),
                         AssocItem {
-                            associated_item_kind: TypeItem(
+                            assoc_item_kind: TypeItem(
                                 MethodFn,
                             ),
                         },

@@ -5,7 +5,7 @@ pub struct TraitForTypeAssocTypeEthTemplate {
     pub path: TraitForTypeItemPath,
     #[return_ref]
     pub template_parameters: EthTemplateParameters,
-    pub associated_ty: EthTerm,
+    pub assoc_ty: EthTerm,
 }
 
 impl TraitForTypeAssocTypeEthTemplate {
@@ -44,12 +44,12 @@ impl TraitForTypeAssocTypeEtherealSignatureBuilder {
         self,
         db: &::salsa::Db,
     ) -> Option<TraitForTypeAssocTypeEtherealSignature> {
-        trai_for_ty_associated_ty_ethereal_signature_signature_builder_try_into_signature(db, self)
+        trai_for_ty_assoc_ty_ethereal_signature_signature_builder_try_into_signature(db, self)
     }
 }
 
 #[salsa::tracked(jar = EtherealSignatureJar)]
-fn trai_for_ty_associated_ty_ethereal_signature_signature_builder_try_into_signature(
+fn trai_for_ty_assoc_ty_ethereal_signature_signature_builder_try_into_signature(
     db: &::salsa::Db,
     signature_builder: TraitForTypeAssocTypeEtherealSignatureBuilder,
 ) -> Option<TraitForTypeAssocTypeEtherealSignature> {
@@ -59,7 +59,7 @@ fn trai_for_ty_associated_ty_ethereal_signature_signature_builder_try_into_signa
     let template = signature_builder.template(db);
     Some(TraitForTypeAssocTypeEtherealSignature {
         path: template.path(db),
-        ty_term: template.associated_ty(db).instantiate(db, &instantiation),
+        ty_term: template.assoc_ty(db).instantiate(db, &instantiation),
         instantiation,
     })
 }

@@ -39,7 +39,7 @@ impl TypeItemSynNodePath {
     pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a TypeItemSynNode {
         self.data(db)
             .impl_block(db)
-            .associated_items(db)
+            .assoc_items(db)
             .iter()
             .find_map(|&(_, node_path1, ref node)| (node_path1 == self).then_some(node))
             .expect("some")
@@ -175,7 +175,7 @@ pub(crate) fn ty_impl_block_items(
                 } => {
                     let item_kind = match item_kind {
                         EntityKind::AssocItem {
-                            associated_item_kind: AssocItemKind::TypeItem(ty_item_kind),
+                            assoc_item_kind: AssocItemKind::TypeItem(ty_item_kind),
                         } => *ty_item_kind,
                         _ => unreachable!(),
                     };
@@ -226,7 +226,7 @@ pub(crate) fn ty_item_syn_node_paths(
             // todo: guard against two methods with the same ident
             (syn_node_path.ty_path(db) == path).then(|| {
                 syn_node_path
-                    .associated_items(db)
+                    .assoc_items(db)
                     .iter()
                     .map(|&(ident, syn_node_path, _)| (ident, syn_node_path))
             })

@@ -235,7 +235,7 @@ impl<'a> LazyStmtAssocTraceRegistry<'a> {
 }
 
 impl<'a> IsAssocTraceRegistry for LazyStmtAssocTraceRegistry<'a> {
-    fn get_or_issue_associated_trace(
+    fn get_or_issue_assoc_trace(
         &mut self,
         source: TokenInfoSource,
         db: &::salsa::Db,

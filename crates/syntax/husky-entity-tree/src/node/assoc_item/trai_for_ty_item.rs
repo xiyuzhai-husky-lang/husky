@@ -86,7 +86,7 @@ impl TraitForTypeItemSynNodePathData {
         db: &'a ::salsa::Db,
     ) -> &'a TraitForTypeItemSynNode {
         self.impl_block(db)
-            .associated_items(db)
+            .assoc_items(db)
             .iter()
             .find_map(|&(_, node_path1, ref node)| (node_path1 == syn_node_path).then_some(node))
             .expect("some")

@@ -143,9 +143,9 @@ impl Trace {
     }
 
     #[cfg(test)]
-    fn associated_traces(self, db: &::salsa::Db) -> Vec<Trace> {
+    fn assoc_traces(self, db: &::salsa::Db) -> Vec<Trace> {
         self.view_data(db)
-            .associated_trace_ids()
+            .assoc_trace_ids()
             .into_iter()
             .map(Into::into)
             .collect()
@@ -390,8 +390,8 @@ fn find_traces_aux<R>(
     for &subtrace in trace.subtraces(db) {
         find_traces_aux(subtrace, max_depth - 1, f, traces, db)
     }
-    for associated_trace in trace.associated_traces(db) {
-        find_traces_aux(associated_trace, max_depth - 1, f, traces, db)
+    for assoc_trace in trace.assoc_traces(db) {
+        find_traces_aux(assoc_trace, max_depth - 1, f, traces, db)
     }
 }
 

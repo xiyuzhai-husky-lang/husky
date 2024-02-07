@@ -44,7 +44,7 @@ fn trai_hir_defn_dependencies(db: &::salsa::Db, hir_defn: TraitHirDefn) -> HirDe
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
     // todo: add traits that this trait depends on
     // comment out temporarilly
-    // for &(_, path) in hir_defn.path(db).associated_item_paths(db) {
+    // for &(_, path) in hir_defn.path(db).assoc_item_paths(db) {
     //     builder.add_item_path(path)
     // }
     builder.finish()

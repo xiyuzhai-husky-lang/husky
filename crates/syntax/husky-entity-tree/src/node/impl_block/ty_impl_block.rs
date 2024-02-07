@@ -44,7 +44,7 @@ impl TypeImplBlockSynNodePath {
         item_tree_sheet.ty_impl_block_syn_node(self)
     }
 
-    pub(crate) fn associated_items(
+    pub(crate) fn assoc_items(
         self,
         db: &::salsa::Db,
     ) -> &[(Ident, TypeItemSynNodePath, TypeItemSynNode)] {
@@ -56,7 +56,7 @@ impl TypeImplBlockSynNodePath {
         self,
         db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = TypeItemSynNodePath> + 'a {
-        self.associated_items(db)
+        self.assoc_items(db)
             .iter()
             .map(|&(_, syn_node_path, _)| syn_node_path)
     }
@@ -148,7 +148,7 @@ impl TypeImplBlockSynNode {
 impl HasAssocItemPaths for TypeImplBlockPath {
     type AssocItemPath = TypeItemPath;
 
-    fn associated_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssocItemPath)] {
+    fn assoc_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssocItemPath)] {
         ty_impl_block_item_paths(db, self)
     }
 }
@@ -159,7 +159,7 @@ fn ty_impl_block_item_paths(
     path: TypeImplBlockPath,
 ) -> SmallVecPairMap<Ident, TypeItemPath, 2> {
     path.syn_node_path(db)
-        .associated_items(db)
+        .assoc_items(db)
         .iter()
         .filter_map(|(ident, syn_node_path, _)| Some((*ident, syn_node_path.path(db)?)))
         .collect()

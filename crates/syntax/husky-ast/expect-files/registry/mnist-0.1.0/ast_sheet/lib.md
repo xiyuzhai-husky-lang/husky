@@ -362,7 +362,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitForTypeItem(
+                    assoc_item_kind: TraitForTypeItem(
                         MethodFn,
                     ),
                 },
@@ -398,7 +398,7 @@ AstSheet {
                     visibility: Scope::Pub,
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TypeItem(
+                    assoc_item_kind: TypeItem(
                         AssocFunctionFn,
                     ),
                 },
@@ -430,7 +430,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitForTypeItem(
+                    assoc_item_kind: TraitForTypeItem(
                         AssocType,
                     ),
                 },
@@ -462,7 +462,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitForTypeItem(
+                    assoc_item_kind: TraitForTypeItem(
                         MethodFn,
                     ),
                 },
@@ -498,7 +498,7 @@ AstSheet {
                     visibility: Scope::Pub,
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TypeItem(
+                    assoc_item_kind: TypeItem(
                         AssocFunctionFn,
                     ),
                 },
@@ -530,7 +530,7 @@ AstSheet {
                     ),
                 },
                 item_kind: AssocItem {
-                    associated_item_kind: TraitForTypeItem(
+                    assoc_item_kind: TraitForTypeItem(
                         AssocType,
                     ),
                 },
