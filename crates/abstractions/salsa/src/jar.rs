@@ -103,7 +103,7 @@ impl Jars {
 pub enum JarIndex {
     Jar,
     // comptime
-    InstructionJar,
+    VmirJar,
     RustTranspilationJar,
     // devtime
     TraceJar,

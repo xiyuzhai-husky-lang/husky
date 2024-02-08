@@ -13,7 +13,6 @@ relative-path = "1.7.2"
 idx-arena.workspace = true
 # comptime
 husky-dev-comptime.workspace = true
-husky-instruction.workspace = true
 # fs
 husky-vfs.workspace = true
 # hir
@@ -54,6 +53,8 @@ husky-vm.workspace = true
 # val
 husky-val.workspace = true
 husky-val-repr.workspace = true
+# vm
+husky-vmir.workspace = true
 
 [dev-dependencies]
 husky-ast = { workspace = true, features = ["test_utils"] }

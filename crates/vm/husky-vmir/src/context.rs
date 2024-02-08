@@ -1,7 +1,7 @@
 use crate::VMStackIdx;
 
 #[derive(Copy, Clone, Debug)]
-pub(crate) enum InstructionGenContext {
+pub(crate) enum VmirGenContext {
     Normal,
     NewVirtualStruct { output_stack_idx: VMStackIdx },
 }

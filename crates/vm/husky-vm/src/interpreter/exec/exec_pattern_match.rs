@@ -3,7 +3,7 @@ use crate::*;
 impl<'temp> Interpreter<'temp> {
     pub(super) fn exec_pattern_matching(
         &mut self,
-        ins: &Instruction,
+        ins: &Vmir,
         branches: &[VMPatternBranch],
         mode: Mode,
     ) -> VMControl {

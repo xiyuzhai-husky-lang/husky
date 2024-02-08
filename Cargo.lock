@@ -4298,7 +4298,6 @@ dependencies = [
  "husky-eth-term",
  "husky-fly-term",
  "husky-hir-opr",
- "husky-instruction",
  "husky-linkage",
  "husky-linkage-impl",
  "husky-ml-task",
@@ -4318,6 +4317,7 @@ dependencies = [
  "husky-vfs",
  "husky-visual-protocol",
  "husky-vm",
+ "husky-vmir",
  "idx-arena",
  "lsp-types 0.95.0",
  "relative-path",
@@ -4931,31 +4931,6 @@ dependencies = [
  "salsa",
  "serde",
  "serde_json",
-]
-
-[[package]]
-name = "husky-instruction"
-version = "0.0.0"
-dependencies = [
- "husky-ast",
- "husky-check-utils",
- "husky-coword",
- "husky-entity-kind",
- "husky-entity-path",
- "husky-eth-signature",
- "husky-eth-term",
- "husky-hir-eager-expr",
- "husky-hir-opr",
- "husky-hir-ty",
- "husky-instruction",
- "husky-linkage",
- "husky-opr",
- "husky-print-utils",
- "husky-standard-value",
- "husky-task-interface",
- "idx-arena",
- "salsa",
- "shifted-unsigned-int",
 ]
 
 [[package]]
@@ -6311,6 +6286,31 @@ dependencies = [
  "husky-vm-binding",
  "husky-vm-interface",
  "serde_json",
+]
+
+[[package]]
+name = "husky-vmir"
+version = "0.0.0"
+dependencies = [
+ "husky-ast",
+ "husky-check-utils",
+ "husky-coword",
+ "husky-entity-kind",
+ "husky-entity-path",
+ "husky-eth-signature",
+ "husky-eth-term",
+ "husky-hir-eager-expr",
+ "husky-hir-opr",
+ "husky-hir-ty",
+ "husky-linkage",
+ "husky-opr",
+ "husky-print-utils",
+ "husky-standard-value",
+ "husky-task-interface",
+ "husky-vmir",
+ "idx-arena",
+ "salsa",
+ "shifted-unsigned-int",
 ]
 
 [[package]]

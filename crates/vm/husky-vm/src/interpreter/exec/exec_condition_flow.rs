@@ -3,7 +3,7 @@ use crate::*;
 impl<'temp> Interpreter<'temp> {
     pub(super) fn exec_condition_flow(
         &mut self,
-        ins: &Instruction,
+        ins: &Vmir,
         branches: &[VMConditionBranch],
         mode: Mode,
     ) -> VMControl {

@@ -10,7 +10,7 @@ use crate::*;
 use husky_check_utils::should_eq;
 
 impl<'temp> Interpreter<'temp> {
-    pub(crate) fn exec_all(&mut self, _sheet: &Instructions, _mode: Mode) -> VMControl {
+    pub(crate) fn exec_all(&mut self, _sheet: &Vmirs, _mode: Mode) -> VMControl {
         todo!()
         // for ins in &sheet.instructions {
         //     if self.vm_config.verbose {
@@ -31,7 +31,7 @@ impl<'temp> Interpreter<'temp> {
         //         )
         //     }
         //     let control = match ins.variant {
-        //         InstructionData::PushVariable {
+        //         VmirData::PushVariable {
         //             binding,
         //             stack_idx,
         //             range,
@@ -66,7 +66,7 @@ impl<'temp> Interpreter<'temp> {
         //             }
         //             VMControl::None
         //         }
-        //         InstructionData::PushEntityFp {
+        //         VmirData::PushEntityFp {
         //             opt_linkage, ty, ..
         //         } => {
         //             self.stack.push(
@@ -83,7 +83,7 @@ impl<'temp> Interpreter<'temp> {
         //             }
         //             VMControl::None
         //         }
-        //         InstructionData::PushLiteralValue {
+        //         VmirData::PushLiteralValue {
         //             ref value,
         //             ty,
         //             explicit,
@@ -105,7 +105,7 @@ impl<'temp> Interpreter<'temp> {
         //             }
         //             VMControl::None
         //         }
-        //         InstructionData::CallRoutine {
+        //         VmirData::CallRoutine {
         //             resolved_linkage,
         //             nargs,
         //             return_ty,
@@ -136,7 +136,7 @@ impl<'temp> Interpreter<'temp> {
         //             }
         //             control
         //         }
-        //         InstructionData::CallInterpreted {
+        //         VmirData::CallInterpreted {
         //             routine_uid,
         //             nargs, // including this
         //             return_ty,
@@ -163,7 +163,7 @@ impl<'temp> Interpreter<'temp> {
         //             };
         //             result.into()
         //         }
-        //         InstructionData::NewVirtualStruct { ty, ref fields } => {
+        //         VmirData::NewVirtualStruct { ty, ref fields } => {
         //             self.push_new_virtual_struct(ty, fields);
         //             match mode {
         //                 Mode::Fast | Mode::TrackMutation => (),
@@ -180,11 +180,11 @@ impl<'temp> Interpreter<'temp> {
         //             }
         //             VMControl::None
         //         }
-        //         InstructionData::Return { .. } => {
+        //         VmirData::Return { .. } => {
         //             let return_value = self.stack.pop();
         //             VMControl::Return(return_value)
         //         }
-        //         InstructionData::Loop {
+        //         VmirData::Loop {
         //             ref body,
         //             loop_kind,
         //         } => {
@@ -212,7 +212,7 @@ impl<'temp> Interpreter<'temp> {
         //             };
         //             control
         //         }
-        //         InstructionData::BreakIfFalse => {
+        //         VmirData::BreakIfFalse => {
         //             let control = if !self.stack.pop().to_bool() {
         //                 VMControl::Break
         //             } else {
@@ -220,7 +220,7 @@ impl<'temp> Interpreter<'temp> {
         //             };
         //             control
         //         }
-        //         InstructionData::VirtualStructField {
+        //         VmirData::VirtualStructField {
         //             field_idx,
         //             field_binding,
         //             field_ty,
@@ -240,7 +240,7 @@ impl<'temp> Interpreter<'temp> {
         //             };
         //             VMControl::None
         //         }
-        //         InstructionData::Assert => {
+        //         VmirData::Assert => {
         //             let is_condition_satisfied = self.stack.pop().to_bool();
         //             if !is_condition_satisfied {
         //                 VMControl::Err(__VMError::new_normal(format!("assert failure")))
@@ -248,7 +248,7 @@ impl<'temp> Interpreter<'temp> {
         //                 VMControl::None
         //             }
         //         }
-        //         InstructionData::Require => {
+        //         VmirData::Require => {
         //             let is_condition_satisfied = self.stack.pop().to_bool();
         //             if !is_condition_satisfied {
         //                 VMControl::Return(__RegularValue::none(0))
@@ -256,22 +256,22 @@ impl<'temp> Interpreter<'temp> {
         //                 VMControl::None
         //             }
         //         }
-        //         InstructionData::Break => {
+        //         VmirData::Break => {
         //             if mode == Mode::TrackHistory {
         //                 self.history.write(ins, HistoryEntry::Break)
         //             }
         //             VMControl::Break
         //         }
-        //         InstructionData::ConditionFlow { ref branches } => {
+        //         VmirData::ConditionFlow { ref branches } => {
         //             self.exec_condition_flow(ins, branches, mode)
         //         }
-        //         InstructionData::PatternMatch { ref branches } => {
+        //         VmirData::PatternMatch { ref branches } => {
         //             self.exec_pattern_matching(ins, branches, mode)
         //         }
-        //         InstructionData::EntityFeature { feature_uid, ty } => {
+        //         VmirData::EntityFeature { feature_uid, ty } => {
         //             self.exec_feature_eval(feature_uid, mode, ins, ty).into()
         //         }
-        //         InstructionData::WrapInSome { number_of_somes: _ } => todo!(),
+        //         VmirData::WrapInSome { number_of_somes: _ } => todo!(),
         //     };
         //     match control {
         //         VMControl::None => (),

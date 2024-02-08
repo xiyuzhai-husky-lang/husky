@@ -5,10 +5,10 @@ mod pattern_match;
 mod sheet;
 
 pub use condition_flow::*;
-pub use id::{InstructionId, InstructionSource};
+pub use id::{VmirId, VmirSource};
 pub use opn::*;
 pub use pattern_match::*;
-pub use sheet::Instructions;
+pub use sheet::Vmirs;
 
 use crate::*;
 use husky_coword::Ident;
@@ -16,32 +16,32 @@ use husky_text_protocol::range::TextRange;
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
 #[derive(Debug)]
-pub struct Instruction {
-    pub data: InstructionData,
-    pub src: InstructionSource,
+pub struct Vmir {
+    pub data: VmirData,
+    pub src: VmirSource,
 }
 
-impl PartialEq for Instruction {
+impl PartialEq for Vmir {
     fn eq(&self, other: &Self) -> bool {
         self.data == other.data && self.ins_id() == other.ins_id()
     }
 }
 
-impl Eq for Instruction {}
+impl Eq for Vmir {}
 
-impl Instruction {
-    pub fn new(data: InstructionData, src: InstructionSource) -> Self {
+impl Vmir {
+    pub fn new(data: VmirData, src: VmirSource) -> Self {
         Self { data, src }
     }
 
-    pub fn ins_id(&self) -> InstructionId {
+    pub fn ins_id(&self) -> VmirId {
         todo!()
         // self.src.instruction_id()
     }
 }
 
 #[derive(Debug, PartialEq)]
-pub enum InstructionData {
+pub enum VmirData {
     PushVariable {
         stack_idx: VMStackIdx,
         binding: Binding,
@@ -80,7 +80,7 @@ pub enum InstructionData {
         fields: Vec<Ident>,
     },
     Loop {
-        body: Instructions,
+        body: Vmirs,
         loop_kind: VMLoopKind,
     },
     Return {
@@ -103,6 +103,6 @@ pub enum InstructionData {
     PushEntityFp {
         opt_linkage: Option<__LinkageGroup>,
         ty: EthTerm,
-        opt_instruction_region: Option<Instructions>,
+        opt_instruction_region: Option<Vmirs>,
     },
 }

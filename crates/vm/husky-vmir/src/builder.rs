@@ -1,19 +1,19 @@
 mod expr;
 
-use crate::instruction::{InstructionArena, InstructionData, InstructionIdxRange, VMStackIdx};
+use crate::vmir::{VMStackIdx, VmirArena, VmirData, VmirIdxRange};
 use husky_coword::Ident;
 use husky_hir_eager_expr::HirEagerExprArena;
 
-pub(crate) struct InstructionBlockBuilder<'db, 'arena> {
+pub(crate) struct VmirBlockBuilder<'db, 'arena> {
     db: &'db ::salsa::Db,
     expr_arena: &'db HirEagerExprArena,
-    instruction_arena: &'arena mut InstructionArena,
-    buffer: Vec<InstructionData>,
+    instruction_arena: &'arena mut VmirArena,
+    buffer: Vec<VmirData>,
     variables: Vec<Ident>,
 }
 
-impl<'db, 'arena> InstructionBlockBuilder<'db, 'arena> {
-    pub(super) fn push_instruction(&mut self, instruction: InstructionData) {
+impl<'db, 'arena> VmirBlockBuilder<'db, 'arena> {
+    pub(super) fn push_instruction(&mut self, instruction: VmirData) {
         self.buffer.push(instruction)
     }
 
@@ -26,7 +26,7 @@ impl<'db, 'arena> InstructionBlockBuilder<'db, 'arena> {
         todo!()
     }
 
-    pub(crate) fn finish(self) -> InstructionIdxRange {
+    pub(crate) fn finish(self) -> VmirIdxRange {
         self.instruction_arena.alloc_batch(self.buffer)
     }
 }

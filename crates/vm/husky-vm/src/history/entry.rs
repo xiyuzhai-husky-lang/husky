@@ -13,7 +13,7 @@ pub enum HistoryEntry {
         loop_kind: VMLoopKind,
         control: ControlSnapshot,
         stack_snapshot: StackSnapshot,
-        body_instruction_region: Instructions,
+        body_instruction_region: Vmirs,
         mutations: Vec<MutationData>,
     },
     ControlFlow {
@@ -55,7 +55,7 @@ impl HistoryEntry {
         loop_kind: VMLoopKind,
         control: &VMControl,
         stack_snapshot: StackSnapshot,
-        body: Instructions,
+        body: Vmirs,
         mutations: Vec<MutationData>,
     ) -> HistoryEntry {
         HistoryEntry::Loop {

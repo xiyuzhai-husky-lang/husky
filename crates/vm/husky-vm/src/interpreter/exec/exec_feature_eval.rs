@@ -5,7 +5,7 @@ impl<'temp> Interpreter<'temp> {
         &mut self,
         feature_uid: EntityUid,
         mode: Mode,
-        ins: &Instruction,
+        ins: &Vmir,
         ty: EthTerm,
     ) -> VMResult<()> {
         let ctx = self.opt_ctx.unwrap();

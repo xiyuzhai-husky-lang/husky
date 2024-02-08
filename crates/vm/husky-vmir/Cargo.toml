@@ -1,5 +1,5 @@
 [package]
-name = "husky-instruction"
+name = "husky-vmir"
 version = "0.0.0"
 description = "TBD"
 license = "MIT OR Apache-2.0"
@@ -39,7 +39,7 @@ husky-check-utils.workspace = true
 
 [dev-dependencies]
 husky-ast = { workspace = true, features = ["test_utils"] }
-husky-instruction = { path = ".", features = ["test_utils"] }
+husky-vmir = { path = ".", features = ["test_utils"] }
 
 [features]
 test_utils = ["salsa/test_utils"]

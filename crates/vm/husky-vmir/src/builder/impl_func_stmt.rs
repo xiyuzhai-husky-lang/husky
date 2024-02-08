@@ -1,9 +1,9 @@
 use crate::*;
 use avec::Avec;
 use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
-use husky_vm::{Instruction, InstructionData, VMConditionBranch, VMPattern, VMPatternBranch};
+use husky_vm::{VMConditionBranch, VMPattern, VMPatternBranch, Vmir, VmirData};
 
-impl<'a> InstructionBlockBuilder<'a> {
+impl<'a> VmirBlockBuilder<'a> {
     pub(super) fn compile_func_stmts(&mut self, stmts: &[HirEagerStmtIdx]) {
         stmts
             .iter()
@@ -29,7 +29,7 @@ impl<'a> InstructionBlockBuilder<'a> {
                     self.sheet.variable_stack.next_stack_idx(),
                     false,
                 );
-                self.push_instruction(Instruction::new(InstructionData::Assert, stmt))
+                self.push_instruction(Vmir::new(VmirData::Assert, stmt))
             }
             FuncStmtVariant::Require { ref condition, .. } => {
                 self.compile_eager_expr(
@@ -37,25 +37,23 @@ impl<'a> InstructionBlockBuilder<'a> {
                     self.sheet.variable_stack.next_stack_idx(),
                     false,
                 );
-                self.push_instruction(Instruction::new(InstructionData::Require, stmt))
+                self.push_instruction(Vmir::new(VmirData::Require, stmt))
             }
             FuncStmtVariant::Return { ref result, .. } => {
                 self.compile_eager_expr(result, self.sheet.variable_stack.next_stack_idx(), false);
-                self.push_instruction(Instruction::new(
-                    InstructionData::Return {
+                self.push_instruction(Vmir::new(
+                    VmirData::Return {
                         return_ty: result.intrinsic_ty(),
                     },
                     stmt,
                 ));
             }
-            FuncStmtVariant::ConditionFlow { ref branches } => {
-                self.push_instruction(Instruction::new(
-                    InstructionData::ConditionFlow {
-                        branches: self.compile_func_condition_flow(branches),
-                    },
-                    stmt,
-                ))
-            }
+            FuncStmtVariant::ConditionFlow { ref branches } => self.push_instruction(Vmir::new(
+                VmirData::ConditionFlow {
+                    branches: self.compile_func_condition_flow(branches),
+                },
+                stmt,
+            )),
             FuncStmtVariant::Match {
                 ref match_expr,
                 ref branches,
@@ -65,8 +63,8 @@ impl<'a> InstructionBlockBuilder<'a> {
                     self.sheet.variable_stack.next_stack_idx(),
                     false,
                 );
-                self.push_instruction(Instruction::new(
-                    InstructionData::PatternMatch {
+                self.push_instruction(Vmir::new(
+                    VmirData::PatternMatch {
                         branches: self.compile_func_pattern_match(branches),
                     },
                     stmt,
