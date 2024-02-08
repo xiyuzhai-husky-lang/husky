@@ -3,13 +3,13 @@ use husky_coword::Ident;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[deprecated(note = "to be replaced by Instructions in husky-instruction")]
-pub struct Instructions {
-    pub instructions: Vec<Instruction>,
+#[deprecated(note = "to be replaced by Vmirs in husky-vmir")]
+pub struct Vmirs {
+    pub instructions: Vec<Vmir>,
     pub variable_stack: VariableStack,
 }
 
-impl Instructions {
+impl Vmirs {
     pub fn new(inputs: impl Iterator<Item = Ident>, has_this: bool) -> Self {
         Self {
             instructions: vec![],

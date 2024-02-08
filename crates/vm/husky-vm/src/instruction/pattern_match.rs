@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Debug, PartialEq)]
 pub struct VMPatternBranch {
     pub opt_pattern: Option<VMPattern>,
-    pub body: Instructions,
+    pub body: Vmirs,
 }
 
 #[derive(Debug, PartialEq)]

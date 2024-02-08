@@ -1,11 +1,7 @@
 use crate::*;
 
 impl<'temp> Interpreter<'temp> {
-    pub(super) fn exec_loop_fast(
-        &mut self,
-        loop_kind: VMLoopKind,
-        body: &Instructions,
-    ) -> VMControl {
+    pub(super) fn exec_loop_fast(&mut self, loop_kind: VMLoopKind, body: &Vmirs) -> VMControl {
         self.exec_loop(loop_kind, body, |_| (), |_, _, _| (), Mode::Fast)
             .into()
     }
@@ -13,7 +9,7 @@ impl<'temp> Interpreter<'temp> {
     pub(super) fn exec_loop_tracking_mutation(
         &mut self,
         loop_kind: VMLoopKind,
-        body: &Instructions,
+        body: &Vmirs,
     ) -> VMControl {
         self.exec_loop(loop_kind, body, |_| (), |_, _, _| (), Mode::TrackMutation)
             .into()
@@ -22,7 +18,7 @@ impl<'temp> Interpreter<'temp> {
     pub(crate) fn exec_loop_tracking_frame(
         &mut self,
         loop_kind: VMLoopKind,
-        body: &Instructions,
+        body: &Vmirs,
     ) -> VMControl {
         self.exec_loop(
             loop_kind,
@@ -46,7 +42,7 @@ impl<'temp> Interpreter<'temp> {
     pub(super) fn exec_loop(
         &mut self,
         loop_kind: VMLoopKind,
-        body: &Instructions,
+        body: &Vmirs,
         exec_before_each_frame: impl Fn(&mut Self),
         exec_after_each_frame: impl Fn(&mut Self, i32, &VMControl),
         mode: Mode,

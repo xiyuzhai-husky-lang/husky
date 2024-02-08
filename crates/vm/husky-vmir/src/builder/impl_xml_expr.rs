@@ -1,14 +1,14 @@
-use husky_vm::InstructionData;
+use husky_vm::VmirData;
 
 use crate::*;
 
-impl<'a> InstructionBlockBuilder<'a> {
+impl<'a> VmirBlockBuilder<'a> {
     pub(super) fn compile_xml_expr(&mut self, expr: Arc<HtmlExpr>) {
         match expr.variant {
             HtmlExprVariant::Value(ref value_expr) => {
                 self.compile_eager_expr(value_expr, self.sheet.variable_stack.next_stack_idx());
-                self.push_instruction(Instruction::new(
-                    InstructionData::NewHtmlFromValue {
+                self.push_instruction(Vmir::new(
+                    VmirData::NewHtmlFromValue {
                         ty: value_expr.ty(),
                     },
                     expr,
@@ -24,8 +24,8 @@ impl<'a> InstructionBlockBuilder<'a> {
                         self.sheet.variable_stack.next_stack_idx() + i,
                     )
                 }
-                self.push_instruction(Instruction::new(
-                    InstructionData::NewHtmlFromTag {
+                self.push_instruction(Vmir::new(
+                    VmirData::NewHtmlFromTag {
                         tag_kind,
                         props: props.keys().collect(),
                         n_child_expr: 0,

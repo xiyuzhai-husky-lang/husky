@@ -1,11 +1,11 @@
 use super::*;
-use crate::instruction::Binding;
+use crate::vmir::Binding;
 use husky_entity_path::AssocItemPath;
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx};
 use husky_hir_opr::{binary::HirBinaryOpr, suffix::HirSuffixOpr};
 use husky_linkage::template_argument::ty::LinType;
 
-impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
+impl<'a, 'b> VmirBlockBuilder<'a, 'b> {
     pub(super) fn compile_eager_expr(
         &mut self,
         expr: HirEagerExprIdx,
@@ -96,8 +96,8 @@ impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
         //         // no discard
         //         assert!(!discard);
         //         let stack_idx = self.sheet.variable_stack.stack_idx(varname);
-        //         self.push_instruction(Instruction::new(
-        //             InstructionData::PushVariable {
+        //         self.push_instruction(Vmir::new(
+        //             VmirData::PushVariable {
         //                 varname: varname.into(),
         //                 stack_idx,
         //                 binding,
@@ -111,8 +111,8 @@ impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
         //     EagerExprVariant::PrimitiveLiteral(value) => {
         //         // no discard
         //         assert!(!discard);
-        //         self.push_instruction(Instruction::new(
-        //             InstructionData::PushLiteralValue {
+        //         self.push_instruction(Vmir::new(
+        //             VmirData::PushLiteralValue {
         //                 value: convert_primitive_literal_to_register(value, expr.intrinsic_ty()),
         //                 explicit: true,
         //                 ty: expr.intrinsic_ty(),
@@ -128,8 +128,8 @@ impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
         //         ref opds,
         //     } => self.compile_opn(opn_variant, opds, expr, output_stack_idx, discard),
         //     EagerExprVariant::Lambda(_, _) => todo!(),
-        //     EagerExprVariant::ThisValue { binding } => self.push_instruction(Instruction::new(
-        //         InstructionData::PushVariable {
+        //     EagerExprVariant::ThisValue { binding } => self.push_instruction(Vmir::new(
+        //         VmirData::PushVariable {
         //             varname: ContextualIdent::ThisValue.into(),
         //             stack_idx: VMStackIdx::this(),
         //             binding,
@@ -146,9 +146,9 @@ impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
         //         this_binding,
         //         field_binding,
         //     } => match self.context.value() {
-        //         InstructionGenContext::Normal => {
-        //             self.push_instruction(Instruction::new(
-        //                 InstructionData::PushVariable {
+        //         VmirGenContext::Normal => {
+        //             self.push_instruction(Vmir::new(
+        //                 VmirData::PushVariable {
         //                     varname: ContextualIdent::ThisValue.into(),
         //                     stack_idx: VMStackIdx::this(),
         //                     binding: this_binding,
@@ -158,13 +158,13 @@ impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
         //                 },
         //                 expr.clone(),
         //             ));
-        //             self.push_instruction(Instruction::new(
+        //             self.push_instruction(Vmir::new(
         //                 if let Some(linkage) = self.db.field_linkage_resolved(
         //                     this_ty.intrinsic(),
         //                     field_ident.ident,
         //                     field_binding,
         //                 ) {
-        //                     InstructionData::CallRoutine {
+        //                     VmirData::CallRoutine {
         //                         return_ty: expr.intrinsic_ty(),
         //                         nargs: 1,
         //                         resolved_linkage: linkage,
@@ -178,7 +178,7 @@ impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
         //                     //     FieldKind::StructRegular
         //                     //     | FieldKind::StructDefault
         //                     //     | FieldKind::StructDerived => {
-        //                     //         InstructionData::VirtualStructField {
+        //                     //         VmirData::VirtualStructField {
         //                     //             field_idx: this_ty_decl
         //                     //                 .field_idx(field_ident.ident)
         //                     //                 .try_into()
@@ -195,9 +195,9 @@ impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
         //                 expr.clone(),
         //             ))
         //         }
-        //         InstructionGenContext::NewVirtualStruct { output_stack_idx } => self
-        //             .push_instruction(Instruction::new(
-        //                 InstructionData::PushVariable {
+        //         VmirGenContext::NewVirtualStruct { output_stack_idx } => self
+        //             .push_instruction(Vmir::new(
+        //                 VmirData::PushVariable {
         //                     varname: field_ident.ident.into(),
         //                     stack_idx: output_stack_idx + field_idx,
         //                     binding: field_binding,
@@ -208,8 +208,8 @@ impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
         //                 expr.clone(),
         //             )),
         //     },
-        //     EagerExprVariant::EnumKindLiteral(route) => self.push_instruction(Instruction::new(
-        //         InstructionData::PushLiteralValue {
+        //     EagerExprVariant::EnumKindLiteral(route) => self.push_instruction(Vmir::new(
+        //         VmirData::PushLiteralValue {
         //             value: __VirtualEnum {
         //                 kind_idx: self.db.enum_literal_to_i32(route),
         //             }
@@ -219,15 +219,15 @@ impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
         //         },
         //         expr.clone(),
         //     )),
-        //     EagerExprVariant::EntityFeature { route } => self.push_instruction(Instruction::new(
-        //         InstructionData::EntityFeature {
+        //     EagerExprVariant::EntityFeature { route } => self.push_instruction(Vmir::new(
+        //         VmirData::EntityFeature {
         //             feature_uid: self.db.item_uid(route),
         //             ty: expr.intrinsic_ty(),
         //         },
         //         expr.clone(),
         //     )),
-        //     EagerExprVariant::EntityThickFp { route } => self.push_instruction(Instruction::new(
-        //         InstructionData::PushEntityFp {
+        //     EagerExprVariant::EntityThickFp { route } => self.push_instruction(Vmir::new(
+        //         VmirData::PushEntityFp {
         //             opt_linkage: self.db.routine_linkage(route),
         //             opt_instruction_region: self.db.item_instruction_region(route),
         //             ty: expr.intrinsic_ty(),
@@ -238,8 +238,8 @@ impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
         // match expr.implicit_conversion {
         //     ImplicitConversion::None => (),
         //     ImplicitConversion::WrapInSome { number_of_somes } => {
-        //         self.push_instruction(Instruction::new(
-        //             InstructionData::WrapInSome { number_of_somes },
+        //         self.push_instruction(Vmir::new(
+        //             VmirData::WrapInSome { number_of_somes },
         //             expr.clone(),
         //         ))
         //     }
@@ -285,8 +285,8 @@ impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
     ) {
         todo!()
         // let index_linkage = self.db.index_linkage(opds.map(|opd| opd.intrinsic_ty()));
-        // self.push_instruction(Instruction::new(
-        //     InstructionData::CallRoutine {
+        // self.push_instruction(Vmir::new(
+        //     VmirData::CallRoutine {
         //         return_ty: expr.intrinsic_ty(),
         //         nargs: opds.len().try_into().unwrap(),
         //         resolved_linkage: index_linkage.bind(element_binding),
@@ -302,11 +302,11 @@ impl<'a, 'b> InstructionBlockBuilder<'a, 'b> {
         return_ty: LinType,
         nargs: u8,
         discard: bool,
-    ) -> InstructionData {
+    ) -> VmirData {
         todo!()
         // let method_uid = self.db.item_uid(method_route);
         // let call_fugitive_syn_decl = self.db.item_call_fugitive_syn_decl(method_route).unwrap();
-        // InstructionData::CallInterpreted {
+        // VmirData::CallInterpreted {
         //     routine_uid: method_uid,
         //     nargs: (call_fugitive_syn_decl.primary_parameters.len() + 1)
         //         .try_into()

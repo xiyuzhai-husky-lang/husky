@@ -2,11 +2,10 @@ use crate::*;
 use avec::Avec;
 use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
 use husky_vm::{
-    Instruction, InstructionData, VMConditionBranch, VMLoopKind, VMPattern, VMPatternBranch,
-    __RegistrableSafe,
+    VMConditionBranch, VMLoopKind, VMPattern, VMPatternBranch, Vmir, VmirData, __RegistrableSafe,
 };
 
-impl<'a> InstructionBlockBuilder<'a> {
+impl<'a> VmirBlockBuilder<'a> {
     pub(super) fn compile_proc_stmts(&mut self, stmts: &[HirEagerStmtIdx]) {
         stmts
             .iter()
@@ -33,12 +32,12 @@ impl<'a> InstructionBlockBuilder<'a> {
                     self.sheet.variable_stack.next_stack_idx(),
                     false,
                 );
-                self.push_instruction(Instruction::new(InstructionData::Assert, stmt))
+                self.push_instruction(Vmir::new(VmirData::Assert, stmt))
             }
             HirEagerStmt::Return { ref result, .. } => {
                 self.compile_eager_expr(result, self.sheet.variable_stack.next_stack_idx(), false);
-                self.push_instruction(Instruction::new(
-                    InstructionData::Return {
+                self.push_instruction(Vmir::new(
+                    VmirData::Return {
                         return_ty: result.intrinsic_ty(),
                     },
                     stmt,
@@ -51,17 +50,13 @@ impl<'a> InstructionBlockBuilder<'a> {
                 ref loop_variant,
                 ref stmts,
             } => self.compile_loop(loop_variant, stmt.clone(), stmts),
-            HirEagerStmt::Break => {
-                self.push_instruction(Instruction::new(InstructionData::Break, stmt))
-            }
-            HirEagerStmt::ConditionFlow { ref branches, .. } => {
-                self.push_instruction(Instruction::new(
-                    InstructionData::ConditionFlow {
-                        branches: self.compile_proc_condition_flow(branches),
-                    },
-                    stmt,
-                ))
-            }
+            HirEagerStmt::Break => self.push_instruction(Vmir::new(VmirData::Break, stmt)),
+            HirEagerStmt::ConditionFlow { ref branches, .. } => self.push_instruction(Vmir::new(
+                VmirData::ConditionFlow {
+                    branches: self.compile_proc_condition_flow(branches),
+                },
+                stmt,
+            )),
             HirEagerStmt::Match {
                 ref match_expr,
                 ref branches,
@@ -71,8 +66,8 @@ impl<'a> InstructionBlockBuilder<'a> {
                     self.sheet.variable_stack.next_stack_idx(),
                     false,
                 );
-                self.push_instruction(Instruction::new(
-                    InstructionData::PatternMatch {
+                self.push_instruction(Vmir::new(
+                    VmirData::PatternMatch {
                         branches: self.compile_proc_pattern_match(branches),
                     },
                     stmt,
@@ -101,8 +96,8 @@ impl<'a> InstructionBlockBuilder<'a> {
                 block_sheet_builder.def_variable(frame_var.ident);
                 block_sheet_builder.compile_proc_stmts(body_stmts);
                 let body = block_sheet_builder.finalize();
-                self.push_instruction(Instruction::new(
-                    InstructionData::Loop {
+                self.push_instruction(Vmir::new(
+                    VmirData::Loop {
                         body,
                         loop_kind: VMLoopKind::For {
                             initial_boundary_kind: initial_boundary.kind,
@@ -124,8 +119,8 @@ impl<'a> InstructionBlockBuilder<'a> {
                 let mut block_sheet_builder = self.subsheet_builder();
                 block_sheet_builder.compile_proc_stmts(body_stmts);
                 let body = block_sheet_builder.finalize();
-                self.push_instruction(Instruction::new(
-                    InstructionData::Loop {
+                self.push_instruction(Vmir::new(
+                    VmirData::Loop {
                         body,
                         loop_kind: VMLoopKind::ForExt {
                             final_boundary_kind: final_boundary.kind,
@@ -144,14 +139,12 @@ impl<'a> InstructionBlockBuilder<'a> {
                     block_sheet_builder.sheet.variable_stack.next_stack_idx(),
                     false,
                 );
-                block_sheet_builder.push_instruction(Instruction::new(
-                    InstructionData::BreakIfFalse,
-                    loop_stmt.clone(),
-                ));
+                block_sheet_builder
+                    .push_instruction(Vmir::new(VmirData::BreakIfFalse, loop_stmt.clone()));
                 block_sheet_builder.compile_proc_stmts(body_stmts);
                 let body = block_sheet_builder.finalize();
-                self.push_instruction(Instruction::new(
-                    InstructionData::Loop {
+                self.push_instruction(Vmir::new(
+                    VmirData::Loop {
                         body,
                         loop_kind: VMLoopKind::Loop,
                     },
@@ -166,13 +159,11 @@ impl<'a> InstructionBlockBuilder<'a> {
                     block_sheet_builder.sheet.variable_stack.next_stack_idx(),
                     false,
                 );
-                block_sheet_builder.push_instruction(Instruction::new(
-                    InstructionData::BreakIfFalse,
-                    loop_stmt.clone(),
-                ));
+                block_sheet_builder
+                    .push_instruction(Vmir::new(VmirData::BreakIfFalse, loop_stmt.clone()));
                 let body = block_sheet_builder.finalize();
-                self.push_instruction(Instruction::new(
-                    InstructionData::Loop {
+                self.push_instruction(Vmir::new(
+                    VmirData::Loop {
                         body,
                         loop_kind: VMLoopKind::Loop,
                     },
@@ -187,8 +178,8 @@ impl<'a> InstructionBlockBuilder<'a> {
         // if let Some(ref bound) = boundary.opt_bound {
         //     self.compile_eager_expr(bound, self.sheet.variable_stack.next_stack_idx(), false)
         // } else {
-        //     self.push_instruction(Instruction::new(
-        //         InstructionData::PushLiteralValue {
+        //     self.push_instruction(Vmir::new(
+        //         VmirData::PushLiteralValue {
         //             value: 0i32.to_register(),
         //             explicit: false,
         //             ty: RootBuiltinIdent::I32.into(),

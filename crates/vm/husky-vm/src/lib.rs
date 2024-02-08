@@ -45,7 +45,7 @@
 // pub fn eval_fast<'temp>(
 //     db: &'temp dyn InterpreterQueryGroup,
 //     opt_ctx: Option<&'temp dyn __EvalContext>,
-//     opt_instrn_sheet: Option<&Instructions>,
+//     opt_instrn_sheet: Option<&Vmirs>,
 //     opt_linkage: Option<__LinkageGroup>,
 //     args: impl Iterator<Item = VMResult<RegularValue>>, // including this value
 //     _kwargs: impl Iterator<Item = (Ident, VMResult<RegularValue>)>,
@@ -63,7 +63,7 @@
 // pub fn exec_debug<'temp>(
 //     db: &'temp dyn InterpreterQueryGroup,
 //     opt_ctx: Option<&'temp dyn __EvalContext>,
-//     sheet: &Instructions,
+//     sheet: &Vmirs,
 //     stack: VMStack,
 //     vm_config: &'temp VMConfig,
 // ) -> Arc<History> {
@@ -76,7 +76,7 @@
 //     db: &'temp dyn InterpreterQueryGroup,
 //     opt_ctx: Option<&dyn __EvalContext>,
 //     loop_kind: VMLoopKind,
-//     sheet: &Instructions,
+//     sheet: &Vmirs,
 //     stack_snapshot: &StackSnapshot,
 //     vm_config: &'temp VMConfig,
 // ) -> Vec<LoopFrameData> {

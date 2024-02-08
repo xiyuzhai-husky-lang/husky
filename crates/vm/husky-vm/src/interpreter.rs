@@ -80,7 +80,7 @@ impl<'temp> Interpreter<'temp> {
 
     pub(crate) fn eval_instructions(
         &mut self,
-        sheet: &Instructions,
+        sheet: &Vmirs,
         mode: Mode,
     ) -> VMResult<RegularValue> {
         match self.exec_all(sheet, mode) {

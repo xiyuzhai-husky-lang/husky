@@ -28,7 +28,7 @@ impl<'temp> Interpreter<'temp> {
 
     pub(super) fn call_interpreted(
         &mut self,
-        sheet: &Instructions,
+        sheet: &Vmirs,
         nargs: u8,
         discard: bool,
     ) -> VMResult<()> {

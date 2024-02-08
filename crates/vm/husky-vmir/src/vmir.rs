@@ -1,4 +1,4 @@
-use crate::region::InstructionRegion;
+use crate::region::VmirRegion;
 use husky_coword::Ident;
 use husky_hir_ty::HirType;
 use husky_linkage::linkage::Linkage;
@@ -18,7 +18,7 @@ pub struct Binding;
 pub struct VMLoopKind;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum InstructionData {
+pub enum VmirData {
     PushVariable {
         stack_idx: VMStackIdx,
         binding: Binding,
@@ -47,7 +47,7 @@ pub enum InstructionData {
         discard: bool,
     },
     Loop {
-        body: InstructionIdxRange,
+        body: VmirIdxRange,
         loop_kind: VMLoopKind,
     },
     Return {
@@ -70,10 +70,10 @@ pub enum InstructionData {
     PushEntityFp {
         // opt_linkage: Option<__LinkageGroup>,
         ty: HirType,
-        opt_instruction_region: Option<InstructionRegion>,
+        opt_instruction_region: Option<VmirRegion>,
     },
 }
 
-pub type InstructionArena = Arena<InstructionData>;
-pub type InstructionIdx = ArenaIdx<InstructionData>;
-pub type InstructionIdxRange = ArenaIdxRange<InstructionData>;
+pub type VmirArena = Arena<VmirData>;
+pub type VmirIdx = ArenaIdx<VmirData>;
+pub type VmirIdxRange = ArenaIdxRange<VmirData>;

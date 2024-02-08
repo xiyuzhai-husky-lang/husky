@@ -9,11 +9,11 @@ use husky_print_utils::p;
 
 #[derive(Debug, Default)]
 pub struct History {
-    entries: HashMap<InstructionId, HistoryEntry>,
+    entries: HashMap<VmirId, HistoryEntry>,
 }
 
 impl History {
-    pub fn write(&mut self, ins: &Instruction, entry: HistoryEntry) {
+    pub fn write(&mut self, ins: &Vmir, entry: HistoryEntry) {
         if let Some(old_value) = self.entries.insert(ins.ins_id(), entry) {
             todo!()
             // p!(ins.src.source(), ins.src.text_range(), ins.src);
@@ -24,22 +24,19 @@ impl History {
 }
 
 impl History {
-    pub fn register_result<T: Into<InstructionSource>>(
-        &self,
-        t: &T,
-    ) -> Option<VMResult<RegularValue>> {
+    pub fn register_result<T: Into<VmirSource>>(&self, t: &T) -> Option<VMResult<RegularValue>> {
         todo!()
         // self.entries
         //     .get(&t.instruction_id())
         //     .map(|entry| entry.result())
     }
 
-    pub fn get<T: Into<InstructionSource>>(&self, t: T) -> Option<&HistoryEntry> {
+    pub fn get<T: Into<VmirSource>>(&self, t: T) -> Option<&HistoryEntry> {
         todo!()
         // self.entries.get(&t.instruction_id())
     }
 
-    pub fn contains<T: Into<InstructionSource>>(&self, t: T) -> bool {
+    pub fn contains<T: Into<VmirSource>>(&self, t: T) -> bool {
         todo!()
         // self.entries.contains_key(&t.instruction_id())
     }
