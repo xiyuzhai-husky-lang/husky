@@ -3957,6 +3957,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-bc-base"
+version = "0.1.0"
+dependencies = [
+ "shifted-unsigned-int",
+]
+
+[[package]]
 name = "husky-bindgen-utils"
 version = "0.1.0"
 dependencies = [

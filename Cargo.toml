@@ -3,6 +3,7 @@ members = [
     "crates/abstractions/*",
     "crates/apps/*",
     "crates/archs/*",
+    "crates/bc/*",
     "crates/comptime/*",
     "crates/devtime/*",
     "crates/devtools/*",
@@ -22,7 +23,7 @@ members = [
     "crates/vm/*",
     "crates/benchmarks/*",
     "library/core",
-    "registry/*"
+    "registry/*",
 ]
 resolver = "2"
 
