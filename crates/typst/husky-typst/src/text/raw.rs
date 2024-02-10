@@ -12,8 +12,8 @@ use unicode_segmentation::UnicodeSegmentation;
 use crate::diag::{At, FileError, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, Args, Array, Bytes, Content, Fold, NativeElement, Packed, PlainText, Show,
-    ShowSet, Smart, StyleChain, Styles, Synthesize, TypstValue,
+    cast, elem, scope, Args, Array, Bytes, Fold, NativeElement, Packed, PlainText, Show, ShowSet,
+    Smart, StyleChain, Styles, Synthesize, TypstContent, TypstValue,
 };
 use crate::layout::{BlockElem, Em, HAlignment};
 use crate::model::Figurable;
@@ -27,8 +27,8 @@ use crate::visualize::Color;
 use crate::{syntax, World};
 
 // Shorthand for highlighter closures.
-type StyleFn<'a> = &'a mut dyn FnMut(&LinkedNode, Range<usize>, synt::Style) -> Content;
-type LineFn<'a> = &'a mut dyn FnMut(i64, Range<usize>, &mut Vec<Content>);
+type StyleFn<'a> = &'a mut dyn FnMut(&LinkedNode, Range<usize>, synt::Style) -> TypstContent;
+type LineFn<'a> = &'a mut dyn FnMut(i64, Range<usize>, &mut Vec<TypstContent>);
 
 /// Raw text with optional syntax highlighting.
 ///
@@ -350,7 +350,7 @@ impl Packed<RawElem> {
                             i + 1,
                             count,
                             EcoString::from(&text[range]),
-                            Content::sequence(line.drain(..)),
+                            TypstContent::sequence(line.drain(..)),
                         ))
                         .spanned(span),
                     );
@@ -383,7 +383,7 @@ impl Packed<RawElem> {
                         i as i64 + 1,
                         count,
                         EcoString::from(line),
-                        Content::sequence(line_content),
+                        TypstContent::sequence(line_content),
                     ))
                     .spanned(span),
                 );
@@ -406,7 +406,7 @@ impl Packed<RawElem> {
 
 impl Show for Packed<RawElem> {
     #[husky_typst_macros::time(name = "raw", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         let lines = self.lines().map(|v| v.as_slice()).unwrap_or_default();
 
         let mut seq = EcoVec::with_capacity((2 * lines.len()).saturating_sub(1));
@@ -418,7 +418,7 @@ impl Show for Packed<RawElem> {
             seq.push(line.clone().pack());
         }
 
-        let mut realized = Content::sequence(seq);
+        let mut realized = TypstContent::sequence(seq);
         if self.block(styles) {
             // Align the text before inserting it into the block.
             realized = realized.aligned(self.align(styles).into());
@@ -513,12 +513,12 @@ pub struct RawLine {
 
     /// The highlighted raw text.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 }
 
 impl Show for Packed<RawLine> {
     #[husky_typst_macros::time(name = "raw.line", span = self.span())]
-    fn show(&self, _: &mut Engine, _styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, _: &mut Engine, _styles: StyleChain) -> SourceResult<TypstContent> {
         Ok(self.body().clone())
     }
 }
@@ -540,7 +540,7 @@ struct ThemedHighlighter<'a> {
     /// The current scopes.
     scopes: Vec<syntect::parsing::Scope>,
     /// The current highlighted line.
-    current_line: Vec<Content>,
+    current_line: Vec<TypstContent>,
     /// The range of the current line.
     range: Range<usize>,
     /// The current line number.
@@ -629,7 +629,7 @@ impl<'a> ThemedHighlighter<'a> {
 }
 
 /// Style a piece of text with a syntect style.
-fn styled(piece: &str, foreground: synt::Color, style: synt::Style) -> Content {
+fn styled(piece: &str, foreground: synt::Color, style: synt::Style) -> TypstContent {
     let mut body = TextElem::packed(piece);
 
     if style.foreground != foreground {

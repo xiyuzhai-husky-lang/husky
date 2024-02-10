@@ -4,7 +4,7 @@ use smallvec::{smallvec, SmallVec};
 
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{cast, elem, scope, Array, Content, Packed, Smart, StyleChain};
+use crate::foundations::{cast, elem, scope, Array, Packed, Smart, StyleChain, TypstContent};
 use crate::layout::{
     Alignment, Axes, BlockElem, Cell, CellGrid, Em, Fragment, GridLayouter, HAlignment,
     LayoutMultiple, Length, Regions, Sizing, Spacing, VAlignment,
@@ -263,9 +263,9 @@ impl LayoutMultiple for Packed<EnumElem> {
                 .aligned(number_align)
                 .styled(TextElem::set_overhang(false));
 
-            cells.push(Cell::from(Content::empty()));
+            cells.push(Cell::from(TypstContent::empty()));
             cells.push(Cell::from(resolved));
-            cells.push(Cell::from(Content::empty()));
+            cells.push(Cell::from(TypstContent::empty()));
             cells.push(Cell::from(
                 item.body()
                     .clone()
@@ -300,7 +300,7 @@ pub struct EnumItem {
 
     /// The item's body.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 }
 
 cast! {
@@ -313,5 +313,5 @@ cast! {
         };
         Self::new(body).with_number(number)
     },
-    v: Content => v.unpack::<Self>().unwrap_or_else(Self::new),
+    v: TypstContent => v.unpack::<Self>().unwrap_or_else(Self::new),
 }

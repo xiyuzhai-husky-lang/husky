@@ -1,6 +1,6 @@
 use crate::diag::{bail, At, Hint, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{elem, Behave, Behaviour, Content, Packed, Smart, StyleChain};
+use crate::foundations::{elem, Behave, Behaviour, Packed, Smart, StyleChain, TypstContent};
 use crate::layout::{
     Alignment, Axes, Em, Fragment, LayoutMultiple, Length, Regions, Rel, VAlignment,
 };
@@ -83,7 +83,7 @@ pub struct PlaceElem {
 
     /// The content to place.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 }
 
 impl Packed<PlaceElem> {

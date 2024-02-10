@@ -2,7 +2,7 @@ use std::fmt::{self, Debug, Formatter};
 
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{cast, elem, Content, Packed, Resolve, StyleChain};
+use crate::foundations::{cast, elem, Packed, Resolve, StyleChain, TypstContent};
 use crate::layout::{
     Abs, AlignElem, Axes, Axis, Dir, FixedAlignment, Fr, Fragment, Frame, LayoutMultiple, Point,
     Regions, Size, Spacing,
@@ -92,7 +92,7 @@ pub enum StackChild {
     /// Spacing between other children.
     Spacing(Spacing),
     /// Arbitrary block-level content.
-    Block(Content),
+    Block(TypstContent),
 }
 
 impl Debug for StackChild {
@@ -111,7 +111,7 @@ cast! {
         Self::Block(content) => content.into_value(),
     },
     v: Spacing => Self::Spacing(v),
-    v: Content => Self::Block(v),
+    v: TypstContent => Self::Block(v),
 }
 
 /// Performs stack layout.
@@ -199,7 +199,7 @@ impl<'a> StackLayouter<'a> {
     fn layout_block(
         &mut self,
         engine: &mut Engine,
-        block: &Content,
+        block: &TypstContent,
         styles: StyleChain,
     ) -> SourceResult<()> {
         if self.regions.is_full() {

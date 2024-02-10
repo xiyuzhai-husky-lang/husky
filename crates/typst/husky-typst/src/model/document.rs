@@ -3,7 +3,8 @@ use ecow::EcoString;
 use crate::diag::{bail, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, Args, Array, Construct, Content, Datetime, Packed, Smart, StyleChain, TypstValue,
+    cast, elem, Args, Array, Construct, Datetime, Packed, Smart, StyleChain, TypstContent,
+    TypstValue,
 };
 use crate::introspection::{Introspector, ManualPageCounter};
 use crate::layout::{LayoutRoot, Page, PageElem};
@@ -32,7 +33,7 @@ pub struct DocumentElem {
     /// While this can be arbitrary content, PDF viewers only support plain text
     /// titles, so the conversion might be lossy.
     #[ghost]
-    pub title: Option<Content>,
+    pub title: Option<TypstContent>,
 
     /// The document's authors.
     #[ghost]
@@ -56,11 +57,11 @@ pub struct DocumentElem {
     /// The page runs.
     #[internal]
     #[variadic]
-    pub children: Vec<Content>,
+    pub children: Vec<TypstContent>,
 }
 
 impl Construct for DocumentElem {
-    fn construct(_: &mut Engine, args: &mut Args) -> SourceResult<Content> {
+    fn construct(_: &mut Engine, args: &mut Args) -> SourceResult<TypstContent> {
         bail!(args.span, "can only be used in set rules")
     }
 }
@@ -75,10 +76,10 @@ impl LayoutRoot for Packed<DocumentElem> {
         let mut iter = children.iter().peekable();
 
         while let Some(mut child) = iter.next() {
-            let outer = styles;
+            let outer_styles = styles;
             let mut styles = styles;
-            if let Some((elem, local)) = child.to_styled() {
-                styles = outer.chain(local);
+            if let Some((elem, local_styles)) = child.to_styled() {
+                styles = outer_styles.chain(local_styles);
                 child = elem;
             }
 

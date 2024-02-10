@@ -2,7 +2,7 @@ use ecow::{eco_vec, EcoVec};
 
 use crate::diag::{bail, error, At, SourceDiagnostic, SourceResult};
 use crate::eval::{ops, Eval, Vm};
-use crate::foundations::{Array, Content, Str, TypstDict, TypstValue};
+use crate::foundations::{Array, Str, TypstContent, TypstDict, TypstValue};
 use crate::syntax::ast::{self, AstNode};
 
 impl Eval for ast::Code<'_> {
@@ -276,7 +276,7 @@ impl Eval for ast::CodeBlock<'_> {
 }
 
 impl Eval for ast::ContentBlock<'_> {
-    type Output = Content;
+    type Output = TypstContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         vm.scopes.enter();

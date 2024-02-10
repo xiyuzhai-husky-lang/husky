@@ -5,8 +5,8 @@ use ecow::eco_format;
 use crate::diag::{bail, At, Hint, HintedStrResult, HintedString, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    Array, CastInfo, Content, FromTypstValue, Func, IntoTypstValue, Reflect, Resolve, Smart,
-    StyleChain, TypstValue,
+    Array, CastInfo, FromTypstValue, Func, IntoTypstValue, Reflect, Resolve, Smart, StyleChain,
+    TypstContent, TypstValue,
 };
 use crate::layout::{
     Abs, Alignment, Axes, Dir, Fr, Fragment, Frame, FrameItem, LayoutMultiple, Length, Point,
@@ -93,16 +93,16 @@ impl<T: FromTypstValue> FromTypstValue for Celled<T> {
 #[derive(Clone)]
 pub struct Cell {
     /// The cell's body.
-    pub body: Content,
+    pub body: TypstContent,
     /// The cell's fill.
     pub fill: Option<Paint>,
     /// The amount of columns spanned by the cell.
     pub colspan: NonZeroUsize,
 }
 
-impl From<Content> for Cell {
+impl From<TypstContent> for Cell {
     /// Create a simple cell given its body.
-    fn from(body: Content) -> Self {
+    fn from(body: TypstContent) -> Self {
         Self {
             body,
             fill: None,
@@ -1349,7 +1349,7 @@ mod test {
 
     fn sample_cell() -> Cell {
         Cell {
-            body: Content::default(),
+            body: TypstContent::default(),
             fill: None,
             colspan: NonZeroUsize::ONE,
         }
@@ -1357,7 +1357,7 @@ mod test {
 
     fn cell_with_colspan(colspan: usize) -> Cell {
         Cell {
-            body: Content::default(),
+            body: TypstContent::default(),
             fill: None,
             colspan: NonZeroUsize::try_from(colspan).unwrap(),
         }

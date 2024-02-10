@@ -8,7 +8,7 @@ use once_cell::sync::Lazy;
 use crate::diag::{bail, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, repr, scope, ty, Args, CastInfo, Content, Element, IntoArgs, Scope, Selector, Type,
+    cast, repr, scope, ty, Args, CastInfo, Element, IntoArgs, Scope, Selector, Type, TypstContent,
     TypstValue,
 };
 use crate::syntax::{ast, Span, SyntaxNode};
@@ -198,7 +198,7 @@ impl Func {
 
     /// Get details about the function's return type.
     pub fn returns(&self) -> Option<&'static CastInfo> {
-        static CONTENT: Lazy<CastInfo> = Lazy::new(|| CastInfo::Type(Type::of::<Content>()));
+        static CONTENT: Lazy<CastInfo> = Lazy::new(|| CastInfo::Type(Type::of::<TypstContent>()));
         match &self.repr {
             Repr::Native(native) => Some(&native.0.returns),
             Repr::Element(_) => Some(&CONTENT),

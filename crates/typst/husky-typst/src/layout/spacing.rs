@@ -1,7 +1,7 @@
 use std::borrow::Cow;
 
 use crate::foundations::{
-    cast, elem, Behave, Behaviour, Content, Packed, Resolve, StyleChain,
+    cast, elem, Behave, Behaviour, Packed, Resolve, StyleChain, TypstContent,
 };
 use crate::layout::{Abs, Em, Fr, Length, Ratio, Rel};
 use crate::util::Numeric;
@@ -77,10 +77,12 @@ impl Behave for Packed<HElem> {
 
     fn larger(
         &self,
-        prev: &(Cow<Content>, Behaviour, StyleChain),
+        prev: &(Cow<TypstContent>, Behaviour, StyleChain),
         styles: StyleChain,
     ) -> bool {
-        let Some(other) = prev.0.to_packed::<HElem>() else { return false };
+        let Some(other) = prev.0.to_packed::<HElem>() else {
+            return false;
+        };
         match (self.amount(), other.amount()) {
             (Spacing::Fr(this), Spacing::Fr(other)) => this > other,
             (Spacing::Rel(this), Spacing::Rel(other)) => {
@@ -179,10 +181,12 @@ impl Behave for Packed<VElem> {
 
     fn larger(
         &self,
-        prev: &(Cow<Content>, Behaviour, StyleChain),
+        prev: &(Cow<TypstContent>, Behaviour, StyleChain),
         styles: StyleChain,
     ) -> bool {
-        let Some(other) = prev.0.to_packed::<VElem>() else { return false };
+        let Some(other) = prev.0.to_packed::<VElem>() else {
+            return false;
+        };
         match (self.amount(), other.amount()) {
             (Spacing::Fr(this), Spacing::Fr(other)) => this > other,
             (Spacing::Rel(this), Spacing::Rel(other)) => {
@@ -195,7 +199,7 @@ impl Behave for Packed<VElem> {
 
 cast! {
     VElem,
-    v: Content => v.unpack::<Self>().map_err(|_| "expected `v` element")?,
+    v: TypstContent => v.unpack::<Self>().map_err(|_| "expected `v` element")?,
 }
 
 /// Kinds of spacing.

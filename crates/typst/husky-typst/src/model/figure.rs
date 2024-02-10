@@ -7,8 +7,8 @@ use ecow::EcoString;
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, select_where, Content, Element, NativeElement, Packed, Selector, Show,
-    ShowSet, Smart, StyleChain, Styles, Synthesize,
+    cast, elem, scope, select_where, Element, NativeElement, Packed, Selector, Show, ShowSet,
+    Smart, StyleChain, Styles, Synthesize, TypstContent,
 };
 use crate::introspection::{Count, Counter, CounterKey, CounterUpdate, Locatable, Location};
 use crate::layout::{Alignment, BlockElem, Em, HAlignment, Length, PlaceElem, VAlignment, VElem};
@@ -103,7 +103,7 @@ use crate::visualize::ImageElem;
 pub struct FigureElem {
     /// The content of the figure. Often, an [image]($image).
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 
     /// The figure's placement on the page.
     ///
@@ -295,7 +295,7 @@ impl Synthesize for Packed<FigureElem> {
 
 impl Show for Packed<FigureElem> {
     #[husky_typst_macros::time(name = "figure", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         let mut realized = self.body().clone();
 
         // Build the caption, if any.
@@ -347,11 +347,11 @@ impl Count for Packed<FigureElem> {
 }
 
 impl Refable for Packed<FigureElem> {
-    fn supplement(&self) -> Content {
+    fn supplement(&self) -> TypstContent {
         // After synthesis, this should always be custom content.
         match (**self).supplement(StyleChain::default()).as_ref() {
             Smart::Custom(Some(Supplement::Content(content))) => content.clone(),
-            _ => Content::empty(),
+            _ => TypstContent::empty(),
         }
     }
 
@@ -369,7 +369,7 @@ impl Refable for Packed<FigureElem> {
 }
 
 impl Outlinable for Packed<FigureElem> {
-    fn outline(&self, engine: &mut Engine) -> SourceResult<Option<Content>> {
+    fn outline(&self, engine: &mut Engine) -> SourceResult<Option<TypstContent>> {
         if !self.outlined(StyleChain::default()) {
             return Ok(None);
         }
@@ -474,7 +474,7 @@ pub struct FigureCaption {
     ///   caption: [A rectangle],
     /// )
     /// ```
-    pub separator: Smart<Content>,
+    pub separator: Smart<TypstContent>,
 
     /// The caption's body.
     ///
@@ -493,7 +493,7 @@ pub struct FigureCaption {
     /// )
     /// ```
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 
     /// The figure's supplement.
     #[synthesized]
@@ -501,7 +501,7 @@ pub struct FigureCaption {
 
     /// The figure's supplement.
     #[synthesized]
-    pub supplement: Option<Content>,
+    pub supplement: Option<TypstContent>,
 
     /// How to number the figure.
     #[synthesized]
@@ -529,7 +529,7 @@ impl FigureCaption {
         }
     }
 
-    fn get_separator(&self, styles: StyleChain) -> Content {
+    fn get_separator(&self, styles: StyleChain) -> TypstContent {
         self.separator(styles).unwrap_or_else(|| {
             TextElem::packed(Self::local_separator(
                 TextElem::lang_in(styles),
@@ -541,7 +541,7 @@ impl FigureCaption {
 
 impl Show for Packed<FigureCaption> {
     #[husky_typst_macros::time(name = "figure.caption", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         let mut realized = self.body().clone();
 
         if let (
@@ -568,7 +568,7 @@ impl Show for Packed<FigureCaption> {
 
 cast! {
     FigureCaption,
-    v: Content => v.unpack::<Self>().unwrap_or_else(Self::new),
+    v: TypstContent => v.unpack::<Self>().unwrap_or_else(Self::new),
 }
 
 /// The `kind` parameter of a [`FigureElem`].

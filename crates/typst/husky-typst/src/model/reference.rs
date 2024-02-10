@@ -3,8 +3,8 @@ use ecow::eco_format;
 use crate::diag::{bail, At, Hint, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, Content, Func, IntoTypstValue, Label, NativeElement, Packed, Show, Smart,
-    StyleChain, Synthesize,
+    cast, elem, Func, IntoTypstValue, Label, NativeElement, Packed, Show, Smart, StyleChain,
+    Synthesize, TypstContent,
 };
 use crate::introspection::{Counter, Locatable};
 use crate::math::EquationElem;
@@ -131,7 +131,7 @@ pub struct RefElem {
 
     /// The referenced element.
     #[synthesized]
-    pub element: Option<Content>,
+    pub element: Option<TypstContent>,
 }
 
 impl Synthesize for Packed<RefElem> {
@@ -156,7 +156,7 @@ impl Synthesize for Packed<RefElem> {
 
 impl Show for Packed<RefElem> {
     #[husky_typst_macros::time(name = "ref", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         let target = *self.target();
         let elem = engine.introspector.query_label(target);
         let span = self.span();
@@ -212,7 +212,7 @@ impl Show for Packed<RefElem> {
 
         let supplement = match self.supplement(styles).as_ref() {
             Smart::Auto => refable.supplement(),
-            Smart::Custom(None) => Content::empty(),
+            Smart::Custom(None) => TypstContent::empty(),
             Smart::Custom(Some(supplement)) => supplement.resolve(engine, [elem])?,
         };
 
@@ -250,7 +250,7 @@ fn to_citation(
 /// Additional content for a reference.
 #[derive(Debug, Clone, PartialEq, Hash)]
 pub enum Supplement {
-    Content(Content),
+    Content(TypstContent),
     Func(Func),
 }
 
@@ -260,7 +260,7 @@ impl Supplement {
         &self,
         engine: &mut Engine,
         args: impl IntoIterator<Item = T>,
-    ) -> SourceResult<Content> {
+    ) -> SourceResult<TypstContent> {
         Ok(match self {
             Supplement::Content(content) => content.clone(),
             Supplement::Func(func) => func.call(engine, args)?.display(),
@@ -274,7 +274,7 @@ cast! {
         Self::Content(v) => v.into_value(),
         Self::Func(v) => v.into_value(),
     },
-    v: Content => Self::Content(v),
+    v: TypstContent => Self::Content(v),
     v: Func => Self::Func(v),
 }
 
@@ -282,7 +282,7 @@ cast! {
 /// the `@ref` element.
 pub trait Refable {
     /// The supplement, if not overridden by the reference.
-    fn supplement(&self) -> Content;
+    fn supplement(&self) -> TypstContent;
 
     /// Returns the counter of this element.
     fn counter(&self) -> Counter;

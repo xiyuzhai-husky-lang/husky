@@ -6,7 +6,7 @@ use ecow::{eco_format, EcoString};
 
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{func, repr, scope, ty, Content, Smart, StyleChain};
+use crate::foundations::{func, repr, scope, ty, Smart, StyleChain, TypstContent};
 use crate::layout::{Abs, Axes, Frame, LayoutMultiple, Length, Regions, Size};
 use crate::syntax::{Span, Spanned};
 use crate::util::Numeric;
@@ -155,7 +155,7 @@ impl Pattern {
         #[default(Smart::Auto)]
         relative: Smart<RelativeTo>,
         /// The content of each cell of the pattern.
-        body: Content,
+        body: TypstContent,
     ) -> SourceResult<Pattern> {
         let size_span = size.span;
         if let Smart::Custom(size) = size.v {
@@ -165,12 +165,11 @@ impl Pattern {
             }
 
             // Ensure that sizes are non-zero and finite.
-            if size.x.is_zero()
-                || size.y.is_zero()
-                || !size.x.is_finite()
-                || !size.y.is_finite()
-            {
-                bail!(size_span, "pattern tile size must be non-zero and non-infinite");
+            if size.x.is_zero() || size.y.is_zero() || !size.x.is_finite() || !size.y.is_finite() {
+                bail!(
+                    size_span,
+                    "pattern tile size must be non-zero and non-infinite"
+                );
             }
         }
 
@@ -266,8 +265,11 @@ impl Pattern {
 
 impl repr::Repr for Pattern {
     fn repr(&self) -> EcoString {
-        let mut out =
-            eco_format!("pattern(({}, {})", self.0.size.x.repr(), self.0.size.y.repr());
+        let mut out = eco_format!(
+            "pattern(({}, {})",
+            self.0.size.x.repr(),
+            self.0.size.y.repr()
+        );
 
         if self.0.spacing.is_zero() {
             out.push_str(", spacing: (");

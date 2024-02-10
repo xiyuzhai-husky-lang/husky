@@ -4,7 +4,7 @@ use ttf_parser::{GlyphId, OutlineBuilder};
 
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{elem, Content, Packed, Show, Smart, StyleChain};
+use crate::foundations::{elem, Packed, Show, Smart, StyleChain, TypstContent};
 use crate::layout::{Abs, Em, Frame, FrameItem, Length, Point, Size};
 use crate::syntax::Span;
 use crate::text::{BottomEdge, BottomEdgeMetric, TextElem, TextItem, TopEdge, TopEdgeMetric};
@@ -78,12 +78,12 @@ pub struct UnderlineElem {
 
     /// The content to underline.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 }
 
 impl Show for Packed<UnderlineElem> {
     #[husky_typst_macros::time(name = "underline", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         Ok(self
             .body()
             .clone()
@@ -173,12 +173,12 @@ pub struct OverlineElem {
 
     /// The content to add a line over.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 }
 
 impl Show for Packed<OverlineElem> {
     #[husky_typst_macros::time(name = "overline", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         Ok(self
             .body()
             .clone()
@@ -253,12 +253,12 @@ pub struct StrikeElem {
 
     /// The content to strike through.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 }
 
 impl Show for Packed<StrikeElem> {
     #[husky_typst_macros::time(name = "strike", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         Ok(self
             .body()
             .clone()
@@ -326,12 +326,12 @@ pub struct HighlightElem {
 
     /// The content that should be highlighted.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 }
 
 impl Show for Packed<HighlightElem> {
     #[husky_typst_macros::time(name = "highlight", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         Ok(self
             .body()
             .clone()

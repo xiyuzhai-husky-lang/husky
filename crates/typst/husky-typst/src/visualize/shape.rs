@@ -2,7 +2,7 @@ use std::f64::consts::SQRT_2;
 
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{elem, Content, Packed, Resolve, Smart, StyleChain};
+use crate::foundations::{elem, Packed, Resolve, Smart, StyleChain, TypstContent};
 use crate::layout::{
     Abs, Axes, Corner, Corners, Frame, FrameItem, LayoutMultiple, LayoutSingle, Length, Point,
     Ratio, Regions, Rel, Sides, Size,
@@ -128,7 +128,7 @@ pub struct RectElem {
     /// When this is omitted, the rectangle takes on a default size of at most
     /// `{45pt}` by `{30pt}`.
     #[positional]
-    pub body: Option<Content>,
+    pub body: Option<TypstContent>,
 }
 
 impl LayoutSingle for Packed<RectElem> {
@@ -234,7 +234,7 @@ pub struct SquareElem {
     /// When this is omitted, the square takes on a default size of at most
     /// `{30pt}`.
     #[positional]
-    pub body: Option<Content>,
+    pub body: Option<TypstContent>,
 }
 
 impl LayoutSingle for Packed<SquareElem> {
@@ -312,7 +312,7 @@ pub struct EllipseElem {
     /// When this is omitted, the ellipse takes on a default size of at most
     /// `{45pt}` by `{30pt}`.
     #[positional]
-    pub body: Option<Content>,
+    pub body: Option<TypstContent>,
 }
 
 impl LayoutSingle for Packed<EllipseElem> {
@@ -415,7 +415,7 @@ pub struct CircleElem {
     /// The content to place into the circle. The circle expands to fit this
     /// content, keeping the 1-1 aspect ratio.
     #[positional]
-    pub body: Option<Content>,
+    pub body: Option<TypstContent>,
 }
 
 impl LayoutSingle for Packed<CircleElem> {
@@ -450,7 +450,7 @@ fn layout(
     styles: StyleChain,
     regions: Regions,
     kind: ShapeKind,
-    body: &Option<Content>,
+    body: &Option<TypstContent>,
     sizing: Axes<Smart<Rel<Length>>>,
     fill: Option<Paint>,
     stroke: Smart<Sides<Option<Option<Stroke<Abs>>>>>,

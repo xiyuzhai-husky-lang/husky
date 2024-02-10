@@ -12,9 +12,9 @@ use serde::{Deserialize, Deserializer, Serialize, Serializer};
 use crate::diag::StrResult;
 use crate::eval::ops;
 use crate::foundations::{
-    fields, repr, Args, Array, AutoValue, Bytes, CastInfo, Content, Datetime, Duration,
-    FromTypstValue, Func, IntoTypstValue, Label, Module, NativeElement, NativeType, NoneValue,
-    Plugin, Reflect, Repr, Scope, Str, Styles, Type, TypstDict, Version,
+    fields, repr, Args, Array, AutoValue, Bytes, CastInfo, Datetime, Duration, FromTypstValue,
+    Func, IntoTypstValue, Label, Module, NativeElement, NativeType, NoneValue, Plugin, Reflect,
+    Repr, Scope, Str, Styles, Type, TypstContent, TypstDict, Version,
 };
 use crate::layout::{Abs, Angle, Em, Fr, Length, Ratio, Rel};
 use crate::symbols::Symbol;
@@ -67,7 +67,7 @@ pub enum TypstValue {
     /// A duration
     Duration(Duration),
     /// A content value: `[*Hi* there]`.
-    Content(Content),
+    Content(TypstContent),
     // Content styles.
     Styles(Styles),
     /// An array of values: `(1, "hi", 12cm)`.
@@ -136,7 +136,7 @@ impl TypstValue {
             Self::Label(_) => Type::of::<Label>(),
             Self::Datetime(_) => Type::of::<Datetime>(),
             Self::Duration(_) => Type::of::<Duration>(),
-            Self::Content(_) => Type::of::<Content>(),
+            Self::Content(_) => Type::of::<TypstContent>(),
             Self::Styles(_) => Type::of::<Styles>(),
             Self::Array(_) => Type::of::<Array>(),
             Self::Dict(_) => Type::of::<TypstDict>(),
@@ -198,9 +198,9 @@ impl TypstValue {
     }
 
     /// Return the display representation of the value.
-    pub fn display(self) -> Content {
+    pub fn display(self) -> TypstContent {
         match self {
-            Self::None => Content::empty(),
+            Self::None => TypstContent::empty(),
             Self::Int(v) => TextElem::packed(repr::format_int_with_base(v, 10)),
             Self::Float(v) => TextElem::packed(repr::display_float(v)),
             Self::Str(v) => TextElem::packed(v),
@@ -648,9 +648,9 @@ primitive! { Bytes: "bytes", Bytes }
 primitive! { Label: "label", Label }
 primitive! { Datetime: "datetime", Datetime }
 primitive! { Duration: "duration", Duration }
-primitive! { Content: "content",
+primitive! { TypstContent: "content",
     Content,
-    None => Content::empty(),
+    None => TypstContent::empty(),
     Symbol(v) => TextElem::packed(v.get()),
     Str(v) => TextElem::packed(v)
 }

@@ -1,7 +1,8 @@
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, Content, Label, NativeElement, Packed, Show, ShowSet, Smart, StyleChain, Styles,
+    cast, elem, Label, NativeElement, Packed, Show, ShowSet, Smart, StyleChain, Styles,
+    TypstContent,
 };
 use crate::layout::{Alignment, BlockElem, Em, HElem, PadElem, Spacing, VElem};
 use crate::model::{CitationForm, CiteElem};
@@ -124,13 +125,13 @@ pub struct QuoteElem {
 
     /// The quote.
     #[required]
-    body: Content,
+    body: TypstContent,
 }
 
 /// Attribution for a [quote](QuoteElem).
 #[derive(Debug, Clone, PartialEq, Hash)]
 pub enum Attribution {
-    Content(Content),
+    Content(TypstContent),
     Label(Label),
 }
 
@@ -140,13 +141,13 @@ cast! {
         Self::Content(content) => content.into_value(),
         Self::Label(label) => label.into_value(),
     },
-    content: Content => Self::Content(content),
+    content: TypstContent => Self::Content(content),
     label: Label => Self::Label(label),
 }
 
 impl Show for Packed<QuoteElem> {
     #[husky_typst_macros::time(name = "quote", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         let mut realized = self.body().clone();
         let block = self.block(styles);
 
@@ -154,7 +155,7 @@ impl Show for Packed<QuoteElem> {
             // Add zero-width weak spacing to make the quotes "sticky".
             let hole = HElem::hole().pack();
             let quote = SmartQuoteElem::new().with_double(true).pack();
-            realized = Content::sequence([quote.clone(), hole.clone(), realized, hole, quote]);
+            realized = TypstContent::sequence([quote.clone(), hole.clone(), realized, hole, quote]);
         }
 
         if block {
@@ -183,7 +184,7 @@ impl Show for Packed<QuoteElem> {
                 // Use v(0.9em, weak: true) bring the attribution closer to the
                 // quote.
                 let weak_v = VElem::weak(Spacing::Rel(Em::new(0.9).into())).pack();
-                realized += weak_v + Content::sequence(seq).aligned(Alignment::END);
+                realized += weak_v + TypstContent::sequence(seq).aligned(Alignment::END);
             }
 
             realized = PadElem::new(realized).pack();

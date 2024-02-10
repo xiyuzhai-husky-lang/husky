@@ -5,8 +5,8 @@ use crate::diag::SourceResult;
 use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
 use crate::foundations::{
-    cast, elem, func, scope, select_where, ty, Content, Func, NativeElement, Packed, Repr,
-    Selector, Show, Str, StyleChain, TypstValue,
+    cast, elem, func, scope, select_where, ty, Func, NativeElement, Packed, Repr, Selector, Show,
+    Str, StyleChain, TypstContent, TypstValue,
 };
 use crate::introspection::{Introspector, Locatable, Location, Locator};
 use crate::syntax::Span;
@@ -279,7 +279,7 @@ impl State {
         /// value is directly displayed.
         #[default]
         func: Option<Func>,
-    ) -> Content {
+    ) -> TypstContent {
         DisplayElem::new(self, func).pack().spanned(span)
     }
 
@@ -300,7 +300,7 @@ impl State {
         /// given a function, that function receives the previous state and has
         /// to return the new state.
         update: StateUpdate,
-    ) -> Content {
+    ) -> TypstContent {
         UpdateElem::new(self.key, update).pack().spanned(span)
     }
 
@@ -387,7 +387,7 @@ struct DisplayElem {
 
 impl Show for Packed<DisplayElem> {
     #[husky_typst_macros::time(name = "state.display", span = self.span())]
-    fn show(&self, engine: &mut Engine, _: StyleChain) -> SourceResult<Content> {
+    fn show(&self, engine: &mut Engine, _: StyleChain) -> SourceResult<TypstContent> {
         let location = self.location().unwrap();
         let value = self.state().at(engine, location)?;
         Ok(match self.func() {
@@ -410,7 +410,7 @@ struct UpdateElem {
 }
 
 impl Show for Packed<UpdateElem> {
-    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<Content> {
-        Ok(Content::empty())
+    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<TypstContent> {
+        Ok(TypstContent::empty())
     }
 }

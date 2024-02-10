@@ -23,9 +23,9 @@ use crate::diag::{bail, error, At, FileError, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::eval::{eval_string, EvalMode};
 use crate::foundations::{
-    cast, elem, ty, Args, Array, Bytes, CastInfo, Content, FromTypstValue, IntoTypstValue, Label,
+    cast, elem, ty, Args, Array, Bytes, CastInfo, FromTypstValue, IntoTypstValue, Label,
     NativeElement, Packed, Reflect, Repr, Scope, Show, ShowSet, Smart, Str, StyleChain, Styles,
-    Synthesize, Type, TypstValue,
+    Synthesize, Type, TypstContent, TypstValue,
 };
 use crate::introspection::{Introspector, Locatable, Location};
 use crate::layout::{
@@ -103,7 +103,7 @@ pub struct BibliographyElem {
     /// force it to be with a show-set rule:
     /// `{show bibliography: set heading(numbering: "1.")}`
     #[default(Some(Smart::Auto))]
-    pub title: Option<Smart<Content>>,
+    pub title: Option<Smart<TypstContent>>,
 
     /// Whether to include all works from the given bibliography files, even
     /// those that weren't cited in the document.
@@ -203,7 +203,7 @@ impl Synthesize for Packed<BibliographyElem> {
 
 impl Show for Packed<BibliographyElem> {
     #[husky_typst_macros::time(name = "bibliography", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         const COLUMN_GUTTER: Em = Em::new(0.65);
         const INDENT: Em = Em::new(1.5);
 
@@ -255,7 +255,7 @@ impl Show for Packed<BibliographyElem> {
             }
         }
 
-        let mut content = Content::sequence(seq);
+        let mut content = TypstContent::sequence(seq);
         if works.hanging_indent {
             content = content.styled(ParElem::set_hanging_indent(INDENT.into()));
         }
@@ -569,10 +569,10 @@ impl Repr for CslStyle {
 /// citations to do it.
 pub(super) struct Works {
     /// Maps from the location of a citation group to its rendered content.
-    pub citations: HashMap<Location, SourceResult<Content>>,
+    pub citations: HashMap<Location, SourceResult<TypstContent>>,
     /// Lists all references in the bibliography, with optional prefix, or
     /// `None` if the citation style can't be used for bibliographies.
-    pub references: Option<Vec<(Option<Content>, Content)>>,
+    pub references: Option<Vec<(Option<TypstContent>, TypstContent)>>,
     /// Whether the bibliography should have hanging indent.
     pub hanging_indent: bool,
 }
@@ -598,12 +598,12 @@ struct Generator<'a> {
     /// The document's bibliography.
     bibliography: Packed<BibliographyElem>,
     /// The document's citation groups.
-    groups: EcoVec<Prehashed<Content>>,
+    groups: EcoVec<Prehashed<TypstContent>>,
     /// Details about each group that are accumulated while driving hayagriva's
     /// bibliography driver and needed when processing hayagriva's output.
     infos: Vec<GroupInfo>,
     /// Citations with unresolved keys.
-    failures: HashMap<Location, SourceResult<Content>>,
+    failures: HashMap<Location, SourceResult<TypstContent>>,
 }
 
 /// Details about a group of merged citations. All citations are put into groups
@@ -625,7 +625,7 @@ struct CiteInfo {
     /// The citation's key.
     key: Label,
     /// The citation's supplement.
-    supplement: Option<Content>,
+    supplement: Option<TypstContent>,
     /// Whether this citation was hidden.
     hidden: bool,
 }
@@ -795,7 +795,7 @@ impl<'a> Generator<'a> {
     fn display_citations(
         &mut self,
         rendered: &hayagriva::Rendered,
-    ) -> HashMap<Location, SourceResult<Content>> {
+    ) -> HashMap<Location, SourceResult<TypstContent>> {
         // Determine for each citation key where in the bibliography it is,
         // so that we can link there.
         let mut links = HashMap::new();
@@ -819,7 +819,7 @@ impl<'a> Generator<'a> {
             };
 
             let content = if info.subinfos.iter().all(|sub| sub.hidden) {
-                Content::empty()
+                TypstContent::empty()
             } else {
                 let mut content = renderer.display_elem_children(&citation.citation, &mut None);
 
@@ -840,7 +840,7 @@ impl<'a> Generator<'a> {
     fn display_references(
         &self,
         rendered: &hayagriva::Rendered,
-    ) -> Option<Vec<(Option<Content>, Content)>> {
+    ) -> Option<Vec<(Option<TypstContent>, TypstContent)>> {
         let rendered = rendered.bibliography.as_ref()?;
 
         // Determine for each citation key where it first occurred, so that we
@@ -899,7 +899,7 @@ struct ElemRenderer<'a> {
     /// The span that is attached to all of the resulting content.
     span: Span,
     /// Resolves the supplement of i-th citation in the request.
-    supplement: &'a dyn Fn(usize) -> Option<Content>,
+    supplement: &'a dyn Fn(usize) -> Option<TypstContent>,
     /// Resolves where the i-th citation in the request should link to.
     link: &'a dyn Fn(usize) -> Option<Location>,
 }
@@ -912,9 +912,9 @@ impl ElemRenderer<'_> {
     fn display_elem_children(
         &self,
         elems: &hayagriva::ElemChildren,
-        prefix: &mut Option<Content>,
-    ) -> Content {
-        Content::sequence(
+        prefix: &mut Option<TypstContent>,
+    ) -> TypstContent {
+        TypstContent::sequence(
             elems
                 .0
                 .iter()
@@ -926,8 +926,8 @@ impl ElemRenderer<'_> {
     fn display_elem_child(
         &self,
         elem: &hayagriva::ElemChild,
-        prefix: &mut Option<Content>,
-    ) -> Content {
+        prefix: &mut Option<TypstContent>,
+    ) -> TypstContent {
         match elem {
             hayagriva::ElemChild::Text(formatted) => self.display_formatted(formatted),
             hayagriva::ElemChild::Elem(elem) => self.display_elem(elem, prefix),
@@ -940,7 +940,11 @@ impl ElemRenderer<'_> {
     }
 
     /// Display a block-level element.
-    fn display_elem(&self, elem: &hayagriva::Elem, prefix: &mut Option<Content>) -> Content {
+    fn display_elem(
+        &self,
+        elem: &hayagriva::Elem,
+        prefix: &mut Option<TypstContent>,
+    ) -> TypstContent {
         use citationberg::Display;
 
         let block_level = matches!(elem.display, Some(Display::Block | Display::Indent));
@@ -975,7 +979,7 @@ impl ElemRenderer<'_> {
             }
             Some(Display::LeftMargin) => {
                 *prefix.get_or_insert_with(Default::default) += content;
-                return Content::empty();
+                return TypstContent::empty();
             }
             _ => {}
         }
@@ -991,14 +995,14 @@ impl ElemRenderer<'_> {
     }
 
     /// Display math.
-    fn display_math(&self, math: &str) -> Content {
+    fn display_math(&self, math: &str) -> TypstContent {
         eval_string(self.world, math, self.span, EvalMode::Math, Scope::new())
             .map(TypstValue::display)
             .unwrap_or_else(|_| TextElem::packed(math).spanned(self.span))
     }
 
     /// Display a link.
-    fn display_link(&self, text: &hayagriva::Formatted, url: &str) -> Content {
+    fn display_link(&self, text: &hayagriva::Formatted, url: &str) -> TypstContent {
         let dest = Destination::Url(url.into());
         LinkElem::new(dest.into(), self.display_formatted(text))
             .pack()
@@ -1006,20 +1010,20 @@ impl ElemRenderer<'_> {
     }
 
     /// Display transparent pass-through content.
-    fn display_transparent(&self, i: usize, format: &hayagriva::Formatting) -> Content {
+    fn display_transparent(&self, i: usize, format: &hayagriva::Formatting) -> TypstContent {
         let content = (self.supplement)(i).unwrap_or_default();
         apply_formatting(content, format)
     }
 
     /// Display formatted hayagriva text as content.
-    fn display_formatted(&self, formatted: &hayagriva::Formatted) -> Content {
+    fn display_formatted(&self, formatted: &hayagriva::Formatted) -> TypstContent {
         let content = TextElem::packed(formatted.text.as_str()).spanned(self.span);
         apply_formatting(content, &formatted.formatting)
     }
 }
 
 /// Applies formatting to content.
-fn apply_formatting(mut content: Content, format: &hayagriva::Formatting) -> Content {
+fn apply_formatting(mut content: TypstContent, format: &hayagriva::Formatting) -> TypstContent {
     match format.font_style {
         citationberg::FontStyle::Normal => {}
         citationberg::FontStyle::Italic => {

@@ -10,7 +10,7 @@ use indexmap::IndexMap;
 use smallvec::SmallVec;
 
 use crate::diag::{bail, StrResult};
-use crate::foundations::{Content, Label, Repr, Selector};
+use crate::foundations::{Label, Repr, Selector, TypstContent};
 use crate::introspection::{Location, Meta};
 use crate::layout::{Frame, FrameItem, Page, Point, Position, Transform};
 use crate::model::Numbering;
@@ -22,7 +22,7 @@ pub struct Introspector {
     /// The number of pages in the document.
     pages: usize,
     /// All introspectable elements.
-    elems: IndexMap<Location, (Prehashed<Content>, Position)>,
+    elems: IndexMap<Location, (Prehashed<TypstContent>, Position)>,
     /// Maps labels to their indices in the element list. We use a smallvec such
     /// that if the label is unique, we don't need to allocate.
     labels: HashMap<Label, SmallVec<[usize; 1]>>,
@@ -87,24 +87,28 @@ impl Introspector {
     }
 
     /// Iterate over all locatable elements.
-    pub fn all(&self) -> impl Iterator<Item = &Prehashed<Content>> + '_ {
+    pub fn all(&self) -> impl Iterator<Item = &Prehashed<TypstContent>> + '_ {
         self.elems.values().map(|(c, _)| c)
     }
 
     /// Get an element by its location.
-    fn get(&self, location: &Location) -> Option<&Prehashed<Content>> {
+    fn get(&self, location: &Location) -> Option<&Prehashed<TypstContent>> {
         self.elems.get(location).map(|(elem, _)| elem)
     }
 
     /// Get the index of this element among all.
-    fn index(&self, elem: &Content) -> usize {
+    fn index(&self, elem: &TypstContent) -> usize {
         self.elems
             .get_index_of(&elem.location().unwrap())
             .unwrap_or(usize::MAX)
     }
 
     /// Perform a binary search for `elem` among the `list`.
-    fn binary_search(&self, list: &[Prehashed<Content>], elem: &Content) -> Result<usize, usize> {
+    fn binary_search(
+        &self,
+        list: &[Prehashed<TypstContent>],
+        elem: &TypstContent,
+    ) -> Result<usize, usize> {
         list.binary_search_by_key(&self.index(elem), |elem| self.index(elem))
     }
 }
@@ -112,7 +116,7 @@ impl Introspector {
 #[comemo::track]
 impl Introspector {
     /// Query for all matching elements.
-    pub fn query(&self, selector: &Selector) -> EcoVec<Prehashed<Content>> {
+    pub fn query(&self, selector: &Selector) -> EcoVec<Prehashed<TypstContent>> {
         let hash = crate::util::hash128(selector);
         if let Some(output) = self.queries.get(hash) {
             return output;
@@ -208,7 +212,7 @@ impl Introspector {
     }
 
     /// Query for the first element that matches the selector.
-    pub fn query_first(&self, selector: &Selector) -> Option<Prehashed<Content>> {
+    pub fn query_first(&self, selector: &Selector) -> Option<Prehashed<TypstContent>> {
         match selector {
             Selector::Location(location) => self.get(location).cloned(),
             _ => self.query(selector).first().cloned(),
@@ -216,7 +220,7 @@ impl Introspector {
     }
 
     /// Query for a unique element with the label.
-    pub fn query_label(&self, label: Label) -> StrResult<&Prehashed<Content>> {
+    pub fn query_label(&self, label: Label) -> StrResult<&Prehashed<TypstContent>> {
         let indices = self.labels.get(&label).ok_or_else(|| {
             eco_format!("label `{}` does not exist in the document", label.repr())
         })?;
@@ -281,14 +285,14 @@ impl Debug for Introspector {
 
 /// Caches queries.
 #[derive(Default)]
-struct QueryCache(RwLock<HashMap<u128, EcoVec<Prehashed<Content>>>>);
+struct QueryCache(RwLock<HashMap<u128, EcoVec<Prehashed<TypstContent>>>>);
 
 impl QueryCache {
-    fn get(&self, hash: u128) -> Option<EcoVec<Prehashed<Content>>> {
+    fn get(&self, hash: u128) -> Option<EcoVec<Prehashed<TypstContent>>> {
         self.0.read().unwrap().get(&hash).cloned()
     }
 
-    fn insert(&self, hash: u128, output: EcoVec<Prehashed<Content>>) {
+    fn insert(&self, hash: u128, output: EcoVec<Prehashed<TypstContent>>) {
         self.0.write().unwrap().insert(hash, output);
     }
 

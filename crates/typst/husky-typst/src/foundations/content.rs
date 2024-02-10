@@ -70,7 +70,7 @@ use crate::util::{fat, BitSet};
 #[ty(scope, cast)]
 #[derive(Clone, Hash)]
 #[allow(clippy::derived_hash_with_manual_eq)]
-pub struct Content {
+pub struct TypstContent {
     /// The partially element-dependant inner data.
     inner: Arc<Inner<dyn Bounds>>,
     /// The element's source code location.
@@ -93,7 +93,7 @@ struct Inner<T: ?Sized> {
     elem: T,
 }
 
-impl Content {
+impl TypstContent {
     /// Creates a new content from an element.
     pub fn new<T: NativeElement>(elem: T) -> Self {
         Self {
@@ -294,7 +294,7 @@ impl Content {
         // Since any `Packed<T>` is a repr(transparent) `Content`, we can also
         // use a `*const Content` pointer.
         let vtable = self.elem().vtable()(TypeId::of::<C>())?;
-        let data = self as *const Content as *const ();
+        let data = self as *const TypstContent as *const ();
         Some(unsafe { &*fat::from_raw_parts(data, vtable) })
     }
 
@@ -314,7 +314,7 @@ impl Content {
         // because `Packed<T>`'s DerefMut impl will take care of that if
         // mutable access is required.
         let vtable = self.elem().vtable()(TypeId::of::<C>())?;
-        let data = self as *mut Content as *mut ();
+        let data = self as *mut TypstContent as *mut ();
         Some(unsafe { &mut *fat::from_raw_parts_mut(data, vtable) })
     }
 
@@ -333,7 +333,7 @@ impl Content {
     }
 
     /// Access the children if this is a sequence.
-    pub fn to_sequence(&self) -> Option<impl Iterator<Item = &Prehashed<Content>>> {
+    pub fn to_sequence(&self) -> Option<impl Iterator<Item = &Prehashed<TypstContent>>> {
         let sequence = self.to_packed::<SequenceElem>()?;
         Some(sequence.children.iter())
     }
@@ -348,7 +348,7 @@ impl Content {
     }
 
     /// Access the child and styles.
-    pub fn to_styled(&self) -> Option<(&Content, &Styles)> {
+    pub fn to_styled(&self) -> Option<(&TypstContent, &Styles)> {
         let styled = self.to_packed::<StyledElem>()?;
         let child = styled.child();
         let styles = styled.styles();
@@ -396,7 +396,7 @@ impl Content {
     /// Queries the content tree for all elements that match the given selector.
     ///
     /// Elements produced in `show` rules will not be included in the results.
-    pub fn query(&self, selector: Selector) -> Vec<Content> {
+    pub fn query(&self, selector: Selector) -> Vec<TypstContent> {
         let mut results = Vec::new();
         self.traverse(&mut |element| {
             if selector.matches(&element, None) {
@@ -410,7 +410,7 @@ impl Content {
     /// selector.
     ///
     /// Elements produced in `show` rules will not be included in the results.
-    pub fn query_first(&self, selector: Selector) -> Option<Content> {
+    pub fn query_first(&self, selector: Selector) -> Option<TypstContent> {
         let mut result = None;
         self.traverse(&mut |element| {
             if result.is_none() && selector.matches(&element, None) {
@@ -434,7 +434,7 @@ impl Content {
     /// Traverse this content.
     fn traverse<F>(&self, f: &mut F)
     where
-        F: FnMut(Content),
+        F: FnMut(TypstContent),
     {
         f(self.clone());
 
@@ -447,7 +447,7 @@ impl Content {
         /// Walks a given value to find any content that matches the selector.
         fn walk_value<F>(value: TypstValue, f: &mut F)
         where
-            F: FnMut(Content),
+            F: FnMut(TypstContent),
         {
             match value {
                 TypstValue::Content(content) => content.traverse(f),
@@ -462,7 +462,7 @@ impl Content {
     }
 }
 
-impl Content {
+impl TypstContent {
     /// Strongly emphasize this content.
     pub fn strong(self) -> Self {
         StrongElem::new(self).pack()
@@ -487,7 +487,7 @@ impl Content {
     ///
     /// Should be used in combination with [`Location::variant`].
     pub fn backlinked(self, loc: Location) -> Self {
-        let mut backlink = Content::empty();
+        let mut backlink = TypstContent::empty();
         backlink.set_location(loc);
         self.styled(MetaElem::set_data(smallvec![Meta::Elem(backlink)]))
     }
@@ -514,7 +514,7 @@ impl Content {
 }
 
 #[scope]
-impl Content {
+impl TypstContent {
     /// The content's element function. This function can be used to create the element
     /// contained in this content. It can be used in set and show rules for the
     /// element. Can be compared with global functions to check whether you have
@@ -588,38 +588,38 @@ impl Content {
     }
 }
 
-impl Default for Content {
+impl Default for TypstContent {
     fn default() -> Self {
         Self::empty()
     }
 }
 
-impl Debug for Content {
+impl Debug for TypstContent {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         self.inner.elem.fmt(f)
     }
 }
 
-impl<T: NativeElement> From<T> for Content {
+impl<T: NativeElement> From<T> for TypstContent {
     fn from(value: T) -> Self {
         Self::new(value)
     }
 }
 
-impl PartialEq for Content {
+impl PartialEq for TypstContent {
     fn eq(&self, other: &Self) -> bool {
         // Additional short circuit for different elements.
         self.elem() == other.elem() && self.inner.elem.dyn_eq(other)
     }
 }
 
-impl Repr for Content {
+impl Repr for TypstContent {
     fn repr(&self) -> EcoString {
         self.inner.elem.repr()
     }
 }
 
-impl Add for Content {
+impl Add for TypstContent {
     type Output = Self;
 
     fn add(self, mut rhs: Self) -> Self::Output {
@@ -645,7 +645,7 @@ impl Add for Content {
     }
 }
 
-impl<'a> Add<&'a Self> for Content {
+impl<'a> Add<&'a Self> for TypstContent {
     type Output = Self;
 
     fn add(self, rhs: &'a Self) -> Self::Output {
@@ -675,25 +675,25 @@ impl<'a> Add<&'a Self> for Content {
     }
 }
 
-impl AddAssign for Content {
+impl AddAssign for TypstContent {
     fn add_assign(&mut self, rhs: Self) {
         *self = std::mem::take(self) + rhs;
     }
 }
 
-impl AddAssign<&Self> for Content {
+impl AddAssign<&Self> for TypstContent {
     fn add_assign(&mut self, rhs: &Self) {
         *self = std::mem::take(self) + rhs;
     }
 }
 
-impl Sum for Content {
+impl Sum for TypstContent {
     fn sum<I: Iterator<Item = Self>>(iter: I) -> Self {
         Self::sequence(iter)
     }
 }
 
-impl Serialize for Content {
+impl Serialize for TypstContent {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
@@ -708,9 +708,9 @@ impl Serialize for Content {
 trait Bounds: Debug + Repr + Fields + Send + Sync + 'static {
     fn dyn_type_id(&self) -> TypeId;
     fn dyn_elem(&self) -> Element;
-    fn dyn_clone(&self, inner: &Inner<dyn Bounds>, span: Span) -> Content;
+    fn dyn_clone(&self, inner: &Inner<dyn Bounds>, span: Span) -> TypstContent;
     fn dyn_hash(&self, hasher: &mut dyn Hasher);
-    fn dyn_eq(&self, other: &Content) -> bool;
+    fn dyn_eq(&self, other: &TypstContent) -> bool;
 }
 
 impl<T: NativeElement> Bounds for T {
@@ -722,8 +722,8 @@ impl<T: NativeElement> Bounds for T {
         Self::elem()
     }
 
-    fn dyn_clone(&self, inner: &Inner<dyn Bounds>, span: Span) -> Content {
-        Content {
+    fn dyn_clone(&self, inner: &Inner<dyn Bounds>, span: Span) -> TypstContent {
+        TypstContent {
             inner: Arc::new(Inner {
                 label: inner.label,
                 location: inner.location,
@@ -739,7 +739,7 @@ impl<T: NativeElement> Bounds for T {
         self.hash(&mut state);
     }
 
-    fn dyn_eq(&self, other: &Content) -> bool {
+    fn dyn_eq(&self, other: &TypstContent) -> bool {
         let Some(other) = other.to_packed::<Self>() else {
             return false;
         };
@@ -758,7 +758,7 @@ impl Hash for dyn Bounds {
 #[repr(transparent)]
 pub struct Packed<T: NativeElement>(
     /// Invariant: Must be of type `T`.
-    Content,
+    TypstContent,
     PhantomData<T>,
 );
 
@@ -770,7 +770,7 @@ impl<T: NativeElement> Packed<T> {
     }
 
     /// Try to cast type-erased content into a statically known packed element.
-    pub fn from_ref(content: &Content) -> Option<&Self> {
+    pub fn from_ref(content: &TypstContent) -> Option<&Self> {
         if content.is::<T>() {
             // Safety:
             // - We have checked the type.
@@ -781,7 +781,7 @@ impl<T: NativeElement> Packed<T> {
     }
 
     /// Try to cast type-erased content into a statically known packed element.
-    pub fn from_mut(content: &mut Content) -> Option<&mut Self> {
+    pub fn from_mut(content: &mut TypstContent) -> Option<&mut Self> {
         if content.is::<T>() {
             // Safety:
             // - We have checked the type.
@@ -792,7 +792,7 @@ impl<T: NativeElement> Packed<T> {
     }
 
     /// Try to cast type-erased content into a statically known packed element.
-    pub fn from_owned(content: Content) -> Result<Self, Content> {
+    pub fn from_owned(content: TypstContent) -> Result<Self, TypstContent> {
         if content.is::<T>() {
             // Safety:
             // - We have checked the type.
@@ -803,7 +803,7 @@ impl<T: NativeElement> Packed<T> {
     }
 
     /// Pack back into content.
-    pub fn pack(self) -> Content {
+    pub fn pack(self) -> TypstContent {
         self.0
     }
 
@@ -888,7 +888,7 @@ impl<T: NativeElement + Debug> Debug for Packed<T> {
 #[elem(Debug, Repr, PartialEq)]
 struct SequenceElem {
     #[required]
-    children: Vec<Prehashed<Content>>,
+    children: Vec<Prehashed<TypstContent>>,
 }
 
 impl Debug for SequenceElem {
@@ -941,7 +941,7 @@ impl Repr for SequenceElem {
 #[elem(Debug, Repr, PartialEq)]
 struct StyledElem {
     #[required]
-    child: Prehashed<Content>,
+    child: Prehashed<TypstContent>,
     #[required]
     styles: Styles,
 }

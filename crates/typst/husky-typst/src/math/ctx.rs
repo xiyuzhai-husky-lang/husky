@@ -12,17 +12,16 @@ use unicode_segmentation::UnicodeSegmentation;
 
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{Content, Packed, Smart, StyleChain};
+use crate::foundations::{Packed, Smart, StyleChain, TypstContent};
 use crate::layout::{Abs, Axes, BoxElem, Em, Frame, LayoutMultiple, Regions, Size};
 use crate::math::{
-    scaled_font_size, styled_char, EquationElem, FrameFragment, GlyphFragment,
-    LayoutMath, MathFragment, MathRow, MathSize, THICK,
+    scaled_font_size, styled_char, EquationElem, FrameFragment, GlyphFragment, LayoutMath,
+    MathFragment, MathRow, MathSize, THICK,
 };
 use crate::model::ParElem;
 use crate::syntax::{is_newline, Span};
 use crate::text::{
-    features, BottomEdge, BottomEdgeMetric, Font, TextElem, TextSize, TopEdge,
-    TopEdgeMetric,
+    features, BottomEdge, BottomEdgeMetric, Font, TextElem, TextSize, TopEdge, TopEdgeMetric,
 };
 
 macro_rules! scaled {
@@ -173,18 +172,16 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
         boxed: &Packed<BoxElem>,
         styles: StyleChain,
     ) -> SourceResult<Frame> {
-        let local =
-            TextElem::set_size(TextSize(scaled_font_size(self, styles).into())).wrap();
+        let local = TextElem::set_size(TextSize(scaled_font_size(self, styles).into())).wrap();
         boxed.layout(self.engine, styles.chain(&local), self.regions)
     }
 
     pub fn layout_content(
         &mut self,
-        content: &Content,
+        content: &TypstContent,
         styles: StyleChain,
     ) -> SourceResult<Frame> {
-        let local =
-            TextElem::set_size(TextSize(scaled_font_size(self, styles).into())).wrap();
+        let local = TextElem::set_size(TextSize(scaled_font_size(self, styles).into())).wrap();
         Ok(content
             .layout(self.engine, styles.chain(&local), self.regions)?
             .into_frame())
@@ -238,7 +235,9 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
                 fragments.push(GlyphFragment::new(self, styles, c, span).into());
             }
             let frame = MathRow::new(fragments).into_frame(self, styles);
-            FrameFragment::new(self, styles, frame).with_text_like(true).into()
+            FrameFragment::new(self, styles, frame)
+                .with_text_like(true)
+                .into()
         } else {
             let local = [
                 TextElem::set_top_edge(TopEdge::Metric(TopEdgeMetric::Bounds)),
@@ -258,8 +257,7 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
                         fragments.push(MathFragment::Linebreak);
                     }
                     if !piece.is_empty() {
-                        fragments
-                            .push(self.layout_complex_text(piece, span, styles)?.into());
+                        fragments.push(self.layout_complex_text(piece, span, styles)?.into());
                     }
                 }
                 let mut frame = MathRow::new(fragments).into_frame(self, styles);
@@ -335,9 +333,7 @@ impl<'a> GlyphwiseSubsts<'a> {
             .and_then(|index| gsub.lookups.get(index))?;
         let table = table.subtables.get::<SubstitutionSubtable>(0)?;
         match table {
-            SubstitutionSubtable::Single(single_glyphs) => {
-                Some(Self::Single(single_glyphs))
-            }
+            SubstitutionSubtable::Single(single_glyphs) => Some(Self::Single(single_glyphs)),
             SubstitutionSubtable::Alternate(alt_glyphs) => {
                 Some(Self::Alternate(alt_glyphs, feature.value))
             }
@@ -351,9 +347,10 @@ impl<'a> GlyphwiseSubsts<'a> {
                 SingleSubstitution::Format1 { coverage, delta } => coverage
                     .get(glyph_id)
                     .map(|_| GlyphId(glyph_id.0.wrapping_add(*delta as u16))),
-                SingleSubstitution::Format2 { coverage, substitutes } => {
-                    coverage.get(glyph_id).and_then(|idx| substitutes.get(idx))
-                }
+                SingleSubstitution::Format2 {
+                    coverage,
+                    substitutes,
+                } => coverage.get(glyph_id).and_then(|idx| substitutes.get(idx)),
             },
             Self::Alternate(alternate, value) => alternate
                 .coverage

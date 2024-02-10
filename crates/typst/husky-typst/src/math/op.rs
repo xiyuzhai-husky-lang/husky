@@ -2,7 +2,7 @@ use ecow::EcoString;
 use unicode_math_class::MathClass;
 
 use crate::diag::SourceResult;
-use crate::foundations::{elem, Content, NativeElement, Packed, Scope, StyleChain};
+use crate::foundations::{elem, NativeElement, Packed, Scope, StyleChain, TypstContent};
 use crate::layout::HElem;
 use crate::math::{upright, FrameFragment, LayoutMath, Limits, MathContext, THIN};
 use crate::text::TextElem;
@@ -26,7 +26,7 @@ use crate::text::TextElem;
 pub struct OpElem {
     /// The operator's text.
     #[required]
-    pub text: Content,
+    pub text: TypstContent,
 
     /// Whether the operator should show attachments as limits in display mode.
     #[default(false)]
