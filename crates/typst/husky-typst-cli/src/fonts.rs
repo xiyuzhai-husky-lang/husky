@@ -4,7 +4,7 @@ use std::sync::OnceLock;
 
 use fontdb::{Database, Source};
 use husky_typst::diag::StrResult;
-use husky_typst::text::{Font, FontBook, FontInfo, FontVariant};
+use husky_typst::text::{FontInfo, FontVariant, TypstFont, TypstFontBook};
 use husky_typst_timing::TimingScope;
 
 use crate::args::FontsCommand;
@@ -34,7 +34,7 @@ pub fn fonts(command: &FontsCommand) -> StrResult<()> {
 /// Searches for fonts.
 pub struct FontSearcher {
     /// Metadata about all discovered fonts.
-    pub book: FontBook,
+    pub book: TypstFontBook,
     /// Slots that the fonts are loaded into.
     pub fonts: Vec<FontSlot>,
 }
@@ -47,17 +47,17 @@ pub struct FontSlot {
     /// to a collection.
     index: u32,
     /// The lazily loaded font.
-    font: OnceLock<Option<Font>>,
+    font: OnceLock<Option<TypstFont>>,
 }
 
 impl FontSlot {
     /// Get the font for this slot.
-    pub fn get(&self) -> Option<Font> {
+    pub fn get(&self) -> Option<TypstFont> {
         self.font
             .get_or_init(|| {
                 let _scope = TimingScope::new("load font", None);
                 let data = fs::read(&self.path).ok()?.into();
-                Font::new(data, self.index)
+                TypstFont::new(data, self.index)
             })
             .clone()
     }
@@ -67,7 +67,7 @@ impl FontSearcher {
     /// Create a new, empty system searcher.
     pub fn new() -> Self {
         Self {
-            book: FontBook::new(),
+            book: TypstFontBook::new(),
             fonts: vec![],
         }
     }
@@ -116,7 +116,7 @@ impl FontSearcher {
     fn add_embedded(&mut self) {
         let mut process = |bytes: &'static [u8]| {
             let buffer = husky_typst::foundations::Bytes::from_static(bytes);
-            for (i, font) in Font::iter(buffer).enumerate() {
+            for (i, font) in TypstFont::iter(buffer).enumerate() {
                 self.book.push(font.info().clone());
                 self.fonts.push(FontSlot {
                     path: PathBuf::new(),

@@ -8,7 +8,7 @@ use crate::foundations::{
     TypstContent,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable, Location};
-use crate::layout::{Abs, Em, HElem, Length, Ratio};
+use crate::layout::{Abs, HElem, Length, LengthInEm, Ratio};
 use crate::model::{Destination, Numbering, NumberingPattern, ParElem};
 use crate::text::{SuperElem, TextElem, TextSize};
 use crate::util::NonZeroExt;
@@ -233,7 +233,7 @@ pub struct FootnoteEntry {
     ///   ... some space to breathe.
     /// ]
     /// ```
-    #[default(Em::new(1.0).into())]
+    #[default(LengthInEm::new(1.0).into())]
     #[resolve]
     pub clearance: Length,
 
@@ -246,7 +246,7 @@ pub struct FootnoteEntry {
     /// #footnote[Spaced],
     /// #footnote[Apart]
     /// ```
-    #[default(Em::new(0.5).into())]
+    #[default(LengthInEm::new(0.5).into())]
     #[resolve]
     pub gap: Length,
 
@@ -259,7 +259,7 @@ pub struct FootnoteEntry {
     /// #footnote[No],
     /// #footnote[Indent]
     /// ```
-    #[default(Em::new(1.0).into())]
+    #[default(LengthInEm::new(1.0).into())]
     pub indent: Length,
 }
 
@@ -267,7 +267,7 @@ impl Show for Packed<FootnoteEntry> {
     #[husky_typst_macros::time(name = "footnote.entry", span = self.span())]
     fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         let note = self.note();
-        let number_gap = Em::new(0.05);
+        let number_gap = LengthInEm::new(0.05);
         let default = StyleChain::default();
         let numbering = note.numbering(default);
         let counter = Counter::of(FootnoteElem::elem());
@@ -295,8 +295,8 @@ impl Show for Packed<FootnoteEntry> {
 
 impl ShowSet for Packed<FootnoteEntry> {
     fn show_set(&self, _: StyleChain) -> Styles {
-        let text_size = Em::new(0.85);
-        let leading = Em::new(0.5);
+        let text_size = LengthInEm::new(0.85);
+        let leading = LengthInEm::new(0.5);
         let mut out = Styles::new();
         out.set(ParElem::set_leading(leading.into()));
         out.set(TextElem::set_size(TextSize(text_size.into())));

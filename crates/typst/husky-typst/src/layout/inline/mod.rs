@@ -15,8 +15,8 @@ use crate::eval::Tracer;
 use crate::foundations::{Packed, Resolve, Smart, StyleChain, TypstContent};
 use crate::introspection::{Introspector, Locator, MetaElem};
 use crate::layout::{
-    Abs, AlignElem, Axes, BoxElem, Dir, Em, FixedAlignment, Fr, Fragment, Frame, HElem, Point,
-    Regions, Size, Sizing, Spacing,
+    Abs, AlignElem, Axes, BoxElem, FixedAlignment, Fr, Fragment, Frame, HElem, LengthInEm, Point,
+    Regions, Size, Sizing, Spacing, TypstLayoutDirection,
 };
 use crate::math::{EquationElem, MathParItem};
 use crate::model::{Linebreaks, ParElem};
@@ -567,8 +567,8 @@ fn prepare<'a>(
     let bidi = BidiInfo::new(
         text,
         match dir {
-            Dir::LTR => Some(BidiLevel::ltr()),
-            Dir::RTL => Some(BidiLevel::rtl()),
+            TypstLayoutDirection::LeftRight => Some(BidiLevel::ltr()),
+            TypstLayoutDirection::RightLeft => Some(BidiLevel::rtl()),
             _ => None,
         },
     );
@@ -677,17 +677,17 @@ fn add_cjk_latin_spacing(items: &mut [Item]) {
             // Case 1: CJ followed by a Latin character
             if glyph.is_cj_script() && next.map_or(false, |g| g.is_letter_or_number()) {
                 // The spacing is default to 1/4 em, and can be shrunk to 1/8 em.
-                glyph.x_advance += Em::new(0.25);
-                glyph.adjustability.shrinkability.1 += Em::new(0.125);
-                text.width += Em::new(0.25).at(text.size);
+                glyph.x_advance += LengthInEm::new(0.25);
+                glyph.adjustability.shrinkability.1 += LengthInEm::new(0.125);
+                text.width += LengthInEm::new(0.25).at(text.size);
             }
 
             // Case 2: Latin followed by a CJ character
             if glyph.is_cj_script() && prev.map_or(false, |g| g.is_letter_or_number()) {
-                glyph.x_advance += Em::new(0.25);
-                glyph.x_offset += Em::new(0.25);
-                glyph.adjustability.shrinkability.0 += Em::new(0.125);
-                text.width += Em::new(0.25).at(text.size);
+                glyph.x_advance += LengthInEm::new(0.25);
+                glyph.x_offset += LengthInEm::new(0.25);
+                glyph.adjustability.shrinkability.0 += LengthInEm::new(0.125);
+                text.width += LengthInEm::new(0.25).at(text.size);
             }
 
             prev = Some(glyph);
@@ -709,7 +709,11 @@ fn shape_range<'a>(
     let lang = TextElem::lang_in(styles);
     let region = TextElem::region_in(styles);
     let mut process = |range: Range, level: BidiLevel| {
-        let dir = if level.is_ltr() { Dir::LTR } else { Dir::RTL };
+        let dir = if level.is_ltr() {
+            TypstLayoutDirection::LeftRight
+        } else {
+            TypstLayoutDirection::RightLeft
+        };
         let shaped = shape(
             engine,
             range.start,
@@ -1087,14 +1091,15 @@ fn line<'a>(
                         reshaped.width -= shrink_amount.at(reshaped.size);
                     } else if p.cjk_latin_spacing
                         && last_glyph.is_cj_script()
-                        && (last_glyph.x_advance - last_glyph.x_offset) > Em::one()
+                        && (last_glyph.x_advance - last_glyph.x_offset) > LengthInEm::one()
                     {
                         // If the last glyph is a CJK character adjusted by [`add_cjk_latin_spacing`],
                         // restore the original width.
-                        let shrink_amount = last_glyph.x_advance - last_glyph.x_offset - Em::one();
+                        let shrink_amount =
+                            last_glyph.x_advance - last_glyph.x_offset - LengthInEm::one();
                         let glyph = reshaped.glyphs.to_mut().last_mut().unwrap();
                         glyph.x_advance -= shrink_amount;
-                        glyph.adjustability.shrinkability.1 = Em::zero();
+                        glyph.adjustability.shrinkability.1 = LengthInEm::zero();
                         reshaped.width -= shrink_amount.at(reshaped.size);
                     }
                 }
@@ -1146,15 +1151,15 @@ fn line<'a>(
                     width -= amount_abs;
                 } else if p.cjk_latin_spacing
                     && first_glyph.is_cj_script()
-                    && first_glyph.x_offset > Em::zero()
+                    && first_glyph.x_offset > LengthInEm::zero()
                 {
                     // If the first glyph is a CJK character adjusted by [`add_cjk_latin_spacing`],
                     // restore the original width.
                     let shrink_amount = first_glyph.x_offset;
                     let glyph = reshaped.glyphs.to_mut().first_mut().unwrap();
                     glyph.x_advance -= shrink_amount;
-                    glyph.x_offset = Em::zero();
-                    glyph.adjustability.shrinkability.0 = Em::zero();
+                    glyph.x_offset = LengthInEm::zero();
+                    glyph.adjustability.shrinkability.0 = LengthInEm::zero();
                     let amount_abs = shrink_amount.at(reshaped.size);
                     reshaped.width -= amount_abs;
                     width -= amount_abs;

@@ -20,35 +20,35 @@ use crate::layout::{Axis, Side};
 /// ```
 #[ty(scope, name = "direction")]
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
-pub enum Dir {
+pub enum TypstLayoutDirection {
     /// Left to right.
-    LTR,
+    LeftRight,
     /// Right to left.
-    RTL,
+    RightLeft,
     /// Top to bottom.
-    TTB,
+    TopDown,
     /// Bottom to top.
-    BTT,
+    BOTTOM_UP,
 }
 
-impl Dir {
+impl TypstLayoutDirection {
     /// Whether this direction points into the positive coordinate direction.
     ///
     /// The positive directions are left-to-right and top-to-bottom.
     pub const fn is_positive(self) -> bool {
         match self {
-            Self::LTR | Self::TTB => true,
-            Self::RTL | Self::BTT => false,
+            Self::LeftRight | Self::TopDown => true,
+            Self::RightLeft | Self::BOTTOM_UP => false,
         }
     }
 }
 
 #[scope]
-impl Dir {
-    pub const LTR: Self = Self::LTR;
-    pub const RTL: Self = Self::RTL;
-    pub const TTB: Self = Self::TTB;
-    pub const BTT: Self = Self::BTT;
+impl TypstLayoutDirection {
+    pub const LEFT_RIGHT: Self = Self::LeftRight;
+    pub const RIGHT_LEFT: Self = Self::RightLeft;
+    pub const TOP_DOWN: Self = Self::TopDown;
+    pub const BOTTOM_UP: Self = Self::BOTTOM_UP;
 
     /// The axis this direction belongs to, either `{"horizontal"}` or
     /// `{"vertical"}`.
@@ -60,8 +60,8 @@ impl Dir {
     #[func]
     pub const fn axis(self) -> Axis {
         match self {
-            Self::LTR | Self::RTL => Axis::X,
-            Self::TTB | Self::BTT => Axis::Y,
+            Self::LeftRight | Self::RightLeft => Axis::X,
+            Self::TopDown | Self::BOTTOM_UP => Axis::Y,
         }
     }
 
@@ -76,10 +76,10 @@ impl Dir {
     #[func]
     pub const fn start(self) -> Side {
         match self {
-            Self::LTR => Side::Left,
-            Self::RTL => Side::Right,
-            Self::TTB => Side::Top,
-            Self::BTT => Side::Bottom,
+            Self::LeftRight => Side::Left,
+            Self::RightLeft => Side::Right,
+            Self::TopDown => Side::Top,
+            Self::BOTTOM_UP => Side::Bottom,
         }
     }
 
@@ -94,10 +94,10 @@ impl Dir {
     #[func]
     pub const fn end(self) -> Side {
         match self {
-            Self::LTR => Side::Right,
-            Self::RTL => Side::Left,
-            Self::TTB => Side::Bottom,
-            Self::BTT => Side::Top,
+            Self::LeftRight => Side::Right,
+            Self::RightLeft => Side::Left,
+            Self::TopDown => Side::Bottom,
+            Self::BOTTOM_UP => Side::Top,
         }
     }
 
@@ -110,23 +110,23 @@ impl Dir {
     /// #btt.inv()
     /// ```
     #[func(title = "Inverse")]
-    pub const fn inv(self) -> Dir {
+    pub const fn inv(self) -> TypstLayoutDirection {
         match self {
-            Self::LTR => Self::RTL,
-            Self::RTL => Self::LTR,
-            Self::TTB => Self::BTT,
-            Self::BTT => Self::TTB,
+            Self::LeftRight => Self::RightLeft,
+            Self::RightLeft => Self::LeftRight,
+            Self::TopDown => Self::BOTTOM_UP,
+            Self::BOTTOM_UP => Self::TopDown,
         }
     }
 }
 
-impl Repr for Dir {
+impl Repr for TypstLayoutDirection {
     fn repr(&self) -> EcoString {
         match self {
-            Self::LTR => "ltr".into(),
-            Self::RTL => "rtl".into(),
-            Self::TTB => "ttb".into(),
-            Self::BTT => "btt".into(),
+            Self::LeftRight => "ltr".into(),
+            Self::RightLeft => "rtl".into(),
+            Self::TopDown => "ttb".into(),
+            Self::BOTTOM_UP => "btt".into(),
         }
     }
 }

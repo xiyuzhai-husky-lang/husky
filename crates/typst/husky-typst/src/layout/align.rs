@@ -7,7 +7,7 @@ use crate::engine::Engine;
 use crate::foundations::{
     cast, elem, func, scope, ty, Fold, Packed, Repr, Resolve, Show, StyleChain, TypstContent,
 };
-use crate::layout::{Abs, Axes, Axis, Dir, Side};
+use crate::layout::{Abs, Axes, Axis, Side, TypstLayoutDirection};
 use crate::text::TextElem;
 
 /// Aligns content horizontally and vertically.
@@ -122,7 +122,7 @@ impl Alignment {
     }
 
     /// Normalize the alignment to a LTR-TTB space.
-    pub fn fix(self, text_dir: Dir) -> Axes<FixedAlignment> {
+    pub fn fix(self, text_dir: TypstLayoutDirection) -> Axes<FixedAlignment> {
         Axes::new(
             self.x().unwrap_or_default().fix(text_dir),
             self.y().unwrap_or_default().fix(),
@@ -267,7 +267,7 @@ impl HAlignment {
     }
 
     /// Resolve the axis alignment based on the horizontal direction.
-    pub const fn fix(self, dir: Dir) -> FixedAlignment {
+    pub const fn fix(self, dir: TypstLayoutDirection) -> FixedAlignment {
         match (self, dir.is_positive()) {
             (Self::Start, true) | (Self::End, false) => FixedAlignment::Start,
             (Self::Left, _) => FixedAlignment::Start,

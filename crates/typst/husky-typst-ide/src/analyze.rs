@@ -4,7 +4,7 @@ use husky_typst::engine::{Engine, Route};
 use husky_typst::eval::{Tracer, Vm};
 use husky_typst::foundations::{Label, Scopes, TypstValue};
 use husky_typst::introspection::{Introspector, Locator};
-use husky_typst::model::{BibliographyElem, Document};
+use husky_typst::model::{BibliographyElem, TypstDocument};
 use husky_typst::syntax::{ast, LinkedNode, Span, SyntaxKind};
 use husky_typst::World;
 
@@ -76,7 +76,7 @@ pub fn analyze_import(world: &dyn World, source: &LinkedNode) -> Option<TypstVal
 /// - All labels and descriptions for them, if available
 /// - A split offset: All labels before this offset belong to nodes, all after
 ///   belong to a bibliography.
-pub fn analyze_labels(document: &Document) -> (Vec<(Label, Option<EcoString>)>, usize) {
+pub fn analyze_labels(document: &TypstDocument) -> (Vec<(Label, Option<EcoString>)>, usize) {
     let mut output = vec![];
 
     // Labels in the document.

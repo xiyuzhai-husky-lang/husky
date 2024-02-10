@@ -3,7 +3,7 @@ use unicode_segmentation::UnicodeSegmentation;
 
 use crate::diag::{bail, StrResult};
 use crate::foundations::{array, cast, dict, elem, Array, FromTypstValue, Smart, Str, TypstDict};
-use crate::layout::Dir;
+use crate::layout::TypstLayoutDirection;
 use crate::syntax::is_newline;
 use crate::text::{Lang, Region};
 
@@ -217,7 +217,7 @@ impl<'s> SmartQuotes<'s> {
             "no" | "nb" | "nn" if alternative => low_high,
             "ru" | "no" | "nb" | "nn" | "ua" => ("’", "’", "«", "»"),
             "gr" => ("‘", "’", "«", "»"),
-            _ if lang.dir() == Dir::RTL => ("’", "‘", "”", "“"),
+            _ if lang.dir() == TypstLayoutDirection::RightLeft => ("’", "‘", "”", "“"),
             _ => default,
         };
 

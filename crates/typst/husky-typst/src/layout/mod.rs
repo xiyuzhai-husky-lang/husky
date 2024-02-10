@@ -7,7 +7,7 @@ mod axes;
 mod columns;
 mod container;
 mod corners;
-mod dir;
+mod direction;
 mod em;
 mod flow;
 mod fr;
@@ -42,7 +42,7 @@ pub use self::axes::*;
 pub use self::columns::*;
 pub use self::container::*;
 pub use self::corners::*;
-pub use self::dir::*;
+pub use self::direction::*;
 pub use self::em::*;
 pub use self::flow::*;
 pub use self::fr::*;
@@ -76,7 +76,7 @@ use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
 use crate::foundations::{category, Category, Scope, StyleChain, TypstContent};
 use crate::introspection::{Introspector, Locator};
-use crate::model::Document;
+use crate::model::TypstDocument;
 use crate::realize::{realize_block, realize_root, Scratch};
 use crate::World;
 
@@ -94,7 +94,7 @@ pub fn define(global: &mut Scope) {
     global.define_type::<Ratio>();
     global.define_type::<Rel<Length>>();
     global.define_type::<Fr>();
-    global.define_type::<Dir>();
+    global.define_type::<TypstLayoutDirection>();
     global.define_type::<Alignment>();
     global.define_elem::<PageElem>();
     global.define_elem::<PagebreakElem>();
@@ -121,7 +121,7 @@ pub fn define(global: &mut Scope) {
 /// Root-level layout.
 pub trait LayoutRoot {
     /// Layout into a document with one frame per page.
-    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Document>;
+    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstDocument>;
 }
 
 /// Layout into multiple regions.
@@ -168,7 +168,7 @@ pub trait LayoutSingle {
 }
 
 impl LayoutRoot for TypstContent {
-    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Document> {
+    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstDocument> {
         #[comemo::memoize]
         fn cached(
             content: &TypstContent,
@@ -178,7 +178,7 @@ impl LayoutRoot for TypstContent {
             locator: Tracked<Locator>,
             tracer: TrackedMut<Tracer>,
             styles: StyleChain,
-        ) -> SourceResult<Document> {
+        ) -> SourceResult<TypstDocument> {
             let mut locator = Locator::chained(locator);
             let mut engine = Engine {
                 world,

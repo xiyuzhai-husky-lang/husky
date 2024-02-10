@@ -4,7 +4,7 @@ use std::ops::{BitAnd, BitAndAssign, BitOr, BitOrAssign, Deref, Not};
 
 use crate::diag::bail;
 use crate::foundations::{array, cast, Array, Resolve, Smart, StyleChain};
-use crate::layout::{Abs, Dir, Length, Ratio, Rel};
+use crate::layout::{Abs, Length, Ratio, Rel, TypstLayoutDirection};
 use crate::util::Get;
 
 /// A container with a horizontal and vertical component.
@@ -35,12 +35,18 @@ impl<T> Axes<T> {
     where
         F: FnMut(T) -> U,
     {
-        Axes { x: f(self.x), y: f(self.y) }
+        Axes {
+            x: f(self.x),
+            y: f(self.y),
+        }
     }
 
     /// Convert from `&Axes<T>` to `Axes<&T>`.
     pub fn as_ref(&self) -> Axes<&T> {
-        Axes { x: &self.x, y: &self.y }
+        Axes {
+            x: &self.x,
+            y: &self.y,
+        }
     }
 
     /// Convert from `&Axes<T>` to `Axes<&<T as Deref>::Target>`.
@@ -48,17 +54,26 @@ impl<T> Axes<T> {
     where
         T: Deref,
     {
-        Axes { x: &self.x, y: &self.y }
+        Axes {
+            x: &self.x,
+            y: &self.y,
+        }
     }
 
     /// Convert from `&mut Axes<T>` to `Axes<&mut T>`.
     pub fn as_mut(&mut self) -> Axes<&mut T> {
-        Axes { x: &mut self.x, y: &mut self.y }
+        Axes {
+            x: &mut self.x,
+            y: &mut self.y,
+        }
     }
 
     /// Zip two instances into an instance over a tuple.
     pub fn zip<U>(self, other: Axes<U>) -> Axes<(T, U)> {
-        Axes { x: (self.x, other.x), y: (self.y, other.y) }
+        Axes {
+            x: (self.x, other.x),
+            y: (self.y, other.y),
+        }
     }
 
     /// Apply a function to this and another-instance componentwise.
@@ -66,7 +81,10 @@ impl<T> Axes<T> {
     where
         F: FnMut(T, V) -> U,
     {
-        Axes { x: f(self.x, other.x), y: f(self.y, other.y) }
+        Axes {
+            x: f(self.x, other.x),
+            y: f(self.y, other.y),
+        }
     }
 
     /// Whether a condition is true for at least one of fields.
@@ -101,12 +119,18 @@ impl<T: Default> Axes<T> {
 impl<T: Ord> Axes<T> {
     /// The component-wise minimum of this and another instance.
     pub fn min(self, other: Self) -> Self {
-        Self { x: self.x.min(other.x), y: self.y.min(other.y) }
+        Self {
+            x: self.x.min(other.x),
+            y: self.y.min(other.y),
+        }
     }
 
     /// The component-wise minimum of this and another instance.
     pub fn max(self, other: Self) -> Self {
-        Self { x: self.x.max(other.x), y: self.y.max(other.y) }
+        Self {
+            x: self.x.max(other.x),
+            y: self.y.max(other.y),
+        }
     }
 
     /// The minimum of width and height.
@@ -162,12 +186,12 @@ pub enum Axis {
 
 impl Axis {
     /// The direction with the given positivity for this axis.
-    pub fn dir(self, positive: bool) -> Dir {
+    pub fn dir(self, positive: bool) -> TypstLayoutDirection {
         match (self, positive) {
-            (Self::X, true) => Dir::LTR,
-            (Self::X, false) => Dir::RTL,
-            (Self::Y, true) => Dir::TTB,
-            (Self::Y, false) => Dir::BTT,
+            (Self::X, true) => TypstLayoutDirection::LeftRight,
+            (Self::X, false) => TypstLayoutDirection::RightLeft,
+            (Self::Y, true) => TypstLayoutDirection::TopDown,
+            (Self::Y, false) => TypstLayoutDirection::BOTTOM_UP,
         }
     }
 
@@ -214,7 +238,10 @@ impl Not for Axes<bool> {
     type Output = Self;
 
     fn not(self) -> Self::Output {
-        Self { x: !self.x, y: !self.y }
+        Self {
+            x: !self.x,
+            y: !self.y,
+        }
     }
 }
 
@@ -222,7 +249,10 @@ impl BitOr for Axes<bool> {
     type Output = Self;
 
     fn bitor(self, rhs: Self) -> Self::Output {
-        Self { x: self.x | rhs.x, y: self.y | rhs.y }
+        Self {
+            x: self.x | rhs.x,
+            y: self.y | rhs.y,
+        }
     }
 }
 
@@ -230,7 +260,10 @@ impl BitOr<bool> for Axes<bool> {
     type Output = Self;
 
     fn bitor(self, rhs: bool) -> Self::Output {
-        Self { x: self.x | rhs, y: self.y | rhs }
+        Self {
+            x: self.x | rhs,
+            y: self.y | rhs,
+        }
     }
 }
 
@@ -238,7 +271,10 @@ impl BitAnd for Axes<bool> {
     type Output = Self;
 
     fn bitand(self, rhs: Self) -> Self::Output {
-        Self { x: self.x & rhs.x, y: self.y & rhs.y }
+        Self {
+            x: self.x & rhs.x,
+            y: self.y & rhs.y,
+        }
     }
 }
 
@@ -246,7 +282,10 @@ impl BitAnd<bool> for Axes<bool> {
     type Output = Self;
 
     fn bitand(self, rhs: bool) -> Self::Output {
-        Self { x: self.x & rhs, y: self.y & rhs }
+        Self {
+            x: self.x & rhs,
+            y: self.y & rhs,
+        }
     }
 }
 

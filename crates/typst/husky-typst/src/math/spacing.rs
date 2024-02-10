@@ -1,14 +1,14 @@
 use unicode_math_class::MathClass;
 
 use crate::foundations::{NativeElement, Scope};
-use crate::layout::{Abs, Em, HElem};
+use crate::layout::{Abs, HElem, LengthInEm};
 use crate::math::{MathFragment, MathSize, SpacingFragment};
 
-pub(super) const THIN: Em = Em::new(1.0 / 6.0);
-pub(super) const MEDIUM: Em = Em::new(2.0 / 9.0);
-pub(super) const THICK: Em = Em::new(5.0 / 18.0);
-pub(super) const QUAD: Em = Em::new(1.0);
-pub(super) const WIDE: Em = Em::new(2.0);
+pub(super) const THIN: LengthInEm = LengthInEm::new(1.0 / 6.0);
+pub(super) const MEDIUM: LengthInEm = LengthInEm::new(2.0 / 9.0);
+pub(super) const THICK: LengthInEm = LengthInEm::new(5.0 / 18.0);
+pub(super) const QUAD: LengthInEm = LengthInEm::new(1.0);
+pub(super) const WIDE: LengthInEm = LengthInEm::new(2.0);
 
 /// Hook up all spacings.
 pub(super) fn define(math: &mut Scope) {
@@ -27,12 +27,11 @@ pub(super) fn spacing(
 ) -> Option<MathFragment> {
     use MathClass::*;
 
-    let resolve = |v: Em, size_ref: &MathFragment| -> Option<MathFragment> {
+    let resolve = |v: LengthInEm, size_ref: &MathFragment| -> Option<MathFragment> {
         let width = size_ref.font_size().map_or(Abs::zero(), |size| v.at(size));
         Some(SpacingFragment { width, weak: false }.into())
     };
-    let script =
-        |f: &MathFragment| f.math_size().map_or(false, |s| s <= MathSize::Script);
+    let script = |f: &MathFragment| f.math_size().map_or(false, |s| s <= MathSize::Script);
 
     match (l.class(), r.class()) {
         // No spacing before punctuation; thin spacing after punctuation, unless

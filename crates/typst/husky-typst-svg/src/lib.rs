@@ -10,12 +10,12 @@ use husky_typst::layout::{
     Abs, Angle, Axes, Frame, FrameItem, FrameKind, GroupItem, Point, Quadrant, Ratio, Size,
     Transform,
 };
-use husky_typst::model::Document;
-use husky_typst::text::{Font, TextItem};
+use husky_typst::model::TypstDocument;
+use husky_typst::text::{TextItem, TypstFont};
 use husky_typst::util::hash128;
 use husky_typst::visualize::{
-    Color, FixedStroke, Geometry, Gradient, Image, ImageFormat, LineCap, LineJoin, Paint, Path,
-    PathItem, Pattern, RasterFormat, RatioOrAngle, RelativeTo, Shape, VectorFormat,
+    FixedStroke, Geometry, Gradient, Image, ImageFormat, LineCap, LineJoin, Paint, Path, PathItem,
+    Pattern, RasterFormat, RatioOrAngle, RelativeTo, Shape, TypstColor, VectorFormat,
 };
 use ttf_parser::{GlyphId, OutlineBuilder};
 use xmlwriter::XmlWriter;
@@ -39,7 +39,7 @@ pub fn svg(frame: &Frame) -> String {
 /// Export a document with potentially multiple pages into a single SVG file.
 ///
 /// The padding will be added around and between the individual frames.
-pub fn svg_merged(document: &Document, padding: Abs) -> String {
+pub fn svg_merged(document: &TypstDocument, padding: Abs) -> String {
     let width = 2.0 * padding
         + document
             .pages
@@ -185,9 +185,9 @@ struct SVGSubGradient {
     /// The end point of the subgradient.
     t1: Angle,
     /// The color at the start point of the subgradient.
-    c0: Color,
+    c0: TypstColor,
     /// The color at the end point of the subgradient.
-    c1: Color,
+    c1: TypstColor,
 }
 
 /// The kind of linear gradient.
@@ -1098,7 +1098,7 @@ impl SVGRenderer {
 
 /// Convert an outline glyph to an SVG path.
 #[comemo::memoize]
-fn convert_outline_glyph_to_path(font: &Font, id: GlyphId, scale: Ratio) -> Option<EcoString> {
+fn convert_outline_glyph_to_path(font: &TypstFont, id: GlyphId, scale: Ratio) -> Option<EcoString> {
     let mut builder = SvgPathBuilder::with_scale(scale);
     font.ttf().outline_glyph(id, &mut builder)?;
     Some(builder.0)
@@ -1106,7 +1106,7 @@ fn convert_outline_glyph_to_path(font: &Font, id: GlyphId, scale: Ratio) -> Opti
 
 /// Convert a bitmap glyph to an encoded image URL.
 #[comemo::memoize]
-fn convert_bitmap_glyph_to_image(font: &Font, id: GlyphId) -> Option<(Image, f64, f64)> {
+fn convert_bitmap_glyph_to_image(font: &TypstFont, id: GlyphId) -> Option<(Image, f64, f64)> {
     let raster = font.ttf().glyph_raster_image(id, std::u16::MAX)?;
     if raster.format != ttf_parser::RasterImageFormat::PNG {
         return None;
@@ -1117,7 +1117,7 @@ fn convert_bitmap_glyph_to_image(font: &Font, id: GlyphId) -> Option<(Image, f64
 
 /// Convert an SVG glyph to an encoded image URL.
 #[comemo::memoize]
-fn convert_svg_glyph_to_base64_url(font: &Font, id: GlyphId) -> Option<EcoString> {
+fn convert_svg_glyph_to_base64_url(font: &TypstFont, id: GlyphId) -> Option<EcoString> {
     let mut data = font.ttf().glyph_svg_image(id)?.data;
 
     // Decompress SVGZ.
@@ -1417,13 +1417,14 @@ trait ColorEncode {
     fn encode(&self) -> EcoString;
 }
 
-impl ColorEncode for Color {
+impl ColorEncode for TypstColor {
     fn encode(&self) -> EcoString {
         match *self {
-            c @ Color::Rgb(_) | c @ Color::Luma(_) | c @ Color::Cmyk(_) | c @ Color::Hsv(_) => {
-                c.to_hex()
-            }
-            Color::LinearRgb(rgb) => {
+            c @ TypstColor::Rgb(_)
+            | c @ TypstColor::Luma(_)
+            | c @ TypstColor::Cmyk(_)
+            | c @ TypstColor::Hsv(_) => c.to_hex(),
+            TypstColor::LinearRgb(rgb) => {
                 if rgb.alpha != 1.0 {
                     eco_format!(
                         "color(srgb-linear {:.5} {:.5} {:.5} / {:.5})",
@@ -1441,7 +1442,7 @@ impl ColorEncode for Color {
                     )
                 }
             }
-            Color::Oklab(oklab) => {
+            TypstColor::Oklab(oklab) => {
                 if oklab.alpha != 1.0 {
                     eco_format!(
                         "oklab({:.3}% {:.5} {:.5} / {:.5})",
@@ -1459,7 +1460,7 @@ impl ColorEncode for Color {
                     )
                 }
             }
-            Color::Oklch(oklch) => {
+            TypstColor::Oklch(oklch) => {
                 if oklch.alpha != 1.0 {
                     eco_format!(
                         "oklch({:.3}% {:.5} {:.3}deg / {:.3})",
@@ -1477,7 +1478,7 @@ impl ColorEncode for Color {
                     )
                 }
             }
-            Color::Hsl(hsl) => {
+            TypstColor::Hsl(hsl) => {
                 if hsl.alpha != 1.0 {
                     eco_format!(
                         "hsla({:.3}deg {:.3}% {:.3}% / {:.5})",

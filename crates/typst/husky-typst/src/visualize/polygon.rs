@@ -5,7 +5,9 @@ use crate::engine::Engine;
 use crate::foundations::{
     elem, func, scope, NativeElement, Packed, Resolve, Smart, StyleChain, TypstContent,
 };
-use crate::layout::{Axes, Em, Frame, FrameItem, LayoutSingle, Length, Point, Regions, Rel};
+use crate::layout::{
+    Axes, Frame, FrameItem, LayoutSingle, Length, LengthInEm, Point, Regions, Rel,
+};
 use crate::syntax::Span;
 use crate::util::Numeric;
 use crate::visualize::{FixedStroke, Geometry, Paint, Path, Shape, Stroke};
@@ -79,7 +81,7 @@ impl PolygonElem {
         /// The diameter of the [circumcircle](https://en.wikipedia.org/wiki/Circumcircle)
         /// of the regular polygon.
         #[named]
-        #[default(Em::one().into())]
+        #[default(LengthInEm::one().into())]
         size: Length,
 
         /// The number of vertices in the polygon.

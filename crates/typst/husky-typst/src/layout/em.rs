@@ -13,9 +13,9 @@ use crate::util::{Numeric, Scalar};
 ///
 /// `1em` is the same as the font size.
 #[derive(Default, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
-pub struct Em(Scalar);
+pub struct LengthInEm(Scalar);
 
-impl Em {
+impl LengthInEm {
     /// The zero em length.
     pub const fn zero() -> Self {
         Self(Scalar::ZERO)
@@ -67,7 +67,7 @@ impl Em {
     }
 }
 
-impl Numeric for Em {
+impl Numeric for LengthInEm {
     fn zero() -> Self {
         Self::zero()
     }
@@ -77,19 +77,19 @@ impl Numeric for Em {
     }
 }
 
-impl Debug for Em {
+impl Debug for LengthInEm {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         write!(f, "{:?}em", self.get())
     }
 }
 
-impl Repr for Em {
+impl Repr for LengthInEm {
     fn repr(&self) -> EcoString {
         repr::format_float_with_unit(self.get(), "em")
     }
 }
 
-impl Neg for Em {
+impl Neg for LengthInEm {
     type Output = Self;
 
     fn neg(self) -> Self {
@@ -97,7 +97,7 @@ impl Neg for Em {
     }
 }
 
-impl Add for Em {
+impl Add for LengthInEm {
     type Output = Self;
 
     fn add(self, other: Self) -> Self {
@@ -105,9 +105,9 @@ impl Add for Em {
     }
 }
 
-sub_impl!(Em - Em -> Em);
+sub_impl!(LengthInEm - LengthInEm -> LengthInEm);
 
-impl Mul<f64> for Em {
+impl Mul<f64> for LengthInEm {
     type Output = Self;
 
     fn mul(self, other: f64) -> Self {
@@ -115,15 +115,15 @@ impl Mul<f64> for Em {
     }
 }
 
-impl Mul<Em> for f64 {
-    type Output = Em;
+impl Mul<LengthInEm> for f64 {
+    type Output = LengthInEm;
 
-    fn mul(self, other: Em) -> Em {
+    fn mul(self, other: LengthInEm) -> LengthInEm {
         other * self
     }
 }
 
-impl Div<f64> for Em {
+impl Div<f64> for LengthInEm {
     type Output = Self;
 
     fn div(self, other: f64) -> Self {
@@ -131,7 +131,7 @@ impl Div<f64> for Em {
     }
 }
 
-impl Div for Em {
+impl Div for LengthInEm {
     type Output = f64;
 
     fn div(self, other: Self) -> f64 {
@@ -139,23 +139,23 @@ impl Div for Em {
     }
 }
 
-assign_impl!(Em += Em);
-assign_impl!(Em -= Em);
-assign_impl!(Em *= f64);
-assign_impl!(Em /= f64);
+assign_impl!(LengthInEm += LengthInEm);
+assign_impl!(LengthInEm -= LengthInEm);
+assign_impl!(LengthInEm *= f64);
+assign_impl!(LengthInEm /= f64);
 
-impl Sum for Em {
+impl Sum for LengthInEm {
     fn sum<I: Iterator<Item = Self>>(iter: I) -> Self {
         Self(iter.map(|s| s.0).sum())
     }
 }
 
 cast! {
-     Em,
+     LengthInEm,
      self => TypstValue::Length(self.into()),
 }
 
-impl Resolve for Em {
+impl Resolve for LengthInEm {
     type Output = Abs;
 
     fn resolve(self, styles: StyleChain) -> Self::Output {

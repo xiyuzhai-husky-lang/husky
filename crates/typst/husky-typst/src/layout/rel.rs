@@ -5,7 +5,7 @@ use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Sub, SubAssi
 use ecow::{eco_format, EcoString};
 
 use crate::foundations::{cast, ty, Fold, Repr, Resolve, StyleChain};
-use crate::layout::{Abs, Em, Length, Ratio};
+use crate::layout::{Abs, Length, LengthInEm, Ratio};
 use crate::util::Numeric;
 
 /// A length in relation to some known length.
@@ -37,12 +37,18 @@ pub struct Rel<T: Numeric = Length> {
 impl<T: Numeric> Rel<T> {
     /// The zero relative.
     pub fn zero() -> Self {
-        Self { rel: Ratio::zero(), abs: T::zero() }
+        Self {
+            rel: Ratio::zero(),
+            abs: T::zero(),
+        }
     }
 
     /// A relative with a ratio of `100%` and no absolute part.
     pub fn one() -> Self {
-        Self { rel: Ratio::one(), abs: T::zero() }
+        Self {
+            rel: Ratio::one(),
+            abs: T::zero(),
+        }
     }
 
     /// Create a new relative from its parts.
@@ -71,7 +77,10 @@ impl<T: Numeric> Rel<T> {
         F: FnOnce(T) -> U,
         U: Numeric,
     {
-        Rel { rel: self.rel, abs: f(self.abs) }
+        Rel {
+            rel: self.rel,
+            abs: f(self.abs),
+        }
     }
 }
 
@@ -114,21 +123,27 @@ impl From<Abs> for Rel<Length> {
     }
 }
 
-impl From<Em> for Rel<Length> {
-    fn from(em: Em) -> Self {
+impl From<LengthInEm> for Rel<Length> {
+    fn from(em: LengthInEm) -> Self {
         Rel::from(Length::from(em))
     }
 }
 
 impl<T: Numeric> From<T> for Rel<T> {
     fn from(abs: T) -> Self {
-        Self { rel: Ratio::zero(), abs }
+        Self {
+            rel: Ratio::zero(),
+            abs,
+        }
     }
 }
 
 impl<T: Numeric> From<Ratio> for Rel<T> {
     fn from(rel: Ratio) -> Self {
-        Self { rel, abs: T::zero() }
+        Self {
+            rel,
+            abs: T::zero(),
+        }
     }
 }
 
@@ -148,7 +163,10 @@ impl<T: Numeric> Neg for Rel<T> {
     type Output = Self;
 
     fn neg(self) -> Self {
-        Self { rel: -self.rel, abs: -self.abs }
+        Self {
+            rel: -self.rel,
+            abs: -self.abs,
+        }
     }
 }
 
@@ -175,7 +193,10 @@ impl<T: Numeric> Mul<f64> for Rel<T> {
     type Output = Self;
 
     fn mul(self, other: f64) -> Self::Output {
-        Self { rel: self.rel * other, abs: self.abs * other }
+        Self {
+            rel: self.rel * other,
+            abs: self.abs * other,
+        }
     }
 }
 
@@ -191,7 +212,10 @@ impl<T: Numeric> Div<f64> for Rel<T> {
     type Output = Self;
 
     fn div(self, other: f64) -> Self::Output {
-        Self { rel: self.rel / other, abs: self.abs / other }
+        Self {
+            rel: self.rel / other,
+            abs: self.abs / other,
+        }
     }
 }
 
@@ -264,7 +288,10 @@ where
     T: Numeric + Fold,
 {
     fn fold(self, outer: Self) -> Self {
-        Self { rel: self.rel, abs: self.abs.fold(outer.abs) }
+        Self {
+            rel: self.rel,
+            abs: self.abs.fold(outer.abs),
+        }
     }
 }
 

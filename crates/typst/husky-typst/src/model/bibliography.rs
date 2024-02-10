@@ -29,7 +29,7 @@ use crate::foundations::{
 };
 use crate::introspection::{Introspector, Locatable, Location};
 use crate::layout::{
-    BlockElem, Em, GridCell, GridElem, HElem, PadElem, Sizing, TrackSizings, VElem,
+    BlockElem, GridCell, GridElem, HElem, LengthInEm, PadElem, Sizing, TrackSizings, VElem,
 };
 use crate::model::{
     CitationForm, CiteGroup, Destination, FootnoteElem, HeadingElem, LinkElem, ParElem,
@@ -204,8 +204,8 @@ impl Synthesize for Packed<BibliographyElem> {
 impl Show for Packed<BibliographyElem> {
     #[husky_typst_macros::time(name = "bibliography", span = self.span())]
     fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
-        const COLUMN_GUTTER: Em = Em::new(0.65);
-        const INDENT: Em = Em::new(1.5);
+        const COLUMN_GUTTER: LengthInEm = LengthInEm::new(0.65);
+        const INDENT: LengthInEm = LengthInEm::new(1.5);
 
         let mut seq = vec![];
         if let Some(title) = self.title(styles) {
@@ -266,7 +266,7 @@ impl Show for Packed<BibliographyElem> {
 
 impl ShowSet for Packed<BibliographyElem> {
     fn show_set(&self, _: StyleChain) -> Styles {
-        const INDENT: Em = Em::new(1.0);
+        const INDENT: LengthInEm = LengthInEm::new(1.0);
         let mut out = Styles::new();
         out.set(HeadingElem::set_numbering(None));
         out.set(PadElem::set_left(INDENT.into()));
@@ -956,7 +956,7 @@ impl ElemRenderer<'_> {
         );
 
         if let Some(prefix) = suf_prefix {
-            const COLUMN_GUTTER: Em = Em::new(0.65);
+            const COLUMN_GUTTER: LengthInEm = LengthInEm::new(0.65);
             content = GridElem::new(vec![
                 Packed::new(GridCell::new(prefix)).spanned(self.span),
                 Packed::new(GridCell::new(content)).spanned(self.span),

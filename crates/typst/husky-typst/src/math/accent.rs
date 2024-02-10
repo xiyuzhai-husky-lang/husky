@@ -2,7 +2,7 @@ use crate::diag::{bail, SourceResult};
 use crate::foundations::{
     cast, elem, Packed, Resolve, Smart, StyleChain, TypstContent, TypstValue,
 };
-use crate::layout::{Em, Frame, Length, Point, Rel, Size};
+use crate::layout::{Frame, Length, LengthInEm, Point, Rel, Size};
 use crate::math::{
     style_cramped, FrameFragment, GlyphFragment, LayoutMath, MathContext, MathFragment, Scaled,
 };
@@ -10,7 +10,7 @@ use crate::symbols::Symbol;
 use crate::text::TextElem;
 
 /// How much the accent can be shorter than the base.
-const ACCENT_SHORT_FALL: Em = Em::new(0.5);
+const ACCENT_SHORT_FALL: LengthInEm = LengthInEm::new(0.5);
 
 /// Attaches an accent to a base.
 ///

@@ -16,11 +16,11 @@ use crate::foundations::{
     Func, IntoTypstValue, Label, Module, NativeElement, NativeType, NoneValue, Plugin, Reflect,
     Repr, Scope, Str, Styles, Type, TypstContent, TypstDict, Version,
 };
-use crate::layout::{Abs, Angle, Em, Fr, Length, Ratio, Rel};
+use crate::layout::{Abs, Angle, Fr, Length, LengthInEm, Ratio, Rel};
 use crate::symbols::Symbol;
 use crate::syntax::{ast, Span};
 use crate::text::{RawElem, TextElem};
-use crate::visualize::{Color, Gradient, Pattern};
+use crate::visualize::{Gradient, Pattern, TypstColor};
 
 /// A computational value.
 #[derive(Default, Clone)]
@@ -47,7 +47,7 @@ pub enum TypstValue {
     /// A fraction: `1fr`.
     Fraction(Fr),
     /// A color value: `#f79143ff`.
-    Color(Color),
+    Color(TypstColor),
     /// A gradient value: `gradient.linear(...)`.
     Gradient(Gradient),
     /// A pattern fill: `pattern(...)`.
@@ -107,7 +107,7 @@ impl TypstValue {
             ast::Unit::In => Abs::inches(v).into_value(),
             ast::Unit::Rad => Angle::rad(v).into_value(),
             ast::Unit::Deg => Angle::deg(v).into_value(),
-            ast::Unit::Em => Em::new(v).into_value(),
+            ast::Unit::Em => LengthInEm::new(v).into_value(),
             ast::Unit::Fr => Fr::new(v).into_value(),
             ast::Unit::Percent => Ratio::new(v / 100.0).into_value(),
         }
@@ -126,7 +126,7 @@ impl TypstValue {
             Self::Ratio(_) => Type::of::<Ratio>(),
             Self::Relative(_) => Type::of::<Rel<Length>>(),
             Self::Fraction(_) => Type::of::<Fr>(),
-            Self::Color(_) => Type::of::<Color>(),
+            Self::Color(_) => Type::of::<TypstColor>(),
             Self::Gradient(_) => Type::of::<Gradient>(),
             Self::Pattern(_) => Type::of::<Pattern>(),
             Self::Symbol(_) => Type::of::<Symbol>(),
@@ -634,7 +634,7 @@ primitive! { Rel<Length>:  "relative length",
     Ratio(v) => v.into()
 }
 primitive! { Fr: "fraction", Fraction }
-primitive! { Color: "color", Color }
+primitive! { TypstColor: "color", Color }
 primitive! { Gradient: "gradient", Gradient }
 primitive! { Pattern: "pattern", Pattern }
 primitive! { Symbol: "symbol", Symbol }

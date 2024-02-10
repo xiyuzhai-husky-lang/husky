@@ -3,7 +3,7 @@ use ecow::{eco_format, EcoString};
 use husky_typst::diag::{bail, StrResult};
 use husky_typst::eval::{eval_string, EvalMode, Tracer};
 use husky_typst::foundations::{IntoTypstValue, LocatableSelector, Scope, TypstContent};
-use husky_typst::model::Document;
+use husky_typst::model::TypstDocument;
 use husky_typst::syntax::Span;
 use husky_typst::World;
 use serde::Serialize;
@@ -49,7 +49,7 @@ pub fn query(command: &QueryCommand) -> StrResult<()> {
 fn retrieve(
     world: &dyn World,
     command: &QueryCommand,
-    document: &Document,
+    document: &TypstDocument,
 ) -> StrResult<Vec<TypstContent>> {
     let selector = eval_string(
         world.track(),

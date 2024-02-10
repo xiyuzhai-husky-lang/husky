@@ -3,7 +3,7 @@ use std::iter::once;
 use unicode_math_class::MathClass;
 
 use crate::foundations::{Resolve, StyleChain};
-use crate::layout::{Abs, AlignElem, Em, FixedAlignment, Frame, FrameKind, Point, Size};
+use crate::layout::{Abs, AlignElem, FixedAlignment, Frame, FrameKind, LengthInEm, Point, Size};
 use crate::math::{
     alignments, scaled_font_size, spacing, AlignmentResult, EquationElem, FrameFragment,
     MathContext, MathFragment, MathParItem, MathSize,
@@ -12,7 +12,7 @@ use crate::model::ParElem;
 
 use super::fragment::SpacingFragment;
 
-pub const TIGHT_LEADING: Em = Em::new(0.25);
+pub const TIGHT_LEADING: LengthInEm = LengthInEm::new(0.25);
 
 #[derive(Debug, Default, Clone)]
 pub struct MathRow(Vec<MathFragment>);
@@ -106,8 +106,11 @@ impl MathRow {
     }
 
     pub fn row_count(&self) -> usize {
-        let mut count =
-            1 + self.0.iter().filter(|f| matches!(f, MathFragment::Linebreak)).count();
+        let mut count = 1 + self
+            .0
+            .iter()
+            .filter(|f| matches!(f, MathFragment::Linebreak))
+            .count();
 
         // A linebreak at the very end does not introduce an extra row.
         if let Some(f) = self.0.last() {
@@ -119,11 +122,17 @@ impl MathRow {
     }
 
     pub fn ascent(&self) -> Abs {
-        self.iter().map(MathFragment::ascent).max().unwrap_or_default()
+        self.iter()
+            .map(MathFragment::ascent)
+            .max()
+            .unwrap_or_default()
     }
 
     pub fn descent(&self) -> Abs {
-        self.iter().map(MathFragment::descent).max().unwrap_or_default()
+        self.iter()
+            .map(MathFragment::descent)
+            .max()
+            .unwrap_or_default()
     }
 
     pub fn class(&self) -> MathClass {
@@ -160,7 +169,10 @@ impl MathRow {
         points: &[Abs],
         align: FixedAlignment,
     ) -> Frame {
-        if !self.iter().any(|frag| matches!(frag, MathFragment::Linebreak)) {
+        if !self
+            .iter()
+            .any(|frag| matches!(frag, MathFragment::Linebreak))
+        {
             return self.into_line_frame(points, align);
         }
 
@@ -225,17 +237,17 @@ impl MathRow {
             let mut alternator = LeftRightAlternator::Right;
             move || match align {
                 FixedAlignment::Start => prev_points.next(),
-                FixedAlignment::End => {
-                    point_widths.next().map(|(point, width)| point - width)
-                }
+                FixedAlignment::End => point_widths.next().map(|(point, width)| point - width),
                 _ => point_widths
                     .next()
                     .zip(prev_points.next())
                     .zip(alternator.next())
-                    .map(|(((point, width), prev_point), alternator)| match alternator {
-                        LeftRightAlternator::Left => prev_point,
-                        LeftRightAlternator::Right => point - width,
-                    }),
+                    .map(
+                        |(((point, width), prev_point), alternator)| match alternator {
+                            LeftRightAlternator::Left => prev_point,
+                            LeftRightAlternator::Right => point - width,
+                        },
+                    ),
             }
         };
         let mut x = next_x().unwrap_or_default();
@@ -274,9 +286,8 @@ impl MathRow {
         let mut space_is_visible = false;
 
         let is_relation = |f: &MathFragment| matches!(f.class(), MathClass::Relation);
-        let is_space = |f: &MathFragment| {
-            matches!(f, MathFragment::Space(_) | MathFragment::Spacing(_))
-        };
+        let is_space =
+            |f: &MathFragment| matches!(f, MathFragment::Space(_) | MathFragment::Spacing(_));
 
         let mut iter = self.0.into_iter().peekable();
         while let Some(fragment) = iter.next() {
@@ -306,10 +317,8 @@ impl MathRow {
                 || (class == MathClass::Relation
                     && !iter.peek().map(is_relation).unwrap_or_default())
             {
-                let mut frame_prev = std::mem::replace(
-                    &mut frame,
-                    Frame::new(Size::zero(), FrameKind::Soft),
-                );
+                let mut frame_prev =
+                    std::mem::replace(&mut frame, Frame::new(Size::zero(), FrameKind::Soft));
 
                 finalize_frame(&mut frame_prev, x, ascent, descent);
                 items.push(MathParItem::Frame(frame_prev));

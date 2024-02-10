@@ -3,7 +3,7 @@ use std::str::FromStr;
 use ecow::EcoString;
 
 use crate::foundations::{cast, StyleChain};
-use crate::layout::Dir;
+use crate::layout::TypstLayoutDirection;
 use crate::text::TextElem;
 
 /// An identifier for a natural language.
@@ -48,11 +48,12 @@ impl Lang {
     }
 
     /// The default direction for the language.
-    pub fn dir(self) -> Dir {
+    pub fn dir(self) -> TypstLayoutDirection {
         match self.as_str() {
-            "ar" | "dv" | "fa" | "he" | "ks" | "pa" | "ps" | "sd" | "ug" | "ur"
-            | "yi" => Dir::RTL,
-            _ => Dir::LTR,
+            "ar" | "dv" | "fa" | "he" | "ks" | "pa" | "ps" | "sd" | "ug" | "ur" | "yi" => {
+                TypstLayoutDirection::RightLeft
+            }
+            _ => TypstLayoutDirection::LeftRight,
         }
     }
 }

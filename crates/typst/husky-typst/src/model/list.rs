@@ -4,8 +4,8 @@ use crate::foundations::{
     cast, elem, scope, Array, Fold, Func, Packed, Smart, StyleChain, TypstContent, TypstValue,
 };
 use crate::layout::{
-    Axes, BlockElem, Cell, CellGrid, Em, Fragment, GridLayouter, HAlignment, LayoutMultiple,
-    Length, Regions, Sizing, Spacing, VAlignment,
+    Axes, BlockElem, Cell, CellGrid, Fragment, GridLayouter, HAlignment, LayoutMultiple, Length,
+    LengthInEm, Regions, Sizing, Spacing, VAlignment,
 };
 use crate::model::ParElem;
 use crate::text::TextElem;
@@ -100,7 +100,7 @@ pub struct ListElem {
 
     /// The spacing between the marker and the body of each item.
     #[resolve]
-    #[default(Em::new(0.5).into())]
+    #[default(LengthInEm::new(0.5).into())]
     pub body_indent: Length,
 
     /// The spacing between the items of a wide (non-tight) list.

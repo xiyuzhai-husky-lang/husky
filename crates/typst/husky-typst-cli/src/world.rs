@@ -10,7 +10,7 @@ use ecow::eco_format;
 use husky_typst::diag::{FileError, FileResult, StrResult};
 use husky_typst::foundations::{Bytes, Datetime, IntoTypstValue, TypstDict};
 use husky_typst::syntax::{FileId, Source, VirtualPath};
-use husky_typst::text::{Font, FontBook};
+use husky_typst::text::{TypstFont, TypstFontBook};
 use husky_typst::{Library, World};
 use husky_typst_timing::{timed, TimingScope};
 use once_cell::sync::Lazy;
@@ -38,7 +38,7 @@ pub struct SystemWorld {
     /// Typst's standard library.
     library: Prehashed<Library>,
     /// Metadata about discovered fonts.
-    book: Prehashed<FontBook>,
+    book: Prehashed<TypstFontBook>,
     /// Locations of and storage for lazily loaded fonts.
     fonts: Vec<FontSlot>,
     /// Maps file ids to source files and buffers.
@@ -167,7 +167,7 @@ impl World for SystemWorld {
         &self.library
     }
 
-    fn book(&self) -> &Prehashed<FontBook> {
+    fn book(&self) -> &Prehashed<TypstFontBook> {
         &self.book
     }
 
@@ -183,7 +183,7 @@ impl World for SystemWorld {
         self.slot(id, |slot| slot.file(&self.root))
     }
 
-    fn font(&self, index: usize) -> Option<Font> {
+    fn font(&self, index: usize) -> Option<TypstFont> {
         self.fonts[index].get()
     }
 

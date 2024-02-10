@@ -4,8 +4,8 @@ use crate::foundations::{
     cast, elem, AutoValue, Packed, Resolve, Smart, StyleChain, TypstContent, TypstValue,
 };
 use crate::layout::{
-    Abs, Axes, Corners, Em, Fr, Fragment, Frame, FrameKind, LayoutMultiple, Length, Ratio, Regions,
-    Rel, Sides, Size, Spacing, VElem,
+    Abs, Axes, Corners, Fr, Fragment, Frame, FrameKind, LayoutMultiple, Length, LengthInEm, Ratio,
+    Regions, Rel, Sides, Size, Spacing, VElem,
 };
 use crate::util::Numeric;
 use crate::visualize::{clip_rect, Paint, Stroke};
@@ -297,14 +297,14 @@ pub struct BlockElem {
     /// A second paragraph.
     /// ```
     #[external]
-    #[default(Em::new(1.2).into())]
+    #[default(LengthInEm::new(1.2).into())]
     pub spacing: Spacing,
 
     /// The spacing between this block and its predecessor. Takes precedence
     /// over `spacing`. Can be used in combination with a show rule to adjust
     /// the spacing around arbitrary block-level elements.
     #[external]
-    #[default(Em::new(1.2).into())]
+    #[default(LengthInEm::new(1.2).into())]
     pub above: Spacing,
     #[internal]
     #[parse(
@@ -313,13 +313,13 @@ pub struct BlockElem {
             .map(VElem::block_around)
             .or_else(|| spacing.map(VElem::block_spacing))
     )]
-    #[default(VElem::block_spacing(Em::new(1.2).into()))]
+    #[default(VElem::block_spacing(LengthInEm::new(1.2).into()))]
     pub above: VElem,
 
     /// The spacing between this block and its successor. Takes precedence
     /// over `spacing`.
     #[external]
-    #[default(Em::new(1.2).into())]
+    #[default(LengthInEm::new(1.2).into())]
     pub below: Spacing,
     #[internal]
     #[parse(
@@ -327,7 +327,7 @@ pub struct BlockElem {
             .map(VElem::block_around)
             .or_else(|| spacing.map(VElem::block_spacing))
     )]
-    #[default(VElem::block_spacing(Em::new(1.2).into()))]
+    #[default(VElem::block_spacing(LengthInEm::new(1.2).into()))]
     pub below: VElem,
 
     /// Whether to clip the content inside the block.

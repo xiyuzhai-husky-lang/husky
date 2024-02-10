@@ -2,7 +2,7 @@ use std::collections::BTreeMap;
 use std::sync::Arc;
 
 use ecow::{eco_format, EcoString};
-use husky_typst::text::Font;
+use husky_typst::text::TypstFont;
 use husky_typst::util::SliceExt;
 use pdf_writer::types::{CidFontType, FontFlags, SystemInfo, UnicodeCmap};
 use pdf_writer::{Filter, Finish, Name, Rect, Str};
@@ -173,7 +173,7 @@ pub(crate) fn write_fonts(ctx: &mut PdfContext) {
 /// - For a font with CFF outlines, this returns just the CFF font program.
 #[comemo::memoize]
 #[husky_typst_macros::time(name = "subset font")]
-fn subset_font(font: &Font, glyphs: &[u16]) -> Arc<Vec<u8>> {
+fn subset_font(font: &TypstFont, glyphs: &[u16]) -> Arc<Vec<u8>> {
     let data = font.data();
     let profile = subsetter::Profile::pdf(glyphs);
     let subsetted = subsetter::subset(data, font.index(), profile);
@@ -270,7 +270,7 @@ fn create_cmap(ttf: &ttf_parser::Face, glyph_set: &mut BTreeMap<u16, EcoString>)
 ///
 /// This function performs the mapping from glyph ID to CID. It also works for
 /// non CID-keyed fonts. Then, it will simply return the glyph ID.
-pub(super) fn glyph_cid(font: &Font, glyph_id: u16) -> u16 {
+pub(super) fn glyph_cid(font: &TypstFont, glyph_id: u16) -> u16 {
     font.ttf()
         .tables()
         .cff

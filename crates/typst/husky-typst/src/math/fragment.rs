@@ -7,12 +7,12 @@ use unicode_math_class::MathClass;
 
 use crate::foundations::StyleChain;
 use crate::introspection::{Meta, MetaElem};
-use crate::layout::{Abs, Corner, Em, Frame, FrameItem, Point, Size};
+use crate::layout::{Abs, Corner, Frame, FrameItem, LengthInEm, Point, Size};
 use crate::math::{
     scaled_font_size, styled_char, EquationElem, Limits, MathContext, MathSize, Scaled,
 };
 use crate::syntax::Span;
-use crate::text::{Font, Glyph, Lang, TextElem, TextItem};
+use crate::text::{Glyph, Lang, TextElem, TextItem, TypstFont};
 use crate::visualize::Paint;
 
 #[derive(Debug, Clone)]
@@ -121,11 +121,7 @@ impl MathFragment {
         self.class() == MathClass::Fence
             || match self {
                 MathFragment::Frame(frame) => {
-                    frame.spaced
-                        && matches!(
-                            frame.class,
-                            MathClass::Normal | MathClass::Alphabetic
-                        )
+                    frame.spaced && matches!(frame.class, MathClass::Normal | MathClass::Alphabetic)
                 }
                 _ => false,
             }
@@ -204,7 +200,7 @@ impl From<SpacingFragment> for MathFragment {
 pub struct GlyphFragment {
     pub id: GlyphId,
     pub c: char,
-    pub font: Font,
+    pub font: TypstFont,
     pub lang: Lang,
     pub fill: Paint,
     pub shift: Abs,
@@ -228,12 +224,7 @@ impl GlyphFragment {
         Self::with_id(ctx, styles, c, id, span)
     }
 
-    pub fn try_new(
-        ctx: &MathContext,
-        styles: StyleChain,
-        c: char,
-        span: Span,
-    ) -> Option<Self> {
+    pub fn try_new(ctx: &MathContext, styles: StyleChain, c: char, span: Span) -> Option<Self> {
         let c = styled_char(styles, c);
         let id = ctx.ttf.glyph_index(c)?;
         let id = Self::adjust_glyph_index(ctx, id);
@@ -281,7 +272,9 @@ impl GlyphFragment {
     /// Apply GSUB substitutions.
     fn adjust_glyph_index(ctx: &MathContext, id: GlyphId) -> GlyphId {
         if let Some(glyphwise_tables) = &ctx.glyphwise_tables {
-            glyphwise_tables.iter().fold(id, |id, table| table.apply(id))
+            glyphwise_tables
+                .iter()
+                .fold(id, |id, table| table.apply(id))
         } else {
             id
         }
@@ -345,8 +338,8 @@ impl GlyphFragment {
             stroke: None,
             glyphs: vec![Glyph {
                 id: self.id.0,
-                x_advance: Em::from_length(self.width, self.font_size),
-                x_offset: Em::zero(),
+                x_advance: LengthInEm::from_length(self.width, self.font_size),
+                x_offset: LengthInEm::zero(),
                 range: 0..self.c.len_utf8() as u16,
                 span: (self.span, 0),
             }],
@@ -354,14 +347,16 @@ impl GlyphFragment {
         let size = Size::new(self.width, self.ascent + self.descent);
         let mut frame = Frame::soft(size);
         frame.set_baseline(self.ascent);
-        frame.push(Point::with_y(self.ascent + self.shift), FrameItem::Text(item));
+        frame.push(
+            Point::with_y(self.ascent + self.shift),
+            FrameItem::Text(item),
+        );
         frame.meta_iter(self.meta);
         frame
     }
 
     pub fn make_scriptsize(&mut self, ctx: &MathContext) {
-        let alt_id =
-            script_alternatives(ctx, self.id).and_then(|alts| alts.alternates.get(0));
+        let alt_id = script_alternatives(ctx, self.id).and_then(|alts| alts.alternates.get(0));
 
         if let Some(alt_id) = alt_id {
             self.set_id(ctx, alt_id);
@@ -370,8 +365,8 @@ impl GlyphFragment {
 
     pub fn make_scriptscriptsize(&mut self, ctx: &MathContext) {
         let alts = script_alternatives(ctx, self.id);
-        let alt_id = alts
-            .and_then(|alts| alts.alternates.get(1).or_else(|| alts.alternates.get(0)));
+        let alt_id =
+            alts.and_then(|alts| alts.alternates.get(1).or_else(|| alts.alternates.get(0)));
 
         if let Some(alt_id) = alt_id {
             self.set_id(ctx, alt_id);
@@ -462,15 +457,24 @@ impl FrameFragment {
     }
 
     pub fn with_base_ascent(self, base_ascent: Abs) -> Self {
-        Self { base_ascent, ..self }
+        Self {
+            base_ascent,
+            ..self
+        }
     }
 
     pub fn with_italics_correction(self, italics_correction: Abs) -> Self {
-        Self { italics_correction, ..self }
+        Self {
+            italics_correction,
+            ..self
+        }
     }
 
     pub fn with_accent_attach(self, accent_attach: Abs) -> Self {
-        Self { accent_attach, ..self }
+        Self {
+            accent_attach,
+            ..self
+        }
     }
 
     pub fn with_text_like(self, text_like: bool) -> Self {
@@ -507,12 +511,11 @@ fn accent_attach(ctx: &MathContext, id: GlyphId, font_size: Abs) -> Option<Abs> 
 }
 
 /// Look up the script/scriptscript alternates for a glyph
-fn script_alternatives<'a>(
-    ctx: &MathContext<'a, '_, '_>,
-    id: GlyphId,
-) -> Option<AlternateSet<'a>> {
+fn script_alternatives<'a>(ctx: &MathContext<'a, '_, '_>, id: GlyphId) -> Option<AlternateSet<'a>> {
     ctx.ssty_table.and_then(|ssty| {
-        ssty.coverage.get(id).and_then(|index| ssty.alternate_sets.get(index))
+        ssty.coverage
+            .get(id)
+            .and_then(|index| ssty.alternate_sets.get(index))
     })
 }
 

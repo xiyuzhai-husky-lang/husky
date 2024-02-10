@@ -11,8 +11,8 @@ use crate::foundations::{
 };
 use crate::introspection::{Counter, CounterKey, ManualPageCounter};
 use crate::layout::{
-    Abs, AlignElem, Alignment, Axes, ColumnsElem, Dir, Frame, HAlignment, LayoutMultiple, Length,
-    Point, Ratio, Regions, Rel, Sides, Size, VAlignment,
+    Abs, AlignElem, Alignment, Axes, ColumnsElem, Frame, HAlignment, LayoutMultiple, Length, Point,
+    Ratio, Regions, Rel, Sides, Size, TypstLayoutDirection, VAlignment,
 };
 
 use crate::model::Numbering;
@@ -377,7 +377,7 @@ impl Packed<PageElem> {
         let binding = self
             .binding(styles)
             .unwrap_or_else(|| match TextElem::dir_in(styles) {
-                Dir::LTR => Binding::Left,
+                TypstLayoutDirection::LeftRight => Binding::Left,
                 _ => Binding::Right,
             });
 

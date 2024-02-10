@@ -9,7 +9,7 @@ use husky_typst::eval::Tracer;
 use husky_typst::foundations::{Bytes, Datetime};
 use husky_typst::layout::{Abs, Point, Size};
 use husky_typst::syntax::{FileId, Source, VirtualPath};
-use husky_typst::text::{Font, FontBook};
+use husky_typst::text::{TypstFont, TypstFontBook};
 use husky_typst::{Library, World};
 use pulldown_cmark as md;
 use serde::{Deserialize, Serialize};
@@ -439,7 +439,7 @@ impl World for DocWorld {
         &LIBRARY
     }
 
-    fn book(&self) -> &Prehashed<FontBook> {
+    fn book(&self) -> &Prehashed<TypstFontBook> {
         &FONTS.0
     }
 
@@ -460,7 +460,7 @@ impl World for DocWorld {
             .into())
     }
 
-    fn font(&self, index: usize) -> Option<Font> {
+    fn font(&self, index: usize) -> Option<TypstFont> {
         Some(FONTS.1[index].clone())
     }
 

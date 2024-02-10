@@ -1,4 +1,4 @@
-use husky_typst::visualize::{Color, ColorSpace, Paint};
+use husky_typst::visualize::{ColorSpace, Paint, TypstColor};
 use once_cell::sync::Lazy;
 use pdf_writer::types::DeviceNSubtype;
 use pdf_writer::{writers, Chunk, Dict, Filter, Name, Ref};
@@ -175,11 +175,11 @@ fn minify(source: &str) -> String {
 ///   PostScript function and the encoded color must be divided by 360.0.
 pub trait ColorEncode {
     /// Performs the color to PDF f32 array conversion.
-    fn encode(&self, color: Color) -> [f32; 4];
+    fn encode(&self, color: TypstColor) -> [f32; 4];
 }
 
 impl ColorEncode for ColorSpace {
-    fn encode(&self, color: Color) -> [f32; 4] {
+    fn encode(&self, color: TypstColor) -> [f32; 4] {
         match self {
             ColorSpace::Oklab | ColorSpace::Oklch | ColorSpace::Hsl | ColorSpace::Hsv => {
                 let [l, c, h, alpha] = color.to_oklch().to_vec4();
@@ -222,10 +222,10 @@ impl PaintEncode for Paint {
     }
 }
 
-impl PaintEncode for Color {
+impl PaintEncode for TypstColor {
     fn set_as_fill(&self, ctx: &mut PageContext, _: bool, _: Transforms) {
         match self {
-            Color::Luma(_) => {
+            TypstColor::Luma(_) => {
                 ctx.parent.colors.d65_gray(&mut ctx.parent.alloc);
                 ctx.set_fill_color_space(D65_GRAY);
 
@@ -233,28 +233,31 @@ impl PaintEncode for Color {
                 ctx.content.set_fill_color([l]);
             }
             // Oklch is converted to Oklab.
-            Color::Oklab(_) | Color::Oklch(_) | Color::Hsl(_) | Color::Hsv(_) => {
+            TypstColor::Oklab(_)
+            | TypstColor::Oklch(_)
+            | TypstColor::Hsl(_)
+            | TypstColor::Hsv(_) => {
                 ctx.parent.colors.oklab(&mut ctx.parent.alloc);
                 ctx.set_fill_color_space(OKLAB);
 
                 let [l, a, b, _] = ColorSpace::Oklab.encode(*self);
                 ctx.content.set_fill_color([l, a, b]);
             }
-            Color::LinearRgb(_) => {
+            TypstColor::LinearRgb(_) => {
                 ctx.parent.colors.linear_rgb();
                 ctx.set_fill_color_space(LINEAR_SRGB);
 
                 let [r, g, b, _] = ColorSpace::LinearRgb.encode(*self);
                 ctx.content.set_fill_color([r, g, b]);
             }
-            Color::Rgb(_) => {
+            TypstColor::Rgb(_) => {
                 ctx.parent.colors.srgb(&mut ctx.parent.alloc);
                 ctx.set_fill_color_space(SRGB);
 
                 let [r, g, b, _] = ColorSpace::Srgb.encode(*self);
                 ctx.content.set_fill_color([r, g, b]);
             }
-            Color::Cmyk(_) => {
+            TypstColor::Cmyk(_) => {
                 ctx.reset_fill_color_space();
 
                 let [c, m, y, k] = ColorSpace::Cmyk.encode(*self);
@@ -265,7 +268,7 @@ impl PaintEncode for Color {
 
     fn set_as_stroke(&self, ctx: &mut PageContext, _: bool, _: Transforms) {
         match self {
-            Color::Luma(_) => {
+            TypstColor::Luma(_) => {
                 ctx.parent.colors.d65_gray(&mut ctx.parent.alloc);
                 ctx.set_stroke_color_space(D65_GRAY);
 
@@ -273,28 +276,31 @@ impl PaintEncode for Color {
                 ctx.content.set_stroke_color([l]);
             }
             // Oklch is converted to Oklab.
-            Color::Oklab(_) | Color::Oklch(_) | Color::Hsl(_) | Color::Hsv(_) => {
+            TypstColor::Oklab(_)
+            | TypstColor::Oklch(_)
+            | TypstColor::Hsl(_)
+            | TypstColor::Hsv(_) => {
                 ctx.parent.colors.oklab(&mut ctx.parent.alloc);
                 ctx.set_stroke_color_space(OKLAB);
 
                 let [l, a, b, _] = ColorSpace::Oklab.encode(*self);
                 ctx.content.set_stroke_color([l, a, b]);
             }
-            Color::LinearRgb(_) => {
+            TypstColor::LinearRgb(_) => {
                 ctx.parent.colors.linear_rgb();
                 ctx.set_stroke_color_space(LINEAR_SRGB);
 
                 let [r, g, b, _] = ColorSpace::LinearRgb.encode(*self);
                 ctx.content.set_stroke_color([r, g, b]);
             }
-            Color::Rgb(_) => {
+            TypstColor::Rgb(_) => {
                 ctx.parent.colors.srgb(&mut ctx.parent.alloc);
                 ctx.set_stroke_color_space(SRGB);
 
                 let [r, g, b, _] = ColorSpace::Srgb.encode(*self);
                 ctx.content.set_stroke_color([r, g, b]);
             }
-            Color::Cmyk(_) => {
+            TypstColor::Cmyk(_) => {
                 ctx.reset_stroke_color_space();
 
                 let [c, m, y, k] = ColorSpace::Cmyk.encode(*self);
@@ -310,7 +316,7 @@ pub(super) trait ColorSpaceExt {
     fn range(self) -> [f32; 6];
 
     /// Converts a color to the color space.
-    fn convert<U: QuantizedColor>(self, color: Color) -> [U; 3];
+    fn convert<U: QuantizedColor>(self, color: TypstColor) -> [U; 3];
 }
 
 impl ColorSpaceExt for ColorSpace {
@@ -318,7 +324,7 @@ impl ColorSpaceExt for ColorSpace {
         [0.0, 1.0, 0.0, 1.0, 0.0, 1.0]
     }
 
-    fn convert<U: QuantizedColor>(self, color: Color) -> [U; 3] {
+    fn convert<U: QuantizedColor>(self, color: TypstColor) -> [U; 3] {
         let range = self.range();
         let [x, y, z, _] = self.encode(color);
 

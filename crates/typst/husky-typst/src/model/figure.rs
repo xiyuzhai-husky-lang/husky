@@ -11,7 +11,9 @@ use crate::foundations::{
     Smart, StyleChain, Styles, Synthesize, TypstContent,
 };
 use crate::introspection::{Count, Counter, CounterKey, CounterUpdate, Locatable, Location};
-use crate::layout::{Alignment, BlockElem, Em, HAlignment, Length, PlaceElem, VAlignment, VElem};
+use crate::layout::{
+    Alignment, BlockElem, HAlignment, Length, LengthInEm, PlaceElem, VAlignment, VElem,
+};
 use crate::model::{Numbering, NumberingPattern, Outlinable, Refable, Supplement};
 use crate::syntax::Spanned;
 use crate::text::{Lang, Region, TextElem};
@@ -194,7 +196,7 @@ pub struct FigureElem {
     pub numbering: Option<Numbering>,
 
     /// The vertical gap between the body and caption.
-    #[default(Em::new(0.65).into())]
+    #[default(LengthInEm::new(0.65).into())]
     pub gap: Length,
 
     /// Whether the figure should appear in an [`outline`]($outline) of figures.

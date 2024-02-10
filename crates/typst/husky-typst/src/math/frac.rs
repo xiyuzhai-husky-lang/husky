@@ -1,6 +1,6 @@
 use crate::diag::{bail, SourceResult};
 use crate::foundations::{elem, Packed, StyleChain, TypstContent, TypstValue};
-use crate::layout::{Em, Frame, FrameItem, Point, Size};
+use crate::layout::{Frame, FrameItem, LengthInEm, Point, Size};
 use crate::math::{
     scaled_font_size, style_for_denominator, style_for_numerator, FrameFragment, GlyphFragment,
     LayoutMath, MathContext, Scaled, DELIM_SHORT_FALL,
@@ -9,7 +9,7 @@ use crate::syntax::{Span, Spanned};
 use crate::text::TextElem;
 use crate::visualize::{FixedStroke, Geometry};
 
-const FRAC_AROUND: Em = Em::new(0.1);
+const FRAC_AROUND: LengthInEm = LengthInEm::new(0.1);
 
 /// A mathematical fraction.
 ///

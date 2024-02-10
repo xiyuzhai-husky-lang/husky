@@ -6,12 +6,12 @@ use husky_typst::foundations::{
     fields_on, format_str, mutable_methods_on, repr, AutoValue, CastInfo, Func, Label, NoneValue,
     Repr, Scope, Type, TypstValue,
 };
-use husky_typst::model::Document;
+use husky_typst::model::TypstDocument;
 use husky_typst::syntax::{
     ast, is_id_continue, is_id_start, is_ident, LinkedNode, Source, SyntaxKind,
 };
 use husky_typst::text::RawElem;
-use husky_typst::visualize::Color;
+use husky_typst::visualize::TypstColor;
 use husky_typst::World;
 use if_chain::if_chain;
 use serde::{Deserialize, Serialize};
@@ -33,7 +33,7 @@ use crate::{plain_docs_sentence, summarize_font_family};
 /// when the document is available.
 pub fn autocomplete(
     world: &dyn World,
-    document: Option<&Document>,
+    document: Option<&TypstDocument>,
     source: &Source,
     cursor: usize,
     explicit: bool,
@@ -991,7 +991,7 @@ fn code_completions(ctx: &mut CompletionContext, hash: bool) {
 /// Context for autocompletion.
 struct CompletionContext<'a> {
     world: &'a (dyn World + 'a),
-    document: Option<&'a Document>,
+    document: Option<&'a TypstDocument>,
     global: &'a Scope,
     math: &'a Scope,
     text: &'a str,
@@ -1009,7 +1009,7 @@ impl<'a> CompletionContext<'a> {
     /// Create a new autocompletion context.
     fn new(
         world: &'a (dyn World + 'a),
-        document: Option<&'a Document>,
+        document: Option<&'a TypstDocument>,
         source: &'a Source,
         cursor: usize,
         explicit: bool,
@@ -1229,7 +1229,7 @@ impl<'a> CompletionContext<'a> {
                 } else if *ty == Type::of::<bool>() {
                     self.snippet_completion("false", "false", "No / Disabled.");
                     self.snippet_completion("true", "true", "Yes / Enabled.");
-                } else if *ty == Type::of::<Color>() {
+                } else if *ty == Type::of::<TypstColor>() {
                     self.snippet_completion("luma()", "luma(${v})", "A custom grayscale color.");
                     self.snippet_completion(
                         "rgb()",

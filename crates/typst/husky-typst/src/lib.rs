@@ -63,11 +63,11 @@ use crate::foundations::{
     Array, Bytes, Datetime, Module, Scope, StyleChain, Styles, TypstContent, TypstDict,
 };
 use crate::introspection::{Introspector, Locator};
-use crate::layout::{Alignment, Dir, LayoutRoot};
-use crate::model::Document;
+use crate::layout::{Alignment, LayoutRoot, TypstLayoutDirection};
+use crate::model::TypstDocument;
 use crate::syntax::{FileId, PackageSpec, Source, Span};
-use crate::text::{Font, FontBook};
-use crate::visualize::Color;
+use crate::text::{TypstFont, TypstFontBook};
+use crate::visualize::TypstColor;
 use comemo::{Prehashed, Track, Tracked, Validate};
 use ecow::{EcoString, EcoVec};
 use husky_typst_timing::{timed, TimingScope};
@@ -83,7 +83,7 @@ use std::ops::Range;
 /// `Tracer::new()`. Independently of whether compilation succeeded, calling
 /// `tracer.warnings()` after compilation will return all compiler warnings.
 #[husky_typst_macros::time(name = "compile")]
-pub fn compile(world: &dyn World, tracer: &mut Tracer) -> SourceResult<Document> {
+pub fn compile(world: &dyn World, tracer: &mut Tracer) -> SourceResult<TypstDocument> {
     // Call `track` on the world just once to keep comemo's ID stable.
     let world = world.track();
 
@@ -105,7 +105,7 @@ fn typeset(
     world: Tracked<dyn World + '_>,
     tracer: &mut Tracer,
     content: &TypstContent,
-) -> SourceResult<Document> {
+) -> SourceResult<TypstDocument> {
     // The name of the iterations for timing scopes.
     const ITER_NAMES: &[&str] = &[
         "typeset (1)",
@@ -119,7 +119,7 @@ fn typeset(
     let styles = StyleChain::new(&library.styles);
 
     let mut iter = 0;
-    let mut document = Document::default();
+    let mut document = TypstDocument::default();
 
     // Relayout until all introspections stabilize.
     // If that doesn't happen within five attempts, we give up.
@@ -202,7 +202,7 @@ pub trait World {
     fn library(&self) -> &Prehashed<Library>;
 
     /// Metadata about all known fonts.
-    fn book(&self) -> &Prehashed<FontBook>;
+    fn book(&self) -> &Prehashed<TypstFontBook>;
 
     /// Access the main source file.
     fn main(&self) -> Source;
@@ -214,7 +214,7 @@ pub trait World {
     fn file(&self, id: FileId) -> FileResult<Bytes>;
 
     /// Try to access the font with the given index in the font book.
-    fn font(&self, index: usize) -> Option<Font>;
+    fn font(&self, index: usize) -> Option<TypstFont>;
 
     /// Get the current date.
     ///
@@ -324,34 +324,34 @@ fn global(math: Module, inputs: TypstDict) -> Module {
 /// Defines scoped values that are globally available, too.
 fn prelude(global: &mut Scope) {
     global.reset_category();
-    global.define("black", Color::BLACK);
-    global.define("gray", Color::GRAY);
-    global.define("silver", Color::SILVER);
-    global.define("white", Color::WHITE);
-    global.define("navy", Color::NAVY);
-    global.define("blue", Color::BLUE);
-    global.define("aqua", Color::AQUA);
-    global.define("teal", Color::TEAL);
-    global.define("eastern", Color::EASTERN);
-    global.define("purple", Color::PURPLE);
-    global.define("fuchsia", Color::FUCHSIA);
-    global.define("maroon", Color::MAROON);
-    global.define("red", Color::RED);
-    global.define("orange", Color::ORANGE);
-    global.define("yellow", Color::YELLOW);
-    global.define("olive", Color::OLIVE);
-    global.define("green", Color::GREEN);
-    global.define("lime", Color::LIME);
-    global.define("luma", Color::luma_data());
-    global.define("oklab", Color::oklab_data());
-    global.define("oklch", Color::oklch_data());
-    global.define("rgb", Color::rgb_data());
-    global.define("cmyk", Color::cmyk_data());
+    global.define("black", TypstColor::BLACK);
+    global.define("gray", TypstColor::GRAY);
+    global.define("silver", TypstColor::SILVER);
+    global.define("white", TypstColor::WHITE);
+    global.define("navy", TypstColor::NAVY);
+    global.define("blue", TypstColor::BLUE);
+    global.define("aqua", TypstColor::AQUA);
+    global.define("teal", TypstColor::TEAL);
+    global.define("eastern", TypstColor::EASTERN);
+    global.define("purple", TypstColor::PURPLE);
+    global.define("fuchsia", TypstColor::FUCHSIA);
+    global.define("maroon", TypstColor::MAROON);
+    global.define("red", TypstColor::RED);
+    global.define("orange", TypstColor::ORANGE);
+    global.define("yellow", TypstColor::YELLOW);
+    global.define("olive", TypstColor::OLIVE);
+    global.define("green", TypstColor::GREEN);
+    global.define("lime", TypstColor::LIME);
+    global.define("luma", TypstColor::luma_data());
+    global.define("oklab", TypstColor::oklab_data());
+    global.define("oklch", TypstColor::oklch_data());
+    global.define("rgb", TypstColor::rgb_data());
+    global.define("cmyk", TypstColor::cmyk_data());
     global.define("range", Array::range_data());
-    global.define("ltr", Dir::LTR);
-    global.define("rtl", Dir::RTL);
-    global.define("ttb", Dir::TTB);
-    global.define("btt", Dir::BTT);
+    global.define("ltr", TypstLayoutDirection::LeftRight);
+    global.define("rtl", TypstLayoutDirection::RightLeft);
+    global.define("ttb", TypstLayoutDirection::TopDown);
+    global.define("btt", TypstLayoutDirection::BOTTOM_UP);
     global.define("start", Alignment::START);
     global.define("left", Alignment::LEFT);
     global.define("center", Alignment::CENTER);
