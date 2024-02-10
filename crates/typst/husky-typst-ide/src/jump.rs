@@ -3,7 +3,7 @@ use std::num::NonZeroUsize;
 use ecow::EcoString;
 use husky_typst::introspection::Meta;
 use husky_typst::layout::{Frame, FrameItem, Point, Position, Size};
-use husky_typst::model::{Destination, Document};
+use husky_typst::model::{Destination, TypstDocument};
 use husky_typst::syntax::{FileId, LinkedNode, Source, Span, SyntaxKind};
 use husky_typst::visualize::Geometry;
 use husky_typst::World;
@@ -31,7 +31,7 @@ impl Jump {
 /// Determine where to jump to based on a click in a frame.
 pub fn jump_from_click(
     world: &dyn World,
-    document: &Document,
+    document: &TypstDocument,
     frame: &Frame,
     click: Point,
 ) -> Option<Jump> {
@@ -110,7 +110,11 @@ pub fn jump_from_click(
 }
 
 /// Find the output location in the document for a cursor position.
-pub fn jump_from_cursor(document: &Document, source: &Source, cursor: usize) -> Option<Position> {
+pub fn jump_from_cursor(
+    document: &TypstDocument,
+    source: &Source,
+    cursor: usize,
+) -> Option<Position> {
     let node = LinkedNode::new(source.root()).leaf_at(cursor)?;
     if node.kind() != SyntaxKind::Text {
         return None;

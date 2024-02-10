@@ -4,10 +4,10 @@ use std::num::NonZeroUsize;
 use ecow::{eco_format, EcoString};
 use husky_typst::introspection::Meta;
 use husky_typst::layout::{
-    Abs, Em, Frame, FrameItem, GroupItem, Page, Point, Ratio, Size, Transform,
+    Abs, Frame, FrameItem, GroupItem, LengthInEm, Page, Point, Ratio, Size, Transform,
 };
 use husky_typst::model::{Destination, Numbering};
-use husky_typst::text::{Case, Font, TextItem};
+use husky_typst::text::{Case, TextItem, TypstFont};
 use husky_typst::util::{Deferred, Numeric};
 use husky_typst::visualize::{
     FixedStroke, Geometry, Image, LineCap, LineJoin, Paint, Path, PathItem, Shape,
@@ -427,7 +427,7 @@ struct State {
     container_transform: Transform,
     /// The size of the first hard frame in the hierarchy.
     size: Size,
-    font: Option<(Font, Abs)>,
+    font: Option<(TypstFont, Abs)>,
     fill: Option<Paint>,
     fill_space: Option<Name<'static>>,
     external_graphics_state: Option<ExtGState>,
@@ -557,7 +557,7 @@ impl PageContext<'_, '_> {
         self.state.container_transform = self.state.container_transform.pre_concat(transform);
     }
 
-    fn set_font(&mut self, font: &Font, size: Abs) {
+    fn set_font(&mut self, font: &TypstFont, size: Abs) {
         if self.state.font.as_ref().map(|(f, s)| (f, *s)) != Some((font, size)) {
             let index = self.parent.font_map.insert(font.clone());
             let name = eco_format!("F{index}");
@@ -722,7 +722,7 @@ fn write_text(ctx: &mut PageContext, pos: Point, text: &TextItem) {
 
     let mut positioned = ctx.content.show_positioned();
     let mut items = positioned.items();
-    let mut adjustment = Em::zero();
+    let mut adjustment = LengthInEm::zero();
     let mut encoded = vec![];
 
     // Write the glyphs with kerning adjustments.
@@ -736,7 +736,7 @@ fn write_text(ctx: &mut PageContext, pos: Point, text: &TextItem) {
             }
 
             items.adjust(-adjustment.to_font_units());
-            adjustment = Em::zero();
+            adjustment = LengthInEm::zero();
         }
 
         let cid = crate::font::glyph_cid(&text.font, glyph.id);

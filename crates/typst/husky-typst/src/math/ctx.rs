@@ -13,7 +13,7 @@ use unicode_segmentation::UnicodeSegmentation;
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{Packed, Smart, StyleChain, TypstContent};
-use crate::layout::{Abs, Axes, BoxElem, Em, Frame, LayoutMultiple, Regions, Size};
+use crate::layout::{Abs, Axes, BoxElem, Frame, LayoutMultiple, LengthInEm, Regions, Size};
 use crate::math::{
     scaled_font_size, styled_char, EquationElem, FrameFragment, GlyphFragment, LayoutMath,
     MathFragment, MathRow, MathSize, THICK,
@@ -21,7 +21,7 @@ use crate::math::{
 use crate::model::ParElem;
 use crate::syntax::{is_newline, Span};
 use crate::text::{
-    features, BottomEdge, BottomEdgeMetric, Font, TextElem, TextSize, TopEdge, TopEdgeMetric,
+    features, BottomEdge, BottomEdgeMetric, TextElem, TextSize, TopEdge, TopEdgeMetric, TypstFont,
 };
 
 macro_rules! scaled {
@@ -50,13 +50,13 @@ pub struct MathContext<'a, 'b, 'v> {
     pub engine: &'v mut Engine<'b>,
     pub regions: Regions<'static>,
     // Font-related.
-    pub font: &'a Font,
+    pub font: &'a TypstFont,
     pub ttf: &'a ttf_parser::Face<'a>,
     pub table: ttf_parser::math::Table<'a>,
     pub constants: ttf_parser::math::Constants<'a>,
     pub ssty_table: Option<ttf_parser::gsub::AlternateSubstitution<'a>>,
     pub glyphwise_tables: Option<Vec<GlyphwiseSubsts<'a>>>,
-    pub space_width: Em,
+    pub space_width: LengthInEm,
     // Mutable.
     pub fragments: Vec<MathFragment>,
 }
@@ -66,7 +66,7 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
         engine: &'v mut Engine<'b>,
         styles: StyleChain<'a>,
         regions: Regions,
-        font: &'a Font,
+        font: &'a TypstFont,
     ) -> Self {
         let math_table = font.ttf().tables().math.unwrap();
         let gsub_table = font.ttf().tables().gsub;

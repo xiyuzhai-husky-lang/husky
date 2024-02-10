@@ -7,11 +7,11 @@ use husky_typst::introspection::Meta;
 use husky_typst::layout::{
     Abs, Axes, Frame, FrameItem, FrameKind, GroupItem, Point, Ratio, Size, Transform,
 };
-use husky_typst::model::Document;
-use husky_typst::text::{Font, TextItem};
+use husky_typst::model::TypstDocument;
+use husky_typst::text::{TextItem, TypstFont};
 use husky_typst::visualize::{
-    Color, DashPattern, FixedStroke, Geometry, Gradient, Image, ImageKind, LineCap, LineJoin,
-    Paint, Path, PathItem, Pattern, RasterFormat, RelativeTo, Shape,
+    DashPattern, FixedStroke, Geometry, Gradient, Image, ImageKind, LineCap, LineJoin, Paint, Path,
+    PathItem, Pattern, RasterFormat, RelativeTo, Shape, TypstColor,
 };
 use image::imageops::FilterType;
 use image::{GenericImageView, Rgba};
@@ -26,7 +26,7 @@ use usvg::TreeParsing;
 /// This renders the frame at the given number of pixels per point and returns
 /// the resulting `tiny-skia` pixel buffer.
 #[husky_typst_macros::time(name = "render")]
-pub fn render(frame: &Frame, pixel_per_pt: f32, fill: Color) -> sk::Pixmap {
+pub fn render(frame: &Frame, pixel_per_pt: f32, fill: TypstColor) -> sk::Pixmap {
     let size = frame.size();
     let pxw = (pixel_per_pt * size.x.to_f32()).round().max(1.0) as u32;
     let pxh = (pixel_per_pt * size.y.to_f32()).round().max(1.0) as u32;
@@ -44,11 +44,11 @@ pub fn render(frame: &Frame, pixel_per_pt: f32, fill: Color) -> sk::Pixmap {
 ///
 /// The padding will be added around and between the individual frames.
 pub fn render_merged(
-    document: &Document,
+    document: &TypstDocument,
     pixel_per_pt: f32,
-    frame_fill: Color,
+    frame_fill: TypstColor,
     padding: Abs,
-    padding_fill: Color,
+    padding_fill: TypstColor,
 ) -> sk::Pixmap {
     let pixmaps: Vec<_> = document
         .pages
@@ -440,7 +440,7 @@ fn render_outline_glyph(
 
     // Rasterize the glyph with `pixglyph`.
     #[comemo::memoize]
-    fn rasterize(font: &Font, id: GlyphId, x: u32, y: u32, size: u32) -> Option<Arc<Bitmap>> {
+    fn rasterize(font: &TypstFont, id: GlyphId, x: u32, y: u32, size: u32) -> Option<Arc<Bitmap>> {
         let glyph = pixglyph::Glyph::load(font.ttf(), id)?;
         Some(Arc::new(glyph.rasterize(
             f32::from_bits(x),
@@ -1016,12 +1016,12 @@ fn render_pattern_frame(state: &State, pattern: &Pattern) -> sk::Pixmap {
     canvas
 }
 
-fn to_sk_color(color: Color) -> sk::Color {
+fn to_sk_color(color: TypstColor) -> sk::Color {
     let [r, g, b, a] = color.to_rgb().to_vec4_u8();
     sk::Color::from_rgba8(r, g, b, a)
 }
 
-fn to_sk_color_u8_without_alpha(color: Color) -> sk::ColorU8 {
+fn to_sk_color_u8_without_alpha(color: TypstColor) -> sk::ColorU8 {
     let [r, g, b, _] = color.to_rgb().to_vec4_u8();
     sk::ColorU8::from_rgba(r, g, b, 255)
 }

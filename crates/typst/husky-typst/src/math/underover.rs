@@ -1,6 +1,6 @@
 use crate::diag::SourceResult;
 use crate::foundations::{elem, Packed, StyleChain, TypstContent};
-use crate::layout::{Abs, Em, FixedAlignment, Frame, FrameItem, Point, Size};
+use crate::layout::{Abs, FixedAlignment, Frame, FrameItem, LengthInEm, Point, Size};
 use crate::math::{
     alignments, scaled_font_size, style_cramped, style_for_subscript, AlignmentResult,
     FrameFragment, GlyphFragment, LayoutMath, MathContext, MathRow, Scaled,
@@ -9,8 +9,8 @@ use crate::syntax::Span;
 use crate::text::TextElem;
 use crate::visualize::{FixedStroke, Geometry};
 
-const BRACE_GAP: Em = Em::new(0.25);
-const BRACKET_GAP: Em = Em::new(0.25);
+const BRACE_GAP: LengthInEm = LengthInEm::new(0.25);
+const BRACKET_GAP: LengthInEm = LengthInEm::new(0.25);
 
 /// A marker to distinguish under- vs. overlines.
 enum LineKind {
@@ -254,7 +254,7 @@ fn layout_underoverspreader(
     body: &TypstContent,
     annotation: &Option<TypstContent>,
     c: char,
-    gap: Em,
+    gap: LengthInEm,
     reverse: bool,
     span: Span,
 ) -> SourceResult<()> {

@@ -6,7 +6,7 @@ use crate::foundations::{
     TypstDict, TypstValue,
 };
 use crate::layout::{
-    Abs, Axes, Em, FixedAlignment, Frame, FrameItem, Length, Point, Ratio, Rel, Size,
+    Abs, Axes, FixedAlignment, Frame, FrameItem, Length, LengthInEm, Point, Ratio, Rel, Size,
 };
 use crate::math::{
     alignments, scaled_font_size, stack, style_for_denominator, AlignmentResult, FrameFragment,
@@ -17,10 +17,10 @@ use crate::text::TextElem;
 use crate::util::Numeric;
 use crate::visualize::{FixedStroke, Geometry, LineCap, Shape, Stroke};
 
-const DEFAULT_ROW_GAP: Em = Em::new(0.5);
-const DEFAULT_COL_GAP: Em = Em::new(0.5);
+const DEFAULT_ROW_GAP: LengthInEm = LengthInEm::new(0.5);
+const DEFAULT_COL_GAP: LengthInEm = LengthInEm::new(0.5);
 const VERTICAL_PADDING: Ratio = Ratio::new(0.1);
-const DEFAULT_STROKE_THICKNESS: Em = Em::new(0.05);
+const DEFAULT_STROKE_THICKNESS: LengthInEm = LengthInEm::new(0.05);
 
 /// A column vector.
 ///

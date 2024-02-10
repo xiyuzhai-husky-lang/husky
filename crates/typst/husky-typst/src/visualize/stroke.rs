@@ -7,7 +7,7 @@ use crate::foundations::{
 };
 use crate::layout::{Abs, Length};
 use crate::util::{Numeric, Scalar};
-use crate::visualize::{Color, Gradient, Paint, Pattern};
+use crate::visualize::{Gradient, Paint, Pattern, TypstColor};
 
 /// Defines how to draw a line.
 ///
@@ -378,7 +378,7 @@ cast! {
         thickness: Smart::Custom(thickness),
         ..Default::default()
     },
-    color: Color => Self {
+    color: TypstColor => Self {
         paint: Smart::Custom(color.into()),
         ..Default::default()
     },
@@ -623,7 +623,7 @@ impl FixedStroke {
 impl Default for FixedStroke {
     fn default() -> Self {
         Self {
-            paint: Paint::Solid(Color::BLACK),
+            paint: Paint::Solid(TypstColor::BLACK),
             thickness: Abs::pt(1.0),
             cap: LineCap::Butt,
             join: LineJoin::Miter,

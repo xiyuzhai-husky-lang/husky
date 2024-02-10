@@ -4,7 +4,7 @@ mod book;
 mod exceptions;
 mod variant;
 
-pub use self::book::{Coverage, FontBook, FontFlags, FontInfo};
+pub use self::book::{Coverage, FontFlags, FontInfo, TypstFontBook};
 pub use self::variant::{FontStretch, FontStyle, FontVariant, FontWeight};
 
 use std::fmt::{self, Debug, Formatter};
@@ -15,13 +15,13 @@ use ttf_parser::GlyphId;
 
 use self::book::find_name;
 use crate::foundations::{Bytes, Cast};
-use crate::layout::Em;
+use crate::layout::LengthInEm;
 
 /// An OpenType font.
 ///
 /// Values of this type are cheap to clone and hash.
 #[derive(Clone)]
-pub struct Font(Arc<Repr>);
+pub struct TypstFont(Arc<Repr>);
 
 /// The internal representation of a font.
 struct Repr {
@@ -41,7 +41,7 @@ struct Repr {
     rusty: rustybuzz::Face<'static>,
 }
 
-impl Font {
+impl TypstFont {
     /// Parse a font from data and collection index.
     pub fn new(data: Bytes, index: u32) -> Option<Self> {
         // Safety:
@@ -50,15 +50,21 @@ impl Font {
         //   - Nobody else can move it since we have a strong ref to the `Arc`.
         // - The internal 'static lifetime is not leaked because its rewritten
         //   to the self-lifetime in `ttf()`.
-        let slice: &'static [u8] =
-            unsafe { std::slice::from_raw_parts(data.as_ptr(), data.len()) };
+        let slice: &'static [u8] = unsafe { std::slice::from_raw_parts(data.as_ptr(), data.len()) };
 
         let ttf = ttf_parser::Face::parse(slice, index).ok()?;
         let rusty = rustybuzz::Face::from_slice(slice, index)?;
         let metrics = FontMetrics::from_ttf(&ttf);
         let info = FontInfo::from_ttf(&ttf)?;
 
-        Some(Self(Arc::new(Repr { data, index, info, metrics, ttf, rusty })))
+        Some(Self(Arc::new(Repr {
+            data,
+            index,
+            info,
+            metrics,
+            ttf,
+            rusty,
+        })))
     }
 
     /// Parse all fonts in the given data.
@@ -93,12 +99,12 @@ impl Font {
     }
 
     /// Convert from font units to an em length.
-    pub fn to_em(&self, units: impl Into<f64>) -> Em {
-        Em::from_units(units, self.units_per_em())
+    pub fn to_em(&self, units: impl Into<f64>) -> LengthInEm {
+        LengthInEm::from_units(units, self.units_per_em())
     }
 
     /// Look up the horizontal advance width of a glyph.
-    pub fn advance(&self, glyph: u16) -> Option<Em> {
+    pub fn advance(&self, glyph: u16) -> Option<LengthInEm> {
         self.0
             .ttf
             .glyph_hor_advance(GlyphId(glyph))
@@ -125,22 +131,22 @@ impl Font {
     }
 }
 
-impl Hash for Font {
+impl Hash for TypstFont {
     fn hash<H: Hasher>(&self, state: &mut H) {
         self.0.data.hash(state);
         self.0.index.hash(state);
     }
 }
 
-impl Debug for Font {
+impl Debug for TypstFont {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         write!(f, "Font({}, {:?})", self.info().family, self.info().variant)
     }
 }
 
-impl Eq for Font {}
+impl Eq for TypstFont {}
 
-impl PartialEq for Font {
+impl PartialEq for TypstFont {
     fn eq(&self, other: &Self) -> bool {
         self.0.data == other.0.data && self.0.index == other.0.index
     }
@@ -152,13 +158,13 @@ pub struct FontMetrics {
     /// How many font units represent one em unit.
     pub units_per_em: f64,
     /// The distance from the baseline to the typographic ascender.
-    pub ascender: Em,
+    pub ascender: LengthInEm,
     /// The approximate height of uppercase letters.
-    pub cap_height: Em,
+    pub cap_height: LengthInEm,
     /// The approximate height of non-ascending lowercase letters.
-    pub x_height: Em,
+    pub x_height: LengthInEm,
     /// The distance from the baseline to the typographic descender.
-    pub descender: Em,
+    pub descender: LengthInEm,
     /// Recommended metrics for a strikethrough line.
     pub strikethrough: LineMetrics,
     /// Recommended metrics for an underline.
@@ -171,31 +177,34 @@ impl FontMetrics {
     /// Extract the font's metrics.
     pub fn from_ttf(ttf: &ttf_parser::Face) -> Self {
         let units_per_em = f64::from(ttf.units_per_em());
-        let to_em = |units| Em::from_units(units, units_per_em);
+        let to_em = |units| LengthInEm::from_units(units, units_per_em);
 
         let ascender = to_em(ttf.typographic_ascender().unwrap_or(ttf.ascender()));
-        let cap_height = ttf.capital_height().filter(|&h| h > 0).map_or(ascender, to_em);
+        let cap_height = ttf
+            .capital_height()
+            .filter(|&h| h > 0)
+            .map_or(ascender, to_em);
         let x_height = ttf.x_height().filter(|&h| h > 0).map_or(ascender, to_em);
         let descender = to_em(ttf.typographic_descender().unwrap_or(ttf.descender()));
         let strikeout = ttf.strikeout_metrics();
         let underline = ttf.underline_metrics();
 
         let strikethrough = LineMetrics {
-            position: strikeout.map_or(Em::new(0.25), |s| to_em(s.position)),
+            position: strikeout.map_or(LengthInEm::new(0.25), |s| to_em(s.position)),
             thickness: strikeout
                 .or(underline)
-                .map_or(Em::new(0.06), |s| to_em(s.thickness)),
+                .map_or(LengthInEm::new(0.06), |s| to_em(s.thickness)),
         };
 
         let underline = LineMetrics {
-            position: underline.map_or(Em::new(-0.2), |s| to_em(s.position)),
+            position: underline.map_or(LengthInEm::new(-0.2), |s| to_em(s.position)),
             thickness: underline
                 .or(strikeout)
-                .map_or(Em::new(0.06), |s| to_em(s.thickness)),
+                .map_or(LengthInEm::new(0.06), |s| to_em(s.thickness)),
         };
 
         let overline = LineMetrics {
-            position: cap_height + Em::new(0.1),
+            position: cap_height + LengthInEm::new(0.1),
             thickness: underline.thickness,
         };
 
@@ -212,12 +221,12 @@ impl FontMetrics {
     }
 
     /// Look up a vertical metric.
-    pub fn vertical(&self, metric: VerticalFontMetric) -> Em {
+    pub fn vertical(&self, metric: VerticalFontMetric) -> LengthInEm {
         match metric {
             VerticalFontMetric::Ascender => self.ascender,
             VerticalFontMetric::CapHeight => self.cap_height,
             VerticalFontMetric::XHeight => self.x_height,
-            VerticalFontMetric::Baseline => Em::zero(),
+            VerticalFontMetric::Baseline => LengthInEm::zero(),
             VerticalFontMetric::Descender => self.descender,
         }
     }
@@ -228,9 +237,9 @@ impl FontMetrics {
 pub struct LineMetrics {
     /// The vertical offset of the line from the baseline. Positive goes
     /// upwards, negative downwards.
-    pub position: Em,
+    pub position: LengthInEm,
     /// The thickness of the line.
-    pub thickness: Em,
+    pub thickness: LengthInEm,
 }
 
 /// Identifies a vertical metric of a font.

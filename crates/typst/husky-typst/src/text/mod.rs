@@ -42,11 +42,11 @@ use crate::foundations::{
     cast, category, elem, Args, Array, Cast, Category, Construct, Fold, NativeElement, Never,
     PlainText, Repr, Resolve, Scope, Set, Smart, StyleChain, TypstContent, TypstDict,
 };
-use crate::layout::Em;
-use crate::layout::{Abs, Axis, Dir, Length, Rel};
+use crate::layout::LengthInEm;
+use crate::layout::{Abs, Axis, Length, Rel, TypstLayoutDirection};
 use crate::model::ParElem;
 use crate::syntax::Spanned;
-use crate::visualize::{Color, Paint, RelativeTo, Stroke};
+use crate::visualize::{Paint, RelativeTo, Stroke, TypstColor};
 
 /// Text styling.
 ///
@@ -240,7 +240,7 @@ pub struct TextElem {
         }
         paint.map(|paint| paint.v)
     })]
-    #[default(Color::BLACK.into())]
+    #[default(TypstColor::BLACK.into())]
     #[ghost]
     pub fill: Paint,
 
@@ -794,7 +794,7 @@ impl Fold for TextSize {
     fn fold(self, outer: Self) -> Self {
         // Multiply the two linear functions.
         Self(Length {
-            em: Em::new(self.0.em.get() * outer.0.em.get()),
+            em: LengthInEm::new(self.0.em.get() * outer.0.em.get()),
             abs: self.0.em.get() * outer.0.abs + self.0.abs,
         })
     }
@@ -830,7 +830,7 @@ impl TopEdge {
     }
 
     /// Resolve the value of the text edge given a font's metrics.
-    pub fn resolve(self, font_size: Abs, font: &Font, bbox: Option<Rect>) -> Abs {
+    pub fn resolve(self, font_size: Abs, font: &TypstFont, bbox: Option<Rect>) -> Abs {
         match self {
             TopEdge::Metric(metric) => {
                 if let Ok(metric) = metric.try_into() {
@@ -900,7 +900,7 @@ impl BottomEdge {
     }
 
     /// Resolve the value of the text edge given a font's metrics.
-    pub fn resolve(self, font_size: Abs, font: &Font, bbox: Option<Rect>) -> Abs {
+    pub fn resolve(self, font_size: Abs, font: &TypstFont, bbox: Option<Rect>) -> Abs {
         match self {
             BottomEdge::Metric(metric) => {
                 if let Ok(metric) = metric.try_into() {
@@ -950,12 +950,12 @@ impl TryInto<VerticalFontMetric> for BottomEdgeMetric {
 
 /// The direction of text and inline objects in their line.
 #[derive(Debug, Default, Copy, Clone, Eq, PartialEq, Hash)]
-pub struct TextDir(pub Smart<Dir>);
+pub struct TextDir(pub Smart<TypstLayoutDirection>);
 
 cast! {
     TextDir,
     self => self.0.into_value(),
-    v: Smart<Dir> => {
+    v: Smart<TypstLayoutDirection> => {
         if v.map_or(false, |dir| dir.axis() == Axis::Y) {
             bail!("text direction must be horizontal");
         }
@@ -964,7 +964,7 @@ cast! {
 }
 
 impl Resolve for TextDir {
-    type Output = Dir;
+    type Output = TypstLayoutDirection;
 
     fn resolve(self, styles: StyleChain) -> Self::Output {
         match self.0 {

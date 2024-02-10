@@ -6,7 +6,7 @@ use ecow::{eco_format, EcoString};
 
 use crate::diag::{At, Hint, SourceResult};
 use crate::foundations::{func, scope, ty, Fold, Repr, Resolve, StyleChain, Styles};
-use crate::layout::{Abs, Em};
+use crate::layout::{Abs, LengthInEm};
 use crate::syntax::Span;
 use crate::util::Numeric;
 
@@ -44,19 +44,24 @@ pub struct Length {
     /// The absolute part.
     pub abs: Abs,
     /// The font-relative part.
-    pub em: Em,
+    pub em: LengthInEm,
 }
 
 impl Length {
     /// The zero length.
     pub const fn zero() -> Self {
-        Self { abs: Abs::zero(), em: Em::zero() }
+        Self {
+            abs: Abs::zero(),
+            em: LengthInEm::zero(),
+        }
     }
 
     /// Try to compute the absolute value of the length.
     pub fn try_abs(self) -> Option<Self> {
-        (self.abs.is_zero() || self.em.is_zero())
-            .then(|| Self { abs: self.abs.abs(), em: self.em.abs() })
+        (self.abs.is_zero() || self.em.is_zero()).then(|| Self {
+            abs: self.abs.abs(),
+            em: self.em.abs(),
+        })
     }
 
     /// Try to divide two lengths.
@@ -77,14 +82,16 @@ impl Length {
 
     /// Fails with an error if the length has a non-zero font-relative part.
     fn ensure_that_em_is_zero(&self, span: Span, unit: &str) -> SourceResult<()> {
-        if self.em == Em::zero() {
+        if self.em == LengthInEm::zero() {
             return Ok(());
         }
         Err(eco_format!(
             "cannot convert a length with non-zero em units (`{}`) to {unit}",
             self.repr()
         ))
-        .hint(eco_format!("use `length.abs.{unit}()` instead to ignore its em component"))
+        .hint(eco_format!(
+            "use `length.abs.{unit}()` instead to ignore its em component"
+        ))
         .at(span)
     }
 }
@@ -210,13 +217,19 @@ impl PartialOrd for Length {
 
 impl From<Abs> for Length {
     fn from(abs: Abs) -> Self {
-        Self { abs, em: Em::zero() }
+        Self {
+            abs,
+            em: LengthInEm::zero(),
+        }
     }
 }
 
-impl From<Em> for Length {
-    fn from(em: Em) -> Self {
-        Self { abs: Abs::zero(), em }
+impl From<LengthInEm> for Length {
+    fn from(em: LengthInEm) -> Self {
+        Self {
+            abs: Abs::zero(),
+            em,
+        }
     }
 }
 
@@ -224,7 +237,10 @@ impl Neg for Length {
     type Output = Self;
 
     fn neg(self) -> Self::Output {
-        Self { abs: -self.abs, em: -self.em }
+        Self {
+            abs: -self.abs,
+            em: -self.em,
+        }
     }
 }
 
@@ -232,7 +248,10 @@ impl Add for Length {
     type Output = Self;
 
     fn add(self, rhs: Self) -> Self::Output {
-        Self { abs: self.abs + rhs.abs, em: self.em + rhs.em }
+        Self {
+            abs: self.abs + rhs.abs,
+            em: self.em + rhs.em,
+        }
     }
 }
 
@@ -242,7 +261,10 @@ impl Mul<f64> for Length {
     type Output = Self;
 
     fn mul(self, rhs: f64) -> Self::Output {
-        Self { abs: self.abs * rhs, em: self.em * rhs }
+        Self {
+            abs: self.abs * rhs,
+            em: self.em * rhs,
+        }
     }
 }
 
@@ -258,7 +280,10 @@ impl Div<f64> for Length {
     type Output = Self;
 
     fn div(self, rhs: f64) -> Self::Output {
-        Self { abs: self.abs / rhs, em: self.em / rhs }
+        Self {
+            abs: self.abs / rhs,
+            em: self.em / rhs,
+        }
     }
 }
 

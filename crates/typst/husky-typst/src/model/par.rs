@@ -8,7 +8,7 @@ use crate::foundations::{
     elem, Args, Cast, Construct, NativeElement, Packed, Set, Smart, StyleChain, TypstContent,
     Unlabellable,
 };
-use crate::layout::{Em, Fragment, Length, Size};
+use crate::layout::{Fragment, Length, LengthInEm, Size};
 
 /// Arranges text, spacing and inline-level elements into a paragraph.
 ///
@@ -40,7 +40,7 @@ pub struct ParElem {
     /// The spacing between lines.
     #[resolve]
     #[ghost]
-    #[default(Em::new(0.65).into())]
+    #[default(LengthInEm::new(0.65).into())]
     pub leading: Length,
 
     /// Whether to justify text in its line.

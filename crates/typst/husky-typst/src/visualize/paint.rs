@@ -3,13 +3,13 @@ use std::fmt::{self, Debug, Formatter};
 use ecow::EcoString;
 
 use crate::foundations::{cast, Repr, Smart};
-use crate::visualize::{Color, Gradient, Pattern, RelativeTo};
+use crate::visualize::{Gradient, Pattern, RelativeTo, TypstColor};
 
 /// How a fill or stroke should be painted.
 #[derive(Clone, Eq, PartialEq, Hash)]
 pub enum Paint {
     /// A solid color.
-    Solid(Color),
+    Solid(TypstColor),
     /// A gradient.
     Gradient(Gradient),
     /// A pattern.
@@ -18,7 +18,7 @@ pub enum Paint {
 
 impl Paint {
     /// Unwraps a solid color used for text rendering.
-    pub fn unwrap_solid(&self) -> Color {
+    pub fn unwrap_solid(&self) -> TypstColor {
         match self {
             Self::Solid(color) => *color,
             Self::Gradient(_) | Self::Pattern(_) => panic!("expected solid color"),
@@ -77,7 +77,7 @@ impl Repr for Paint {
     }
 }
 
-impl<T: Into<Color>> From<T> for Paint {
+impl<T: Into<TypstColor>> From<T> for Paint {
     fn from(t: T) -> Self {
         Self::Solid(t.into())
     }
@@ -96,7 +96,7 @@ cast! {
         Self::Gradient(gradient) => gradient.into_value(),
         Self::Pattern(pattern) => pattern.into_value(),
     },
-    color: Color => Self::Solid(color),
+    color: TypstColor => Self::Solid(color),
     gradient: Gradient => Self::Gradient(gradient),
     pattern: Pattern => Self::Pattern(pattern),
 }

@@ -6,7 +6,7 @@ use crate::foundations::{
     elem, NativeElement, Packed, Show, ShowSet, Smart, StyleChain, Styles, Synthesize, TypstContent,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable};
-use crate::layout::{BlockElem, Em, HElem, VElem};
+use crate::layout::{BlockElem, HElem, LengthInEm, VElem};
 use crate::model::{Numbering, Outlinable, Refable, Supplement};
 use crate::text::{FontWeight, Lang, LocalName, Region, SpaceElem, TextElem, TextSize};
 use crate::util::{option_eq, NonZeroExt};
@@ -149,7 +149,9 @@ impl Show for Packed<HeadingElem> {
                 .at(engine, self.location().unwrap())?
                 .display(engine, numbering)?
                 .spanned(self.span())
-                + HElem::new(Em::new(0.3).into()).with_weak(true).pack()
+                + HElem::new(LengthInEm::new(0.3).into())
+                    .with_weak(true)
+                    .pack()
                 + realized;
         }
         Ok(BlockElem::new()
@@ -168,9 +170,9 @@ impl ShowSet for Packed<HeadingElem> {
             _ => 1.0,
         };
 
-        let size = Em::new(scale);
-        let above = Em::new(if level == 1 { 1.8 } else { 1.44 }) / scale;
-        let below = Em::new(0.75) / scale;
+        let size = LengthInEm::new(scale);
+        let above = LengthInEm::new(if level == 1 { 1.8 } else { 1.44 }) / scale;
+        let below = LengthInEm::new(0.75) / scale;
 
         let mut out = Styles::new();
         out.set(TextElem::set_size(TextSize(size.into())));

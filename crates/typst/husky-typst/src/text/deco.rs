@@ -5,10 +5,10 @@ use ttf_parser::{GlyphId, OutlineBuilder};
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{elem, Packed, Show, Smart, StyleChain, TypstContent};
-use crate::layout::{Abs, Em, Frame, FrameItem, Length, Point, Size};
+use crate::layout::{Abs, Frame, FrameItem, Length, LengthInEm, Point, Size};
 use crate::syntax::Span;
 use crate::text::{BottomEdge, BottomEdgeMetric, TextElem, TextItem, TopEdge, TopEdgeMetric};
-use crate::visualize::{Color, FixedStroke, Geometry, Paint, Stroke};
+use crate::visualize::{FixedStroke, Geometry, Paint, Stroke, TypstColor};
 
 /// Underlines text.
 ///
@@ -288,7 +288,7 @@ pub struct HighlightElem {
     /// ```example
     /// This is #highlight(fill: blue)[with blue].
     /// ```
-    #[default(Color::from_u8(0xFF, 0xFF, 0x5F, 0xFF).into())]
+    #[default(TypstColor::from_u8(0xFF, 0xFF, 0x5F, 0xFF).into())]
     pub fill: Paint,
 
     /// The top end of the background rectangle.
@@ -573,7 +573,7 @@ impl BezPathBuilder {
     }
 
     fn s(&self, v: f32) -> f64 {
-        Em::from_units(v, self.units_per_em)
+        LengthInEm::from_units(v, self.units_per_em)
             .at(self.font_size)
             .to_raw()
     }

@@ -6,8 +6,8 @@ use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{cast, elem, scope, Array, Packed, Smart, StyleChain, TypstContent};
 use crate::layout::{
-    Alignment, Axes, BlockElem, Cell, CellGrid, Em, Fragment, GridLayouter, HAlignment,
-    LayoutMultiple, Length, Regions, Sizing, Spacing, VAlignment,
+    Alignment, Axes, BlockElem, Cell, CellGrid, Fragment, GridLayouter, HAlignment, LayoutMultiple,
+    Length, LengthInEm, Regions, Sizing, Spacing, VAlignment,
 };
 use crate::model::{Numbering, NumberingPattern, ParElem};
 use crate::text::TextElem;
@@ -147,7 +147,7 @@ pub struct EnumElem {
 
     /// The space between the numbering and the body of each item.
     #[resolve]
-    #[default(Em::new(0.5).into())]
+    #[default(LengthInEm::new(0.5).into())]
     pub body_indent: Length,
 
     /// The spacing between the items of a wide (non-tight) enumeration.

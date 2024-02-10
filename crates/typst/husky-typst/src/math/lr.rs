@@ -4,12 +4,12 @@ use crate::diag::SourceResult;
 use crate::foundations::{
     elem, func, NativeElement, Packed, Resolve, Smart, StyleChain, TypstContent,
 };
-use crate::layout::{Abs, Em, Length, Rel};
+use crate::layout::{Abs, Length, LengthInEm, Rel};
 use crate::math::{GlyphFragment, LayoutMath, MathContext, MathFragment, Scaled, SpacingFragment};
 use crate::text::TextElem;
 
 /// How much less high scaled delimiters can be than what they wrap.
-pub(super) const DELIM_SHORT_FALL: Em = Em::new(0.1);
+pub(super) const DELIM_SHORT_FALL: LengthInEm = LengthInEm::new(0.1);
 
 /// Scales delimiters.
 ///

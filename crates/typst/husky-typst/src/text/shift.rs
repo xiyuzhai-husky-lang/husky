@@ -3,7 +3,7 @@ use ecow::EcoString;
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{elem, Packed, Show, StyleChain, TypstContent};
-use crate::layout::{Em, Length};
+use crate::layout::{Length, LengthInEm};
 use crate::text::{variant, SpaceElem, TextElem, TextSize};
 use crate::World;
 
@@ -33,13 +33,13 @@ pub struct SubElem {
     /// The baseline shift for synthetic subscripts. Does not apply if
     /// `typographic` is true and the font has subscript codepoints for the
     /// given `body`.
-    #[default(Em::new(0.2).into())]
+    #[default(LengthInEm::new(0.2).into())]
     pub baseline: Length,
 
     /// The font size for synthetic subscripts. Does not apply if
     /// `typographic` is true and the font has subscript codepoints for the
     /// given `body`.
-    #[default(TextSize(Em::new(0.6).into()))]
+    #[default(TextSize(LengthInEm::new(0.6).into()))]
     pub size: TextSize,
 
     /// The text to display in subscript.
@@ -93,13 +93,13 @@ pub struct SuperElem {
     /// The baseline shift for synthetic superscripts. Does not apply if
     /// `typographic` is true and the font has superscript codepoints for the
     /// given `body`.
-    #[default(Em::new(-0.5).into())]
+    #[default(LengthInEm::new(-0.5).into())]
     pub baseline: Length,
 
     /// The font size for synthetic superscripts. Does not apply if
     /// `typographic` is true and the font has superscript codepoints for the
     /// given `body`.
-    #[default(TextSize(Em::new(0.6).into()))]
+    #[default(TextSize(LengthInEm::new(0.6).into()))]
     pub size: TextSize,
 
     /// The text to display in superscript.

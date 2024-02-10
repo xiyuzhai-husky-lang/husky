@@ -4,8 +4,8 @@ use crate::foundations::{
     cast, elem, scope, Array, NativeElement, Packed, Smart, StyleChain, TypstContent,
 };
 use crate::layout::{
-    BlockElem, Dir, Em, Fragment, HElem, LayoutMultiple, Length, Regions, Sides, Spacing,
-    StackChild, StackElem,
+    BlockElem, Fragment, HElem, LayoutMultiple, Length, LengthInEm, Regions, Sides, Spacing,
+    StackChild, StackElem, TypstLayoutDirection,
 };
 use crate::model::ParElem;
 use crate::text::TextElem;
@@ -63,7 +63,7 @@ pub struct TermsElem {
     ///
     /// / Colon: A nice separator symbol.
     /// ```
-    #[default(HElem::new(Em::new(0.6).into()).with_weak(true).pack())]
+    #[default(HElem::new(LengthInEm::new(0.6).into()).with_weak(true).pack())]
     #[borrowed]
     pub separator: TypstContent,
 
@@ -79,7 +79,7 @@ pub struct TermsElem {
     /// / Term: This term list does not
     ///   make use of hanging indents.
     /// ```
-    #[default(Em::new(2.0).into())]
+    #[default(LengthInEm::new(2.0).into())]
     pub hanging_indent: Length,
 
     /// The spacing between the items of a wide (non-tight) term list.
@@ -142,7 +142,7 @@ impl LayoutMultiple for Packed<TermsElem> {
         }
 
         let mut padding = Sides::default();
-        if TextElem::dir_in(styles) == Dir::LTR {
+        if TextElem::dir_in(styles) == TypstLayoutDirection::LeftRight {
             padding.left = pad.into();
         } else {
             padding.right = pad.into();

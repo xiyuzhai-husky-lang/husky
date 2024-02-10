@@ -10,14 +10,15 @@ use crate::foundations::{
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable};
 use crate::layout::{
-    Abs, AlignElem, Alignment, Axes, Dir, Em, FixedAlignment, Frame, LayoutMultiple, LayoutSingle,
-    Point, Regions, Size,
+    Abs, AlignElem, Alignment, Axes, FixedAlignment, Frame, LayoutMultiple, LayoutSingle,
+    LengthInEm, Point, Regions, Size, TypstLayoutDirection,
 };
 use crate::math::{scaled_font_size, LayoutMath, MathContext, MathSize, MathVariant};
 use crate::model::{Numbering, Outlinable, ParElem, Refable, Supplement};
 use crate::syntax::Span;
 use crate::text::{
-    families, variant, Font, FontFamily, FontList, FontWeight, Lang, LocalName, Region, TextElem,
+    families, variant, FontFamily, FontList, FontWeight, Lang, LocalName, Region, TextElem,
+    TypstFont,
 };
 use crate::util::{option_eq, NonZeroExt, Numeric};
 use crate::World;
@@ -227,7 +228,7 @@ impl LayoutSingle for Packed<EquationElem> {
         styles: StyleChain,
         regions: Regions,
     ) -> SourceResult<Frame> {
-        const NUMBER_GUTTER: Em = Em::new(0.5);
+        const NUMBER_GUTTER: LengthInEm = LengthInEm::new(0.5);
 
         assert!(self.block(styles));
 
@@ -259,8 +260,8 @@ impl LayoutSingle for Packed<EquationElem> {
 
             let dir = TextElem::dir_in(styles);
             let offset = match (align, dir) {
-                (FixedAlignment::Start, Dir::RTL) => full_counter_width,
-                (FixedAlignment::End, Dir::LTR) => -full_counter_width,
+                (FixedAlignment::Start, TypstLayoutDirection::RightLeft) => full_counter_width,
+                (FixedAlignment::End, TypstLayoutDirection::LeftRight) => -full_counter_width,
                 _ => Abs::zero(),
             };
             frame.translate(Point::with_x(offset));
@@ -377,7 +378,11 @@ impl LayoutMath for Packed<EquationElem> {
     }
 }
 
-fn find_math_font(engine: &mut Engine<'_>, styles: StyleChain, span: Span) -> SourceResult<Font> {
+fn find_math_font(
+    engine: &mut Engine<'_>,
+    styles: StyleChain,
+    span: Span,
+) -> SourceResult<TypstFont> {
     let variant = variant(styles);
     let world = engine.world;
     let Some(font) = families(styles).find_map(|family| {

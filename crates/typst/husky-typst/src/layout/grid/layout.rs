@@ -9,8 +9,8 @@ use crate::foundations::{
     TypstContent, TypstValue,
 };
 use crate::layout::{
-    Abs, Alignment, Axes, Dir, Fr, Fragment, Frame, FrameItem, LayoutMultiple, Length, Point,
-    Regions, Rel, Sides, Size, Sizing,
+    Abs, Alignment, Axes, Fr, Fragment, Frame, FrameItem, LayoutMultiple, Length, Point, Regions,
+    Rel, Sides, Size, Sizing, TypstLayoutDirection,
 };
 use crate::syntax::Span;
 use crate::text::TextElem;
@@ -649,7 +649,7 @@ impl<'a> GridLayouter<'a> {
             lrows: vec![],
             initial: regions.size,
             finished: vec![],
-            is_rtl: TextElem::dir_in(styles) == Dir::RTL,
+            is_rtl: TextElem::dir_in(styles) == TypstLayoutDirection::RightLeft,
             span,
         }
     }

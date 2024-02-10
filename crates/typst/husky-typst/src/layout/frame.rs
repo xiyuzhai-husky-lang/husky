@@ -13,7 +13,7 @@ use crate::syntax::Span;
 use crate::text::TextItem;
 use crate::util::Numeric;
 use crate::visualize::{
-    ellipse, styled_rect, Color, FixedStroke, Geometry, Image, Paint, Path, Shape,
+    ellipse, styled_rect, FixedStroke, Geometry, Image, Paint, Path, Shape, TypstColor,
 };
 
 /// A finished layout with items at fixed positions.
@@ -386,7 +386,7 @@ impl Frame {
             0,
             Point::zero(),
             FrameItem::Shape(
-                Geometry::Rect(self.size).filled(Color::TEAL.with_alpha(0.5).into()),
+                Geometry::Rect(self.size).filled(TypstColor::TEAL.with_alpha(0.5).into()),
                 Span::detached(),
             ),
         );
@@ -395,7 +395,7 @@ impl Frame {
             Point::with_y(self.baseline()),
             FrameItem::Shape(
                 Geometry::Line(Point::with_x(self.size.x))
-                    .stroked(FixedStroke::from_pair(Color::RED, Abs::pt(1.0))),
+                    .stroked(FixedStroke::from_pair(TypstColor::RED, Abs::pt(1.0))),
                 Span::detached(),
             ),
         );
@@ -407,7 +407,11 @@ impl Frame {
         self.push(
             pos - Point::splat(radius),
             FrameItem::Shape(
-                ellipse(Size::splat(2.0 * radius), Some(Color::GREEN.into()), None),
+                ellipse(
+                    Size::splat(2.0 * radius),
+                    Some(TypstColor::GREEN.into()),
+                    None,
+                ),
                 Span::detached(),
             ),
         );
@@ -419,7 +423,7 @@ impl Frame {
             Point::with_y(y),
             FrameItem::Shape(
                 Geometry::Line(Point::with_x(self.size.x))
-                    .stroked(FixedStroke::from_pair(Color::GREEN, Abs::pt(1.0))),
+                    .stroked(FixedStroke::from_pair(TypstColor::GREEN, Abs::pt(1.0))),
                 Span::detached(),
             ),
         );

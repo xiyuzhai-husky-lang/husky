@@ -4,8 +4,8 @@ use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{cast, elem, Packed, Resolve, StyleChain, TypstContent};
 use crate::layout::{
-    Abs, AlignElem, Axes, Axis, Dir, FixedAlignment, Fr, Fragment, Frame, LayoutMultiple, Point,
-    Regions, Size, Spacing,
+    Abs, AlignElem, Axes, Axis, FixedAlignment, Fr, Fragment, Frame, LayoutMultiple, Point,
+    Regions, Size, Spacing, TypstLayoutDirection,
 };
 use crate::util::{Get, Numeric};
 
@@ -40,8 +40,8 @@ pub struct StackElem {
     ///
     /// For example, `{ttb.start()}` is `top`, `{ttb.end()}` is `bottom`,
     /// `{ttb.axis()}` is `{"vertical"}` and `{ttb.inv()}` is equal to `btt`.
-    #[default(Dir::TTB)]
-    pub dir: Dir,
+    #[default(TypstLayoutDirection::TopDown)]
+    pub dir: TypstLayoutDirection,
 
     /// Spacing to insert between items where no explicit spacing was provided.
     pub spacing: Option<Spacing>,
@@ -117,7 +117,7 @@ cast! {
 /// Performs stack layout.
 struct StackLayouter<'a> {
     /// The stacking direction.
-    dir: Dir,
+    dir: TypstLayoutDirection,
     /// The axis of the stacking direction.
     axis: Axis,
     /// The regions to layout children into.
@@ -151,7 +151,7 @@ enum StackItem {
 
 impl<'a> StackLayouter<'a> {
     /// Create a new stack layouter.
-    fn new(dir: Dir, mut regions: Regions<'a>, styles: StyleChain<'a>) -> Self {
+    fn new(dir: TypstLayoutDirection, mut regions: Regions<'a>, styles: StyleChain<'a>) -> Self {
         let axis = dir.axis();
         let expand = regions.expand;
 

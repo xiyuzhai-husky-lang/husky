@@ -4,7 +4,8 @@ use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{elem, Behave, Behaviour, Packed, StyleChain, TypstContent};
 use crate::layout::{
-    Abs, Axes, Dir, Fragment, Frame, LayoutMultiple, Length, Point, Ratio, Regions, Rel, Size,
+    Abs, Axes, Fragment, Frame, LayoutMultiple, Length, Point, Ratio, Regions, Rel, Size,
+    TypstLayoutDirection,
 };
 use crate::text::TextElem;
 use crate::util::Numeric;
@@ -122,7 +123,7 @@ impl LayoutMultiple for Packed<ColumnsElem> {
                 }
 
                 let width = frame.width();
-                let x = if dir == Dir::LTR {
+                let x = if dir == TypstLayoutDirection::LeftRight {
                     cursor
                 } else {
                     regions.size.x - cursor - width

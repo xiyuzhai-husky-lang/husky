@@ -68,7 +68,7 @@ impl Construct for DocumentElem {
 
 impl LayoutRoot for Packed<DocumentElem> {
     #[husky_typst_macros::time(name = "document", span = self.span())]
-    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Document> {
+    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstDocument> {
         let mut pages = Vec::with_capacity(self.children().len());
         let mut page_counter = ManualPageCounter::new();
 
@@ -98,7 +98,7 @@ impl LayoutRoot for Packed<DocumentElem> {
             }
         }
 
-        Ok(Document {
+        Ok(TypstDocument {
             pages,
             title: DocumentElem::title_in(styles).map(|content| content.plain_text()),
             author: DocumentElem::author_in(styles).0,
@@ -133,7 +133,7 @@ cast! {
 
 /// A finished document with metadata and page frames.
 #[derive(Debug, Default, Clone)]
-pub struct Document {
+pub struct TypstDocument {
     /// The document's finished pages.
     pub pages: Vec<Page>,
     /// The document's title.
@@ -155,6 +155,6 @@ mod tests {
     #[test]
     fn test_document_is_send_and_sync() {
         fn ensure_send_and_sync<T: Send + Sync>() {}
-        ensure_send_and_sync::<Document>();
+        ensure_send_and_sync::<TypstDocument>();
     }
 }

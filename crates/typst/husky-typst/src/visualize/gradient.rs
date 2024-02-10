@@ -10,9 +10,9 @@ use crate::diag::{bail, SourceResult};
 use crate::foundations::{
     array, cast, func, scope, ty, Args, Array, Cast, Func, IntoTypstValue, Repr, Smart,
 };
-use crate::layout::{Angle, Axes, Dir, Quadrant, Ratio};
+use crate::layout::{Angle, Axes, Quadrant, Ratio, TypstLayoutDirection};
 use crate::syntax::{Span, Spanned};
-use crate::visualize::{Color, ColorSpace, WeightedColor};
+use crate::visualize::{ColorSpace, TypstColor, WeightedColor};
 
 /// A color gradient.
 ///
@@ -225,20 +225,20 @@ impl Gradient {
         relative: Smart<RelativeTo>,
         /// The direction of the gradient.
         #[external]
-        #[default(Dir::LTR)]
-        dir: Dir,
+        #[default(TypstLayoutDirection::LeftRight)]
+        dir: TypstLayoutDirection,
         /// The angle of the gradient.
         #[external]
         angle: Angle,
     ) -> SourceResult<Gradient> {
         let angle = if let Some(angle) = args.named::<Angle>("angle")? {
             angle
-        } else if let Some(dir) = args.named::<Dir>("dir")? {
+        } else if let Some(dir) = args.named::<TypstLayoutDirection>("dir")? {
             match dir {
-                Dir::LTR => Angle::rad(0.0),
-                Dir::RTL => Angle::rad(PI),
-                Dir::TTB => Angle::rad(FRAC_PI_2),
-                Dir::BTT => Angle::rad(3.0 * FRAC_PI_2),
+                TypstLayoutDirection::LeftRight => Angle::rad(0.0),
+                TypstLayoutDirection::RightLeft => Angle::rad(PI),
+                TypstLayoutDirection::TopDown => Angle::rad(FRAC_PI_2),
+                TypstLayoutDirection::BOTTOM_UP => Angle::rad(3.0 * FRAC_PI_2),
             }
         } else {
             Angle::rad(0.0)
@@ -715,7 +715,7 @@ impl Gradient {
         &self,
         /// The position at which to sample the gradient.
         t: RatioOrAngle,
-    ) -> Color {
+    ) -> TypstColor {
         let value: f64 = t.to_ratio().get();
 
         match self {
@@ -758,7 +758,7 @@ impl Gradient {
         self
     }
     /// Returns a reference to the stops of this gradient.
-    pub fn stops_ref(&self) -> &[(Color, Ratio)] {
+    pub fn stops_ref(&self) -> &[(TypstColor, Ratio)] {
         match self {
             Gradient::Linear(linear) => &linear.stops,
             Gradient::Radial(radial) => &radial.stops,
@@ -768,7 +768,7 @@ impl Gradient {
 
     /// Samples the gradient at a given position, in the given container.
     /// Handles the aspect ratio and angle directly.
-    pub fn sample_at(&self, (x, y): (f32, f32), (width, height): (f32, f32)) -> Color {
+    pub fn sample_at(&self, (x, y): (f32, f32), (width, height): (f32, f32)) -> TypstColor {
         // Normalize the coordinates.
         let (mut x, mut y) = (x / width, y / height);
         let t = match self {
@@ -889,7 +889,7 @@ impl Repr for Gradient {
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
 pub struct LinearGradient {
     /// The color stops of this gradient.
-    pub stops: Vec<(Color, Ratio)>,
+    pub stops: Vec<(TypstColor, Ratio)>,
     /// The direction of this gradient.
     pub angle: Angle,
     /// The color space in which to interpolate the gradient.
@@ -951,7 +951,7 @@ impl Repr for LinearGradient {
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
 pub struct RadialGradient {
     /// The color stops of this gradient.
-    pub stops: Vec<(Color, Ratio)>,
+    pub stops: Vec<(TypstColor, Ratio)>,
     /// The center of last circle of this gradient.
     pub center: Axes<Ratio>,
     /// The radius of last circle of this gradient.
@@ -1033,7 +1033,7 @@ impl Repr for RadialGradient {
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
 pub struct ConicGradient {
     /// The color stops of this gradient.
-    pub stops: Vec<(Color, Ratio)>,
+    pub stops: Vec<(TypstColor, Ratio)>,
     /// The direction of this gradient.
     pub angle: Angle,
     /// The center of last circle of this gradient.
@@ -1106,14 +1106,14 @@ pub enum RelativeTo {
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub struct GradientStop {
     /// The color for this stop.
-    pub color: Color,
+    pub color: TypstColor,
     /// The offset of the stop along the gradient.
     pub offset: Option<Ratio>,
 }
 
 impl GradientStop {
     /// Create a new stop from a `color` and an `offset`.
-    pub fn new(color: Color, offset: Ratio) -> Self {
+    pub fn new(color: TypstColor, offset: Ratio) -> Self {
         Self {
             color,
             offset: Some(offset),
@@ -1128,7 +1128,7 @@ cast! {
     } else {
         self.color.into_value()
     },
-    color: Color => Self { color, offset: None },
+    color: TypstColor => Self { color, offset: None },
     array: Array => {
         let mut iter = array.into_iter();
         match (iter.next(), iter.next(), iter.next()) {
@@ -1176,7 +1176,7 @@ cast! {
 /// This is split into its own function because it is used by all of the
 /// different gradient types.
 #[comemo::memoize]
-fn process_stops(stops: &[Spanned<GradientStop>]) -> SourceResult<Vec<(Color, Ratio)>> {
+fn process_stops(stops: &[Spanned<GradientStop>]) -> SourceResult<Vec<(TypstColor, Ratio)>> {
     let has_offset = stops.iter().any(|stop| stop.v.offset.is_some());
     if has_offset {
         let mut last_stop = f64::NEG_INFINITY;
@@ -1240,7 +1240,7 @@ fn process_stops(stops: &[Spanned<GradientStop>]) -> SourceResult<Vec<(Color, Ra
 }
 
 /// Sample the stops at a given position.
-fn sample_stops(stops: &[(Color, Ratio)], mixing_space: ColorSpace, t: f64) -> Color {
+fn sample_stops(stops: &[(TypstColor, Ratio)], mixing_space: ColorSpace, t: f64) -> TypstColor {
     let t = t.clamp(0.0, 1.0);
     let mut low = 0;
     let mut high = stops.len();
@@ -1262,7 +1262,7 @@ fn sample_stops(stops: &[(Color, Ratio)], mixing_space: ColorSpace, t: f64) -> C
     let (col_1, pos_1) = stops[low];
     let t = (t - pos_0.get()) / (pos_1.get() - pos_0.get());
 
-    Color::mix_iter(
+    TypstColor::mix_iter(
         [
             WeightedColor::new(col_0, 1.0 - t),
             WeightedColor::new(col_1, t),

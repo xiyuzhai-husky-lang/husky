@@ -165,7 +165,7 @@ const ANGLE_EPSILON: f32 = 1e-5;
 /// ```
 #[ty(scope, cast)]
 #[derive(Copy, Clone)]
-pub enum Color {
+pub enum TypstColor {
     /// A 32-bit luma color.
     Luma(Luma),
     /// A 32-bit L\*a\*b\* color in the Oklab color space.
@@ -185,7 +185,7 @@ pub enum Color {
 }
 
 #[scope]
-impl Color {
+impl TypstColor {
     /// The module of preset color maps.
     pub const MAP: fn() -> Module = || {
         // Lazy to avoid re-allocating.
@@ -237,9 +237,9 @@ impl Color {
         ///
         /// If this is given, the `lightness` should not be given.
         #[external]
-        color: Color,
-    ) -> SourceResult<Color> {
-        Ok(if let Some(color) = args.find::<Color>()? {
+        color: TypstColor,
+    ) -> SourceResult<TypstColor> {
+        Ok(if let Some(color) = args.find::<TypstColor>()? {
             color.to_luma()
         } else {
             let Component(gray) = args
@@ -294,9 +294,9 @@ impl Color {
         ///
         /// If this is given, the individual components should not be given.
         #[external]
-        color: Color,
-    ) -> SourceResult<Color> {
-        Ok(if let Some(color) = args.find::<Color>()? {
+        color: TypstColor,
+    ) -> SourceResult<TypstColor> {
+        Ok(if let Some(color) = args.find::<TypstColor>()? {
             color.to_oklab()
         } else {
             let RatioComponent(l) = args.expect("lightness component")?;
@@ -351,9 +351,9 @@ impl Color {
         ///
         /// If this is given, the individual components should not be given.
         #[external]
-        color: Color,
-    ) -> SourceResult<Color> {
-        Ok(if let Some(color) = args.find::<Color>()? {
+        color: TypstColor,
+    ) -> SourceResult<TypstColor> {
+        Ok(if let Some(color) = args.find::<TypstColor>()? {
             color.to_oklch()
         } else {
             let RatioComponent(l) = args.expect("lightness component")?;
@@ -412,9 +412,9 @@ impl Color {
         ///
         /// If this is given, the individual components should not be given.
         #[external]
-        color: Color,
-    ) -> SourceResult<Color> {
-        Ok(if let Some(color) = args.find::<Color>()? {
+        color: TypstColor,
+    ) -> SourceResult<TypstColor> {
+        Ok(if let Some(color) = args.find::<TypstColor>()? {
             color.to_linear_rgb()
         } else {
             let Component(r) = args.expect("red component")?;
@@ -483,11 +483,11 @@ impl Color {
         ///
         /// If this is given, the individual components should not be given.
         #[external]
-        color: Color,
-    ) -> SourceResult<Color> {
+        color: TypstColor,
+    ) -> SourceResult<TypstColor> {
         Ok(if let Some(string) = args.find::<Spanned<Str>>()? {
             Self::from_str(&string.v).at(string.span)?
-        } else if let Some(color) = args.find::<Color>()? {
+        } else if let Some(color) = args.find::<TypstColor>()? {
             color.to_rgb()
         } else {
             let Component(r) = args.expect("red component")?;
@@ -544,9 +544,9 @@ impl Color {
         ///
         /// If this is given, the individual components should not be given.
         #[external]
-        color: Color,
-    ) -> SourceResult<Color> {
-        Ok(if let Some(color) = args.find::<Color>()? {
+        color: TypstColor,
+    ) -> SourceResult<TypstColor> {
+        Ok(if let Some(color) = args.find::<TypstColor>()? {
             color.to_cmyk()
         } else {
             let RatioComponent(c) = args.expect("cyan component")?;
@@ -603,9 +603,9 @@ impl Color {
         ///
         /// If this is given, the individual components should not be given.
         #[external]
-        color: Color,
-    ) -> SourceResult<Color> {
-        Ok(if let Some(color) = args.find::<Color>()? {
+        color: TypstColor,
+    ) -> SourceResult<TypstColor> {
+        Ok(if let Some(color) = args.find::<TypstColor>()? {
             color.to_hsl()
         } else {
             let h: Angle = args.expect("hue component")?;
@@ -662,9 +662,9 @@ impl Color {
         ///
         /// If this is given, the individual components should not be given.
         #[external]
-        color: Color,
-    ) -> SourceResult<Color> {
-        Ok(if let Some(color) = args.find::<Color>()? {
+        color: TypstColor,
+    ) -> SourceResult<TypstColor> {
+        Ok(if let Some(color) = args.find::<TypstColor>()? {
             color.to_hsv()
         } else {
             let h: Angle = args.expect("hue component")?;
@@ -869,7 +869,7 @@ impl Color {
         self,
         /// The factor to lighten the color by.
         factor: Ratio,
-    ) -> Color {
+    ) -> TypstColor {
         let factor = factor.get() as f32;
         match self {
             Self::Luma(c) => Self::Luma(c.lighten(factor)),
@@ -889,7 +889,7 @@ impl Color {
         self,
         /// The factor to darken the color by.
         factor: Ratio,
-    ) -> Color {
+    ) -> TypstColor {
         let factor = factor.get() as f32;
         match self {
             Self::Luma(c) => Self::Luma(c.darken(factor)),
@@ -911,7 +911,7 @@ impl Color {
         span: Span,
         /// The factor to saturate the color by.
         factor: Ratio,
-    ) -> SourceResult<Color> {
+    ) -> SourceResult<TypstColor> {
         Ok(match self {
             Self::Luma(_) => {
                 bail!(
@@ -937,7 +937,7 @@ impl Color {
         span: Span,
         /// The factor to desaturate the color by.
         factor: Ratio,
-    ) -> SourceResult<Color> {
+    ) -> SourceResult<TypstColor> {
         Ok(match self {
             Self::Luma(_) => {
                 bail!(
@@ -957,7 +957,7 @@ impl Color {
 
     /// Produces the negative of the color.
     #[func]
-    pub fn negate(self) -> Color {
+    pub fn negate(self) -> TypstColor {
         match self {
             Self::Luma(c) => Self::Luma(Luma::new(1.0 - c.luma)),
             Self::Oklab(c) => Self::Oklab(Oklab::new(c.l, -c.a, -c.b, c.alpha)),
@@ -1003,7 +1003,7 @@ impl Color {
         #[named]
         #[default(ColorSpace::Oklch)]
         space: ColorSpace,
-    ) -> SourceResult<Color> {
+    ) -> SourceResult<TypstColor> {
         Ok(match space {
             ColorSpace::Oklch => {
                 let Self::Oklch(oklch) = self.to_oklch() else {
@@ -1057,12 +1057,12 @@ impl Color {
         #[named]
         #[default(ColorSpace::Oklab)]
         space: ColorSpace,
-    ) -> StrResult<Color> {
+    ) -> StrResult<TypstColor> {
         Self::mix_iter(colors, space)
     }
 }
 
-impl Color {
+impl TypstColor {
     /// Same as [`Color::mix`], but takes an iterator instead of a vector.
     pub fn mix_iter(
         colors: impl IntoIterator<
@@ -1070,7 +1070,7 @@ impl Color {
             IntoIter = impl ExactSizeIterator<Item = WeightedColor>,
         >,
         space: ColorSpace,
-    ) -> StrResult<Color> {
+    ) -> StrResult<TypstColor> {
         let mut colors = colors.into_iter();
         if space.hue_index().is_some() && colors.len() > 2 {
             bail!("cannot mix more than two colors in a hue-based space");
@@ -1136,14 +1136,18 @@ impl Color {
         };
 
         Ok(match space {
-            ColorSpace::Oklab => Color::Oklab(Oklab::new(m[0], m[1], m[2], m[3])),
-            ColorSpace::Oklch => Color::Oklch(Oklch::new(m[0], m[1], m[2], m[3])),
-            ColorSpace::Srgb => Color::Rgb(Rgb::new(m[0], m[1], m[2], m[3])),
-            ColorSpace::LinearRgb => Color::LinearRgb(LinearRgb::new(m[0], m[1], m[2], m[3])),
-            ColorSpace::Hsl => Color::Hsl(Hsl::new(RgbHue::from_degrees(m[0]), m[1], m[2], m[3])),
-            ColorSpace::Hsv => Color::Hsv(Hsv::new(RgbHue::from_degrees(m[0]), m[1], m[2], m[3])),
-            ColorSpace::Cmyk => Color::Cmyk(Cmyk::new(m[0], m[1], m[2], m[3])),
-            ColorSpace::D65Gray => Color::Luma(Luma::new(m[0])),
+            ColorSpace::Oklab => TypstColor::Oklab(Oklab::new(m[0], m[1], m[2], m[3])),
+            ColorSpace::Oklch => TypstColor::Oklch(Oklch::new(m[0], m[1], m[2], m[3])),
+            ColorSpace::Srgb => TypstColor::Rgb(Rgb::new(m[0], m[1], m[2], m[3])),
+            ColorSpace::LinearRgb => TypstColor::LinearRgb(LinearRgb::new(m[0], m[1], m[2], m[3])),
+            ColorSpace::Hsl => {
+                TypstColor::Hsl(Hsl::new(RgbHue::from_degrees(m[0]), m[1], m[2], m[3]))
+            }
+            ColorSpace::Hsv => {
+                TypstColor::Hsv(Hsv::new(RgbHue::from_degrees(m[0]), m[1], m[2], m[3]))
+            }
+            ColorSpace::Cmyk => TypstColor::Cmyk(Cmyk::new(m[0], m[1], m[2], m[3])),
+            ColorSpace::D65Gray => TypstColor::Luma(Luma::new(m[0])),
         })
     }
 
@@ -1170,26 +1174,26 @@ impl Color {
     /// Returns the alpha channel of the color, if it has one.
     pub fn alpha(&self) -> Option<f32> {
         match self {
-            Color::Luma(_) | Color::Cmyk(_) => None,
-            Color::Oklab(c) => Some(c.alpha),
-            Color::Oklch(c) => Some(c.alpha),
-            Color::Rgb(c) => Some(c.alpha),
-            Color::LinearRgb(c) => Some(c.alpha),
-            Color::Hsl(c) => Some(c.alpha),
-            Color::Hsv(c) => Some(c.alpha),
+            TypstColor::Luma(_) | TypstColor::Cmyk(_) => None,
+            TypstColor::Oklab(c) => Some(c.alpha),
+            TypstColor::Oklch(c) => Some(c.alpha),
+            TypstColor::Rgb(c) => Some(c.alpha),
+            TypstColor::LinearRgb(c) => Some(c.alpha),
+            TypstColor::Hsl(c) => Some(c.alpha),
+            TypstColor::Hsv(c) => Some(c.alpha),
         }
     }
 
     /// Sets the alpha channel of the color, if it has one.
     pub fn with_alpha(mut self, alpha: f32) -> Self {
         match &mut self {
-            Color::Luma(_) | Color::Cmyk(_) => {}
-            Color::Oklab(c) => c.alpha = alpha,
-            Color::Oklch(c) => c.alpha = alpha,
-            Color::Rgb(c) => c.alpha = alpha,
-            Color::LinearRgb(c) => c.alpha = alpha,
-            Color::Hsl(c) => c.alpha = alpha,
-            Color::Hsv(c) => c.alpha = alpha,
+            TypstColor::Luma(_) | TypstColor::Cmyk(_) => {}
+            TypstColor::Oklab(c) => c.alpha = alpha,
+            TypstColor::Oklch(c) => c.alpha = alpha,
+            TypstColor::Rgb(c) => c.alpha = alpha,
+            TypstColor::LinearRgb(c) => c.alpha = alpha,
+            TypstColor::Hsl(c) => c.alpha = alpha,
+            TypstColor::Hsv(c) => c.alpha = alpha,
         }
 
         self
@@ -1198,24 +1202,24 @@ impl Color {
     /// Converts the color to a vec of four floats.
     pub fn to_vec4(&self) -> [f32; 4] {
         match self {
-            Color::Luma(c) => [c.luma; 4],
-            Color::Oklab(c) => [c.l, c.a, c.b, c.alpha],
-            Color::Oklch(c) => [
+            TypstColor::Luma(c) => [c.luma; 4],
+            TypstColor::Oklab(c) => [c.l, c.a, c.b, c.alpha],
+            TypstColor::Oklch(c) => [
                 c.l,
                 c.chroma,
                 c.hue.into_degrees().rem_euclid(360.0 + ANGLE_EPSILON),
                 c.alpha,
             ],
-            Color::Rgb(c) => [c.red, c.green, c.blue, c.alpha],
-            Color::LinearRgb(c) => [c.red, c.green, c.blue, c.alpha],
-            Color::Cmyk(c) => [c.c, c.m, c.y, c.k],
-            Color::Hsl(c) => [
+            TypstColor::Rgb(c) => [c.red, c.green, c.blue, c.alpha],
+            TypstColor::LinearRgb(c) => [c.red, c.green, c.blue, c.alpha],
+            TypstColor::Cmyk(c) => [c.c, c.m, c.y, c.k],
+            TypstColor::Hsl(c) => [
                 c.hue.into_degrees().rem_euclid(360.0 + ANGLE_EPSILON),
                 c.saturation,
                 c.lightness,
                 c.alpha,
             ],
-            Color::Hsv(c) => [
+            TypstColor::Hsv(c) => [
                 c.hue.into_degrees().rem_euclid(360.0 + ANGLE_EPSILON),
                 c.saturation,
                 c.value,
@@ -1373,7 +1377,7 @@ impl Color {
     }
 }
 
-impl Debug for Color {
+impl Debug for TypstColor {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         match self {
             Self::Luma(v) => write!(f, "Luma({})", v.luma),
@@ -1419,7 +1423,7 @@ impl Debug for Color {
     }
 }
 
-impl Repr for Color {
+impl Repr for TypstColor {
     fn repr(&self) -> EcoString {
         match self {
             Self::Luma(c) => eco_format!("luma({})", Ratio::new(c.luma as _).repr()),
@@ -1531,7 +1535,7 @@ fn hue_angle(degrees: f32) -> Angle {
     Angle::deg(degrees.rem_euclid(360.0 + ANGLE_EPSILON) as _)
 }
 
-impl PartialEq for Color {
+impl PartialEq for TypstColor {
     fn eq(&self, other: &Self) -> bool {
         match (self, other) {
             // Lower precision for comparison to avoid rounding errors.
@@ -1551,9 +1555,9 @@ impl PartialEq for Color {
     }
 }
 
-impl Eq for Color {}
+impl Eq for TypstColor {}
 
-impl Hash for Color {
+impl Hash for TypstColor {
     fn hash<H: Hasher>(&self, state: &mut H) {
         core::mem::discriminant(self).hash(state);
         let [x, y, z, w] = self.to_vec4();
@@ -1564,7 +1568,7 @@ impl Hash for Color {
     }
 }
 
-impl FromStr for Color {
+impl FromStr for TypstColor {
     type Err = &'static str;
 
     /// Constructs a new color from hex strings like the following:
@@ -1605,49 +1609,49 @@ impl FromStr for Color {
     }
 }
 
-impl From<Luma> for Color {
+impl From<Luma> for TypstColor {
     fn from(c: Luma) -> Self {
         Self::Luma(c)
     }
 }
 
-impl From<Oklab> for Color {
+impl From<Oklab> for TypstColor {
     fn from(c: Oklab) -> Self {
         Self::Oklab(c)
     }
 }
 
-impl From<Oklch> for Color {
+impl From<Oklch> for TypstColor {
     fn from(c: Oklch) -> Self {
         Self::Oklch(c)
     }
 }
 
-impl From<Rgb> for Color {
+impl From<Rgb> for TypstColor {
     fn from(c: Rgb) -> Self {
         Self::Rgb(c)
     }
 }
 
-impl From<LinearRgb> for Color {
+impl From<LinearRgb> for TypstColor {
     fn from(c: LinearRgb) -> Self {
         Self::LinearRgb(c)
     }
 }
 
-impl From<Cmyk> for Color {
+impl From<Cmyk> for TypstColor {
     fn from(c: Cmyk) -> Self {
         Self::Cmyk(c)
     }
 }
 
-impl From<Hsl> for Color {
+impl From<Hsl> for TypstColor {
     fn from(c: Hsl) -> Self {
         Self::Hsl(c)
     }
 }
 
-impl From<Hsv> for Color {
+impl From<Hsv> for TypstColor {
     fn from(c: Hsv) -> Self {
         Self::Hsv(c)
     }
@@ -1724,13 +1728,13 @@ impl Cmyk {
 
 /// A color with a weight.
 pub struct WeightedColor {
-    color: Color,
+    color: TypstColor,
     weight: f64,
 }
 
 impl WeightedColor {
     /// Create a new weighted color.
-    pub const fn new(color: Color, weight: f64) -> Self {
+    pub const fn new(color: TypstColor, weight: f64) -> Self {
         Self { color, weight }
     }
 }
@@ -1738,7 +1742,7 @@ impl WeightedColor {
 cast! {
     WeightedColor,
     self => array![self.color, TypstValue::Float(self.weight as _)].into_value(),
-    color: Color => Self { color, weight: 1.0 },
+    color: TypstColor => Self { color, weight: 1.0 },
     v: Array => {
         let mut iter = v.into_iter();
         match (iter.next(), iter.next(), iter.next()) {
@@ -1796,14 +1800,14 @@ impl ColorSpace {
 cast! {
     ColorSpace,
     self => match self {
-        Self::Oklab => Color::oklab_data(),
-        Self::Oklch => Color::oklch_data(),
-        Self::Srgb => Color::rgb_data(),
-        Self::D65Gray => Color::luma_data(),
-        Self::LinearRgb => Color::linear_rgb_data(),
-        Self::Hsl => Color::hsl_data(),
-        Self::Hsv => Color::hsv_data(),
-        Self::Cmyk => Color::cmyk_data(),
+        Self::Oklab => TypstColor::oklab_data(),
+        Self::Oklch => TypstColor::oklch_data(),
+        Self::Srgb => TypstColor::rgb_data(),
+        Self::D65Gray => TypstColor::luma_data(),
+        Self::LinearRgb => TypstColor::linear_rgb_data(),
+        Self::Hsl => TypstColor::hsl_data(),
+        Self::Hsv => TypstColor::hsv_data(),
+        Self::Cmyk => TypstColor::cmyk_data(),
     }.into_value(),
     v: TypstValue => {
         let expected = "expected `rgb`, `luma`, `cmyk`, `oklab`, `oklch`, `color.linear-rgb`, `color.hsl`, or `color.hsv`";
@@ -1813,21 +1817,21 @@ cast! {
 
         // Here comparing the function pointer since it's `Eq`
         // whereas the `NativeFuncData` is not.
-        if func == Color::oklab_data() {
+        if func == TypstColor::oklab_data() {
             Self::Oklab
-        } else if func == Color::oklch_data() {
+        } else if func == TypstColor::oklch_data() {
             Self::Oklch
-        } else if func == Color::rgb_data() {
+        } else if func == TypstColor::rgb_data() {
             Self::Srgb
-        } else if func == Color::luma_data() {
+        } else if func == TypstColor::luma_data() {
             Self::D65Gray
-        } else if func == Color::linear_rgb_data() {
+        } else if func == TypstColor::linear_rgb_data() {
             Self::LinearRgb
-        } else if func == Color::hsl_data() {
+        } else if func == TypstColor::hsl_data() {
             Self::Hsl
-        } else if func == Color::hsv_data() {
+        } else if func == TypstColor::hsv_data() {
             Self::Hsv
-        } else if func == Color::cmyk_data() {
+        } else if func == TypstColor::cmyk_data() {
             Self::Cmyk
         } else {
             bail!("{expected}");
@@ -1903,7 +1907,7 @@ macro_rules! preset {
     ($name:ident; $($colors:literal),* $(,)*) => {
         fn $name() -> Array {
             Array::from(
-                [$(Color::from_u32($colors)),*]
+                [$(TypstColor::from_u32($colors)),*]
                     .iter()
                     .map(|c| c.into_value())
                     .collect::<EcoVec<_>>()
@@ -1935,7 +1939,10 @@ mod tests {
     fn test_parse_color_strings() {
         #[track_caller]
         fn test(hex: &str, r: u8, g: u8, b: u8, a: u8) {
-            assert_eq!(Color::from_str(hex), Ok(Color::from_u8(r, g, b, a)));
+            assert_eq!(
+                TypstColor::from_str(hex),
+                Ok(TypstColor::from_u8(r, g, b, a))
+            );
         }
 
         test("f61243ff", 0xf6, 0x12, 0x43, 255);
@@ -1949,7 +1956,7 @@ mod tests {
     fn test_parse_invalid_colors() {
         #[track_caller]
         fn test(hex: &str, message: &str) {
-            assert_eq!(Color::from_str(hex), Err(message));
+            assert_eq!(TypstColor::from_str(hex), Err(message));
         }
 
         test("a5", "color string has wrong length");

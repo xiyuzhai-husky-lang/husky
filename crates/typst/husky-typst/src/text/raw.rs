@@ -15,7 +15,7 @@ use crate::foundations::{
     cast, elem, scope, Args, Array, Bytes, Fold, NativeElement, Packed, PlainText, Show, ShowSet,
     Smart, StyleChain, Styles, Synthesize, TypstContent, TypstValue,
 };
-use crate::layout::{BlockElem, Em, HAlignment};
+use crate::layout::{BlockElem, HAlignment, LengthInEm};
 use crate::model::Figurable;
 use crate::syntax::{split_newlines, LinkedNode, Spanned};
 use crate::text::{
@@ -23,7 +23,7 @@ use crate::text::{
     TextElem, TextSize,
 };
 use crate::util::option_eq;
-use crate::visualize::Color;
+use crate::visualize::TypstColor;
 use crate::{syntax, World};
 
 // Shorthand for highlighter closures.
@@ -437,7 +437,7 @@ impl ShowSet for Packed<RawElem> {
         let mut out = Styles::new();
         out.set(TextElem::set_overhang(false));
         out.set(TextElem::set_hyphenate(Hyphenate(Smart::Custom(false))));
-        out.set(TextElem::set_size(TextSize(Em::new(0.8).into())));
+        out.set(TextElem::set_size(TextSize(LengthInEm::new(0.8).into())));
         out.set(TextElem::set_font(FontList(vec![FontFamily::new(
             "DejaVu Sans Mono",
         )])));
@@ -651,11 +651,11 @@ fn styled(piece: &str, foreground: synt::Color, style: synt::Style) -> TypstCont
     body
 }
 
-fn to_typst(synt::Color { r, g, b, a }: synt::Color) -> Color {
-    Color::from_u8(r, g, b, a)
+fn to_typst(synt::Color { r, g, b, a }: synt::Color) -> TypstColor {
+    TypstColor::from_u8(r, g, b, a)
 }
 
-fn to_syn(color: Color) -> synt::Color {
+fn to_syn(color: TypstColor) -> synt::Color {
     let [r, g, b, a] = color.to_vec4_u8();
     synt::Color { r, g, b, a }
 }
@@ -825,7 +825,7 @@ fn item(scope: &str, color: Option<&str>, font_style: Option<synt::FontStyle>) -
     synt::ThemeItem {
         scope: scope.parse().unwrap(),
         style: synt::StyleModifier {
-            foreground: color.map(|s| to_syn(s.parse::<Color>().unwrap())),
+            foreground: color.map(|s| to_syn(s.parse::<TypstColor>().unwrap())),
             background: None,
             font_style,
         },

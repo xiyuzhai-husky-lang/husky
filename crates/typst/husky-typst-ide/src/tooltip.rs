@@ -4,7 +4,7 @@ use ecow::{eco_format, EcoString};
 use husky_typst::eval::{CapturesVisitor, Tracer};
 use husky_typst::foundations::{repr, CastInfo, Repr, TypstValue};
 use husky_typst::layout::Length;
-use husky_typst::model::Document;
+use husky_typst::model::TypstDocument;
 use husky_typst::syntax::{ast, LinkedNode, Source, SyntaxKind};
 use husky_typst::util::{round_2, Numeric};
 use husky_typst::World;
@@ -20,7 +20,7 @@ use crate::{plain_docs_sentence, summarize_font_family};
 /// when the document is available.
 pub fn tooltip(
     world: &dyn World,
-    document: Option<&Document>,
+    document: Option<&TypstDocument>,
     source: &Source,
     cursor: usize,
 ) -> Option<Tooltip> {
@@ -154,7 +154,7 @@ fn length_tooltip(length: Length) -> Option<Tooltip> {
 }
 
 /// Tooltip for a hovered reference or label.
-fn label_tooltip(document: &Document, leaf: &LinkedNode) -> Option<Tooltip> {
+fn label_tooltip(document: &TypstDocument, leaf: &LinkedNode) -> Option<Tooltip> {
     let target = match leaf.kind() {
         SyntaxKind::RefMarker => leaf.text().trim_start_matches('@'),
         SyntaxKind::Label => leaf.text().trim_start_matches('<').trim_end_matches('>'),

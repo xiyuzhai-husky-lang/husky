@@ -7,21 +7,24 @@ use ttf_parser::{name_id, PlatformId, Tag};
 use unicode_segmentation::UnicodeSegmentation;
 
 use super::exceptions::find_exception;
-use crate::text::{Font, FontStretch, FontStyle, FontVariant, FontWeight};
+use crate::text::{FontStretch, FontStyle, FontVariant, FontWeight, TypstFont};
 
 /// Metadata about a collection of fonts.
 #[derive(Debug, Default, Clone, Hash)]
-pub struct FontBook {
+pub struct TypstFontBook {
     /// Maps from lowercased family names to font indices.
     families: BTreeMap<String, Vec<usize>>,
     /// Metadata about each font in the collection.
     infos: Vec<FontInfo>,
 }
 
-impl FontBook {
+impl TypstFontBook {
     /// Create a new, empty font book.
     pub fn new() -> Self {
-        Self { families: BTreeMap::new(), infos: vec![] }
+        Self {
+            families: BTreeMap::new(),
+            infos: vec![],
+        }
     }
 
     /// Create a font book from a collection of font infos.
@@ -34,7 +37,7 @@ impl FontBook {
     }
 
     /// Create a font book for a collection of fonts.
-    pub fn from_fonts<'a>(fonts: impl IntoIterator<Item = &'a Font>) -> Self {
+    pub fn from_fonts<'a>(fonts: impl IntoIterator<Item = &'a TypstFont>) -> Self {
         Self::from_infos(fonts.into_iter().map(|font| font.info().clone()))
     }
 
@@ -53,9 +56,7 @@ impl FontBook {
 
     /// An ordered iterator over all font families this book knows and details
     /// about the fonts that are part of them.
-    pub fn families(
-        &self,
-    ) -> impl Iterator<Item = (&str, impl Iterator<Item = &FontInfo>)> + '_ {
+    pub fn families(&self) -> impl Iterator<Item = (&str, impl Iterator<Item = &FontInfo>)> + '_ {
         // Since the keys are lowercased, we instead use the family field of the
         // first face's info.
         self.families.values().map(|ids| {
@@ -225,8 +226,9 @@ impl FontInfo {
         // because Name ID 1 "Family" sometimes contains "Display" and
         // sometimes doesn't for the Display variants and that mixes things
         // up.
-        let family =
-            exception.and_then(|c| c.family.map(str::to_string)).or_else(|| {
+        let family = exception
+            .and_then(|c| c.family.map(str::to_string))
+            .or_else(|| {
                 let mut family = find_name(ttf, name_id::FAMILY)?;
                 if family.starts_with("Noto") {
                     family = find_name(ttf, name_id::FULL_NAME)?;
@@ -242,9 +244,8 @@ impl FontInfo {
                 // Some fonts miss the relevant bits for italic or oblique, so
                 // we also try to infer that from the full name.
                 let italic = ttf.is_italic() || full.contains("italic");
-                let oblique = ttf.is_oblique()
-                    || full.contains("oblique")
-                    || full.contains("slanted");
+                let oblique =
+                    ttf.is_oblique() || full.contains("oblique") || full.contains("slanted");
 
                 match (italic, oblique) {
                     (false, false) => FontStyle::Normal,
@@ -262,12 +263,21 @@ impl FontInfo {
                 .and_then(|c| c.stretch)
                 .unwrap_or_else(|| FontStretch::from_number(ttf.width().to_number()));
 
-            FontVariant { style, weight, stretch }
+            FontVariant {
+                style,
+                weight,
+                stretch,
+            }
         };
 
         // Determine the unicode coverage.
         let mut codepoints = vec![];
-        for subtable in ttf.tables().cmap.into_iter().flat_map(|table| table.subtables) {
+        for subtable in ttf
+            .tables()
+            .cmap
+            .into_iter()
+            .flat_map(|table| table.subtables)
+        {
             if subtable.is_unicode() {
                 subtable.codepoints(|c| codepoints.push(c));
             }
@@ -344,8 +354,9 @@ fn typographic_family(mut family: &str) -> &str {
     const SEPARATORS: [char; 3] = [' ', '-', '_'];
 
     // Modifiers that can appear in combination with suffixes.
-    const MODIFIERS: &[&str] =
-        &["extra", "ext", "ex", "x", "semi", "sem", "sm", "demi", "dem", "ultra"];
+    const MODIFIERS: &[&str] = &[
+        "extra", "ext", "ex", "x", "semi", "sem", "sm", "demi", "dem", "ultra",
+    ];
 
     // Style suffixes.
     #[rustfmt::skip]
@@ -497,13 +508,19 @@ mod tests {
         assert_eq!(typographic_family("eras bold"), "eras");
         assert_eq!(typographic_family("footlight mt light"), "footlight mt");
         assert_eq!(typographic_family("times new roman"), "times new roman");
-        assert_eq!(typographic_family("noto sans mono cond sembd"), "noto sans mono");
+        assert_eq!(
+            typographic_family("noto sans mono cond sembd"),
+            "noto sans mono"
+        );
         assert_eq!(typographic_family("noto serif SEMCOND sembd"), "noto serif");
         assert_eq!(typographic_family("crimson text"), "crimson text");
         assert_eq!(typographic_family("footlight light"), "footlight");
         assert_eq!(typographic_family("Noto Sans"), "Noto Sans");
         assert_eq!(typographic_family("Noto Sans Light"), "Noto Sans");
-        assert_eq!(typographic_family("Noto Sans Semicondensed Heavy"), "Noto Sans");
+        assert_eq!(
+            typographic_family("Noto Sans Semicondensed Heavy"),
+            "Noto Sans"
+        );
         assert_eq!(typographic_family("Familx"), "Familx");
         assert_eq!(typographic_family("Font Ultra"), "Font Ultra");
         assert_eq!(typographic_family("Font Ultra Bold"), "Font");

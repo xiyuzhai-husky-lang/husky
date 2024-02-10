@@ -2,7 +2,7 @@ use crate::diag::{bail, At, Hint, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{elem, Behave, Behaviour, Packed, Smart, StyleChain, TypstContent};
 use crate::layout::{
-    Alignment, Axes, Em, Fragment, LayoutMultiple, Length, Regions, Rel, VAlignment,
+    Alignment, Axes, Fragment, LayoutMultiple, Length, LengthInEm, Regions, Rel, VAlignment,
 };
 
 /// Places content at an absolute position.
@@ -63,7 +63,7 @@ pub struct PlaceElem {
     pub float: bool,
 
     /// The amount of clearance the placed element has in a floating layout.
-    #[default(Em::new(1.5).into())]
+    #[default(LengthInEm::new(1.5).into())]
     #[resolve]
     pub clearance: Length,
 

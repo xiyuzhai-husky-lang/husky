@@ -4,7 +4,7 @@ use crate::foundations::{
     cast, elem, Label, NativeElement, Packed, Show, ShowSet, Smart, StyleChain, Styles,
     TypstContent,
 };
-use crate::layout::{Alignment, BlockElem, Em, HElem, PadElem, Spacing, VElem};
+use crate::layout::{Alignment, BlockElem, HElem, LengthInEm, PadElem, Spacing, VElem};
 use crate::model::{CitationForm, CiteElem};
 use crate::text::{SmartQuoteElem, SpaceElem, TextElem};
 
@@ -183,7 +183,7 @@ impl Show for Packed<QuoteElem> {
 
                 // Use v(0.9em, weak: true) bring the attribution closer to the
                 // quote.
-                let weak_v = VElem::weak(Spacing::Rel(Em::new(0.9).into())).pack();
+                let weak_v = VElem::weak(Spacing::Rel(LengthInEm::new(0.9).into())).pack();
                 realized += weak_v + TypstContent::sequence(seq).aligned(Alignment::END);
             }
 
@@ -198,9 +198,9 @@ impl Show for Packed<QuoteElem> {
 
 impl ShowSet for Packed<QuoteElem> {
     fn show_set(&self, _: StyleChain) -> Styles {
-        let x = Em::new(1.0).into();
-        let above = Em::new(2.4).into();
-        let below = Em::new(1.8).into();
+        let x = LengthInEm::new(1.0).into();
+        let above = LengthInEm::new(2.4).into();
+        let below = LengthInEm::new(1.8).into();
         let mut out = Styles::new();
         out.set(PadElem::set_left(x));
         out.set(PadElem::set_right(x));

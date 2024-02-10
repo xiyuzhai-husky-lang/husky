@@ -3,7 +3,7 @@ use std::borrow::Cow;
 use crate::foundations::{
     cast, elem, Behave, Behaviour, Packed, Resolve, StyleChain, TypstContent,
 };
-use crate::layout::{Abs, Em, Fr, Length, Ratio, Rel};
+use crate::layout::{Abs, Fr, Length, LengthInEm, Ratio, Rel};
 use crate::util::Numeric;
 
 /// Inserts horizontal spacing into a paragraph.
@@ -233,8 +233,8 @@ impl From<Abs> for Spacing {
     }
 }
 
-impl From<Em> for Spacing {
-    fn from(em: Em) -> Self {
+impl From<LengthInEm> for Spacing {
+    fn from(em: LengthInEm) -> Self {
         Self::Rel(Rel::new(Ratio::zero(), em.into()))
     }
 }

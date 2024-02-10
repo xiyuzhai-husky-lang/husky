@@ -22,10 +22,10 @@ use husky_typst::introspection::INTROSPECTION;
 use husky_typst::layout::{Abs, Margin, PageElem, LAYOUT};
 use husky_typst::loading::DATA_LOADING;
 use husky_typst::math::MATH;
-use husky_typst::model::Document;
+use husky_typst::model::TypstDocument;
 use husky_typst::model::MODEL;
 use husky_typst::symbols::SYMBOLS;
-use husky_typst::text::{Font, FontBook, TEXT};
+use husky_typst::text::{TypstFont, TypstFontBook, TEXT};
 use husky_typst::visualize::VISUALIZE;
 use husky_typst::Library;
 use include_dir::{include_dir, Dir};
@@ -66,12 +66,12 @@ static LIBRARY: Lazy<Prehashed<Library>> = Lazy::new(|| {
     Prehashed::new(lib)
 });
 
-static FONTS: Lazy<(Prehashed<FontBook>, Vec<Font>)> = Lazy::new(|| {
+static FONTS: Lazy<(Prehashed<TypstFontBook>, Vec<TypstFont>)> = Lazy::new(|| {
     let fonts: Vec<_> = FONT_DIR
         .files()
-        .flat_map(|file| Font::iter(file.contents().into()))
+        .flat_map(|file| TypstFont::iter(file.contents().into()))
         .collect();
-    let book = FontBook::from_fonts(&fonts);
+    let book = TypstFontBook::from_fonts(&fonts);
     (Prehashed::new(book), fonts)
 });
 
@@ -98,7 +98,7 @@ pub trait Resolver {
     fn image(&self, filename: &str, data: &[u8]) -> String;
 
     /// Produce HTML for an example.
-    fn example(&self, hash: u128, source: Option<Html>, document: &Document) -> Html;
+    fn example(&self, hash: u128, source: Option<Html>, document: &TypstDocument) -> Html;
 
     /// Determine the commits between two tags.
     fn commits(&self, from: &str, to: &str) -> Vec<Commit>;
@@ -805,7 +805,7 @@ mod tests {
             None
         }
 
-        fn example(&self, _: u128, _: Option<Html>, _: &Document) -> Html {
+        fn example(&self, _: u128, _: Option<Html>, _: &TypstDocument) -> Html {
             Html::new(String::new())
         }
 
