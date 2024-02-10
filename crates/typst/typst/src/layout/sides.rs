@@ -3,7 +3,7 @@ use std::ops::Add;
 
 use crate::diag::{bail, StrResult};
 use crate::foundations::{
-    cast, CastInfo, Dict, Fold, FromTypstValue, IntoTypstValue, Reflect, Resolve, StyleChain,
+    cast, CastInfo, Fold, FromTypstValue, IntoTypstValue, Reflect, Resolve, StyleChain, TypstDict,
     TypstValue,
 };
 use crate::layout::{Abs, Alignment, Axes, Axis, Corner, Rel, Size};
@@ -163,15 +163,15 @@ impl<T: Debug + PartialEq> Debug for Sides<T> {
 
 impl<T: Reflect> Reflect for Sides<Option<T>> {
     fn input() -> CastInfo {
-        T::input() + Dict::input()
+        T::input() + TypstDict::input()
     }
 
     fn output() -> CastInfo {
-        T::output() + Dict::output()
+        T::output() + TypstDict::output()
     }
 
     fn castable(value: &TypstValue) -> bool {
-        Dict::castable(value) || T::castable(value)
+        TypstDict::castable(value) || T::castable(value)
     }
 }
 
@@ -186,7 +186,7 @@ where
             }
         }
 
-        let mut dict = Dict::new();
+        let mut dict = TypstDict::new();
         let mut handle = |key: &str, component: Option<T>| {
             if let Some(c) = component {
                 dict.insert(key.into(), c.into_value());
@@ -237,7 +237,7 @@ where
             let keys = dict.iter().map(|kv| kv.0.as_str()).collect();
             // Do not hint at expected_keys, because T may be castable from Dict
             // objects with other sets of expected keys.
-            Err(Dict::unexpected_keys(keys, None))
+            Err(TypstDict::unexpected_keys(keys, None))
         } else {
             Err(Self::error(&value))
         }

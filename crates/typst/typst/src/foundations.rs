@@ -83,7 +83,7 @@ use crate::syntax::Spanned;
 pub static FOUNDATIONS: Category;
 
 /// Hook up all `foundations` definitions.
-pub(super) fn define(global: &mut Scope, inputs: Dict) {
+pub(super) fn define(global: &mut Scope, inputs: TypstDict) {
     global.category(FOUNDATIONS);
     global.define_type::<bool>();
     global.define_type::<i64>();
@@ -93,7 +93,7 @@ pub(super) fn define(global: &mut Scope, inputs: Dict) {
     global.define_type::<Bytes>();
     global.define_type::<Content>();
     global.define_type::<Array>();
-    global.define_type::<Dict>();
+    global.define_type::<TypstDict>();
     global.define_type::<Func>();
     global.define_type::<Args>();
     global.define_type::<Type>();
@@ -281,7 +281,7 @@ pub fn eval(
     /// ```
     #[named]
     #[default]
-    scope: Dict,
+    scope: TypstDict,
 ) -> SourceResult<TypstValue> {
     let Spanned { v: text, span } = source;
     let dict = scope;

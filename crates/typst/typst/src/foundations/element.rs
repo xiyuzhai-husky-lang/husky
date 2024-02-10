@@ -11,7 +11,7 @@ use smallvec::SmallVec;
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, Args, Content, Dict, Func, ParamInfo, Repr, Scope, Selector, StyleChain, Styles,
+    cast, Args, Content, Func, ParamInfo, Repr, Scope, Selector, StyleChain, Styles, TypstDict,
     TypstValue,
 };
 use crate::text::{Lang, Region};
@@ -212,7 +212,7 @@ pub trait Fields {
     fn materialize(&mut self, styles: StyleChain);
 
     /// Get the fields of the element.
-    fn fields(&self) -> Dict;
+    fn fields(&self) -> TypstDict;
 }
 
 /// An element's constructor function.

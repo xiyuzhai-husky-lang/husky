@@ -10,7 +10,7 @@ use time::{format_description, Month, PrimitiveDateTime};
 use crate::diag::{bail, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, func, repr, scope, ty, Dict, Duration, Repr, Smart, Str, TypstValue,
+    cast, func, repr, scope, ty, Duration, Repr, Smart, Str, TypstDict, TypstValue,
 };
 use crate::World;
 
@@ -153,7 +153,7 @@ impl Datetime {
     }
 
     /// Try to parse a dictionary as a TOML date.
-    pub fn from_toml_dict(dict: &Dict) -> Option<Self> {
+    pub fn from_toml_dict(dict: &TypstDict) -> Option<Self> {
         if dict.len() != 1 {
             return None;
         }

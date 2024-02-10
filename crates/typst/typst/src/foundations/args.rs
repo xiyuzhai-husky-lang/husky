@@ -4,7 +4,7 @@ use ecow::{eco_format, eco_vec, EcoString, EcoVec};
 
 use crate::diag::{bail, error, At, SourceDiagnostic, SourceResult};
 use crate::foundations::{
-    func, repr, scope, ty, Array, Dict, FromTypstValue, IntoTypstValue, Repr, Str, TypstValue,
+    func, repr, scope, ty, Array, FromTypstValue, IntoTypstValue, Repr, Str, TypstDict, TypstValue,
 };
 use crate::syntax::{Span, Spanned};
 
@@ -272,7 +272,7 @@ impl Args {
 
     /// Returns the captured named arguments as a dictionary.
     #[func(name = "named")]
-    pub fn to_named(&self) -> Dict {
+    pub fn to_named(&self) -> TypstDict {
         self.items
             .iter()
             .filter_map(|item| item.name.clone().map(|name| (name, item.value.v.clone())))

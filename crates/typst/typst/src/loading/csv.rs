@@ -2,7 +2,7 @@ use ecow::{eco_format, EcoString};
 
 use crate::diag::{bail, At, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{cast, func, scope, Array, Dict, IntoTypstValue, Type, TypstValue};
+use crate::foundations::{cast, func, scope, Array, IntoTypstValue, Type, TypstDict, TypstValue};
 use crate::loading::Readable;
 use crate::syntax::Spanned;
 use crate::World;
@@ -111,7 +111,7 @@ impl csv {
             let line = line + line_offset;
             let row = result.map_err(|err| format_csv_error(err, line)).at(span)?;
             let item = if let Some(headers) = &headers {
-                let mut dict = Dict::new();
+                let mut dict = TypstDict::new();
                 for (field, value) in headers.iter().zip(&row) {
                     dict.insert(field.into(), value.into_value());
                 }
@@ -165,12 +165,12 @@ cast! {
     RowType,
     self => match self {
         Self::Array => Type::of::<Array>(),
-        Self::Dict => Type::of::<Dict>(),
+        Self::Dict => Type::of::<TypstDict>(),
     }.into_value(),
     ty: Type => {
         if ty == Type::of::<Array>() {
             Self::Array
-        } else if ty == Type::of::<Dict>() {
+        } else if ty == Type::of::<TypstDict>() {
             Self::Dict
         } else {
             bail!("expected `array` or `dictionary`");

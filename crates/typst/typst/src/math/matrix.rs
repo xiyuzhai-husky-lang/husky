@@ -2,7 +2,7 @@ use smallvec::{smallvec, SmallVec};
 
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::foundations::{
-    cast, dict, elem, Array, Cast, Content, Dict, Fold, Packed, Resolve, Smart, StyleChain,
+    cast, dict, elem, Array, Cast, Content, Fold, Packed, Resolve, Smart, StyleChain, TypstDict,
     TypstValue,
 };
 use crate::layout::{
@@ -662,7 +662,7 @@ cast! {
         vline: AugmentOffsets(smallvec![v]),
         stroke: Smart::Auto,
     },
-    mut dict: Dict => {
+    mut dict: TypstDict => {
         let mut take = |key| dict.take(key).ok().map(AugmentOffsets::from_value).transpose();
         let hline = take("hline")?.unwrap_or_default();
         let vline = take("vline")?.unwrap_or_default();

@@ -10,7 +10,7 @@ use ecow::eco_format;
 use once_cell::sync::Lazy;
 use parking_lot::Mutex;
 use typst::diag::{FileError, FileResult, StrResult};
-use typst::foundations::{Bytes, Datetime, Dict, IntoTypstValue};
+use typst::foundations::{Bytes, Datetime, IntoTypstValue, TypstDict};
 use typst::syntax::{FileId, Source, VirtualPath};
 use typst::text::{Font, FontBook};
 use typst::{Library, World};
@@ -89,7 +89,7 @@ impl SystemWorld {
 
         let library = {
             // Convert the input pairs to a dictionary.
-            let inputs: Dict = command
+            let inputs: TypstDict = command
                 .inputs
                 .iter()
                 .map(|(k, v)| (k.as_str().into(), v.as_str().into_value()))

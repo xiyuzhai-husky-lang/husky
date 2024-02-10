@@ -60,7 +60,7 @@ use crate::diag::{warning, FileResult, SourceDiagnostic, SourceResult};
 use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
 use crate::foundations::{
-    Array, Bytes, Content, Datetime, Dict, Module, Scope, StyleChain, Styles,
+    Array, Bytes, Content, Datetime, Module, Scope, StyleChain, Styles, TypstDict,
 };
 use crate::introspection::{Introspector, Locator};
 use crate::layout::{Alignment, Dir, LayoutRoot};
@@ -281,12 +281,12 @@ impl Default for Library {
 /// This struct is created by [`Library::builder`].
 #[derive(Debug, Clone, Default)]
 pub struct LibraryBuilder {
-    inputs: Option<Dict>,
+    inputs: Option<TypstDict>,
 }
 
 impl LibraryBuilder {
     /// Configure the inputs visible through `sys.inputs`.
-    pub fn with_inputs(mut self, inputs: Dict) -> Self {
+    pub fn with_inputs(mut self, inputs: TypstDict) -> Self {
         self.inputs = Some(inputs);
         self
     }
@@ -305,7 +305,7 @@ impl LibraryBuilder {
 }
 
 /// Construct the module with global definitions.
-fn global(math: Module, inputs: Dict) -> Module {
+fn global(math: Module, inputs: TypstDict) -> Module {
     let mut global = Scope::deduplicating();
     self::foundations::define(&mut global, inputs);
     self::model::define(&mut global);

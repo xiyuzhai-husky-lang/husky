@@ -2,7 +2,7 @@ use ecow::{eco_vec, EcoVec};
 
 use crate::diag::{bail, error, At, SourceDiagnostic, SourceResult};
 use crate::eval::{ops, Eval, Vm};
-use crate::foundations::{Array, Content, Dict, Str, TypstValue};
+use crate::foundations::{Array, Content, Str, TypstDict, TypstValue};
 use crate::syntax::ast::{self, AstNode};
 
 impl Eval for ast::Code<'_> {
@@ -226,7 +226,7 @@ impl Eval for ast::Array<'_> {
 }
 
 impl Eval for ast::Dict<'_> {
-    type Output = Dict;
+    type Output = TypstDict;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let mut map = indexmap::IndexMap::new();
