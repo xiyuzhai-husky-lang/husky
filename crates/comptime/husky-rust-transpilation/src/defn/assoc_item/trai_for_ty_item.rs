@@ -1,7 +1,7 @@
 use either::Either;
 use husky_entity_path::PreludeTraitPath;
 use husky_hir_decl::decl::HasHirDecl;
-use husky_hir_ty::{HirConstSymbol, HirTemplateSymbol, HirTemplateSymbolClass};
+use husky_hir_ty::{HirConstSvar, HirTemplateVar, HirTemplateVarClass};
 use smallvec::SmallVec;
 
 use super::*;
@@ -40,12 +40,12 @@ impl TranspileToRustWith for TraitForTypeAssocFnHirDefn {
                         );
                         builder.heterogeneous_comma_list_item_with(|builder| {
                             let hir_decl = impl_block_path.hir_decl(db).unwrap();
-                            let runtime_const_symbols: SmallVec<[HirConstSymbol; 4]> = hir_decl
+                            let runtime_const_symbols: SmallVec<[HirConstSvar; 4]> = hir_decl
                                 .template_parameters(db)
                                 .iter()
                                 .filter_map(|param| match param.symbol() {
-                                    HirTemplateSymbol::Const(symbol) => (symbol.index(db).class()
-                                        == HirTemplateSymbolClass::Runtime)
+                                    HirTemplateVar::Const(symbol) => (symbol.index(db).class()
+                                        == HirTemplateVarClass::Runtime)
                                         .then_some(symbol),
                                     _ => None,
                                 })

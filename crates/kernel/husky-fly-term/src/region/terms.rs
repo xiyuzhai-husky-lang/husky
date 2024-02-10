@@ -5,7 +5,7 @@ pub use self::hol_terms::*;
 pub use self::sol_terms::*;
 
 use super::*;
-use husky_eth_term::term::symbol::EthSymbol;
+use husky_eth_term::term::svar::EthSvar;
 
 // `Default` is not implemented because we might need to initialize `solid_terms` from the parent
 #[salsa::debug_with_db]
@@ -33,13 +33,13 @@ impl FlyTerms {
     pub(crate) fn new_hole_from_template_parameter_symbol(
         &mut self,
         hole_source: HoleSource,
-        template_parameter_symbol: EthSymbol,
+        template_parameter_symbol: EthSvar,
         db: &::salsa::Db,
     ) -> HolTerm {
         let hole_kind = match template_parameter_symbol.ty(db) {
             EthTerm::Literal(_) => todo!(),
             EthTerm::Symbol(_) => HoleKind::Any,
-            EthTerm::Rune(_) => todo!(),
+            EthTerm::Hvar(_) => todo!(),
             EthTerm::EntityPath(_) => todo!(),
             EthTerm::Category(cat) => {
                 if cat.universe().raw() != 1 {
@@ -65,14 +65,14 @@ impl FlyTerms {
     }
 
     #[deprecated(note = "create holes from template parameters directly instead")]
-    pub(crate) fn new_hole_from_parameter_rune(
+    pub(crate) fn new_hole_from_parameter_hvar(
         &mut self,
         db: &::salsa::Db,
         hole_source: HoleSource,
-        parameter_rune: RuneFlyTerm,
+        parameter_hvar: FlyHvar,
     ) -> HolTerm {
-        let hole_kind = match parameter_rune.data_inner(db, self) {
-            FlyTermData::Rune { ty, .. } => match ty.data_inner(db, self) {
+        let hole_kind = match parameter_hvar.data_inner(db, self) {
+            FlyTermData::Hvar { ty, .. } => match ty.data_inner(db, self) {
                 FlyTermData::TypeOntology {
                     ty_path: path,
                     refined_ty_path: refined_path,
@@ -83,7 +83,7 @@ impl FlyTerms {
                     toolchain,
                     curry_kind,
                     variance,
-                    parameter_rune,
+                    parameter_hvar,
                     parameter_ty,
                     return_ty,
                     ty_ethereal_term,
@@ -102,7 +102,7 @@ impl FlyTerms {
                     return_ty,
                 } => todo!(),
                 FlyTermData::Symbol { .. } => HoleKind::Any,
-                FlyTermData::Rune { .. } => todo!(),
+                FlyTermData::Hvar { .. } => todo!(),
                 _ => unreachable!(),
             },
             FlyTermData::Hole(_, _) => todo!(),
@@ -113,7 +113,7 @@ impl FlyTerms {
             //     FlyTermBase::Place => todo!(),
             // },
             _ => {
-                p!(parameter_rune.data_inner(db, self).debug(db));
+                p!(parameter_hvar.data_inner(db, self).debug(db));
                 unreachable!()
             }
         };

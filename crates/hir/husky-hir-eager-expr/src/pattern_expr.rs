@@ -17,7 +17,7 @@ pub enum HirEagerPatternExpr {
     Literal(Literal),
     /// example: `a`
     Ident {
-        symbol_modifier: Option<SymbolModifier>,
+        symbol_modifier: Option<SvarModifier>,
         ident: Ident,
     },
     /// example: `A::B`

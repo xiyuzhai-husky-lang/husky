@@ -2,7 +2,7 @@ use crate::*;
 use husky_eth_signature::HasEthTemplate;
 use husky_eth_term::term::{
     application::{EthApplication, TermFunctionReduced},
-    symbol::EthTermSymbolIndexImpl,
+    svar::EthTermSymbolIndexImpl,
     EthTerm,
 };
 use husky_term_prelude::ItemPathTerm;
@@ -20,7 +20,7 @@ impl HirTrait {
         match trai_term {
             EthTerm::Literal(_) => todo!(),
             EthTerm::Symbol(_) => todo!(),
-            EthTerm::Rune(_) => todo!(),
+            EthTerm::Hvar(_) => todo!(),
             EthTerm::EntityPath(path) => match path {
                 ItemPathTerm::MajorFugitive(_) => todo!(),
                 ItemPathTerm::Trait(trai_path) => Self::new(db, trai_path, smallvec![]),

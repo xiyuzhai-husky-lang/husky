@@ -11,7 +11,7 @@ pub struct EthCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_rune: Option<EthRune>,
+    pub parameter_hvar: Option<EthHvar>,
     /// X
     pub parameter_ty: EthTerm,
     /// Y
@@ -30,7 +30,7 @@ impl EthCurry {
         toolchain: Toolchain,
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_rune: Option<EthRune>,
+        parameter_hvar: Option<EthHvar>,
         parameter_ty: EthTerm,
         return_ty: EthTerm,
         db: &::salsa::Db,
@@ -40,7 +40,7 @@ impl EthCurry {
             toolchain,
             curry_kind,
             variance,
-            parameter_rune,
+            parameter_hvar,
             parameter_ty.reduce(db),
             return_ty.reduce(db),
         )
@@ -58,15 +58,15 @@ impl EthCurry {
 
 impl EthCurry {
     pub fn substitute(self, substitution: EthTermSubstitution, db: &::salsa::Db) -> Self {
-        let parameter_rune = self.parameter_rune(db);
-        if parameter_rune == Some(substitution.src()) {
+        let parameter_hvar = self.parameter_hvar(db);
+        if parameter_hvar == Some(substitution.src()) {
             return self;
         }
         Self::new(
             self.toolchain(db),
             self.curry_kind(db),
             self.variance(db),
-            parameter_rune.map(|rune| rune.substitute_intact(substitution, db)),
+            parameter_hvar.map(|hvar| hvar.substitute_intact(substitution, db)),
             self.parameter_ty(db),
             self.return_ty(db),
             db,
@@ -82,7 +82,7 @@ impl EthInstantiate for EthCurry {
             self.toolchain(db),
             self.curry_kind(db),
             self.variance(db),
-            self.parameter_rune(db).instantiate(db, instantiation),
+            self.parameter_hvar(db).instantiate(db, instantiation),
             self.parameter_ty(db).instantiate(db, instantiation),
             self.return_ty(db).instantiate(db, instantiation),
             db,
@@ -97,8 +97,8 @@ pub(crate) fn term_curry_from_dec(db: &::salsa::Db, curry: DecCurry) -> EthTermR
         curry.toolchain(db),
         curry.curry_kind(db),
         curry.variance(db),
-        match curry.parameter_rune(db) {
-            Some(parameter_rune) => Some(EthRune::from_dec(db, parameter_rune)?),
+        match curry.parameter_hvar(db) {
+            Some(parameter_hvar) => Some(EthHvar::from_dec(db, parameter_hvar)?),
             None => None,
         },
         t(curry.parameter_ty(db))?,
@@ -113,13 +113,13 @@ impl salsa::DisplayWithDb for EthCurry {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        let parameter_rune = self.parameter_rune(db);
-        if parameter_rune.is_some() {
+        let parameter_hvar = self.parameter_hvar(db);
+        if parameter_hvar.is_some() {
             f.write_str("(")?
         }
         f.write_str(self.variance(db).as_str())?;
-        if let Some(parameter_rune) = parameter_rune {
-            parameter_rune.display_fmt_with_db(f, db)?;
+        if let Some(parameter_hvar) = parameter_hvar {
+            parameter_hvar.display_fmt_with_db(f, db)?;
             f.write_str(": ")?;
             self.parameter_ty(db).display_fmt_with_db(f, db)?;
             f.write_str(") -> ")?;

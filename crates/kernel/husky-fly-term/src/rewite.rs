@@ -3,16 +3,16 @@ use crate::*;
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FlyTermSubstitution {
-    rune: RuneFlyTerm,
+    hvar: FlyHvar,
     substitute: FlyTerm,
 }
 
 pub type ImplicitParameterSubstitutions = SmallVec<[FlyTermSubstitution; 2]>;
 
 impl FlyTermSubstitution {
-    fn new(rune: RuneFlyTerm, substitute: impl Into<FlyTerm>) -> Self {
+    fn new(hvar: FlyHvar, substitute: impl Into<FlyTerm>) -> Self {
         Self {
-            rune,
+            hvar,
             substitute: substitute.into(),
         }
     }
@@ -39,20 +39,20 @@ impl FlyTermSubstitution {
                 toolchain,
                 curry_kind: CurryKind::Implicit,
                 variance,
-                parameter_rune,
+                parameter_hvar,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
             } => {
-                let parameter_rune = parameter_rune
+                let parameter_hvar = parameter_hvar
                     .expect("curry type with implicit parameter should be dependent type");
-                let implicit_symbol = terms.new_hole_from_parameter_rune(
+                let implicit_symbol = terms.new_hole_from_parameter_hvar(
                     db,
                     HoleSource::Expectation(idx),
-                    parameter_rune,
+                    parameter_hvar,
                 );
                 template_parameter_substitutions
-                    .push(FlyTermSubstitution::new(parameter_rune, implicit_symbol));
+                    .push(FlyTermSubstitution::new(parameter_hvar, implicit_symbol));
                 let expectee = return_ty.rewrite_inner(
                     db,
                     terms,
@@ -67,18 +67,18 @@ impl FlyTermSubstitution {
 }
 
 impl FlyTerm {
-    pub fn substitute_rune(
+    pub fn substitute_hvar(
         self,
         engine: &mut impl FlyTermEngineMut,
         src: HoleSource,
-        rune: RuneFlyTerm,
+        hvar: FlyHvar,
         substitute: FlyTerm,
     ) -> Self {
         self.rewrite_inner(
             engine.db(),
             engine.fly_terms_mut(),
             src,
-            &[FlyTermSubstitution::new(rune, substitute)],
+            &[FlyTermSubstitution::new(hvar, substitute)],
         )
     }
 
@@ -122,13 +122,13 @@ impl FlyTerm {
                 toolchain,
                 curry_kind,
                 variance,
-                parameter_rune,
+                parameter_hvar,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
             } => {
-                let parameter_rune =
-                    parameter_rune.map(|v| v.rewrite_inner(db, terms, src, substitution_rules));
+                let parameter_hvar =
+                    parameter_hvar.map(|v| v.rewrite_inner(db, terms, src, substitution_rules));
                 let parameter_ty = parameter_ty.rewrite_inner(db, terms, src, substitution_rules);
                 let return_ty = return_ty.rewrite_inner(db, terms, src, substitution_rules);
                 FlyTerm::new_curry(
@@ -137,7 +137,7 @@ impl FlyTerm {
                     toolchain,
                     curry_kind,
                     variance,
-                    parameter_rune,
+                    parameter_hvar,
                     parameter_ty,
                     return_ty,
                 )
@@ -170,10 +170,10 @@ impl FlyTerm {
             }
             FlyTermData::Symbol { .. } => todo!(),
             // todo: this is wrong
-            FlyTermData::Rune { .. } => substitution_rules
+            FlyTermData::Hvar { .. } => substitution_rules
                 .iter()
                 .copied()
-                .find_map(|rule| (*rule.rune == self).then_some(rule.substitute))
+                .find_map(|rule| (*rule.hvar == self).then_some(rule.substitute))
                 .unwrap_or(self),
             FlyTermData::TypeVariant { path } => todo!(),
         }

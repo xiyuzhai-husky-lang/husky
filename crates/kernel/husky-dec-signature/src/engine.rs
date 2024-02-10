@@ -14,7 +14,7 @@ pub(super) struct DecTermEngine<'a> {
     toolchain: Toolchain,
     syn_expr_region_data: &'a SynExprRegionData,
     declarative_term_menu: &'a DecTermMenu,
-    symbol_declarative_term_region: DecSymbolRegion,
+    symbol_declarative_term_region: DecSvarRegion,
     expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
     /// todo: change this to ordered
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
@@ -38,7 +38,7 @@ impl<'a> DecTermEngine<'a> {
     fn new(
         db: &'a ::salsa::Db,
         syn_expr_region: SynExprRegion,
-        parent_term_symbol_region: Option<&'a DecSymbolRegion>,
+        parent_term_symbol_region: Option<&'a DecSvarRegion>,
     ) -> Self {
         let toolchain = syn_expr_region.toolchain(db);
         // ad hoc
@@ -50,7 +50,7 @@ impl<'a> DecTermEngine<'a> {
             toolchain,
             syn_expr_region_data,
             declarative_term_menu,
-            symbol_declarative_term_region: DecSymbolRegion::new(
+            symbol_declarative_term_region: DecSvarRegion::new(
                 parent_term_symbol_region,
                 syn_expr_region_data,
                 declarative_term_menu,
@@ -118,7 +118,7 @@ impl<'a> DecTermEngine<'a> {
                     let (name, (ty, term_symbol)) = match *template_parameter_variant {
                         CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => (
                             label_token.label().into(),
-                            DecSymbol::new_lifetime(
+                            DecSvar::new_lifetime(
                                 self.db,
                                 self.toolchain,
                                 self.declarative_term_menu,
@@ -129,7 +129,7 @@ impl<'a> DecTermEngine<'a> {
                         ),
                         CurrentTemplateParameterSynSymbolVariant::Place { label_token } => (
                             label_token.label().into(),
-                            DecSymbol::new_place(
+                            DecSvar::new_place(
                                 self.db,
                                 self.toolchain,
                                 self.declarative_term_menu,
@@ -140,7 +140,7 @@ impl<'a> DecTermEngine<'a> {
                         ),
                         CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. } => (
                             ident_token.ident().into(),
-                            DecSymbol::new_ty(
+                            DecSvar::new_ty(
                                 self.db,
                                 self.toolchain,
                                 self.declarative_term_menu,
@@ -158,7 +158,7 @@ impl<'a> DecTermEngine<'a> {
                                 ident_token.ident().into(),
                                 (
                                     ty,
-                                    DecSymbol::new_const(
+                                    DecSvar::new_const(
                                         self.db,
                                         self.toolchain,
                                         attrs,
@@ -209,7 +209,7 @@ impl<'a> DecTermEngine<'a> {
                 }
                 SyndicateTypeConstraint::VariadicParenateParameter { ident_token, ty } => {
                     let ty = self.infer_new_expr_term(*ty).map_err(|_| todo!());
-                    let symbol = DecSymbol::new_ephem(
+                    let symbol = DecSvar::new_ephem(
                         self.db,
                         self.toolchain,
                         ty,

@@ -59,7 +59,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`Label`),
+                                                    EthSvar(`Label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -72,7 +72,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(`label`),
+                                                    EthSvar(`label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,

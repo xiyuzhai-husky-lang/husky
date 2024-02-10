@@ -18,8 +18,8 @@ use husky_hir_eager_expr::{
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    instantiation::HirTermSymbolResolution, place::HirPlace, ritchie::HirEagerContract,
-    HirTemplateSymbol, HirTemplateSymbolClass,
+    instantiation::HirTermSvarResolution, place::HirPlace, ritchie::HirEagerContract,
+    HirTemplateVar, HirTemplateVarClass,
 };
 use husky_opr::BinaryClosedOpr;
 use smallvec::SmallVec;
@@ -103,7 +103,7 @@ impl HirEagerExprSite {
                 HirPlace::RefMut { .. } => true,
                 _ => false,
             },
-            HirEagerExprData::ConstSymbol { .. }
+            HirEagerExprData::ConstSvar { .. }
             | HirEagerExprData::FunctionFnCall { .. }
             | HirEagerExprData::AssocFunctionFnCall { .. }
             | HirEagerExprData::MemoizedField { .. }
@@ -163,7 +163,7 @@ impl HirEagerExprSite {
                     PrincipalEntityPath::MajorItem(_) => (),
                 }
             }
-            HirEagerExprData::ConstSymbol { ident, .. } => ident.transpile_to_rust(builder),
+            HirEagerExprData::ConstSvar { ident, .. } => ident.transpile_to_rust(builder),
             HirEagerExprData::Variable(hir_eager_runtime_symbol_idx) => {
                 hir_eager_runtime_symbol_idx.transpile_to_rust(builder)
             }
@@ -257,12 +257,12 @@ impl HirEagerExprSite {
                     builder.punctuation(RustPunctuation::CommaSpaced);
                     (opd_hir_expr_idx, geq(self)).transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::CommaSpaced);
-                    let runtime_constants: SmallVec<[HirTermSymbolResolution; 2]> = instantiation
+                    let runtime_constants: SmallVec<[HirTermSvarResolution; 2]> = instantiation
                         .symbol_map()
                         .iter()
                         .filter_map(|&(symbol, resolution)| match symbol {
-                            HirTemplateSymbol::Const(symbol) => (symbol.index(db).class()
-                                == HirTemplateSymbolClass::Runtime)
+                            HirTemplateVar::Const(symbol) => (symbol.index(db).class()
+                                == HirTemplateVarClass::Runtime)
                                 .then_some(resolution),
                             _ => None,
                         })

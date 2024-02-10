@@ -146,7 +146,7 @@ pub(crate) fn ethereal_term_application_declarative_ty(
     let function = term_application.function(db);
     let argument = term_application.argument(db);
     match function.raw_ty(db)? {
-        RawType::Declarative(DecTerm::Curry(function_ty)) => match function_ty.parameter_rune(db) {
+        RawType::Declarative(DecTerm::Curry(function_ty)) => match function_ty.parameter_hvar(db) {
             Some(function_ty_parameter_variable) => {
                 ethereal_term_application_declarative_ty_dependent_aux(
                     db,
@@ -168,11 +168,11 @@ pub(crate) fn ethereal_term_application_declarative_ty(
     }
 }
 
-/// function_ty.parameter_rune(db) matches Some
+/// function_ty.parameter_hvar(db) matches Some
 pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
     db: &::salsa::Db,
     function_ty: DecCurry,
-    function_ty_parameter_variable: DecRune,
+    function_ty_parameter_variable: DecHvar,
     argument: DecTerm,
     argument_ty: RawType,
     shift: u8,
@@ -201,12 +201,7 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
                     // this is possible because we expect in the recursion process
                     // shift never appears twice
                     let new_parameter_symbol = unsafe {
-                        DecSymbol::new_ad_hoc(
-                            db,
-                            argument_ty.toolchain(db),
-                            new_parameter_ty,
-                            shift,
-                        )
+                        DecSvar::new_ad_hoc(db, argument_ty.toolchain(db), new_parameter_ty, shift)
                     };
                     Ok(DecCurry::new_dependent(
                         db,
@@ -239,14 +234,14 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
     }
 }
 
-/// function_ty.parameter_rune(db) is None
+/// function_ty.parameter_hvar(db) is None
 pub(crate) fn ethereal_term_application_declarative_ty_nondependent_aux(
     db: &::salsa::Db,
     function_ty: DecCurry,
     argument_ty: RawType,
     shift: u8,
 ) -> EthTermResult<DecTerm> {
-    debug_assert!(function_ty.parameter_rune(db).is_none());
+    debug_assert!(function_ty.parameter_hvar(db).is_none());
     match shift {
         0 => Ok(function_ty.return_ty(db)),
         shift => match argument_ty {

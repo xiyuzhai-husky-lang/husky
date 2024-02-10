@@ -22,16 +22,16 @@ use husky_vfs::Toolchain;
 
 #[salsa::jar]
 pub struct DecTermJar(
-    DecSymbol,
+    DecSvar,
     DecTermSymbols,
     declarative_term_curry_symbols,
     declarative_term_ritchie_symbols,
     application_declarative_term_symbols,
-    DecRune,
-    DecTermRunes,
+    DecHvar,
+    DecTermHvars,
     declarative_term_curry_placeholders,
-    declarative_term_ritchie_runes,
-    declarative_term_application_runes,
+    declarative_term_ritchie_hvars,
+    declarative_term_application_hvars,
     DecCurry,
     curry_parameter_count,
     DecRitchie,

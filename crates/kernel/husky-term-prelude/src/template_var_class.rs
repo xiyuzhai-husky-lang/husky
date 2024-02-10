@@ -1,12 +1,12 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum TermTemplateSymbolClass {
+pub enum TemplateVarClass {
     Phantom,
     Runtime,
     Comptime,
 }
 
-impl Default for TermTemplateSymbolClass {
+impl Default for TemplateVarClass {
     fn default() -> Self {
-        TermTemplateSymbolClass::Comptime
+        TemplateVarClass::Comptime
     }
 }

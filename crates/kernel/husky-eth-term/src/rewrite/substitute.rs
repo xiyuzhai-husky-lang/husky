@@ -1,22 +1,22 @@
 use super::*;
-use crate::term::rune::EthRune;
+use crate::term::hvar::EthHvar;
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct EthTermSubstitution {
-    src: EthRune,
+    src: EthHvar,
     dst: EthTerm,
 }
 
 impl EthTermSubstitution {
-    pub fn new(src: EthRune, dst: EthTerm) -> Self {
+    pub fn new(src: EthHvar, dst: EthTerm) -> Self {
         Self { src, dst }
     }
 }
 
 /// # getters
 impl EthTermSubstitution {
-    pub fn src(&self) -> EthRune {
+    pub fn src(&self) -> EthHvar {
         self.src
     }
 

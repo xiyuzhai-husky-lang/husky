@@ -287,7 +287,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(`Self`),
+                                                            EthSvar(`Self`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,

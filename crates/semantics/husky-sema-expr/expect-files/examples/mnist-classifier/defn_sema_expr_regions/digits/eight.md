@@ -1783,7 +1783,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`Label`),
+                                                    EthSvar(`Label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -1796,7 +1796,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(`label`),
+                                                    EthSvar(`label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -3685,7 +3685,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(`E`),
+                                                            EthSvar(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -4078,7 +4078,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(`E`),
+                                                            EthSvar(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,

@@ -1,4 +1,4 @@
-use husky_eth_term::term::symbol::EthSymbol;
+use husky_eth_term::term::svar::EthSvar;
 use husky_place::PlaceIdx;
 use thiserror::Error;
 
@@ -25,7 +25,7 @@ impl SymbolType {
     pub fn new_parameter_ty_from_signature(
         engine: &mut impl FlyTermEngineMut,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-        signature: DecSymbolSignature,
+        signature: DecSvarSignature,
     ) -> FlyTermResult<Self> {
         let ty = EthTerm::ty_from_dec(engine.db(), signature.ty()?)?;
         Ok(Self::new_parameter_ty(
@@ -39,27 +39,27 @@ impl SymbolType {
     pub fn new_parameter_ty(
         engine: &mut impl FlyTermEngineMut,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-        modifier: SymbolModifier,
+        modifier: SvarModifier,
         ty: FlyTerm,
     ) -> Self {
         let new_place = match modifier {
-            SymbolModifier::Pure => FlyPlace::StackPure {
+            SvarModifier::Pure => FlyPlace::StackPure {
                 location: engine.issue_new_stack_location_idx(),
             },
-            SymbolModifier::Owned => FlyPlace::ImmutableStackOwned {
+            SvarModifier::Owned => FlyPlace::ImmutableStackOwned {
                 location: engine.issue_new_stack_location_idx(),
             },
-            SymbolModifier::Mut => todo!(),
-            SymbolModifier::Ref => todo!(),
-            SymbolModifier::RefMut => FlyPlace::RefMut {
+            SvarModifier::Mut => todo!(),
+            SvarModifier::Ref => todo!(),
+            SvarModifier::RefMut => FlyPlace::RefMut {
                 guard: Left(engine.issue_new_stack_location_idx()),
             },
-            SymbolModifier::Const => FlyPlace::Const,
-            SymbolModifier::Ambersand(_) => todo!(),
-            SymbolModifier::AmbersandMut(_) => todo!(),
-            SymbolModifier::Le => todo!(),
-            SymbolModifier::Tilde => todo!(),
-            SymbolModifier::At => todo!(),
+            SvarModifier::Const => FlyPlace::Const,
+            SvarModifier::Ambersand(_) => todo!(),
+            SvarModifier::AmbersandMut(_) => todo!(),
+            SvarModifier::Le => todo!(),
+            SvarModifier::Tilde => todo!(),
+            SvarModifier::At => todo!(),
         };
         Self(ty.with_place(new_place))
     }
@@ -67,11 +67,11 @@ impl SymbolType {
     pub fn new_variable_ty(
         engine: &mut impl FlyTermEngineMut,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-        modifier: SymbolModifier,
+        modifier: SvarModifier,
         ty: FlyTerm,
     ) -> FlyTermResult<Self> {
         let new_place = match modifier {
-            SymbolModifier::Pure => match ty.place {
+            SvarModifier::Pure => match ty.place {
                 Some(FlyPlace::Transient) | None => FlyPlace::ImmutableStackOwned {
                     location: engine.issue_new_stack_location_idx(),
                 },
@@ -96,8 +96,8 @@ impl SymbolType {
                     None => todo!(),
                 },
             },
-            SymbolModifier::Owned => todo!(),
-            SymbolModifier::Mut => match ty.place {
+            SvarModifier::Owned => todo!(),
+            SvarModifier::Mut => match ty.place {
                 Some(FlyPlace::Transient) | None => FlyPlace::MutableStackOwned {
                     location: engine.issue_new_stack_location_idx(),
                 },
@@ -112,14 +112,14 @@ impl SymbolType {
                     None => todo!(),
                 },
             },
-            SymbolModifier::Ref => todo!(),
-            SymbolModifier::RefMut => todo!(),
-            SymbolModifier::Const => todo!(),
-            SymbolModifier::Ambersand(_) => todo!(),
-            SymbolModifier::AmbersandMut(_) => todo!(),
-            SymbolModifier::Le => todo!(),
-            SymbolModifier::Tilde => todo!(),
-            SymbolModifier::At => todo!(),
+            SvarModifier::Ref => todo!(),
+            SvarModifier::RefMut => todo!(),
+            SvarModifier::Const => todo!(),
+            SvarModifier::Ambersand(_) => todo!(),
+            SvarModifier::AmbersandMut(_) => todo!(),
+            SvarModifier::Le => todo!(),
+            SvarModifier::Tilde => todo!(),
+            SvarModifier::At => todo!(),
         };
         Ok(Self(ty.with_place(new_place)))
     }
@@ -209,7 +209,7 @@ pub enum FlyPlace {
     /// always immutable
     Leashed,
     Todo,
-    EtherealSymbol(EthSymbol),
+    EtherealSymbol(EthSvar),
 }
 
 impl FlyPlace {
@@ -294,7 +294,7 @@ impl FlyLifetime {
                 toolchain,
                 curry_kind,
                 variance,
-                parameter_rune,
+                parameter_hvar,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
@@ -307,7 +307,7 @@ impl FlyLifetime {
                 return_ty,
             } => todo!(),
             FlyTermData::Symbol { term, ty } => todo!(),
-            FlyTermData::Rune { .. } => todo!(),
+            FlyTermData::Hvar { .. } => todo!(),
             FlyTermData::TypeVariant { path } => todo!(),
         }
     }

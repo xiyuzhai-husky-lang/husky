@@ -1,6 +1,6 @@
 use husky_hir_ty::{
-    instantiation::{HirInstantiation, HirTermSymbolResolution},
-    HirTemplateSymbol, HirTemplateSymbolClass,
+    instantiation::{HirInstantiation, HirTermSvarResolution},
+    HirTemplateVar, HirTemplateVarClass,
 };
 use husky_javelin::{
     instantiation::{JavInstantiation, JavTermSymbolResolution},
@@ -17,12 +17,12 @@ use crate::template_argument::{
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct LinInstantiation {
-    symbol_resolutions: SmallVecPairMap<HirTemplateSymbol, LinTermSymbolResolution, 4>,
+    symbol_resolutions: SmallVecPairMap<HirTemplateVar, LinTermSymbolResolution, 4>,
     separator: Option<u8>,
 }
 
 impl std::ops::Deref for LinInstantiation {
-    type Target = [(HirTemplateSymbol, LinTermSymbolResolution)];
+    type Target = [(HirTemplateVar, LinTermSymbolResolution)];
 
     fn deref(&self) -> &Self::Target {
         &self.symbol_resolutions
@@ -53,8 +53,8 @@ impl LinInstantiation {
             SmallVecMap::from_iter(hir_instantiation.symbol_map().iter().filter_map(
                 |&(symbol, resolution)| {
                     match symbol {
-                        HirTemplateSymbol::Const(symbol)
-                            if symbol.index(db).class() == HirTemplateSymbolClass::Runtime =>
+                        HirTemplateVar::Const(symbol)
+                            if symbol.index(db).class() == HirTemplateVarClass::Runtime =>
                         {
                             return None
                         }
@@ -77,11 +77,11 @@ impl LinInstantiation {
     }
 
     #[track_caller]
-    pub(crate) fn resolve(&self, symbol: HirTemplateSymbol) -> LinTermSymbolResolution {
+    pub(crate) fn resolve(&self, symbol: HirTemplateVar) -> LinTermSymbolResolution {
         self.symbol_resolutions[symbol].1
     }
 
-    pub fn places(&self) -> SmallVec<[(HirTemplateSymbol, LinTermSymbolResolution); 2]> {
+    pub fn places(&self) -> SmallVec<[(HirTemplateVar, LinTermSymbolResolution); 2]> {
         self.symbol_resolutions
             .iter()
             .filter_map(|&(symbol, resolution)| match resolution {
@@ -94,7 +94,7 @@ impl LinInstantiation {
             .collect()
     }
 
-    pub fn symbol_resolutions(&self) -> &[(HirTemplateSymbol, LinTermSymbolResolution)] {
+    pub fn symbol_resolutions(&self) -> &[(HirTemplateVar, LinTermSymbolResolution)] {
         self.symbol_resolutions.as_ref()
     }
 
@@ -187,16 +187,16 @@ impl LinTermSymbolResolution {
     }
 
     fn from_hir(
-        resolution: HirTermSymbolResolution,
+        resolution: HirTermSvarResolution,
         lin_instantiation: &LinInstantiation,
         db: &salsa::Db,
     ) -> LinTermSymbolResolution {
         match resolution {
-            HirTermSymbolResolution::Explicit(arg) => LinTermSymbolResolution::Explicit(
+            HirTermSvarResolution::Explicit(arg) => LinTermSymbolResolution::Explicit(
                 LinTemplateArgument::from_hir(arg, Some(lin_instantiation), db),
             ),
-            HirTermSymbolResolution::SelfLifetime => LinTermSymbolResolution::SelfLifetime,
-            HirTermSymbolResolution::SelfPlace(_) => todo!(),
+            HirTermSvarResolution::SelfLifetime => LinTermSymbolResolution::SelfLifetime,
+            HirTermSvarResolution::SelfPlace(_) => todo!(),
         }
     }
 }

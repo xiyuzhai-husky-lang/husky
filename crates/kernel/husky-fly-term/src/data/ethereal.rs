@@ -12,7 +12,7 @@ pub(super) fn ethereal_term_data<'a>(db: &'a ::salsa::Db, term: EthTerm) -> FlyT
             term,
             ty: term.ty(db).into(),
         },
-        EthTerm::Rune(term) => FlyTermData::Rune {
+        EthTerm::Hvar(term) => FlyTermData::Hvar {
             ty: term.ty(db).into(),
             index: term.index(db),
         },
@@ -34,7 +34,7 @@ pub(super) fn ethereal_term_data<'a>(db: &'a ::salsa::Db, term: EthTerm) -> FlyT
             toolchain: term.toolchain(db),
             curry_kind: term.curry_kind(db),
             variance: term.variance(db),
-            parameter_rune: term.parameter_rune(db).map(Into::into),
+            parameter_hvar: term.parameter_hvar(db).map(Into::into),
             parameter_ty: term.parameter_ty(db).into(),
             return_ty: term.return_ty(db).into(),
             ty_ethereal_term: Some(term),
@@ -165,7 +165,7 @@ pub(super) fn ethereal_term_fly_base_ty_data<'a>(
     match term {
         EthTerm::Literal(_) => todo!(),
         EthTerm::Symbol(symbol) => FlyBaseTypeData::Symbol { symbol },
-        EthTerm::Rune(rune) => FlyBaseTypeData::Rune { rune },
+        EthTerm::Hvar(hvar) => FlyBaseTypeData::Hvar { hvar },
         EthTerm::EntityPath(path) => match path {
             ItemPathTerm::MajorFugitive(_) => todo!(),
             ItemPathTerm::Trait(_) => todo!(),
@@ -183,7 +183,7 @@ pub(super) fn ethereal_term_fly_base_ty_data<'a>(
         EthTerm::Curry(term) => FlyBaseTypeData::Curry {
             curry_kind: term.curry_kind(db),
             variance: term.variance(db),
-            parameter_rune: term.parameter_rune(db).map(Into::into),
+            parameter_hvar: term.parameter_hvar(db).map(Into::into),
             parameter_ty: term.parameter_ty(db).into(),
             return_ty: term.return_ty(db).into(),
             ty_ethereal_term: Some(term),

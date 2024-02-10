@@ -2,7 +2,7 @@ use super::*;
 
 #[salsa::interned(db = DecTermDb, jar = DecTermJar)]
 pub struct DecAbstraction {
-    pub x: DecRune,
+    pub x: DecHvar,
     pub m: DecTerm,
 }
 
@@ -16,7 +16,7 @@ impl DecAbstraction {
         self,
         _f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,
-        _ctx: &DecSymbolNameMap,
+        _ctx: &DecSvarNameMap,
     ) -> std::fmt::Result {
         todo!()
     }

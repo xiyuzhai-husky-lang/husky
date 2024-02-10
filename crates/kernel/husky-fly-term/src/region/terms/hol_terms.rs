@@ -160,18 +160,18 @@ impl HolTerms {
                 toolchain,
                 curry_kind,
                 variance,
-                parameter_rune,
+                parameter_hvar,
                 parameter_ty,
                 return_ty,
             } => {
-                merger.accept(parameter_rune.map(|rune| *rune));
+                merger.accept(parameter_hvar.map(|hvar| *hvar));
                 merger.accept_one(parameter_ty);
                 merger.accept_one(return_ty);
                 match merger.data_kind() {
                     FlyTermDataKind::Err => todo!(),
                     FlyTermDataKind::Ethereal => {
-                        let parameter_rune = parameter_rune.map(|parameter_rune| {
-                            parameter_rune.resolve_as_ethereal(self).unwrap().rune()
+                        let parameter_hvar = parameter_hvar.map(|parameter_hvar| {
+                            parameter_hvar.resolve_as_ethereal(self).unwrap().hvar()
                         });
                         let parameter_ty = parameter_ty.resolve_as_ethereal(self).unwrap();
                         let return_ty = return_ty.resolve_as_ethereal(self).unwrap();
@@ -181,7 +181,7 @@ impl HolTerms {
                                     toolchain,
                                     curry_kind,
                                     variance,
-                                    parameter_rune,
+                                    parameter_hvar,
                                     parameter_ty,
                                     return_ty,
                                     db,

@@ -4,8 +4,8 @@ pub mod toolchain;
 use self::term::{
     application::{EthApplication, TermFunctionReduced},
     curry::EthCurry,
+    hvar::EthHvar,
     ritchie::EthRitchie,
-    rune::EthRune,
 };
 use crate::*;
 
@@ -94,7 +94,7 @@ impl EthTerm {
     }
 }
 
-impl EthRune {
+impl EthHvar {
     fn toolchain(self, db: &::salsa::Db) -> Option<Toolchain> {
         self.ty(db).toolchain(db)
     }
@@ -103,8 +103,8 @@ impl EthRune {
 #[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn ethereal_term_curry_toolchain(db: &::salsa::Db, term: EthCurry) -> Option<Toolchain> {
     let mut merger = ToolchainMerger::default();
-    if let Some(parameter_rune) = term.parameter_rune(db) {
-        merger.accept(parameter_rune.toolchain(db))
+    if let Some(parameter_hvar) = term.parameter_hvar(db) {
+        merger.accept(parameter_hvar.toolchain(db))
     }
     merger.accept(term.parameter_ty(db).toolchain(db));
     merger.accept(term.return_ty(db).toolchain(db));

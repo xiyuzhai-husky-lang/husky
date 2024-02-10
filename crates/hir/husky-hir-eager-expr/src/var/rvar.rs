@@ -7,31 +7,31 @@ use idx_arena::ArenaIdx;
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct HirEagerRuntimeSymbolRegionData {
-    arena: HirEagerRuntimeSymbolArena,
-    self_value_variable: Option<HirEagerRuntimeSymbolIdx>,
+pub struct HirEagerRvarRegionData {
+    arena: HirEagerRvarArena,
+    self_value_variable: Option<HirEagerRvarIdx>,
 }
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct HirEagerRuntimeSymbolEntry {
-    name: HirEagerRuntimeSymbolName,
-    data: HirEagerRuntimeSymbolData,
+pub struct HirEagerRvarEntry {
+    name: HirEagerRvarName,
+    data: HirEagerRvarData,
 }
 
-pub type HirEagerRuntimeSymbolArena = Arena<HirEagerRuntimeSymbolEntry>;
-pub type HirEagerRuntimeSymbolIdx = ArenaIdx<HirEagerRuntimeSymbolEntry>;
+pub type HirEagerRvarArena = Arena<HirEagerRvarEntry>;
+pub type HirEagerRvarIdx = ArenaIdx<HirEagerRvarEntry>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
-pub enum HirEagerRuntimeSymbolName {
+pub enum HirEagerRvarName {
     SelfValue,
     Ident(Ident),
 }
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub enum HirEagerRuntimeSymbolData {
+pub enum HirEagerRvarData {
     SelfValue,
     ParenateParameter,
     LetVariable,
@@ -41,26 +41,26 @@ pub enum HirEagerRuntimeSymbolData {
     LoopVariable,
 }
 
-impl HirEagerRuntimeSymbolRegionData {
+impl HirEagerRvarRegionData {
     pub(crate) fn from_syn(
         syn_symbol_region: &SynSymbolRegionData,
-    ) -> (Self, SynSymbolMap<HirEagerRuntimeSymbolIdx>) {
-        let mut arena = HirEagerRuntimeSymbolArena::default();
+    ) -> (Self, SynSymbolMap<HirEagerRvarIdx>) {
+        let mut arena = HirEagerRvarArena::default();
         let self_value_variable = match syn_symbol_region.allow_self_value() {
-            AllowSelfValue::True => Some(arena.alloc_one(HirEagerRuntimeSymbolEntry {
-                name: HirEagerRuntimeSymbolName::SelfValue,
-                data: HirEagerRuntimeSymbolData::SelfValue,
+            AllowSelfValue::True => Some(arena.alloc_one(HirEagerRvarEntry {
+                name: HirEagerRvarName::SelfValue,
+                data: HirEagerRvarData::SelfValue,
             })),
             AllowSelfValue::False => None,
         };
         let mut syn_symbol_to_hir_eager_runtime_symbol_map =
-            SynSymbolMap::<HirEagerRuntimeSymbolIdx>::new(syn_symbol_region);
+            SynSymbolMap::<HirEagerRvarIdx>::new(syn_symbol_region);
 
         for (inherited_syn_symbol_idx, inherited_syn_symbol) in
             syn_symbol_region.indexed_inherited_syn_symbols()
         {
             if let Some(hir_eager_runtime_symbol) =
-                HirEagerRuntimeSymbolEntry::from_inherited_syn(inherited_syn_symbol)
+                HirEagerRvarEntry::from_inherited_syn(inherited_syn_symbol)
             {
                 let hir_eager_runtime_symbol_idx = arena.alloc_one(hir_eager_runtime_symbol);
                 syn_symbol_to_hir_eager_runtime_symbol_map
@@ -71,7 +71,7 @@ impl HirEagerRuntimeSymbolRegionData {
             syn_symbol_region.indexed_current_syn_symbols()
         {
             if let Some(hir_eager_runtime_symbol) =
-                HirEagerRuntimeSymbolEntry::from_current_syn(current_syn_symbol)
+                HirEagerRvarEntry::from_current_syn(current_syn_symbol)
             {
                 let hir_eager_runtime_symbol_idx = arena.alloc_one(hir_eager_runtime_symbol);
                 syn_symbol_to_hir_eager_runtime_symbol_map
@@ -87,39 +87,37 @@ impl HirEagerRuntimeSymbolRegionData {
         )
     }
 
-    pub fn self_value_variable(&self) -> Option<HirEagerRuntimeSymbolIdx> {
+    pub fn self_value_variable(&self) -> Option<HirEagerRvarIdx> {
         self.self_value_variable
     }
 }
 
-impl std::ops::Index<HirEagerRuntimeSymbolIdx> for HirEagerRuntimeSymbolRegionData {
-    type Output = HirEagerRuntimeSymbolEntry;
+impl std::ops::Index<HirEagerRvarIdx> for HirEagerRvarRegionData {
+    type Output = HirEagerRvarEntry;
 
-    fn index(&self, index: HirEagerRuntimeSymbolIdx) -> &Self::Output {
+    fn index(&self, index: HirEagerRvarIdx) -> &Self::Output {
         &self.arena[index]
     }
 }
 
-impl HirEagerRuntimeSymbolEntry {
-    pub fn name(&self) -> HirEagerRuntimeSymbolName {
+impl HirEagerRvarEntry {
+    pub fn name(&self) -> HirEagerRvarName {
         self.name
     }
 
-    pub fn data(&self) -> &HirEagerRuntimeSymbolData {
+    pub fn data(&self) -> &HirEagerRvarData {
         &self.data
     }
 
-    fn from_inherited_syn(
-        inherited_syn_symbol: InheritedSynSymbol,
-    ) -> Option<HirEagerRuntimeSymbolEntry> {
+    fn from_inherited_syn(inherited_syn_symbol: InheritedSynSymbol) -> Option<HirEagerRvarEntry> {
         let name = match inherited_syn_symbol.kind() {
             InheritedSynSymbolKind::TemplateParameter(_)
             | InheritedSynSymbolKind::ParenateParameter { .. }
             | InheritedSynSymbolKind::FieldVariable { .. } => {
-                HirEagerRuntimeSymbolName::Ident(inherited_syn_symbol.ident()?)
+                HirEagerRvarName::Ident(inherited_syn_symbol.ident()?)
             }
         };
-        let data = HirEagerRuntimeSymbolData::from_inherited_syn(inherited_syn_symbol.kind())?;
+        let data = HirEagerRvarData::from_inherited_syn(inherited_syn_symbol.kind())?;
         Some(Self { name, data })
     }
 
@@ -127,25 +125,25 @@ impl HirEagerRuntimeSymbolEntry {
         let name = match current_syn_symbol.data() {
             CurrentSynSymbolData::SelfValue {
                 symbol_modifier_keyword_group: _,
-            } => HirEagerRuntimeSymbolName::SelfValue,
-            _ => HirEagerRuntimeSymbolName::Ident(current_syn_symbol.ident()?),
+            } => HirEagerRvarName::SelfValue,
+            _ => HirEagerRvarName::Ident(current_syn_symbol.ident()?),
         };
-        let data = HirEagerRuntimeSymbolData::from_current_syn(current_syn_symbol.data())?;
+        let data = HirEagerRvarData::from_current_syn(current_syn_symbol.data())?;
         Some(Self { name, data })
     }
 }
 
-impl HirEagerRuntimeSymbolData {
+impl HirEagerRvarData {
     fn from_inherited_syn(
         inherited_syn_symbol_kind: InheritedSynSymbolKind,
-    ) -> Option<HirEagerRuntimeSymbolData> {
+    ) -> Option<HirEagerRvarData> {
         match inherited_syn_symbol_kind {
             InheritedSynSymbolKind::TemplateParameter(_) => None,
             InheritedSynSymbolKind::ParenateParameter { ident: _ } => {
-                Some(HirEagerRuntimeSymbolData::ParenateParameter)
+                Some(HirEagerRvarData::ParenateParameter)
             }
             InheritedSynSymbolKind::FieldVariable { ident: _ } => {
-                Some(HirEagerRuntimeSymbolData::FieldVariable)
+                Some(HirEagerRvarData::FieldVariable)
             }
         }
     }
@@ -160,30 +158,30 @@ impl HirEagerRuntimeSymbolData {
             CurrentSynSymbolData::ParenateRegularParameter {
                 ident: _,
                 pattern_symbol_idx: _,
-            } => Some(HirEagerRuntimeSymbolData::ParenateParameter),
+            } => Some(HirEagerRvarData::ParenateParameter),
             CurrentSynSymbolData::ParenateVariadicParameter {
                 symbol_modifier_keyword_group: _,
                 ident_token: _,
-            } => Some(HirEagerRuntimeSymbolData::ParenateParameter),
+            } => Some(HirEagerRvarData::ParenateParameter),
             CurrentSynSymbolData::LetVariable {
                 ident: _,
                 pattern_symbol_idx: _,
-            } => Some(HirEagerRuntimeSymbolData::LetVariable),
+            } => Some(HirEagerRvarData::LetVariable),
             CurrentSynSymbolData::BeVariable {
                 ident: _,
                 pattern_symbol_idx: _,
-            } => Some(HirEagerRuntimeSymbolData::BeVariable),
+            } => Some(HirEagerRvarData::BeVariable),
             CurrentSynSymbolData::CaseVariable {
                 ident: _,
                 pattern_symbol_idx: _,
-            } => Some(HirEagerRuntimeSymbolData::CaseVariable),
+            } => Some(HirEagerRvarData::CaseVariable),
             CurrentSynSymbolData::FieldVariable { ident_token: _ } => {
-                Some(HirEagerRuntimeSymbolData::FieldVariable)
+                Some(HirEagerRvarData::FieldVariable)
             }
             CurrentSynSymbolData::LoopVariable {
                 ident: _,
                 expr_idx: _,
-            } => Some(HirEagerRuntimeSymbolData::LoopVariable),
+            } => Some(HirEagerRvarData::LoopVariable),
         }
     }
 }

@@ -4,7 +4,7 @@ use husky_eth_term::{
     term::{
         application::{EthApplication, TermFunctionReduced},
         ritchie::EthRitchie,
-        symbol::{EthSymbol, EthTermSymbolIndexImpl},
+        svar::{EthSvar, EthTermSymbolIndexImpl},
     },
 };
 use salsa::fmt::WithFmtContext;
@@ -15,7 +15,7 @@ use vec_like::SmallVecPairMap;
 pub struct FlyInstantiation {
     path: ItemPath,
     env: FlyInstantiationEnvironment,
-    symbol_map: SmallVecPairMap<EthSymbol, FlyTermSymbolResolution, 4>,
+    symbol_map: SmallVecPairMap<EthSvar, FlyTermSymbolResolution, 4>,
     separator: Option<u8>,
 }
 
@@ -33,10 +33,10 @@ impl WithFmtContext for FlyInstantiation {
     }
 }
 
-impl std::ops::Index<EthSymbol> for FlyInstantiation {
+impl std::ops::Index<EthSvar> for FlyInstantiation {
     type Output = FlyTermSymbolResolution;
 
-    fn index(&self, index: EthSymbol) -> &Self::Output {
+    fn index(&self, index: EthSvar) -> &Self::Output {
         &self.symbol_map[index].1
     }
 }
@@ -113,7 +113,7 @@ impl FlyInstantiation {
         }
     }
 
-    pub fn symbol_map(&self) -> &[(EthSymbol, FlyTermSymbolResolution)] {
+    pub fn symbol_map(&self) -> &[(EthSvar, FlyTermSymbolResolution)] {
         self.symbol_map.as_ref()
     }
 
@@ -124,8 +124,8 @@ impl FlyInstantiation {
     pub fn symbol_map_splitted(
         &self,
     ) -> (
-        &[(EthSymbol, FlyTermSymbolResolution)],
-        Option<&[(EthSymbol, FlyTermSymbolResolution)]>,
+        &[(EthSvar, FlyTermSymbolResolution)],
+        Option<&[(EthSvar, FlyTermSymbolResolution)]>,
     ) {
         let symbol_map: &[_] = self.symbol_map.as_ref();
         match self.separator {
@@ -187,14 +187,14 @@ pub(crate) trait FlyInstantiateRef {
 pub struct FlyTermInstantiationBuilder {
     path: ItemPath,
     env: FlyInstantiationEnvironment,
-    symbol_map: SmallVecPairMap<EthSymbol, Option<FlyTermSymbolResolution>, 4>,
+    symbol_map: SmallVecPairMap<EthSvar, Option<FlyTermSymbolResolution>, 4>,
     separator: Option<u8>,
 }
 
-impl std::ops::Index<EthSymbol> for FlyTermInstantiationBuilder {
+impl std::ops::Index<EthSvar> for FlyTermInstantiationBuilder {
     type Output = Option<FlyTermSymbolResolution>;
 
-    fn index(&self, index: EthSymbol) -> &Self::Output {
+    fn index(&self, index: EthSvar) -> &Self::Output {
         &self.symbol_map[index].1
     }
 }
@@ -270,7 +270,7 @@ impl FlyTermInstantiationBuilder {
                 }
                 JustOk(())
             }
-            EthTerm::Rune(_) => todo!(),
+            EthTerm::Hvar(_) => todo!(),
             EthTerm::EntityPath(_) => todo!(),
             EthTerm::Category(_) => todo!(),
             EthTerm::Universe(_) => todo!(),
@@ -318,7 +318,7 @@ impl FlyInstantiate for EthTerm {
                     FlyTermSymbolResolution::SelfPlace(place) => place.into(),
                 },
             },
-            EthTerm::Rune(_) => todo!(),
+            EthTerm::Hvar(_) => todo!(),
             EthTerm::EntityPath(_) => self.into(),
             EthTerm::Category(_) => todo!(),
             EthTerm::Universe(_) => todo!(),

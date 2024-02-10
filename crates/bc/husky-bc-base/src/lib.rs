@@ -6,6 +6,6 @@ pub mod history;
 pub mod rule;
 pub mod state;
 pub mod stmt;
-pub mod symbol;
+pub mod var;
 
 use shifted_unsigned_int::ShiftedU32;

@@ -16,7 +16,7 @@ use self::symbol::*;
 use crate::*;
 use husky_entity_tree::helpers::TraitInUseItemsTable;
 use husky_eth_signature::HasEthTemplate;
-use husky_eth_term::term::{symbol::EthSymbol, EthTerm};
+use husky_eth_term::term::{svar::EthSvar, EthTerm};
 use husky_place::PlaceRegistry;
 use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};
 use husky_syn_decl::{
@@ -51,10 +51,10 @@ pub(crate) struct SemaExprEngine<'a> {
     return_ty: Option<EthTerm>,
     pub(crate) unveiler: Unveiler,
     self_ty: Option<EthTerm>,
-    self_value: Option<EthSymbol>,
+    self_value: Option<EthSvar>,
     self_value_ty: Option<FlyTerm>,
-    self_lifetime: Option<EthSymbol>,
-    self_place: Option<EthSymbol>,
+    self_lifetime: Option<EthSvar>,
+    self_place: Option<EthSvar>,
     trai_in_use_items_table: TraitInUseItemsTable<'a>,
 }
 
@@ -126,18 +126,18 @@ impl<'a> SemaExprEngine<'a> {
         let self_value = declarative_term_region
             .dec_symbol_region()
             .self_value()
-            .map(|self_value| EthSymbol::from_dec(db, self_value).ok())
+            .map(|self_value| EthSvar::from_dec(db, self_value).ok())
             .flatten();
         let mut stack_location_registry = Default::default();
         let self_lifetime = declarative_term_region
             .dec_symbol_region()
             .self_lifetime()
-            .map(|self_lifetime| EthSymbol::from_dec(db, self_lifetime).ok())
+            .map(|self_lifetime| EthSvar::from_dec(db, self_lifetime).ok())
             .flatten();
         let self_place = declarative_term_region
             .dec_symbol_region()
             .self_place()
-            .map(|self_place| EthSymbol::from_dec(db, self_place).ok())
+            .map(|self_place| EthSvar::from_dec(db, self_place).ok())
             .flatten();
         let self_value_ty = calc_self_value_ty(
             syn_expr_region_data,
@@ -306,17 +306,17 @@ impl<'a> SemaExprEngine<'a> {
 fn calc_self_value_ty(
     syn_expr_region_data: &SynExprRegionData,
     self_ty: Option<EthTerm>,
-    self_place: Option<EthSymbol>,
+    self_place: Option<EthSvar>,
     db: &salsa::Db,
     registry: &mut PlaceRegistry,
 ) -> Option<FlyTerm> {
     fn method_fn_self_value_modifier_from_self_value_parameter(
         self_value_parameter: &Option<SelfValueParameterSyndicate>,
-    ) -> SymbolModifier {
+    ) -> SvarModifier {
         let Some(self_value_parameter) = self_value_parameter else {
-            return SymbolModifier::Pure;
+            return SvarModifier::Pure;
         };
-        SymbolModifier::new(self_value_parameter.ephem_symbol_modifier_token_group())
+        SvarModifier::new(self_value_parameter.ephem_symbol_modifier_token_group())
     }
     let self_ty: FlyTerm = self_ty?.into();
     let modifier = match syn_expr_region_data.path() {
@@ -334,7 +334,7 @@ fn calc_self_value_ty(
                                     .self_value_parameter(),
                             ))
                         }
-                        TypeItemSynNodeDecl::MemoizedField(_) => Some(SymbolModifier::Le),
+                        TypeItemSynNodeDecl::MemoizedField(_) => Some(SvarModifier::Le),
                         _ => None,
                     },
                     AssocItemSynNodeDecl::TraitItem(syn_node_decl) => match syn_node_decl {
@@ -360,27 +360,27 @@ fn calc_self_value_ty(
         }
     }?;
     let place = match modifier {
-        SymbolModifier::Pure => FlyPlace::StackPure {
+        SvarModifier::Pure => FlyPlace::StackPure {
             location: registry.issue_new(),
         },
-        SymbolModifier::Owned => FlyPlace::ImmutableStackOwned {
+        SvarModifier::Owned => FlyPlace::ImmutableStackOwned {
             location: registry.issue_new(),
         },
-        SymbolModifier::Mut => FlyPlace::MutableStackOwned {
+        SvarModifier::Mut => FlyPlace::MutableStackOwned {
             location: registry.issue_new(),
         },
-        SymbolModifier::Ref => todo!(),
-        SymbolModifier::RefMut => todo!(),
-        SymbolModifier::Const => todo!(),
-        SymbolModifier::Ambersand(_) => FlyPlace::Ref {
+        SvarModifier::Ref => todo!(),
+        SvarModifier::RefMut => todo!(),
+        SvarModifier::Const => todo!(),
+        SvarModifier::Ambersand(_) => FlyPlace::Ref {
             guard: Left(registry.issue_new()),
         },
-        SymbolModifier::AmbersandMut(_) => FlyPlace::RefMut {
+        SvarModifier::AmbersandMut(_) => FlyPlace::RefMut {
             guard: Left(registry.issue_new()),
         },
-        SymbolModifier::Le => FlyPlace::Leashed,
-        SymbolModifier::Tilde => FlyPlace::Leashed,
-        SymbolModifier::At => FlyPlace::EtherealSymbol(self_place?),
+        SvarModifier::Le => FlyPlace::Leashed,
+        SvarModifier::Tilde => FlyPlace::Leashed,
+        SvarModifier::At => FlyPlace::EtherealSymbol(self_place?),
     };
     Some(self_ty.with_place(place))
 }

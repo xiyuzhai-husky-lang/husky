@@ -1,13 +1,13 @@
-use self::name::DecSymbolNameMap;
+use self::name::DecSvarNameMap;
 use crate::*;
 use salsa::DisplayWithDb;
 
-pub trait ShowDecSymbol {
-    fn show_symbol(&self, symbol: DecSymbol) -> &str;
+pub trait ShowDecSvar {
+    fn show_symbol(&self, symbol: DecSvar) -> &str;
 }
 
-impl ShowDecSymbol for () {
-    fn show_symbol(&self, _symbol: DecSymbol) -> &str {
+impl ShowDecSvar for () {
+    fn show_symbol(&self, _symbol: DecSvar) -> &str {
         todo!()
     }
 }
@@ -17,12 +17,12 @@ impl DecTerm {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &DecSymbolNameMap,
+        ctx: &DecSvarNameMap,
     ) -> std::fmt::Result {
         match self {
             DecTerm::Literal(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::Symbol(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            DecTerm::Rune(term) => term.display_fmt_with_db(f, db),
+            DecTerm::Hvar(term) => term.display_fmt_with_db(f, db),
             DecTerm::EntityPath(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::Category(term) => f.write_str(&term.to_string()),
             DecTerm::Universe(term) => f.write_str(&term.to_string()),

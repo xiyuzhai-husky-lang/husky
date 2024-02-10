@@ -1,8 +1,6 @@
 use either::*;
 use husky_entity_path::PreludeIndirectionTypePath;
-use husky_hir_ty::{
-    instantiation::HirTermSymbolResolution, ritchie::HirRitchieType, HirConstSymbol,
-};
+use husky_hir_ty::{instantiation::HirTermSvarResolution, ritchie::HirRitchieType, HirConstSvar};
 use husky_term_prelude::TypeRitchieKind;
 
 use super::*;
@@ -54,7 +52,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirType {
                     }
                 }
             }
-            HirType::Symbol(symbol) => builder.hir_template_symbol(symbol),
+            HirType::Svar(svar) => builder.hir_template_svar(svar),
             HirType::TypeAssocType(_) => todo!(),
             HirType::TraitAssocType(_) => todo!(),
             HirType::Ritchie(hir_ritchie_ty) => hir_ritchie_ty.transpile_to_rust(builder),
@@ -98,12 +96,12 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirTemplateArgument {
     }
 }
 
-impl TranspileToRustWith<HirEagerExprRegion> for HirTermSymbolResolution {
+impl TranspileToRustWith<HirEagerExprRegion> for HirTermSvarResolution {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match self {
-            HirTermSymbolResolution::Explicit(arg) => arg.transpile_to_rust(builder),
-            HirTermSymbolResolution::SelfLifetime => todo!(),
-            HirTermSymbolResolution::SelfPlace(_) => todo!(),
+            HirTermSvarResolution::Explicit(arg) => arg.transpile_to_rust(builder),
+            HirTermSvarResolution::SelfLifetime => todo!(),
+            HirTermSvarResolution::SelfPlace(_) => todo!(),
         }
     }
 }
@@ -132,15 +130,15 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirConstant {
             HirConstant::R64(value) => builder.write_display_copyable(value),
             HirConstant::R128(value) => builder.write_display_copyable(value),
             HirConstant::RSize(value) => builder.write_display_copyable(value),
-            HirConstant::Symbol(symbol) => builder.hir_template_symbol(symbol),
+            HirConstant::Symbol(symbol) => builder.hir_template_svar(symbol),
             HirConstant::TypeVariant(path) => path.transpile_to_rust(builder),
             HirConstant::StaticLifetime => todo!(),
         }
     }
 }
 
-impl TranspileToRustWith<HirEagerExprRegion> for HirConstSymbol {
+impl TranspileToRustWith<HirEagerExprRegion> for HirConstSvar {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
-        builder.hir_template_symbol(self)
+        builder.hir_template_svar(self)
     }
 }

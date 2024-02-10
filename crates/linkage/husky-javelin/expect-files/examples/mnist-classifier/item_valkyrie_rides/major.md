@@ -29,16 +29,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSymbol::Type(
-                                        HirTypeSymbol::Type {
-                                            attrs: HirTemplateSymbolAttrs {
+                                    HirTemplateVar::Type(
+                                        HirTypeSvar::Type {
+                                            attrs: HirTemplateVarAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSymbolResolution::Explicit(
+                                    HirTermSvarResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -77,16 +77,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSymbol::Type(
-                                        HirTypeSymbol::Type {
-                                            attrs: HirTemplateSymbolAttrs {
+                                    HirTemplateVar::Type(
+                                        HirTypeSvar::Type {
+                                            attrs: HirTemplateVarAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSymbolResolution::Explicit(
+                                    HirTermSvarResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {

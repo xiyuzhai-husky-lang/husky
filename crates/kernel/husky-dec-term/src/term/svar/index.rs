@@ -1,16 +1,16 @@
 use super::*;
 use husky_entity_path::TypePath;
-use husky_term_prelude::template_symbol_class::TermTemplateSymbolClass;
+use husky_term_prelude::template_var_class::TemplateVarClass;
 
 // todo: use bitmap?
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Default)]
 pub struct DeclarativeTemplateSymbolAttrs {
-    pub class: TermTemplateSymbolClass,
+    pub class: TemplateVarClass,
 }
 
 impl DeclarativeTemplateSymbolAttrs {
     /// only use this in husky-eth-term
-    pub unsafe fn new(class: TermTemplateSymbolClass) -> Self {
+    pub unsafe fn new(class: TemplateVarClass) -> Self {
         Self { class }
     }
 
@@ -20,16 +20,16 @@ impl DeclarativeTemplateSymbolAttrs {
             match attr {
                 DeclarativeTemplateSymbolAttr::Phantom => {
                     slf.class = match slf.class {
-                        TermTemplateSymbolClass::Phantom => todo!("err"),
-                        TermTemplateSymbolClass::Runtime => todo!("err"),
-                        TermTemplateSymbolClass::Comptime => TermTemplateSymbolClass::Phantom,
+                        TemplateVarClass::Phantom => todo!("err"),
+                        TemplateVarClass::Runtime => todo!("err"),
+                        TemplateVarClass::Comptime => TemplateVarClass::Phantom,
                     }
                 }
                 DeclarativeTemplateSymbolAttr::Runtime => {
                     slf.class = match slf.class {
-                        TermTemplateSymbolClass::Phantom => todo!("err"),
-                        TermTemplateSymbolClass::Runtime => todo!("err"),
-                        TermTemplateSymbolClass::Comptime => TermTemplateSymbolClass::Runtime,
+                        TemplateVarClass::Phantom => todo!("err"),
+                        TemplateVarClass::Runtime => todo!("err"),
+                        TemplateVarClass::Comptime => TemplateVarClass::Runtime,
                     }
                 }
             }

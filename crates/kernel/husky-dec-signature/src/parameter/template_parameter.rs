@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct DeclarativeTemplateParameter {
     annotated_variance: Option<Variance>,
-    symbol: DecSymbol,
+    svar: DecSvar,
     annotated_traits: Vec<DecTerm>,
 }
 
@@ -25,7 +25,7 @@ impl DeclarativeTemplateParameter {
         match parameter_decl_pattern.variant() {
             TemplateParameterSyndicateVariant::Type { .. } => {
                 DeclarativeTemplateParameter {
-                    symbol: region
+                    svar: region
                         .current_syn_symbol_signature(symbol)
                         .expect("not none")
                         .term_symbol()
@@ -36,7 +36,7 @@ impl DeclarativeTemplateParameter {
                 }
             }
             TemplateParameterSyndicateVariant::Constant { .. } => DeclarativeTemplateParameter {
-                symbol: region
+                svar: region
                     .current_syn_symbol_signature(symbol)
                     .expect("not none")
                     .term_symbol()
@@ -46,7 +46,7 @@ impl DeclarativeTemplateParameter {
             },
             TemplateParameterSyndicateVariant::Lifetime { .. } => {
                 DeclarativeTemplateParameter {
-                    symbol: region
+                    svar: region
                         .current_syn_symbol_signature(symbol)
                         .expect("not none")
                         .term_symbol()
@@ -58,7 +58,7 @@ impl DeclarativeTemplateParameter {
             }
             TemplateParameterSyndicateVariant::Place { .. } => {
                 DeclarativeTemplateParameter {
-                    symbol: region
+                    svar: region
                         .current_syn_symbol_signature(symbol)
                         .expect("not none")
                         .term_symbol()
@@ -71,16 +71,16 @@ impl DeclarativeTemplateParameter {
         }
     }
 
-    fn new_implicit(symbol: DecSymbol) -> Self {
+    fn new_implicit(symbol: DecSvar) -> Self {
         DeclarativeTemplateParameter {
-            symbol: symbol,
+            svar: symbol,
             annotated_variance: None,
             annotated_traits: vec![],
         }
     }
 
-    pub fn symbol(&self) -> DecSymbol {
-        self.symbol
+    pub fn symbol(&self) -> DecSvar {
+        self.svar
     }
 
     pub fn ty(&self, db: &::salsa::Db) -> DecTermSymbolTypeResult<DecTerm> {

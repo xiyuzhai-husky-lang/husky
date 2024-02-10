@@ -12,13 +12,13 @@ impl SynPatternSymbol {
     pub(super) fn pattern_symbol_modifier(
         &self,
         pattern_expr_arena: &SynPatternExprArena,
-    ) -> SymbolModifier {
+    ) -> SvarModifier {
         match self {
             SynPatternSymbol::Atom(expr_idx) => match pattern_expr_arena[*expr_idx] {
                 SynPatternExprData::Ident {
                     symbol_modifier_tokens: symbol_modifier_keyword_group,
                     ident_token: _,
-                } => SymbolModifier::new(symbol_modifier_keyword_group),
+                } => SvarModifier::new(symbol_modifier_keyword_group),
                 _ => unreachable!(),
             },
         }

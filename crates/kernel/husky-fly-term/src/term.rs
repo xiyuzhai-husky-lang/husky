@@ -1,20 +1,19 @@
 mod application;
 mod curry;
 mod hole;
+pub mod hvar;
 mod ritchie;
-pub mod rune;
 pub mod symbol_ty;
 mod utils;
 
 pub use self::hole::*;
+pub use self::hvar::*;
 pub use self::ritchie::*;
-pub use self::rune::*;
 pub use self::symbol_ty::*;
 
 use crate::*;
 use husky_eth_term::term::{
-    application::EthApplication, curry::EthCurry, ritchie::EthRitchie, rune::EthRune,
-    symbol::EthSymbol,
+    application::EthApplication, curry::EthCurry, hvar::EthHvar, ritchie::EthRitchie, svar::EthSvar,
 };
 use husky_term_prelude::literal::Literal;
 
@@ -100,14 +99,14 @@ impl From<Category> for FlyTerm {
     }
 }
 
-impl From<EthSymbol> for FlyTerm {
-    fn from(value: EthSymbol) -> Self {
+impl From<EthSvar> for FlyTerm {
+    fn from(value: EthSvar) -> Self {
         Into::<EthTerm>::into(value).into()
     }
 }
 
-impl From<EthRune> for FlyTerm {
-    fn from(value: EthRune) -> Self {
+impl From<EthHvar> for FlyTerm {
+    fn from(value: EthHvar) -> Self {
         Into::<EthTerm>::into(value).into()
     }
 }

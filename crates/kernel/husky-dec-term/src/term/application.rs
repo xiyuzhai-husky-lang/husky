@@ -26,7 +26,7 @@ impl DecApplication {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &DecSymbolNameMap,
+        ctx: &DecSvarNameMap,
     ) -> std::fmt::Result {
         self.function(db).display_fmt_with_db_and_ctx(f, db, ctx)?;
         f.write_str(" ")?;

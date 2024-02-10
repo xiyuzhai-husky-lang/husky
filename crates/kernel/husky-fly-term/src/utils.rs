@@ -8,7 +8,7 @@ impl FlyTerm {
             | FlyTermData::Category(_)
             | FlyTermData::Ritchie { .. }
             | FlyTermData::Symbol { .. }
-            | FlyTermData::Rune { .. } => self,
+            | FlyTermData::Hvar { .. } => self,
             FlyTermData::Curry { return_ty, .. } => return_ty.curry_destination(db, terms),
             FlyTermData::Literal(_) | FlyTermData::TypeVariant { .. } => unreachable!(),
         }
@@ -38,7 +38,7 @@ impl FlyTerm {
             },
             FlyTermData::Category(_) => FinalDestination::Sort,
             FlyTermData::Ritchie { ritchie_kind, .. } => FinalDestination::Ritchie(ritchie_kind),
-            FlyTermData::Symbol { .. } | FlyTermData::Rune { .. } => FinalDestination::AnyOriginal,
+            FlyTermData::Symbol { .. } | FlyTermData::Hvar { .. } => FinalDestination::AnyOriginal,
             FlyTermData::Literal(_) | FlyTermData::TypeVariant { .. } => unreachable!(),
         }
     }
@@ -64,7 +64,7 @@ impl FlyTerm {
                 toolchain,
                 curry_kind,
                 variance,
-                parameter_rune,
+                parameter_hvar,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
@@ -79,7 +79,7 @@ impl FlyTerm {
                 parameter_contracted_tys,
                 return_ty,
             } => 0,
-            FlyTermData::Symbol { .. } | FlyTermData::Rune { .. } => 0,
+            FlyTermData::Symbol { .. } | FlyTermData::Hvar { .. } => 0,
             FlyTermData::TypeVariant { path } => todo!(),
         }
     }

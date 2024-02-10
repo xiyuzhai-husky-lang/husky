@@ -2,7 +2,7 @@ mod explicit_application;
 mod list;
 mod prefix;
 
-use husky_eth_term::term::{application::EthApplication, symbol::EthSymbol, EthTerm};
+use husky_eth_term::term::{application::EthApplication, svar::EthSvar, EthTerm};
 use husky_fly_term::{
     instantiation::FlyInstantiation, signature::binary_opr::SemaBinaryOprFlySignature,
 };
@@ -208,7 +208,7 @@ impl<'a> SemaExprEngine<'a> {
                 Some(current_syn_symbol_signature) => {
                     match current_syn_symbol_signature.term_symbol() {
                         Some(declarative_term_symbol) => {
-                            Ok(EthSymbol::from_dec(self.db, declarative_term_symbol)?.into())
+                            Ok(EthSvar::from_dec(self.db, declarative_term_symbol)?.into())
                         }
                         None => todo!(),
                     }

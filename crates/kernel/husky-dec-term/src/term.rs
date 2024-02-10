@@ -4,12 +4,12 @@ pub mod application_or_ritchie_call;
 pub mod assoc_item;
 pub mod constraint;
 pub mod curry;
+pub mod hvar;
 pub mod item_path;
 pub mod list;
 pub mod literal;
 pub mod ritchie;
-pub mod rune;
-pub mod symbol;
+pub mod svar;
 pub mod ty_as_trai_item;
 pub mod wrapper;
 
@@ -18,17 +18,17 @@ pub use self::application_or_ritchie_call::*;
 pub use self::assoc_item::*;
 pub use self::constraint::*;
 pub use self::curry::*;
+pub use self::hvar::*;
 pub use self::item_path::*;
 pub use self::list::*;
 pub use self::literal::*;
 pub use self::ritchie::*;
-pub use self::rune::*;
-pub use self::symbol::*;
+pub use self::svar::*;
 pub use self::ty_as_trai_item::*;
 pub use self::wrapper::*;
 
 use self::abstraction::*;
-use self::name::DecSymbolNameMap;
+use self::name::DecSvarNameMap;
 use crate::*;
 
 #[enum_class::from_variants]
@@ -38,10 +38,10 @@ pub enum DecTerm {
     ///
     /// literal: 1,1.0, true, false; variable, itemPath
     Literal(DecLiteral),
-    Symbol(DecSymbol),
+    Symbol(DecSvar),
     /// variables are those appearing in lambda expression
     /// variables are derived from symbols
-    Rune(DecRune),
+    Hvar(DecHvar),
     EntityPath(DecItemPath),
     Category(Category),
     Universe(Universe),

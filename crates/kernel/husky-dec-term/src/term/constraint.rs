@@ -11,7 +11,7 @@ impl DecTraitConstraint {
         self,
         _f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,
-        _ctx: &DecSymbolNameMap,
+        _ctx: &DecSvarNameMap,
     ) -> std::fmt::Result {
         todo!()
     }

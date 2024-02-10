@@ -2,7 +2,7 @@ use super::*;
 use husky_coword::Ident;
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::FlyTermBase;
-use husky_hir_ty::HirTemplateSymbol;
+use husky_hir_ty::HirTemplateVar;
 use husky_sema_expr::SemaExprRegionData;
 use husky_syn_expr::{
     CurrentSynSymbolData, CurrentTemplateParameterSynSymbolVariant, SynSymbolRegionData,
@@ -10,56 +10,56 @@ use husky_syn_expr::{
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct HirEagerComptimeSymbolRegionData {
-    arena: HirEagerComptimeSymbolArena,
+pub struct HirEagerComptimeSvarRegionData {
+    arena: HirEagerComptimeSvarArena,
 }
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct HirEagerComptimeSymbolEntry {
-    name: HirEagerComptimeSymbolName,
-    data: HirEagerComptimeSymbolData,
-    hir_comptime_symbol: HirTemplateSymbol,
+pub struct HirEagerComptimeSvarEntry {
+    name: HirEagerComptimeSvarName,
+    data: HirEagerComptimeSvarData,
+    hir_comptime_symbol: HirTemplateVar,
 }
 
-pub type HirEagerComptimeSymbolArena = Arena<HirEagerComptimeSymbolEntry>;
-pub type HirEagerComptimeSymbolIdx = ArenaIdx<HirEagerComptimeSymbolEntry>;
+pub type HirEagerComptimeSvarArena = Arena<HirEagerComptimeSvarEntry>;
+pub type HirEagerComptimeSvarIdx = ArenaIdx<HirEagerComptimeSvarEntry>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
-pub enum HirEagerComptimeSymbolName {
+pub enum HirEagerComptimeSvarName {
     SelfType,
     Ident(Ident),
     Label(Label),
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub enum HirEagerComptimeSymbolData {
+pub enum HirEagerComptimeSvarData {
     Inherited,
     Current,
 }
 
-impl HirEagerComptimeSymbolEntry {
-    pub fn name(&self) -> HirEagerComptimeSymbolName {
+impl HirEagerComptimeSvarEntry {
+    pub fn name(&self) -> HirEagerComptimeSvarName {
         self.name
     }
 
-    pub fn data(&self) -> &HirEagerComptimeSymbolData {
+    pub fn data(&self) -> &HirEagerComptimeSvarData {
         &self.data
     }
 
-    pub fn symbol(&self) -> HirTemplateSymbol {
+    pub fn symbol(&self) -> HirTemplateVar {
         self.hir_comptime_symbol
     }
 }
 
-impl HirEagerComptimeSymbolRegionData {
+impl HirEagerComptimeSvarRegionData {
     pub(crate) fn from_sema(
         sema_expr_region_data: &SemaExprRegionData,
         syn_symobl_region_data: &SynSymbolRegionData,
         db: &::salsa::Db,
     ) -> Self {
-        let mut arena = HirEagerComptimeSymbolArena::default();
+        let mut arena = HirEagerComptimeSvarArena::default();
         let terms = sema_expr_region_data.fly_term_region().terms();
         for (inherited_syn_symbol_idx, &fly_term) in sema_expr_region_data
             .symbol_terms()
@@ -70,17 +70,17 @@ impl HirEagerComptimeSymbolRegionData {
             };
             match term {
                 EthTerm::Symbol(term_symbol) => {
-                    let Some(hir_comptime_symbol) = HirTemplateSymbol::from_eth(term_symbol, db)
+                    let Some(hir_comptime_symbol) = HirTemplateVar::from_eth(term_symbol, db)
                     else {
                         continue;
                     };
                     let name = match syn_symobl_region_data[inherited_syn_symbol_idx].ident() {
-                        Some(ident) => HirEagerComptimeSymbolName::Ident(ident),
+                        Some(ident) => HirEagerComptimeSvarName::Ident(ident),
                         None => todo!(),
                     };
-                    arena.alloc_one(HirEagerComptimeSymbolEntry {
+                    arena.alloc_one(HirEagerComptimeSvarEntry {
                         name,
-                        data: HirEagerComptimeSymbolData::Inherited,
+                        data: HirEagerComptimeSvarData::Inherited,
                         hir_comptime_symbol,
                     });
                 }
@@ -96,13 +96,13 @@ impl HirEagerComptimeSymbolRegionData {
             };
             match term {
                 EthTerm::Symbol(term_symbol) => {
-                    let Some(hir_comptime_symbol) = HirTemplateSymbol::from_eth(term_symbol, db)
+                    let Some(hir_comptime_symbol) = HirTemplateVar::from_eth(term_symbol, db)
                     else {
                         continue;
                     };
                     let current_syn_symbol = &syn_symobl_region_data[current_syn_symbol_idx];
                     let name = match current_syn_symbol.ident() {
-                        Some(ident) => HirEagerComptimeSymbolName::Ident(ident),
+                        Some(ident) => HirEagerComptimeSvarName::Ident(ident),
                         None => match current_syn_symbol.data() {
                             CurrentSynSymbolData::TemplateParameter {
                                 syn_attrs: _,
@@ -111,9 +111,9 @@ impl HirEagerComptimeSymbolRegionData {
                             } => match template_parameter_variant {
                                 CurrentTemplateParameterSynSymbolVariant::Lifetime {
                                     label_token,
-                                } => HirEagerComptimeSymbolName::Label(label_token.label()),
+                                } => HirEagerComptimeSvarName::Label(label_token.label()),
                                 CurrentTemplateParameterSynSymbolVariant::Place { label_token } => {
-                                    HirEagerComptimeSymbolName::Label(label_token.label())
+                                    HirEagerComptimeSvarName::Label(label_token.label())
                                 }
                                 CurrentTemplateParameterSynSymbolVariant::Type {
                                     ident_token: _,
@@ -159,9 +159,9 @@ impl HirEagerComptimeSymbolRegionData {
                             } => todo!(),
                         },
                     };
-                    arena.alloc_one(HirEagerComptimeSymbolEntry {
+                    arena.alloc_one(HirEagerComptimeSvarEntry {
                         name,
-                        data: HirEagerComptimeSymbolData::Current,
+                        data: HirEagerComptimeSvarData::Current,
                         hir_comptime_symbol,
                     });
                 }
@@ -173,8 +173,8 @@ impl HirEagerComptimeSymbolRegionData {
 
     pub fn symbol_name(
         &self,
-        hir_comptime_symbol: HirTemplateSymbol,
-    ) -> Option<HirEagerComptimeSymbolName> {
+        hir_comptime_symbol: HirTemplateVar,
+    ) -> Option<HirEagerComptimeSvarName> {
         self.arena.iter().find_map(|entry| {
             (entry.hir_comptime_symbol == hir_comptime_symbol).then_some(entry.name)
         })

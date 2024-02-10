@@ -1,5 +1,5 @@
 use crate::*;
-use husky_term_prelude::{SymbolModifier, TermContract};
+use husky_term_prelude::{SvarModifier, TermContract};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EphemSymbolModifierRegionalTokens {
@@ -18,23 +18,23 @@ pub enum EphemSymbolModifierRegionalTokens {
     At(AtRegionalToken, Option<PlaceLabelRegionalToken>),
 }
 
-impl Into<SymbolModifier> for EphemSymbolModifierRegionalTokens {
+impl Into<SvarModifier> for EphemSymbolModifierRegionalTokens {
     #[inline(always)]
-    fn into(self) -> SymbolModifier {
+    fn into(self) -> SvarModifier {
         match self {
-            EphemSymbolModifierRegionalTokens::Owned(_) => SymbolModifier::Owned,
-            EphemSymbolModifierRegionalTokens::Mut(_) => SymbolModifier::Mut,
-            EphemSymbolModifierRegionalTokens::Ref(_) => SymbolModifier::Ref,
-            EphemSymbolModifierRegionalTokens::RefMut(..) => SymbolModifier::RefMut,
+            EphemSymbolModifierRegionalTokens::Owned(_) => SvarModifier::Owned,
+            EphemSymbolModifierRegionalTokens::Mut(_) => SvarModifier::Mut,
+            EphemSymbolModifierRegionalTokens::Ref(_) => SvarModifier::Ref,
+            EphemSymbolModifierRegionalTokens::RefMut(..) => SvarModifier::RefMut,
             EphemSymbolModifierRegionalTokens::Ambersand(_, lifetime_token) => {
-                SymbolModifier::Ambersand(lifetime_token.map(|t| t.label()))
+                SvarModifier::Ambersand(lifetime_token.map(|t| t.label()))
             }
             EphemSymbolModifierRegionalTokens::AmbersandMut(_, lifetime_token, _) => {
-                SymbolModifier::AmbersandMut(lifetime_token.map(|t| t.label()))
+                SvarModifier::AmbersandMut(lifetime_token.map(|t| t.label()))
             }
-            EphemSymbolModifierRegionalTokens::Le(..) => SymbolModifier::Le,
-            EphemSymbolModifierRegionalTokens::Tilde(..) => SymbolModifier::Tilde,
-            EphemSymbolModifierRegionalTokens::At(_, _) => SymbolModifier::At,
+            EphemSymbolModifierRegionalTokens::Le(..) => SvarModifier::Le,
+            EphemSymbolModifierRegionalTokens::Tilde(..) => SvarModifier::Tilde,
+            EphemSymbolModifierRegionalTokens::At(_, _) => SvarModifier::At,
         }
     }
 }

@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_path::region::RegionPath;
 use husky_eth_term::{
     fmt::EthTermFmtContext,
-    term::{symbol::EthSymbol, EthTerm},
+    term::{svar::EthSvar, EthTerm},
 };
 use husky_term_prelude::symbol::SymbolName;
 use salsa::fmt::WithFmtContext;

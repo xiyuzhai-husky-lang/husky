@@ -69,7 +69,7 @@ impl<'a> SemaExprEngine<'a> {
             | FlyTermData::Category(_) => todo!(),
             FlyTermData::Ritchie { .. } => todo!(),
             FlyTermData::Symbol { .. } => todo!(),
-            FlyTermData::Rune { .. } => todo!(),
+            FlyTermData::Hvar { .. } => todo!(),
             FlyTermData::TypeVariant { path } => todo!(),
         }
     }
