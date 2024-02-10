@@ -14,6 +14,7 @@ members = [
     "crates/lex/*",
     "crates/linkage/*",
     "crates/linktime/*",
+    "crates/mizar/*",
     "crates/protocols/*",
     "crates/runtime/*",
     "crates/semantics/*",

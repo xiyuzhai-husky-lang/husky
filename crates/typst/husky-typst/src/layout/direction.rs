@@ -28,7 +28,7 @@ pub enum TypstLayoutDirection {
     /// Top to bottom.
     TopDown,
     /// Bottom to top.
-    BOTTOM_UP,
+    BottomUp,
 }
 
 impl TypstLayoutDirection {
@@ -38,7 +38,7 @@ impl TypstLayoutDirection {
     pub const fn is_positive(self) -> bool {
         match self {
             Self::LeftRight | Self::TopDown => true,
-            Self::RightLeft | Self::BOTTOM_UP => false,
+            Self::RightLeft | Self::BottomUp => false,
         }
     }
 }
@@ -48,7 +48,7 @@ impl TypstLayoutDirection {
     pub const LEFT_RIGHT: Self = Self::LeftRight;
     pub const RIGHT_LEFT: Self = Self::RightLeft;
     pub const TOP_DOWN: Self = Self::TopDown;
-    pub const BOTTOM_UP: Self = Self::BOTTOM_UP;
+    pub const BottomUp: Self = Self::BottomUp;
 
     /// The axis this direction belongs to, either `{"horizontal"}` or
     /// `{"vertical"}`.
@@ -61,7 +61,7 @@ impl TypstLayoutDirection {
     pub const fn axis(self) -> Axis {
         match self {
             Self::LeftRight | Self::RightLeft => Axis::X,
-            Self::TopDown | Self::BOTTOM_UP => Axis::Y,
+            Self::TopDown | Self::BottomUp => Axis::Y,
         }
     }
 
@@ -79,7 +79,7 @@ impl TypstLayoutDirection {
             Self::LeftRight => Side::Left,
             Self::RightLeft => Side::Right,
             Self::TopDown => Side::Top,
-            Self::BOTTOM_UP => Side::Bottom,
+            Self::BottomUp => Side::Bottom,
         }
     }
 
@@ -97,7 +97,7 @@ impl TypstLayoutDirection {
             Self::LeftRight => Side::Right,
             Self::RightLeft => Side::Left,
             Self::TopDown => Side::Bottom,
-            Self::BOTTOM_UP => Side::Top,
+            Self::BottomUp => Side::Top,
         }
     }
 
@@ -114,8 +114,8 @@ impl TypstLayoutDirection {
         match self {
             Self::LeftRight => Self::RightLeft,
             Self::RightLeft => Self::LeftRight,
-            Self::TopDown => Self::BOTTOM_UP,
-            Self::BOTTOM_UP => Self::TopDown,
+            Self::TopDown => Self::BottomUp,
+            Self::BottomUp => Self::TopDown,
         }
     }
 }
@@ -126,7 +126,7 @@ impl Repr for TypstLayoutDirection {
             Self::LeftRight => "ltr".into(),
             Self::RightLeft => "rtl".into(),
             Self::TopDown => "ttb".into(),
-            Self::BOTTOM_UP => "btt".into(),
+            Self::BottomUp => "btt".into(),
         }
     }
 }

@@ -191,7 +191,7 @@ impl Axis {
             (Self::X, true) => TypstLayoutDirection::LeftRight,
             (Self::X, false) => TypstLayoutDirection::RightLeft,
             (Self::Y, true) => TypstLayoutDirection::TopDown,
-            (Self::Y, false) => TypstLayoutDirection::BOTTOM_UP,
+            (Self::Y, false) => TypstLayoutDirection::BottomUp,
         }
     }
 

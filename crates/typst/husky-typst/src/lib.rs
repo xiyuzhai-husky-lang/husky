@@ -351,7 +351,7 @@ fn prelude(global: &mut Scope) {
     global.define("ltr", TypstLayoutDirection::LeftRight);
     global.define("rtl", TypstLayoutDirection::RightLeft);
     global.define("ttb", TypstLayoutDirection::TopDown);
-    global.define("btt", TypstLayoutDirection::BOTTOM_UP);
+    global.define("btt", TypstLayoutDirection::BottomUp);
     global.define("start", Alignment::START);
     global.define("left", Alignment::LEFT);
     global.define("center", Alignment::CENTER);
