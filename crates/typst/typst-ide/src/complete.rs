@@ -5,13 +5,11 @@ use ecow::{eco_format, EcoString};
 use if_chain::if_chain;
 use serde::{Deserialize, Serialize};
 use typst::foundations::{
-    fields_on, format_str, mutable_methods_on, repr, AutoValue, CastInfo, Func, Label,
-    NoneValue, Repr, Scope, Type, Value,
+    fields_on, format_str, mutable_methods_on, repr, AutoValue, CastInfo, Func, Label, NoneValue,
+    Repr, Scope, Type, TypstValue,
 };
 use typst::model::Document;
-use typst::syntax::{
-    ast, is_id_continue, is_id_start, is_ident, LinkedNode, Source, SyntaxKind,
-};
+use typst::syntax::{ast, is_id_continue, is_id_start, is_ident, LinkedNode, Source, SyntaxKind};
 use typst::text::RawElem;
 use typst::visualize::Color;
 use typst::World;
@@ -89,7 +87,10 @@ pub enum CompletionKind {
 
 /// Complete in comments. Or rather, don't!
 fn complete_comments(ctx: &mut CompletionContext) -> bool {
-    matches!(ctx.leaf.kind(), SyntaxKind::LineComment | SyntaxKind::BlockComment)
+    matches!(
+        ctx.leaf.kind(),
+        SyntaxKind::LineComment | SyntaxKind::BlockComment
+    )
 }
 
 /// Complete in markup mode.
@@ -360,7 +361,7 @@ fn complete_field_accesses(ctx: &mut CompletionContext) -> bool {
 }
 
 /// Add completions for all fields on a value.
-fn field_access_completions(ctx: &mut CompletionContext, value: &Value) {
+fn field_access_completions(ctx: &mut CompletionContext, value: &TypstValue) {
     for (name, value) in value.ty().scope().iter() {
         ctx.value_completion(Some(name.clone()), value, true, None);
     }
@@ -399,7 +400,7 @@ fn field_access_completions(ctx: &mut CompletionContext, value: &Value) {
     }
 
     match value {
-        Value::Symbol(symbol) => {
+        TypstValue::Symbol(symbol) => {
             for modifier in symbol.modifiers() {
                 if let Ok(modified) = symbol.clone().modified(modifier) {
                     ctx.completions.push(Completion {
@@ -411,17 +412,17 @@ fn field_access_completions(ctx: &mut CompletionContext, value: &Value) {
                 }
             }
         }
-        Value::Content(content) => {
+        TypstValue::Content(content) => {
             for (name, value) in content.fields() {
                 ctx.value_completion(Some(name.into()), &value, false, None);
             }
         }
-        Value::Dict(dict) => {
+        TypstValue::Dict(dict) => {
             for (name, value) in dict.iter() {
                 ctx.value_completion(Some(name.clone().into()), value, false, None);
             }
         }
-        Value::Plugin(plugin) => {
+        TypstValue::Plugin(plugin) => {
             for name in plugin.iter() {
                 ctx.completions.push(Completion {
                     kind: CompletionKind::Func,
@@ -508,7 +509,9 @@ fn import_item_completions<'a>(
     existing: ast::ImportItems<'a>,
     source: &LinkedNode,
 ) {
-    let Some(value) = analyze_import(ctx.world, source) else { return };
+    let Some(value) = analyze_import(ctx.world, source) else {
+        return;
+    };
     let Some(scope) = value.scope() else { return };
 
     if existing.iter().next().is_none() {
@@ -516,7 +519,10 @@ fn import_item_completions<'a>(
     }
 
     for (name, value) in scope.iter() {
-        if existing.iter().all(|item| item.original_name().as_str() != name) {
+        if existing
+            .iter()
+            .all(|item| item.original_name().as_str() != name)
+        {
             ctx.value_completion(Some(name.clone()), value, false, None);
         }
     }
@@ -529,7 +535,9 @@ fn complete_rules(ctx: &mut CompletionContext) -> bool {
         return false;
     }
 
-    let Some(prev) = ctx.leaf.prev_leaf() else { return false };
+    let Some(prev) = ctx.leaf.prev_leaf() else {
+        return false;
+    };
 
     // Behind the set keyword: "set |".
     if matches!(prev.kind(), SyntaxKind::Set) {
@@ -565,7 +573,7 @@ fn set_rule_completions(ctx: &mut CompletionContext) {
     ctx.scope_completions(true, |value| {
         matches!(
             value,
-            Value::Func(func) if func.params()
+            TypstValue::Func(func) if func.params()
                 .unwrap_or_default()
                 .iter()
                 .any(|param| param.settable),
@@ -577,7 +585,7 @@ fn set_rule_completions(ctx: &mut CompletionContext) {
 fn show_rule_selector_completions(ctx: &mut CompletionContext) {
     ctx.scope_completions(
         false,
-        |value| matches!(value, Value::Func(func) if func.element().is_some()),
+        |value| matches!(value, TypstValue::Func(func) if func.element().is_some()),
     );
 
     ctx.enrich("", ": ");
@@ -615,7 +623,7 @@ fn show_rule_recipe_completions(ctx: &mut CompletionContext) {
         "Transform the element with a function.",
     );
 
-    ctx.scope_completions(false, |value| matches!(value, Value::Func(_)));
+    ctx.scope_completions(false, |value| matches!(value, TypstValue::Func(_)));
 }
 
 /// Complete call and set rule parameters.
@@ -649,7 +657,9 @@ fn complete_params(ctx: &mut CompletionContext) -> bool {
         deciding.kind(),
         SyntaxKind::LeftParen | SyntaxKind::Comma | SyntaxKind::Colon
     ) {
-        let Some(prev) = deciding.prev_leaf() else { break };
+        let Some(prev) = deciding.prev_leaf() else {
+            break;
+        };
         deciding = prev;
     }
 
@@ -692,7 +702,9 @@ fn param_completions<'a>(
     set: bool,
     args: ast::Args<'a>,
 ) {
-    let Some(func) = resolve_global_callee(ctx, callee) else { return };
+    let Some(func) = resolve_global_callee(ctx, callee) else {
+        return;
+    };
     let Some(params) = func.params() else { return };
 
     // Exclude named arguments which are already present.
@@ -738,8 +750,12 @@ fn named_param_value_completions<'a>(
     callee: ast::Expr<'a>,
     name: &str,
 ) {
-    let Some(func) = resolve_global_callee(ctx, callee) else { return };
-    let Some(param) = func.param(name) else { return };
+    let Some(func) = resolve_global_callee(ctx, callee) else {
+        return;
+    };
+    let Some(param) = func.param(name) else {
+        return;
+    };
     if !param.named {
         return;
     }
@@ -763,8 +779,8 @@ fn resolve_global_callee<'a>(
         ast::Expr::Ident(ident) => ctx.global.get(&ident)?,
         ast::Expr::FieldAccess(access) => match access.target() {
             ast::Expr::Ident(target) => match ctx.global.get(&target)? {
-                Value::Module(module) => module.field(&access.field()).ok()?,
-                Value::Func(func) => func.field(&access.field()).ok()?,
+                TypstValue::Module(module) => module.field(&access.field()).ok()?,
+                TypstValue::Func(func) => func.field(&access.field()).ok()?,
                 _ => return None,
             },
             _ => return None,
@@ -773,7 +789,7 @@ fn resolve_global_callee<'a>(
     };
 
     match value {
-        Value::Func(func) => Some(func),
+        TypstValue::Func(func) => Some(func),
         _ => None,
     }
 }
@@ -809,7 +825,10 @@ fn complete_code(ctx: &mut CompletionContext) -> bool {
     // But not within or after an expression.
     if ctx.explicit
         && (ctx.leaf.kind().is_trivia()
-            || matches!(ctx.leaf.kind(), SyntaxKind::LeftParen | SyntaxKind::LeftBrace))
+            || matches!(
+                ctx.leaf.kind(),
+                SyntaxKind::LeftParen | SyntaxKind::LeftBrace
+            ))
     {
         ctx.from = ctx.cursor;
         code_completions(ctx, false);
@@ -823,7 +842,7 @@ fn complete_code(ctx: &mut CompletionContext) -> bool {
 #[rustfmt::skip]
 fn code_completions(ctx: &mut CompletionContext, hash: bool) {
     ctx.scope_completions(true, |value| !hash || {
-        matches!(value, Value::Symbol(_) | Value::Func(_) | Value::Type(_) | Value::Module(_))
+        matches!(value, TypstValue::Symbol(_) | TypstValue::Func(_) | TypstValue::Type(_) | TypstValue::Module(_))
     });
 
     ctx.snippet_completion(
@@ -1049,7 +1068,7 @@ impl<'a> CompletionContext<'a> {
             if !equation || family.contains("Math") {
                 self.value_completion(
                     None,
-                    &Value::Str(family.into()),
+                    &TypstValue::Str(family.into()),
                     false,
                     Some(detail.as_str()),
                 );
@@ -1067,7 +1086,7 @@ impl<'a> CompletionContext<'a> {
         for (package, description) in packages {
             self.value_completion(
                 None,
-                &Value::Str(format_str!("{package}")),
+                &TypstValue::Str(format_str!("{package}")),
                 false,
                 description.as_deref(),
             );
@@ -1098,7 +1117,9 @@ impl<'a> CompletionContext<'a> {
 
     /// Add completions for labels and references.
     fn label_completions(&mut self) {
-        let Some(document) = self.document else { return };
+        let Some(document) = self.document else {
+            return;
+        };
         let (labels, split) = analyze_labels(document);
 
         let head = &self.text[..self.from];
@@ -1136,7 +1157,7 @@ impl<'a> CompletionContext<'a> {
     fn value_completion(
         &mut self,
         label: Option<EcoString>,
-        value: &Value,
+        value: &TypstValue,
         parens: bool,
         docs: Option<&str>,
     ) {
@@ -1144,9 +1165,9 @@ impl<'a> CompletionContext<'a> {
         let label = label.unwrap_or_else(|| value.repr());
 
         let detail = docs.map(Into::into).or_else(|| match value {
-            Value::Symbol(_) => None,
-            Value::Func(func) => func.docs().map(plain_docs_sentence),
-            Value::Type(ty) => Some(plain_docs_sentence(ty.docs())),
+            TypstValue::Symbol(_) => None,
+            TypstValue::Func(func) => func.docs().map(plain_docs_sentence),
+            TypstValue::Type(ty) => Some(plain_docs_sentence(ty.docs())),
             v => {
                 let repr = v.repr();
                 (repr.as_str() != label).then_some(repr)
@@ -1154,8 +1175,8 @@ impl<'a> CompletionContext<'a> {
         });
 
         let mut apply = None;
-        if parens && matches!(value, Value::Func(_)) {
-            if let Value::Func(func) = value {
+        if parens && matches!(value, TypstValue::Func(_)) {
+            if let TypstValue::Func(func) = value {
                 if func
                     .params()
                     .is_some_and(|params| params.iter().all(|param| param.name == "self"))
@@ -1175,9 +1196,9 @@ impl<'a> CompletionContext<'a> {
 
         self.completions.push(Completion {
             kind: match value {
-                Value::Func(_) => CompletionKind::Func,
-                Value::Type(_) => CompletionKind::Type,
-                Value::Symbol(s) => CompletionKind::Symbol(s.get()),
+                TypstValue::Func(_) => CompletionKind::Func,
+                TypstValue::Type(_) => CompletionKind::Type,
+                TypstValue::Symbol(s) => CompletionKind::Symbol(s.get()),
                 _ => CompletionKind::Constant,
             },
             label,
@@ -1195,7 +1216,7 @@ impl<'a> CompletionContext<'a> {
 
         match cast {
             CastInfo::Any => {}
-            CastInfo::Value(value, docs) => {
+            CastInfo::TypstValue(value, docs) => {
                 self.value_completion(None, value, true, Some(docs));
             }
             CastInfo::Type(ty) => {
@@ -1207,11 +1228,7 @@ impl<'a> CompletionContext<'a> {
                     self.snippet_completion("false", "false", "No / Disabled.");
                     self.snippet_completion("true", "true", "Yes / Enabled.");
                 } else if *ty == Type::of::<Color>() {
-                    self.snippet_completion(
-                        "luma()",
-                        "luma(${v})",
-                        "A custom grayscale color.",
-                    );
+                    self.snippet_completion("luma()", "luma(${v})", "A custom grayscale color.");
                     self.snippet_completion(
                         "rgb()",
                         "rgb(${r}, ${g}, ${b}, ${a})",
@@ -1277,7 +1294,7 @@ impl<'a> CompletionContext<'a> {
     /// Add completions for definitions that are available at the cursor.
     ///
     /// Filters the global/math scope with the given filter.
-    fn scope_completions(&mut self, parens: bool, filter: impl Fn(&Value) -> bool) {
+    fn scope_completions(&mut self, parens: bool, filter: impl Fn(&TypstValue) -> bool) {
         let mut defined = BTreeSet::new();
 
         let mut ancestor = Some(self.leaf.clone());

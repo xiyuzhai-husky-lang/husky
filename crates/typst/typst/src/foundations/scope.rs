@@ -6,8 +6,8 @@ use indexmap::IndexMap;
 
 use crate::diag::{bail, HintedStrResult, HintedString, StrResult};
 use crate::foundations::{
-    Element, Func, IntoValue, Module, NativeElement, NativeFunc, NativeFuncData,
-    NativeType, Type, Value,
+    Element, Func, IntoTypstValue, Module, NativeElement, NativeFunc, NativeFuncData, NativeType,
+    Type, TypstValue,
 };
 use crate::util::Static;
 use crate::Library;
@@ -29,7 +29,11 @@ pub struct Scopes<'a> {
 impl<'a> Scopes<'a> {
     /// Create a new, empty hierarchy of scopes.
     pub fn new(base: Option<&'a Library>) -> Self {
-        Self { top: Scope::new(), scopes: vec![], base }
+        Self {
+            top: Scope::new(),
+            scopes: vec![],
+            base,
+        }
     }
 
     /// Enter a new scope.
@@ -45,7 +49,7 @@ impl<'a> Scopes<'a> {
     }
 
     /// Try to access a variable immutably.
-    pub fn get(&self, var: &str) -> HintedStrResult<&Value> {
+    pub fn get(&self, var: &str) -> HintedStrResult<&TypstValue> {
         std::iter::once(&self.top)
             .chain(self.scopes.iter().rev())
             .chain(self.base.map(|base| base.global.scope()))
@@ -54,7 +58,7 @@ impl<'a> Scopes<'a> {
     }
 
     /// Try to access a variable immutably in math.
-    pub fn get_in_math(&self, var: &str) -> HintedStrResult<&Value> {
+    pub fn get_in_math(&self, var: &str) -> HintedStrResult<&TypstValue> {
         std::iter::once(&self.top)
             .chain(self.scopes.iter().rev())
             .chain(self.base.map(|base| base.math.scope()))
@@ -63,16 +67,16 @@ impl<'a> Scopes<'a> {
     }
 
     /// Try to access a variable mutably.
-    pub fn get_mut(&mut self, var: &str) -> HintedStrResult<&mut Value> {
+    pub fn get_mut(&mut self, var: &str) -> HintedStrResult<&mut TypstValue> {
         std::iter::once(&mut self.top)
             .chain(&mut self.scopes.iter_mut().rev())
             .find_map(|scope| scope.get_mut(var))
-            .ok_or_else(|| {
-                match self.base.and_then(|base| base.global.scope().get(var)) {
+            .ok_or_else(
+                || match self.base.and_then(|base| base.global.scope().get(var)) {
                     Some(_) => eco_format!("cannot mutate a constant: {}", var).into(),
                     _ => unknown_variable(var),
-                }
-            })?
+                },
+            )?
     }
 }
 
@@ -113,7 +117,10 @@ impl Scope {
 
     /// Create a new scope with duplication prevention.
     pub fn deduplicating() -> Self {
-        Self { deduplicate: true, ..Default::default() }
+        Self {
+            deduplicate: true,
+            ..Default::default()
+        }
     }
 
     /// Enter a new category.
@@ -128,7 +135,7 @@ impl Scope {
 
     /// Bind a value to a name.
     #[track_caller]
-    pub fn define(&mut self, name: impl Into<EcoString>, value: impl IntoValue) {
+    pub fn define(&mut self, name: impl Into<EcoString>, value: impl IntoTypstValue) {
         let name = name.into();
 
         #[cfg(debug_assertions)]
@@ -136,8 +143,10 @@ impl Scope {
             panic!("duplicate definition: {name}");
         }
 
-        self.map
-            .insert(name, Slot::new(value.into_value(), Kind::Normal, self.category));
+        self.map.insert(
+            name,
+            Slot::new(value.into_value(), Kind::Normal, self.category),
+        );
     }
 
     /// Define a native function through a Rust type that shadows the function.
@@ -169,7 +178,7 @@ impl Scope {
     }
 
     /// Define a captured, immutable binding.
-    pub fn define_captured(&mut self, var: impl Into<EcoString>, value: impl IntoValue) {
+    pub fn define_captured(&mut self, var: impl Into<EcoString>, value: impl IntoTypstValue) {
         self.map.insert(
             var.into(),
             Slot::new(value.into_value(), Kind::Captured, self.category),
@@ -177,12 +186,12 @@ impl Scope {
     }
 
     /// Try to access a variable immutably.
-    pub fn get(&self, var: &str) -> Option<&Value> {
+    pub fn get(&self, var: &str) -> Option<&TypstValue> {
         self.map.get(var).map(Slot::read)
     }
 
     /// Try to access a variable mutably.
-    pub fn get_mut(&mut self, var: &str) -> Option<HintedStrResult<&mut Value>> {
+    pub fn get_mut(&mut self, var: &str) -> Option<HintedStrResult<&mut TypstValue>> {
         self.map
             .get_mut(var)
             .map(Slot::write)
@@ -195,7 +204,7 @@ impl Scope {
     }
 
     /// Iterate over all definitions.
-    pub fn iter(&self) -> impl Iterator<Item = (&EcoString, &Value)> {
+    pub fn iter(&self) -> impl Iterator<Item = (&EcoString, &TypstValue)> {
         self.map.iter().map(|(k, v)| (k, v.read()))
     }
 }
@@ -233,7 +242,7 @@ pub trait NativeScope {
 #[derive(Clone, Hash)]
 struct Slot {
     /// The stored value.
-    value: Value,
+    value: TypstValue,
     /// The kind of slot, determines how the value can be accessed.
     kind: Kind,
     /// The category of the slot.
@@ -251,17 +260,21 @@ enum Kind {
 
 impl Slot {
     /// Create a new slot.
-    fn new(value: Value, kind: Kind, category: Option<Category>) -> Self {
-        Self { value, kind, category }
+    fn new(value: TypstValue, kind: Kind, category: Option<Category>) -> Self {
+        Self {
+            value,
+            kind,
+            category,
+        }
     }
 
     /// Read the value.
-    fn read(&self) -> &Value {
+    fn read(&self) -> &TypstValue {
         &self.value
     }
 
     /// Try to write to the value.
-    fn write(&mut self) -> StrResult<&mut Value> {
+    fn write(&mut self) -> StrResult<&mut TypstValue> {
         match self.kind {
             Kind::Normal => Ok(&mut self.value),
             Kind::Captured => {

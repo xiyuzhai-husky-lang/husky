@@ -6,8 +6,8 @@ use smallvec::SmallVec;
 
 use crate::diag::{bail, StrResult};
 use crate::foundations::{
-    cast, func, repr, scope, ty, CastInfo, Content, Dict, Element, FromValue, Func,
-    Label, Reflect, Regex, Repr, Str, StyleChain, Type, Value,
+    cast, func, repr, scope, ty, CastInfo, Content, Dict, Element, FromTypstValue, Func, Label,
+    Reflect, Regex, Repr, Str, StyleChain, Type, TypstValue,
 };
 use crate::introspection::{Locatable, Location};
 use crate::symbols::Symbol;
@@ -27,7 +27,7 @@ macro_rules! __select_where {
         $(
             fields.push((
                 <$ty as $crate::foundations::Fields>::Enum::$field as u8,
-                $crate::foundations::IntoValue::into_value($value),
+                $crate::foundations::IntoTypstValue::into_value($value),
             ));
         )*
         $crate::foundations::Selector::Elem(
@@ -83,7 +83,7 @@ pub enum Selector {
     ///
     /// If there is a dictionary, only elements with the fields from the
     /// dictionary match.
-    Elem(Element, Option<SmallVec<[(u8, Value); 1]>>),
+    Elem(Element, Option<SmallVec<[(u8, TypstValue); 1]>>),
     /// Matches the element at the specified location.
     Location(Location),
     /// Matches elements with a specific label.
@@ -97,9 +97,17 @@ pub enum Selector {
     /// Matches if all of the subselectors match.
     And(EcoVec<Self>),
     /// Matches all matches of `selector` before `end`.
-    Before { selector: Arc<Self>, end: Arc<Self>, inclusive: bool },
+    Before {
+        selector: Arc<Self>,
+        end: Arc<Self>,
+        inclusive: bool,
+    },
     /// Matches all matches of `selector` after `start`.
-    After { selector: Arc<Self>, start: Arc<Self>, inclusive: bool },
+    After {
+        selector: Arc<Self>,
+        start: Arc<Self>,
+        inclusive: bool,
+    },
 }
 
 impl Selector {
@@ -133,21 +141,18 @@ impl Selector {
             Self::Elem(element, dict) => {
                 // TODO: Optimize field access to not clone.
                 target.func() == *element
-                    && dict.iter().flat_map(|dict| dict.iter()).all(|(id, value)| {
-                        target.get(*id, styles).as_ref() == Some(value)
-                    })
+                    && dict
+                        .iter()
+                        .flat_map(|dict| dict.iter())
+                        .all(|(id, value)| target.get(*id, styles).as_ref() == Some(value))
             }
             Self::Label(label) => target.label() == Some(*label),
             Self::Regex(regex) => target
                 .to_packed::<TextElem>()
                 .map_or(false, |elem| regex.is_match(elem.text())),
             Self::Can(cap) => target.func().can_type_id(*cap),
-            Self::Or(selectors) => {
-                selectors.iter().any(move |sel| sel.matches(target, styles))
-            }
-            Self::And(selectors) => {
-                selectors.iter().all(move |sel| sel.matches(target, styles))
-            }
+            Self::Or(selectors) => selectors.iter().any(move |sel| sel.matches(target, styles)),
+            Self::And(selectors) => selectors.iter().all(move |sel| sel.matches(target, styles)),
             Self::Location(location) => target.location() == Some(*location),
             // Not supported here.
             Self::Before { .. } | Self::After { .. } => false,
@@ -259,16 +264,35 @@ impl Repr for Selector {
             Self::Regex(regex) => regex.repr(),
             Self::Can(cap) => eco_format!("{cap:?}"),
             Self::Or(selectors) | Self::And(selectors) => {
-                let function = if matches!(self, Self::Or(_)) { "or" } else { "and" };
+                let function = if matches!(self, Self::Or(_)) {
+                    "or"
+                } else {
+                    "and"
+                };
                 let pieces: Vec<_> = selectors.iter().map(Selector::repr).collect();
                 eco_format!("{}{}", function, repr::pretty_array_like(&pieces, false))
             }
             Self::Location(loc) => loc.repr(),
-            Self::Before { selector, end: split, inclusive }
-            | Self::After { selector, start: split, inclusive } => {
-                let method =
-                    if matches!(self, Self::Before { .. }) { "before" } else { "after" };
-                let inclusive_arg = if !*inclusive { ", inclusive: false" } else { "" };
+            Self::Before {
+                selector,
+                end: split,
+                inclusive,
+            }
+            | Self::After {
+                selector,
+                start: split,
+                inclusive,
+            } => {
+                let method = if matches!(self, Self::Before { .. }) {
+                    "before"
+                } else {
+                    "after"
+                };
+                let inclusive_arg = if !*inclusive {
+                    ", inclusive: false"
+                } else {
+                    ""
+                };
                 eco_format!(
                     "{}.{}({}{})",
                     selector.repr(),
@@ -313,7 +337,7 @@ impl Reflect for LocatableSelector {
         CastInfo::Type(Type::of::<Selector>())
     }
 
-    fn castable(value: &Value) -> bool {
+    fn castable(value: &TypstValue) -> bool {
         Label::castable(value) || Func::castable(value) || Selector::castable(value)
     }
 }
@@ -323,8 +347,8 @@ cast! {
     self => self.0.into_value(),
 }
 
-impl FromValue for LocatableSelector {
-    fn from_value(value: Value) -> StrResult<Self> {
+impl FromTypstValue for LocatableSelector {
+    fn from_value(value: TypstValue) -> StrResult<Self> {
         fn validate(selector: &Selector) -> StrResult<()> {
             match selector {
                 Selector::Elem(elem, _) => {
@@ -341,8 +365,16 @@ impl FromValue for LocatableSelector {
                         validate(selector)?;
                     }
                 }
-                Selector::Before { selector, end: split, .. }
-                | Selector::After { selector, start: split, .. } => {
+                Selector::Before {
+                    selector,
+                    end: split,
+                    ..
+                }
+                | Selector::After {
+                    selector,
+                    start: split,
+                    ..
+                } => {
                     for selector in [selector, split] {
                         validate(selector)?;
                     }
@@ -390,7 +422,7 @@ impl Reflect for ShowableSelector {
         CastInfo::Type(Type::of::<Selector>())
     }
 
-    fn castable(value: &Value) -> bool {
+    fn castable(value: &TypstValue) -> bool {
         Symbol::castable(value)
             || Str::castable(value)
             || Label::castable(value)
@@ -405,8 +437,8 @@ cast! {
     self => self.0.into_value(),
 }
 
-impl FromValue for ShowableSelector {
-    fn from_value(value: Value) -> StrResult<Self> {
+impl FromTypstValue for ShowableSelector {
+    fn from_value(value: TypstValue) -> StrResult<Self> {
         fn validate(selector: &Selector, nested: bool) -> StrResult<()> {
             match selector {
                 Selector::Elem(_, _) => {}

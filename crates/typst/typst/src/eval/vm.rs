@@ -2,7 +2,7 @@ use comemo::Tracked;
 
 use crate::engine::Engine;
 use crate::eval::FlowEvent;
-use crate::foundations::{IntoValue, Scopes};
+use crate::foundations::{IntoTypstValue, Scopes};
 use crate::syntax::ast::{self, AstNode};
 use crate::syntax::Span;
 use crate::World;
@@ -26,7 +26,12 @@ impl<'a> Vm<'a> {
     /// Create a new virtual machine.
     pub fn new(engine: Engine<'a>, scopes: Scopes<'a>, target: Span) -> Self {
         let inspected = target.id().and_then(|id| engine.tracer.inspected(id));
-        Self { engine, flow: None, scopes, inspected }
+        Self {
+            engine,
+            flow: None,
+            scopes,
+            inspected,
+        }
     }
 
     /// Access the underlying world.
@@ -35,7 +40,7 @@ impl<'a> Vm<'a> {
     }
 
     /// Define a variable in the current scope.
-    pub fn define(&mut self, var: ast::Ident, value: impl IntoValue) {
+    pub fn define(&mut self, var: ast::Ident, value: impl IntoTypstValue) {
         let value = value.into_value();
         if self.inspected == Some(var.span()) {
             self.engine.tracer.value(value.clone());

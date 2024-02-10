@@ -5,9 +5,8 @@ use syn::parse::{Parse, ParseStream};
 use syn::{parse_quote, Ident, Result};
 
 use crate::util::{
-    determine_name_and_title, documentation, foundations, has_attr, kw, parse_attr,
-    parse_flag, parse_key_value, parse_string, parse_string_array, quote_option,
-    validate_attrs,
+    determine_name_and_title, documentation, foundations, has_attr, kw, parse_attr, parse_flag,
+    parse_key_value, parse_string, parse_string_array, quote_option, validate_attrs,
 };
 
 /// Expand the `#[func]` macro.
@@ -90,8 +89,7 @@ impl Parse for Meta {
 /// Parse details about the function from the fn item.
 fn parse(stream: TokenStream, item: &syn::ItemFn) -> Result<Func> {
     let meta: Meta = syn::parse2(stream)?;
-    let (name, title) =
-        determine_name_and_title(meta.name, meta.title, &item.sig.ident, None)?;
+    let (name, title) = determine_name_and_title(meta.name, meta.title, &item.sig.ident, None)?;
 
     let docs = documentation(&item.attrs);
 
@@ -163,8 +161,12 @@ fn parse_param(
         syn::FnArg::Typed(typed) => typed,
     };
 
-    let syn::Pat::Ident(syn::PatIdent { by_ref: None, mutability: None, ident, .. }) =
-        &*typed.pat
+    let syn::Pat::Ident(syn::PatIdent {
+        by_ref: None,
+        mutability: None,
+        ident,
+        ..
+    }) = &*typed.pat
     else {
         bail!(typed.pat, "expected identifier");
     };
@@ -185,9 +187,7 @@ fn parse_param(
                 variadic: has_attr(&mut attrs, "variadic"),
                 external: has_attr(&mut attrs, "external"),
                 default: parse_attr(&mut attrs, "default")?.map(|expr| {
-                    expr.unwrap_or_else(
-                        || parse_quote! { ::std::default::Default::default() },
-                    )
+                    expr.unwrap_or_else(|| parse_quote! { ::std::default::Default::default() })
                 }),
             });
             validate_attrs(&attrs)?;
@@ -199,7 +199,9 @@ fn parse_param(
 
 /// Produce the function's definition.
 fn create(func: &Func, item: &syn::ItemFn) -> TokenStream {
-    let Func { docs, vis, ident, .. } = func;
+    let Func {
+        docs, vis, ident, ..
+    } = func;
     let item = rewrite_fn_item(item);
     let ty = create_func_ty(func);
     let data = create_func_data(func);
@@ -257,7 +259,12 @@ fn create_func_data(func: &Func) -> TokenStream {
     };
 
     let closure = create_wrapper_closure(func);
-    let params = func.special.self_.iter().chain(&func.params).map(create_param_info);
+    let params = func
+        .special
+        .self_
+        .iter()
+        .chain(&func.params)
+        .map(create_param_info);
 
     let name = if *constructor {
         quote! { <#parent as #foundations::NativeType>::NAME }
@@ -345,7 +352,15 @@ fn create_wrapper_closure(func: &Func) -> TokenStream {
 
 /// Create a parameter info for a field.
 fn create_param_info(param: &Param) -> TokenStream {
-    let Param { name, docs, named, variadic, ty, default, .. } = param;
+    let Param {
+        name,
+        docs,
+        named,
+        variadic,
+        ty,
+        default,
+        ..
+    } = param;
     let positional = !named;
     let required = !named && default.is_none();
     let ty = if *variadic || (*named && default.is_none()) {
@@ -357,7 +372,7 @@ fn create_param_info(param: &Param) -> TokenStream {
         quote! {
             || {
                 let typed: #ty = #default;
-                #foundations::IntoValue::into_value(typed)
+                #foundations::IntoTypstValue::into_value(typed)
             }
         }
     }));
@@ -378,7 +393,9 @@ fn create_param_info(param: &Param) -> TokenStream {
 
 /// Create argument parsing code for a parameter.
 fn create_param_parser(param: &Param) -> TokenStream {
-    let Param { name, ident, ty, .. } = param;
+    let Param {
+        name, ident, ty, ..
+    } = param;
 
     let mut value = if param.variadic {
         quote! { args.all()? }
@@ -411,7 +428,11 @@ fn bind(param: &Param) -> TokenStream {
 fn rewrite_fn_item(item: &syn::ItemFn) -> syn::ItemFn {
     let inputs = item.sig.inputs.iter().cloned().filter_map(|mut input| {
         if let syn::FnArg::Typed(typed) = &mut input {
-            if typed.attrs.iter().any(|attr| attr.path().is_ident("external")) {
+            if typed
+                .attrs
+                .iter()
+                .any(|attr| attr.path().is_ident("external"))
+            {
                 return None;
             }
             typed.attrs.clear();

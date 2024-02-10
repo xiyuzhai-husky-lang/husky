@@ -9,9 +9,9 @@ use crate::diag::{At, SourceResult, StrResult};
 use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
 use crate::foundations::{
-    cast, elem, func, scope, select_where, ty, Array, Content, Element, Func, IntoValue,
-    Label, LocatableSelector, NativeElement, Packed, Repr, Selector, Show, Str,
-    StyleChain, Value,
+    cast, elem, func, scope, select_where, ty, Array, Content, Element, Func, IntoTypstValue,
+    Label, LocatableSelector, NativeElement, Packed, Repr, Selector, Show, Str, StyleChain,
+    TypstValue,
 };
 use crate::introspection::{Introspector, Locatable, Location, Locator, Meta};
 use crate::layout::{Frame, FrameItem, PageElem};
@@ -170,7 +170,7 @@ use crate::World;
 ///   )
 ///   let final-val = mine.final(loc)
 ///   [Starts as: #start-val \
-///    Value at intro is: #intro-val \
+///    TypstValue at intro is: #intro-val \
 ///    Final value is: #final-val \ ]
 /// })
 ///
@@ -224,11 +224,7 @@ impl Counter {
     }
 
     /// Gets the current and final value of the state combined in one state.
-    pub fn both(
-        &self,
-        engine: &mut Engine,
-        location: Location,
-    ) -> SourceResult<CounterState> {
+    pub fn both(&self, engine: &mut Engine, location: Location) -> SourceResult<CounterState> {
         let sequence = self.sequence(engine)?;
         let offset = engine
             .introspector
@@ -237,24 +233,30 @@ impl Counter {
         let (mut at_state, at_page) = sequence[offset].clone();
         let (mut final_state, final_page) = sequence.last().unwrap().clone();
         if self.is_page() {
-            let at_delta =
-                engine.introspector.page(location).get().saturating_sub(at_page.get());
+            let at_delta = engine
+                .introspector
+                .page(location)
+                .get()
+                .saturating_sub(at_page.get());
             at_state.step(NonZeroUsize::ONE, at_delta);
-            let final_delta =
-                engine.introspector.pages().get().saturating_sub(final_page.get());
+            let final_delta = engine
+                .introspector
+                .pages()
+                .get()
+                .saturating_sub(final_page.get());
             final_state.step(NonZeroUsize::ONE, final_delta);
         }
-        Ok(CounterState(smallvec![at_state.first(), final_state.first()]))
+        Ok(CounterState(smallvec![
+            at_state.first(),
+            final_state.first()
+        ]))
     }
 
     /// Produce the whole sequence of counter states.
     ///
     /// This has to happen just once for all counters, cutting down the number
     /// of counter updates from quadratic to linear.
-    fn sequence(
-        &self,
-        engine: &mut Engine,
-    ) -> SourceResult<EcoVec<(CounterState, NonZeroUsize)>> {
+    fn sequence(&self, engine: &mut Engine) -> SourceResult<EcoVec<(CounterState, NonZeroUsize)>> {
         self.sequence_impl(
             engine.world,
             engine.introspector,
@@ -433,8 +435,11 @@ impl Counter {
             .len();
         let (mut state, page) = sequence[offset].clone();
         if self.is_page() {
-            let delta =
-                engine.introspector.page(location).get().saturating_sub(page.get());
+            let delta = engine
+                .introspector
+                .page(location)
+                .get()
+                .saturating_sub(page.get());
             state.step(NonZeroUsize::ONE, delta);
         }
 
@@ -561,17 +566,15 @@ impl CounterState {
     }
 
     /// Advance the counter and return the numbers for the given heading.
-    pub fn update(
-        &mut self,
-        engine: &mut Engine,
-        update: CounterUpdate,
-    ) -> SourceResult<()> {
+    pub fn update(&mut self, engine: &mut Engine, update: CounterUpdate) -> SourceResult<()> {
         match update {
             CounterUpdate::Set(state) => *self = state,
             CounterUpdate::Step(level) => self.step(level, 1),
             CounterUpdate::Func(func) => {
-                *self =
-                    func.call(engine, self.0.iter().copied())?.cast().at(func.span())?
+                *self = func
+                    .call(engine, self.0.iter().copied())?
+                    .cast()
+                    .at(func.span())?
             }
         }
         Ok(())
@@ -597,22 +600,18 @@ impl CounterState {
     }
 
     /// Display the counter state with a numbering.
-    pub fn display(
-        &self,
-        engine: &mut Engine,
-        numbering: &Numbering,
-    ) -> SourceResult<Content> {
+    pub fn display(&self, engine: &mut Engine, numbering: &Numbering) -> SourceResult<Content> {
         Ok(numbering.apply(engine, &self.0)?.display())
     }
 }
 
 cast! {
     CounterState,
-    self => Value::Array(self.0.into_iter().map(IntoValue::into_value).collect()),
+    self => TypstValue::Array(self.0.into_iter().map(IntoTypstValue::into_value).collect()),
     num: usize => Self(smallvec![num]),
     array: Array => Self(array
         .into_iter()
-        .map(Value::cast)
+        .map(TypstValue::cast)
         .collect::<StrResult<_>>()?),
 }
 
@@ -702,7 +701,10 @@ pub struct ManualPageCounter {
 impl ManualPageCounter {
     /// Create a new fast page counter, starting at 1.
     pub fn new() -> Self {
-        Self { physical: NonZeroUsize::ONE, logical: 1 }
+        Self {
+            physical: NonZeroUsize::ONE,
+            logical: 1,
+        }
     }
 
     /// Get the current physical page counter state.
@@ -721,7 +723,9 @@ impl ManualPageCounter {
             match item {
                 FrameItem::Group(group) => self.visit(engine, &group.frame)?,
                 FrameItem::Meta(Meta::Elem(elem), _) => {
-                    let Some(elem) = elem.to_packed::<UpdateElem>() else { continue };
+                    let Some(elem) = elem.to_packed::<UpdateElem>() else {
+                        continue;
+                    };
                     if *elem.key() == CounterKey::Page {
                         let mut state = CounterState(smallvec![self.logical]);
                         state.update(engine, elem.update.clone())?;

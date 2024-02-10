@@ -21,8 +21,10 @@ pub fn derive_cast(item: DeriveInput) -> Result<TokenStream> {
             bail!(expr, "explicit discriminant is not allowed");
         }
 
-        let string = if let Some(attr) =
-            variant.attrs.iter().find(|attr| attr.path().is_ident("string"))
+        let string = if let Some(attr) = variant
+            .attrs
+            .iter()
+            .find(|attr| attr.path().is_ident("string"))
         {
             attr.parse_args::<syn::LitStr>()?.value()
         } else {
@@ -36,12 +38,18 @@ pub fn derive_cast(item: DeriveInput) -> Result<TokenStream> {
         });
     }
 
-    let strs_to_variants = variants.iter().map(|Variant { ident, string, docs }| {
-        quote! {
-            #[doc = #docs]
-            #string => Self::#ident
-        }
-    });
+    let strs_to_variants = variants.iter().map(
+        |Variant {
+             ident,
+             string,
+             docs,
+         }| {
+            quote! {
+                #[doc = #docs]
+                #string => Self::#ident
+            }
+        },
+    );
 
     let variants_to_strs = variants.iter().map(|Variant { ident, string, .. }| {
         quote! {
@@ -52,7 +60,7 @@ pub fn derive_cast(item: DeriveInput) -> Result<TokenStream> {
     Ok(quote! {
         #foundations::cast! {
             #ty,
-            self => #foundations::IntoValue::into_value(match self {
+            self => #foundations::IntoTypstValue::into_value(match self {
                 #(#variants_to_strs),*
             }),
             #(#strs_to_variants),*
@@ -88,7 +96,7 @@ pub fn cast(stream: TokenStream) -> Result<TokenStream> {
                     #output_body
                 }
 
-                fn castable(value: &#foundations::Value) -> bool {
+                fn castable(value: &#foundations::TypstValue) -> bool {
                     #castable_body
                 }
             }
@@ -97,8 +105,8 @@ pub fn cast(stream: TokenStream) -> Result<TokenStream> {
 
     let into_value = (input.into_value.is_some() || input.dynamic).then(|| {
         quote! {
-            impl #foundations::IntoValue for #ty {
-                fn into_value(self) -> #foundations::Value {
+            impl #foundations::IntoTypstValue for #ty {
+                fn into_value(self) -> #foundations::TypstValue {
                     #into_value_body
                 }
             }
@@ -107,8 +115,8 @@ pub fn cast(stream: TokenStream) -> Result<TokenStream> {
 
     let from_value = (!input.from_value.is_empty() || input.dynamic).then(|| {
         quote! {
-            impl #foundations::FromValue for #ty {
-                fn from_value(value: #foundations::Value) -> ::typst::diag::StrResult<Self> {
+            impl #foundations::FromTypstValue for #ty {
+                fn from_value(value: #foundations::TypstValue) -> ::typst::diag::StrResult<Self> {
                     #from_value_body
                 }
             }
@@ -150,7 +158,12 @@ impl Parse for CastInput {
         }
 
         let from_value = Punctuated::parse_terminated(input)?;
-        Ok(Self { ty, dynamic, into_value: to_value, from_value })
+        Ok(Self {
+            ty,
+            dynamic,
+            into_value: to_value,
+            from_value,
+        })
     }
 }
 
@@ -160,7 +173,11 @@ impl Parse for Cast {
         let pattern = input.parse()?;
         let _: syn::Token![=>] = input.parse()?;
         let expr = input.parse()?;
-        Ok(Self { attrs, pattern, expr })
+        Ok(Self {
+            attrs,
+            pattern,
+            expr,
+        })
     }
 }
 
@@ -211,7 +228,7 @@ fn create_castable_body(input: &CastInput) -> TokenStream {
 
     let dynamic_check = input.dynamic.then(|| {
         quote! {
-            if let #foundations::Value::Dyn(dynamic) = &value {
+            if let #foundations::TypstValue::Dyn(dynamic) = &value {
                 if dynamic.is::<Self>() {
                     return true;
                 }
@@ -221,7 +238,7 @@ fn create_castable_body(input: &CastInput) -> TokenStream {
 
     let str_check = (!strings.is_empty()).then(|| {
         quote! {
-            if let #foundations::Value::Str(string) = &value {
+            if let #foundations::TypstValue::Str(string) = &value {
                 match string.as_str() {
                     #(#strings,)*
                     _ => {}
@@ -246,8 +263,8 @@ fn create_input_body(input: &CastInput) -> TokenStream {
         infos.push(match &cast.pattern {
             Pattern::Str(lit) => {
                 quote! {
-                    #foundations::CastInfo::Value(
-                        #foundations::IntoValue::into_value(#lit),
+                    #foundations::CastInfo::TypstValue(
+                        #foundations::IntoTypstValue::into_value(#lit),
                         #docs,
                     )
                 }
@@ -281,7 +298,7 @@ fn create_into_value_body(input: &CastInput) -> TokenStream {
     if let Some(expr) = &input.into_value {
         quote! { #expr }
     } else {
-        quote! { #foundations::Value::dynamic(self) }
+        quote! { #foundations::TypstValue::dynamic(self) }
     }
 }
 
@@ -298,7 +315,7 @@ fn create_from_value_body(input: &CastInput) -> TokenStream {
             Pattern::Ty(binding, ty) => {
                 cast_checks.push(quote! {
                     if <#ty as #foundations::Reflect>::castable(&value) {
-                        let #binding = <#ty as #foundations::FromValue>::from_value(value)?;
+                        let #binding = <#ty as #foundations::FromTypstValue>::from_value(value)?;
                         return Ok(#expr);
                     }
                 });
@@ -308,7 +325,7 @@ fn create_from_value_body(input: &CastInput) -> TokenStream {
 
     let dynamic_check = input.dynamic.then(|| {
         quote! {
-            if let #foundations::Value::Dyn(dynamic) = &value {
+            if let #foundations::TypstValue::Dyn(dynamic) = &value {
                 if let Some(concrete) = dynamic.downcast::<Self>() {
                     return Ok(concrete.clone());
                 }
@@ -318,7 +335,7 @@ fn create_from_value_body(input: &CastInput) -> TokenStream {
 
     let str_check = (!string_arms.is_empty()).then(|| {
         quote! {
-            if let #foundations::Value::Str(string) = &value {
+            if let #foundations::TypstValue::Str(string) = &value {
                 match string.as_str() {
                     #(#string_arms,)*
                     _ => {}

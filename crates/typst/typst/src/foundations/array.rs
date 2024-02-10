@@ -11,8 +11,8 @@ use crate::diag::{At, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::eval::ops;
 use crate::foundations::{
-    cast, func, repr, scope, ty, Args, Bytes, CastInfo, FromValue, Func, IntoValue,
-    Reflect, Repr, Value, Version,
+    cast, func, repr, scope, ty, Args, Bytes, CastInfo, FromTypstValue, Func, IntoTypstValue,
+    Reflect, Repr, TypstValue, Version,
 };
 use crate::syntax::Span;
 
@@ -22,14 +22,14 @@ use crate::syntax::Span;
 macro_rules! __array {
     ($value:expr; $count:expr) => {
         $crate::foundations::Array::from($crate::foundations::eco_vec![
-            $crate::foundations::IntoValue::into_value($value);
+            $crate::foundations::IntoTypstValue::into_value($value);
             $count
         ])
     };
 
     ($($value:expr),* $(,)?) => {
         $crate::foundations::Array::from($crate::foundations::eco_vec![$(
-            $crate::foundations::IntoValue::into_value($value)
+            $crate::foundations::IntoTypstValue::into_value($value)
         ),*])
     };
 }
@@ -70,7 +70,7 @@ pub use crate::__array as array;
 #[ty(scope, cast)]
 #[derive(Default, Clone, PartialEq, Hash, Serialize, Deserialize)]
 #[serde(transparent)]
-pub struct Array(EcoVec<Value>);
+pub struct Array(EcoVec<TypstValue>);
 
 impl Array {
     /// Create a new, empty array.
@@ -89,27 +89,27 @@ impl Array {
     }
 
     /// Extract a slice of the whole array.
-    pub fn as_slice(&self) -> &[Value] {
+    pub fn as_slice(&self) -> &[TypstValue] {
         self.0.as_slice()
     }
 
     /// Iterate over references to the contained values.
-    pub fn iter(&self) -> std::slice::Iter<Value> {
+    pub fn iter(&self) -> std::slice::Iter<TypstValue> {
         self.0.iter()
     }
 
     /// Mutably borrow the first value in the array.
-    pub fn first_mut(&mut self) -> StrResult<&mut Value> {
+    pub fn first_mut(&mut self) -> StrResult<&mut TypstValue> {
         self.0.make_mut().first_mut().ok_or_else(array_is_empty)
     }
 
     /// Mutably borrow the last value in the array.
-    pub fn last_mut(&mut self) -> StrResult<&mut Value> {
+    pub fn last_mut(&mut self) -> StrResult<&mut TypstValue> {
         self.0.make_mut().last_mut().ok_or_else(array_is_empty)
     }
 
     /// Mutably borrow the value at the given index.
-    pub fn at_mut(&mut self, index: i64) -> StrResult<&mut Value> {
+    pub fn at_mut(&mut self, index: i64) -> StrResult<&mut TypstValue> {
         let len = self.len();
         self.locate_opt(index, false)
             .and_then(move |i| self.0.make_mut().get_mut(i))
@@ -126,8 +126,11 @@ impl Array {
     ///
     /// `index == len` is considered in bounds if and only if `end_ok` is true.
     fn locate_opt(&self, index: i64, end_ok: bool) -> Option<usize> {
-        let wrapped =
-            if index >= 0 { Some(index) } else { (self.len() as i64).checked_add(index) };
+        let wrapped = if index >= 0 {
+            Some(index)
+        } else {
+            (self.len() as i64).checked_add(index)
+        };
 
         wrapped
             .and_then(|v| usize::try_from(v).ok())
@@ -174,14 +177,14 @@ impl Array {
     /// Returns the first item in the array. May be used on the left-hand side
     /// of an assignment. Fails with an error if the array is empty.
     #[func]
-    pub fn first(&self) -> StrResult<Value> {
+    pub fn first(&self) -> StrResult<TypstValue> {
         self.0.first().cloned().ok_or_else(array_is_empty)
     }
 
     /// Returns the last item in the array. May be used on the left-hand side of
     /// an assignment. Fails with an error if the array is empty.
     #[func]
-    pub fn last(&self) -> StrResult<Value> {
+    pub fn last(&self) -> StrResult<TypstValue> {
         self.0.last().cloned().ok_or_else(array_is_empty)
     }
 
@@ -197,8 +200,8 @@ impl Array {
         index: i64,
         /// A default value to return if the index is out of bounds.
         #[named]
-        default: Option<Value>,
-    ) -> StrResult<Value> {
+        default: Option<TypstValue>,
+    ) -> StrResult<TypstValue> {
         self.locate_opt(index, false)
             .and_then(|i| self.0.get(i).cloned())
             .or(default)
@@ -210,7 +213,7 @@ impl Array {
     pub fn push(
         &mut self,
         /// The value to insert at the end of the array.
-        value: Value,
+        value: TypstValue,
     ) {
         self.0.push(value);
     }
@@ -218,7 +221,7 @@ impl Array {
     /// Removes the last item from the array and returns it. Fails with an error
     /// if the array is empty.
     #[func]
-    pub fn pop(&mut self) -> StrResult<Value> {
+    pub fn pop(&mut self) -> StrResult<TypstValue> {
         self.0.pop().ok_or_else(array_is_empty)
     }
 
@@ -231,7 +234,7 @@ impl Array {
         /// the back.
         index: i64,
         /// The value to insert into the array.
-        value: Value,
+        value: TypstValue,
     ) -> StrResult<()> {
         let i = self.locate(index, true)?;
         self.0.insert(i, value);
@@ -247,8 +250,8 @@ impl Array {
         index: i64,
         /// A default value to return if the index is out of bounds.
         #[named]
-        default: Option<Value>,
-    ) -> StrResult<Value> {
+        default: Option<TypstValue>,
+    ) -> StrResult<TypstValue> {
         self.locate_opt(index, false)
             .map(|i| self.0.remove(i))
             .or(default)
@@ -276,7 +279,9 @@ impl Array {
             end = count.map(|c: i64| start + c);
         }
         let start = self.locate(start, true)?;
-        let end = self.locate(end.unwrap_or(self.len() as i64), true)?.max(start);
+        let end = self
+            .locate(end.unwrap_or(self.len() as i64), true)?
+            .max(start);
         Ok(self.0[start..end].into())
     }
 
@@ -288,7 +293,7 @@ impl Array {
     pub fn contains(
         &self,
         /// The value to search for.
-        value: Value,
+        value: TypstValue,
     ) -> bool {
         self.0.contains(&value)
     }
@@ -302,7 +307,7 @@ impl Array {
         engine: &mut Engine,
         /// The function to apply to each item. Must return a boolean.
         searcher: Func,
-    ) -> SourceResult<Option<Value>> {
+    ) -> SourceResult<Option<TypstValue>> {
         for item in self.iter() {
             if searcher
                 .call(engine, [item.clone()])?
@@ -402,7 +407,11 @@ impl Array {
     ) -> SourceResult<Array> {
         let mut kept = EcoVec::new();
         for item in self.iter() {
-            if test.call(engine, [item.clone()])?.cast::<bool>().at(test.span())? {
+            if test
+                .call(engine, [item.clone()])?
+                .cast::<bool>()
+                .at(test.span())?
+            {
                 kept.push(item.clone())
             }
         }
@@ -419,7 +428,9 @@ impl Array {
         /// The function to apply to each item.
         mapper: Func,
     ) -> SourceResult<Array> {
-        self.into_iter().map(|item| mapper.call(engine, [item])).collect()
+        self.into_iter()
+            .map(|item| mapper.call(engine, [item]))
+            .collect()
     }
 
     /// Returns a new array with the values alongside their indices.
@@ -476,7 +487,10 @@ impl Array {
 
         // Fast path for one array.
         if remaining == 0 {
-            return Ok(self.into_iter().map(|item| array![item].into_value()).collect());
+            return Ok(self
+                .into_iter()
+                .map(|item| array![item].into_value())
+                .collect());
         }
 
         // Fast path for just two arrays.
@@ -522,11 +536,11 @@ impl Array {
         /// The engine.
         engine: &mut Engine,
         /// The initial value to start with.
-        init: Value,
+        init: TypstValue,
         /// The folding function. Must have two parameters: One for the
         /// accumulated value and one for an item.
         folder: Func,
-    ) -> SourceResult<Value> {
+    ) -> SourceResult<TypstValue> {
         let mut acc = init;
         for item in self {
             acc = folder.call(engine, [acc, item])?;
@@ -541,8 +555,8 @@ impl Array {
         /// What to return if the array is empty. Must be set if the array can
         /// be empty.
         #[named]
-        default: Option<Value>,
-    ) -> StrResult<Value> {
+        default: Option<TypstValue>,
+    ) -> StrResult<TypstValue> {
         let mut iter = self.into_iter();
         let mut acc = iter
             .next()
@@ -562,8 +576,8 @@ impl Array {
         /// What to return if the array is empty. Must be set if the array can
         /// be empty.
         #[named]
-        default: Option<Value>,
-    ) -> StrResult<Value> {
+        default: Option<TypstValue>,
+    ) -> StrResult<TypstValue> {
         let mut iter = self.into_iter();
         let mut acc = iter
             .next()
@@ -616,7 +630,7 @@ impl Array {
     pub fn flatten(self) -> Array {
         let mut flat = EcoVec::with_capacity(self.0.len());
         for item in self {
-            if let Value::Array(nested) = item {
+            if let TypstValue::Array(nested) = item {
                 flat.extend(nested.flatten());
             } else {
                 flat.push(item);
@@ -636,11 +650,11 @@ impl Array {
     pub fn split(
         &self,
         /// The value to split at.
-        at: Value,
+        at: TypstValue,
     ) -> Array {
         self.as_slice()
             .split(|value| *value == at)
-            .map(|subslice| Value::Array(subslice.iter().cloned().collect()))
+            .map(|subslice| TypstValue::Array(subslice.iter().cloned().collect()))
             .collect()
     }
 
@@ -650,16 +664,16 @@ impl Array {
         self,
         /// A value to insert between each item of the array.
         #[default]
-        separator: Option<Value>,
+        separator: Option<TypstValue>,
         /// An alternative separator between the last two items.
         #[named]
-        last: Option<Value>,
-    ) -> StrResult<Value> {
+        last: Option<TypstValue>,
+    ) -> StrResult<TypstValue> {
         let len = self.0.len();
-        let separator = separator.unwrap_or(Value::None);
+        let separator = separator.unwrap_or(TypstValue::None);
 
         let mut last = last;
-        let mut result = Value::None;
+        let mut result = TypstValue::None;
         for (i, value) in self.into_iter().enumerate() {
             if i > 0 {
                 if i + 1 == len && last.is_some() {
@@ -681,7 +695,7 @@ impl Array {
     pub fn intersperse(
         self,
         /// The value that will be placed between each adjacent element.
-        separator: Value,
+        separator: TypstValue,
     ) -> Array {
         // TODO: Use once stabilized:
         // https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.intersperse
@@ -723,7 +737,7 @@ impl Array {
     ) -> SourceResult<Array> {
         let mut result = Ok(());
         let mut vec = self.0;
-        let mut key_of = |x: Value| match &key {
+        let mut key_of = |x: TypstValue| match &key {
             // NOTE: We are relying on `comemo`'s memoization of function
             // evaluation to not excessively reevaluate the `key`.
             Some(f) => f.call(engine, [x]),
@@ -768,7 +782,7 @@ impl Array {
         key: Option<Func>,
     ) -> SourceResult<Array> {
         let mut out = EcoVec::with_capacity(self.0.len());
-        let mut key_of = |x: Value| match &key {
+        let mut key_of = |x: TypstValue| match &key {
             // NOTE: We are relying on `comemo`'s memoization of function
             // evaluation to not excessively reevaluate the `key`.
             Some(f) => f.call(engine, [x]),
@@ -777,7 +791,7 @@ impl Array {
 
         // This algorithm is O(N^2) because we cannot rely on `HashSet` since:
         // 1. We would like to preserve the order of the elements.
-        // 2. We cannot hash arbitrary `Value`.
+        // 2. We cannot hash arbitrary `TypstValue`.
         'outer: for value in self {
             let key = key_of(value.clone())?;
             if out.is_empty() {
@@ -803,9 +817,9 @@ pub struct ToArray(Array);
 
 cast! {
     ToArray,
-    v: Bytes => Self(v.iter().map(|&b| Value::Int(b.into())).collect()),
+    v: Bytes => Self(v.iter().map(|&b| TypstValue::Int(b.into())).collect()),
     v: Array => Self(v),
-    v: Version => Self(v.values().iter().map(|&v| Value::Int(v as i64)).collect())
+    v: Version => Self(v.values().iter().map(|&v| TypstValue::Int(v as i64)).collect())
 }
 
 impl Debug for Array {
@@ -844,21 +858,21 @@ impl AddAssign for Array {
     }
 }
 
-impl Extend<Value> for Array {
-    fn extend<T: IntoIterator<Item = Value>>(&mut self, iter: T) {
+impl Extend<TypstValue> for Array {
+    fn extend<T: IntoIterator<Item = TypstValue>>(&mut self, iter: T) {
         self.0.extend(iter);
     }
 }
 
-impl FromIterator<Value> for Array {
-    fn from_iter<T: IntoIterator<Item = Value>>(iter: T) -> Self {
+impl FromIterator<TypstValue> for Array {
+    fn from_iter<T: IntoIterator<Item = TypstValue>>(iter: T) -> Self {
         Self(iter.into_iter().collect())
     }
 }
 
 impl IntoIterator for Array {
-    type Item = Value;
-    type IntoIter = ecow::vec::IntoIter<Value>;
+    type Item = TypstValue;
+    type IntoIter = ecow::vec::IntoIter<TypstValue>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.0.into_iter()
@@ -866,22 +880,22 @@ impl IntoIterator for Array {
 }
 
 impl<'a> IntoIterator for &'a Array {
-    type Item = &'a Value;
-    type IntoIter = std::slice::Iter<'a, Value>;
+    type Item = &'a TypstValue;
+    type IntoIter = std::slice::Iter<'a, TypstValue>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.iter()
     }
 }
 
-impl From<EcoVec<Value>> for Array {
-    fn from(v: EcoVec<Value>) -> Self {
+impl From<EcoVec<TypstValue>> for Array {
+    fn from(v: EcoVec<TypstValue>) -> Self {
         Array(v)
     }
 }
 
-impl From<&[Value]> for Array {
-    fn from(v: &[Value]) -> Self {
+impl From<&[TypstValue]> for Array {
+    fn from(v: &[TypstValue]) -> Self {
         Array(v.into())
     }
 }
@@ -895,7 +909,7 @@ impl<T> Reflect for Vec<T> {
         Array::output()
     }
 
-    fn castable(value: &Value) -> bool {
+    fn castable(value: &TypstValue) -> bool {
         Array::castable(value)
     }
 }
@@ -909,32 +923,40 @@ impl<T: Reflect, const N: usize> Reflect for SmallVec<[T; N]> {
         Array::output()
     }
 
-    fn castable(value: &Value) -> bool {
+    fn castable(value: &TypstValue) -> bool {
         Array::castable(value)
     }
 }
 
-impl<T: IntoValue> IntoValue for Vec<T> {
-    fn into_value(self) -> Value {
-        Value::Array(self.into_iter().map(IntoValue::into_value).collect())
+impl<T: IntoTypstValue> IntoTypstValue for Vec<T> {
+    fn into_value(self) -> TypstValue {
+        TypstValue::Array(self.into_iter().map(IntoTypstValue::into_value).collect())
     }
 }
 
-impl<T: IntoValue, const N: usize> IntoValue for SmallVec<[T; N]> {
-    fn into_value(self) -> Value {
-        Value::Array(self.into_iter().map(IntoValue::into_value).collect())
+impl<T: IntoTypstValue, const N: usize> IntoTypstValue for SmallVec<[T; N]> {
+    fn into_value(self) -> TypstValue {
+        TypstValue::Array(self.into_iter().map(IntoTypstValue::into_value).collect())
     }
 }
 
-impl<T: FromValue> FromValue for Vec<T> {
-    fn from_value(value: Value) -> StrResult<Self> {
-        value.cast::<Array>()?.into_iter().map(Value::cast).collect()
+impl<T: FromTypstValue> FromTypstValue for Vec<T> {
+    fn from_value(value: TypstValue) -> StrResult<Self> {
+        value
+            .cast::<Array>()?
+            .into_iter()
+            .map(TypstValue::cast)
+            .collect()
     }
 }
 
-impl<T: FromValue, const N: usize> FromValue for SmallVec<[T; N]> {
-    fn from_value(value: Value) -> StrResult<Self> {
-        value.cast::<Array>()?.into_iter().map(Value::cast).collect()
+impl<T: FromTypstValue, const N: usize> FromTypstValue for SmallVec<[T; N]> {
+    fn from_value(value: TypstValue) -> StrResult<Self> {
+        value
+            .cast::<Array>()?
+            .into_iter()
+            .map(TypstValue::cast)
+            .collect()
     }
 }
 

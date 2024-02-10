@@ -4,7 +4,7 @@ use ecow::{eco_format, EcoString};
 
 use crate::{
     diag::StrResult,
-    foundations::{cast, func, repr, scope, ty, Repr, Str, Value},
+    foundations::{cast, func, repr, scope, ty, Repr, Str, TypstValue},
 };
 
 /// A whole number.
@@ -237,7 +237,10 @@ cast! {
 
 fn parse_int(mut s: &str) -> Result<i64, ParseIntError> {
     let mut sign = 1;
-    if let Some(rest) = s.strip_prefix('-').or_else(|| s.strip_prefix(repr::MINUS_SIGN)) {
+    if let Some(rest) = s
+        .strip_prefix('-')
+        .or_else(|| s.strip_prefix(repr::MINUS_SIGN))
+    {
         sign = -1;
         s = rest;
     }
@@ -251,7 +254,7 @@ macro_rules! signed_int {
     ($($ty:ty)*) => {
         $(cast! {
             $ty,
-            self => Value::Int(self as _),
+            self => TypstValue::Int(self as _),
             v: i64 => v.try_into().map_err(|_| "number too large")?,
         })*
     }
@@ -261,7 +264,7 @@ macro_rules! unsigned_int {
     ($($ty:ty)*) => {
         $(cast! {
             $ty,
-            self => Value::Int(self as _),
+            self => TypstValue::Int(self as _),
             v: i64 => v.try_into().map_err(|_| {
                 if v < 0 {
                     "number must be at least zero"
@@ -278,7 +281,7 @@ unsigned_int! { u8 u16 u32 u64 usize }
 
 cast! {
     NonZeroI64,
-    self => Value::Int(self.get() as _),
+    self => TypstValue::Int(self.get() as _),
     v: i64 => v.try_into()
         .map_err(|_| if v == 0 {
             "number must not be zero"
@@ -289,7 +292,7 @@ cast! {
 
 cast! {
     NonZeroIsize,
-    self => Value::Int(self.get() as _),
+    self => TypstValue::Int(self.get() as _),
     v: i64 => v
         .try_into()
         .and_then(|v: isize| v.try_into())
@@ -302,7 +305,7 @@ cast! {
 
 cast! {
     NonZeroU64,
-    self => Value::Int(self.get() as _),
+    self => TypstValue::Int(self.get() as _),
     v: i64 => v
         .try_into()
         .and_then(|v: u64| v.try_into())
@@ -315,7 +318,7 @@ cast! {
 
 cast! {
     NonZeroUsize,
-    self => Value::Int(self.get() as _),
+    self => TypstValue::Int(self.get() as _),
     v: i64 => v
         .try_into()
         .and_then(|v: usize| v.try_into())

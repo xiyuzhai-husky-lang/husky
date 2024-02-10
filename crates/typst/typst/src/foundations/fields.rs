@@ -3,7 +3,7 @@
 use ecow::{eco_format, EcoString};
 
 use crate::diag::StrResult;
-use crate::foundations::{IntoValue, Type, Value, Version};
+use crate::foundations::{IntoTypstValue, Type, TypstValue, Version};
 use crate::layout::{Alignment, Length, Rel};
 use crate::visualize::Stroke;
 
@@ -11,28 +11,28 @@ use crate::visualize::Stroke;
 ///
 /// This function is exclusively for types which have predefined fields, such as
 /// stroke and length.
-pub(crate) fn field(value: &Value, field: &str) -> StrResult<Value> {
+pub(crate) fn field(value: &TypstValue, field: &str) -> StrResult<TypstValue> {
     let ty = value.ty();
     let nope = || Err(no_fields(ty));
     let missing = || Err(missing_field(ty, field));
 
-    // Special cases, such as module and dict, are handled by Value itself
+    // Special cases, such as module and dict, are handled by TypstValue itself
     let result = match value {
-        Value::Version(version) => match version.component(field) {
+        TypstValue::Version(version) => match version.component(field) {
             Ok(i) => i.into_value(),
             Err(_) => return missing(),
         },
-        Value::Length(length) => match field {
+        TypstValue::Length(length) => match field {
             "em" => length.em.get().into_value(),
             "abs" => length.abs.into_value(),
             _ => return missing(),
         },
-        Value::Relative(rel) => match field {
+        TypstValue::Relative(rel) => match field {
             "ratio" => rel.rel.into_value(),
             "length" => rel.abs.into_value(),
             _ => return missing(),
         },
-        Value::Dyn(dynamic) => {
+        TypstValue::Dyn(dynamic) => {
             if let Some(stroke) = dynamic.downcast::<Stroke>() {
                 match field {
                     "paint" => stroke.paint.clone().into_value(),
@@ -40,9 +40,7 @@ pub(crate) fn field(value: &Value, field: &str) -> StrResult<Value> {
                     "cap" => stroke.cap.into_value(),
                     "join" => stroke.join.into_value(),
                     "dash" => stroke.dash.clone().into_value(),
-                    "miter-limit" => {
-                        stroke.miter_limit.map(|limit| limit.get()).into_value()
-                    }
+                    "miter-limit" => stroke.miter_limit.map(|limit| limit.get()).into_value(),
                     _ => return missing(),
                 }
             } else if let Some(align) = dynamic.downcast::<Alignment>() {

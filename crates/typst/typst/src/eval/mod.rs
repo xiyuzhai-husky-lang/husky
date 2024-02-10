@@ -27,7 +27,7 @@ use comemo::{Track, Tracked, TrackedMut};
 
 use crate::diag::{bail, SourceResult};
 use crate::engine::{Engine, Route};
-use crate::foundations::{Cast, Module, NativeElement, Scope, Scopes, Value};
+use crate::foundations::{Cast, Module, NativeElement, Scope, Scopes, TypstValue};
 use crate::introspection::{Introspector, Locator};
 use crate::math::EquationElem;
 use crate::syntax::{ast, parse, parse_code, parse_math, Source, Span};
@@ -100,7 +100,7 @@ pub fn eval_string(
     span: Span,
     mode: EvalMode,
     scope: Scope,
-) -> SourceResult<Value> {
+) -> SourceResult<TypstValue> {
     let mut root = match mode {
         EvalMode::Code => parse_code(string),
         EvalMode::Markup => parse(string),
@@ -135,10 +135,8 @@ pub fn eval_string(
     // Evaluate the code.
     let output = match mode {
         EvalMode::Code => root.cast::<ast::Code>().unwrap().eval(&mut vm)?,
-        EvalMode::Markup => {
-            Value::Content(root.cast::<ast::Markup>().unwrap().eval(&mut vm)?)
-        }
-        EvalMode::Math => Value::Content(
+        EvalMode::Markup => TypstValue::Content(root.cast::<ast::Markup>().unwrap().eval(&mut vm)?),
+        EvalMode::Math => TypstValue::Content(
             EquationElem::new(root.cast::<ast::Math>().unwrap().eval(&mut vm)?)
                 .with_block(false)
                 .pack(),

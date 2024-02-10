@@ -2,15 +2,15 @@ use smallvec::{smallvec, SmallVec};
 
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::foundations::{
-    cast, dict, elem, Array, Cast, Content, Dict, Fold, Packed, Resolve, Smart,
-    StyleChain, Value,
+    cast, dict, elem, Array, Cast, Content, Dict, Fold, Packed, Resolve, Smart, StyleChain,
+    TypstValue,
 };
 use crate::layout::{
     Abs, Axes, Em, FixedAlignment, Frame, FrameItem, Length, Point, Ratio, Rel, Size,
 };
 use crate::math::{
-    alignments, scaled_font_size, stack, style_for_denominator, AlignmentResult,
-    FrameFragment, GlyphFragment, LayoutMath, MathContext, Scaled, DELIM_SHORT_FALL,
+    alignments, scaled_font_size, stack, style_for_denominator, AlignmentResult, FrameFragment,
+    GlyphFragment, LayoutMath, MathContext, Scaled, DELIM_SHORT_FALL,
 };
 use crate::syntax::{Span, Spanned};
 use crate::text::TextElem;
@@ -190,11 +190,11 @@ pub struct MatElem {
         let mut rows = vec![];
         let mut width = 0;
 
-        let values = args.all::<Spanned<Value>>()?;
-        if values.iter().any(|spanned| matches!(spanned.v, Value::Array(_))) {
+        let values = args.all::<Spanned<TypstValue>>()?;
+        if values.iter().any(|spanned| matches!(spanned.v, TypstValue::Array(_))) {
             for Spanned { v, span } in values {
                 let array = v.cast::<Array>().at(span)?;
-                let row: Vec<_> = array.into_iter().map(Value::display).collect();
+                let row: Vec<_> = array.into_iter().map(TypstValue::display).collect();
                 width = width.max(row.len());
                 rows.push(row);
             }
@@ -225,7 +225,11 @@ impl LayoutMath for Packed<MatElem> {
                     bail!(
                         self.span(),
                         "cannot draw a horizontal line after row {} of a matrix with {} rows",
-                        if offset < 0 { rows.len() as isize + offset } else { offset },
+                        if offset < 0 {
+                            rows.len() as isize + offset
+                        } else {
+                            offset
+                        },
                         rows.len()
                     );
                 }
@@ -238,7 +242,11 @@ impl LayoutMath for Packed<MatElem> {
                     bail!(
                         self.span(),
                         "cannot draw a vertical line after column {} of a matrix with {} columns",
-                        if offset < 0 { ncols as isize + offset } else { offset },
+                        if offset < 0 {
+                            ncols as isize + offset
+                        } else {
+                            offset
+                        },
                         ncols
                     );
                 }
@@ -430,7 +438,11 @@ fn layout_mat_body(
             let stroke = augment.stroke.unwrap_or_default().unwrap_or(default_stroke);
             (augment.hline, augment.vline, stroke)
         }
-        _ => (AugmentOffsets::default(), AugmentOffsets::default(), default_stroke),
+        _ => (
+            AugmentOffsets::default(),
+            AugmentOffsets::default(),
+            default_stroke,
+        ),
     };
 
     let ncols = rows.first().map_or(0, |row| row.len());
@@ -475,15 +487,21 @@ fn layout_mat_body(
     let mut x = Abs::zero();
 
     for (index, col) in cols.into_iter().enumerate() {
-        let AlignmentResult { points, width: rcol } = alignments(&col);
+        let AlignmentResult {
+            points,
+            width: rcol,
+        } = alignments(&col);
 
         let mut y = Abs::zero();
 
         for (cell, &(ascent, descent)) in col.into_iter().zip(&heights) {
-            let cell =
-                cell.into_aligned_frame(ctx, styles, &points, FixedAlignment::Center);
+            let cell = cell.into_aligned_frame(ctx, styles, &points, FixedAlignment::Center);
             let pos = Point::new(
-                if points.is_empty() { x + (rcol - cell.width()) / 2.0 } else { x },
+                if points.is_empty() {
+                    x + (rcol - cell.width()) / 2.0
+                } else {
+                    x
+                },
                 y + ascent - cell.ascent(),
             );
 
@@ -514,9 +532,15 @@ fn layout_mat_body(
 
     // This allows the horizontal lines to be laid out
     for line in hline.0 {
-        let real_line =
-            if line < 0 { nrows - line.unsigned_abs() } else { line as usize };
-        let offset = (heights[0..real_line].iter().map(|&(a, b)| a + b).sum::<Abs>()
+        let real_line = if line < 0 {
+            nrows - line.unsigned_abs()
+        } else {
+            line as usize
+        };
+        let offset = (heights[0..real_line]
+            .iter()
+            .map(|&(a, b)| a + b)
+            .sum::<Abs>()
             + gap.y * (real_line - 1) as f64)
             + half_gap.y;
 
@@ -565,8 +589,8 @@ fn layout_delimiters(
     frame.set_baseline(height / 2.0 + axis);
 
     if let Some(left) = left {
-        let mut left = GlyphFragment::new(ctx, styles, left, span)
-            .stretch_vertical(ctx, target, short_fall);
+        let mut left =
+            GlyphFragment::new(ctx, styles, left, span).stretch_vertical(ctx, target, short_fall);
         left.center_on_axis(ctx);
         ctx.push(left);
     }
@@ -574,8 +598,8 @@ fn layout_delimiters(
     ctx.push(FrameFragment::new(ctx, styles, frame));
 
     if let Some(right) = right {
-        let mut right = GlyphFragment::new(ctx, styles, right, span)
-            .stretch_vertical(ctx, target, short_fall);
+        let mut right =
+            GlyphFragment::new(ctx, styles, right, span).stretch_vertical(ctx, target, short_fall);
         right.center_on_axis(ctx);
         ctx.push(right);
     }
@@ -596,9 +620,7 @@ impl<T: Numeric + Fold> Fold for Augment<T> {
     fn fold(self, outer: Self) -> Self {
         Self {
             stroke: match (self.stroke, outer.stroke) {
-                (Smart::Custom(inner), Smart::Custom(outer)) => {
-                    Smart::Custom(inner.fold(outer))
-                }
+                (Smart::Custom(inner), Smart::Custom(outer)) => Smart::Custom(inner.fold(outer)),
                 // Usually, folding an inner `auto` with an `outer` preferres
                 // the explicit `auto`. However, here `auto` means unspecified
                 // and thus we want `outer`.
@@ -667,5 +689,5 @@ cast! {
     AugmentOffsets,
     self => self.0.into_value(),
     v: isize => Self(smallvec![v]),
-    v: Array => Self(v.into_iter().map(Value::cast).collect::<StrResult<_>>()?),
+    v: Array => Self(v.into_iter().map(TypstValue::cast).collect::<StrResult<_>>()?),
 }

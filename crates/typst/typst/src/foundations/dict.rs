@@ -8,7 +8,7 @@ use indexmap::IndexMap;
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
 
 use crate::diag::StrResult;
-use crate::foundations::{array, func, repr, scope, ty, Array, Repr, Str, Value};
+use crate::foundations::{array, func, repr, scope, ty, Array, Repr, Str, TypstValue};
 use crate::syntax::is_ident;
 use crate::util::ArcExt;
 
@@ -19,7 +19,7 @@ macro_rules! __dict {
     ($($key:expr => $value:expr),* $(,)?) => {{
         #[allow(unused_mut)]
         let mut map = $crate::foundations::IndexMap::new();
-        $(map.insert($key.into(), $crate::foundations::IntoValue::into_value($value));)*
+        $(map.insert($key.into(), $crate::foundations::IntoTypstValue::into_value($value));)*
         $crate::foundations::Dict::from(map)
     }};
 }
@@ -64,7 +64,7 @@ pub use crate::__dict as dict;
 /// ```
 #[ty(scope, cast, name = "dictionary")]
 #[derive(Default, Clone, PartialEq)]
-pub struct Dict(Arc<IndexMap<Str, Value>>);
+pub struct Dict(Arc<IndexMap<Str, TypstValue>>);
 
 impl Dict {
     /// Create a new, empty dictionary.
@@ -78,20 +78,22 @@ impl Dict {
     }
 
     /// Borrow the value at the given key.
-    pub fn get(&self, key: &str) -> StrResult<&Value> {
+    pub fn get(&self, key: &str) -> StrResult<&TypstValue> {
         self.0.get(key).ok_or_else(|| missing_key(key))
     }
 
     /// Mutably borrow the value the given `key` maps to.
-    pub fn at_mut(&mut self, key: &str) -> StrResult<&mut Value> {
+    pub fn at_mut(&mut self, key: &str) -> StrResult<&mut TypstValue> {
         Arc::make_mut(&mut self.0)
             .get_mut(key)
             .ok_or_else(|| missing_key_no_default(key))
     }
 
     /// Remove the value if the dictionary contains the given key.
-    pub fn take(&mut self, key: &str) -> StrResult<Value> {
-        Arc::make_mut(&mut self.0).remove(key).ok_or_else(|| missing_key(key))
+    pub fn take(&mut self, key: &str) -> StrResult<TypstValue> {
+        Arc::make_mut(&mut self.0)
+            .remove(key)
+            .ok_or_else(|| missing_key(key))
     }
 
     /// Whether the dictionary contains a specific key.
@@ -109,7 +111,7 @@ impl Dict {
     }
 
     /// Iterate over pairs of references to the contained keys and values.
-    pub fn iter(&self) -> indexmap::map::Iter<Str, Value> {
+    pub fn iter(&self) -> indexmap::map::Iter<Str, TypstValue> {
         self.0.iter()
     }
 
@@ -126,13 +128,12 @@ impl Dict {
     }
 
     // Return an "unexpected key" error string.
-    pub fn unexpected_keys(
-        unexpected: Vec<&str>,
-        hint_expected: Option<&[&str]>,
-    ) -> EcoString {
+    pub fn unexpected_keys(unexpected: Vec<&str>, hint_expected: Option<&[&str]>) -> EcoString {
         let format_as_list = |arr: &[&str]| {
             repr::separated_list(
-                &arr.iter().map(|s| eco_format!("\"{s}\"")).collect::<Vec<_>>(),
+                &arr.iter()
+                    .map(|s| eco_format!("\"{s}\""))
+                    .collect::<Vec<_>>(),
                 "and",
             )
         };
@@ -173,8 +174,8 @@ impl Dict {
         key: Str,
         /// A default value to return if the key is not part of the dictionary.
         #[named]
-        default: Option<Value>,
-    ) -> StrResult<Value> {
+        default: Option<TypstValue>,
+    ) -> StrResult<TypstValue> {
         self.0
             .get(&key)
             .cloned()
@@ -190,7 +191,7 @@ impl Dict {
         /// The key of the pair that should be inserted.
         key: Str,
         /// The value of the pair that should be inserted.
-        value: Value,
+        value: TypstValue,
     ) {
         Arc::make_mut(&mut self.0).insert(key, value);
     }
@@ -203,8 +204,8 @@ impl Dict {
         key: Str,
         /// A default value to return if the key does not exist.
         #[named]
-        default: Option<Value>,
-    ) -> StrResult<Value> {
+        default: Option<TypstValue>,
+    ) -> StrResult<TypstValue> {
         Arc::make_mut(&mut self.0)
             .shift_remove(&key)
             .or(default)
@@ -214,7 +215,7 @@ impl Dict {
     /// Returns the keys of the dictionary as an array in insertion order.
     #[func]
     pub fn keys(&self) -> Array {
-        self.0.keys().cloned().map(Value::Str).collect()
+        self.0.keys().cloned().map(TypstValue::Str).collect()
     }
 
     /// Returns the values of the dictionary as an array in insertion order.
@@ -229,7 +230,7 @@ impl Dict {
     pub fn pairs(&self) -> Array {
         self.0
             .iter()
-            .map(|(k, v)| Value::Array(array![k.clone(), v.clone()]))
+            .map(|(k, v)| TypstValue::Array(array![k.clone(), v.clone()]))
             .collect()
     }
 }
@@ -308,25 +309,25 @@ impl<'de> Deserialize<'de> for Dict {
     where
         D: Deserializer<'de>,
     {
-        Ok(IndexMap::<Str, Value>::deserialize(deserializer)?.into())
+        Ok(IndexMap::<Str, TypstValue>::deserialize(deserializer)?.into())
     }
 }
 
-impl Extend<(Str, Value)> for Dict {
-    fn extend<T: IntoIterator<Item = (Str, Value)>>(&mut self, iter: T) {
+impl Extend<(Str, TypstValue)> for Dict {
+    fn extend<T: IntoIterator<Item = (Str, TypstValue)>>(&mut self, iter: T) {
         Arc::make_mut(&mut self.0).extend(iter);
     }
 }
 
-impl FromIterator<(Str, Value)> for Dict {
-    fn from_iter<T: IntoIterator<Item = (Str, Value)>>(iter: T) -> Self {
+impl FromIterator<(Str, TypstValue)> for Dict {
+    fn from_iter<T: IntoIterator<Item = (Str, TypstValue)>>(iter: T) -> Self {
         Self(Arc::new(iter.into_iter().collect()))
     }
 }
 
 impl IntoIterator for Dict {
-    type Item = (Str, Value);
-    type IntoIter = indexmap::map::IntoIter<Str, Value>;
+    type Item = (Str, TypstValue);
+    type IntoIter = indexmap::map::IntoIter<Str, TypstValue>;
 
     fn into_iter(self) -> Self::IntoIter {
         Arc::take(self.0).into_iter()
@@ -334,16 +335,16 @@ impl IntoIterator for Dict {
 }
 
 impl<'a> IntoIterator for &'a Dict {
-    type Item = (&'a Str, &'a Value);
-    type IntoIter = indexmap::map::Iter<'a, Str, Value>;
+    type Item = (&'a Str, &'a TypstValue);
+    type IntoIter = indexmap::map::Iter<'a, Str, TypstValue>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.iter()
     }
 }
 
-impl From<IndexMap<Str, Value>> for Dict {
-    fn from(map: IndexMap<Str, Value>) -> Self {
+impl From<IndexMap<Str, TypstValue>> for Dict {
+    fn from(map: IndexMap<Str, TypstValue>) -> Self {
         Self(Arc::new(map))
     }
 }

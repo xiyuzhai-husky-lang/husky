@@ -2,7 +2,7 @@ use ecow::{eco_format, EcoString};
 
 use crate::diag::{bail, At, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{cast, func, scope, Array, Dict, IntoValue, Type, Value};
+use crate::foundations::{cast, func, scope, Array, Dict, IntoTypstValue, Type, TypstValue};
 use crate::loading::Readable;
 use crate::syntax::Spanned;
 use crate::World;
@@ -49,7 +49,11 @@ pub fn csv(
     let Spanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
-    self::csv::decode(Spanned::new(Readable::Bytes(data), span), delimiter, row_type)
+    self::csv::decode(
+        Spanned::new(Readable::Bytes(data), span),
+        delimiter,
+        row_type,
+    )
 }
 
 #[scope]
@@ -114,7 +118,7 @@ impl csv {
                 dict.into_value()
             } else {
                 let sub = row.into_iter().map(|field| field.into_value()).collect();
-                Value::Array(sub)
+                TypstValue::Array(sub)
             };
             array.push(item);
         }
@@ -178,7 +182,9 @@ cast! {
 fn format_csv_error(err: ::csv::Error, line: usize) -> EcoString {
     match err.kind() {
         ::csv::ErrorKind::Utf8 { .. } => "file is not valid utf-8".into(),
-        ::csv::ErrorKind::UnequalLengths { expected_len, len, .. } => {
+        ::csv::ErrorKind::UnequalLengths {
+            expected_len, len, ..
+        } => {
             eco_format!(
                 "failed to parse CSV (found {len} instead of \
                  {expected_len} fields in line {line})"

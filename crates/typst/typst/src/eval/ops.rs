@@ -6,7 +6,7 @@ use ecow::eco_format;
 
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::eval::{access_dict, Access, Eval, Vm};
-use crate::foundations::{format_str, Datetime, IntoValue, Regex, Repr, Value};
+use crate::foundations::{format_str, Datetime, IntoTypstValue, Regex, Repr, TypstValue};
 use crate::layout::{Alignment, Length, Rel};
 use crate::syntax::ast::{self, AstNode};
 use crate::text::TextElem;
@@ -14,7 +14,7 @@ use crate::util::Numeric;
 use crate::visualize::Stroke;
 
 impl Eval for ast::Unary<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let value = self.expr().eval(vm)?;
@@ -28,7 +28,7 @@ impl Eval for ast::Unary<'_> {
 }
 
 impl Eval for ast::Binary<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         match self.op() {
@@ -59,8 +59,8 @@ impl Eval for ast::Binary<'_> {
 fn apply_binary(
     binary: ast::Binary,
     vm: &mut Vm,
-    op: fn(Value, Value) -> StrResult<Value>,
-) -> SourceResult<Value> {
+    op: fn(TypstValue, TypstValue) -> StrResult<TypstValue>,
+) -> SourceResult<TypstValue> {
     let lhs = binary.lhs().eval(vm)?;
 
     // Short-circuit boolean operations.
@@ -78,8 +78,8 @@ fn apply_binary(
 fn apply_assignment(
     binary: ast::Binary,
     vm: &mut Vm,
-    op: fn(Value, Value) -> StrResult<Value>,
-) -> SourceResult<Value> {
+    op: fn(TypstValue, TypstValue) -> StrResult<TypstValue>,
+) -> SourceResult<TypstValue> {
     let rhs = binary.rhs().eval(vm)?;
     let lhs = binary.lhs();
 
@@ -89,14 +89,14 @@ fn apply_assignment(
         if let ast::Expr::FieldAccess(access) = lhs {
             let dict = access_dict(vm, access)?;
             dict.insert(access.field().get().clone().into(), rhs);
-            return Ok(Value::None);
+            return Ok(TypstValue::None);
         }
     }
 
     let location = binary.lhs().access(vm)?;
     let lhs = std::mem::take(&mut *location);
     *location = op(lhs, rhs).at(binary.span())?;
-    Ok(Value::None)
+    Ok(TypstValue::None)
 }
 
 /// Bail with a type mismatch error.
@@ -107,8 +107,8 @@ macro_rules! mismatch {
 }
 
 /// Join a value with another value.
-pub fn join(lhs: Value, rhs: Value) -> StrResult<Value> {
-    use Value::*;
+pub fn join(lhs: TypstValue, rhs: TypstValue) -> StrResult<TypstValue> {
+    use TypstValue::*;
     Ok(match (lhs, rhs) {
         (a, None) => a,
         (None, b) => b,
@@ -134,8 +134,8 @@ pub fn join(lhs: Value, rhs: Value) -> StrResult<Value> {
 }
 
 /// Apply the unary plus operator to a value.
-pub fn pos(value: Value) -> StrResult<Value> {
-    use Value::*;
+pub fn pos(value: TypstValue) -> StrResult<TypstValue> {
+    use TypstValue::*;
     Ok(match value {
         Int(v) => Int(v),
         Float(v) => Float(v),
@@ -159,8 +159,8 @@ pub fn pos(value: Value) -> StrResult<Value> {
 }
 
 /// Compute the negation of a value.
-pub fn neg(value: Value) -> StrResult<Value> {
-    use Value::*;
+pub fn neg(value: TypstValue) -> StrResult<TypstValue> {
+    use TypstValue::*;
     Ok(match value {
         Int(v) => Int(v.checked_neg().ok_or_else(too_large)?),
         Float(v) => Float(-v),
@@ -176,8 +176,8 @@ pub fn neg(value: Value) -> StrResult<Value> {
 }
 
 /// Compute the sum of two values.
-pub fn add(lhs: Value, rhs: Value) -> StrResult<Value> {
-    use Value::*;
+pub fn add(lhs: TypstValue, rhs: TypstValue) -> StrResult<TypstValue> {
+    use TypstValue::*;
     Ok(match (lhs, rhs) {
         (a, None) => a,
         (None, b) => b,
@@ -220,8 +220,7 @@ pub fn add(lhs: Value, rhs: Value) -> StrResult<Value> {
         (Color(color), Length(thickness)) | (Length(thickness), Color(color)) => {
             Stroke::from_pair(color, thickness).into_value()
         }
-        (Gradient(gradient), Length(thickness))
-        | (Length(thickness), Gradient(gradient)) => {
+        (Gradient(gradient), Length(thickness)) | (Length(thickness), Gradient(gradient)) => {
             Stroke::from_pair(gradient, thickness).into_value()
         }
         (Pattern(pattern), Length(thickness)) | (Length(thickness), Pattern(pattern)) => {
@@ -238,9 +237,7 @@ pub fn add(lhs: Value, rhs: Value) -> StrResult<Value> {
 
         (Dyn(a), Dyn(b)) => {
             // Alignments can be summed.
-            if let (Some(&a), Some(&b)) =
-                (a.downcast::<Alignment>(), b.downcast::<Alignment>())
-            {
+            if let (Some(&a), Some(&b)) = (a.downcast::<Alignment>(), b.downcast::<Alignment>()) {
                 return Ok((a + b)?.into_value());
             }
 
@@ -252,8 +249,8 @@ pub fn add(lhs: Value, rhs: Value) -> StrResult<Value> {
 }
 
 /// Compute the difference of two values.
-pub fn sub(lhs: Value, rhs: Value) -> StrResult<Value> {
-    use Value::*;
+pub fn sub(lhs: TypstValue, rhs: TypstValue) -> StrResult<TypstValue> {
+    use TypstValue::*;
     Ok(match (lhs, rhs) {
         (Int(a), Int(b)) => Int(a.checked_sub(b).ok_or_else(too_large)?),
         (Int(a), Float(b)) => Float(a as f64 - b),
@@ -285,8 +282,8 @@ pub fn sub(lhs: Value, rhs: Value) -> StrResult<Value> {
 }
 
 /// Compute the product of two values.
-pub fn mul(lhs: Value, rhs: Value) -> StrResult<Value> {
-    use Value::*;
+pub fn mul(lhs: TypstValue, rhs: TypstValue) -> StrResult<TypstValue> {
+    use TypstValue::*;
     Ok(match (lhs, rhs) {
         (Int(a), Int(b)) => Int(a.checked_mul(b).ok_or_else(too_large)?),
         (Int(a), Float(b)) => Float(a as f64 * b),
@@ -327,10 +324,10 @@ pub fn mul(lhs: Value, rhs: Value) -> StrResult<Value> {
         (Float(a), Fraction(b)) => Fraction(a * b),
         (Ratio(a), Fraction(b)) => Fraction(a.get() * b),
 
-        (Str(a), Int(b)) => Str(a.repeat(Value::Int(b).cast()?)?),
-        (Int(a), Str(b)) => Str(b.repeat(Value::Int(a).cast()?)?),
-        (Array(a), Int(b)) => Array(a.repeat(Value::Int(b).cast()?)?),
-        (Int(a), Array(b)) => Array(b.repeat(Value::Int(a).cast()?)?),
+        (Str(a), Int(b)) => Str(a.repeat(TypstValue::Int(b).cast()?)?),
+        (Int(a), Str(b)) => Str(b.repeat(TypstValue::Int(a).cast()?)?),
+        (Array(a), Int(b)) => Array(a.repeat(TypstValue::Int(b).cast()?)?),
+        (Int(a), Array(b)) => Array(b.repeat(TypstValue::Int(a).cast()?)?),
         (Content(a), b @ Int(_)) => Content(a.repeat(b.cast()?)),
         (a @ Int(_), Content(b)) => Content(b.repeat(a.cast()?)),
 
@@ -344,8 +341,8 @@ pub fn mul(lhs: Value, rhs: Value) -> StrResult<Value> {
 }
 
 /// Compute the quotient of two values.
-pub fn div(lhs: Value, rhs: Value) -> StrResult<Value> {
-    use Value::*;
+pub fn div(lhs: TypstValue, rhs: TypstValue) -> StrResult<TypstValue> {
+    use TypstValue::*;
     if is_zero(&rhs) {
         bail!("cannot divide by zero");
     }
@@ -389,8 +386,8 @@ pub fn div(lhs: Value, rhs: Value) -> StrResult<Value> {
 }
 
 /// Whether a value is a numeric zero.
-fn is_zero(v: &Value) -> bool {
-    use Value::*;
+fn is_zero(v: &TypstValue) -> bool {
+    use TypstValue::*;
     match *v {
         Int(v) => v == 0,
         Float(v) => v == 0.0,
@@ -406,7 +403,8 @@ fn is_zero(v: &Value) -> bool {
 
 /// Try to divide two lengths.
 fn try_div_length(a: Length, b: Length) -> StrResult<f64> {
-    a.try_div(b).ok_or_else(|| "cannot divide these two lengths".into())
+    a.try_div(b)
+        .ok_or_else(|| "cannot divide these two lengths".into())
 }
 
 /// Try to divide two relative lengths.
@@ -416,45 +414,45 @@ fn try_div_relative(a: Rel<Length>, b: Rel<Length>) -> StrResult<f64> {
 }
 
 /// Compute the logical "not" of a value.
-pub fn not(value: Value) -> StrResult<Value> {
+pub fn not(value: TypstValue) -> StrResult<TypstValue> {
     match value {
-        Value::Bool(b) => Ok(Value::Bool(!b)),
+        TypstValue::Bool(b) => Ok(TypstValue::Bool(!b)),
         v => mismatch!("cannot apply 'not' to {}", v),
     }
 }
 
 /// Compute the logical "and" of two values.
-pub fn and(lhs: Value, rhs: Value) -> StrResult<Value> {
+pub fn and(lhs: TypstValue, rhs: TypstValue) -> StrResult<TypstValue> {
     match (lhs, rhs) {
-        (Value::Bool(a), Value::Bool(b)) => Ok(Value::Bool(a && b)),
+        (TypstValue::Bool(a), TypstValue::Bool(b)) => Ok(TypstValue::Bool(a && b)),
         (a, b) => mismatch!("cannot apply 'and' to {} and {}", a, b),
     }
 }
 
 /// Compute the logical "or" of two values.
-pub fn or(lhs: Value, rhs: Value) -> StrResult<Value> {
+pub fn or(lhs: TypstValue, rhs: TypstValue) -> StrResult<TypstValue> {
     match (lhs, rhs) {
-        (Value::Bool(a), Value::Bool(b)) => Ok(Value::Bool(a || b)),
+        (TypstValue::Bool(a), TypstValue::Bool(b)) => Ok(TypstValue::Bool(a || b)),
         (a, b) => mismatch!("cannot apply 'or' to {} and {}", a, b),
     }
 }
 
 /// Compute whether two values are equal.
-pub fn eq(lhs: Value, rhs: Value) -> StrResult<Value> {
-    Ok(Value::Bool(equal(&lhs, &rhs)))
+pub fn eq(lhs: TypstValue, rhs: TypstValue) -> StrResult<TypstValue> {
+    Ok(TypstValue::Bool(equal(&lhs, &rhs)))
 }
 
 /// Compute whether two values are unequal.
-pub fn neq(lhs: Value, rhs: Value) -> StrResult<Value> {
-    Ok(Value::Bool(!equal(&lhs, &rhs)))
+pub fn neq(lhs: TypstValue, rhs: TypstValue) -> StrResult<TypstValue> {
+    Ok(TypstValue::Bool(!equal(&lhs, &rhs)))
 }
 
 macro_rules! comparison {
     ($name:ident, $op:tt, $($pat:tt)*) => {
         /// Compute how a value compares with another value.
-        pub fn $name(lhs: Value, rhs: Value) -> StrResult<Value> {
+        pub fn $name(lhs: TypstValue, rhs: TypstValue) -> StrResult<TypstValue> {
             let ordering = compare(&lhs, &rhs)?;
-            Ok(Value::Bool(matches!(ordering, $($pat)*)))
+            Ok(TypstValue::Bool(matches!(ordering, $($pat)*)))
         }
     };
 }
@@ -465,8 +463,8 @@ comparison!(gt, ">", Ordering::Greater);
 comparison!(geq, ">=", Ordering::Greater | Ordering::Equal);
 
 /// Determine whether two values are equal.
-pub fn equal(lhs: &Value, rhs: &Value) -> bool {
-    use Value::*;
+pub fn equal(lhs: &TypstValue, rhs: &TypstValue) -> bool {
+    use TypstValue::*;
     match (lhs, rhs) {
         // Compare reflexively.
         (None, None) => true,
@@ -514,8 +512,8 @@ pub fn equal(lhs: &Value, rhs: &Value) -> bool {
 }
 
 /// Compare two values.
-pub fn compare(lhs: &Value, rhs: &Value) -> StrResult<Ordering> {
-    use Value::*;
+pub fn compare(lhs: &TypstValue, rhs: &TypstValue) -> StrResult<Ordering> {
+    use TypstValue::*;
     Ok(match (lhs, rhs) {
         (Bool(a), Bool(b)) => a.cmp(b),
         (Int(a), Int(b)) => a.cmp(b),
@@ -557,7 +555,7 @@ fn try_cmp_datetimes(a: &Datetime, b: &Datetime) -> StrResult<Ordering> {
 }
 
 /// Try to compare arrays of values lexicographically.
-fn try_cmp_arrays(a: &[Value], b: &[Value]) -> StrResult<Ordering> {
+fn try_cmp_arrays(a: &[TypstValue], b: &[TypstValue]) -> StrResult<Ordering> {
     a.iter()
         .zip(b.iter())
         .find_map(|(first, second)| {
@@ -577,26 +575,26 @@ fn try_cmp_arrays(a: &[Value], b: &[Value]) -> StrResult<Ordering> {
 }
 
 /// Test whether one value is "in" another one.
-pub fn in_(lhs: Value, rhs: Value) -> StrResult<Value> {
+pub fn in_(lhs: TypstValue, rhs: TypstValue) -> StrResult<TypstValue> {
     if let Some(b) = contains(&lhs, &rhs) {
-        Ok(Value::Bool(b))
+        Ok(TypstValue::Bool(b))
     } else {
         mismatch!("cannot apply 'in' to {} and {}", lhs, rhs)
     }
 }
 
 /// Test whether one value is "not in" another one.
-pub fn not_in(lhs: Value, rhs: Value) -> StrResult<Value> {
+pub fn not_in(lhs: TypstValue, rhs: TypstValue) -> StrResult<TypstValue> {
     if let Some(b) = contains(&lhs, &rhs) {
-        Ok(Value::Bool(!b))
+        Ok(TypstValue::Bool(!b))
     } else {
         mismatch!("cannot apply 'not in' to {} and {}", lhs, rhs)
     }
 }
 
 /// Test for containment.
-pub fn contains(lhs: &Value, rhs: &Value) -> Option<bool> {
-    use Value::*;
+pub fn contains(lhs: &TypstValue, rhs: &TypstValue) -> Option<bool> {
+    use TypstValue::*;
     match (lhs, rhs) {
         (Str(a), Str(b)) => Some(b.as_str().contains(a.as_str())),
         (Dyn(a), Str(b)) => a.downcast::<Regex>().map(|regex| regex.is_match(b)),

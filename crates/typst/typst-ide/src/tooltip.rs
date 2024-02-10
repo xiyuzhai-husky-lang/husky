@@ -3,7 +3,7 @@ use std::fmt::Write;
 use ecow::{eco_format, EcoString};
 use if_chain::if_chain;
 use typst::eval::{CapturesVisitor, Tracer};
-use typst::foundations::{repr, CastInfo, Repr, Value};
+use typst::foundations::{repr, CastInfo, Repr, TypstValue};
 use typst::layout::Length;
 use typst::model::Document;
 use typst::syntax::{ast, LinkedNode, Source, SyntaxKind};
@@ -64,7 +64,7 @@ fn expr_tooltip(world: &dyn World, leaf: &LinkedNode) -> Option<Tooltip> {
             return Some(Tooltip::Text(plain_docs_sentence(docs)));
         }
 
-        if let &Value::Length(length) = value {
+        if let &TypstValue::Length(length) = value {
             if let Some(tooltip) = length_tooltip(length) {
                 return Some(tooltip);
             }
@@ -124,8 +124,10 @@ fn closure_tooltip(leaf: &LinkedNode) -> Option<Tooltip> {
     visitor.visit(parent);
 
     let captures = visitor.finish();
-    let mut names: Vec<_> =
-        captures.iter().map(|(name, _)| eco_format!("`{name}`")).collect();
+    let mut names: Vec<_> = captures
+        .iter()
+        .map(|(name, _)| eco_format!("`{name}`"))
+        .collect();
     if names.is_empty() {
         return None;
     }
@@ -133,7 +135,9 @@ fn closure_tooltip(leaf: &LinkedNode) -> Option<Tooltip> {
     names.sort();
 
     let tooltip = repr::separated_list(&names, "and");
-    Some(Tooltip::Text(eco_format!("This closure captures {tooltip}.")))
+    Some(Tooltip::Text(eco_format!(
+        "This closure captures {tooltip}."
+    )))
 }
 
 /// Tooltip text for a hovered length.
@@ -184,7 +188,7 @@ fn named_param_tooltip(world: &dyn World, leaf: &LinkedNode) -> Option<Tooltip> 
         };
 
         // Find metadata about the function.
-        if let Some(Value::Func(func)) = world.library().global.scope().get(&callee);
+        if let Some(TypstValue::Func(func)) = world.library().global.scope().get(&callee);
         then { (func, named) }
         else { return None; }
     };
@@ -215,10 +219,10 @@ fn named_param_tooltip(world: &dyn World, leaf: &LinkedNode) -> Option<Tooltip> 
 /// Find documentation for a castable string.
 fn find_string_doc(info: &CastInfo, string: &str) -> Option<&'static str> {
     match info {
-        CastInfo::Value(Value::Str(s), docs) if s.as_str() == string => Some(docs),
-        CastInfo::Union(options) => {
-            options.iter().find_map(|option| find_string_doc(option, string))
-        }
+        CastInfo::TypstValue(TypstValue::Str(s), docs) if s.as_str() == string => Some(docs),
+        CastInfo::Union(options) => options
+            .iter()
+            .find_map(|option| find_string_doc(option, string)),
         _ => None,
     }
 }

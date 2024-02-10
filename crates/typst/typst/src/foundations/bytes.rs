@@ -8,7 +8,7 @@ use ecow::{eco_format, EcoString};
 use serde::{Serialize, Serializer};
 
 use crate::diag::{bail, StrResult};
-use crate::foundations::{cast, func, scope, ty, Array, Reflect, Repr, Str, Value};
+use crate::foundations::{cast, func, scope, ty, Array, Reflect, Repr, Str, TypstValue};
 
 /// A sequence of bytes.
 ///
@@ -65,15 +65,19 @@ impl Bytes {
 
     /// Resolve an index or throw an out of bounds error.
     fn locate(&self, index: i64) -> StrResult<usize> {
-        self.locate_opt(index).ok_or_else(|| out_of_bounds(index, self.len()))
+        self.locate_opt(index)
+            .ok_or_else(|| out_of_bounds(index, self.len()))
     }
 
     /// Resolve an index, if it is within bounds.
     ///
     /// `index == len` is considered in bounds.
     fn locate_opt(&self, index: i64) -> Option<usize> {
-        let wrapped =
-            if index >= 0 { Some(index) } else { (self.len() as i64).checked_add(index) };
+        let wrapped = if index >= 0 {
+            Some(index)
+        } else {
+            (self.len() as i64).checked_add(index)
+        };
 
         wrapped
             .and_then(|v| usize::try_from(v).ok())
@@ -119,10 +123,10 @@ impl Bytes {
         index: i64,
         /// A default value to return if the index is out of bounds.
         #[named]
-        default: Option<Value>,
-    ) -> StrResult<Value> {
+        default: Option<TypstValue>,
+    ) -> StrResult<TypstValue> {
         self.locate_opt(index)
-            .and_then(|i| self.0.get(i).map(|&b| Value::Int(b.into())))
+            .and_then(|i| self.0.get(i).map(|&b| TypstValue::Int(b.into())))
             .or(default)
             .ok_or_else(|| out_of_bounds_no_default(index, self.len()))
     }
@@ -238,8 +242,8 @@ cast! {
     v: Str => Self(v.as_bytes().into()),
     v: Array => Self(v.iter()
         .map(|item| match item {
-            Value::Int(byte @ 0..=255) => Ok(*byte as u8),
-            Value::Int(_) => bail!("number must be between 0 and 255"),
+            TypstValue::Int(byte @ 0..=255) => Ok(*byte as u8),
+            TypstValue::Int(_) => bail!("number must be between 0 and 255"),
             value => Err(<u8 as Reflect>::error(value)),
         })
         .collect::<Result<Vec<u8>, _>>()?

@@ -6,13 +6,13 @@ use std::str::FromStr;
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, AutoValue, Cast, Content, Dict, Fold, Func, NativeElement, Packed,
-    Resolve, Smart, StyleChain, Value,
+    cast, elem, AutoValue, Cast, Content, Dict, Fold, Func, NativeElement, Packed, Resolve, Smart,
+    StyleChain, TypstValue,
 };
 use crate::introspection::{Counter, CounterKey, ManualPageCounter};
 use crate::layout::{
-    Abs, AlignElem, Alignment, Axes, ColumnsElem, Dir, Frame, HAlignment, LayoutMultiple,
-    Length, Point, Ratio, Regions, Rel, Sides, Size, VAlignment,
+    Abs, AlignElem, Alignment, Axes, ColumnsElem, Dir, Frame, HAlignment, LayoutMultiple, Length,
+    Point, Ratio, Regions, Rel, Sides, Size, VAlignment,
 };
 
 use crate::model::Numbering;
@@ -374,12 +374,12 @@ impl Packed<PageElem> {
             .relative_to(size);
 
         // Determine the binding.
-        let binding =
-            self.binding(styles)
-                .unwrap_or_else(|| match TextElem::dir_in(styles) {
-                    Dir::LTR => Binding::Left,
-                    _ => Binding::Right,
-                });
+        let binding = self
+            .binding(styles)
+            .unwrap_or_else(|| match TextElem::dir_in(styles) {
+                Dir::LTR => Binding::Left,
+                _ => Binding::Right,
+            });
 
         // Realize columns.
         let mut child = self.body().clone();
@@ -400,9 +400,7 @@ impl Packed<PageElem> {
 
         // Align the child to the pagebreak's parity.
         // Check for page count after adding the pending frames
-        if extend_to
-            .is_some_and(|p| !p.matches(page_counter.physical().get() + frames.len()))
-        {
+        if extend_to.is_some_and(|p| !p.matches(page_counter.physical().get() + frames.len())) {
             // Insert empty page after the current pages.
             let size = area.map(Abs::is_finite).select(area, Size::zero());
             frames.push(Frame::hard(size));
@@ -425,11 +423,8 @@ impl Packed<PageElem> {
                 Numbering::Func(_) => true,
             };
 
-            let mut counter = Counter::new(CounterKey::Page).display(
-                self.span(),
-                Some(numbering.clone()),
-                both,
-            );
+            let mut counter =
+                Counter::new(CounterKey::Page).display(self.span(), Some(numbering.clone()), both);
 
             // We interpret the Y alignment as selecting header or footer
             // and then ignore it for aligning the actual number.
@@ -441,9 +436,17 @@ impl Packed<PageElem> {
         }));
 
         if matches!(number_align.y(), Some(VAlignment::Top)) {
-            header = if header.is_some() { header } else { numbering_marginal };
+            header = if header.is_some() {
+                header
+            } else {
+                numbering_marginal
+            };
         } else {
-            footer = if footer.is_some() { footer } else { numbering_marginal };
+            footer = if footer.is_some() {
+                footer
+            } else {
+                numbering_marginal
+            };
         }
 
         // Post-process pages.
@@ -545,7 +548,10 @@ pub struct Margin {
 impl Margin {
     /// Create an instance with four equal components.
     pub fn splat(value: Option<Smart<Rel<Length>>>) -> Self {
-        Self { sides: Sides::splat(value), two_sided: None }
+        Self {
+            sides: Sides::splat(value),
+            two_sided: None,
+        }
     }
 }
 
@@ -562,9 +568,9 @@ cast! {
     Margin,
     self => {
         let mut dict = Dict::new();
-        let mut handle = |key: &str, component: Value| {
+        let mut handle = |key: &str, component: TypstValue| {
             let value = component.into_value();
-            if value != Value::None {
+            if value != TypstValue::None {
                 dict.insert(key.into(), value);
             }
         };
@@ -579,12 +585,12 @@ cast! {
             handle("right", self.sides.right.into_value());
         }
 
-        Value::Dict(dict)
+        TypstValue::Dict(dict)
     },
     _: AutoValue => Self::splat(Some(Smart::Auto)),
     v: Rel<Length> => Self::splat(Some(Smart::Custom(v))),
     mut dict: Dict => {
-        let mut take = |key| dict.take(key).ok().map(Value::cast).transpose();
+        let mut take = |key| dict.take(key).ok().map(TypstValue::cast).transpose();
 
         let rest = take("rest")?;
         let x = take("x")?.or(rest);
@@ -674,11 +680,7 @@ pub enum Marginal {
 
 impl Marginal {
     /// Resolve the marginal based on the page number.
-    pub fn resolve(
-        &self,
-        engine: &mut Engine,
-        page: usize,
-    ) -> SourceResult<Cow<'_, Content>> {
+    pub fn resolve(&self, engine: &mut Engine, page: usize) -> SourceResult<Cow<'_, Content>> {
         Ok(match self {
             Self::Content(content) => Cow::Borrowed(content),
             Self::Func(func) => Cow::Owned(func.call(engine, [page])?.display()),

@@ -12,8 +12,8 @@ use palette::{
 
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::foundations::{
-    array, cast, func, repr, scope, ty, Args, Array, IntoValue, Module, Repr, Scope, Str,
-    Value,
+    array, cast, func, repr, scope, ty, Args, Array, IntoTypstValue, Module, Repr, Scope, Str,
+    TypstValue,
 };
 use crate::layout::{Angle, Ratio};
 use crate::syntax::{Span, Spanned};
@@ -242,8 +242,9 @@ impl Color {
         Ok(if let Some(color) = args.find::<Color>()? {
             color.to_luma()
         } else {
-            let Component(gray) =
-                args.expect("gray component").unwrap_or(Component(Ratio::one()));
+            let Component(gray) = args
+                .expect("gray component")
+                .unwrap_or(Component(Ratio::one()));
             Self::Luma(Luma::new(gray.get() as f32))
         })
     }
@@ -301,8 +302,7 @@ impl Color {
             let RatioComponent(l) = args.expect("lightness component")?;
             let ChromaComponent(a) = args.expect("A component")?;
             let ChromaComponent(b) = args.expect("B component")?;
-            let RatioComponent(alpha) =
-                args.eat()?.unwrap_or(RatioComponent(Ratio::one()));
+            let RatioComponent(alpha) = args.eat()?.unwrap_or(RatioComponent(Ratio::one()));
             Self::Oklab(Oklab::new(l.get() as f32, a, b, alpha.get() as f32))
         })
     }
@@ -359,8 +359,7 @@ impl Color {
             let RatioComponent(l) = args.expect("lightness component")?;
             let ChromaComponent(c) = args.expect("chroma component")?;
             let h: Angle = args.expect("hue component")?;
-            let RatioComponent(alpha) =
-                args.eat()?.unwrap_or(RatioComponent(Ratio::one()));
+            let RatioComponent(alpha) = args.eat()?.unwrap_or(RatioComponent(Ratio::one()));
             Self::Oklch(Oklch::new(
                 l.get() as f32,
                 c,
@@ -696,7 +695,7 @@ impl Color {
     /// | [`rgb`]($color.rgb)     |    Red    |   Green    |    Blue   |  Alpha |
     /// | [`cmyk`]($color.cmyk)   |    Cyan   |   Magenta  |   Yellow  |  Key   |
     /// | [`hsl`]($color.hsl)     |     Hue   | Saturation | Lightness |  Alpha |
-    /// | [`hsv`]($color.hsv)     |     Hue   | Saturation |   Value   |  Alpha |
+    /// | [`hsv`]($color.hsv)     |     Hue   | Saturation |   TypstValue   |  Alpha |
     ///
     /// For the meaning and type of each individual value, see the documentation
     /// of the corresponding color space. The alpha component is optional and
@@ -739,18 +738,14 @@ impl Color {
                     array![
                         Ratio::new(c.l as _),
                         (c.chroma as f64 * 1000.0).round() / 1000.0,
-                        Angle::deg(
-                            c.hue.into_degrees().rem_euclid(360.0 + ANGLE_EPSILON) as _
-                        ),
+                        Angle::deg(c.hue.into_degrees().rem_euclid(360.0 + ANGLE_EPSILON) as _),
                         Ratio::new(c.alpha as _),
                     ]
                 } else {
                     array![
                         Ratio::new(c.l as _),
                         (c.chroma as f64 * 1000.0).round() / 1000.0,
-                        Angle::deg(
-                            c.hue.into_degrees().rem_euclid(360.0 + ANGLE_EPSILON) as _
-                        ),
+                        Angle::deg(c.hue.into_degrees().rem_euclid(360.0 + ANGLE_EPSILON) as _),
                     ]
                 }
             }
@@ -795,18 +790,14 @@ impl Color {
             Self::Hsl(c) => {
                 if alpha {
                     array![
-                        Angle::deg(
-                            c.hue.into_degrees().rem_euclid(360.0 + ANGLE_EPSILON) as _
-                        ),
+                        Angle::deg(c.hue.into_degrees().rem_euclid(360.0 + ANGLE_EPSILON) as _),
                         Ratio::new(c.saturation as _),
                         Ratio::new(c.lightness as _),
                         Ratio::new(c.alpha as _),
                     ]
                 } else {
                     array![
-                        Angle::deg(
-                            c.hue.into_degrees().rem_euclid(360.0 + ANGLE_EPSILON) as _
-                        ),
+                        Angle::deg(c.hue.into_degrees().rem_euclid(360.0 + ANGLE_EPSILON) as _),
                         Ratio::new(c.saturation as _),
                         Ratio::new(c.lightness as _),
                     ]
@@ -815,18 +806,14 @@ impl Color {
             Self::Hsv(c) => {
                 if alpha {
                     array![
-                        Angle::deg(
-                            c.hue.into_degrees().rem_euclid(360.0 + ANGLE_EPSILON) as _
-                        ),
+                        Angle::deg(c.hue.into_degrees().rem_euclid(360.0 + ANGLE_EPSILON) as _),
                         Ratio::new(c.saturation as _),
                         Ratio::new(c.value as _),
                         Ratio::new(c.alpha as _),
                     ]
                 } else {
                     array![
-                        Angle::deg(
-                            c.hue.into_degrees().rem_euclid(360.0 + ANGLE_EPSILON) as _
-                        ),
+                        Angle::deg(c.hue.into_degrees().rem_euclid(360.0 + ANGLE_EPSILON) as _),
                         Ratio::new(c.saturation as _),
                         Ratio::new(c.value as _),
                     ]
@@ -986,9 +973,7 @@ impl Color {
                 1.0 - c.blue,
                 c.alpha,
             )),
-            Self::Rgb(c) => {
-                Self::Rgb(Rgb::new(1.0 - c.red, 1.0 - c.green, 1.0 - c.blue, c.alpha))
-            }
+            Self::Rgb(c) => Self::Rgb(Rgb::new(1.0 - c.red, 1.0 - c.green, 1.0 - c.blue, c.alpha)),
             Self::Cmyk(c) => Self::Cmyk(Cmyk::new(1.0 - c.c, 1.0 - c.m, 1.0 - c.y, c.k)),
             Self::Hsl(c) => Self::Hsl(Hsl::new(
                 RgbHue::from_degrees(360.0 - c.hue.into_degrees()),
@@ -1094,8 +1079,14 @@ impl Color {
         let m = if space.hue_index().is_some() && colors.len() == 2 {
             let mut m = [0.0; 4];
 
-            let WeightedColor { color: c0, weight: w0 } = colors.next().unwrap();
-            let WeightedColor { color: c1, weight: w1 } = colors.next().unwrap();
+            let WeightedColor {
+                color: c0,
+                weight: w0,
+            } = colors.next().unwrap();
+            let WeightedColor {
+                color: c1,
+                weight: w1,
+            } = colors.next().unwrap();
 
             let c0 = c0.to_space(space).to_vec4();
             let c1 = c1.to_space(space).to_vec4();
@@ -1148,15 +1139,9 @@ impl Color {
             ColorSpace::Oklab => Color::Oklab(Oklab::new(m[0], m[1], m[2], m[3])),
             ColorSpace::Oklch => Color::Oklch(Oklch::new(m[0], m[1], m[2], m[3])),
             ColorSpace::Srgb => Color::Rgb(Rgb::new(m[0], m[1], m[2], m[3])),
-            ColorSpace::LinearRgb => {
-                Color::LinearRgb(LinearRgb::new(m[0], m[1], m[2], m[3]))
-            }
-            ColorSpace::Hsl => {
-                Color::Hsl(Hsl::new(RgbHue::from_degrees(m[0]), m[1], m[2], m[3]))
-            }
-            ColorSpace::Hsv => {
-                Color::Hsv(Hsv::new(RgbHue::from_degrees(m[0]), m[1], m[2], m[3]))
-            }
+            ColorSpace::LinearRgb => Color::LinearRgb(LinearRgb::new(m[0], m[1], m[2], m[3])),
+            ColorSpace::Hsl => Color::Hsl(Hsl::new(RgbHue::from_degrees(m[0]), m[1], m[2], m[3])),
+            ColorSpace::Hsv => Color::Hsv(Hsv::new(RgbHue::from_degrees(m[0]), m[1], m[2], m[3])),
             ColorSpace::Cmyk => Color::Cmyk(Cmyk::new(m[0], m[1], m[2], m[3])),
             ColorSpace::D65Gray => Color::Luma(Luma::new(m[0])),
         })
@@ -1342,12 +1327,8 @@ impl Color {
             Self::Luma(c) => Cmyk::from_luma(c),
             // Perform sRGB gamut mapping by converting to Okhsv first.
             // This yields better results than clamping.
-            Self::Oklab(c) => {
-                Cmyk::from_rgba(Rgb::from_color_unclamped(Okhsva::from_color(c)))
-            }
-            Self::Oklch(c) => {
-                Cmyk::from_rgba(Rgb::from_color_unclamped(Okhsva::from_color(c)))
-            }
+            Self::Oklab(c) => Cmyk::from_rgba(Rgb::from_color_unclamped(Okhsva::from_color(c))),
+            Self::Oklch(c) => Cmyk::from_rgba(Rgb::from_color_unclamped(Okhsva::from_color(c))),
             Self::Rgb(c) => Cmyk::from_rgba(c),
             Self::LinearRgb(c) => Cmyk::from_rgba(Rgb::from_linear(c)),
             Self::Cmyk(c) => c,
@@ -1411,7 +1392,11 @@ impl Debug for Color {
                 write!(f, "Rgb({}, {}, {}, {})", v.red, v.green, v.blue, v.alpha)
             }
             Self::LinearRgb(v) => {
-                write!(f, "LinearRgb({}, {}, {}, {})", v.red, v.green, v.blue, v.alpha)
+                write!(
+                    f,
+                    "LinearRgb({}, {}, {}, {})",
+                    v.red, v.green, v.blue, v.alpha
+                )
             }
             Self::Cmyk(v) => write!(f, "Cmyk({}, {}, {}, {})", v.c, v.m, v.y, v.k),
             Self::Hsl(v) => write!(
@@ -1718,12 +1703,22 @@ impl Cmyk {
 
     fn lighten(self, factor: f32) -> Self {
         let lighten = |u: f32| (u - u * factor).clamp(0.0, 1.0);
-        Self::new(lighten(self.c), lighten(self.m), lighten(self.y), lighten(self.k))
+        Self::new(
+            lighten(self.c),
+            lighten(self.m),
+            lighten(self.y),
+            lighten(self.k),
+        )
     }
 
     fn darken(self, factor: f32) -> Self {
         let darken = |u: f32| (u + (1.0 - u) * factor).clamp(0.0, 1.0);
-        Self::new(darken(self.c), darken(self.m), darken(self.y), darken(self.k))
+        Self::new(
+            darken(self.c),
+            darken(self.m),
+            darken(self.y),
+            darken(self.k),
+        )
     }
 }
 
@@ -1742,7 +1737,7 @@ impl WeightedColor {
 
 cast! {
     WeightedColor,
-    self => array![self.color, Value::Float(self.weight as _)].into_value(),
+    self => array![self.color, TypstValue::Float(self.weight as _)].into_value(),
     color: Color => Self { color, weight: 1.0 },
     v: Array => {
         let mut iter = v.into_iter();
@@ -1810,9 +1805,9 @@ cast! {
         Self::Hsv => Color::hsv_data(),
         Self::Cmyk => Color::cmyk_data(),
     }.into_value(),
-    v: Value => {
+    v: TypstValue => {
         let expected = "expected `rgb`, `luma`, `cmyk`, `oklab`, `oklch`, `color.linear-rgb`, `color.hsl`, or `color.hsv`";
-        let Value::Func(func) = v else {
+        let TypstValue::Func(func) = v else {
             bail!("{expected}, found {}", v.ty());
         };
 

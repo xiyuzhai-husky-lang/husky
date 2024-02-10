@@ -5,7 +5,7 @@ use ecow::{eco_format, EcoString, EcoVec};
 
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{cast, func, Func, Str, Value};
+use crate::foundations::{cast, func, Func, Str, TypstValue};
 use crate::text::Case;
 
 /// Applies a numbering to a sequence of numbers.
@@ -65,7 +65,7 @@ pub fn numbering(
     /// given, the last counting symbol with its prefix is repeated.
     #[variadic]
     numbers: Vec<usize>,
-) -> SourceResult<Value> {
+) -> SourceResult<TypstValue> {
     numbering.apply(engine, &numbers)
 }
 
@@ -80,9 +80,9 @@ pub enum Numbering {
 
 impl Numbering {
     /// Apply the pattern to the given numbers.
-    pub fn apply(&self, engine: &mut Engine, numbers: &[usize]) -> SourceResult<Value> {
+    pub fn apply(&self, engine: &mut Engine, numbers: &[usize]) -> SourceResult<TypstValue> {
         Ok(match self {
-            Self::Pattern(pattern) => Value::Str(pattern.apply(numbers).into()),
+            Self::Pattern(pattern) => TypstValue::Str(pattern.apply(numbers).into()),
             Self::Func(func) => func.call(engine, numbers.iter().copied())?,
         })
     }
@@ -135,18 +135,14 @@ impl NumberingPattern {
         let mut fmt = EcoString::new();
         let mut numbers = numbers.iter();
 
-        for (i, ((prefix, kind, case), &n)) in
-            self.pieces.iter().zip(&mut numbers).enumerate()
-        {
+        for (i, ((prefix, kind, case), &n)) in self.pieces.iter().zip(&mut numbers).enumerate() {
             if i > 0 || !self.trimmed {
                 fmt.push_str(prefix);
             }
             fmt.push_str(&kind.apply(n, *case));
         }
 
-        for ((prefix, kind, case), &n) in
-            self.pieces.last().into_iter().cycle().zip(numbers)
-        {
+        for ((prefix, kind, case), &n) in self.pieces.last().into_iter().cycle().zip(numbers) {
             if prefix.is_empty() {
                 fmt.push_str(&self.suffix);
             } else {
@@ -199,8 +195,11 @@ impl FromStr for NumberingPattern {
             };
 
             let prefix = pattern[handled..i].into();
-            let case =
-                if c.is_uppercase() || c == '壹' { Case::Upper } else { Case::Lower };
+            let case = if c.is_uppercase() || c == '壹' {
+                Case::Upper
+            } else {
+                Case::Lower
+            };
             pieces.push((prefix, kind, case));
             handled = c.len_utf8() + i;
         }
@@ -210,7 +209,11 @@ impl FromStr for NumberingPattern {
             return Err("invalid numbering pattern");
         }
 
-        Ok(Self { pieces, suffix, trimmed: false })
+        Ok(Self {
+            pieces,
+            suffix,
+            trimmed: false,
+        })
     }
 }
 
@@ -311,11 +314,10 @@ impl NumberingKind {
             Self::HiraganaAiueo => zeroless::<46>(
                 |x| {
                     [
-                        'あ', 'い', 'う', 'え', 'お', 'か', 'き', 'く', 'け', 'こ', 'さ',
-                        'し', 'す', 'せ', 'そ', 'た', 'ち', 'つ', 'て', 'と', 'な', 'に',
-                        'ぬ', 'ね', 'の', 'は', 'ひ', 'ふ', 'へ', 'ほ', 'ま', 'み', 'む',
-                        'め', 'も', 'や', 'ゆ', 'よ', 'ら', 'り', 'る', 'れ', 'ろ', 'わ',
-                        'を', 'ん',
+                        'あ', 'い', 'う', 'え', 'お', 'か', 'き', 'く', 'け', 'こ', 'さ', 'し',
+                        'す', 'せ', 'そ', 'た', 'ち', 'つ', 'て', 'と', 'な', 'に', 'ぬ', 'ね',
+                        'の', 'は', 'ひ', 'ふ', 'へ', 'ほ', 'ま', 'み', 'む', 'め', 'も', 'や',
+                        'ゆ', 'よ', 'ら', 'り', 'る', 'れ', 'ろ', 'わ', 'を', 'ん',
                     ][x]
                 },
                 n,
@@ -323,11 +325,10 @@ impl NumberingKind {
             Self::HiraganaIroha => zeroless::<47>(
                 |x| {
                     [
-                        'い', 'ろ', 'は', 'に', 'ほ', 'へ', 'と', 'ち', 'り', 'ぬ', 'る',
-                        'を', 'わ', 'か', 'よ', 'た', 'れ', 'そ', 'つ', 'ね', 'な', 'ら',
-                        'む', 'う', 'ゐ', 'の', 'お', 'く', 'や', 'ま', 'け', 'ふ', 'こ',
-                        'え', 'て', 'あ', 'さ', 'き', 'ゆ', 'め', 'み', 'し', 'ゑ', 'ひ',
-                        'も', 'せ', 'す',
+                        'い', 'ろ', 'は', 'に', 'ほ', 'へ', 'と', 'ち', 'り', 'ぬ', 'る', 'を',
+                        'わ', 'か', 'よ', 'た', 'れ', 'そ', 'つ', 'ね', 'な', 'ら', 'む', 'う',
+                        'ゐ', 'の', 'お', 'く', 'や', 'ま', 'け', 'ふ', 'こ', 'え', 'て', 'あ',
+                        'さ', 'き', 'ゆ', 'め', 'み', 'し', 'ゑ', 'ひ', 'も', 'せ', 'す',
                     ][x]
                 },
                 n,
@@ -335,11 +336,10 @@ impl NumberingKind {
             Self::KatakanaAiueo => zeroless::<46>(
                 |x| {
                     [
-                        'ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ', 'コ', 'サ',
-                        'シ', 'ス', 'セ', 'ソ', 'タ', 'チ', 'ツ', 'テ', 'ト', 'ナ', 'ニ',
-                        'ヌ', 'ネ', 'ノ', 'ハ', 'ヒ', 'フ', 'ヘ', 'ホ', 'マ', 'ミ', 'ム',
-                        'メ', 'モ', 'ヤ', 'ユ', 'ヨ', 'ラ', 'リ', 'ル', 'レ', 'ロ', 'ワ',
-                        'ヲ', 'ン',
+                        'ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ', 'コ', 'サ', 'シ',
+                        'ス', 'セ', 'ソ', 'タ', 'チ', 'ツ', 'テ', 'ト', 'ナ', 'ニ', 'ヌ', 'ネ',
+                        'ノ', 'ハ', 'ヒ', 'フ', 'ヘ', 'ホ', 'マ', 'ミ', 'ム', 'メ', 'モ', 'ヤ',
+                        'ユ', 'ヨ', 'ラ', 'リ', 'ル', 'レ', 'ロ', 'ワ', 'ヲ', 'ン',
                     ][x]
                 },
                 n,
@@ -347,11 +347,10 @@ impl NumberingKind {
             Self::KatakanaIroha => zeroless::<47>(
                 |x| {
                     [
-                        'イ', 'ロ', 'ハ', 'ニ', 'ホ', 'ヘ', 'ト', 'チ', 'リ', 'ヌ', 'ル',
-                        'ヲ', 'ワ', 'カ', 'ヨ', 'タ', 'レ', 'ソ', 'ツ', 'ネ', 'ナ', 'ラ',
-                        'ム', 'ウ', 'ヰ', 'ノ', 'オ', 'ク', 'ヤ', 'マ', 'ケ', 'フ', 'コ',
-                        'エ', 'テ', 'ア', 'サ', 'キ', 'ユ', 'メ', 'ミ', 'シ', 'ヱ', 'ヒ',
-                        'モ', 'セ', 'ス',
+                        'イ', 'ロ', 'ハ', 'ニ', 'ホ', 'ヘ', 'ト', 'チ', 'リ', 'ヌ', 'ル', 'ヲ',
+                        'ワ', 'カ', 'ヨ', 'タ', 'レ', 'ソ', 'ツ', 'ネ', 'ナ', 'ラ', 'ム', 'ウ',
+                        'ヰ', 'ノ', 'オ', 'ク', 'ヤ', 'マ', 'ケ', 'フ', 'コ', 'エ', 'テ', 'ア',
+                        'サ', 'キ', 'ユ', 'メ', 'ミ', 'シ', 'ヱ', 'ヒ', 'モ', 'セ', 'ス',
                     ][x]
                 },
                 n,
@@ -484,8 +483,8 @@ impl NumberingKind {
             Self::KoreanJamo => zeroless::<14>(
                 |x| {
                     [
-                        'ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ',
-                        'ㅌ', 'ㅍ', 'ㅎ',
+                        'ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ',
+                        'ㅍ', 'ㅎ',
                     ][x]
                 },
                 n,
@@ -493,8 +492,8 @@ impl NumberingKind {
             Self::KoreanSyllable => zeroless::<14>(
                 |x| {
                     [
-                        '가', '나', '다', '라', '마', '바', '사', '아', '자', '차', '카',
-                        '타', '파', '하',
+                        '가', '나', '다', '라', '마', '바', '사', '아', '자', '차', '카', '타',
+                        '파', '하',
                     ][x]
                 },
                 n,
@@ -527,10 +526,7 @@ impl NumberingKind {
 ///
 /// You might be familiar with this scheme from the way spreadsheet software
 /// tends to label its columns.
-fn zeroless<const N_DIGITS: usize>(
-    mk_digit: impl Fn(usize) -> char,
-    mut n: usize,
-) -> EcoString {
+fn zeroless<const N_DIGITS: usize>(mk_digit: impl Fn(usize) -> char, mut n: usize) -> EcoString {
     if n == 0 {
         return '-'.into();
     }

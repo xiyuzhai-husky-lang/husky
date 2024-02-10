@@ -23,9 +23,9 @@ use crate::diag::{bail, error, At, FileError, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::eval::{eval_string, EvalMode};
 use crate::foundations::{
-    cast, elem, ty, Args, Array, Bytes, CastInfo, Content, FromValue, IntoValue, Label,
-    NativeElement, Packed, Reflect, Repr, Scope, Show, ShowSet, Smart, Str, StyleChain,
-    Styles, Synthesize, Type, Value,
+    cast, elem, ty, Args, Array, Bytes, CastInfo, Content, FromTypstValue, IntoTypstValue, Label,
+    NativeElement, Packed, Reflect, Repr, Scope, Show, ShowSet, Smart, Str, StyleChain, Styles,
+    Synthesize, Type, TypstValue,
 };
 use crate::introspection::{Introspector, Locatable, Location};
 use crate::layout::{
@@ -36,9 +36,7 @@ use crate::model::{
 };
 
 use crate::syntax::{Span, Spanned};
-use crate::text::{
-    FontStyle, Lang, LocalName, Region, SubElem, SuperElem, TextElem, WeightDelta,
-};
+use crate::text::{FontStyle, Lang, LocalName, Region, SubElem, SuperElem, TextElem, WeightDelta};
 use crate::util::{option_eq, NonZeroExt, PicoStr};
 use crate::World;
 
@@ -150,7 +148,7 @@ cast! {
     BibliographyPaths,
     self => self.0.into_value(),
     v: EcoString => Self(vec![v]),
-    v: Array => Self(v.into_iter().map(Value::cast).collect::<StrResult<_>>()?),
+    v: Array => Self(v.into_iter().map(TypstValue::cast).collect::<StrResult<_>>()?),
 }
 
 impl BibliographyElem {
@@ -180,9 +178,7 @@ impl BibliographyElem {
     }
 
     /// Find all bibliography keys.
-    pub fn keys(
-        introspector: Tracked<Introspector>,
-    ) -> Vec<(EcoString, Option<EcoString>)> {
+    pub fn keys(introspector: Tracked<Introspector>) -> Vec<(EcoString, Option<EcoString>)> {
         let mut vec = vec![];
         for elem in introspector.query(&Self::elem().select()).iter() {
             let this = elem.to_packed::<Self>().unwrap();
@@ -238,8 +234,7 @@ impl Show for Packed<BibliographyElem> {
             let mut cells = vec![];
             for (prefix, reference) in references {
                 cells.push(
-                    Packed::new(GridCell::new(prefix.clone().unwrap_or_default()))
-                        .spanned(span),
+                    Packed::new(GridCell::new(prefix.clone().unwrap_or_default())).spanned(span),
                 );
                 cells.push(Packed::new(GridCell::new(reference.clone())).spanned(span));
             }
@@ -441,9 +436,7 @@ pub struct CslStyle {
 impl CslStyle {
     /// Parse the style argument.
     pub fn parse(engine: &mut Engine, args: &mut Args) -> SourceResult<Option<CslStyle>> {
-        let Some(Spanned { v: string, span }) =
-            args.named::<Spanned<EcoString>>("style")?
-        else {
+        let Some(Spanned { v: string, span }) = args.named::<Spanned<EcoString>>("style")? else {
             return Ok(None);
         };
 
@@ -455,8 +448,7 @@ impl CslStyle {
         engine: &mut Engine,
         args: &mut Args,
     ) -> SourceResult<Option<Smart<CslStyle>>> {
-        let Some(Spanned { v: smart, span }) =
-            args.named::<Spanned<Smart<EcoString>>>("style")?
+        let Some(Spanned { v: smart, span }) = args.named::<Spanned<Smart<EcoString>>>("style")?
         else {
             return Ok(None);
         };
@@ -503,7 +495,10 @@ impl CslStyle {
     pub fn from_data(data: &Bytes) -> StrResult<CslStyle> {
         let text = std::str::from_utf8(data.as_slice()).map_err(FileError::from)?;
         citationberg::IndependentStyle::from_xml(text)
-            .map(|style| Self { name: None, style: Arc::new(Prehashed::new(style)) })
+            .map(|style| Self {
+                name: None,
+                style: Arc::new(Prehashed::new(style)),
+            })
             .map_err(|err| eco_format!("failed to load CSL style ({err})"))
     }
 
@@ -514,15 +509,15 @@ impl CslStyle {
 }
 
 // This Reflect impl is technically a bit wrong because it doesn't say what
-// FromValue and IntoValue really do. Instead, it says what the `style` argument
+// FromTypstValue and IntoTypstValue really do. Instead, it says what the `style` argument
 // on `bibliography` and `cite` expect (through manual parsing).
 impl Reflect for CslStyle {
     #[comemo::memoize]
     fn input() -> CastInfo {
         let ty = std::iter::once(CastInfo::Type(Type::of::<Str>()));
-        let options = hayagriva::archive::ArchivedStyle::all().iter().map(|name| {
-            CastInfo::Value(name.names()[0].into_value(), name.display_name())
-        });
+        let options = hayagriva::archive::ArchivedStyle::all()
+            .iter()
+            .map(|name| CastInfo::TypstValue(name.names()[0].into_value(), name.display_name()));
         CastInfo::Union(ty.chain(options).collect())
     }
 
@@ -530,8 +525,8 @@ impl Reflect for CslStyle {
         EcoString::output()
     }
 
-    fn castable(value: &Value) -> bool {
-        if let Value::Dyn(dynamic) = &value {
+    fn castable(value: &TypstValue) -> bool {
+        if let TypstValue::Dyn(dynamic) = &value {
             if dynamic.is::<Self>() {
                 return true;
             }
@@ -541,9 +536,9 @@ impl Reflect for CslStyle {
     }
 }
 
-impl FromValue for CslStyle {
-    fn from_value(value: Value) -> StrResult<Self> {
-        if let Value::Dyn(dynamic) = &value {
+impl FromTypstValue for CslStyle {
+    fn from_value(value: TypstValue) -> StrResult<Self> {
+        if let TypstValue::Dyn(dynamic) = &value {
             if let Some(concrete) = dynamic.downcast::<Self>() {
                 return Ok(concrete.clone());
             }
@@ -553,9 +548,9 @@ impl FromValue for CslStyle {
     }
 }
 
-impl IntoValue for CslStyle {
-    fn into_value(self) -> Value {
-        Value::dynamic(self)
+impl IntoTypstValue for CslStyle {
+    fn into_value(self) -> TypstValue {
+        TypstValue::dynamic(self)
     }
 }
 
@@ -655,8 +650,7 @@ impl<'a> Generator<'a> {
 
     /// Drives hayagriva's citation driver.
     fn drive(&mut self) -> hayagriva::Rendered {
-        static LOCALES: Lazy<Vec<citationberg::Locale>> =
-            Lazy::new(hayagriva::archive::locales);
+        static LOCALES: Lazy<Vec<citationberg::Locale>> = Lazy::new(hayagriva::archive::locales);
 
         let database = self.bibliography.bibliography();
         let bibliography_style = self.bibliography.style(StyleChain::default());
@@ -670,7 +664,9 @@ impl<'a> Generator<'a> {
             let children = group.children();
 
             // Groups should never be empty.
-            let Some(first) = children.first() else { continue };
+            let Some(first) = children.first() else {
+                continue;
+            };
 
             let mut subinfos = SmallVec::with_capacity(children.len());
             let mut items = Vec::with_capacity(children.len());
@@ -711,8 +707,18 @@ impl<'a> Generator<'a> {
                 };
 
                 normal &= special_form.is_none();
-                subinfos.push(CiteInfo { key, supplement, hidden });
-                items.push(CitationItem::new(entry, locator, None, hidden, special_form));
+                subinfos.push(CiteInfo {
+                    key,
+                    supplement,
+                    hidden,
+                });
+                items.push(CitationItem::new(
+                    entry,
+                    locator,
+                    None,
+                    hidden,
+                    special_form,
+                ));
             }
 
             if !errors.is_empty() {
@@ -729,8 +735,7 @@ impl<'a> Generator<'a> {
                 location,
                 subinfos,
                 span: first.span(),
-                footnote: normal
-                    && style.settings.class == citationberg::StyleClass::Note,
+                footnote: normal && style.settings.class == citationberg::StyleClass::Note,
             });
 
             driver.citation(CitationRequest::new(
@@ -775,9 +780,15 @@ impl<'a> Generator<'a> {
     fn display(&mut self, rendered: &hayagriva::Rendered) -> StrResult<Works> {
         let citations = self.display_citations(rendered);
         let references = self.display_references(rendered);
-        let hanging_indent =
-            rendered.bibliography.as_ref().map_or(false, |b| b.hanging_indent);
-        Ok(Works { citations, references, hanging_indent })
+        let hanging_indent = rendered
+            .bibliography
+            .as_ref()
+            .map_or(false, |b| b.hanging_indent);
+        Ok(Works {
+            citations,
+            references,
+            hanging_indent,
+        })
     }
 
     /// Display the citation groups.
@@ -810,8 +821,7 @@ impl<'a> Generator<'a> {
             let content = if info.subinfos.iter().all(|sub| sub.hidden) {
                 Content::empty()
             } else {
-                let mut content =
-                    renderer.display_elem_children(&citation.citation, &mut None);
+                let mut content = renderer.display_elem_children(&citation.citation, &mut None);
 
                 if info.footnote {
                     content = FootnoteElem::with_content(content).pack();
@@ -905,7 +915,10 @@ impl ElemRenderer<'_> {
         prefix: &mut Option<Content>,
     ) -> Content {
         Content::sequence(
-            elems.0.iter().map(|elem| self.display_elem_child(elem, prefix)),
+            elems
+                .0
+                .iter()
+                .map(|elem| self.display_elem_child(elem, prefix)),
         )
     }
 
@@ -927,11 +940,7 @@ impl ElemRenderer<'_> {
     }
 
     /// Display a block-level element.
-    fn display_elem(
-        &self,
-        elem: &hayagriva::Elem,
-        prefix: &mut Option<Content>,
-    ) -> Content {
+    fn display_elem(&self, elem: &hayagriva::Elem, prefix: &mut Option<Content>) -> Content {
         use citationberg::Display;
 
         let block_level = matches!(elem.display, Some(Display::Block | Display::Indent));
@@ -956,8 +965,10 @@ impl ElemRenderer<'_> {
 
         match elem.display {
             Some(Display::Block) => {
-                content =
-                    BlockElem::new().with_body(Some(content)).pack().spanned(self.span);
+                content = BlockElem::new()
+                    .with_body(Some(content))
+                    .pack()
+                    .spanned(self.span);
             }
             Some(Display::Indent) => {
                 content = PadElem::new(content).pack().spanned(self.span);
@@ -982,7 +993,7 @@ impl ElemRenderer<'_> {
     /// Display math.
     fn display_math(&self, math: &str) -> Content {
         eval_string(self.world, math, self.span, EvalMode::Math, Scope::new())
-            .map(Value::display)
+            .map(TypstValue::display)
             .unwrap_or_else(|_| TextElem::packed(math).spanned(self.span))
     }
 

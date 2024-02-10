@@ -2,7 +2,7 @@ use std::fmt::{self, Debug, Formatter};
 
 use crate::diag::StrResult;
 use crate::foundations::{
-    CastInfo, Dict, Fold, FromValue, IntoValue, Reflect, Resolve, StyleChain, Value,
+    CastInfo, Dict, Fold, FromTypstValue, IntoTypstValue, Reflect, Resolve, StyleChain, TypstValue,
 };
 use crate::layout::Side;
 use crate::util::Get;
@@ -23,7 +23,12 @@ pub struct Corners<T> {
 impl<T> Corners<T> {
     /// Create a new instance from the four components.
     pub const fn new(top_left: T, top_right: T, bottom_right: T, bottom_left: T) -> Self {
-        Self { top_left, top_right, bottom_right, bottom_left }
+        Self {
+            top_left,
+            top_right,
+            bottom_right,
+            bottom_left,
+        }
     }
 
     /// Create an instance with four equal components.
@@ -65,8 +70,13 @@ impl<T> Corners<T> {
     /// An iterator over the corners, starting with the top left corner,
     /// clockwise.
     pub fn iter(&self) -> impl Iterator<Item = &T> {
-        [&self.top_left, &self.top_right, &self.bottom_right, &self.bottom_left]
-            .into_iter()
+        [
+            &self.top_left,
+            &self.top_right,
+            &self.bottom_right,
+            &self.bottom_left,
+        ]
+        .into_iter()
     }
 
     /// Whether all sides are equal.
@@ -138,16 +148,16 @@ impl<T: Reflect> Reflect for Corners<Option<T>> {
         T::output() + Dict::output()
     }
 
-    fn castable(value: &Value) -> bool {
+    fn castable(value: &TypstValue) -> bool {
         Dict::castable(value) || T::castable(value)
     }
 }
 
-impl<T> IntoValue for Corners<Option<T>>
+impl<T> IntoTypstValue for Corners<Option<T>>
 where
-    T: PartialEq + IntoValue,
+    T: PartialEq + IntoTypstValue,
 {
-    fn into_value(self) -> Value {
+    fn into_value(self) -> TypstValue {
         if self.is_uniform() {
             if let Some(top_left) = self.top_left {
                 return top_left.into_value();
@@ -166,15 +176,15 @@ where
         handle("bottom-right", self.bottom_right);
         handle("bottom-left", self.bottom_left);
 
-        Value::Dict(dict)
+        TypstValue::Dict(dict)
     }
 }
 
-impl<T> FromValue for Corners<Option<T>>
+impl<T> FromTypstValue for Corners<Option<T>>
 where
-    T: FromValue + Clone,
+    T: FromTypstValue + Clone,
 {
-    fn from_value(mut value: Value) -> StrResult<Self> {
+    fn from_value(mut value: TypstValue) -> StrResult<Self> {
         let expected_keys = [
             "top-left",
             "top-right",
@@ -187,10 +197,13 @@ where
             "rest",
         ];
 
-        if let Value::Dict(dict) = &mut value {
+        if let TypstValue::Dict(dict) = &mut value {
             if dict.is_empty() {
                 return Ok(Self::splat(None));
-            } else if dict.iter().any(|(key, _)| expected_keys.contains(&key.as_str())) {
+            } else if dict
+                .iter()
+                .any(|(key, _)| expected_keys.contains(&key.as_str()))
+            {
                 let mut take = |key| dict.take(key).ok().map(T::from_value).transpose();
                 let rest = take("rest")?;
                 let left = take("left")?.or_else(|| rest.clone());
@@ -219,7 +232,7 @@ where
 
         if T::castable(&value) {
             Ok(Self::splat(Some(T::from_value(value)?)))
-        } else if let Value::Dict(dict) = &value {
+        } else if let TypstValue::Dict(dict) = &value {
             let keys = dict.iter().map(|kv| kv.0.as_str()).collect();
             // Do not hint at expected_keys, because T may be castable from Dict
             // objects with other sets of expected keys.

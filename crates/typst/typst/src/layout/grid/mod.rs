@@ -10,11 +10,10 @@ use smallvec::{smallvec, SmallVec};
 use crate::diag::{SourceResult, StrResult, Trace, Tracepoint};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, Array, Content, Fold, Packed, Show, Smart, StyleChain, Value,
+    cast, elem, scope, Array, Content, Fold, Packed, Show, Smart, StyleChain, TypstValue,
 };
 use crate::layout::{
-    AlignElem, Alignment, Axes, Fragment, LayoutMultiple, Length, Regions, Rel, Sides,
-    Sizing,
+    AlignElem, Alignment, Axes, Fragment, LayoutMultiple, Length, Regions, Rel, Sides, Sizing,
 };
 use crate::syntax::Span;
 use crate::util::NonZeroExt;
@@ -329,7 +328,7 @@ cast! {
     self => self.0.into_value(),
     sizing: Sizing => Self(smallvec![sizing]),
     count: NonZeroUsize => Self(smallvec![Sizing::Auto; count.get()]),
-    values: Array => Self(values.into_iter().map(Value::cast).collect::<StrResult<_>>()?),
+    values: Array => Self(values.into_iter().map(TypstValue::cast).collect::<StrResult<_>>()?),
 }
 
 /// A cell in the grid. Use this to either override grid properties for a
@@ -482,7 +481,11 @@ impl ResolvableCell for Packed<GridCell> {
         cell.push_inset(Smart::Custom(
             cell.inset(styles).map_or(inset, |inner| inner.fold(inset)),
         ));
-        Cell { body: self.pack(), fill, colspan }
+        Cell {
+            body: self.pack(),
+            fill,
+            colspan,
+        }
     }
 
     fn x(&self, styles: StyleChain) -> Smart<usize> {

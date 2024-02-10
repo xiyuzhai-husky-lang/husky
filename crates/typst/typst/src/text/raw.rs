@@ -12,15 +12,15 @@ use unicode_segmentation::UnicodeSegmentation;
 use crate::diag::{At, FileError, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, Args, Array, Bytes, Content, Fold, NativeElement, Packed,
-    PlainText, Show, ShowSet, Smart, StyleChain, Styles, Synthesize, Value,
+    cast, elem, scope, Args, Array, Bytes, Content, Fold, NativeElement, Packed, PlainText, Show,
+    ShowSet, Smart, StyleChain, Styles, Synthesize, TypstValue,
 };
 use crate::layout::{BlockElem, Em, HAlignment};
 use crate::model::Figurable;
 use crate::syntax::{split_newlines, LinkedNode, Spanned};
 use crate::text::{
-    FontFamily, FontList, Hyphenate, Lang, LinebreakElem, LocalName, Region,
-    SmartQuoteElem, TextElem, TextSize,
+    FontFamily, FontList, Hyphenate, Lang, LinebreakElem, LocalName, Region, SmartQuoteElem,
+    TextElem, TextSize,
 };
 use crate::util::option_eq;
 use crate::visualize::Color;
@@ -322,8 +322,11 @@ impl Packed<RawElem> {
         });
 
         let theme = elem.theme(styles).as_ref().as_ref().map(|theme_path| {
-            load_theme(theme_path, elem.theme_data(styles).as_ref().as_ref().unwrap())
-                .unwrap()
+            load_theme(
+                theme_path,
+                elem.theme_data(styles).as_ref().as_ref().unwrap(),
+            )
+            .unwrap()
         });
 
         let theme = theme.as_deref().unwrap_or(&RAW_THEME);
@@ -367,8 +370,10 @@ impl Packed<RawElem> {
             let mut highlighter = syntect::easy::HighlightLines::new(syntax, theme);
             for (i, line) in lines.into_iter().enumerate() {
                 let mut line_content = vec![];
-                for (style, piece) in
-                    highlighter.highlight_line(line, syntax_set).into_iter().flatten()
+                for (style, piece) in highlighter
+                    .highlight_line(line, syntax_set)
+                    .into_iter()
+                    .flatten()
                 {
                     line_content.push(styled(piece, foreground, style));
                 }
@@ -417,8 +422,10 @@ impl Show for Packed<RawElem> {
         if self.block(styles) {
             // Align the text before inserting it into the block.
             realized = realized.aligned(self.align(styles).into());
-            realized =
-                BlockElem::new().with_body(Some(realized)).pack().spanned(self.span());
+            realized = BlockElem::new()
+                .with_body(Some(realized))
+                .pack()
+                .spanned(self.span());
         }
 
         Ok(realized)
@@ -431,7 +438,9 @@ impl ShowSet for Packed<RawElem> {
         out.set(TextElem::set_overhang(false));
         out.set(TextElem::set_hyphenate(Hyphenate(Smart::Custom(false))));
         out.set(TextElem::set_size(TextSize(Em::new(0.8).into())));
-        out.set(TextElem::set_font(FontList(vec![FontFamily::new("DejaVu Sans Mono")])));
+        out.set(TextElem::set_font(FontList(vec![FontFamily::new(
+            "DejaVu Sans Mono",
+        )])));
         out.set(SmartQuoteElem::set_enabled(false));
         out
     }
@@ -659,7 +668,7 @@ cast! {
     SyntaxPaths,
     self => self.0.into_value(),
     v: EcoString => Self(vec![v]),
-    v: Array => Self(v.into_iter().map(Value::cast).collect::<StrResult<_>>()?),
+    v: Array => Self(v.into_iter().map(TypstValue::cast).collect::<StrResult<_>>()?),
 }
 
 impl Fold for SyntaxPaths {
@@ -677,9 +686,10 @@ fn load_syntaxes(paths: &SyntaxPaths, bytes: &[Bytes]) -> StrResult<Arc<SyntaxSe
     // We might have multiple sublime-syntax/yaml files
     for (path, bytes) in paths.0.iter().zip(bytes.iter()) {
         let src = std::str::from_utf8(bytes).map_err(FileError::from)?;
-        out.add(SyntaxDefinition::load_from_str(src, false, None).map_err(|err| {
-            eco_format!("failed to parse syntax file `{path}` ({err})")
-        })?);
+        out.add(
+            SyntaxDefinition::load_from_str(src, false, None)
+                .map_err(|err| eco_format!("failed to parse syntax file `{path}` ({err})"))?,
+        );
     }
 
     Ok(Arc::new(out.build()))
@@ -691,9 +701,7 @@ fn parse_syntaxes(
     engine: &mut Engine,
     args: &mut Args,
 ) -> SourceResult<(Option<SyntaxPaths>, Option<Vec<Bytes>>)> {
-    let Some(Spanned { v: paths, span }) =
-        args.named::<Spanned<SyntaxPaths>>("syntaxes")?
-    else {
+    let Some(Spanned { v: paths, span }) = args.named::<Spanned<SyntaxPaths>>("syntaxes")? else {
         return Ok((None, None));
     };
 
@@ -729,8 +737,7 @@ fn parse_theme(
     engine: &mut Engine,
     args: &mut Args,
 ) -> SourceResult<(Option<EcoString>, Option<Bytes>)> {
-    let Some(Spanned { v: path, span }) = args.named::<Spanned<EcoString>>("theme")?
-    else {
+    let Some(Spanned { v: path, span }) = args.named::<Spanned<EcoString>>("theme")? else {
         return Ok((None, None));
     };
 
@@ -766,7 +773,11 @@ pub static RAW_THEME: Lazy<synt::Theme> = Lazy::new(|| synt::Theme {
         item("string.other.math.typst", None, None),
         item("punctuation.definition.math", Some("#298e0d"), None),
         item("keyword.operator.math", Some("#1d6c76"), None),
-        item("markup.heading, entity.name.section", None, Some(synt::FontStyle::BOLD)),
+        item(
+            "markup.heading, entity.name.section",
+            None,
+            Some(synt::FontStyle::BOLD),
+        ),
         item(
             "markup.heading.typst",
             None,
@@ -774,27 +785,43 @@ pub static RAW_THEME: Lazy<synt::Theme> = Lazy::new(|| synt::Theme {
         ),
         item("punctuation.definition.list", Some("#8b41b1"), None),
         item("markup.list.term", None, Some(synt::FontStyle::BOLD)),
-        item("entity.name.label, markup.other.reference", Some("#1d6c76"), None),
-        item("keyword, constant.language, variable.language", Some("#d73a49"), None),
+        item(
+            "entity.name.label, markup.other.reference",
+            Some("#1d6c76"),
+            None,
+        ),
+        item(
+            "keyword, constant.language, variable.language",
+            Some("#d73a49"),
+            None,
+        ),
         item("storage.type, storage.modifier", Some("#d73a49"), None),
         item("constant", Some("#b60157"), None),
         item("string", Some("#298e0d"), None),
-        item("entity.name, variable.function, support", Some("#4b69c6"), None),
+        item(
+            "entity.name, variable.function, support",
+            Some("#4b69c6"),
+            None,
+        ),
         item("support.macro", Some("#16718d"), None),
         item("meta.annotation", Some("#301414"), None),
         item("entity.other, meta.interpolation", Some("#8b41b1"), None),
         item("meta.diff.range", Some("#8b41b1"), None),
-        item("markup.inserted, meta.diff.header.to-file", Some("#298e0d"), None),
-        item("markup.deleted, meta.diff.header.from-file", Some("#d73a49"), None),
+        item(
+            "markup.inserted, meta.diff.header.to-file",
+            Some("#298e0d"),
+            None,
+        ),
+        item(
+            "markup.deleted, meta.diff.header.from-file",
+            Some("#d73a49"),
+            None,
+        ),
     ],
 });
 
 /// Create a syntect theme item.
-fn item(
-    scope: &str,
-    color: Option<&str>,
-    font_style: Option<synt::FontStyle>,
-) -> synt::ThemeItem {
+fn item(scope: &str, color: Option<&str>, font_style: Option<synt::FontStyle>) -> synt::ThemeItem {
     synt::ThemeItem {
         scope: scope.parse().unwrap(),
         style: synt::StyleModifier {

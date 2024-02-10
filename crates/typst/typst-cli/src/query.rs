@@ -3,7 +3,7 @@ use ecow::{eco_format, EcoString};
 use serde::Serialize;
 use typst::diag::{bail, StrResult};
 use typst::eval::{eval_string, EvalMode, Tracer};
-use typst::foundations::{Content, IntoValue, LocatableSelector, Scope};
+use typst::foundations::{Content, IntoTypstValue, LocatableSelector, Scope};
 use typst::model::Document;
 use typst::syntax::Span;
 use typst::World;
@@ -37,13 +37,8 @@ pub fn query(command: &QueryCommand) -> StrResult<()> {
         // Print diagnostics.
         Err(errors) => {
             set_failed();
-            print_diagnostics(
-                &world,
-                &errors,
-                &warnings,
-                command.common.diagnostic_format,
-            )
-            .map_err(|err| eco_format!("failed to print diagnostics ({err})"))?;
+            print_diagnostics(&world, &errors, &warnings, command.common.diagnostic_format)
+                .map_err(|err| eco_format!("failed to print diagnostics ({err})"))?;
         }
     }
 
@@ -111,8 +106,6 @@ fn serialize(data: &impl Serialize, format: SerializationFormat) -> StrResult<St
         SerializationFormat::Json => {
             serde_json::to_string_pretty(data).map_err(|e| eco_format!("{e}"))
         }
-        SerializationFormat::Yaml => {
-            serde_yaml::to_string(&data).map_err(|e| eco_format!("{e}"))
-        }
+        SerializationFormat::Yaml => serde_yaml::to_string(&data).map_err(|e| eco_format!("{e}")),
     }
 }

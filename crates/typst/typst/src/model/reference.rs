@@ -3,14 +3,12 @@ use ecow::eco_format;
 use crate::diag::{bail, At, Hint, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, Content, Func, IntoValue, Label, NativeElement, Packed, Show, Smart,
+    cast, elem, Content, Func, IntoTypstValue, Label, NativeElement, Packed, Show, Smart,
     StyleChain, Synthesize,
 };
 use crate::introspection::{Counter, Locatable};
 use crate::math::EquationElem;
-use crate::model::{
-    BibliographyElem, CiteElem, Destination, Figurable, FootnoteElem, Numbering,
-};
+use crate::model::{BibliographyElem, CiteElem, Destination, Figurable, FootnoteElem, Numbering};
 use crate::text::TextElem;
 
 /// A reference to a label or bibliography.
@@ -137,11 +135,7 @@ pub struct RefElem {
 }
 
 impl Synthesize for Packed<RefElem> {
-    fn synthesize(
-        &mut self,
-        engine: &mut Engine,
-        styles: StyleChain,
-    ) -> SourceResult<()> {
+    fn synthesize(&mut self, engine: &mut Engine, styles: StyleChain) -> SourceResult<()> {
         let citation = to_citation(self, engine, styles)?;
 
         let elem = self.as_mut();
@@ -198,9 +192,7 @@ impl Show for Packed<RefElem> {
 
         let numbering = refable
             .numbering()
-            .ok_or_else(|| {
-                eco_format!("cannot reference {} without numbering", elem.func().name())
-            })
+            .ok_or_else(|| eco_format!("cannot reference {} without numbering", elem.func().name()))
             .hint(eco_format!(
                 "you can enable {} numbering with `#set {}(numbering: \"1.\")`",
                 elem.func().name(),
@@ -264,7 +256,7 @@ pub enum Supplement {
 
 impl Supplement {
     /// Tries to resolve the supplement into its content.
-    pub fn resolve<T: IntoValue>(
+    pub fn resolve<T: IntoTypstValue>(
         &self,
         engine: &mut Engine,
         args: impl IntoIterator<Item = T>,

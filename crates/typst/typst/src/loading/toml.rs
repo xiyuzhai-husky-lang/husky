@@ -2,7 +2,7 @@ use ecow::{eco_format, EcoString};
 
 use crate::diag::{At, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{func, scope, Str, Value};
+use crate::foundations::{func, scope, Str, TypstValue};
 use crate::loading::Readable;
 use crate::syntax::{is_newline, Spanned};
 use crate::World;
@@ -33,7 +33,7 @@ pub fn toml(
     engine: &mut Engine,
     /// Path to a TOML file.
     path: Spanned<EcoString>,
-) -> SourceResult<Value> {
+) -> SourceResult<TypstValue> {
     let Spanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
@@ -47,7 +47,7 @@ impl toml {
     pub fn decode(
         /// TOML data.
         data: Spanned<Readable>,
-    ) -> SourceResult<Value> {
+    ) -> SourceResult<TypstValue> {
         let Spanned { v: data, span } = data;
         let raw = std::str::from_utf8(data.as_slice())
             .map_err(|_| "file is not valid utf-8")
@@ -60,18 +60,22 @@ impl toml {
     /// Encodes structured data into a TOML string.
     #[func(title = "Encode TOML")]
     pub fn encode(
-        /// Value to be encoded.
-        value: Spanned<Value>,
+        /// TypstValue to be encoded.
+        value: Spanned<TypstValue>,
         /// Whether to pretty-print the resulting TOML.
         #[named]
         #[default(true)]
         pretty: bool,
     ) -> SourceResult<Str> {
         let Spanned { v: value, span } = value;
-        if pretty { ::toml::to_string_pretty(&value) } else { ::toml::to_string(&value) }
-            .map(|v| v.into())
-            .map_err(|err| eco_format!("failed to encode value as TOML ({err})"))
-            .at(span)
+        if pretty {
+            ::toml::to_string_pretty(&value)
+        } else {
+            ::toml::to_string(&value)
+        }
+        .map(|v| v.into())
+        .map_err(|err| eco_format!("failed to encode value as TOML ({err})"))
+        .at(span)
     }
 }
 

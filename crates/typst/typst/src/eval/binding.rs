@@ -2,19 +2,19 @@ use std::collections::HashSet;
 
 use crate::diag::{bail, At, SourceResult};
 use crate::eval::{Access, Eval, Vm};
-use crate::foundations::{Array, Dict, Value};
+use crate::foundations::{Array, Dict, TypstValue};
 use crate::syntax::ast::{self, AstNode};
 
 impl Eval for ast::LetBinding<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let value = match self.init() {
             Some(expr) => expr.eval(vm)?,
-            None => Value::None,
+            None => TypstValue::None,
         };
         if vm.flow.is_some() {
-            return Ok(Value::None);
+            return Ok(TypstValue::None);
         }
 
         match self.kind() {
@@ -22,12 +22,12 @@ impl Eval for ast::LetBinding<'_> {
             ast::LetBindingKind::Closure(ident) => vm.define(ident, value),
         }
 
-        Ok(Value::None)
+        Ok(TypstValue::None)
     }
 }
 
 impl Eval for ast::DestructAssignment<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let value = self.value().eval(vm)?;
@@ -36,7 +36,7 @@ impl Eval for ast::DestructAssignment<'_> {
             *location = value;
             Ok(())
         })?;
-        Ok(Value::None)
+        Ok(TypstValue::None)
     }
 }
 
@@ -44,7 +44,7 @@ impl Eval for ast::DestructAssignment<'_> {
 pub(crate) fn destructure(
     vm: &mut Vm,
     pattern: ast::Pattern,
-    value: Value,
+    value: TypstValue,
 ) -> SourceResult<()> {
     destructure_impl(vm, pattern, value, |vm, expr, value| match expr {
         ast::Expr::Ident(ident) => {
@@ -59,11 +59,11 @@ pub(crate) fn destructure(
 fn destructure_impl<T>(
     vm: &mut Vm,
     pattern: ast::Pattern,
-    value: Value,
+    value: TypstValue,
     f: T,
 ) -> SourceResult<()>
 where
-    T: Fn(&mut Vm, ast::Expr, Value) -> SourceResult<()>,
+    T: Fn(&mut Vm, ast::Expr, TypstValue) -> SourceResult<()>,
 {
     match pattern {
         ast::Pattern::Normal(expr) => {
@@ -71,8 +71,8 @@ where
         }
         ast::Pattern::Placeholder(_) => {}
         ast::Pattern::Destructuring(destruct) => match value {
-            Value::Array(value) => destructure_array(vm, pattern, value, f, destruct)?,
-            Value::Dict(value) => destructure_dict(vm, value, f, destruct)?,
+            TypstValue::Array(value) => destructure_array(vm, pattern, value, f, destruct)?,
+            TypstValue::Dict(value) => destructure_dict(vm, value, f, destruct)?,
             _ => bail!(pattern.span(), "cannot destructure {}", value.ty()),
         },
     }
@@ -87,7 +87,7 @@ fn destructure_array<F>(
     destruct: ast::Destructuring,
 ) -> SourceResult<()>
 where
-    F: Fn(&mut Vm, ast::Expr, Value) -> SourceResult<()>,
+    F: Fn(&mut Vm, ast::Expr, TypstValue) -> SourceResult<()>,
 {
     let mut i = 0;
     let len = value.as_slice().len();
@@ -105,7 +105,7 @@ where
                 let sink = sink_size.and_then(|s| value.as_slice().get(i..i + s));
                 if let (Some(sink_size), Some(sink)) = (sink_size, sink) {
                     if let Some(expr) = spread.expr() {
-                        f(vm, expr, Value::Array(sink.into()))?;
+                        f(vm, expr, TypstValue::Array(sink.into()))?;
                     }
                     i += sink_size;
                 } else {
@@ -113,7 +113,10 @@ where
                 }
             }
             ast::DestructuringKind::Named(named) => {
-                bail!(named.span(), "cannot destructure named elements from an array")
+                bail!(
+                    named.span(),
+                    "cannot destructure named elements from an array"
+                )
             }
             ast::DestructuringKind::Placeholder(underscore) => {
                 if i < len {
@@ -138,7 +141,7 @@ fn destructure_dict<F>(
     destruct: ast::Destructuring,
 ) -> SourceResult<()>
 where
-    F: Fn(&mut Vm, ast::Expr, Value) -> SourceResult<()>,
+    F: Fn(&mut Vm, ast::Expr, TypstValue) -> SourceResult<()>,
 {
     let mut sink = None;
     let mut used = HashSet::new();
@@ -170,7 +173,7 @@ where
                 sink.insert(key, value);
             }
         }
-        f(vm, expr, Value::Dict(sink))?;
+        f(vm, expr, TypstValue::Dict(sink))?;
     }
 
     Ok(())

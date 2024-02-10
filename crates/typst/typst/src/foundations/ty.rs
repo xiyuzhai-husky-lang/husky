@@ -5,7 +5,7 @@ use ecow::{eco_format, EcoString};
 use once_cell::sync::Lazy;
 
 use crate::diag::StrResult;
-use crate::foundations::{cast, func, Func, NativeFuncData, Repr, Scope, Value};
+use crate::foundations::{cast, func, Func, NativeFuncData, Repr, Scope, TypstValue};
 use crate::util::Static;
 
 #[rustfmt::skip]
@@ -103,7 +103,7 @@ impl Type {
     }
 
     /// Get a field from this type's scope, if possible.
-    pub fn field(&self, field: &str) -> StrResult<&'static Value> {
+    pub fn field(&self, field: &str) -> StrResult<&'static TypstValue> {
         self.scope()
             .get(field)
             .ok_or_else(|| eco_format!("type {self} does not contain field `{field}`"))
@@ -134,7 +134,7 @@ impl Type {
     #[func(constructor)]
     pub fn construct(
         /// The value whose type's to determine.
-        value: Value,
+        value: TypstValue,
     ) -> Type {
         value.ty()
     }

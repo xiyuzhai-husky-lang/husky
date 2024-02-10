@@ -12,9 +12,9 @@ use serde::{Deserialize, Deserializer, Serialize, Serializer};
 use crate::diag::StrResult;
 use crate::eval::ops;
 use crate::foundations::{
-    fields, repr, Args, Array, AutoValue, Bytes, CastInfo, Content, Datetime, Dict,
-    Duration, FromValue, Func, IntoValue, Label, Module, NativeElement, NativeType,
-    NoneValue, Plugin, Reflect, Repr, Scope, Str, Styles, Type, Version,
+    fields, repr, Args, Array, AutoValue, Bytes, CastInfo, Content, Datetime, Dict, Duration,
+    FromTypstValue, Func, IntoTypstValue, Label, Module, NativeElement, NativeType, NoneValue,
+    Plugin, Reflect, Repr, Scope, Str, Styles, Type, Version,
 };
 use crate::layout::{Abs, Angle, Em, Fr, Length, Ratio, Rel};
 use crate::symbols::Symbol;
@@ -24,7 +24,7 @@ use crate::visualize::{Color, Gradient, Pattern};
 
 /// A computational value.
 #[derive(Default, Clone)]
-pub enum Value {
+pub enum TypstValue {
     /// The value that indicates the absence of a meaningful value.
     #[default]
     None,
@@ -88,7 +88,7 @@ pub enum Value {
     Dyn(Dynamic),
 }
 
-impl Value {
+impl TypstValue {
     /// Create a new dynamic value.
     pub fn dynamic<T>(any: T) -> Self
     where
@@ -150,12 +150,12 @@ impl Value {
     }
 
     /// Try to cast the value into a specific type.
-    pub fn cast<T: FromValue>(self) -> StrResult<T> {
+    pub fn cast<T: FromTypstValue>(self) -> StrResult<T> {
         T::from_value(self)
     }
 
     /// Try to access a field on the value.
-    pub fn field(&self, field: &str) -> StrResult<Value> {
+    pub fn field(&self, field: &str) -> StrResult<TypstValue> {
         match self {
             Self::Symbol(symbol) => symbol.clone().modified(field).map(Self::Symbol),
             Self::Version(version) => version.component(field).map(Self::Int),
@@ -218,14 +218,14 @@ impl Value {
     /// Attach a span to the value, if possible.
     pub fn spanned(self, span: Span) -> Self {
         match self {
-            Value::Content(v) => Value::Content(v.spanned(span)),
-            Value::Func(v) => Value::Func(v.spanned(span)),
+            TypstValue::Content(v) => TypstValue::Content(v.spanned(span)),
+            TypstValue::Func(v) => TypstValue::Func(v.spanned(span)),
             v => v,
         }
     }
 }
 
-impl Debug for Value {
+impl Debug for TypstValue {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         match self {
             Self::None => Debug::fmt(&NoneValue, f),
@@ -262,7 +262,7 @@ impl Debug for Value {
     }
 }
 
-impl Repr for Value {
+impl Repr for TypstValue {
     fn repr(&self) -> EcoString {
         match self {
             Self::None => NoneValue.repr(),
@@ -299,19 +299,19 @@ impl Repr for Value {
     }
 }
 
-impl PartialEq for Value {
+impl PartialEq for TypstValue {
     fn eq(&self, other: &Self) -> bool {
         ops::equal(self, other)
     }
 }
 
-impl PartialOrd for Value {
+impl PartialOrd for TypstValue {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         ops::compare(self, other).ok()
     }
 }
 
-impl Hash for Value {
+impl Hash for TypstValue {
     fn hash<H: Hasher>(&self, state: &mut H) {
         std::mem::discriminant(self).hash(state);
         match self {
@@ -349,7 +349,7 @@ impl Hash for Value {
     }
 }
 
-impl Serialize for Value {
+impl Serialize for TypstValue {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
@@ -372,7 +372,7 @@ impl Serialize for Value {
     }
 }
 
-impl<'de> Deserialize<'de> for Value {
+impl<'de> Deserialize<'de> for TypstValue {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: Deserializer<'de>,
@@ -385,7 +385,7 @@ impl<'de> Deserialize<'de> for Value {
 struct ValueVisitor;
 
 impl<'de> Visitor<'de> for ValueVisitor {
-    type Value = Value;
+    type Value = TypstValue;
 
     fn expecting(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("a typst value")
@@ -464,18 +464,15 @@ impl<'de> Visitor<'de> for ValueVisitor {
     }
 
     fn visit_none<E: Error>(self) -> Result<Self::Value, E> {
-        Ok(Value::None)
+        Ok(TypstValue::None)
     }
 
-    fn visit_some<D: Deserializer<'de>>(
-        self,
-        deserializer: D,
-    ) -> Result<Self::Value, D::Error> {
-        Value::deserialize(deserializer)
+    fn visit_some<D: Deserializer<'de>>(self, deserializer: D) -> Result<Self::Value, D::Error> {
+        TypstValue::deserialize(deserializer)
     }
 
     fn visit_unit<E: Error>(self) -> Result<Self::Value, E> {
-        Ok(Value::None)
+        Ok(TypstValue::None)
     }
 
     fn visit_seq<A: SeqAccess<'de>>(self, seq: A) -> Result<Self::Value, A::Error> {
@@ -555,7 +552,9 @@ where
     }
 
     fn dyn_eq(&self, other: &Dynamic) -> bool {
-        let Some(other) = other.downcast::<Self>() else { return false };
+        let Some(other) = other.downcast::<Self>() else {
+            return false;
+        };
         self == other
     }
 
@@ -577,7 +576,7 @@ impl Hash for dyn Bounds {
     }
 }
 
-/// Implements traits for primitives (Value enum variants).
+/// Implements traits for primitives (TypstValue enum variants).
 macro_rules! primitive {
     (
         $ty:ty: $name:literal, $variant:ident
@@ -592,23 +591,23 @@ macro_rules! primitive {
                 CastInfo::Type(Type::of::<Self>())
             }
 
-            fn castable(value: &Value) -> bool {
-                matches!(value, Value::$variant(_)
+            fn castable(value: &TypstValue) -> bool {
+                matches!(value, TypstValue::$variant(_)
                     $(|  primitive!(@$other $(($binding))?))*)
             }
         }
 
-        impl IntoValue for $ty {
-            fn into_value(self) -> Value {
-                Value::$variant(self)
+        impl IntoTypstValue for $ty {
+            fn into_value(self) -> TypstValue {
+                TypstValue::$variant(self)
             }
         }
 
-        impl FromValue for $ty {
-            fn from_value(value: Value) -> StrResult<Self> {
+        impl FromTypstValue for $ty {
+            fn from_value(value: TypstValue) -> StrResult<Self> {
                 match value {
-                    Value::$variant(v) => Ok(v),
-                    $(Value::$other$(($binding))? => Ok($out),)*
+                    TypstValue::$variant(v) => Ok(v),
+                    $(TypstValue::$other$(($binding))? => Ok($out),)*
                     v => Err(eco_format!(
                         "expected {}, found {}",
                         Type::of::<Self>(),
@@ -619,8 +618,8 @@ macro_rules! primitive {
         }
     };
 
-    (@$other:ident($binding:ident)) => { Value::$other(_) };
-    (@$other:ident) => { Value::$other };
+    (@$other:ident($binding:ident)) => { TypstValue::$other(_) };
+    (@$other:ident) => { TypstValue::$other };
 }
 
 primitive! { bool: "boolean", Bool }
@@ -674,21 +673,24 @@ mod tests {
     use crate::foundations::{array, dict};
 
     #[track_caller]
-    fn test(value: impl IntoValue, exp: &str) {
+    fn test(value: impl IntoTypstValue, exp: &str) {
         assert_eq!(value.into_value().repr(), exp);
     }
 
     #[test]
     fn test_value_debug() {
         // Primitives.
-        test(Value::None, "none");
+        test(TypstValue::None, "none");
         test(false, "false");
         test(12i64, "12");
         test(3.24, "3.24");
         test(Abs::pt(5.5), "5.5pt");
         test(Angle::deg(90.0), "90deg");
         test(Ratio::one() / 2.0, "50%");
-        test(Ratio::new(0.3) + Length::from(Abs::cm(2.0)), "30% + 56.69pt");
+        test(
+            Ratio::new(0.3) + Length::from(Abs::cm(2.0)),
+            "30% + 56.69pt",
+        );
         test(Fr::one() * 7.55, "7.55fr");
 
         // Collections.
@@ -697,7 +699,7 @@ mod tests {
         test("\\", r#""\\""#);
         test("\"", r#""\"""#);
         test(array![], "()");
-        test(array![Value::None], "(none,)");
+        test(array![TypstValue::None], "(none,)");
         test(array![1, 2], "(1, 2)");
         test(dict![], "(:)");
         test(dict!["one" => 1], "(one: 1)");

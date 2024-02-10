@@ -3,8 +3,8 @@ use std::fmt::{self, Debug, Formatter};
 
 use crate::diag::StrResult;
 use crate::foundations::{
-    ty, CastInfo, Fold, FromValue, IntoValue, Reflect, Repr, Resolve, StyleChain, Type,
-    Value,
+    ty, CastInfo, Fold, FromTypstValue, IntoTypstValue, Reflect, Repr, Resolve, StyleChain, Type,
+    TypstValue,
 };
 
 /// A value that indicates a smart default.
@@ -19,16 +19,16 @@ use crate::foundations::{
 #[derive(Default, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
 pub struct AutoValue;
 
-impl IntoValue for AutoValue {
-    fn into_value(self) -> Value {
-        Value::Auto
+impl IntoTypstValue for AutoValue {
+    fn into_value(self) -> TypstValue {
+        TypstValue::Auto
     }
 }
 
-impl FromValue for AutoValue {
-    fn from_value(value: Value) -> StrResult<Self> {
+impl FromTypstValue for AutoValue {
+    fn from_value(value: TypstValue) -> StrResult<Self> {
         match value {
-            Value::Auto => Ok(Self),
+            TypstValue::Auto => Ok(Self),
             _ => Err(Self::error(&value)),
         }
     }
@@ -43,8 +43,8 @@ impl Reflect for AutoValue {
         CastInfo::Type(Type::of::<Self>())
     }
 
-    fn castable(value: &Value) -> bool {
-        matches!(value, Value::Auto)
+    fn castable(value: &TypstValue) -> bool {
+        matches!(value, TypstValue::Auto)
     }
 }
 
@@ -207,24 +207,24 @@ impl<T: Reflect> Reflect for Smart<T> {
         T::output() + AutoValue::output()
     }
 
-    fn castable(value: &Value) -> bool {
+    fn castable(value: &TypstValue) -> bool {
         AutoValue::castable(value) || T::castable(value)
     }
 }
 
-impl<T: IntoValue> IntoValue for Smart<T> {
-    fn into_value(self) -> Value {
+impl<T: IntoTypstValue> IntoTypstValue for Smart<T> {
+    fn into_value(self) -> TypstValue {
         match self {
             Smart::Custom(v) => v.into_value(),
-            Smart::Auto => Value::Auto,
+            Smart::Auto => TypstValue::Auto,
         }
     }
 }
 
-impl<T: FromValue> FromValue for Smart<T> {
-    fn from_value(value: Value) -> StrResult<Self> {
+impl<T: FromTypstValue> FromTypstValue for Smart<T> {
+    fn from_value(value: TypstValue) -> StrResult<Self> {
         match value {
-            Value::Auto => Ok(Self::Auto),
+            TypstValue::Auto => Ok(Self::Auto),
             v if T::castable(&v) => Ok(Self::Custom(T::from_value(v)?)),
             _ => Err(Self::error(&value)),
         }
