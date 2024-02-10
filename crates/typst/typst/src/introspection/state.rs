@@ -5,8 +5,8 @@ use crate::diag::SourceResult;
 use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
 use crate::foundations::{
-    cast, elem, func, scope, select_where, ty, Content, Func, NativeElement, Packed,
-    Repr, Selector, Show, Str, StyleChain, Value,
+    cast, elem, func, scope, select_where, ty, Content, Func, NativeElement, Packed, Repr,
+    Selector, Show, Str, StyleChain, TypstValue,
 };
 use crate::introspection::{Introspector, Locatable, Location, Locator};
 use crate::syntax::Span;
@@ -148,7 +148,7 @@ use crate::World;
 /// >>> ]
 /// <<< ...
 ///
-/// Value at `<here>` is
+/// TypstValue at `<here>` is
 /// #locate(loc => s.at(
 ///   query(<here>, loc)
 ///     .first()
@@ -192,12 +192,12 @@ pub struct State {
     /// The key that identifies the state.
     key: Str,
     /// The initial value of the state.
-    init: Value,
+    init: TypstValue,
 }
 
 impl State {
     /// Create a new state identified by a key.
-    pub fn new(key: Str, init: Value) -> State {
+    pub fn new(key: Str, init: TypstValue) -> State {
         Self { key, init }
     }
 
@@ -205,7 +205,7 @@ impl State {
     ///
     /// This has to happen just once for all states, cutting down the number
     /// of state updates from quadratic to linear.
-    fn sequence(&self, engine: &mut Engine) -> SourceResult<EcoVec<Value>> {
+    fn sequence(&self, engine: &mut Engine) -> SourceResult<EcoVec<TypstValue>> {
         self.sequence_impl(
             engine.world,
             engine.introspector,
@@ -224,7 +224,7 @@ impl State {
         route: Tracked<Route>,
         locator: Tracked<Locator>,
         tracer: TrackedMut<Tracer>,
-    ) -> SourceResult<EcoVec<Value>> {
+    ) -> SourceResult<EcoVec<TypstValue>> {
         let mut locator = Locator::chained(locator);
         let mut engine = Engine {
             world,
@@ -263,7 +263,7 @@ impl State {
         key: Str,
         /// The initial value of the state.
         #[default]
-        init: Value,
+        init: TypstValue,
     ) -> State {
         Self::new(key, init)
     }
@@ -314,7 +314,7 @@ impl State {
         /// suitable location can be retrieved from [`locate`]($locate) or
         /// [`query`]($query).
         location: Location,
-    ) -> SourceResult<Value> {
+    ) -> SourceResult<TypstValue> {
         let sequence = self.sequence(engine)?;
         let offset = engine
             .introspector
@@ -338,7 +338,7 @@ impl State {
         /// the top level of a module, the evaluation of the whole module and
         /// its exports could depend on the state's value.
         location: Location,
-    ) -> SourceResult<Value> {
+    ) -> SourceResult<TypstValue> {
         let _ = location;
         let sequence = self.sequence(engine)?;
         Ok(sequence.last().unwrap().clone())
@@ -356,7 +356,7 @@ impl Repr for State {
 #[derive(Debug, Clone, PartialEq, Hash)]
 pub enum StateUpdate {
     /// Set the state to the specified value.
-    Set(Value),
+    Set(TypstValue),
     /// Apply the given function to the state.
     Func(Func),
 }
@@ -370,7 +370,7 @@ impl Repr for StateUpdate {
 cast! {
     type StateUpdate,
     v: Func => Self::Func(v),
-    v: Value => Self::Set(v),
+    v: TypstValue => Self::Set(v),
 }
 
 /// Executes a display of a state.

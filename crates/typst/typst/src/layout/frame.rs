@@ -4,7 +4,7 @@ use std::fmt::{self, Debug, Formatter};
 use std::num::NonZeroUsize;
 use std::sync::Arc;
 
-use crate::foundations::{cast, dict, Dict, StyleChain, Value};
+use crate::foundations::{cast, dict, Dict, StyleChain, TypstValue};
 use crate::introspection::{Meta, MetaElem};
 use crate::layout::{
     Abs, Axes, Corners, FixedAlignment, Length, Point, Rel, Sides, Size, Transform,
@@ -531,7 +531,7 @@ pub struct Position {
 
 cast! {
     Position,
-    self => Value::Dict(self.into()),
+    self => TypstValue::Dict(self.into()),
     mut dict: Dict => {
         let page = dict.take("page")?.cast()?;
         let x: Length = dict.take("x")?.cast()?;

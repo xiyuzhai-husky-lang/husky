@@ -6,7 +6,7 @@ use std::ops::{Div, Rem};
 
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::eval::ops;
-use crate::foundations::{cast, func, IntoValue, Module, Scope, Value};
+use crate::foundations::{cast, func, IntoTypstValue, Module, Scope, TypstValue};
 use crate::layout::{Angle, Fr, Length, Ratio};
 use crate::syntax::{Span, Spanned};
 
@@ -68,22 +68,22 @@ pub fn module() -> Module {
 pub fn abs(
     /// The value whose absolute value to calculate.
     value: ToAbs,
-) -> Value {
+) -> TypstValue {
     value.0
 }
 
 /// A value of which the absolute value can be taken.
-pub struct ToAbs(Value);
+pub struct ToAbs(TypstValue);
 
 cast! {
     ToAbs,
     v: i64 => Self(v.abs().into_value()),
     v: f64 => Self(v.abs().into_value()),
-    v: Length => Self(Value::Length(v.try_abs()
+    v: Length => Self(TypstValue::Length(v.try_abs()
         .ok_or("cannot take absolute value of this length")?)),
-    v: Angle => Self(Value::Angle(v.abs())),
-    v: Ratio => Self(Value::Ratio(v.abs())),
-    v: Fr => Self(Value::Fraction(v.abs())),
+    v: Angle => Self(TypstValue::Angle(v.abs())),
+    v: Ratio => Self(TypstValue::Ratio(v.abs())),
+    v: Fr => Self(TypstValue::Fraction(v.abs())),
 }
 
 /// Raises a value to some exponent.
@@ -108,7 +108,10 @@ pub fn pow(
             bail!(exponent.span, "exponent is too large")
         }
         Num::Float(f) if !f.is_normal() && f != 0.0 => {
-            bail!(exponent.span, "exponent may not be infinite, subnormal, or NaN")
+            bail!(
+                exponent.span,
+                "exponent may not be infinite, subnormal, or NaN"
+            )
         }
         _ => {}
     };
@@ -154,7 +157,10 @@ pub fn exp(
             bail!(exponent.span, "exponent is too large")
         }
         Num::Float(f) if !f.is_normal() && f != 0.0 => {
-            bail!(exponent.span, "exponent may not be infinite, subnormal, or NaN")
+            bail!(
+                exponent.span,
+                "exponent may not be infinite, subnormal, or NaN"
+            )
         }
         _ => {}
     };
@@ -414,7 +420,10 @@ pub fn log(
     }
 
     if !base.v.is_normal() {
-        bail!(base.span, "base may not be zero, NaN, infinite, or subnormal")
+        bail!(
+            base.span,
+            "base may not be zero, NaN, infinite, or subnormal"
+        )
     }
 
     let result = if base.v == std::f64::consts::E {
@@ -739,8 +748,8 @@ pub fn min(
     /// The sequence of values from which to extract the minimum.
     /// Must not be empty.
     #[variadic]
-    values: Vec<Spanned<Value>>,
-) -> SourceResult<Value> {
+    values: Vec<Spanned<TypstValue>>,
+) -> SourceResult<TypstValue> {
     minmax(span, values, Ordering::Less)
 }
 
@@ -757,19 +766,22 @@ pub fn max(
     /// The sequence of values from which to extract the maximum.
     /// Must not be empty.
     #[variadic]
-    values: Vec<Spanned<Value>>,
-) -> SourceResult<Value> {
+    values: Vec<Spanned<TypstValue>>,
+) -> SourceResult<TypstValue> {
     minmax(span, values, Ordering::Greater)
 }
 
 /// Find the minimum or maximum of a sequence of values.
 fn minmax(
     span: Span,
-    values: Vec<Spanned<Value>>,
+    values: Vec<Spanned<TypstValue>>,
     goal: Ordering,
-) -> SourceResult<Value> {
+) -> SourceResult<TypstValue> {
     let mut iter = values.into_iter();
-    let Some(Spanned { v: mut extremum, .. }) = iter.next() else {
+    let Some(Spanned {
+        v: mut extremum, ..
+    }) = iter.next()
+    else {
         bail!(span, "expected at least one value");
     };
 

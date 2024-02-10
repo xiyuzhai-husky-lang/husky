@@ -1,10 +1,10 @@
 use crate::diag::{warning, SourceResult};
 use crate::eval::{Eval, Vm};
-use crate::foundations::{Content, Label, NativeElement, Smart, Unlabellable, Value};
+use crate::foundations::{Content, Label, NativeElement, Smart, TypstValue, Unlabellable};
 use crate::math::EquationElem;
 use crate::model::{
-    EmphElem, EnumItem, HeadingElem, LinkElem, ListItem, ParbreakElem, RefElem,
-    StrongElem, Supplement, TermItem,
+    EmphElem, EnumItem, HeadingElem, LinkElem, ListItem, ParbreakElem, RefElem, StrongElem,
+    Supplement, TermItem,
 };
 use crate::symbols::Symbol;
 use crate::syntax::ast::{self, AstNode};
@@ -46,9 +46,11 @@ fn eval_markup<'a>(
                 seq.push(tail.styled_with_recipe(&mut vm.engine, recipe)?)
             }
             expr => match expr.eval(vm)? {
-                Value::Label(label) => {
-                    if let Some(elem) =
-                        seq.iter_mut().rev().find(|node| !node.can::<dyn Unlabellable>())
+                TypstValue::Label(label) => {
+                    if let Some(elem) = seq
+                        .iter_mut()
+                        .rev()
+                        .find(|node| !node.can::<dyn Unlabellable>())
                     {
                         *elem = std::mem::take(elem).labelled(label);
                     }
@@ -102,18 +104,18 @@ impl Eval for ast::Parbreak<'_> {
 }
 
 impl Eval for ast::Escape<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
-        Ok(Value::Symbol(Symbol::single(self.get())))
+        Ok(TypstValue::Symbol(Symbol::single(self.get())))
     }
 }
 
 impl Eval for ast::Shorthand<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
-        Ok(Value::Symbol(Symbol::single(self.get())))
+        Ok(TypstValue::Symbol(Symbol::single(self.get())))
     }
 }
 
@@ -131,12 +133,10 @@ impl Eval for ast::Strong<'_> {
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let body = self.body();
         if body.exprs().next().is_none() {
-            vm.engine
-                .tracer
-                .warn(warning!(
-                    self.span(), "no text within stars";
-                    hint: "using multiple consecutive stars (e.g. **) has no additional effect",
-                ));
+            vm.engine.tracer.warn(warning!(
+                self.span(), "no text within stars";
+                hint: "using multiple consecutive stars (e.g. **) has no additional effect",
+            ));
         }
 
         Ok(StrongElem::new(body.eval(vm)?).pack())
@@ -149,12 +149,10 @@ impl Eval for ast::Emph<'_> {
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let body = self.body();
         if body.exprs().next().is_none() {
-            vm.engine
-                .tracer
-                .warn(warning!(
-                    self.span(), "no text within underscores";
-                    hint: "using multiple consecutive underscores (e.g. __) has no additional effect"
-                ));
+            vm.engine.tracer.warn(warning!(
+                self.span(), "no text within underscores";
+                hint: "using multiple consecutive underscores (e.g. __) has no additional effect"
+            ));
         }
 
         Ok(EmphElem::new(body.eval(vm)?).pack())
@@ -182,10 +180,10 @@ impl Eval for ast::Link<'_> {
 }
 
 impl Eval for ast::Label<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
-        Ok(Value::Label(Label::new(self.get())))
+        Ok(TypstValue::Label(Label::new(self.get())))
     }
 }
 

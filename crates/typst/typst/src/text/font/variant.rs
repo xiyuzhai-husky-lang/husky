@@ -3,12 +3,11 @@ use std::fmt::{self, Debug, Formatter};
 use ecow::EcoString;
 use serde::{Deserialize, Serialize};
 
-use crate::foundations::{cast, Cast, IntoValue, Repr};
+use crate::foundations::{cast, Cast, IntoTypstValue, Repr};
 use crate::layout::Ratio;
 
 /// Properties that distinguish a font from other fonts in the same family.
-#[derive(Default, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
-#[derive(Serialize, Deserialize)]
+#[derive(Default, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub struct FontVariant {
     /// The style of the font (normal / italic / oblique).
     pub style: FontStyle,
@@ -21,7 +20,11 @@ pub struct FontVariant {
 impl FontVariant {
     /// Create a variant from its three components.
     pub fn new(style: FontStyle, weight: FontWeight, stretch: FontStretch) -> Self {
-        Self { style, weight, stretch }
+        Self {
+            style,
+            weight,
+            stretch,
+        }
     }
 }
 
@@ -32,8 +35,9 @@ impl Debug for FontVariant {
 }
 
 /// The style of a font.
-#[derive(Debug, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
-#[derive(Serialize, Deserialize, Cast)]
+#[derive(
+    Debug, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Cast,
+)]
 #[serde(rename_all = "kebab-case")]
 pub enum FontStyle {
     /// The default, typically upright style.
@@ -74,8 +78,7 @@ impl From<usvg::FontStyle> for FontStyle {
 }
 
 /// The weight of a font.
-#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
-#[derive(Serialize, Deserialize)]
+#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 #[serde(transparent)]
 pub struct FontWeight(pub(super) u16);
 
@@ -143,7 +146,7 @@ impl Debug for FontWeight {
 
 cast! {
     FontWeight,
-    self => IntoValue::into_value(match self {
+    self => IntoTypstValue::into_value(match self {
         FontWeight::THIN => "thin",
         FontWeight::EXTRALIGHT => "extralight",
         FontWeight::LIGHT => "light",
@@ -177,8 +180,7 @@ cast! {
 }
 
 /// The width of a font.
-#[derive(Debug, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
-#[derive(Serialize, Deserialize)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 #[serde(transparent)]
 pub struct FontStretch(pub(super) u16);
 

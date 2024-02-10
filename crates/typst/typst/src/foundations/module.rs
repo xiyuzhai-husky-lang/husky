@@ -4,7 +4,7 @@ use std::sync::Arc;
 use ecow::{eco_format, EcoString};
 
 use crate::diag::StrResult;
-use crate::foundations::{repr, ty, Content, Scope, Value};
+use crate::foundations::{repr, ty, Content, Scope, TypstValue};
 
 /// An evaluated module, either built-in or resulting from a file.
 ///
@@ -47,7 +47,10 @@ impl Module {
     pub fn new(name: impl Into<EcoString>, scope: Scope) -> Self {
         Self {
             name: name.into(),
-            inner: Arc::new(Repr { scope, content: Content::empty() }),
+            inner: Arc::new(Repr {
+                scope,
+                content: Content::empty(),
+            }),
         }
     }
 
@@ -85,10 +88,10 @@ impl Module {
     }
 
     /// Try to access a definition in the module.
-    pub fn field(&self, name: &str) -> StrResult<&Value> {
-        self.scope().get(name).ok_or_else(|| {
-            eco_format!("module `{}` does not contain `{name}`", self.name())
-        })
+    pub fn field(&self, name: &str) -> StrResult<&TypstValue> {
+        self.scope()
+            .get(name)
+            .ok_or_else(|| eco_format!("module `{}` does not contain `{name}`", self.name()))
     }
 
     /// Extract the module's content.

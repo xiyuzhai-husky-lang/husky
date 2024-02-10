@@ -5,7 +5,7 @@ use serde::{Serialize, Serializer};
 
 use crate::diag::StrResult;
 use crate::foundations::{
-    cast, ty, CastInfo, FromValue, IntoValue, Reflect, Repr, Type, Value,
+    cast, ty, CastInfo, FromTypstValue, IntoTypstValue, Reflect, Repr, Type, TypstValue,
 };
 
 /// A value that indicates the absence of any other value.
@@ -33,21 +33,21 @@ impl Reflect for NoneValue {
         CastInfo::Type(Type::of::<Self>())
     }
 
-    fn castable(value: &Value) -> bool {
-        matches!(value, Value::None)
+    fn castable(value: &TypstValue) -> bool {
+        matches!(value, TypstValue::None)
     }
 }
 
-impl IntoValue for NoneValue {
-    fn into_value(self) -> Value {
-        Value::None
+impl IntoTypstValue for NoneValue {
+    fn into_value(self) -> TypstValue {
+        TypstValue::None
     }
 }
 
-impl FromValue for NoneValue {
-    fn from_value(value: Value) -> StrResult<Self> {
+impl FromTypstValue for NoneValue {
+    fn from_value(value: TypstValue) -> StrResult<Self> {
         match value {
-            Value::None => Ok(Self),
+            TypstValue::None => Ok(Self),
             _ => Err(Self::error(&value)),
         }
     }
@@ -76,7 +76,7 @@ impl Serialize for NoneValue {
 
 cast! {
     (),
-    self => Value::None,
+    self => TypstValue::None,
     _: NoneValue => (),
 }
 
@@ -89,24 +89,24 @@ impl<T: Reflect> Reflect for Option<T> {
         T::output() + NoneValue::output()
     }
 
-    fn castable(value: &Value) -> bool {
+    fn castable(value: &TypstValue) -> bool {
         NoneValue::castable(value) || T::castable(value)
     }
 }
 
-impl<T: IntoValue> IntoValue for Option<T> {
-    fn into_value(self) -> Value {
+impl<T: IntoTypstValue> IntoTypstValue for Option<T> {
+    fn into_value(self) -> TypstValue {
         match self {
             Some(v) => v.into_value(),
-            None => Value::None,
+            None => TypstValue::None,
         }
     }
 }
 
-impl<T: FromValue> FromValue for Option<T> {
-    fn from_value(value: Value) -> StrResult<Self> {
+impl<T: FromTypstValue> FromTypstValue for Option<T> {
+    fn from_value(value: TypstValue) -> StrResult<Self> {
         match value {
-            Value::None => Ok(None),
+            TypstValue::None => Ok(None),
             v if T::castable(&v) => Ok(Some(T::from_value(v)?)),
             _ => Err(Self::error(&value)),
         }

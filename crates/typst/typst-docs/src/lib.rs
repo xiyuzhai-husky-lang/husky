@@ -21,7 +21,7 @@ use serde::Deserialize;
 use serde_yaml as yaml;
 use typst::diag::{bail, StrResult};
 use typst::foundations::{
-    CastInfo, Category, Func, Module, ParamInfo, Repr, Scope, Smart, Type, Value, FOUNDATIONS,
+    CastInfo, Category, Func, Module, ParamInfo, Repr, Scope, Smart, Type, TypstValue, FOUNDATIONS,
 };
 use typst::introspection::INTROSPECTION;
 use typst::layout::{Abs, Margin, PageElem, LAYOUT};
@@ -46,7 +46,7 @@ static GROUPS: Lazy<Vec<GroupData>> = Lazy::new(|| {
                 .module()
                 .scope()
                 .iter()
-                .filter(|(_, v)| matches!(v, Value::Func(_)))
+                .filter(|(_, v)| matches!(v, TypstValue::Func(_)))
                 .map(|(k, _)| k.clone())
                 .collect();
         }
@@ -267,7 +267,7 @@ fn category_page(resolver: &dyn Resolver, category: Category) -> PageModel {
         }
 
         match value {
-            Value::Func(func) => {
+            TypstValue::Func(func) => {
                 let name = func.name().unwrap();
 
                 let subpage = func_page(resolver, &route, func, path);
@@ -279,7 +279,7 @@ fn category_page(resolver: &dyn Resolver, category: Category) -> PageModel {
                 });
                 children.push(subpage);
             }
-            Value::Type(ty) => {
+            TypstValue::Type(ty) => {
                 let subpage = type_page(resolver, &route, ty);
                 items.push(CategoryItem {
                     name: ty.short_name().into(),
@@ -438,11 +438,11 @@ fn casts(
 ) {
     match info {
         CastInfo::Any => types.push("any"),
-        CastInfo::Value(Value::Str(string), docs) => strings.push(StrParam {
+        CastInfo::TypstValue(TypstValue::Str(string), docs) => strings.push(StrParam {
             string: string.clone().into(),
             details: Html::markdown(resolver, docs, None),
         }),
-        CastInfo::Value(..) => {}
+        CastInfo::TypstValue(..) => {}
         CastInfo::Type(ty) => types.push(ty.short_name()),
         CastInfo::Union(options) => {
             for option in options {
@@ -457,7 +457,7 @@ fn scope_models(resolver: &dyn Resolver, name: &str, scope: &Scope) -> Vec<FuncM
     scope
         .iter()
         .filter_map(|(_, value)| {
-            let Value::Func(func) = value else {
+            let TypstValue::Func(func) = value else {
                 return None;
             };
             Some(func_model(resolver, func, &[name], true))
@@ -541,7 +541,7 @@ fn group_page(
     let mut outline_items = vec![];
     for name in &group.filter {
         let value = group.module().scope().get(name).unwrap();
-        let Value::Func(func) = value else {
+        let TypstValue::Func(func) = value else {
             panic!("not a function")
         };
         let func = func_model(resolver, func, &path, true);
@@ -651,7 +651,7 @@ fn symbols_page(resolver: &dyn Resolver, parent: &str, group: &GroupData) -> Pag
 fn symbols_model(resolver: &dyn Resolver, group: &GroupData) -> SymbolsModel {
     let mut list = vec![];
     for (name, value) in group.module().scope().iter() {
-        let Value::Symbol(symbol) = value else {
+        let TypstValue::Symbol(symbol) = value else {
             continue;
         };
         let complete = |variant: &str| {
@@ -695,7 +695,7 @@ fn symbols_model(resolver: &dyn Resolver, group: &GroupData) -> SymbolsModel {
 #[track_caller]
 fn get_module<'a>(parent: &'a Module, name: &str) -> StrResult<&'a Module> {
     match parent.scope().get(name) {
-        Some(Value::Module(module)) => Ok(module),
+        Some(TypstValue::Module(module)) => Ok(module),
         _ => bail!("module doesn't contain module `{name}`"),
     }
 }

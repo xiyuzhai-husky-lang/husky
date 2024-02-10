@@ -2,17 +2,15 @@ use std::num::NonZeroUsize;
 
 use ecow::eco_format;
 
-use crate::diag::{
-    bail, At, Hint, HintedStrResult, HintedString, SourceResult, StrResult,
-};
+use crate::diag::{bail, At, Hint, HintedStrResult, HintedString, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    Array, CastInfo, Content, FromValue, Func, IntoValue, Reflect, Resolve, Smart,
-    StyleChain, Value,
+    Array, CastInfo, Content, FromTypstValue, Func, IntoTypstValue, Reflect, Resolve, Smart,
+    StyleChain, TypstValue,
 };
 use crate::layout::{
-    Abs, Alignment, Axes, Dir, Fr, Fragment, Frame, FrameItem, LayoutMultiple, Length,
-    Point, Regions, Rel, Sides, Size, Sizing,
+    Abs, Alignment, Axes, Dir, Fr, Fragment, Frame, FrameItem, LayoutMultiple, Length, Point,
+    Regions, Rel, Sides, Size, Sizing,
 };
 use crate::syntax::Span;
 use crate::text::TextElem;
@@ -30,7 +28,7 @@ pub enum Celled<T> {
     Array(Vec<T>),
 }
 
-impl<T: Default + Clone + FromValue> Celled<T> {
+impl<T: Default + Clone + FromTypstValue> Celled<T> {
     /// Resolve the value based on the cell position.
     pub fn resolve(&self, engine: &mut Engine, x: usize, y: usize) -> SourceResult<T> {
         Ok(match self {
@@ -60,13 +58,13 @@ impl<T: Reflect> Reflect for Celled<T> {
         T::output() + Array::output() + Func::output()
     }
 
-    fn castable(value: &Value) -> bool {
+    fn castable(value: &TypstValue) -> bool {
         Array::castable(value) || Func::castable(value) || T::castable(value)
     }
 }
 
-impl<T: IntoValue> IntoValue for Celled<T> {
-    fn into_value(self) -> Value {
+impl<T: IntoTypstValue> IntoTypstValue for Celled<T> {
+    fn into_value(self) -> TypstValue {
         match self {
             Self::Value(value) => value.into_value(),
             Self::Func(func) => func.into_value(),
@@ -75,12 +73,15 @@ impl<T: IntoValue> IntoValue for Celled<T> {
     }
 }
 
-impl<T: FromValue> FromValue for Celled<T> {
-    fn from_value(value: Value) -> StrResult<Self> {
+impl<T: FromTypstValue> FromTypstValue for Celled<T> {
+    fn from_value(value: TypstValue) -> StrResult<Self> {
         match value {
-            Value::Func(v) => Ok(Self::Func(v)),
-            Value::Array(array) => Ok(Self::Array(
-                array.into_iter().map(T::from_value).collect::<StrResult<_>>()?,
+            TypstValue::Func(v) => Ok(Self::Func(v)),
+            TypstValue::Array(array) => Ok(Self::Array(
+                array
+                    .into_iter()
+                    .map(T::from_value)
+                    .collect::<StrResult<_>>()?,
             )),
             v if T::castable(&v) => Ok(Self::Value(T::from_value(v)?)),
             v => Err(Self::error(&v)),
@@ -102,7 +103,11 @@ pub struct Cell {
 impl From<Content> for Cell {
     /// Create a simple cell given its body.
     fn from(body: Content) -> Self {
-        Self { body, fill: None, colspan: NonZeroUsize::ONE }
+        Self {
+            body,
+            fill: None,
+            colspan: NonZeroUsize::ONE,
+        }
     }
 }
 
@@ -334,7 +339,9 @@ impl CellGrid {
                         hint: "try specifying your cells in a different order or reducing the cell's colspan"
                     )
                 }
-                *slot = Some(Entry::Merged { parent: resolved_index });
+                *slot = Some(Entry::Merged {
+                    parent: resolved_index,
+                });
             }
         }
 
@@ -369,11 +376,7 @@ impl CellGrid {
     }
 
     /// Generates the cell grid, given the tracks and resolved entries.
-    fn new_internal(
-        tracks: Axes<&[Sizing]>,
-        gutter: Axes<&[Sizing]>,
-        entries: Vec<Entry>,
-    ) -> Self {
+    fn new_internal(tracks: Axes<&[Sizing]>, gutter: Axes<&[Sizing]>, entries: Vec<Entry>) -> Self {
         let mut cols = vec![];
         let mut rows = vec![];
 
@@ -393,7 +396,11 @@ impl CellGrid {
         let auto = Sizing::Auto;
         let zero = Sizing::Rel(Rel::zero());
         let get_or = |tracks: &[_], idx, default| {
-            tracks.get(idx).or(tracks.last()).copied().unwrap_or(default)
+            tracks
+                .get(idx)
+                .or(tracks.last())
+                .copied()
+                .unwrap_or(default)
         };
 
         // Collect content and gutter columns.
@@ -418,7 +425,12 @@ impl CellGrid {
             rows.pop();
         }
 
-        Self { cols, rows, entries, has_gutter }
+        Self {
+            cols,
+            rows,
+            entries,
+            has_gutter,
+        }
     }
 
     /// Get the grid entry in column `x` and row `y`.
@@ -528,9 +540,7 @@ fn resolve_cell_position(
                 // Cell has only chosen its column.
                 // Let's find the first row which has that column available.
                 let mut resolved_y = 0;
-                while let Some(Some(_)) =
-                    resolved_cells.get(cell_index(cell_x, resolved_y)?)
-                {
+                while let Some(Some(_)) = resolved_cells.get(cell_index(cell_x, resolved_y)?) {
                     // Try each row until either we reach an absent position
                     // (`Some(None)`) or an out of bounds position (`None`),
                     // in which case we'd create a new row to place this cell in.
@@ -558,9 +568,7 @@ fn resolve_cell_position(
                     !matches!(resolved_cells.get(*possible_index), Some(Some(_)))
                 })
                 .ok_or_else(|| {
-                    eco_format!(
-                        "cell could not be placed in row {cell_y} because it was full"
-                    )
+                    eco_format!("cell could not be placed in row {cell_y} because it was full")
                 })
                 .hint("try specifying your cells in a different order")
         }
@@ -699,9 +707,7 @@ impl<'a> GridLayouter<'a> {
                     // at y = 0, end after all rows).
                     // We use 'split_vline' to split the vline such that it
                     // is not drawn above colspans.
-                    for (dy, length) in
-                        split_vline(self.grid, rows, x, 0, self.grid.rows.len())
-                    {
+                    for (dy, length) in split_vline(self.grid, rows, x, 0, self.grid.rows.len()) {
                         let target = Point::with_y(length + thickness);
                         let vline = Geometry::Line(target).stroked(stroke.clone());
                         frame.prepend(
@@ -731,8 +737,11 @@ impl<'a> GridLayouter<'a> {
                             // over to unrelated columns to the right in RTL.
                             // We avoid this by ensuring the fill starts at the
                             // very left of the cell, even with colspan > 1.
-                            let offset =
-                                if self.is_rtl { -width + col } else { Abs::zero() };
+                            let offset = if self.is_rtl {
+                                -width + col
+                            } else {
+                                Abs::zero()
+                            };
                             let pos = Point::new(dx + offset, dy);
                             let size = Size::new(width, row.height);
                             let rect = Geometry::Rect(size).filled(fill);
@@ -762,8 +771,7 @@ impl<'a> GridLayouter<'a> {
             match col {
                 Sizing::Auto => {}
                 Sizing::Rel(v) => {
-                    let resolved =
-                        v.resolve(self.styles).relative_to(self.regions.base().x);
+                    let resolved = v.resolve(self.styles).relative_to(self.regions.base().x);
                     *rcol = resolved;
                     rel += resolved;
                 }
@@ -799,7 +807,11 @@ impl<'a> GridLayouter<'a> {
         self.rcols
             .iter()
             .skip(x)
-            .take(if self.grid.has_gutter { 2 * colspan - 1 } else { colspan })
+            .take(if self.grid.has_gutter {
+                2 * colspan - 1
+            } else {
+                colspan
+            })
             .sum()
     }
 
@@ -830,8 +842,10 @@ impl<'a> GridLayouter<'a> {
             let mut resolved = Abs::zero();
             for y in 0..self.grid.rows.len() {
                 // We get the parent cell in case this is a merged position.
-                let Some(Axes { x: parent_x, y: parent_y }) =
-                    self.grid.parent_cell_position(x, y)
+                let Some(Axes {
+                    x: parent_x,
+                    y: parent_y,
+                }) = self.grid.parent_cell_position(x, y)
                 else {
                     continue;
                 };
@@ -880,9 +894,7 @@ impl<'a> GridLayouter<'a> {
                 // For relative rows, we can already resolve the correct
                 // base and for auto and fr we could only guess anyway.
                 let height = match self.grid.rows[y] {
-                    Sizing::Rel(v) => {
-                        v.resolve(self.styles).relative_to(self.regions.base().y)
-                    }
+                    Sizing::Rel(v) => v.resolve(self.styles).relative_to(self.regions.base().y),
                     _ => self.regions.base().y,
                 };
                 // Don't expand this auto column more than the cell actually
@@ -1031,10 +1043,7 @@ impl<'a> GridLayouter<'a> {
                 // Skip the first region if one cell in it is empty. Then,
                 // remeasure.
                 if let [first, rest @ ..] = frames.as_slice() {
-                    if can_skip
-                        && first.is_empty()
-                        && rest.iter().any(|frame| !frame.is_empty())
-                    {
+                    if can_skip && first.is_empty() && rest.iter().any(|frame| !frame.is_empty()) {
                         return Ok(None);
                     }
                 }
@@ -1229,10 +1238,12 @@ impl<'a> GridLayouter<'a> {
 /// and after the extents, e.g. [10mm, 5mm] -> [0mm, 10mm, 15mm].
 fn points(extents: impl IntoIterator<Item = Abs>) -> impl Iterator<Item = Abs> {
     let mut offset = Abs::zero();
-    std::iter::once(Abs::zero()).chain(extents).map(move |extent| {
-        offset += extent;
-        offset
-    })
+    std::iter::once(Abs::zero())
+        .chain(extents)
+        .map(move |extent| {
+            offset += extent;
+            offset
+        })
 }
 
 /// Given the 'x' of the column right after the vline (or cols.len() at the
@@ -1297,13 +1308,7 @@ fn split_vline(
 /// range of rows, should be drawn when going through row 'y'.
 /// That only occurs if the row is within its start..end range, and if it
 /// wouldn't go through a colspan.
-fn should_draw_vline_at_row(
-    grid: &CellGrid,
-    x: usize,
-    y: usize,
-    start: usize,
-    end: usize,
-) -> bool {
+fn should_draw_vline_at_row(grid: &CellGrid, x: usize, y: usize, start: usize, end: usize) -> bool {
     if !(start..end).contains(&y) {
         // Row is out of range for this line
         return false;
@@ -1328,7 +1333,10 @@ fn should_draw_vline_at_row(
     } else {
         (x, y)
     };
-    let Axes { x: parent_x, y: parent_y } = grid
+    let Axes {
+        x: parent_x,
+        y: parent_y,
+    } = grid
         .parent_cell_position(first_adjacent_cell.0, first_adjacent_cell.1)
         .unwrap();
 
@@ -1405,12 +1413,30 @@ mod test {
     fn test_vline_splitting_without_gutter() {
         let grid = sample_grid(false);
         let rows = &[
-            RowPiece { height: Abs::pt(1.0), y: 0 },
-            RowPiece { height: Abs::pt(2.0), y: 1 },
-            RowPiece { height: Abs::pt(4.0), y: 2 },
-            RowPiece { height: Abs::pt(8.0), y: 3 },
-            RowPiece { height: Abs::pt(16.0), y: 4 },
-            RowPiece { height: Abs::pt(32.0), y: 5 },
+            RowPiece {
+                height: Abs::pt(1.0),
+                y: 0,
+            },
+            RowPiece {
+                height: Abs::pt(2.0),
+                y: 1,
+            },
+            RowPiece {
+                height: Abs::pt(4.0),
+                y: 2,
+            },
+            RowPiece {
+                height: Abs::pt(8.0),
+                y: 3,
+            },
+            RowPiece {
+                height: Abs::pt(16.0),
+                y: 4,
+            },
+            RowPiece {
+                height: Abs::pt(32.0),
+                y: 5,
+            },
         ];
         let expected_vline_splits = &[
             vec![(Abs::pt(0.), Abs::pt(1. + 2. + 4. + 8. + 16. + 32.))],
@@ -1428,7 +1454,9 @@ mod test {
         for (x, expected_splits) in expected_vline_splits.iter().enumerate() {
             assert_eq!(
                 expected_splits,
-                &split_vline(&grid, rows, x, 0, 6).into_iter().collect::<Vec<_>>(),
+                &split_vline(&grid, rows, x, 0, 6)
+                    .into_iter()
+                    .collect::<Vec<_>>(),
             );
         }
     }
@@ -1437,17 +1465,50 @@ mod test {
     fn test_vline_splitting_with_gutter() {
         let grid = sample_grid(true);
         let rows = &[
-            RowPiece { height: Abs::pt(1.0), y: 0 },
-            RowPiece { height: Abs::pt(2.0), y: 1 },
-            RowPiece { height: Abs::pt(4.0), y: 2 },
-            RowPiece { height: Abs::pt(8.0), y: 3 },
-            RowPiece { height: Abs::pt(16.0), y: 4 },
-            RowPiece { height: Abs::pt(32.0), y: 5 },
-            RowPiece { height: Abs::pt(64.0), y: 6 },
-            RowPiece { height: Abs::pt(128.0), y: 7 },
-            RowPiece { height: Abs::pt(256.0), y: 8 },
-            RowPiece { height: Abs::pt(512.0), y: 9 },
-            RowPiece { height: Abs::pt(1024.0), y: 10 },
+            RowPiece {
+                height: Abs::pt(1.0),
+                y: 0,
+            },
+            RowPiece {
+                height: Abs::pt(2.0),
+                y: 1,
+            },
+            RowPiece {
+                height: Abs::pt(4.0),
+                y: 2,
+            },
+            RowPiece {
+                height: Abs::pt(8.0),
+                y: 3,
+            },
+            RowPiece {
+                height: Abs::pt(16.0),
+                y: 4,
+            },
+            RowPiece {
+                height: Abs::pt(32.0),
+                y: 5,
+            },
+            RowPiece {
+                height: Abs::pt(64.0),
+                y: 6,
+            },
+            RowPiece {
+                height: Abs::pt(128.0),
+                y: 7,
+            },
+            RowPiece {
+                height: Abs::pt(256.0),
+                y: 8,
+            },
+            RowPiece {
+                height: Abs::pt(512.0),
+                y: 9,
+            },
+            RowPiece {
+                height: Abs::pt(1024.0),
+                y: 10,
+            },
         ];
         let expected_vline_splits = &[
             // left border
@@ -1513,7 +1574,9 @@ mod test {
         for (x, expected_splits) in expected_vline_splits.iter().enumerate() {
             assert_eq!(
                 expected_splits,
-                &split_vline(&grid, rows, x, 0, 11).into_iter().collect::<Vec<_>>(),
+                &split_vline(&grid, rows, x, 0, 11)
+                    .into_iter()
+                    .collect::<Vec<_>>(),
             );
         }
     }

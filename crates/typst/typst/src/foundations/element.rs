@@ -11,8 +11,8 @@ use smallvec::SmallVec;
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, Args, Content, Dict, Func, ParamInfo, Repr, Scope, Selector, StyleChain,
-    Styles, Value,
+    cast, Args, Content, Dict, Func, ParamInfo, Repr, Scope, Selector, StyleChain, Styles,
+    TypstValue,
 };
 use crate::text::{Lang, Region};
 use crate::util::Static;
@@ -68,11 +68,7 @@ impl Element {
     }
 
     /// Construct an instance of this element.
-    pub fn construct(
-        self,
-        engine: &mut Engine,
-        args: &mut Args,
-    ) -> SourceResult<Content> {
+    pub fn construct(self, engine: &mut Engine, args: &mut Args) -> SourceResult<Content> {
         (self.0.construct)(engine, args)
     }
 
@@ -109,7 +105,7 @@ impl Element {
 
     /// Create a selector for this element, filtering for those that
     /// [fields](crate::foundations::Content::field) match the given argument.
-    pub fn where_(self, fields: SmallVec<[(u8, Value); 1]>) -> Selector {
+    pub fn where_(self, fields: SmallVec<[(u8, TypstValue); 1]>) -> Selector {
         Selector::Elem(self, Some(fields))
     }
 
@@ -155,24 +151,13 @@ impl PartialOrd for Element {
 
 cast! {
     Element,
-    self => Value::Func(self.into()),
+    self => TypstValue::Func(self.into()),
     v: Func => v.element().ok_or("expected element")?,
 }
 
 /// A Typst element that is defined by a native Rust type.
 pub trait NativeElement:
-    Debug
-    + Clone
-    + PartialEq
-    + Hash
-    + Construct
-    + Set
-    + Capable
-    + Fields
-    + Repr
-    + Send
-    + Sync
-    + 'static
+    Debug + Clone + PartialEq + Hash + Construct + Set + Capable + Fields + Repr + Send + Sync + 'static
 {
     /// Get the element for the native Rust element.
     fn elem() -> Element
@@ -218,10 +203,10 @@ pub trait Fields {
     fn has(&self, id: u8) -> bool;
 
     /// Get the field with the given field ID.
-    fn field(&self, id: u8) -> Option<Value>;
+    fn field(&self, id: u8) -> Option<TypstValue>;
 
     /// Get the field with the given ID in the presence of styles.
-    fn field_with_styles(&self, id: u8, styles: StyleChain) -> Option<Value>;
+    fn field_with_styles(&self, id: u8, styles: StyleChain) -> Option<TypstValue>;
 
     /// Resolve all fields with the styles and save them in-place.
     fn materialize(&mut self, styles: StyleChain);
@@ -281,8 +266,7 @@ cast! {
 /// rule.
 pub trait Synthesize {
     /// Prepare the element for show rule application.
-    fn synthesize(&mut self, engine: &mut Engine, styles: StyleChain)
-        -> SourceResult<()>;
+    fn synthesize(&mut self, engine: &mut Engine, styles: StyleChain) -> SourceResult<()>;
 }
 
 /// Defines a built-in show rule for an element.
@@ -309,11 +293,7 @@ pub trait Behave {
     /// Whether this weak element is larger than a previous one and thus picked
     /// as the maximum when the levels are the same.
     #[allow(unused_variables)]
-    fn larger(
-        &self,
-        prev: &(Cow<Content>, Behaviour, StyleChain),
-        styles: StyleChain,
-    ) -> bool {
+    fn larger(&self, prev: &(Cow<Content>, Behaviour, StyleChain), styles: StyleChain) -> bool {
         false
     }
 }

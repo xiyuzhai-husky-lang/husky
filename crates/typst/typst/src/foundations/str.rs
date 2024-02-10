@@ -10,8 +10,8 @@ use unicode_segmentation::UnicodeSegmentation;
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, dict, func, repr, scope, ty, Array, Bytes, Dict, Func, IntoValue, Label, Repr,
-    Type, Value, Version,
+    cast, dict, func, repr, scope, ty, Array, Bytes, Dict, Func, IntoTypstValue, Label, Repr, Type,
+    TypstValue, Version,
 };
 use crate::layout::Alignment;
 use crate::syntax::{Span, Spanned};
@@ -68,8 +68,7 @@ pub use ecow::eco_format;
 /// - `[\t]` for a tab
 /// - `[\u{1f600}]` for a hexadecimal Unicode escape sequence
 #[ty(scope, cast, title = "String")]
-#[derive(Default, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
-#[derive(Serialize, Deserialize)]
+#[derive(Default, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 #[serde(transparent)]
 pub struct Str(EcoString);
 
@@ -107,8 +106,11 @@ impl Str {
     ///
     /// `index == len` is considered in bounds.
     fn locate_opt(&self, index: i64) -> StrResult<Option<usize>> {
-        let wrapped =
-            if index >= 0 { Some(index) } else { (self.len() as i64).checked_add(index) };
+        let wrapped = if index >= 0 {
+            Some(index)
+        } else {
+            (self.len() as i64).checked_add(index)
+        };
 
         let resolved = wrapped
             .and_then(|v| usize::try_from(v).ok())
@@ -206,8 +208,8 @@ impl Str {
         index: i64,
         /// A default value to return if the index is out of bounds.
         #[named]
-        default: Option<Value>,
-    ) -> StrResult<Value> {
+        default: Option<TypstValue>,
+    ) -> StrResult<TypstValue> {
         let len = self.len();
         self.locate_opt(index)?
             .and_then(|i| self.0[i..].graphemes(true).next().map(|s| s.into_value()))
@@ -233,7 +235,9 @@ impl Str {
         #[named]
         count: Option<i64>,
     ) -> StrResult<Str> {
-        let end = end.or(count.map(|c| start + c)).unwrap_or(self.len() as i64);
+        let end = end
+            .or(count.map(|c| start + c))
+            .unwrap_or(self.len() as i64);
         let start = self.locate(start)?;
         let end = self.locate(end)?.max(start);
         Ok(self.0[start..end].into())
@@ -242,13 +246,16 @@ impl Str {
     /// Returns the grapheme clusters of the string as an array of substrings.
     #[func]
     pub fn clusters(&self) -> Array {
-        self.as_str().graphemes(true).map(|s| Value::Str(s.into())).collect()
+        self.as_str()
+            .graphemes(true)
+            .map(|s| TypstValue::Str(s.into()))
+            .collect()
     }
 
     /// Returns the Unicode codepoints of the string as an array of substrings.
     #[func]
     pub fn codepoints(&self) -> Array {
-        self.chars().map(|c| Value::Str(c.into())).collect()
+        self.chars().map(|c| TypstValue::Str(c.into())).collect()
     }
 
     /// Converts a character into its corresponding code point.
@@ -330,7 +337,9 @@ impl Str {
 
                     // There might still be a match overlapping this one, so
                     // restart at the next code point.
-                    let Some(c) = self[mat.start()..].chars().next() else { break };
+                    let Some(c) = self[mat.start()..].chars().next() else {
+                        break;
+                    };
                     start_byte = mat.start() + c.len_utf8();
                 }
                 false
@@ -385,9 +394,7 @@ impl Str {
         pattern: StrPattern,
     ) -> Option<Dict> {
         match pattern {
-            StrPattern::Str(pat) => {
-                self.0.match_indices(pat.as_str()).next().map(match_to_dict)
-            }
+            StrPattern::Str(pat) => self.0.match_indices(pat.as_str()).next().map(match_to_dict),
             StrPattern::Regex(re) => re.captures(self).map(captures_to_dict),
         }
     }
@@ -406,12 +413,12 @@ impl Str {
                 .0
                 .match_indices(pat.as_str())
                 .map(match_to_dict)
-                .map(Value::Dict)
+                .map(TypstValue::Dict)
                 .collect(),
             StrPattern::Regex(re) => re
                 .captures_iter(self)
                 .map(captures_to_dict)
-                .map(Value::Dict)
+                .map(TypstValue::Dict)
                 .collect(),
         }
     }
@@ -449,8 +456,7 @@ impl Str {
             match &replacement {
                 Replacement::Str(s) => output.push_str(s),
                 Replacement::Func(func) => {
-                    let piece =
-                        func.call(engine, [dict])?.cast::<Str>().at(func.span())?;
+                    let piece = func.call(engine, [dict])?.cast::<Str>().at(func.span())?;
                     output.push_str(&piece);
                 }
             }
@@ -577,13 +583,15 @@ impl Str {
     ) -> Array {
         let s = self.as_str();
         match pattern {
-            None => s.split_whitespace().map(|v| Value::Str(v.into())).collect(),
-            Some(StrPattern::Str(pat)) => {
-                s.split(pat.as_str()).map(|v| Value::Str(v.into())).collect()
-            }
-            Some(StrPattern::Regex(re)) => {
-                re.split(s).map(|v| Value::Str(v.into())).collect()
-            }
+            None => s
+                .split_whitespace()
+                .map(|v| TypstValue::Str(v.into()))
+                .collect(),
+            Some(StrPattern::Str(pat)) => s
+                .split(pat.as_str())
+                .map(|v| TypstValue::Str(v.into()))
+                .collect(),
+            Some(StrPattern::Regex(re)) => re.split(s).map(|v| TypstValue::Str(v.into())).collect(),
         }
     }
 
@@ -724,7 +732,7 @@ impl From<Str> for String {
 
 cast! {
     char,
-    self => Value::Str(self.into()),
+    self => TypstValue::Str(self.into()),
     string: Str => {
         let mut chars = string.chars();
         match (chars.next(), chars.next()) {
@@ -736,18 +744,18 @@ cast! {
 
 cast! {
     &str,
-    self => Value::Str(self.into()),
+    self => TypstValue::Str(self.into()),
 }
 
 cast! {
     EcoString,
-    self => Value::Str(self.into()),
+    self => TypstValue::Str(self.into()),
     v: Str => v.into(),
 }
 
 cast! {
     String,
-    self => Value::Str(self.into()),
+    self => TypstValue::Str(self.into()),
     v: Str => v.into(),
 }
 
@@ -793,7 +801,7 @@ fn captures_to_dict(cap: regex::Captures) -> Dict {
         "text" => m.as_str(),
         "captures" =>  cap.iter()
             .skip(1)
-            .map(|opt| opt.map_or(Value::None, |m| m.as_str().into_value()))
+            .map(|opt| opt.map_or(TypstValue::None, |m| m.as_str().into_value()))
             .collect::<Array>(),
     }
 }
@@ -801,13 +809,21 @@ fn captures_to_dict(cap: regex::Captures) -> Dict {
 /// The out of bounds access error message.
 #[cold]
 fn out_of_bounds(index: i64, len: usize) -> EcoString {
-    eco_format!("string index out of bounds (index: {}, len: {})", index, len)
+    eco_format!(
+        "string index out of bounds (index: {}, len: {})",
+        index,
+        len
+    )
 }
 
 /// The out of bounds access error message when no default value was given.
 #[cold]
 fn no_default_and_out_of_bounds(index: i64, len: usize) -> EcoString {
-    eco_format!("no default value was specified and string index out of bounds (index: {}, len: {})", index, len)
+    eco_format!(
+        "no default value was specified and string index out of bounds (index: {}, len: {})",
+        index,
+        len
+    )
 }
 
 /// The char boundary access error message.
@@ -847,7 +863,9 @@ pub struct Regex(regex::Regex);
 impl Regex {
     /// Create a new regular expression.
     pub fn new(re: &str) -> StrResult<Self> {
-        regex::Regex::new(re).map(Self).map_err(|err| eco_format!("{err}"))
+        regex::Regex::new(re)
+            .map(Self)
+            .map_err(|err| eco_format!("{err}"))
     }
 }
 

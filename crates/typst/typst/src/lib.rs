@@ -56,13 +56,6 @@ pub mod visualize;
 #[doc(inline)]
 pub use typst_syntax as syntax;
 
-use std::collections::HashSet;
-use std::ops::Range;
-
-use comemo::{Prehashed, Track, Tracked, Validate};
-use ecow::{EcoString, EcoVec};
-use typst_timing::{timed, TimingScope};
-
 use crate::diag::{warning, FileResult, SourceDiagnostic, SourceResult};
 use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
@@ -75,6 +68,11 @@ use crate::model::Document;
 use crate::syntax::{FileId, PackageSpec, Source, Span};
 use crate::text::{Font, FontBook};
 use crate::visualize::Color;
+use comemo::{Prehashed, Track, Tracked, Validate};
+use ecow::{EcoString, EcoVec};
+use std::collections::HashSet;
+use std::ops::Range;
+use typst_timing::{timed, TimingScope};
 
 /// Compile a source file into a fully layouted document.
 ///
@@ -109,8 +107,13 @@ fn typeset(
     content: &Content,
 ) -> SourceResult<Document> {
     // The name of the iterations for timing scopes.
-    const ITER_NAMES: &[&str] =
-        &["typeset (1)", "typeset (2)", "typeset (3)", "typeset (4)", "typeset (5)"];
+    const ITER_NAMES: &[&str] = &[
+        "typeset (1)",
+        "typeset (2)",
+        "typeset (3)",
+        "typeset (4)",
+        "typeset (5)",
+    ];
 
     let library = world.library();
     let styles = StyleChain::new(&library.styles);
@@ -141,7 +144,10 @@ fn typeset(
         document.introspector.rebuild(&document.pages);
         iter += 1;
 
-        if timed!("check stabilized", document.introspector.validate(&constraint)) {
+        if timed!(
+            "check stabilized",
+            document.introspector.validate(&constraint)
+        ) {
             break;
         }
 
@@ -290,7 +296,11 @@ impl LibraryBuilder {
         let math = math::module();
         let inputs = self.inputs.unwrap_or_default();
         let global = global(math.clone(), inputs);
-        Library { global, math, styles: Styles::new() }
+        Library {
+            global,
+            math,
+            styles: Styles::new(),
+        }
     }
 }
 

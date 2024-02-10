@@ -2,7 +2,7 @@ use ecow::eco_format;
 
 use crate::diag::{At, SourceResult};
 use crate::eval::{Eval, Vm};
-use crate::foundations::{Content, NativeElement, Value};
+use crate::foundations::{Content, NativeElement, TypstValue};
 use crate::math::{AlignPointElem, AttachElem, FracElem, LrElem, PrimesElem, RootElem};
 use crate::syntax::ast::{self, AstNode};
 use crate::text::TextElem;
@@ -19,7 +19,7 @@ impl Eval for ast::Math<'_> {
 }
 
 impl Eval for ast::MathIdent<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         vm.scopes.get_in_math(&self).cloned().at(self.span())

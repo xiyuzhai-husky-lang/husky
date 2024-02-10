@@ -2,7 +2,7 @@ use ecow::EcoString;
 
 use crate::diag::{format_xml_like_error, At, FileError, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{dict, func, scope, Array, Dict, IntoValue, Str, Value};
+use crate::foundations::{dict, func, scope, Array, Dict, IntoTypstValue, Str, TypstValue};
 use crate::loading::Readable;
 use crate::syntax::Spanned;
 use crate::World;
@@ -61,7 +61,7 @@ pub fn xml(
     engine: &mut Engine,
     /// Path to an XML file.
     path: Spanned<EcoString>,
-) -> SourceResult<Value> {
+) -> SourceResult<TypstValue> {
     let Spanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
@@ -75,26 +75,27 @@ impl xml {
     pub fn decode(
         /// XML data.
         data: Spanned<Readable>,
-    ) -> SourceResult<Value> {
+    ) -> SourceResult<TypstValue> {
         let Spanned { v: data, span } = data;
         let text = std::str::from_utf8(data.as_slice())
             .map_err(FileError::from)
             .at(span)?;
-        let document =
-            roxmltree::Document::parse(text).map_err(format_xml_error).at(span)?;
+        let document = roxmltree::Document::parse(text)
+            .map_err(format_xml_error)
+            .at(span)?;
         Ok(convert_xml(document.root()))
     }
 }
 
 /// Convert an XML node to a Typst value.
-fn convert_xml(node: roxmltree::Node) -> Value {
+fn convert_xml(node: roxmltree::Node) -> TypstValue {
     if node.is_text() {
         return node.text().unwrap_or_default().into_value();
     }
 
     let children: Array = node.children().map(convert_xml).collect();
     if node.is_root() {
-        return Value::Array(children);
+        return TypstValue::Array(children);
     }
 
     let tag: Str = node.tag_name().name().into();
@@ -103,7 +104,7 @@ fn convert_xml(node: roxmltree::Node) -> Value {
         .map(|attr| (attr.name().into(), attr.value().into_value()))
         .collect();
 
-    Value::Dict(dict! {
+    TypstValue::Dict(dict! {
         "tag" => tag,
         "attrs" => attrs,
         "children" => children,

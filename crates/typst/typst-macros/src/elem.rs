@@ -6,8 +6,8 @@ use syn::punctuated::Punctuated;
 use syn::{parse_quote, Ident, Result, Token};
 
 use crate::util::{
-    determine_name_and_title, documentation, foundations, has_attr, kw, parse_attr,
-    parse_flag, parse_string, parse_string_array, validate_attrs, BlockWithReturn,
+    determine_name_and_title, documentation, foundations, has_attr, kw, parse_attr, parse_flag,
+    parse_string, parse_string_array, validate_attrs, BlockWithReturn,
 };
 
 /// Expand the `#[elem]` macro.
@@ -33,7 +33,9 @@ impl Elem {
     /// Calls the closure to produce a token stream if the
     /// element has the given capability.
     fn can(&self, name: &str) -> bool {
-        self.capabilities.iter().any(|capability| capability == name)
+        self.capabilities
+            .iter()
+            .any(|capability| capability == name)
     }
 
     /// Calls the closure to produce a token stream if the
@@ -75,9 +77,8 @@ impl Elem {
     /// because it's a pattern used a lot for parsing data from the input and
     /// then storing it in a field.
     fn construct_fields(&self) -> impl Iterator<Item = &Field> + Clone {
-        self.real_fields().filter(|field| {
-            field.parse.is_some() || (!field.synthesized && !field.internal)
-        })
+        self.real_fields()
+            .filter(|field| field.parse.is_some() || (!field.synthesized && !field.internal))
     }
 
     /// Fields that can be configured with set rules.
@@ -163,9 +164,16 @@ fn parse(stream: TokenStream, body: &syn::ItemStruct) -> Result<Elem> {
         bail!(body, "expected named fields");
     };
 
-    let fields = named.named.iter().map(parse_field).collect::<Result<Vec<_>>>()?;
+    let fields = named
+        .named
+        .iter()
+        .map(parse_field)
+        .collect::<Result<Vec<_>>>()?;
     if fields.iter().any(|field| field.ghost && !field.internal)
-        && meta.capabilities.iter().all(|capability| capability != "Construct")
+        && meta
+            .capabilities
+            .iter()
+            .all(|capability| capability != "Construct")
     {
         bail!(
             body.ident,
@@ -267,15 +275,19 @@ fn create(element: &Elem) -> Result<TokenStream> {
 
     // Trait implementations.
     let native_element_impl = create_native_elem_impl(element);
-    let partial_eq_impl =
-        element.cannot("PartialEq").then(|| create_partial_eq_impl(element));
-    let construct_impl =
-        element.cannot("Construct").then(|| create_construct_impl(element));
+    let partial_eq_impl = element
+        .cannot("PartialEq")
+        .then(|| create_partial_eq_impl(element));
+    let construct_impl = element
+        .cannot("Construct")
+        .then(|| create_construct_impl(element));
     let set_impl = element.cannot("Set").then(|| create_set_impl(element));
     let capable_impl = create_capable_impl(element);
     let fields_impl = create_fields_impl(element);
     let repr_impl = element.cannot("Repr").then(|| create_repr_impl(element));
-    let locatable_impl = element.can("Locatable").then(|| create_locatable_impl(element));
+    let locatable_impl = element
+        .can("Locatable")
+        .then(|| create_locatable_impl(element));
     let into_value_impl = create_into_value_impl(element);
 
     // We use a const block to create an anonymous scope, as to not leak any
@@ -302,7 +314,9 @@ fn create(element: &Elem) -> Result<TokenStream> {
 
 /// Create the struct definition itself.
 fn create_struct(element: &Elem) -> TokenStream {
-    let Elem { vis, ident, docs, .. } = element;
+    let Elem {
+        vis, ident, docs, ..
+    } = element;
 
     let debug = element.cannot("Debug").then(|| quote! { Debug, });
     let fields = element.struct_fields().map(create_field);
@@ -329,9 +343,15 @@ fn create_field(field: &Field) -> TokenStream {
 
 /// Creates the element's enum for field identifiers.
 fn create_fields_enum(element: &Elem) -> TokenStream {
-    let variants: Vec<_> = element.real_fields().map(|field| &field.enum_ident).collect();
+    let variants: Vec<_> = element
+        .real_fields()
+        .map(|field| &field.enum_ident)
+        .collect();
     let names: Vec<_> = element.real_fields().map(|field| &field.name).collect();
-    let consts: Vec<_> = element.real_fields().map(|field| &field.const_ident).collect();
+    let consts: Vec<_> = element
+        .real_fields()
+        .map(|field| &field.const_ident)
+        .collect();
     let repr = (!variants.is_empty()).then(|| quote! { #[repr(u8)] });
 
     quote! {
@@ -383,7 +403,12 @@ fn create_fields_enum(element: &Elem) -> TokenStream {
 
 /// Creates a static with a borrowed field's default value.
 fn create_default_static(field: &Field) -> TokenStream {
-    let Field { const_ident, default, ty, .. } = field;
+    let Field {
+        const_ident,
+        default,
+        ty,
+        ..
+    } = field;
 
     let init = match default {
         Some(default) => quote! { || #default },
@@ -445,7 +470,15 @@ fn create_new_func(element: &Elem) -> TokenStream {
 
 /// Create a builder-style setter method for a field.
 fn create_with_field_method(field: &Field) -> TokenStream {
-    let Field { vis, ident, with_ident, push_ident, name, ty, .. } = field;
+    let Field {
+        vis,
+        ident,
+        with_ident,
+        push_ident,
+        name,
+        ty,
+        ..
+    } = field;
     let doc = format!("Builder-style setter for the [`{name}`](Self::{ident}) field.");
     quote! {
         #[doc = #doc]
@@ -458,7 +491,14 @@ fn create_with_field_method(field: &Field) -> TokenStream {
 
 /// Create a setter method for a field.
 fn create_push_field_method(field: &Field) -> TokenStream {
-    let Field { vis, ident, push_ident, name, ty, .. } = field;
+    let Field {
+        vis,
+        ident,
+        push_ident,
+        name,
+        ty,
+        ..
+    } = field;
     let doc = format!("Setter for the [`{name}`](Self::{ident}) field.");
 
     let expr = if field.required {
@@ -477,7 +517,13 @@ fn create_push_field_method(field: &Field) -> TokenStream {
 
 /// Create an accessor method for a field.
 fn create_field_method(field: &Field) -> TokenStream {
-    let Field { vis, docs, ident, output, .. } = field;
+    let Field {
+        vis,
+        docs,
+        ident,
+        output,
+        ..
+    } = field;
 
     if field.required {
         quote! {
@@ -501,11 +547,8 @@ fn create_field_method(field: &Field) -> TokenStream {
             quote! { (&self, styles: #foundations::StyleChain) -> #output }
         };
 
-        let mut value = create_style_chain_access(
-            field,
-            field.borrowed,
-            quote! { self.#ident.as_ref() },
-        );
+        let mut value =
+            create_style_chain_access(field, field.borrowed, quote! { self.#ident.as_ref() });
         if field.resolve {
             value = quote! { #foundations::Resolve::resolve(#value, styles) };
         }
@@ -521,7 +564,13 @@ fn create_field_method(field: &Field) -> TokenStream {
 
 /// Create a style accessor method for a field.
 fn create_field_in_method(field: &Field) -> TokenStream {
-    let Field { vis, ident_in, name, output, .. } = field;
+    let Field {
+        vis,
+        ident_in,
+        name,
+        output,
+        ..
+    } = field;
     let doc = format!("Access the `{name}` field in the given style chain.");
 
     let ref_ = field.borrowed.then(|| quote! { & });
@@ -541,7 +590,15 @@ fn create_field_in_method(field: &Field) -> TokenStream {
 
 /// Create a style setter method for a field.
 fn create_set_field_method(field: &Field) -> TokenStream {
-    let Field { vis, ident, set_ident, enum_ident, ty, name, .. } = field;
+    let Field {
+        vis,
+        ident,
+        set_ident,
+        enum_ident,
+        ty,
+        name,
+        ..
+    } = field;
     let doc = format!("Create a style property for the `{name}` field.");
 
     quote! {
@@ -556,12 +613,14 @@ fn create_set_field_method(field: &Field) -> TokenStream {
 }
 
 /// Create a style chain access method for a field.
-fn create_style_chain_access(
-    field: &Field,
-    borrowed: bool,
-    inherent: TokenStream,
-) -> TokenStream {
-    let Field { ty, default, enum_ident, const_ident, .. } = field;
+fn create_style_chain_access(field: &Field, borrowed: bool, inherent: TokenStream) -> TokenStream {
+    let Field {
+        ty,
+        default,
+        enum_ident,
+        const_ident,
+        ..
+    } = field;
 
     let getter = match (field.fold, borrowed) {
         (false, false) => quote! { get },
@@ -590,7 +649,15 @@ fn create_style_chain_access(
 
 /// Creates the element's `NativeElement` implementation.
 fn create_native_elem_impl(element: &Elem) -> TokenStream {
-    let Elem { name, ident, title, scope, keywords, docs, .. } = element;
+    let Elem {
+        name,
+        ident,
+        title,
+        scope,
+        keywords,
+        docs,
+        ..
+    } = element;
 
     let local_name = if element.can("LocalName") {
         quote! { Some(<#foundations::Packed<#ident> as ::typst::text::LocalName>::local_name) }
@@ -654,7 +721,7 @@ fn create_param_info(field: &Field) -> TokenStream {
             .clone()
             .unwrap_or_else(|| parse_quote! { ::std::default::Default::default() });
         quote! {
-            Some(|| <#ty as #foundations::IntoValue>::into_value(#default))
+            Some(|| <#ty as #foundations::IntoTypstValue>::into_value(#default))
         }
     } else {
         quote! { None }
@@ -684,7 +751,11 @@ fn create_param_info(field: &Field) -> TokenStream {
 /// Creates the element's `PartialEq` implementation.
 fn create_partial_eq_impl(element: &Elem) -> TokenStream {
     let ident = &element.ident;
-    let empty = element.eq_fields().next().is_none().then(|| quote! { true });
+    let empty = element
+        .eq_fields()
+        .next()
+        .is_none()
+        .then(|| quote! { true });
     let fields = element.eq_fields().map(|field| &field.ident);
 
     quote! {
@@ -782,8 +853,15 @@ fn create_field_parser(field: &Field) -> (TokenStream, TokenStream) {
 /// Creates the element's casting vtable.
 fn create_capable_impl(element: &Elem) -> TokenStream {
     // Forbidden capabilities (i.e capabilities that are not object safe).
-    const FORBIDDEN: &[&str] =
-        &["Debug", "PartialEq", "Hash", "Construct", "Set", "Repr", "LocalName"];
+    const FORBIDDEN: &[&str] = &[
+        "Debug",
+        "PartialEq",
+        "Hash",
+        "Construct",
+        "Set",
+        "Repr",
+        "LocalName",
+    ];
 
     let ident = &element.ident;
     let relevant = element
@@ -816,12 +894,14 @@ fn create_capable_impl(element: &Elem) -> TokenStream {
 
 /// Creates the element's `Fields` implementation.
 fn create_fields_impl(element: &Elem) -> TokenStream {
-    let into_value = quote! { #foundations::IntoValue::into_value };
+    let into_value = quote! { #foundations::IntoTypstValue::into_value };
     let visible_non_ghost = || element.visible_fields().filter(|field| !field.ghost);
 
     // Fields that can be checked using the `has` method.
     let has_arms = visible_non_ghost().map(|field| {
-        let Field { enum_ident, ident, .. } = field;
+        let Field {
+            enum_ident, ident, ..
+        } = field;
 
         let expr = if field.required {
             quote! { true }
@@ -834,7 +914,9 @@ fn create_fields_impl(element: &Elem) -> TokenStream {
 
     // Fields that can be accessed using the `field` method.
     let field_arms = visible_non_ghost().map(|field| {
-        let Field { enum_ident, ident, .. } = field;
+        let Field {
+            enum_ident, ident, ..
+        } = field;
 
         let expr = if field.required {
             quote! { Some(#into_value(self.#ident.clone())) }
@@ -847,7 +929,9 @@ fn create_fields_impl(element: &Elem) -> TokenStream {
 
     // Fields that can be accessed using the `field_with_styles` method.
     let field_with_styles_arms = element.visible_fields().map(|field| {
-        let Field { enum_ident, ident, .. } = field;
+        let Field {
+            enum_ident, ident, ..
+        } = field;
 
         let expr = if field.required {
             quote! { Some(#into_value(self.#ident.clone())) }
@@ -857,7 +941,11 @@ fn create_fields_impl(element: &Elem) -> TokenStream {
             let value = create_style_chain_access(
                 field,
                 false,
-                if field.ghost { quote!(None) } else { quote!(self.#ident.as_ref()) },
+                if field.ghost {
+                    quote!(None)
+                } else {
+                    quote!(self.#ident.as_ref())
+                },
             );
 
             quote! { Some(#into_value(#value)) }
@@ -874,7 +962,11 @@ fn create_fields_impl(element: &Elem) -> TokenStream {
             let value = create_style_chain_access(
                 field,
                 false,
-                if field.ghost { quote!(None) } else { quote!(self.#ident.as_ref()) },
+                if field.ghost {
+                    quote!(None)
+                } else {
+                    quote!(self.#ident.as_ref())
+                },
             );
 
             if field.fold {
@@ -923,7 +1015,7 @@ fn create_fields_impl(element: &Elem) -> TokenStream {
                 }
             }
 
-            fn field(&self, id: u8) -> Option<#foundations::Value> {
+            fn field(&self, id: u8) -> Option<#foundations::TypstValue> {
                 let id = Fields::try_from(id).ok()?;
                 match id {
                     #(#field_arms,)*
@@ -931,7 +1023,7 @@ fn create_fields_impl(element: &Elem) -> TokenStream {
                 }
             }
 
-            fn field_with_styles(&self, id: u8, styles: #foundations::StyleChain) -> Option<#foundations::Value> {
+            fn field_with_styles(&self, id: u8, styles: #foundations::StyleChain) -> Option<#foundations::TypstValue> {
                 let id = Fields::try_from(id).ok()?;
                 match id {
                     #(#field_with_styles_arms,)*
@@ -978,13 +1070,13 @@ fn create_locatable_impl(element: &Elem) -> TokenStream {
     quote! { impl ::typst::introspection::Locatable for #foundations::Packed<#ident> {} }
 }
 
-/// Creates the element's `IntoValue` implementation.
+/// Creates the element's `IntoTypstValue` implementation.
 fn create_into_value_impl(element: &Elem) -> TokenStream {
     let Elem { ident, .. } = element;
     quote! {
-        impl #foundations::IntoValue for #ident {
-            fn into_value(self) -> #foundations::Value {
-                #foundations::Value::Content(#foundations::Content::new(self))
+        impl #foundations::IntoTypstValue for #ident {
+            fn into_value(self) -> #foundations::TypstValue {
+                #foundations::TypstValue::Content(#foundations::Content::new(self))
             }
         }
     }

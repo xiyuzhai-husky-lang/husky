@@ -258,12 +258,12 @@ pub fn category(stream: BoundaryStream, item: BoundaryStream) -> BoundaryStream 
         .into()
 }
 
-/// Implements `Reflect`, `FromValue`, and `IntoValue` for a type.
+/// Implements `Reflect`, `FromTypstValue`, and `IntoTypstValue` for a type.
 ///
 /// - `Reflect` makes Typst's runtime aware of the type's characteristics.
 ///   It's important for autocompletion, error messages, etc.
-/// - `FromValue` defines how to cast from a value into this type.
-/// - `IntoValue` defines how to cast fromthis type into a value.
+/// - `FromTypstValue` defines how to cast from a value into this type.
+/// - `IntoTypstValue` defines how to cast fromthis type into a value.
 ///
 /// ```ignore
 /// /// An integer between 0 and 13.
@@ -293,7 +293,7 @@ pub fn cast(stream: BoundaryStream) -> BoundaryStream {
         .into()
 }
 
-/// Implements `Reflect`, `FromValue`, and `IntoValue` for an enum.
+/// Implements `Reflect`, `FromTypstValue`, and `IntoTypstValue` for an enum.
 ///
 /// The enum will become castable from kebab-case strings. The doc-comments will
 /// become user-facing documentation for each variant. The `#[string]` attribute

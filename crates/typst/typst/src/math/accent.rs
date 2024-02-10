@@ -1,11 +1,8 @@
 use crate::diag::{bail, SourceResult};
-use crate::foundations::{
-    cast, elem, Content, Packed, Resolve, Smart, StyleChain, Value,
-};
+use crate::foundations::{cast, elem, Content, Packed, Resolve, Smart, StyleChain, TypstValue};
 use crate::layout::{Em, Frame, Length, Point, Rel, Size};
 use crate::math::{
-    style_cramped, FrameFragment, GlyphFragment, LayoutMath, MathContext, MathFragment,
-    Scaled,
+    style_cramped, FrameFragment, GlyphFragment, LayoutMath, MathContext, MathFragment, Scaled,
 };
 use crate::symbols::Symbol;
 use crate::text::TextElem;
@@ -139,7 +136,7 @@ cast! {
     self => self.0.into_value(),
     v: char => Self::new(v),
     v: Content => match v.to_packed::<TextElem>() {
-        Some(elem) => Value::Str(elem.text().clone().into()).cast()?,
+        Some(elem) => TypstValue::Str(elem.text().clone().into()).cast()?,
         None => bail!("expected text"),
     },
 }

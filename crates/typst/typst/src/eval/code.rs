@@ -2,11 +2,11 @@ use ecow::{eco_vec, EcoVec};
 
 use crate::diag::{bail, error, At, SourceDiagnostic, SourceResult};
 use crate::eval::{ops, Eval, Vm};
-use crate::foundations::{Array, Content, Dict, Str, Value};
+use crate::foundations::{Array, Content, Dict, Str, TypstValue};
 use crate::syntax::ast::{self, AstNode};
 
 impl Eval for ast::Code<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         eval_code(vm, &mut self.exprs())
@@ -17,9 +17,9 @@ impl Eval for ast::Code<'_> {
 fn eval_code<'a>(
     vm: &mut Vm,
     exprs: &mut impl Iterator<Item = ast::Expr<'a>>,
-) -> SourceResult<Value> {
+) -> SourceResult<TypstValue> {
     let flow = vm.flow.take();
-    let mut output = Value::None;
+    let mut output = TypstValue::None;
 
     while let Some(expr) = exprs.next() {
         let span = expr.span();
@@ -31,7 +31,7 @@ fn eval_code<'a>(
                 }
 
                 let tail = eval_code(vm, exprs)?.display();
-                Value::Content(tail.styled_with_map(styles))
+                TypstValue::Content(tail.styled_with_map(styles))
             }
             ast::Expr::Show(show) => {
                 let recipe = show.eval(vm)?;
@@ -40,7 +40,7 @@ fn eval_code<'a>(
                 }
 
                 let tail = eval_code(vm, exprs)?.display();
-                Value::Content(tail.styled_with_recipe(&mut vm.engine, recipe)?)
+                TypstValue::Content(tail.styled_with_recipe(&mut vm.engine, recipe)?)
             }
             _ => expr.eval(vm)?,
         };
@@ -60,41 +60,44 @@ fn eval_code<'a>(
 }
 
 impl Eval for ast::Expr<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let span = self.span();
         let forbidden = |name| {
-            error!(span, "{} is only allowed directly in code and content blocks", name)
+            error!(
+                span,
+                "{} is only allowed directly in code and content blocks", name
+            )
         };
 
         let v = match self {
-            Self::Text(v) => v.eval(vm).map(Value::Content),
-            Self::Space(v) => v.eval(vm).map(Value::Content),
-            Self::Linebreak(v) => v.eval(vm).map(Value::Content),
-            Self::Parbreak(v) => v.eval(vm).map(Value::Content),
+            Self::Text(v) => v.eval(vm).map(TypstValue::Content),
+            Self::Space(v) => v.eval(vm).map(TypstValue::Content),
+            Self::Linebreak(v) => v.eval(vm).map(TypstValue::Content),
+            Self::Parbreak(v) => v.eval(vm).map(TypstValue::Content),
             Self::Escape(v) => v.eval(vm),
             Self::Shorthand(v) => v.eval(vm),
-            Self::SmartQuote(v) => v.eval(vm).map(Value::Content),
-            Self::Strong(v) => v.eval(vm).map(Value::Content),
-            Self::Emph(v) => v.eval(vm).map(Value::Content),
-            Self::Raw(v) => v.eval(vm).map(Value::Content),
-            Self::Link(v) => v.eval(vm).map(Value::Content),
+            Self::SmartQuote(v) => v.eval(vm).map(TypstValue::Content),
+            Self::Strong(v) => v.eval(vm).map(TypstValue::Content),
+            Self::Emph(v) => v.eval(vm).map(TypstValue::Content),
+            Self::Raw(v) => v.eval(vm).map(TypstValue::Content),
+            Self::Link(v) => v.eval(vm).map(TypstValue::Content),
             Self::Label(v) => v.eval(vm),
-            Self::Ref(v) => v.eval(vm).map(Value::Content),
-            Self::Heading(v) => v.eval(vm).map(Value::Content),
-            Self::List(v) => v.eval(vm).map(Value::Content),
-            Self::Enum(v) => v.eval(vm).map(Value::Content),
-            Self::Term(v) => v.eval(vm).map(Value::Content),
-            Self::Equation(v) => v.eval(vm).map(Value::Content),
-            Self::Math(v) => v.eval(vm).map(Value::Content),
+            Self::Ref(v) => v.eval(vm).map(TypstValue::Content),
+            Self::Heading(v) => v.eval(vm).map(TypstValue::Content),
+            Self::List(v) => v.eval(vm).map(TypstValue::Content),
+            Self::Enum(v) => v.eval(vm).map(TypstValue::Content),
+            Self::Term(v) => v.eval(vm).map(TypstValue::Content),
+            Self::Equation(v) => v.eval(vm).map(TypstValue::Content),
+            Self::Math(v) => v.eval(vm).map(TypstValue::Content),
             Self::MathIdent(v) => v.eval(vm),
-            Self::MathAlignPoint(v) => v.eval(vm).map(Value::Content),
-            Self::MathDelimited(v) => v.eval(vm).map(Value::Content),
-            Self::MathAttach(v) => v.eval(vm).map(Value::Content),
-            Self::MathPrimes(v) => v.eval(vm).map(Value::Content),
-            Self::MathFrac(v) => v.eval(vm).map(Value::Content),
-            Self::MathRoot(v) => v.eval(vm).map(Value::Content),
+            Self::MathAlignPoint(v) => v.eval(vm).map(TypstValue::Content),
+            Self::MathDelimited(v) => v.eval(vm).map(TypstValue::Content),
+            Self::MathAttach(v) => v.eval(vm).map(TypstValue::Content),
+            Self::MathPrimes(v) => v.eval(vm).map(TypstValue::Content),
+            Self::MathFrac(v) => v.eval(vm).map(TypstValue::Content),
+            Self::MathRoot(v) => v.eval(vm).map(TypstValue::Content),
             Self::Ident(v) => v.eval(vm),
             Self::None(v) => v.eval(vm),
             Self::Auto(v) => v.eval(vm),
@@ -104,9 +107,9 @@ impl Eval for ast::Expr<'_> {
             Self::Numeric(v) => v.eval(vm),
             Self::Str(v) => v.eval(vm),
             Self::Code(v) => v.eval(vm),
-            Self::Content(v) => v.eval(vm).map(Value::Content),
-            Self::Array(v) => v.eval(vm).map(Value::Array),
-            Self::Dict(v) => v.eval(vm).map(Value::Dict),
+            Self::Content(v) => v.eval(vm).map(TypstValue::Content),
+            Self::Array(v) => v.eval(vm).map(TypstValue::Array),
+            Self::Dict(v) => v.eval(vm).map(TypstValue::Dict),
             Self::Parenthesized(v) => v.eval(vm),
             Self::FieldAccess(v) => v.eval(vm),
             Self::FuncCall(v) => v.eval(vm),
@@ -121,7 +124,7 @@ impl Eval for ast::Expr<'_> {
             Self::While(v) => v.eval(vm),
             Self::For(v) => v.eval(vm),
             Self::Import(v) => v.eval(vm),
-            Self::Include(v) => v.eval(vm).map(Value::Content),
+            Self::Include(v) => v.eval(vm).map(TypstValue::Content),
             Self::Break(v) => v.eval(vm),
             Self::Continue(v) => v.eval(vm),
             Self::Return(v) => v.eval(vm),
@@ -137,7 +140,7 @@ impl Eval for ast::Expr<'_> {
 }
 
 impl Eval for ast::Ident<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         vm.scopes.get(&self).cloned().at(self.span())
@@ -145,58 +148,58 @@ impl Eval for ast::Ident<'_> {
 }
 
 impl Eval for ast::None<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
-        Ok(Value::None)
+        Ok(TypstValue::None)
     }
 }
 
 impl Eval for ast::Auto<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
-        Ok(Value::Auto)
+        Ok(TypstValue::Auto)
     }
 }
 
 impl Eval for ast::Bool<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
-        Ok(Value::Bool(self.get()))
+        Ok(TypstValue::Bool(self.get()))
     }
 }
 
 impl Eval for ast::Int<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
-        Ok(Value::Int(self.get()))
+        Ok(TypstValue::Int(self.get()))
     }
 }
 
 impl Eval for ast::Float<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
-        Ok(Value::Float(self.get()))
+        Ok(TypstValue::Float(self.get()))
     }
 }
 
 impl Eval for ast::Numeric<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
-        Ok(Value::numeric(self.get()))
+        Ok(TypstValue::numeric(self.get()))
     }
 }
 
 impl Eval for ast::Str<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
-        Ok(Value::Str(self.get().into()))
+        Ok(TypstValue::Str(self.get().into()))
     }
 }
 
@@ -211,8 +214,8 @@ impl Eval for ast::Array<'_> {
             match item {
                 ast::ArrayItem::Pos(expr) => vec.push(expr.eval(vm)?),
                 ast::ArrayItem::Spread(expr) => match expr.eval(vm)? {
-                    Value::None => {}
-                    Value::Array(array) => vec.extend(array.into_iter()),
+                    TypstValue::None => {}
+                    TypstValue::Array(array) => vec.extend(array.into_iter()),
                     v => bail!(expr.span(), "cannot spread {} into array", v.ty()),
                 },
             }
@@ -246,8 +249,8 @@ impl Eval for ast::Dict<'_> {
                     map.insert(key, keyed.expr().eval(vm)?);
                 }
                 ast::DictItem::Spread(expr) => match expr.eval(vm)? {
-                    Value::None => {}
-                    Value::Dict(dict) => map.extend(dict.into_iter()),
+                    TypstValue::None => {}
+                    TypstValue::Dict(dict) => map.extend(dict.into_iter()),
                     v => bail!(expr.span(), "cannot spread {} into dictionary", v.ty()),
                 },
             }
@@ -262,7 +265,7 @@ impl Eval for ast::Dict<'_> {
 }
 
 impl Eval for ast::CodeBlock<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         vm.scopes.enter();
@@ -284,7 +287,7 @@ impl Eval for ast::ContentBlock<'_> {
 }
 
 impl Eval for ast::Parenthesized<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         self.expr().eval(vm)
@@ -292,7 +295,7 @@ impl Eval for ast::Parenthesized<'_> {
 }
 
 impl Eval for ast::FieldAccess<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let value = self.target().eval(vm)?;

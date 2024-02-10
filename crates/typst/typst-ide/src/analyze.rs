@@ -2,25 +2,27 @@ use comemo::Track;
 use ecow::{eco_vec, EcoString, EcoVec};
 use typst::engine::{Engine, Route};
 use typst::eval::{Tracer, Vm};
-use typst::foundations::{Label, Scopes, Value};
+use typst::foundations::{Label, Scopes, TypstValue};
 use typst::introspection::{Introspector, Locator};
 use typst::model::{BibliographyElem, Document};
 use typst::syntax::{ast, LinkedNode, Span, SyntaxKind};
 use typst::World;
 
 /// Try to determine a set of possible values for an expression.
-pub fn analyze_expr(world: &dyn World, node: &LinkedNode) -> EcoVec<Value> {
+pub fn analyze_expr(world: &dyn World, node: &LinkedNode) -> EcoVec<TypstValue> {
     match node.cast::<ast::Expr>() {
-        Some(ast::Expr::None(_)) => eco_vec![Value::None],
-        Some(ast::Expr::Auto(_)) => eco_vec![Value::Auto],
-        Some(ast::Expr::Bool(v)) => eco_vec![Value::Bool(v.get())],
-        Some(ast::Expr::Int(v)) => eco_vec![Value::Int(v.get())],
-        Some(ast::Expr::Float(v)) => eco_vec![Value::Float(v.get())],
-        Some(ast::Expr::Numeric(v)) => eco_vec![Value::numeric(v.get())],
-        Some(ast::Expr::Str(v)) => eco_vec![Value::Str(v.get().into())],
+        Some(ast::Expr::None(_)) => eco_vec![TypstValue::None],
+        Some(ast::Expr::Auto(_)) => eco_vec![TypstValue::Auto],
+        Some(ast::Expr::Bool(v)) => eco_vec![TypstValue::Bool(v.get())],
+        Some(ast::Expr::Int(v)) => eco_vec![TypstValue::Int(v.get())],
+        Some(ast::Expr::Float(v)) => eco_vec![TypstValue::Float(v.get())],
+        Some(ast::Expr::Numeric(v)) => eco_vec![TypstValue::numeric(v.get())],
+        Some(ast::Expr::Str(v)) => eco_vec![TypstValue::Str(v.get().into())],
 
         Some(ast::Expr::FieldAccess(access)) => {
-            let Some(child) = node.children().next() else { return eco_vec![] };
+            let Some(child) = node.children().next() else {
+                return eco_vec![];
+            };
             analyze_expr(world, &child)
                 .into_iter()
                 .filter_map(|target| target.field(&access.field()).ok())
@@ -45,7 +47,7 @@ pub fn analyze_expr(world: &dyn World, node: &LinkedNode) -> EcoVec<Value> {
 }
 
 /// Try to load a module from the current source file.
-pub fn analyze_import(world: &dyn World, source: &LinkedNode) -> Option<Value> {
+pub fn analyze_import(world: &dyn World, source: &LinkedNode) -> Option<TypstValue> {
     let source = analyze_expr(world, source).into_iter().next()?;
     if source.scope().is_some() {
         return Some(source);
@@ -65,7 +67,7 @@ pub fn analyze_import(world: &dyn World, source: &LinkedNode) -> Option<Value> {
     let mut vm = Vm::new(engine, Scopes::new(Some(world.library())), Span::detached());
     typst::eval::import(&mut vm, source, Span::detached(), true)
         .ok()
-        .map(Value::Module)
+        .map(TypstValue::Module)
 }
 
 /// Find all labels and details for them.
@@ -84,7 +86,7 @@ pub fn analyze_labels(document: &Document) -> (Vec<(Label, Option<EcoString>)>, 
             .get_by_name("caption")
             .or_else(|| elem.get_by_name("body"))
             .and_then(|field| match field {
-                Value::Content(content) => Some(content),
+                TypstValue::Content(content) => Some(content),
                 _ => None,
             })
             .as_ref()

@@ -127,7 +127,7 @@ pub(super) fn define(global: &mut Scope, inputs: Dict) {
 pub fn panic(
     /// The values to panic with and display to the user.
     #[variadic]
-    values: Vec<Value>,
+    values: Vec<TypstValue>,
 ) -> StrResult<Never> {
     let mut msg = EcoString::from("panicked");
     if !values.is_empty() {
@@ -185,9 +185,9 @@ impl assert {
     #[func(title = "Assert Equal")]
     pub fn eq(
         /// The first value to compare.
-        left: Value,
+        left: TypstValue,
         /// The second value to compare.
-        right: Value,
+        right: TypstValue,
         /// An optional message to display on error instead of the representations
         /// of the compared values.
         #[named]
@@ -218,9 +218,9 @@ impl assert {
     #[func(title = "Assert Not Equal")]
     pub fn ne(
         /// The first value to compare.
-        left: Value,
+        left: TypstValue,
         /// The second value to compare.
-        right: Value,
+        right: TypstValue,
         /// An optional message to display on error instead of the representations
         /// of the compared values.
         #[named]
@@ -282,7 +282,7 @@ pub fn eval(
     #[named]
     #[default]
     scope: Dict,
-) -> SourceResult<Value> {
+) -> SourceResult<TypstValue> {
     let Spanned { v: text, span } = source;
     let dict = scope;
     let mut scope = Scope::new();

@@ -6,13 +6,13 @@ use crate::diag::{
     bail, error, warning, At, FileError, SourceResult, StrResult, Trace, Tracepoint,
 };
 use crate::eval::{eval, Eval, Vm};
-use crate::foundations::{Content, Module, Value};
+use crate::foundations::{Content, Module, TypstValue};
 use crate::syntax::ast::{self, AstNode};
 use crate::syntax::{FileId, PackageSpec, PackageVersion, Span, VirtualPath};
 use crate::World;
 
 impl Eval for ast::ModuleImport<'_> {
-    type Output = Value;
+    type Output = TypstValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let source = self.source();
@@ -22,14 +22,14 @@ impl Eval for ast::ModuleImport<'_> {
         let imports = self.imports();
 
         match &source {
-            Value::Func(func) => {
+            TypstValue::Func(func) => {
                 if func.scope().is_none() {
                     bail!(source_span, "cannot import from user-defined functions");
                 }
             }
-            Value::Type(_) => {}
+            TypstValue::Type(_) => {}
             other => {
-                source = Value::Module(import(vm, other.clone(), source_span, true)?);
+                source = TypstValue::Module(import(vm, other.clone(), source_span, true)?);
             }
         }
 
@@ -90,7 +90,7 @@ impl Eval for ast::ModuleImport<'_> {
             }
         }
 
-        Ok(Value::None)
+        Ok(TypstValue::None)
     }
 }
 
@@ -108,15 +108,19 @@ impl Eval for ast::ModuleInclude<'_> {
 /// Process an import of a module relative to the current location.
 pub fn import(
     vm: &mut Vm,
-    source: Value,
+    source: TypstValue,
     span: Span,
     allow_scopes: bool,
 ) -> SourceResult<Module> {
     let path = match source {
-        Value::Str(path) => path,
-        Value::Module(module) => return Ok(module),
+        TypstValue::Str(path) => path,
+        TypstValue::Module(module) => return Ok(module),
         v if allow_scopes => {
-            bail!(span, "expected path, module, function, or type, found {}", v.ty())
+            bail!(
+                span,
+                "expected path, module, function, or type, found {}",
+                v.ty()
+            )
         }
         v => bail!(span, "expected path or module, found {}", v.ty()),
     };
@@ -202,15 +206,17 @@ impl PackageManifest {
     /// Parse the manifest from raw bytes.
     fn parse(bytes: &[u8]) -> StrResult<Self> {
         let string = std::str::from_utf8(bytes).map_err(FileError::from)?;
-        toml::from_str(string).map_err(|err| {
-            eco_format!("package manifest is malformed: {}", err.message())
-        })
+        toml::from_str(string)
+            .map_err(|err| eco_format!("package manifest is malformed: {}", err.message()))
     }
 
     /// Ensure that this manifest is indeed for the specified package.
     fn validate(&self, spec: &PackageSpec) -> StrResult<()> {
         if self.package.name != spec.name {
-            bail!("package manifest contains mismatched name `{}`", self.package.name);
+            bail!(
+                "package manifest contains mismatched name `{}`",
+                self.package.name
+            );
         }
 
         if self.package.version != spec.version {

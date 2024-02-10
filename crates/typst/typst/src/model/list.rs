@@ -1,11 +1,11 @@
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, Array, Content, Fold, Func, Packed, Smart, StyleChain, Value,
+    cast, elem, scope, Array, Content, Fold, Func, Packed, Smart, StyleChain, TypstValue,
 };
 use crate::layout::{
-    Axes, BlockElem, Cell, CellGrid, Em, Fragment, GridLayouter, HAlignment,
-    LayoutMultiple, Length, Regions, Sizing, Spacing, VAlignment,
+    Axes, BlockElem, Cell, CellGrid, Em, Fragment, GridLayouter, HAlignment, LayoutMultiple,
+    Length, Regions, Sizing, Spacing, VAlignment,
 };
 use crate::model::ParElem;
 use crate::text::TextElem;
@@ -209,9 +209,7 @@ impl ListMarker {
     /// Resolve the marker for the given depth.
     fn resolve(&self, engine: &mut Engine, depth: usize) -> SourceResult<Content> {
         Ok(match self {
-            Self::Content(list) => {
-                list.get(depth % list.len()).cloned().unwrap_or_default()
-            }
+            Self::Content(list) => list.get(depth % list.len()).cloned().unwrap_or_default(),
             Self::Func(func) => func.call(engine, [depth])?.display(),
         })
     }
@@ -232,7 +230,7 @@ cast! {
         if array.is_empty() {
             bail!("array must contain at least one marker");
         }
-        Self::Content(array.into_iter().map(Value::display).collect())
+        Self::Content(array.into_iter().map(TypstValue::display).collect())
     },
     v: Func => Self::Func(v),
 }

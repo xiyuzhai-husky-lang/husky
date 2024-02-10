@@ -2,7 +2,7 @@ use ecow::EcoString;
 use unicode_segmentation::UnicodeSegmentation;
 
 use crate::diag::{bail, StrResult};
-use crate::foundations::{array, cast, dict, elem, Array, Dict, FromValue, Smart, Str};
+use crate::foundations::{array, cast, dict, elem, Array, Dict, FromTypstValue, Smart, Str};
 use crate::layout::Dir;
 use crate::syntax::is_newline;
 use crate::text::{Lang, Region};
@@ -138,9 +138,7 @@ impl SmartQuoter {
             self.quote_depth += 1;
             self.prev_quote_type = Some(double);
             quotes.open(double)
-        } else if self.quote_depth > 0
-            && (peeked.is_ascii_punctuation() || is_ignorable(peeked))
-        {
+        } else if self.quote_depth > 0 && (peeked.is_ascii_punctuation() || is_ignorable(peeked)) {
             self.quote_depth -= 1;
             quotes.close(double)
         } else if self.last_num {
@@ -230,9 +228,7 @@ impl<'s> SmartQuotes<'s> {
         ) -> [&'s str; 2] {
             match quotes.and_then(f) {
                 Smart::Auto => default,
-                Smart::Custom(SmartQuoteSet { open, close }) => {
-                    [open, close].map(|s| s.as_str())
-                }
+                Smart::Custom(SmartQuoteSet { open, close }) => [open, close].map(|s| s.as_str()),
             }
         }
 
@@ -353,13 +349,13 @@ cast! {
         let double = value
             .take("double")
             .ok()
-            .map(FromValue::from_value)
+            .map(FromTypstValue::from_value)
             .transpose()?
             .unwrap_or(Smart::Auto);
         let single = value
             .take("single")
             .ok()
-            .map(FromValue::from_value)
+            .map(FromTypstValue::from_value)
             .transpose()?
             .unwrap_or(Smart::Auto);
 

@@ -10,7 +10,7 @@ use ecow::eco_format;
 use once_cell::sync::Lazy;
 use parking_lot::Mutex;
 use typst::diag::{FileError, FileResult, StrResult};
-use typst::foundations::{Bytes, Datetime, Dict, IntoValue};
+use typst::foundations::{Bytes, Datetime, Dict, IntoTypstValue};
 use typst::syntax::{FileId, Source, VirtualPath};
 use typst::text::{Font, FontBook};
 use typst::{Library, World};
@@ -23,8 +23,7 @@ use crate::package::prepare_package;
 
 /// Static `FileId` allocated for stdin.
 /// This is to ensure that a file is read in the correct way.
-static STDIN_ID: Lazy<FileId> =
-    Lazy::new(|| FileId::new_fake(VirtualPath::new("<stdin>")));
+static STDIN_ID: Lazy<FileId> = Lazy::new(|| FileId::new_fake(VirtualPath::new("<stdin>")));
 
 /// A world that provides access to the operating system.
 pub struct SystemWorld {
@@ -153,7 +152,8 @@ impl SystemWorld {
     /// Lookup a source file by id.
     #[track_caller]
     pub fn lookup(&self, id: FileId) -> Source {
-        self.source(id).expect("file id does not point to any source file")
+        self.source(id)
+            .expect("file id does not point to any source file")
     }
 
     /// Gets access to the export cache.
@@ -229,7 +229,11 @@ struct FileSlot {
 impl FileSlot {
     /// Create a new path slot.
     fn new(id: FileId) -> Self {
-        Self { id, file: SlotCell::new(), source: SlotCell::new() }
+        Self {
+            id,
+            file: SlotCell::new(),
+            source: SlotCell::new(),
+        }
     }
 
     /// Whether the file was accessed in the ongoing compilation.
@@ -249,7 +253,11 @@ impl FileSlot {
         self.source.get_or_init(
             || read(self.id, project_root),
             |data, prev| {
-                let name = if prev.is_some() { "reparsing file" } else { "parsing file" };
+                let name = if prev.is_some() {
+                    "reparsing file"
+                } else {
+                    "parsing file"
+                };
                 let _scope = TimingScope::new(name, None);
                 let text = decode_utf8(&data)?;
                 if let Some(mut prev) = prev {
@@ -282,7 +290,11 @@ struct SlotCell<T> {
 impl<T: Clone> SlotCell<T> {
     /// Creates a new, empty cell.
     fn new() -> Self {
-        Self { data: None, fingerprint: 0, accessed: false }
+        Self {
+            data: None,
+            fingerprint: 0,
+            accessed: false,
+        }
     }
 
     /// Whether the cell was accessed in the ongoing compilation.
@@ -382,5 +394,7 @@ fn read_from_stdin() -> FileResult<Vec<u8>> {
 /// Decode UTF-8 with an optional BOM.
 fn decode_utf8(buf: &[u8]) -> FileResult<&str> {
     // Remove UTF-8 BOM.
-    Ok(std::str::from_utf8(buf.strip_prefix(b"\xef\xbb\xbf").unwrap_or(buf))?)
+    Ok(std::str::from_utf8(
+        buf.strip_prefix(b"\xef\xbb\xbf").unwrap_or(buf),
+    )?)
 }

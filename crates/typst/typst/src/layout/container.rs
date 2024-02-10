@@ -1,11 +1,11 @@
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, AutoValue, Content, Packed, Resolve, Smart, StyleChain, Value,
+    cast, elem, AutoValue, Content, Packed, Resolve, Smart, StyleChain, TypstValue,
 };
 use crate::layout::{
-    Abs, Axes, Corners, Em, Fr, Fragment, Frame, FrameKind, LayoutMultiple, Length,
-    Ratio, Regions, Rel, Sides, Size, Spacing, VElem,
+    Abs, Axes, Corners, Em, Fr, Fragment, Frame, FrameKind, LayoutMultiple, Length, Ratio, Regions,
+    Rel, Sides, Size, Spacing, VElem,
 };
 use crate::util::Numeric;
 use crate::visualize::{clip_rect, Paint, Stroke};
@@ -161,8 +161,10 @@ impl Packed<BoxElem> {
 
         // Clip the contents
         if self.clip(styles) {
-            let outset =
-                self.outset(styles).unwrap_or_default().relative_to(frame.size());
+            let outset = self
+                .outset(styles)
+                .unwrap_or_default()
+                .relative_to(frame.size());
             let size = frame.size() + outset.sum_by_axis();
             let radius = self.radius(styles).unwrap_or_default();
             frame.clip(clip_rect(size, radius, &stroke));
@@ -357,7 +359,9 @@ impl LayoutMultiple for Packed<BlockElem> {
         let mut body = self.body(styles).unwrap_or_default();
         let inset = self.inset(styles).unwrap_or_default();
         if inset.iter().any(|v| !v.is_zero()) {
-            body = body.clone().padded(inset.map(|side| side.map(Length::from)));
+            body = body
+                .clone()
+                .padded(inset.map(|side| side.map(Length::from)));
         }
 
         // Resolve the sizing to a concrete size.
@@ -410,8 +414,7 @@ impl LayoutMultiple for Packed<BlockElem> {
 
             let mut frames = body.layout(engine, styles, pod)?.into_frames();
             for (frame, &height) in frames.iter_mut().zip(&heights) {
-                *frame.size_mut() =
-                    expand.select(Size::new(size.x, height), frame.size());
+                *frame.size_mut() = expand.select(Size::new(size.x, height), frame.size());
             }
             frames
         } else {
@@ -431,8 +434,10 @@ impl LayoutMultiple for Packed<BlockElem> {
         // Clip the contents
         if self.clip(styles) {
             for frame in frames.iter_mut() {
-                let outset =
-                    self.outset(styles).unwrap_or_default().relative_to(frame.size());
+                let outset = self
+                    .outset(styles)
+                    .unwrap_or_default()
+                    .relative_to(frame.size());
                 let size = frame.size() + outset.sum_by_axis();
                 let radius = self.radius(styles).unwrap_or_default();
                 frame.clip(clip_rect(size, radius, &stroke));
@@ -449,13 +454,7 @@ impl LayoutMultiple for Packed<BlockElem> {
             let outset = self.outset(styles).unwrap_or_default();
             let radius = self.radius(styles).unwrap_or_default();
             for frame in frames.iter_mut().skip(skip as usize) {
-                frame.fill_and_stroke(
-                    fill.clone(),
-                    stroke.clone(),
-                    outset,
-                    radius,
-                    self.span(),
-                );
+                frame.fill_and_stroke(fill.clone(), stroke.clone(), outset, radius, self.span());
             }
         }
 
@@ -506,7 +505,7 @@ impl<T: Into<Spacing>> From<T> for Sizing {
 cast! {
     Sizing,
     self => match self {
-        Self::Auto => Value::Auto,
+        Self::Auto => TypstValue::Auto,
         Self::Rel(rel) => rel.into_value(),
         Self::Fr(fr) => fr.into_value(),
     },

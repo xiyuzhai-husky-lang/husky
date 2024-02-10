@@ -8,8 +8,8 @@ use once_cell::sync::Lazy;
 use crate::diag::{bail, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, repr, scope, ty, Args, CastInfo, Content, Element, IntoArgs, Scope, Selector,
-    Type, Value,
+    cast, repr, scope, ty, Args, CastInfo, Content, Element, IntoArgs, Scope, Selector, Type,
+    TypstValue,
 };
 use crate::syntax::{ast, Span, SyntaxNode};
 use crate::util::Static;
@@ -198,8 +198,7 @@ impl Func {
 
     /// Get details about the function's return type.
     pub fn returns(&self) -> Option<&'static CastInfo> {
-        static CONTENT: Lazy<CastInfo> =
-            Lazy::new(|| CastInfo::Type(Type::of::<Content>()));
+        static CONTENT: Lazy<CastInfo> = Lazy::new(|| CastInfo::Type(Type::of::<Content>()));
         match &self.repr {
             Repr::Native(native) => Some(&native.0.returns),
             Repr::Element(_) => Some(&CONTENT),
@@ -229,9 +228,10 @@ impl Func {
     }
 
     /// Get a field from this function's scope, if possible.
-    pub fn field(&self, field: &str) -> StrResult<&'static Value> {
-        let scope =
-            self.scope().ok_or("cannot access fields on user-defined functions")?;
+    pub fn field(&self, field: &str) -> StrResult<&'static TypstValue> {
+        let scope = self
+            .scope()
+            .ok_or("cannot access fields on user-defined functions")?;
         match scope.get(field) {
             Some(field) => Ok(field),
             None => match self.name() {
@@ -250,13 +250,13 @@ impl Func {
     }
 
     /// Call the function with the given arguments.
-    pub fn call(&self, engine: &mut Engine, args: impl IntoArgs) -> SourceResult<Value> {
+    pub fn call(&self, engine: &mut Engine, args: impl IntoArgs) -> SourceResult<TypstValue> {
         self.call_impl(engine, args.into_args(self.span))
     }
 
     /// Non-generic implementation of `call`.
     #[typst_macros::time(name = "func call", span = self.span())]
-    fn call_impl(&self, engine: &mut Engine, mut args: Args) -> SourceResult<Value> {
+    fn call_impl(&self, engine: &mut Engine, mut args: Args) -> SourceResult<TypstValue> {
         match &self.repr {
             Repr::Native(native) => {
                 let value = (native.function)(engine, &mut args)?;
@@ -266,7 +266,7 @@ impl Func {
             Repr::Element(func) => {
                 let value = func.construct(engine, &mut args)?;
                 args.finish()?;
-                Ok(Value::Content(value))
+                Ok(TypstValue::Content(value))
             }
             Repr::Closure(closure) => crate::eval::call_closure(
                 self,
@@ -311,7 +311,7 @@ impl Func {
         /// The arguments to apply to the function.
         #[external]
         #[variadic]
-        arguments: Vec<Value>,
+        arguments: Vec<TypstValue>,
     ) -> Func {
         let span = self.span;
         Self {
@@ -331,7 +331,7 @@ impl Func {
         /// The fields to filter for.
         #[variadic]
         #[external]
-        fields: Vec<Value>,
+        fields: Vec<TypstValue>,
     ) -> StrResult<Selector> {
         let fields = args.to_named();
         args.items.retain(|arg| arg.name.is_none());
@@ -344,11 +344,7 @@ impl Func {
             .into_iter()
             .map(|(key, value)| {
                 element.field_id(&key).map(|id| (id, value)).ok_or_else(|| {
-                    eco_format!(
-                        "element `{}` does not have field `{}`",
-                        element.name(),
-                        key
-                    )
+                    eco_format!("element `{}` does not have field `{}`", element.name(), key)
                 })
             })
             .collect::<StrResult<smallvec::SmallVec<_>>>()?;
@@ -389,7 +385,10 @@ impl PartialEq<&NativeFuncData> for Func {
 
 impl From<Repr> for Func {
     fn from(repr: Repr) -> Self {
-        Self { repr, span: Span::detached() }
+        Self {
+            repr,
+            span: Span::detached(),
+        }
     }
 }
 
@@ -414,7 +413,7 @@ pub trait NativeFunc {
 /// Defines a native function.
 #[derive(Debug)]
 pub struct NativeFuncData {
-    pub function: fn(&mut Engine, &mut Args) -> SourceResult<Value>,
+    pub function: fn(&mut Engine, &mut Args) -> SourceResult<TypstValue>,
     pub name: &'static str,
     pub title: &'static str,
     pub docs: &'static str,
@@ -445,7 +444,7 @@ pub struct ParamInfo {
     /// Describe what values this parameter accepts.
     pub input: CastInfo,
     /// Creates an instance of the parameter's default value.
-    pub default: Option<fn() -> Value>,
+    pub default: Option<fn() -> TypstValue>,
     /// Is the parameter positional?
     pub positional: bool,
     /// Is the parameter named?
@@ -467,7 +466,7 @@ pub struct Closure {
     /// The closure's syntax node. Must be castable to `ast::Closure`.
     pub node: SyntaxNode,
     /// Default values of named parameters.
-    pub defaults: Vec<Value>,
+    pub defaults: Vec<TypstValue>,
     /// Captured values from outer scopes.
     pub captured: Scope,
 }
@@ -491,5 +490,5 @@ impl From<Closure> for Func {
 
 cast! {
     Closure,
-    self => Value::Func(self.into()),
+    self => TypstValue::Func(self.into()),
 }

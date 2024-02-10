@@ -2,7 +2,7 @@ use ecow::{eco_format, EcoString};
 
 use crate::diag::{At, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{func, scope, Str, Value};
+use crate::foundations::{func, scope, Str, TypstValue};
 use crate::loading::Readable;
 use crate::syntax::Spanned;
 use crate::World;
@@ -50,7 +50,7 @@ pub fn json(
     engine: &mut Engine,
     /// Path to a JSON file.
     path: Spanned<EcoString>,
-) -> SourceResult<Value> {
+) -> SourceResult<TypstValue> {
     let Spanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
@@ -64,7 +64,7 @@ impl json {
     pub fn decode(
         /// JSON data.
         data: Spanned<Readable>,
-    ) -> SourceResult<Value> {
+    ) -> SourceResult<TypstValue> {
         let Spanned { v: data, span } = data;
         serde_json::from_slice(data.as_slice())
             .map_err(|err| eco_format!("failed to parse JSON ({err})"))
@@ -74,8 +74,8 @@ impl json {
     /// Encodes structured data into a JSON string.
     #[func(title = "Encode JSON")]
     pub fn encode(
-        /// Value to be encoded.
-        value: Spanned<Value>,
+        /// TypstValue to be encoded.
+        value: Spanned<TypstValue>,
         /// Whether to pretty print the JSON with newlines and indentation.
         #[named]
         #[default(true)]

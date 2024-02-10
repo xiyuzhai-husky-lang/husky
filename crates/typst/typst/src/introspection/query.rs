@@ -1,5 +1,5 @@
 use crate::engine::Engine;
-use crate::foundations::{func, Array, LocatableSelector, Value};
+use crate::foundations::{func, Array, LocatableSelector, TypstValue};
 use crate::introspection::Location;
 
 /// Finds elements in the document.
@@ -157,6 +157,6 @@ pub fn query(
     let _ = location;
     let vec = engine.introspector.query(&target.0);
     vec.into_iter()
-        .map(|elem| Value::Content(elem.into_inner()))
+        .map(|elem| TypstValue::Content(elem.into_inner()))
         .collect()
 }

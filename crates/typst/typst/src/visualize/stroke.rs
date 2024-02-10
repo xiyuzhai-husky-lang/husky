@@ -2,8 +2,8 @@ use ecow::EcoString;
 
 use crate::diag::{SourceResult, StrResult};
 use crate::foundations::{
-    cast, dict, func, scope, ty, Args, Cast, Dict, Fold, FromValue, NoneValue, Repr,
-    Resolve, Smart, StyleChain, Value,
+    cast, dict, func, scope, ty, Args, Cast, Dict, Fold, FromTypstValue, NoneValue, Repr, Resolve,
+    Smart, StyleChain, TypstValue,
 };
 use crate::layout::{Abs, Length};
 use crate::util::{Numeric, Scalar};
@@ -187,7 +187,7 @@ impl Stroke {
             return Ok(stroke);
         }
 
-        fn take<T: FromValue>(args: &mut Args, arg: &str) -> SourceResult<Smart<T>> {
+        fn take<T: FromTypstValue>(args: &mut Args, arg: &str) -> SourceResult<Smart<T>> {
             Ok(args.named::<Smart<T>>(arg)?.unwrap_or(Smart::Auto))
         }
 
@@ -198,7 +198,14 @@ impl Stroke {
         let dash = take::<Option<DashPattern>>(args, "dash")?;
         let miter_limit = take::<f64>(args, "miter-limit")?.map(Scalar::new);
 
-        Ok(Self { paint, thickness, cap, join, dash, miter_limit })
+        Ok(Self {
+            paint,
+            thickness,
+            cap,
+            join,
+            dash,
+            miter_limit,
+        })
     }
 }
 
@@ -270,7 +277,14 @@ impl Stroke<Abs> {
 impl<T: Numeric + Repr> Repr for Stroke<T> {
     fn repr(&self) -> EcoString {
         let mut r = EcoString::new();
-        let Self { paint, thickness, cap, join, dash, miter_limit } = &self;
+        let Self {
+            paint,
+            thickness,
+            cap,
+            join,
+            dash,
+            miter_limit,
+        } = &self;
         if cap.is_auto() && join.is_auto() && dash.is_auto() && miter_limit.is_auto() {
             match (&self.paint, &self.thickness) {
                 (Smart::Custom(paint), Smart::Custom(thickness)) => {
@@ -378,7 +392,7 @@ cast! {
     },
     mut dict: Dict => {
         // Get a value by key, accepting either Auto or something convertible to type T.
-        fn take<T: FromValue>(dict: &mut Dict, key: &str) -> StrResult<Smart<T>> {
+        fn take<T: FromTypstValue>(dict: &mut Dict, key: &str) -> StrResult<Smart<T>> {
             Ok(dict.take(key).ok().map(Smart::<T>::from_value)
                 .transpose()?.unwrap_or(Smart::Auto))
         }
@@ -478,7 +492,10 @@ impl<T: Numeric + Repr, DT: Repr> Repr for DashPattern<T, DT> {
 
 impl<T: Numeric + Default> From<Vec<DashLength<T>>> for DashPattern<T> {
     fn from(array: Vec<DashLength<T>>) -> Self {
-        Self { array, phase: T::default() }
+        Self {
+            array,
+            phase: T::default(),
+        }
     }
 }
 
@@ -513,7 +530,7 @@ cast! {
     array: Vec<DashLength> => Self { array, phase: Length::zero() },
     mut dict: Dict => {
         let array: Vec<DashLength> = dict.take("array")?.cast()?;
-        let phase = dict.take("phase").ok().map(Value::cast)
+        let phase = dict.take("phase").ok().map(TypstValue::cast)
             .transpose()?.unwrap_or(Length::zero());
         dict.finish(&["array", "phase"])?;
         Self {

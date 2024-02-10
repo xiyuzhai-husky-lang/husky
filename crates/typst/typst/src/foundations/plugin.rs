@@ -212,7 +212,11 @@ impl Plugin {
             })
             .collect();
 
-        Ok(Plugin(Arc::new(Repr { bytes, functions, store: Mutex::new(store) })))
+        Ok(Plugin(Arc::new(Repr {
+            bytes,
+            functions,
+            store: Mutex::new(store),
+        })))
     }
 
     /// Call the plugin function with the given `name`.
@@ -226,18 +230,18 @@ impl Plugin {
             .iter()
             .find(|(v, _)| v == name)
             .map(|&(_, func)| func)
-            .ok_or_else(|| {
-                eco_format!("plugin does not contain a function called {name}")
-            })?;
+            .ok_or_else(|| eco_format!("plugin does not contain a function called {name}"))?;
 
         let mut store = self.0.store.lock().unwrap();
         let ty = func.ty(store.as_context());
 
         // Check function signature.
-        if ty.params().iter().any(|&v| v != wasmi::core::ValueType::I32) {
-            bail!(
-                "plugin function `{name}` has a parameter that is not a 32-bit integer"
-            );
+        if ty
+            .params()
+            .iter()
+            .any(|&v| v != wasmi::core::ValueType::I32)
+        {
+            bail!("plugin function `{name}` has a parameter that is not a 32-bit integer");
         }
         if ty.results() != [wasmi::core::ValueType::I32] {
             bail!("plugin function `{name}` does not return exactly one 32-bit integer");
@@ -265,10 +269,17 @@ impl Plugin {
 
         // Call the function.
         let mut code = wasmi::Value::I32(-1);
-        func.call(store.as_context_mut(), &lengths, std::slice::from_mut(&mut code))
-            .map_err(|err| eco_format!("plugin panicked: {err}"))?;
-        if let Some(MemoryError { offset, length, write }) =
-            store.data_mut().memory_error.take()
+        func.call(
+            store.as_context_mut(),
+            &lengths,
+            std::slice::from_mut(&mut code),
+        )
+        .map_err(|err| eco_format!("plugin panicked: {err}"))?;
+        if let Some(MemoryError {
+            offset,
+            length,
+            write,
+        }) = store.data_mut().memory_error.take()
         {
             return Err(eco_format!(
                 "plugin tried to {kind} out of bounds: pointer {offset:#x} is out of bounds for {kind} of length {length}",
@@ -296,7 +307,11 @@ impl Plugin {
 
     /// An iterator over all the function names defined by the plugin.
     pub fn iter(&self) -> impl Iterator<Item = &EcoString> {
-        self.0.functions.as_slice().iter().map(|(func_name, _)| func_name)
+        self.0
+            .functions
+            .as_slice()
+            .iter()
+            .map(|(func_name, _)| func_name)
     }
 }
 
@@ -325,10 +340,7 @@ impl Hash for Plugin {
 }
 
 /// Write the arguments to the plugin function into the plugin's memory.
-fn wasm_minimal_protocol_write_args_to_buffer(
-    mut caller: wasmi::Caller<StoreData>,
-    ptr: u32,
-) {
+fn wasm_minimal_protocol_write_args_to_buffer(mut caller: wasmi::Caller<StoreData>, ptr: u32) {
     let memory = caller.get_export("memory").unwrap().into_memory().unwrap();
     let arguments = std::mem::take(&mut caller.data_mut().args);
     let mut offset = ptr as usize;
@@ -355,8 +367,11 @@ fn wasm_minimal_protocol_send_result_to_host(
     let mut buffer = std::mem::take(&mut caller.data_mut().output);
     buffer.resize(len as usize, 0);
     if memory.read(&caller, ptr as _, &mut buffer).is_err() {
-        caller.data_mut().memory_error =
-            Some(MemoryError { offset: ptr, length: len, write: false });
+        caller.data_mut().memory_error = Some(MemoryError {
+            offset: ptr,
+            length: len,
+            write: false,
+        });
         return;
     }
     caller.data_mut().output = buffer;

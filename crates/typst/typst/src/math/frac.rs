@@ -1,9 +1,9 @@
 use crate::diag::{bail, SourceResult};
-use crate::foundations::{elem, Content, Packed, StyleChain, Value};
+use crate::foundations::{elem, Content, Packed, StyleChain, TypstValue};
 use crate::layout::{Em, Frame, FrameItem, Point, Size};
 use crate::math::{
-    scaled_font_size, style_for_denominator, style_for_numerator, FrameFragment,
-    GlyphFragment, LayoutMath, MathContext, Scaled, DELIM_SHORT_FALL,
+    scaled_font_size, style_for_denominator, style_for_numerator, FrameFragment, GlyphFragment,
+    LayoutMath, MathContext, Scaled, DELIM_SHORT_FALL,
 };
 use crate::syntax::{Span, Spanned};
 use crate::text::TextElem;
@@ -66,7 +66,7 @@ pub struct BinomElem {
     #[required]
     #[variadic]
     #[parse(
-        let values = args.all::<Spanned<Value>>()?;
+        let values = args.all::<Spanned<TypstValue>>()?;
         if values.is_empty() {
             // Prevents one element binomials
             bail!(args.span, "missing argument: lower");
@@ -124,7 +124,10 @@ fn layout(
     let denom = ctx.layout_frame(
         &Content::sequence(
             // Add a comma between each element.
-            denom.iter().flat_map(|a| [TextElem::packed(','), a.clone()]).skip(1),
+            denom
+                .iter()
+                .flat_map(|a| [TextElem::packed(','), a.clone()])
+                .skip(1),
         ),
         styles.chain(&denom_style),
     )?;
@@ -138,8 +141,10 @@ fn layout(
     let height = num.height() + num_gap + thickness + denom_gap + denom.height();
     let size = Size::new(width, height);
     let num_pos = Point::with_x((width - num.width()) / 2.0);
-    let line_pos =
-        Point::new((width - line_width) / 2.0, num.height() + num_gap + thickness / 2.0);
+    let line_pos = Point::new(
+        (width - line_width) / 2.0,
+        num.height() + num_gap + thickness / 2.0,
+    );
     let denom_pos = Point::new((width - denom.width()) / 2.0, height - denom.height());
     let baseline = line_pos.y + axis;
 
@@ -149,25 +154,23 @@ fn layout(
     frame.push_frame(denom_pos, denom);
 
     if binom {
-        let mut left = GlyphFragment::new(ctx, styles, '(', span)
-            .stretch_vertical(ctx, height, short_fall);
+        let mut left =
+            GlyphFragment::new(ctx, styles, '(', span).stretch_vertical(ctx, height, short_fall);
         left.center_on_axis(ctx);
         ctx.push(left);
         ctx.push(FrameFragment::new(ctx, styles, frame));
-        let mut right = GlyphFragment::new(ctx, styles, ')', span)
-            .stretch_vertical(ctx, height, short_fall);
+        let mut right =
+            GlyphFragment::new(ctx, styles, ')', span).stretch_vertical(ctx, height, short_fall);
         right.center_on_axis(ctx);
         ctx.push(right);
     } else {
         frame.push(
             line_pos,
             FrameItem::Shape(
-                Geometry::Line(Point::with_x(line_width)).stroked(
-                    FixedStroke::from_pair(
-                        TextElem::fill_in(styles).as_decoration(),
-                        thickness,
-                    ),
-                ),
+                Geometry::Line(Point::with_x(line_width)).stroked(FixedStroke::from_pair(
+                    TextElem::fill_in(styles).as_decoration(),
+                    thickness,
+                )),
                 span,
             ),
         );

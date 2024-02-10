@@ -2,7 +2,7 @@
 
 use ecow::{eco_format, EcoString};
 
-use crate::foundations::{func, Str, Value};
+use crate::foundations::{func, Str, TypstValue};
 
 /// The Unicode minus sign.
 pub const MINUS_SIGN: &str = "\u{2212}";
@@ -26,7 +26,7 @@ pub const MINUS_SIGN: &str = "\u{2212}";
 #[func(title = "Representation")]
 pub fn repr(
     /// The value whose string representation to produce.
-    value: Value,
+    value: TypstValue,
 ) -> Str {
     value.repr().into()
 }
@@ -150,8 +150,8 @@ pub fn pretty_comma_list(pieces: &[impl AsRef<str>], trailing_comma: bool) -> St
     const MAX_WIDTH: usize = 50;
 
     let mut buf = String::new();
-    let len = pieces.iter().map(|s| s.as_ref().len()).sum::<usize>()
-        + 2 * pieces.len().saturating_sub(1);
+    let len =
+        pieces.iter().map(|s| s.as_ref().len()).sum::<usize>() + 2 * pieces.len().saturating_sub(1);
 
     if len <= MAX_WIDTH {
         for (i, piece) in pieces.iter().enumerate() {
@@ -216,9 +216,15 @@ mod tests {
             "\u{2212}1000000000000000000000000000000000000000000000000000000000000000"
         );
         assert_eq!(&format_int_with_base(i64::MAX, 10), "9223372036854775807");
-        assert_eq!(&format_int_with_base(i64::MIN, 10), "\u{2212}9223372036854775808");
+        assert_eq!(
+            &format_int_with_base(i64::MIN, 10),
+            "\u{2212}9223372036854775808"
+        );
         assert_eq!(&format_int_with_base(i64::MAX, 16), "7fffffffffffffff");
-        assert_eq!(&format_int_with_base(i64::MIN, 16), "\u{2212}8000000000000000");
+        assert_eq!(
+            &format_int_with_base(i64::MIN, 16),
+            "\u{2212}8000000000000000"
+        );
         assert_eq!(&format_int_with_base(i64::MAX, 36), "1y2p0ij32e8e7");
         assert_eq!(&format_int_with_base(i64::MIN, 36), "\u{2212}1y2p0ij32e8e8");
     }

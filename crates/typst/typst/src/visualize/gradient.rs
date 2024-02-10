@@ -8,7 +8,7 @@ use kurbo::Vec2;
 
 use crate::diag::{bail, SourceResult};
 use crate::foundations::{
-    array, cast, func, scope, ty, Args, Array, Cast, Func, IntoValue, Repr, Smart,
+    array, cast, func, scope, ty, Args, Array, Cast, Func, IntoTypstValue, Repr, Smart,
 };
 use crate::layout::{Angle, Axes, Dir, Quadrant, Ratio};
 use crate::syntax::{Span, Spanned};
@@ -363,8 +363,8 @@ impl Gradient {
         }
 
         let focal_center = focal_center.unwrap_or(center);
-        let d_center_sqr = (focal_center.x - center.x).get().powi(2)
-            + (focal_center.y - center.y).get().powi(2);
+        let d_center_sqr =
+            (focal_center.x - center.x).get().powi(2) + (focal_center.y - center.y).get().powi(2);
         if d_center_sqr.sqrt() >= (radius.v - focal_radius.v).get() {
             bail!(
                 span,
@@ -491,8 +491,7 @@ impl Gradient {
         let smoothness = smoothness.v.get();
         let colors = (0..n)
             .flat_map(|i| {
-                let c = self
-                    .sample(RatioOrAngle::Ratio(Ratio::new(i as f64 / (n - 1) as f64)));
+                let c = self.sample(RatioOrAngle::Ratio(Ratio::new(i as f64 / (n - 1) as f64)));
 
                 [c, c]
             })
@@ -735,7 +734,9 @@ impl Gradient {
         #[variadic]
         ts: Vec<RatioOrAngle>,
     ) -> Array {
-        ts.into_iter().map(|t| self.sample(t).into_value()).collect()
+        ts.into_iter()
+            .map(|t| self.sample(t).into_value())
+            .collect()
     }
 }
 
@@ -797,8 +798,7 @@ impl Gradient {
                 let fr = radial.focal_radius.get();
                 let z = Vec2::new(x as f64, y as f64);
                 let p = Vec2::new(radial.center.x.get(), radial.center.y.get());
-                let q =
-                    Vec2::new(radial.focal_center.x.get(), radial.focal_center.y.get());
+                let q = Vec2::new(radial.focal_center.x.get(), radial.focal_center.y.get());
 
                 if (z - q).hypot() < fr {
                     0.0
@@ -814,8 +814,10 @@ impl Gradient {
                 }
             }
             Self::Conic(conic) => {
-                let (x, y) =
-                    (x as f64 - conic.center.x.get(), y as f64 - conic.center.y.get());
+                let (x, y) = (
+                    x as f64 - conic.center.x.get(),
+                    y as f64 - conic.center.y.get(),
+                );
                 let angle = Gradient::correct_aspect_ratio(
                     conic.angle,
                     Ratio::new((width / height) as f64),
@@ -1112,7 +1114,10 @@ pub struct GradientStop {
 impl GradientStop {
     /// Create a new stop from a `color` and an `offset`.
     pub fn new(color: Color, offset: Ratio) -> Self {
-        Self { color, offset: Some(offset) }
+        Self {
+            color,
+            offset: Some(offset),
+        }
     }
 }
 
@@ -1192,12 +1197,17 @@ fn process_stops(stops: &[Spanned<GradientStop>]) -> SourceResult<Vec<(Color, Ra
 
         let out = stops
             .iter()
-            .map(|Spanned { v: GradientStop { color, offset }, span }| {
-                if offset.unwrap().get() > 1.0 || offset.unwrap().get() < 0.0 {
-                    bail!(*span, "offset must be between 0 and 1");
-                }
-                Ok((*color, offset.unwrap()))
-            })
+            .map(
+                |Spanned {
+                     v: GradientStop { color, offset },
+                     span,
+                 }| {
+                    if offset.unwrap().get() > 1.0 || offset.unwrap().get() < 0.0 {
+                        bail!(*span, "offset must be between 0 and 1");
+                    }
+                    Ok((*color, offset.unwrap()))
+                },
+            )
             .collect::<SourceResult<Vec<_>>>()?;
 
         if out[0].1 != Ratio::zero() {
@@ -1253,7 +1263,10 @@ fn sample_stops(stops: &[(Color, Ratio)], mixing_space: ColorSpace, t: f64) -> C
     let t = (t - pos_0.get()) / (pos_1.get() - pos_0.get());
 
     Color::mix_iter(
-        [WeightedColor::new(col_0, 1.0 - t), WeightedColor::new(col_1, t)],
+        [
+            WeightedColor::new(col_0, 1.0 - t),
+            WeightedColor::new(col_1, t),
+        ],
         mixing_space,
     )
     .unwrap()

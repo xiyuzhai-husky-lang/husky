@@ -10,7 +10,7 @@ use time::{format_description, Month, PrimitiveDateTime};
 use crate::diag::{bail, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, func, repr, scope, ty, Dict, Duration, Repr, Smart, Str, Value,
+    cast, func, repr, scope, ty, Dict, Duration, Repr, Smart, Str, TypstValue,
 };
 use crate::World;
 
@@ -126,14 +126,15 @@ impl Datetime {
     /// Create a datetime from year, month, and day.
     pub fn from_ymd(year: i32, month: u8, day: u8) -> Option<Self> {
         Some(Datetime::Date(
-            time::Date::from_calendar_date(year, time::Month::try_from(month).ok()?, day)
-                .ok()?,
+            time::Date::from_calendar_date(year, time::Month::try_from(month).ok()?, day).ok()?,
         ))
     }
 
     /// Create a datetime from hour, minute, and second.
     pub fn from_hms(hour: u8, minute: u8, second: u8) -> Option<Self> {
-        Some(Datetime::Time(time::Time::from_hms(hour, minute, second).ok()?))
+        Some(Datetime::Time(
+            time::Time::from_hms(hour, minute, second).ok()?,
+        ))
     }
 
     /// Create a datetime from day and time.
@@ -146,8 +147,7 @@ impl Datetime {
         second: u8,
     ) -> Option<Self> {
         let date =
-            time::Date::from_calendar_date(year, time::Month::try_from(month).ok()?, day)
-                .ok()?;
+            time::Date::from_calendar_date(year, time::Month::try_from(month).ok()?, day).ok()?;
         let time = time::Time::from_hms(hour, minute, second).ok()?;
         Some(Datetime::Datetime(PrimitiveDateTime::new(date, time)))
     }
@@ -158,7 +158,7 @@ impl Datetime {
             return None;
         }
 
-        let Ok(Value::Str(string)) = dict.get("$__toml_private_datetime") else {
+        let Ok(TypstValue::Str(string)) = dict.get("$__toml_private_datetime") else {
             return None;
         };
 
@@ -277,9 +277,7 @@ impl Datetime {
         };
 
         Ok(match (date, time) {
-            (Some(date), Some(time)) => {
-                Datetime::Datetime(PrimitiveDateTime::new(date, time))
-            }
+            (Some(date), Some(time)) => Datetime::Datetime(PrimitiveDateTime::new(date, time)),
             (Some(date), None) => Datetime::Date(date),
             (None, Some(time)) => Datetime::Time(time),
             (None, None) => {
@@ -342,7 +340,9 @@ impl Datetime {
                 Self::Datetime(datetime) => datetime.format(&format),
             },
         };
-        result.map(EcoString::from).map_err(format_time_format_error)
+        result
+            .map(EcoString::from)
+            .map_err(format_time_format_error)
     }
 
     /// The year if it was specified, or `{none}` for times without a date.
@@ -428,12 +428,24 @@ impl Datetime {
 
 impl Repr for Datetime {
     fn repr(&self) -> EcoString {
-        let year = self.year().map(|y| eco_format!("year: {}", (y as i64).repr()));
-        let month = self.month().map(|m| eco_format!("month: {}", (m as i64).repr()));
-        let day = self.day().map(|d| eco_format!("day: {}", (d as i64).repr()));
-        let hour = self.hour().map(|h| eco_format!("hour: {}", (h as i64).repr()));
-        let minute = self.minute().map(|m| eco_format!("minute: {}", (m as i64).repr()));
-        let second = self.second().map(|s| eco_format!("second: {}", (s as i64).repr()));
+        let year = self
+            .year()
+            .map(|y| eco_format!("year: {}", (y as i64).repr()));
+        let month = self
+            .month()
+            .map(|m| eco_format!("month: {}", (m as i64).repr()));
+        let day = self
+            .day()
+            .map(|d| eco_format!("day: {}", (d as i64).repr()));
+        let hour = self
+            .hour()
+            .map(|h| eco_format!("hour: {}", (h as i64).repr()));
+        let minute = self
+            .minute()
+            .map(|m| eco_format!("minute: {}", (m as i64).repr()));
+        let second = self
+            .second()
+            .map(|s| eco_format!("second: {}", (s as i64).repr()));
         let filtered = [year, month, day, hour, minute, second]
             .into_iter()
             .flatten()
@@ -524,9 +536,7 @@ fn format_time_format_error(error: Format) -> EcoString {
 
 /// Format the `InvalidFormatDescription` error of the time crate in an
 /// appropriate way.
-fn format_time_invalid_format_description_error(
-    error: InvalidFormatDescription,
-) -> EcoString {
+fn format_time_invalid_format_description_error(error: InvalidFormatDescription) -> EcoString {
     match error {
         InvalidFormatDescription::UnclosedOpeningBracket { index, .. } => {
             eco_format!("missing closing bracket for bracket at index {}", index)
@@ -550,8 +560,18 @@ fn format_time_invalid_format_description_error(
                 index
             )
         }
-        InvalidFormatDescription::NotSupported { context, what, index, .. } => {
-            eco_format!("{} is not supported in {} at index {}", what, context, index)
+        InvalidFormatDescription::NotSupported {
+            context,
+            what,
+            index,
+            ..
+        } => {
+            eco_format!(
+                "{} is not supported in {} at index {}",
+                what,
+                context,
+                index
+            )
         }
         err => eco_format!("failed to parse datetime format ({err})"),
     }

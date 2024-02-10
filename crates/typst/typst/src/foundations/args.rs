@@ -4,7 +4,7 @@ use ecow::{eco_format, eco_vec, EcoString, EcoVec};
 
 use crate::diag::{bail, error, At, SourceDiagnostic, SourceResult};
 use crate::foundations::{
-    func, repr, scope, ty, Array, Dict, FromValue, IntoValue, Repr, Str, Value,
+    func, repr, scope, ty, Array, Dict, FromTypstValue, IntoTypstValue, Repr, Str, TypstValue,
 };
 use crate::syntax::{Span, Spanned};
 
@@ -50,7 +50,7 @@ pub struct Args {
 
 impl Args {
     /// Create positional arguments from a span and values.
-    pub fn new<T: IntoValue>(span: Span, values: impl IntoIterator<Item = T>) -> Self {
+    pub fn new<T: IntoTypstValue>(span: Span, values: impl IntoIterator<Item = T>) -> Self {
         let items = values
             .into_iter()
             .map(|value| Arg {
@@ -68,7 +68,7 @@ impl Args {
     }
 
     /// Push a positional argument.
-    pub fn push(&mut self, span: Span, value: Value) {
+    pub fn push(&mut self, span: Span, value: TypstValue) {
         self.items.push(Arg {
             span: self.span,
             name: None,
@@ -79,7 +79,7 @@ impl Args {
     /// Consume and cast the first positional argument if there is one.
     pub fn eat<T>(&mut self) -> SourceResult<Option<T>>
     where
-        T: FromValue<Spanned<Value>>,
+        T: FromTypstValue<Spanned<TypstValue>>,
     {
         for (i, slot) in self.items.iter().enumerate() {
             if slot.name.is_none() {
@@ -117,7 +117,7 @@ impl Args {
     /// left.
     pub fn expect<T>(&mut self, what: &str) -> SourceResult<T>
     where
-        T: FromValue<Spanned<Value>>,
+        T: FromTypstValue<Spanned<TypstValue>>,
     {
         match self.eat()? {
             Some(v) => Ok(v),
@@ -128,7 +128,9 @@ impl Args {
     /// The error message for missing arguments.
     fn missing_argument(&self, what: &str) -> SourceDiagnostic {
         for item in &self.items {
-            let Some(name) = item.name.as_deref() else { continue };
+            let Some(name) = item.name.as_deref() else {
+                continue;
+            };
             if name == what {
                 return error!(
                     item.span,
@@ -144,7 +146,7 @@ impl Args {
     /// Find and consume the first castable positional argument.
     pub fn find<T>(&mut self) -> SourceResult<Option<T>>
     where
-        T: FromValue<Spanned<Value>>,
+        T: FromTypstValue<Spanned<TypstValue>>,
     {
         for (i, slot) in self.items.iter().enumerate() {
             if slot.name.is_none() && T::castable(&slot.value.v) {
@@ -159,7 +161,7 @@ impl Args {
     /// Find and consume all castable positional arguments.
     pub fn all<T>(&mut self) -> SourceResult<Vec<T>>
     where
-        T: FromValue<Spanned<Value>>,
+        T: FromTypstValue<Spanned<TypstValue>>,
     {
         let mut list = vec![];
         let mut errors = eco_vec![];
@@ -185,7 +187,7 @@ impl Args {
     /// error if the conversion fails.
     pub fn named<T>(&mut self, name: &str) -> SourceResult<Option<T>>
     where
-        T: FromValue<Spanned<Value>>,
+        T: FromTypstValue<Spanned<TypstValue>>,
     {
         // We don't quit once we have a match because when multiple matches
         // exist, we want to remove all of them and use the last one.
@@ -206,7 +208,7 @@ impl Args {
     /// Same as named, but with fallback to find.
     pub fn named_or_find<T>(&mut self, name: &str) -> SourceResult<Option<T>>
     where
-        T: FromValue<Spanned<Value>>,
+        T: FromTypstValue<Spanned<TypstValue>>,
     {
         match self.named(name)? {
             Some(value) => Ok(Some(value)),
@@ -253,7 +255,7 @@ impl Args {
         /// The arguments to construct.
         #[external]
         #[variadic]
-        arguments: Vec<Value>,
+        arguments: Vec<TypstValue>,
     ) -> Args {
         args.take()
     }
@@ -306,7 +308,7 @@ pub struct Arg {
     /// The name of the argument (`None` for positional arguments).
     pub name: Option<Str>,
     /// The value of the argument.
-    pub value: Spanned<Value>,
+    pub value: Spanned<TypstValue>,
 }
 
 impl Debug for Arg {
@@ -353,7 +355,7 @@ impl IntoArgs for Args {
 impl<I, T> IntoArgs for I
 where
     I: IntoIterator<Item = T>,
-    T: IntoValue,
+    T: IntoTypstValue,
 {
     fn into_args(self, fallback: Span) -> Args {
         Args::new(fallback, self)

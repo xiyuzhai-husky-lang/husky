@@ -3,8 +3,7 @@ use ecow::EcoString;
 use crate::diag::{bail, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, Args, Array, Construct, Content, Datetime, Packed, Smart, StyleChain,
-    Value,
+    cast, elem, Args, Array, Construct, Content, Datetime, Packed, Smart, StyleChain, TypstValue,
 };
 use crate::introspection::{Introspector, ManualPageCounter};
 use crate::layout::{LayoutRoot, Page, PageElem};
@@ -68,11 +67,7 @@ impl Construct for DocumentElem {
 
 impl LayoutRoot for Packed<DocumentElem> {
     #[typst_macros::time(name = "document", span = self.span())]
-    fn layout_root(
-        &self,
-        engine: &mut Engine,
-        styles: StyleChain,
-    ) -> SourceResult<Document> {
+    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Document> {
         let mut pages = Vec::with_capacity(self.children().len());
         let mut page_counter = ManualPageCounter::new();
 
@@ -121,7 +116,7 @@ cast! {
     Author,
     self => self.0.into_value(),
     v: EcoString => Self(vec![v]),
-    v: Array => Self(v.into_iter().map(Value::cast).collect::<StrResult<_>>()?),
+    v: Array => Self(v.into_iter().map(TypstValue::cast).collect::<StrResult<_>>()?),
 }
 
 /// A list of keywords.
@@ -132,7 +127,7 @@ cast! {
     Keywords,
     self => self.0.into_value(),
     v: EcoString => Self(vec![v]),
-    v: Array => Self(v.into_iter().map(Value::cast).collect::<StrResult<_>>()?),
+    v: Array => Self(v.into_iter().map(TypstValue::cast).collect::<StrResult<_>>()?),
 }
 
 /// A finished document with metadata and page frames.
