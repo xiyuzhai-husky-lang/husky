@@ -2,12 +2,12 @@
 
 mod counter;
 mod introspector;
-#[path = "locate.rs"]
+#[path = "introspection/locate.rs"]
 mod locate_;
 mod location;
 mod locator;
 mod metadata;
-#[path = "query.rs"]
+#[path = "introspection/query.rs"]
 mod query_;
 mod state;
 

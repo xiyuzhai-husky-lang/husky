@@ -40,6 +40,7 @@ pub enum EagerStmtEssence {
     ForBetween,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EagerStmtTraceData {
     pub path: TracePath,
@@ -47,9 +48,9 @@ pub struct EagerStmtTraceData {
     pub sema_stmt_idx: SemaStmtIdx,
     pub hir_eager_stmt_idx: Option<HirEagerStmtIdx>,
     pub eager_stmt_data_sketch: EagerStmtDataSketch,
-    // #[skip_fmt]
+    #[skip_fmt]
     pub sema_expr_region: SemaExprRegion,
-    // #[skip_fmt]
+    #[skip_fmt]
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
 

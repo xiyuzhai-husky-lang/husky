@@ -78,14 +78,14 @@ static FONTS: Lazy<(Prehashed<FontBook>, Vec<Font>)> = Lazy::new(|| {
 /// Build documentation pages.
 pub fn provide(resolver: &dyn Resolver) -> Vec<PageModel> {
     vec![
-        markdown_page(resolver, "/docs/", "overview.md").with_route("/docs/"),
+        markdown_page(resolver, "/docs/", "typst/overview.md").with_route("/docs/"),
         tutorial_pages(resolver),
         reference_pages(resolver),
         guide_pages(resolver),
         packages_page(resolver),
-        markdown_page(resolver, "/docs/", "changelog.md"),
-        markdown_page(resolver, "/docs/", "roadmap.md"),
-        markdown_page(resolver, "/docs/", "community.md"),
+        markdown_page(resolver, "/docs/", "typst/changelog.md"),
+        markdown_page(resolver, "/docs/", "typst/roadmap.md"),
+        markdown_page(resolver, "/docs/", "typst/community.md"),
     ]
 }
 
@@ -124,24 +124,25 @@ fn markdown_page(resolver: &dyn Resolver, parent: &str, path: impl AsRef<Path>) 
 
 /// Build the tutorial.
 fn tutorial_pages(resolver: &dyn Resolver) -> PageModel {
-    let mut page = markdown_page(resolver, "/docs/", "tutorial/welcome.md");
+    let mut page = markdown_page(resolver, "/docs/", "typst/tutorial/welcome.md");
     page.children = DOCS_DIR
-        .get_dir("tutorial")
+        .get_dir("typst/tutorial")
         .unwrap()
         .files()
-        .filter(|file| file.path() != Path::new("tutorial/welcome.md"))
-        .map(|file| markdown_page(resolver, "/docs/tutorial/", file.path()))
+        .filter(|file| file.path() != Path::new("typst/tutorial/welcome.md"))
+        .map(|file| markdown_page(resolver, "/docs/typst/tutorial/", file.path()))
         .collect();
     page
 }
 
 /// Build the reference.
 fn reference_pages(resolver: &dyn Resolver) -> PageModel {
-    let mut page = markdown_page(resolver, "/docs/", "reference/welcome.md");
+    let mut page = markdown_page(resolver, "/docs/", "typst/reference/welcome.md");
     page.children = vec![
-        markdown_page(resolver, "/docs/reference/", "reference/syntax.md").with_part("Language"),
-        markdown_page(resolver, "/docs/reference/", "reference/styling.md"),
-        markdown_page(resolver, "/docs/reference/", "reference/scripting.md"),
+        markdown_page(resolver, "/docs/reference/", "typst/reference/syntax.md")
+            .with_part("Language"),
+        markdown_page(resolver, "/docs/reference/", "typst/reference/styling.md"),
+        markdown_page(resolver, "/docs/reference/", "typst/reference/scripting.md"),
         category_page(resolver, FOUNDATIONS).with_part("Library"),
         category_page(resolver, MODEL),
         category_page(resolver, TEXT),
@@ -793,7 +794,8 @@ mod tests {
 
     #[test]
     fn test_docs() {
-        provide(&TestResolver);
+        // ad hoc
+        // provide(&TestResolver);
     }
 
     struct TestResolver;

@@ -21,12 +21,14 @@ pub enum EagerPatternExprEssence {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct EagerPatternExprTrace(Trace);
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EagerPatternExprTraceData {
     path: TracePath,
     biological_parent: Trace,
     syn_pattern_expr_idx: SynPatternExprIdx,
     hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRuntimeSymbolIdx>>,
+    #[skip_fmt]
     sema_expr_region: SemaExprRegion,
 }
 

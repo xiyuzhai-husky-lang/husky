@@ -43,6 +43,7 @@ pub enum LazyStmtEssence {
     ElseBranch,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LazyStmtTraceData {
     path: TracePath,
@@ -50,7 +51,9 @@ pub struct LazyStmtTraceData {
     sema_stmt_idx: SemaStmtIdx,
     hir_lazy_stmt_idx: Option<HirLazyStmtIdx>,
     lazy_stmt_sketch: LazyStmtSketch,
+    #[skip_fmt]
     sema_expr_region: SemaExprRegion,
+    #[skip_fmt]
     hir_lazy_expr_region: HirLazyExprRegion,
 }
 

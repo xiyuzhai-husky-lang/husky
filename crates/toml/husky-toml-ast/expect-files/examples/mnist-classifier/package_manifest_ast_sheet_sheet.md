@@ -6,9 +6,6 @@ Ok(
                     "mnist-classifier",
                 ),
                 TomlExpr::String(
-                    "0.1.0",
-                ),
-                TomlExpr::String(
                     "example mnist classifier",
                 ),
                 TomlExpr::String(
@@ -52,11 +49,11 @@ Ok(
                             },
                             TomlSectionEntry {
                                 line_group_idx: TomlLineGroupIdx(
-                                    2,
+                                    3,
                                 ),
                                 key: Coword(
                                     Id {
-                                        value: 4,
+                                        value: 7,
                                     },
                                 ),
                                 value: Some(
@@ -65,28 +62,15 @@ Ok(
                             },
                             TomlSectionEntry {
                                 line_group_idx: TomlLineGroupIdx(
-                                    3,
-                                ),
-                                key: Coword(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                                value: Some(
-                                    3,
-                                ),
-                            },
-                            TomlSectionEntry {
-                                line_group_idx: TomlLineGroupIdx(
                                     4,
                                 ),
                                 key: Coword(
                                     Id {
-                                        value: 6,
+                                        value: 8,
                                     },
                                 ),
                                 value: Some(
-                                    4,
+                                    3,
                                 ),
                             },
                         ],
@@ -96,7 +80,7 @@ Ok(
                             [
                                 Coword(
                                     Id {
-                                        value: 7,
+                                        value: 9,
                                     },
                                 ),
                             ],
@@ -109,11 +93,11 @@ Ok(
                                 ),
                                 key: Coword(
                                     Id {
-                                        value: 8,
+                                        value: 10,
                                     },
                                 ),
                                 value: Some(
-                                    5,
+                                    4,
                                 ),
                             },
                             TomlSectionEntry {
@@ -122,11 +106,11 @@ Ok(
                                 ),
                                 key: Coword(
                                     Id {
-                                        value: 9,
+                                        value: 11,
                                     },
                                 ),
                                 value: Some(
-                                    6,
+                                    5,
                                 ),
                             },
                         ],
@@ -152,9 +136,10 @@ Ok(
                     1,
                 ),
             ),
+            TomlLineGroup::Err,
             TomlLineGroup::KeyValue(
                 Word(
-                    "version",
+                    "description",
                 ),
                 Some(
                     2,
@@ -162,18 +147,10 @@ Ok(
             ),
             TomlLineGroup::KeyValue(
                 Word(
-                    "description",
-                ),
-                Some(
-                    3,
-                ),
-            ),
-            TomlLineGroup::KeyValue(
-                Word(
                     "license",
                 ),
                 Some(
-                    4,
+                    3,
                 ),
             ),
             TomlLineGroup::SectionTitle {
@@ -189,7 +166,7 @@ Ok(
                     "malamute",
                 ),
                 Some(
-                    5,
+                    4,
                 ),
             ),
             TomlLineGroup::KeyValue(
@@ -197,7 +174,7 @@ Ok(
                     "mnist",
                 ),
                 Some(
-                    6,
+                    5,
                 ),
             ),
         ],
@@ -212,7 +189,7 @@ Ok(
                 ),
                 Coword(
                     Id {
-                        value: 7,
+                        value: 9,
                     },
                 ): Section(
                     2,
