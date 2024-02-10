@@ -28,7 +28,7 @@ impl SolTerm {
                 toolchain,
                 curry_kind,
                 variance,
-                parameter_rune,
+                parameter_hvar,
                 parameter_ty,
                 return_ty,
             } => todo!(),

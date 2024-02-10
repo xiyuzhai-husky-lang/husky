@@ -1,10 +1,10 @@
 use super::*;
-use husky_term_prelude::template_symbol_class::TermTemplateSymbolClass;
+use husky_term_prelude::template_var_class::TemplateVarClass;
 
 // todo: use bitmap?
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Default)]
 pub struct EthTemplateSymbolAttrs {
-    pub class: TermTemplateSymbolClass,
+    pub class: TemplateVarClass,
 }
 
 impl EthTemplateSymbolAttrs {
@@ -13,7 +13,7 @@ impl EthTemplateSymbolAttrs {
     }
 
     pub fn phantom(self) -> bool {
-        self.class == TermTemplateSymbolClass::Phantom
+        self.class == TemplateVarClass::Phantom
     }
 }
 

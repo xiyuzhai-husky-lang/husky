@@ -1,6 +1,6 @@
 use self::fmt::EthTermFmtContext;
 use crate::fmt::with_eth_term_fmt_context;
-use crate::{term::symbol::EthSymbol, *};
+use crate::{term::svar::EthSvar, *};
 use husky_entity_path::region::RegionPath;
 use husky_syn_decl::HasSynDecl;
 use maybe_result::*;
@@ -11,7 +11,7 @@ use vec_like::{SmallVecPairMap, VecMap};
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EthInstantiation {
     path: ItemPath,
-    symbol_map: SmallVecPairMap<EthSymbol, EthTerm, 4>,
+    symbol_map: SmallVecPairMap<EthSvar, EthTerm, 4>,
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
 }
@@ -43,14 +43,14 @@ pub fn instantiation_eth_term_fmt_context(
         symbol_name_map
             .data()
             .iter()
-            .map(|&(symbol, name)| (EthSymbol::from_dec(db, symbol).expect("ok"), name)),
+            .map(|&(symbol, name)| (EthSvar::from_dec(db, symbol).expect("ok"), name)),
     )
     .expect("no repetitions");
     EthTermFmtContext::new(db, RegionPath::Decl(path), symbol_names)
 }
 
 impl EthInstantiation {
-    pub fn symbol_map(&self) -> &[(EthSymbol, EthTerm)] {
+    pub fn symbol_map(&self) -> &[(EthSvar, EthTerm)] {
         self.symbol_map.as_ref()
     }
 
@@ -60,16 +60,14 @@ impl EthInstantiation {
 
     /// assume that symbol is in symbol_map
     /// panic otherwise
-    pub fn symbol_instantiation(&self, symbol: EthSymbol) -> EthTerm {
+    pub fn symbol_instantiation(&self, symbol: EthSvar) -> EthTerm {
         *self
             .symbol_map
             .get_value(symbol)
             .expect("symbol should be in symbol_map")
     }
 
-    pub fn symbol_map_splitted(
-        &self,
-    ) -> (&[(EthSymbol, EthTerm)], Option<&[(EthSymbol, EthTerm)]>) {
+    pub fn symbol_map_splitted(&self) -> (&[(EthSvar, EthTerm)], Option<&[(EthSvar, EthTerm)]>) {
         let symbol_map: &[_] = self.symbol_map.as_ref();
         match self.separator {
             Some(separator) => {
@@ -126,7 +124,7 @@ pub trait EthTermInstantiateRef {
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EtherealInstantiationBuilder {
     path: ItemPath,
-    symbol_map: SmallVecPairMap<EthSymbol, Option<EthTerm>, 4>,
+    symbol_map: SmallVecPairMap<EthSvar, Option<EthTerm>, 4>,
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
 }
@@ -135,10 +133,10 @@ impl EtherealInstantiationBuilder {
     /// symbols must be unique
     pub(crate) fn new(
         path: ItemPath,
-        symbols: impl Iterator<Item = EthSymbol>,
+        symbols: impl Iterator<Item = EthSvar>,
         is_associated: bool,
     ) -> Self {
-        let symbol_map: SmallVecPairMap<EthSymbol, Option<EthTerm>, 4> =
+        let symbol_map: SmallVecPairMap<EthSvar, Option<EthTerm>, 4> =
             symbols.map(|symbol| (symbol, None)).collect();
         Self {
             path,
@@ -184,8 +182,8 @@ impl EtherealInstantiationBuilder {
         if src == dst {
             return JustOk(());
         }
-        let is_symbol_or_rune: EthTermMaybeResult<()> = match dst {
-            EthTerm::Symbol(_) | EthTerm::Rune(_) => JustOk(()),
+        let is_symbol_or_hvar: EthTermMaybeResult<()> = match dst {
+            EthTerm::Symbol(_) | EthTerm::Hvar(_) => JustOk(()),
             _ => Nothing,
         };
         match src {
@@ -217,12 +215,12 @@ impl EtherealInstantiationBuilder {
             | EthTerm::EntityPath(_)
             | EthTerm::Category(_)
             | EthTerm::Universe(_)
-            | EthTerm::Rune(_) => Nothing,
+            | EthTerm::Hvar(_) => Nothing,
             EthTerm::Curry(_) => {
                 todo!("dependent type")
                 // let EthTerm::TraitConstraint(dst) = dst else {
                 //     // todo: check dst is of type Prop
-                //     return is_symbol_or_rune;
+                //     return is_symbol_or_hvar;
                 // };
                 // self.try_add_rule(src.ty(db), dst.ty(db), db)?;
                 // self.try_add_rule(src.trai(db), dst.trai(db), db)
@@ -232,7 +230,7 @@ impl EtherealInstantiationBuilder {
             EthTerm::TraitConstraint(src) => {
                 let EthTerm::TraitConstraint(dst) = dst else {
                     // todo: check dst is of type Prop
-                    return is_symbol_or_rune;
+                    return is_symbol_or_hvar;
                 };
                 self.try_add_rule(src.ty(db), dst.ty(db), db)?;
                 self.try_add_rule(src.trai(db), dst.trai(db), db)
@@ -240,11 +238,7 @@ impl EtherealInstantiationBuilder {
         }
     }
 
-    pub fn try_add_symbol_rule(
-        &mut self,
-        symbol: EthSymbol,
-        dst: EthTerm,
-    ) -> EthTermMaybeResult<()> {
+    pub fn try_add_symbol_rule(&mut self, symbol: EthSvar, dst: EthTerm) -> EthTermMaybeResult<()> {
         if let Some((_, opt_dst0)) = self.symbol_map.get_entry_mut(symbol) {
             match opt_dst0 {
                 Some(dst0) => {
@@ -265,7 +259,7 @@ impl EtherealInstantiationBuilder {
     }
 
     pub fn try_into_instantiation(&self) -> Option<EthInstantiation> {
-        let mut symbol_map = SmallVecPairMap::<EthSymbol, EthTerm, 4>::default();
+        let mut symbol_map = SmallVecPairMap::<EthSvar, EthTerm, 4>::default();
         for (symbol, mapped) in self.symbol_map.iter() {
             let mapped = (*mapped)?;
             unsafe { symbol_map.insert_new_unchecked((*symbol, mapped)) }

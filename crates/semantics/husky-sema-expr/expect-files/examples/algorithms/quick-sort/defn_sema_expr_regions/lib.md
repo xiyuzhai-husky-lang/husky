@@ -149,7 +149,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(`E`),
+                                                            EthSvar(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -217,7 +217,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`T`),
+                                                    EthSvar(`T`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -1805,7 +1805,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`T`),
+                                                    EthSvar(`T`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -2163,7 +2163,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`T`),
+                                                    EthSvar(`T`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -2597,7 +2597,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`T`),
+                                                    EthSvar(`T`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -7524,7 +7524,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(`E`),
+                                                            EthSvar(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -7535,7 +7535,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbol(`'self_lifetime`),
+                                                            EthSvar(`'self_lifetime`),
                                                             FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
@@ -8037,7 +8037,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(`E`),
+                                                            EthSvar(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -8048,7 +8048,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbol(`'self_lifetime`),
+                                                            EthSvar(`'self_lifetime`),
                                                             FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
@@ -12594,7 +12594,7 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Covariant,
-                                                        parameter_rune: None,
+                                                        parameter_hvar: None,
                                                         parameter_ty: FlyTerm {
                                                             place: None,
                                                             base: FlyTermBase::Eth(

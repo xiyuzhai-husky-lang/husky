@@ -7,9 +7,9 @@ pub(crate) use self::hollow::*;
 pub(crate) use self::solid::*;
 
 use crate::*;
-use husky_dec_term::term::RuneIndex;
+use husky_dec_term::term::HvarIndex;
 use husky_eth_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
-use husky_eth_term::term::{curry::EthCurry, rune::EthRune, symbol::EthSymbol};
+use husky_eth_term::term::{curry::EthCurry, hvar::EthHvar, svar::EthSvar};
 use husky_term_prelude::literal::Literal;
 use husky_vfs::Toolchain;
 
@@ -27,7 +27,7 @@ pub enum FlyTermData<'a> {
         toolchain: Toolchain,
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_rune: Option<RuneFlyTerm>,
+        parameter_hvar: Option<FlyHvar>,
         parameter_ty: FlyTerm,
         return_ty: FlyTerm,
         ty_ethereal_term: Option<EthCurry>,
@@ -40,12 +40,12 @@ pub enum FlyTermData<'a> {
         return_ty: FlyTerm,
     },
     Symbol {
-        term: EthSymbol,
+        term: EthSvar,
         ty: FlyTerm,
     },
-    Rune {
+    Hvar {
         ty: FlyTerm,
-        index: RuneIndex,
+        index: HvarIndex,
     },
     TypeVariant {
         path: TypeVariantPath,
@@ -80,15 +80,15 @@ impl<'a> FlyTermData<'a> {
                 toolchain,
                 curry_kind,
                 variance,
-                parameter_rune,
+                parameter_hvar,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
             } => {
-                if let Some(parameter_rune) = parameter_rune {
+                if let Some(parameter_hvar) = parameter_hvar {
                     format!(
                         "<{}: {}> -> {}",
-                        parameter_rune.show(db, terms),
+                        parameter_hvar.show(db, terms),
                         parameter_ty.show(db, terms),
                         return_ty.show(db, terms)
                     )
@@ -132,8 +132,8 @@ impl<'a> FlyTermData<'a> {
                 RitchieKind::Trait(_) => todo!(),
             },
             FlyTermData::Symbol { term, ty } => format!("symbol({})", ty.show(db, terms)),
-            FlyTermData::Rune { ty, index: idx } => {
-                format!("rune({idx}, {})", ty.show(db, terms))
+            FlyTermData::Hvar { ty, index: idx } => {
+                format!("hvar({idx}, {})", ty.show(db, terms))
             }
             FlyTermData::TypeVariant { path } => format!("{:?}", path.debug(db)),
         }
@@ -152,7 +152,7 @@ pub enum FlyBaseTypeData<'a> {
     Curry {
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_rune: Option<RuneFlyTerm>,
+        parameter_hvar: Option<FlyHvar>,
         parameter_ty: FlyTerm,
         return_ty: FlyTerm,
         ty_ethereal_term: Option<EthCurry>,
@@ -165,10 +165,10 @@ pub enum FlyBaseTypeData<'a> {
         return_ty: FlyTerm,
     },
     Symbol {
-        symbol: EthSymbol,
+        symbol: EthSvar,
     },
-    Rune {
-        rune: EthRune,
+    Hvar {
+        hvar: EthHvar,
     },
 }
 
@@ -237,7 +237,7 @@ impl FlyTerm {
             FlyBaseTypeData::Curry {
                 curry_kind,
                 variance,
-                parameter_rune,
+                parameter_hvar,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
@@ -260,7 +260,7 @@ impl FlyTerm {
                 RitchieKind::Trait(_) => todo!(),
             },
             FlyBaseTypeData::Symbol { symbol: term } => Ok(Some(false)),
-            FlyBaseTypeData::Rune { rune } => todo!(), // ad hoc
+            FlyBaseTypeData::Hvar { hvar } => todo!(), // ad hoc
         }
     }
 }

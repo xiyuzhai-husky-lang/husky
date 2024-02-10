@@ -21,17 +21,17 @@ pub enum HirTemplateArgument {
     Vacant,
     Type(HirType),
     Constant(HirConstant),
-    Lifetime(HirLifetimeSymbol),
-    Place(HirPlaceSymbol),
+    Lifetime(HirLifetimeSvar),
+    Place(HirPlaceSvar),
 }
 
-impl From<HirTemplateSymbol> for HirTemplateArgument {
-    fn from(symbol: HirTemplateSymbol) -> Self {
+impl From<HirTemplateVar> for HirTemplateArgument {
+    fn from(symbol: HirTemplateVar) -> Self {
         match symbol {
-            HirTemplateSymbol::Type(symbol) => HirTemplateArgument::Type(symbol.into()),
-            HirTemplateSymbol::Const(symbol) => HirTemplateArgument::Constant(symbol.into()),
-            HirTemplateSymbol::Lifetime(symbol) => HirTemplateArgument::Lifetime(symbol),
-            HirTemplateSymbol::Place(symbol) => HirTemplateArgument::Place(symbol),
+            HirTemplateVar::Type(symbol) => HirTemplateArgument::Type(symbol.into()),
+            HirTemplateVar::Const(symbol) => HirTemplateArgument::Constant(symbol.into()),
+            HirTemplateVar::Lifetime(symbol) => HirTemplateArgument::Lifetime(symbol),
+            HirTemplateVar::Place(symbol) => HirTemplateArgument::Place(symbol),
         }
     }
 }
@@ -42,8 +42,8 @@ impl HirTemplateArgument {
     pub(crate) fn from_eth(argument: EthTerm, db: &::salsa::Db) -> Option<Self> {
         Some(match argument {
             EthTerm::Literal(lit) => HirConstant::from_term(lit, db).into(),
-            EthTerm::Symbol(symbol) => HirTemplateSymbol::from_eth(symbol, db)?.into(),
-            EthTerm::Rune(_) => todo!(),
+            EthTerm::Symbol(symbol) => HirTemplateVar::from_eth(symbol, db)?.into(),
+            EthTerm::Hvar(_) => todo!(),
             EthTerm::EntityPath(path) => match path {
                 ItemPathTerm::MajorFugitive(_path) => todo!(),
                 ItemPathTerm::Trait(_) => todo!(),

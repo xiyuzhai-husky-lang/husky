@@ -58,7 +58,7 @@ impl<'a> SemaExprEngine<'a> {
                     FlyBaseTypeData::Curry {
                         curry_kind,
                         variance,
-                        parameter_rune,
+                        parameter_hvar,
                         parameter_ty,
                         return_ty,
                         ty_ethereal_term,
@@ -71,7 +71,7 @@ impl<'a> SemaExprEngine<'a> {
                         return_ty,
                     } => todo!(),
                     FlyBaseTypeData::Symbol { symbol } => todo!(),
-                    FlyBaseTypeData::Rune { rune } => todo!(),
+                    FlyBaseTypeData::Hvar { hvar } => todo!(),
                 };
                 self.build_sema_expr(
                     ropd,

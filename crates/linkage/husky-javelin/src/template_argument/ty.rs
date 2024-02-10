@@ -76,7 +76,7 @@ impl JavelinType {
                 ),
             )
             .into(),
-            HirType::Symbol(symbol) => javelin_instantiation.resolve_ty(symbol),
+            HirType::Svar(symbol) => javelin_instantiation.resolve_ty(symbol),
             HirType::TypeAssocType(_) => todo!(),
             HirType::TraitAssocType(_) => todo!(),
             HirType::Ritchie(hir_ty) => JavelinRitchieType::new(

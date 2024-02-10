@@ -1,5 +1,5 @@
 use husky_print_utils::p;
-use husky_term_prelude::SymbolModifier;
+use husky_term_prelude::SvarModifier;
 
 use super::*;
 
@@ -15,23 +15,23 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerPatternExprIdx {
             } => {
                 if let Some(symbol_modifier) = symbol_modifier {
                     match symbol_modifier {
-                        SymbolModifier::Pure => (),
-                        SymbolModifier::Owned => todo!(),
-                        SymbolModifier::Mut => builder.keyword(RustKeyword::Mut),
-                        SymbolModifier::Ref => {
+                        SvarModifier::Pure => (),
+                        SvarModifier::Owned => todo!(),
+                        SvarModifier::Mut => builder.keyword(RustKeyword::Mut),
+                        SvarModifier::Ref => {
                             p!(ident.debug(db));
                             todo!()
                         }
-                        SymbolModifier::RefMut => {
+                        SvarModifier::RefMut => {
                             builder.keyword(RustKeyword::Ref);
                             builder.keyword(RustKeyword::Mut)
                         }
-                        SymbolModifier::Const => todo!(),
-                        SymbolModifier::Ambersand(_) => todo!(),
-                        SymbolModifier::AmbersandMut(_) => todo!(),
-                        SymbolModifier::Le => todo!(),
-                        SymbolModifier::Tilde => todo!(),
-                        SymbolModifier::At => todo!(),
+                        SvarModifier::Const => todo!(),
+                        SvarModifier::Ambersand(_) => todo!(),
+                        SvarModifier::AmbersandMut(_) => todo!(),
+                        SvarModifier::Le => todo!(),
+                        SvarModifier::Tilde => todo!(),
+                        SvarModifier::At => todo!(),
                     }
                 }
                 ident.transpile_to_rust(builder)

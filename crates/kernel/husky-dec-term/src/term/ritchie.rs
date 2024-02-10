@@ -25,7 +25,7 @@ impl DecRitchie {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &DecSymbolNameMap,
+        ctx: &DecSvarNameMap,
     ) -> std::fmt::Result {
         f.write_str(self.ritchie_kind(db).code())?;
         f.write_str("(")?;
@@ -70,7 +70,7 @@ impl DeclarativeRitchieParameter {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &DecSymbolNameMap,
+        ctx: &DecSvarNameMap,
     ) -> std::fmt::Result {
         match self {
             DeclarativeRitchieParameter::Regular(param) => {

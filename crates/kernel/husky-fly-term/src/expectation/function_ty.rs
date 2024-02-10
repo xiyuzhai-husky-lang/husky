@@ -43,7 +43,7 @@ impl ExpectFlyTerm for ExpectEqsFunctionType {
             FlyBaseTypeData::Curry {
                 curry_kind: CurryKind::Explicit,
                 variance,
-                parameter_rune,
+                parameter_hvar,
                 parameter_ty,
                 return_ty,
                 ..
@@ -52,7 +52,7 @@ impl ExpectFlyTerm for ExpectEqsFunctionType {
                     return_ty,
                     variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                         variance,
-                        parameter_rune,
+                        parameter_hvar,
                         parameter_ty,
                         return_ty,
                     },
@@ -108,7 +108,7 @@ pub enum ExpectEqsFunctionTypeOutcomeData {
     },
     ExplicitCurry {
         variance: Variance,
-        parameter_rune: Option<RuneFlyTerm>,
+        parameter_hvar: Option<FlyHvar>,
         parameter_ty: FlyTerm,
         return_ty: FlyTerm,
     },

@@ -229,7 +229,7 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Covariant,
-                                                        parameter_rune: None,
+                                                        parameter_hvar: None,
                                                         parameter_ty: FlyTerm {
                                                             place: None,
                                                             base: FlyTermBase::Eth(
@@ -968,7 +968,7 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Covariant,
-                                                        parameter_rune: None,
+                                                        parameter_hvar: None,
                                                         parameter_ty: FlyTerm {
                                                             place: None,
                                                             base: FlyTermBase::Eth(
@@ -1806,7 +1806,7 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                                                         variance: Covariant,
-                                                        parameter_rune: None,
+                                                        parameter_hvar: None,
                                                         parameter_ty: FlyTerm {
                                                             place: None,
                                                             base: FlyTermBase::Eth(

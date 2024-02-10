@@ -1,16 +1,16 @@
 pub mod abstraction;
 pub mod application;
 pub mod curry;
+pub mod hvar;
 pub mod literal;
 pub mod ritchie;
-pub mod rune;
-pub mod symbol;
+pub mod svar;
 pub mod trai_constraint;
 pub mod ty_as_trai_item;
 
 use self::{
-    abstraction::EthAbstraction, application::EthApplication, curry::EthCurry, ritchie::EthRitchie,
-    rune::EthRune, symbol::EthSymbol, trai_constraint::EthTraitConstraint,
+    abstraction::EthAbstraction, application::EthApplication, curry::EthCurry, hvar::EthHvar,
+    ritchie::EthRitchie, svar::EthSvar, trai_constraint::EthTraitConstraint,
     ty_as_trai_item::EthTypeAsTraitItem,
 };
 use crate::{instantiation::*, term::application::TermFunctionReduced};
@@ -28,9 +28,9 @@ pub enum EthTerm {
     ///
     /// literal: 1,1.0, true, false; variable, itemPath
     Literal(Literal),
-    Symbol(EthSymbol),
-    /// the name `rune` is to be distinguishable from runtime variable
-    Rune(EthRune),
+    Symbol(EthSvar),
+    /// the name `hvar` is to be distinguishable from runtime variable
+    Hvar(EthHvar),
     EntityPath(ItemPathTerm),
     Category(Category),
     Universe(Universe),
@@ -87,8 +87,8 @@ impl EthTerm {
             DecTerm::Literal(literal) => {
                 EthTerm::from_literal_declarative_term(db, literal, ty_expectation)?
             }
-            DecTerm::Symbol(declarative_term) => EthSymbol::from_dec(db, declarative_term)?.into(),
-            DecTerm::Rune(declarative_term) => EthRune::from_dec(db, declarative_term)?.into(),
+            DecTerm::Symbol(declarative_term) => EthSvar::from_dec(db, declarative_term)?.into(),
+            DecTerm::Hvar(declarative_term) => EthHvar::from_dec(db, declarative_term)?.into(),
             DecTerm::EntityPath(declarative_term) => match declarative_term {
                 DecItemPath::Fugitive(path) => ItemPathTerm::MajorFugitive(path).into(),
                 DecItemPath::Trait(path) => ItemPathTerm::Trait(path).into(),
@@ -166,14 +166,14 @@ impl EthTerm {
     pub(crate) fn into_declarative(self, db: &::salsa::Db) -> DecTerm {
         match self {
             EthTerm::Literal(slf) => DecLiteral::Resolved(slf).into(),
-            EthTerm::Symbol(slf) => DecSymbol::new(
+            EthTerm::Symbol(slf) => DecSvar::new(
                 db,
                 slf.toolchain(db),
                 Ok(slf.ty(db).into_declarative(db)),
                 slf.index(db).into(),
             )
             .into(),
-            EthTerm::Rune(slf) => slf.into_declarative(db).into(),
+            EthTerm::Hvar(slf) => slf.into_declarative(db).into(),
             EthTerm::EntityPath(slf) => slf.into(),
             EthTerm::Category(slf) => DecTerm::Category(slf),
             EthTerm::Universe(slf) => slf.into(),
@@ -182,8 +182,8 @@ impl EthTerm {
                 slf.toolchain(db),
                 slf.curry_kind(db),
                 slf.variance(db),
-                slf.parameter_rune(db)
-                    .map(|rune| rune.into_declarative(db).into()),
+                slf.parameter_hvar(db)
+                    .map(|hvar| hvar.into_declarative(db).into()),
                 slf.parameter_ty(db).into_declarative(db),
                 slf.return_ty(db).into_declarative(db),
             )
@@ -200,7 +200,7 @@ impl EthTerm {
         match self {
             EthTerm::Literal(_)
             | EthTerm::Symbol(_)
-            | EthTerm::Rune(_)
+            | EthTerm::Hvar(_)
             | EthTerm::EntityPath(
                 ItemPathTerm::Trait(_)
                 | ItemPathTerm::TypeOntology(_)
@@ -347,7 +347,7 @@ impl salsa::DisplayWithDb for EthTerm {
         match self {
             EthTerm::Literal(term) => term.display_fmt_with_db(f, db),
             EthTerm::Symbol(term) => term.display_fmt_with_db(f, db),
-            EthTerm::Rune(term) => term.display_fmt_with_db(f, db),
+            EthTerm::Hvar(term) => term.display_fmt_with_db(f, db),
             EthTerm::EntityPath(term) => term.display_fmt_with_db(f, db),
             EthTerm::Category(term) => f.write_str(&term.to_string()),
             EthTerm::Universe(term) => f.write_str(&term.to_string()),
@@ -371,7 +371,7 @@ impl EthTerm {
             | EthTerm::Category(_)
             | EthTerm::Universe(_) => self,
             EthTerm::Symbol(_symbol) => todo!(),
-            EthTerm::Rune(slf) => slf.substitute(substitution, db),
+            EthTerm::Hvar(slf) => slf.substitute(substitution, db),
             EthTerm::Curry(slf) => slf.substitute(substitution, db).into(),
             EthTerm::Abstraction(slf) => slf.substitute(substitution, db).into(),
             EthTerm::Application(slf) => slf.substitute(substitution, db),
@@ -392,7 +392,7 @@ impl EthInstantiate for EthTerm {
             | EthTerm::Category(_)
             | EthTerm::Universe(_) => self,
             EthTerm::Symbol(slf) => slf.instantiate(db, instantiation),
-            EthTerm::Rune(slf) => slf.instantiate(db, instantiation).into(),
+            EthTerm::Hvar(slf) => slf.instantiate(db, instantiation).into(),
             EthTerm::Curry(slf) => slf.instantiate(db, instantiation).into(),
             EthTerm::Ritchie(slf) => slf.instantiate(db, instantiation).into(),
             EthTerm::Abstraction(slf) => slf.instantiate(db, instantiation).into(),

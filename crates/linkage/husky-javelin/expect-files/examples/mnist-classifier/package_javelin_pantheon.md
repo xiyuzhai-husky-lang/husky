@@ -28,9 +28,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -49,8 +49,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfPlace,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfPlace,
                                 ),
                                 JavTermSymbolResolution::SelfPlace,
                             ),
@@ -89,9 +89,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -110,8 +110,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -150,9 +150,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -224,8 +224,8 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfType,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfType,
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
@@ -273,9 +273,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -294,8 +294,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -364,9 +364,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -486,8 +486,8 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfType,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfType,
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
@@ -535,9 +535,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -602,9 +602,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -632,9 +632,9 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -685,9 +685,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -740,9 +740,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -795,9 +795,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -834,8 +834,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -934,9 +934,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -955,9 +955,9 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1015,9 +1015,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1036,8 +1036,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -1076,9 +1076,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1131,9 +1131,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1186,9 +1186,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1207,8 +1207,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfPlace,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfPlace,
                                 ),
                                 JavTermSymbolResolution::SelfPlace,
                             ),
@@ -1247,9 +1247,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1302,9 +1302,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1323,8 +1323,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -1363,9 +1363,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1384,8 +1384,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfPlace,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfPlace,
                                 ),
                                 JavTermSymbolResolution::SelfPlace,
                             ),
@@ -1424,9 +1424,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1479,9 +1479,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1509,8 +1509,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -1549,9 +1549,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1570,8 +1570,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -1631,9 +1631,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1686,9 +1686,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1753,9 +1753,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1783,9 +1783,9 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1848,9 +1848,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1901,9 +1901,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -1954,9 +1954,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -2018,9 +2018,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -2098,9 +2098,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -2153,9 +2153,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -2238,9 +2238,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -2259,8 +2259,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -2299,9 +2299,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -2384,9 +2384,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -2439,9 +2439,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -2460,8 +2460,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -2530,9 +2530,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -2569,8 +2569,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -2609,9 +2609,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -2706,9 +2706,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -2844,9 +2844,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -2874,8 +2874,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -2914,9 +2914,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -2981,9 +2981,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3002,9 +3002,9 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3062,9 +3062,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3140,9 +3140,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3208,8 +3208,8 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfType,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfType,
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
@@ -3239,9 +3239,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3260,8 +3260,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -3282,9 +3282,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3349,9 +3349,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3379,8 +3379,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -3401,9 +3401,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3440,8 +3440,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -3462,9 +3462,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3499,9 +3499,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3560,9 +3560,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3581,8 +3581,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfPlace,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfPlace,
                                 ),
                                 JavTermSymbolResolution::SelfPlace,
                             ),
@@ -3603,9 +3603,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3624,8 +3624,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -3646,9 +3646,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3667,8 +3667,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -3689,9 +3689,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3710,8 +3710,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -3732,9 +3732,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3788,8 +3788,8 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfType,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfType,
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
@@ -3819,9 +3819,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3868,9 +3868,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3905,9 +3905,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3926,8 +3926,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfPlace,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfPlace,
                                 ),
                                 JavTermSymbolResolution::SelfPlace,
                             ),
@@ -3948,9 +3948,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -3985,9 +3985,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4006,8 +4006,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -4028,9 +4028,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4065,9 +4065,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4086,8 +4086,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -4108,9 +4108,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4129,8 +4129,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfPlace,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfPlace,
                                 ),
                                 JavTermSymbolResolution::SelfPlace,
                             ),
@@ -4151,9 +4151,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4200,9 +4200,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4237,9 +4237,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4258,8 +4258,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -4280,9 +4280,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4317,9 +4317,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4354,9 +4354,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4391,9 +4391,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4428,9 +4428,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4495,9 +4495,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4557,9 +4557,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4587,8 +4587,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -4609,9 +4609,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4648,8 +4648,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::SelfLifetime,
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -4670,9 +4670,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4753,9 +4753,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4790,9 +4790,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4837,9 +4837,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4886,9 +4886,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4933,9 +4933,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -4980,9 +4980,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -5010,9 +5010,9 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -5057,9 +5057,9 @@ ValkyrieJavelinPantheon {
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -5087,9 +5087,9 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateSymbol::Type(
-                                    HirTypeSymbol::Type {
-                                        attrs: HirTemplateSymbolAttrs {
+                                HirTemplateVar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateVarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,

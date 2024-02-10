@@ -1,11 +1,11 @@
-use husky_eth_term::term::rune::EthRune;
+use husky_eth_term::term::hvar::EthHvar;
 
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct RuneFlyTerm(FlyTerm);
+pub struct FlyHvar(FlyTerm);
 
-impl std::ops::Deref for RuneFlyTerm {
+impl std::ops::Deref for FlyHvar {
     type Target = FlyTerm;
 
     fn deref(&self) -> &Self::Target {
@@ -13,7 +13,7 @@ impl std::ops::Deref for RuneFlyTerm {
     }
 }
 
-impl RuneFlyTerm {
+impl FlyHvar {
     pub(crate) fn rewrite_inner(
         self,
         db: &::salsa::Db,
@@ -32,7 +32,7 @@ impl RuneFlyTerm {
             FlyBaseTypeData::Curry {
                 curry_kind,
                 variance,
-                parameter_rune,
+                parameter_hvar,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
@@ -45,14 +45,14 @@ impl RuneFlyTerm {
                 return_ty,
             } => todo!(),
             FlyBaseTypeData::Symbol { symbol } => todo!(),
-            FlyBaseTypeData::Rune { rune } => (),
+            FlyBaseTypeData::Hvar { hvar } => (),
         }
         Self(slf)
     }
 }
 
-impl From<EthRune> for RuneFlyTerm {
-    fn from(value: EthRune) -> Self {
-        RuneFlyTerm(value.into())
+impl From<EthHvar> for FlyHvar {
+    fn from(value: EthHvar) -> Self {
+        FlyHvar(value.into())
     }
 }

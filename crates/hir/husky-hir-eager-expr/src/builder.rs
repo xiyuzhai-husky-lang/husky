@@ -1,7 +1,7 @@
 use crate::{
-    symbol::{
-        comptime_symbol::HirEagerComptimeSymbolRegionData,
-        runtime_symbol::{HirEagerRuntimeSymbolIdx, HirEagerRuntimeSymbolRegionData},
+    var::{
+        cvar::HirEagerComptimeSvarRegionData,
+        rvar::{HirEagerRvarIdx, HirEagerRvarRegionData},
     },
     *,
 };
@@ -27,9 +27,9 @@ pub(crate) struct HirEagerExprBuilder<'a> {
     syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap<HirEagerPatternExprIdx>,
     sema_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
     sema_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
-    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData,
-    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData,
-    syn_symbol_to_hir_eager_runtime_symbol_map: SynSymbolMap<HirEagerRuntimeSymbolIdx>,
+    hir_eager_comptime_symbol_region_data: HirEagerComptimeSvarRegionData,
+    hir_eager_runtime_symbol_region_data: HirEagerRvarRegionData,
+    syn_symbol_to_hir_eager_runtime_symbol_map: SynSymbolMap<HirEagerRvarIdx>,
 }
 
 impl<'a> HirEagerExprBuilder<'a> {
@@ -42,13 +42,13 @@ impl<'a> HirEagerExprBuilder<'a> {
             SemaExprMap::new(sema_expr_region_data.sema_expr_arena());
         let sema_to_hir_eager_stmt_idx_map =
             SemaStmtMap::new(sema_expr_region_data.sema_stmt_arena());
-        let hir_eager_comptime_symbol_region_data = HirEagerComptimeSymbolRegionData::from_sema(
+        let hir_eager_comptime_symbol_region_data = HirEagerComptimeSvarRegionData::from_sema(
             sema_expr_region_data,
             syn_expr_region_data.symbol_region(),
             db,
         );
         let (hir_eager_runtime_symbol_region, syn_symbol_to_hir_eager_runtime_symbol_map) =
-            HirEagerRuntimeSymbolRegionData::from_syn(syn_expr_region_data.symbol_region());
+            HirEagerRvarRegionData::from_syn(syn_expr_region_data.symbol_region());
         Self {
             db,
             syn_expr_region_data,
@@ -201,7 +201,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub(crate) fn inherited_syn_symbol_to_hir_eager_runtime_symbol(
         &self,
         inherited_syn_symbol_idx: InheritedSynSymbolIdx,
-    ) -> Option<HirEagerRuntimeSymbolIdx> {
+    ) -> Option<HirEagerRvarIdx> {
         self.syn_symbol_to_hir_eager_runtime_symbol_map
             .get_inherited(inherited_syn_symbol_idx)
             .copied()
@@ -210,7 +210,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub(crate) fn current_syn_symbol_to_hir_eager_runtime_symbol(
         &self,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-    ) -> Option<HirEagerRuntimeSymbolIdx> {
+    ) -> Option<HirEagerRvarIdx> {
         self.syn_symbol_to_hir_eager_runtime_symbol_map
             .get_current(current_syn_symbol_idx)
             .copied()
@@ -237,7 +237,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         )
     }
 
-    pub(crate) fn self_value_variable(&self) -> Option<HirEagerRuntimeSymbolIdx> {
+    pub(crate) fn self_value_variable(&self) -> Option<HirEagerRvarIdx> {
         self.hir_eager_runtime_symbol_region_data
             .self_value_variable()
     }

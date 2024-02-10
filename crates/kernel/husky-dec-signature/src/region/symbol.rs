@@ -1,4 +1,4 @@
-use husky_dec_term::name::DecSymbolNameMap;
+use husky_dec_term::name::DecSvarNameMap;
 use husky_entity_tree::*;
 use husky_syn_expr::*;
 use husky_term_prelude::symbol::SymbolName;
@@ -8,23 +8,23 @@ use super::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct DecSymbolRegion {
+pub struct DecSvarRegion {
     symbol_registry: TermSymbolRegistry,
-    symbol_signatures: SymbolOrderedMap<DecSymbolSignature>,
+    symbol_signatures: SymbolOrderedMap<DecSvarSignature>,
     /// used to format dec terms
-    symbol_name_map: DecSymbolNameMap,
+    symbol_name_map: DecSvarNameMap,
     self_ty: Option<DecTerm>,
-    self_value: Option<DecSymbol>,
-    self_lifetime: Option<DecSymbol>,
-    self_place: Option<DecSymbol>,
-    implicit_template_parameter_symbols: SmallVec<[DecSymbol; 1]>,
+    self_value: Option<DecSvar>,
+    self_lifetime: Option<DecSvar>,
+    self_place: Option<DecSvar>,
+    implicit_template_parameter_symbols: SmallVec<[DecSvar; 1]>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct DecSymbolSignature {
+pub struct DecSvarSignature {
     kind: SymbolSignatureKind,
-    symbol: Option<DecSymbol>,
-    modifier: SymbolModifier,
+    symbol: Option<DecSvar>,
+    modifier: SvarModifier,
     ty: DecTermSymbolTypeResult<DecTerm>,
 }
 
@@ -35,16 +35,16 @@ pub enum SymbolSignatureKind {
     FieldVariable,
 }
 
-impl DecSymbolSignature {
+impl DecSvarSignature {
     pub fn kind(self) -> SymbolSignatureKind {
         self.kind
     }
 
-    pub fn term_symbol(self) -> Option<DecSymbol> {
+    pub fn term_symbol(self) -> Option<DecSvar> {
         self.symbol
     }
 
-    pub fn modifier(&self) -> SymbolModifier {
+    pub fn modifier(&self) -> SvarModifier {
         self.modifier
     }
 
@@ -53,16 +53,16 @@ impl DecSymbolSignature {
     }
 }
 
-impl DecSymbolRegion {
-    pub fn self_lifetime(&self) -> Option<DecSymbol> {
+impl DecSvarRegion {
+    pub fn self_lifetime(&self) -> Option<DecSvar> {
         self.self_lifetime
     }
 
-    pub fn self_place(&self) -> Option<DecSymbol> {
+    pub fn self_place(&self) -> Option<DecSvar> {
         self.self_place
     }
 
-    pub fn implicit_template_parameter_symbols(&self) -> &[DecSymbol] {
+    pub fn implicit_template_parameter_symbols(&self) -> &[DecSvar] {
         &self.implicit_template_parameter_symbols
     }
 
@@ -76,17 +76,17 @@ impl DecSymbolRegion {
         db: &::salsa::Db,
         idx: CurrentSynSymbolIdx,
         ty: DecTermSymbolTypeResult<DecTerm>,
-        term_symbol: DecSymbol,
+        term_symbol: DecSvar,
         name: SymbolName,
     ) {
         self.add_new_current_syn_symbol_signature(
             db,
             idx,
-            DecSymbolSignature {
+            DecSvarSignature {
                 kind: SymbolSignatureKind::TemplateParameter,
                 symbol: Some(term_symbol),
                 ty,
-                modifier: SymbolModifier::Const,
+                modifier: SvarModifier::Const,
             },
             name,
         )
@@ -97,18 +97,18 @@ impl DecSymbolRegion {
         &mut self,
         db: &::salsa::Db,
         current_syn_symbol: CurrentSynSymbolIdx,
-        modifier: SymbolModifier,
+        modifier: SvarModifier,
         ty: DecTermSymbolTypeResult<DecTerm>,
         name: SymbolName,
     ) {
         let symbol = match modifier {
-            SymbolModifier::Const => todo!(),
+            SvarModifier::Const => todo!(),
             _ => None,
         };
         self.add_new_current_syn_symbol_signature(
             db,
             current_syn_symbol,
-            DecSymbolSignature {
+            DecSvarSignature {
                 kind: SymbolSignatureKind::ParenateParameter,
                 modifier,
                 ty,
@@ -129,9 +129,9 @@ impl DecSymbolRegion {
         self.add_new_current_syn_symbol_signature(
             db,
             current_syn_symbol,
-            DecSymbolSignature {
+            DecSvarSignature {
                 kind: SymbolSignatureKind::FieldVariable,
-                modifier: SymbolModifier::Pure,
+                modifier: SvarModifier::Pure,
                 ty,
                 symbol: None,
             },
@@ -144,7 +144,7 @@ impl DecSymbolRegion {
         &mut self,
         db: &::salsa::Db,
         idx: CurrentSynSymbolIdx,
-        signature: DecSymbolSignature,
+        signature: DecSvarSignature,
         name: SymbolName,
     ) {
         if let Some(symbol) = signature.symbol {
@@ -153,18 +153,18 @@ impl DecSymbolRegion {
         self.symbol_signatures.insert_next(idx, signature)
     }
 
-    pub fn symbol_name_map(&self) -> &DecSymbolNameMap {
+    pub fn symbol_name_map(&self) -> &DecSvarNameMap {
         &self.symbol_name_map
     }
 }
 
-impl DecSymbolRegion {
+impl DecSvarRegion {
     /// will initialize `inherited_syn_symbol_terms`;
     /// but will leave current_syn_symbol_terms unintialized;
     /// `self_ty_term` is set to that of parent if parent exists, otherwise none;
     /// `self_value_term` is set to that of parent if parent exists, otherwise none
     pub(crate) fn new(
-        parent: Option<&DecSymbolRegion>,
+        parent: Option<&DecSvarRegion>,
         syn_expr_region_data: &SynExprRegionData,
         declarative_term_menu: &DecTermMenu,
     ) -> Self {
@@ -237,7 +237,7 @@ impl DecSymbolRegion {
         }
         if symbol_region.allow_self_value().to_bool() && self.self_value.is_none() {
             self.self_value = Some(
-                DecSymbol::new_self_value(
+                DecSvar::new_self_value(
                     db,
                     toolchain,
                     &mut self.symbol_registry,
@@ -247,8 +247,8 @@ impl DecSymbolRegion {
             )
         }
     }
-    fn new_self_ty_symbol(&mut self, toolchain: Toolchain, db: &::salsa::Db) -> DecSymbol {
-        let symbol = DecSymbol::new_self_ty(db, toolchain, &mut self.symbol_registry);
+    fn new_self_ty_symbol(&mut self, toolchain: Toolchain, db: &::salsa::Db) -> DecSvar {
+        let symbol = DecSvar::new_self_ty(db, toolchain, &mut self.symbol_registry);
         self.implicit_template_parameter_symbols.push(symbol);
         symbol
     }
@@ -294,11 +294,11 @@ impl DecSymbolRegion {
         self.self_ty = self_ty
     }
 
-    pub fn self_value(&self) -> Option<DecSymbol> {
+    pub fn self_value(&self) -> Option<DecSvar> {
         self.self_value
     }
 
-    fn parent_symbol_term(&self, parent_symbol_idx: ParentSynSymbolIdx) -> DecSymbolSignature {
+    fn parent_symbol_term(&self, parent_symbol_idx: ParentSynSymbolIdx) -> DecSvarSignature {
         match parent_symbol_idx {
             ParentSynSymbolIdx::Inherited(inherited_syn_symbol_idx) => {
                 self.inherited_syn_symbol_signature(inherited_syn_symbol_idx)
@@ -312,7 +312,7 @@ impl DecSymbolRegion {
     pub fn inherited_syn_symbol_signature(
         &self,
         inherited_syn_symbol_idx: InheritedSynSymbolIdx,
-    ) -> DecSymbolSignature {
+    ) -> DecSvarSignature {
         self.symbol_signatures[inherited_syn_symbol_idx]
     }
 
@@ -320,7 +320,7 @@ impl DecSymbolRegion {
     pub fn current_parameter_symbol_signature(
         &self,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-    ) -> Option<DecSymbolSignature> {
+    ) -> Option<DecSvarSignature> {
         self.symbol_signatures
             .current_syn_symbol_map()
             .get(current_syn_symbol_idx.index())

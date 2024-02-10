@@ -23,7 +23,7 @@ impl HasFlyTypeMethodDispatch for HolTerm {
             FlyBaseTypeData::Curry {
                 curry_kind,
                 variance,
-                parameter_rune,
+                parameter_hvar,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
@@ -50,7 +50,7 @@ impl HasFlyTypeMethodDispatch for HolTerm {
                 return_ty,
             } => todo!(),
             FlyBaseTypeData::Symbol { symbol: term } => todo!(),
-            FlyBaseTypeData::Rune { rune } => todo!(),
+            FlyBaseTypeData::Hvar { hvar } => todo!(),
         }
     }
 }

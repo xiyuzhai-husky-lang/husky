@@ -32,7 +32,7 @@ impl<'a> SemaExprEngine<'a> {
                 toolchain,
                 curry_kind,
                 variance,
-                parameter_rune,
+                parameter_hvar,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
@@ -46,7 +46,7 @@ impl<'a> SemaExprEngine<'a> {
                 ..
             } => todo!(),
             FlyTermData::Symbol { .. } => todo!(),
-            FlyTermData::Rune { .. } => todo!(),
+            FlyTermData::Hvar { .. } => todo!(),
             FlyTermData::TypeVariant { path } => todo!(),
         }
     }

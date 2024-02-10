@@ -7,7 +7,7 @@ use either::*;
 use husky_eth_signature::{helpers::trai_for_ty::is_ty_term_always_copyable, HasEthTemplate};
 use husky_eth_term::term::{
     application::{EthApplication, TermFunctionReduced},
-    symbol::EthTermSymbolIndexImpl,
+    svar::EthTermSymbolIndexImpl,
     EthTerm,
 };
 use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
@@ -19,7 +19,7 @@ use husky_term_prelude::ItemPathTerm;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirType {
     PathLeading(HirTypePathLeading),
-    Symbol(HirTypeSymbol),
+    Svar(HirTypeSvar),
     TypeAssocType(HirTypeTypeAssocType),
     TraitAssocType(HirTypeTraitAssocType),
     Ritchie(HirRitchieType),
@@ -35,7 +35,7 @@ impl HirType {
     pub fn from_eth(term: EthTerm, db: &::salsa::Db) -> Option<Self> {
         let always_copyable = is_ty_term_always_copyable(term, db).unwrap()?;
         match term {
-            EthTerm::Symbol(symbol) => HirTypeSymbol::from_eth(symbol, db).map(Into::into),
+            EthTerm::Symbol(symbol) => HirTypeSvar::from_eth(symbol, db).map(Into::into),
             EthTerm::EntityPath(path) => match path {
                 ItemPathTerm::MajorFugitive(_) => todo!(),
                 ItemPathTerm::Trait(_) => todo!(),
@@ -84,7 +84,7 @@ impl HirType {
     pub fn always_copyable(self, db: &::salsa::Db) -> bool {
         match self {
             HirType::PathLeading(slf) => slf.always_copyable(db),
-            HirType::Symbol(_slf) => false, // ad hoc: todo check traits
+            HirType::Svar(_slf) => false, // ad hoc: todo check traits
             HirType::TypeAssocType(_slf) => false, // ad hoc: todo check traits
             HirType::TraitAssocType(_slf) => false, // ad hoc: todo check traits
             HirType::Ritchie(_slf) => true,

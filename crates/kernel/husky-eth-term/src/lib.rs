@@ -37,9 +37,9 @@ use smallvec::*;
 #[salsa::jar]
 pub struct EthTermJar(
     // symbol
-    crate::term::symbol::EthSymbol,
-    // rune
-    crate::term::rune::EthRune,
+    crate::term::svar::EthSvar,
+    // hvar
+    crate::term::hvar::EthHvar,
     // curry
     crate::term::curry::EthCurry,
     crate::term::curry::term_curry_from_dec,

@@ -673,7 +673,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(`E`),
+                                                            EthSvar(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -3186,7 +3186,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbol(`E`),
+                                                            EthSvar(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,

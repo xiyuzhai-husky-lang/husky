@@ -61,7 +61,7 @@ impl<'a> SemaExprEngine<'a> {
             }
             ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
                 variance,
-                parameter_rune,
+                parameter_hvar,
                 parameter_ty,
                 return_ty,
             } => {

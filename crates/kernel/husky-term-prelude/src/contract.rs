@@ -35,19 +35,19 @@ impl TermContract {
     }
 }
 
-impl From<SymbolModifier> for TermContract {
-    fn from(modifier: SymbolModifier) -> Self {
+impl From<SvarModifier> for TermContract {
+    fn from(modifier: SvarModifier) -> Self {
         match modifier {
-            SymbolModifier::Pure => TermContract::Pure,
-            SymbolModifier::Owned | SymbolModifier::Mut => TermContract::Move,
-            SymbolModifier::Ref => TermContract::Borrow,
-            SymbolModifier::RefMut => TermContract::BorrowMut,
-            SymbolModifier::Const => TermContract::Const,
-            SymbolModifier::Ambersand(_) => todo!(),
-            SymbolModifier::AmbersandMut(_) => todo!(),
-            SymbolModifier::Le => todo!(),
-            SymbolModifier::Tilde => todo!(),
-            SymbolModifier::At => todo!(),
+            SvarModifier::Pure => TermContract::Pure,
+            SvarModifier::Owned | SvarModifier::Mut => TermContract::Move,
+            SvarModifier::Ref => TermContract::Borrow,
+            SvarModifier::RefMut => TermContract::BorrowMut,
+            SvarModifier::Const => TermContract::Const,
+            SvarModifier::Ambersand(_) => todo!(),
+            SvarModifier::AmbersandMut(_) => todo!(),
+            SvarModifier::Le => todo!(),
+            SvarModifier::Tilde => todo!(),
+            SvarModifier::At => todo!(),
         }
     }
 }

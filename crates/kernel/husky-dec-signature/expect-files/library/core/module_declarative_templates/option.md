@@ -14,7 +14,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: DecSymbol(
+                                        svar: DecSvar(
                                             Id {
                                                 value: 10,
                                             },

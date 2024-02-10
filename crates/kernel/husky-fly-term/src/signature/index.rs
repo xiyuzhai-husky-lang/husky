@@ -52,7 +52,7 @@ fn list_like_index_signature(
             toolchain,
             curry_kind,
             variance,
-            parameter_rune,
+            parameter_hvar,
             parameter_ty,
             return_ty,
             ty_ethereal_term,
@@ -80,7 +80,7 @@ fn list_like_index_signature(
             ..
         } => todo!(),
         FlyTermData::Symbol { .. } => todo!(),
-        FlyTermData::Rune { .. } => todo!(),
+        FlyTermData::Hvar { .. } => todo!(),
         FlyTermData::TypeVariant { path } => todo!(),
     }
 }

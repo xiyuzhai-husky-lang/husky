@@ -115,11 +115,11 @@
                                             ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`Label`),
+                                                    EthSvar(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol(`label`),
+                                                    EthSvar(`label`),
                                                     EthTerm(`One`),
                                                 ),
                                             ],
@@ -271,11 +271,11 @@
                                             ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`Label`),
+                                                    EthSvar(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol(`label`),
+                                                    EthSvar(`label`),
                                                     EthTerm(`Six`),
                                                 ),
                                             ],
@@ -427,11 +427,11 @@
                                             ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`Label`),
+                                                    EthSvar(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol(`label`),
+                                                    EthSvar(`label`),
                                                     EthTerm(`Zero`),
                                                 ),
                                             ],
@@ -583,11 +583,11 @@
                                             ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`Label`),
+                                                    EthSvar(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol(`label`),
+                                                    EthSvar(`label`),
                                                     EthTerm(`Seven`),
                                                 ),
                                             ],
@@ -739,11 +739,11 @@
                                             ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`Label`),
+                                                    EthSvar(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol(`label`),
+                                                    EthSvar(`label`),
                                                     EthTerm(`Eight`),
                                                 ),
                                             ],
@@ -895,11 +895,11 @@
                                             ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`Label`),
+                                                    EthSvar(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol(`label`),
+                                                    EthSvar(`label`),
                                                     EthTerm(`Three`),
                                                 ),
                                             ],
@@ -1051,11 +1051,11 @@
                                             ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`Label`),
+                                                    EthSvar(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol(`label`),
+                                                    EthSvar(`label`),
                                                     EthTerm(`Nine`),
                                                 ),
                                             ],
@@ -1207,11 +1207,11 @@
                                             ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`Label`),
+                                                    EthSvar(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol(`label`),
+                                                    EthSvar(`label`),
                                                     EthTerm(`Five`),
                                                 ),
                                             ],
@@ -1363,11 +1363,11 @@
                                             ),
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`Label`),
+                                                    EthSvar(`Label`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbol(`label`),
+                                                    EthSvar(`label`),
                                                     EthTerm(`Two`),
                                                 ),
                                             ],
@@ -1463,7 +1463,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`Label`),
+                                                    EthSvar(`Label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,

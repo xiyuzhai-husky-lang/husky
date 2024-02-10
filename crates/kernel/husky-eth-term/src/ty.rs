@@ -116,7 +116,7 @@ impl EthTerm {
         Ok(match self {
             EthTerm::Literal(slf) => RawType::Prelude(slf.ty()),
             EthTerm::Symbol(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
-            EthTerm::Rune(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
+            EthTerm::Hvar(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
             EthTerm::EntityPath(slf) => match slf {
                 ItemPathTerm::MajorFugitive(_path) => todo!(),
                 ItemPathTerm::Trait(path) => {

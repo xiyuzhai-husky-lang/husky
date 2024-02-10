@@ -9,8 +9,8 @@
                         template_parameters: HirTemplateParameters(
                             [
                                 HirTemplateParameter {
-                                    symbol: HirTemplateSymbol::Const(
-                                        HirConstSymbol {
+                                    symbol: HirTemplateVar::Const(
+                                        HirConstSvar {
                                             ty: HirType::PathLeading(
                                                 HirTypePathLeading {
                                                     ty_path: TypePath(`core::num::usize`, `Extern`),
@@ -19,7 +19,7 @@
                                                 },
                                             ),
                                             index: HirConstSymbolIndex::PathLeading {
-                                                attrs: HirTemplateSymbolAttrs {
+                                                attrs: HirTemplateVarAttrs {
                                                     class: Comptime,
                                                 },
                                                 disambiguator: 0,
@@ -39,9 +39,9 @@
                                     },
                                 },
                                 HirTemplateParameter {
-                                    symbol: HirTemplateSymbol::Type(
-                                        HirTypeSymbol::Type {
-                                            attrs: HirTemplateSymbolAttrs {
+                                    symbol: HirTemplateVar::Type(
+                                        HirTypeSvar::Type {
+                                            attrs: HirTemplateVarAttrs {
                                                 class: Comptime,
                                             },
                                             variance: Some(
@@ -74,16 +74,16 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerComptimeSymbolEntry {
-                                            name: HirEagerComptimeSymbolName::Ident(
+                                        HirEagerComptimeSvarEntry {
+                                            name: HirEagerComptimeSvarName::Ident(
                                                 `L`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: HirTemplateSymbol::Const(
-                                                HirConstSymbol {
+                                            hir_comptime_symbol: HirTemplateVar::Const(
+                                                HirConstSvar {
                                                     ty: HirType::PathLeading(
                                                         HirTypePathLeading {
                                                             ty_path: TypePath(`core::num::usize`, `Extern`),
@@ -92,7 +92,7 @@
                                                         },
                                                     ),
                                                     index: HirConstSymbolIndex::PathLeading {
-                                                        attrs: HirTemplateSymbolAttrs {
+                                                        attrs: HirTemplateVarAttrs {
                                                             class: Comptime,
                                                         },
                                                         disambiguator: 0,
@@ -101,14 +101,14 @@
                                                 },
                                             ),
                                         },
-                                        HirEagerComptimeSymbolEntry {
-                                            name: HirEagerComptimeSymbolName::Ident(
+                                        HirEagerComptimeSvarEntry {
+                                            name: HirEagerComptimeSvarName::Ident(
                                                 `E`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: HirTemplateSymbol::Type(
-                                                HirTypeSymbol::Type {
-                                                    attrs: HirTemplateSymbolAttrs {
+                                            hir_comptime_symbol: HirTemplateVar::Type(
+                                                HirTypeSvar::Type {
+                                                    attrs: HirTemplateVarAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: Some(
@@ -121,7 +121,7 @@
                                     ],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            runtime_symbol_region_data: HirEagerRvarRegionData {
                                 arena: Arena {
                                     data: [],
                                 },

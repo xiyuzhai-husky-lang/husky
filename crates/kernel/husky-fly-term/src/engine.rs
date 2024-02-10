@@ -37,7 +37,7 @@ pub trait FlyTermEngineMut<'a>: FlyTermEngine<'a> {
     fn synthesize_function_application_expr_ty(
         &mut self,
         variance: Variance,
-        parameter_rune: Option<RuneFlyTerm>,
+        parameter_hvar: Option<FlyHvar>,
         parameter_ty: FlyTerm,
         return_ty: FlyTerm,
         argument_ty: FlyTerm,
@@ -50,7 +50,7 @@ pub trait FlyTermEngineMut<'a>: FlyTermEngine<'a> {
         debug_assert_eq!(parameter_ty.place(), None);
         debug_assert_eq!(return_ty.place(), None);
         match (
-            parameter_rune.map(|rune| rune.base_resolved(self)),
+            parameter_hvar.map(|hvar| hvar.base_resolved(self)),
             parameter_ty.base_resolved(self),
             return_ty.base_resolved(self),
             argument_ty.base_resolved(self),
@@ -74,14 +74,14 @@ pub trait FlyTermEngineMut<'a>: FlyTermEngine<'a> {
             }
             _ => (),
         }
-        if parameter_rune.is_some() {
+        if parameter_hvar.is_some() {
             todo!()
         }
         match argument_ty.data(self) {
             FlyTermData::Curry {
                 curry_kind: argument_curry_kind,
                 variance: argument_variance,
-                parameter_rune: argument_parameter_variable,
+                parameter_hvar: argument_parameter_variable,
                 parameter_ty: argument_parameter_ty,
                 return_ty: argument_return_ty,
                 ..
@@ -91,7 +91,7 @@ pub trait FlyTermEngineMut<'a>: FlyTermEngine<'a> {
                 }
                 let expr_ty = self.synthesize_function_application_expr_ty(
                     variance,
-                    parameter_rune,
+                    parameter_hvar,
                     parameter_ty,
                     return_ty,
                     argument_return_ty,

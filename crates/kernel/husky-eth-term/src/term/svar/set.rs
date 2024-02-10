@@ -36,7 +36,7 @@
 //     pub(crate) fn symbols(self, db: &::salsa::Db) -> Option<EthTermSymbols> {
 //         match self {
 //             EthTerm::Literal(_)
-//             | EthTerm::Rune(_)
+//             | EthTerm::Hvar(_)
 //             | EthTerm::EntityPath(_)
 //             | EthTerm::Category(_) => None,
 //             EthTerm::Universe(_) => None, // ad hoc

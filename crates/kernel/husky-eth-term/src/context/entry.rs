@@ -6,7 +6,7 @@ use super::*;
 
 #[derive(Debug, Hash, PartialEq, Eq)]
 pub(crate) struct TermSymbolShowEntry {
-    symbol: EthSymbol,
+    symbol: EthSvar,
     show_kind: TermSymbolShowKind,
     idx: u8,
     /// number of lambdas using this symbol
@@ -78,7 +78,7 @@ impl TermSymbolShowEntry {
 }
 
 impl AsVecMapEntry for TermSymbolShowEntry {
-    type K = EthSymbol;
+    type K = EthSvar;
 
     fn key(&self) -> Self::K
     where
@@ -106,7 +106,7 @@ impl TermShowContext {
     pub(super) fn new_external_entry(
         &self,
         db: &::salsa::Db,
-        symbol: EthSymbol,
+        symbol: EthSvar,
         external_symbol_ident: Option<Ident>,
     ) -> TermSymbolShowEntry {
         self.new_entry(db, symbol, 0, external_symbol_ident)
@@ -115,7 +115,7 @@ impl TermShowContext {
     fn new_entry(
         &self,
         db: &::salsa::Db,
-        symbol: EthSymbol,
+        symbol: EthSvar,
         level: u8,
         external_symbol_ident: Option<Ident>,
     ) -> TermSymbolShowEntry {
@@ -145,7 +145,7 @@ impl TermShowContext {
     }
 }
 
-fn symbol_show_kind(symbol: EthSymbol, db: &::salsa::Db) -> TermSymbolShowKind {
+fn symbol_show_kind(symbol: EthSvar, db: &::salsa::Db) -> TermSymbolShowKind {
     match symbol.ty(db) {
         EthTerm::EntityPath(ItemPathTerm::TypeOntology(path)) if path.eqs_lifetime_ty_path(db) => {
             TermSymbolShowKind::Lifetime

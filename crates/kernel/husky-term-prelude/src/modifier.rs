@@ -1,7 +1,7 @@
 use husky_coword::Label;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum SymbolModifier {
+pub enum SvarModifier {
     Pure,
     Owned,
     Mut,
@@ -15,14 +15,14 @@ pub enum SymbolModifier {
     At,
 }
 
-impl SymbolModifier {
+impl SvarModifier {
     pub fn new<T>(t: Option<T>) -> Self
     where
         T: Into<Self>,
     {
         match t {
             Some(t) => t.into(),
-            None => SymbolModifier::Pure,
+            None => SvarModifier::Pure,
         }
     }
 }

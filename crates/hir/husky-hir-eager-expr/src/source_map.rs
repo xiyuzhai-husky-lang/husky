@@ -1,6 +1,6 @@
 use crate::{
-    db::HirEagerExprJar, symbol::runtime_symbol::HirEagerRuntimeSymbolIdx, HirEagerExprIdx,
-    HirEagerPatternExprIdx, HirEagerStmtIdx,
+    db::HirEagerExprJar, var::rvar::HirEagerRvarIdx, HirEagerExprIdx, HirEagerPatternExprIdx,
+    HirEagerStmtIdx,
 };
 use husky_sema_expr::{SemaExprIdx, SemaExprMap, SemaStmtIdx, SemaStmtMap};
 use husky_syn_expr::{CurrentSynSymbolIdx, SynPatternExprMap, SynPatternExprRoot, SynSymbolMap};
@@ -17,7 +17,7 @@ pub struct HirEagerExprSourceMapData {
     syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap<HirEagerPatternExprIdx>,
     sema_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
     sema_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
-    syn_symbol_to_hir_eager_runtime_symbol_map: SynSymbolMap<HirEagerRuntimeSymbolIdx>,
+    syn_symbol_to_hir_eager_runtime_symbol_map: SynSymbolMap<HirEagerRvarIdx>,
 }
 
 impl HirEagerExprSourceMap {
@@ -26,7 +26,7 @@ impl HirEagerExprSourceMap {
         syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap<HirEagerPatternExprIdx>,
         sema_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
         sema_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
-        syn_symbol_to_hir_eager_runtime_symbol_map: SynSymbolMap<HirEagerRuntimeSymbolIdx>,
+        syn_symbol_to_hir_eager_runtime_symbol_map: SynSymbolMap<HirEagerRvarIdx>,
     ) -> Self {
         Self::new_inner(
             db,
@@ -69,7 +69,7 @@ impl HirEagerExprSourceMapData {
     pub fn current_syn_symbol_to_hir_eager_runtime_symbol(
         &self,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-    ) -> Option<HirEagerRuntimeSymbolIdx> {
+    ) -> Option<HirEagerRvarIdx> {
         self.syn_symbol_to_hir_eager_runtime_symbol_map
             .get_current(current_syn_symbol_idx)
             .copied()

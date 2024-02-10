@@ -9,7 +9,7 @@ pub struct DecCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_rune: Option<DecRune>,
+    pub parameter_hvar: Option<DecHvar>,
     /// X
     pub parameter_ty: DecTerm,
     /// Y
@@ -26,17 +26,17 @@ impl DecCurry {
         curry_kind: CurryKind,
         variance: Variance,
         // to be converted to variable
-        parameter_symbol: DecSymbol,
+        parameter_symbol: DecSvar,
         parameter_ty: DecTerm,
         return_ty: DecTerm,
     ) -> Self {
-        let (return_ty, parameter_rune) = return_ty.create_rune(db, parameter_symbol);
+        let (return_ty, parameter_hvar) = return_ty.create_hvar(db, parameter_symbol);
         DecCurry::new_inner(
             db,
             toolchain,
             curry_kind,
             variance,
-            parameter_rune,
+            parameter_hvar,
             parameter_ty,
             return_ty,
         )
@@ -61,22 +61,22 @@ impl DecCurry {
         )
     }
 
-    pub(super) fn substitute_symbol_with_rune(
+    pub(super) fn substitute_symbol_with_hvar(
         self,
         db: &::salsa::Db,
-        symbol: DecSymbol,
-        variable: DecRune,
+        symbol: DecSvar,
+        variable: DecHvar,
     ) -> Self {
         DecCurry::new_inner(
             db,
             symbol.toolchain(db),
             self.curry_kind(db),
             self.variance(db),
-            self.parameter_rune(db),
+            self.parameter_hvar(db),
             self.parameter_ty(db)
-                .substitute_symbol_with_rune(db, symbol, variable),
+                .substitute_symbol_with_hvar(db, symbol, variable),
             self.return_ty(db)
-                .substitute_symbol_with_rune(db, symbol, variable),
+                .substitute_symbol_with_hvar(db, symbol, variable),
         )
     }
 
@@ -85,10 +85,10 @@ impl DecCurry {
         db: &::salsa::Db,
         substitute: DecTerm,
     ) -> DecTerm {
-        match self.parameter_rune(db) {
-            Some(parameter_rune) => self
+        match self.parameter_hvar(db) {
+            Some(parameter_hvar) => self
                 .return_ty(db)
-                .substitute_copy(db, &DecTermSubstitution::new(parameter_rune, substitute)),
+                .substitute_copy(db, &DecTermSubstitution::new(parameter_hvar, substitute)),
             None => self.return_ty(db),
         }
     }
@@ -98,18 +98,18 @@ impl DecCurry {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &DecSymbolNameMap,
+        ctx: &DecSvarNameMap,
     ) -> std::fmt::Result {
         use salsa::DisplayWithDb;
 
-        let parameter_rune = self.parameter_rune(db);
-        if parameter_rune.is_some() {
+        let parameter_hvar = self.parameter_hvar(db);
+        if parameter_hvar.is_some() {
             f.write_str("(")?
         }
         f.write_str(self.variance(db).as_str())?;
-        if let Some(parameter_rune) = parameter_rune {
+        if let Some(parameter_hvar) = parameter_hvar {
             f.write_str("(")?;
-            parameter_rune.display_fmt_with_db(f, db)?;
+            parameter_hvar.display_fmt_with_db(f, db)?;
             f.write_str(": ")?;
             self.parameter_ty(db)
                 .display_fmt_with_db_and_ctx(f, db, ctx)?;
@@ -131,13 +131,13 @@ pub(crate) fn curry_parameter_count(db: &::salsa::Db, term: DecCurry) -> u8 {
 
 impl DecTermRewriteCopy for DecCurry {
     fn substitute_copy(self, db: &::salsa::Db, substitution: &DecTermSubstitution) -> Self {
-        let old_parameter_variable = self.parameter_rune(db);
-        let parameter_rune = old_parameter_variable.map(|v| v.substitute_copy(db, substitution));
+        let old_parameter_variable = self.parameter_hvar(db);
+        let parameter_hvar = old_parameter_variable.map(|v| v.substitute_copy(db, substitution));
         let old_parameter_ty = self.parameter_ty(db);
         let parameter_ty = old_parameter_ty.substitute_copy(db, substitution);
         let old_return_ty = self.return_ty(db);
         let return_ty = old_return_ty.substitute_copy(db, substitution);
-        if old_parameter_variable == parameter_rune
+        if old_parameter_variable == parameter_hvar
             && old_parameter_ty == parameter_ty
             && old_return_ty == return_ty
         {
@@ -148,7 +148,7 @@ impl DecTermRewriteCopy for DecCurry {
             self.toolchain(db),
             self.curry_kind(db),
             self.variance(db),
-            parameter_rune,
+            parameter_hvar,
             parameter_ty,
             return_ty,
         )

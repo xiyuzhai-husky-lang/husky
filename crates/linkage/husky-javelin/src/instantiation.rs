@@ -1,20 +1,20 @@
 use crate::template_argument::{ty::JavelinType, JavTemplateArgument};
 use husky_entity_path::ItemPath;
 use husky_hir_ty::{
-    instantiation::{HirInstantiation, HirTermSymbolResolution},
-    HirTemplateSymbol, HirTemplateSymbolClass,
+    instantiation::{HirInstantiation, HirTermSvarResolution},
+    HirTemplateVar, HirTemplateVarClass,
 };
 use vec_like::SmallVecPairMap;
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct JavInstantiation {
-    pub symbol_resolutions: SmallVecPairMap<HirTemplateSymbol, JavTermSymbolResolution, 4>,
+    pub symbol_resolutions: SmallVecPairMap<HirTemplateVar, JavTermSymbolResolution, 4>,
     pub separator: Option<u8>,
 }
 
 impl std::ops::Deref for JavInstantiation {
-    type Target = [(HirTemplateSymbol, JavTermSymbolResolution)];
+    type Target = [(HirTemplateVar, JavTermSymbolResolution)];
 
     fn deref(&self) -> &Self::Target {
         &self.symbol_resolutions
@@ -33,8 +33,8 @@ impl JavInstantiation {
                 .iter()
                 .filter_map(|&(symbol, resolution)| {
                     match symbol {
-                        HirTemplateSymbol::Const(symbol)
-                            if symbol.index(db).class() == HirTemplateSymbolClass::Runtime =>
+                        HirTemplateVar::Const(symbol)
+                            if symbol.index(db).class() == HirTemplateVarClass::Runtime =>
                         {
                             return None
                         }
@@ -70,12 +70,12 @@ impl JavInstantiation {
             .all(|(_, res)| res.is_univalent())
     }
 
-    pub fn resolve(&self, symbol: impl Into<HirTemplateSymbol>) -> JavTermSymbolResolution {
+    pub fn resolve(&self, symbol: impl Into<HirTemplateVar>) -> JavTermSymbolResolution {
         self.symbol_resolutions[symbol.into()].1
     }
 
     #[track_caller]
-    pub fn resolve_ty(&self, symbol: impl Into<HirTemplateSymbol>) -> JavelinType {
+    pub fn resolve_ty(&self, symbol: impl Into<HirTemplateVar>) -> JavelinType {
         match self.symbol_resolutions[symbol.into()].1 {
             JavTermSymbolResolution::Explicit(JavTemplateArgument::Type(ty)) => ty,
             _ => unreachable!("expect type"),
@@ -93,20 +93,20 @@ pub enum JavTermSymbolResolution {
 
 impl JavTermSymbolResolution {
     fn from_hir(
-        resolution: HirTermSymbolResolution,
+        resolution: HirTermSvarResolution,
         javelin_instantiation: &JavInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         match resolution {
-            HirTermSymbolResolution::Explicit(template_argument) => {
+            HirTermSvarResolution::Explicit(template_argument) => {
                 JavTermSymbolResolution::Explicit(JavTemplateArgument::from_hir(
                     template_argument,
                     javelin_instantiation,
                     db,
                 ))
             }
-            HirTermSymbolResolution::SelfLifetime => JavTermSymbolResolution::SelfLifetime,
-            HirTermSymbolResolution::SelfPlace(_) => JavTermSymbolResolution::SelfPlace,
+            HirTermSvarResolution::SelfLifetime => JavTermSymbolResolution::SelfLifetime,
+            HirTermSvarResolution::SelfPlace(_) => JavTermSymbolResolution::SelfPlace,
         }
     }
 

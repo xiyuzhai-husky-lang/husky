@@ -101,7 +101,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`Label`),
+                                                    EthSvar(`Label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -114,7 +114,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(`label`),
+                                                    EthSvar(`label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -715,7 +715,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`B`),
+                                                    EthSvar(`B`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -728,7 +728,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(`C`),
+                                                    EthSvar(`C`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -811,7 +811,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`Label`),
+                                                    EthSvar(`Label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -1071,7 +1071,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`B`),
+                                                    EthSvar(`B`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -1084,7 +1084,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(`C`),
+                                                    EthSvar(`C`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -2663,7 +2663,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`B`),
+                                                    EthSvar(`B`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -2676,7 +2676,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(`C`),
+                                                    EthSvar(`C`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -2759,7 +2759,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`Label`),
+                                                    EthSvar(`Label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -2772,7 +2772,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(`label`),
+                                                    EthSvar(`label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -2924,7 +2924,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`B`),
+                                                    EthSvar(`B`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -2937,7 +2937,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(`C`),
+                                                    EthSvar(`C`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -3020,7 +3020,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`Label`),
+                                                    EthSvar(`Label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -3033,7 +3033,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(`label`),
+                                                    EthSvar(`label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -3185,7 +3185,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSymbol(`B`),
+                                                    EthSvar(`B`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -3198,7 +3198,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbol(`C`),
+                                                    EthSvar(`C`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,

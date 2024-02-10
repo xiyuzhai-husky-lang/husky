@@ -97,16 +97,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSymbol::Type(
-                                        HirTypeSymbol::Type {
-                                            attrs: HirTemplateSymbolAttrs {
+                                    HirTemplateVar::Type(
+                                        HirTypeSvar::Type {
+                                            attrs: HirTemplateVarAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSymbolResolution::Explicit(
+                                    HirTermSvarResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -131,16 +131,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSymbol::Type(
-                                        HirTypeSymbol::Type {
-                                            attrs: HirTemplateSymbolAttrs {
+                                    HirTemplateVar::Type(
+                                        HirTypeSvar::Type {
+                                            attrs: HirTemplateVarAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSymbolResolution::Explicit(
+                                    HirTermSvarResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -215,16 +215,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSymbol::Type(
-                                        HirTypeSymbol::Type {
-                                            attrs: HirTemplateSymbolAttrs {
+                                    HirTemplateVar::Type(
+                                        HirTypeSvar::Type {
+                                            attrs: HirTemplateVarAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSymbolResolution::Explicit(
+                                    HirTermSvarResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -237,11 +237,11 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateSymbol::Const(
-                                        HirConstSymbol {
-                                            ty: HirType::Symbol(
-                                                HirTypeSymbol::Type {
-                                                    attrs: HirTemplateSymbolAttrs {
+                                    HirTemplateVar::Const(
+                                        HirConstSvar {
+                                            ty: HirType::Svar(
+                                                HirTypeSvar::Type {
+                                                    attrs: HirTemplateVarAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
@@ -249,14 +249,14 @@
                                                 },
                                             ),
                                             index: HirConstSymbolIndex::Other {
-                                                attrs: HirTemplateSymbolAttrs {
+                                                attrs: HirTemplateVarAttrs {
                                                     class: Runtime,
                                                 },
                                                 disambiguator: 0,
                                             },
                                         },
                                     ),
-                                    HirTermSymbolResolution::Explicit(
+                                    HirTermSvarResolution::Explicit(
                                         HirTemplateArgument::Constant(
                                             TypeVariant(
                                                 TypeVariantPath(

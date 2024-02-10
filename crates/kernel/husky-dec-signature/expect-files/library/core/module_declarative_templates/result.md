@@ -14,7 +14,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: DecSymbol(
+                                        svar: DecSvar(
                                             Id {
                                                 value: 10,
                                             },
@@ -23,7 +23,7 @@
                                     },
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: DecSymbol(
+                                        svar: DecSvar(
                                             Id {
                                                 value: 11,
                                             },
@@ -68,7 +68,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: DecSymbol(
+                                    svar: DecSvar(
                                         Id {
                                             value: 10,
                                         },
@@ -77,7 +77,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: DecSymbol(
+                                    svar: DecSvar(
                                         Id {
                                             value: 11,
                                         },
@@ -86,7 +86,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: DecSymbol(
+                                    svar: DecSvar(
                                         Id {
                                             value: 12,
                                         },
@@ -95,7 +95,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: DecSymbol(
+                                    svar: DecSvar(
                                         Id {
                                             value: 13,
                                         },
@@ -183,7 +183,7 @@
                                 data: [],
                             },
                             ty_term: Symbol(
-                                DecSymbol(
+                                DecSvar(
                                     Id {
                                         value: 13,
                                     },

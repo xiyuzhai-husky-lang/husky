@@ -8,7 +8,7 @@ use crate::fmt::symbol_name;
 use thiserror::Error;
 
 #[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = pub new_inner, override_debug)]
-pub struct EthSymbol {
+pub struct EthSvar {
     pub toolchain: Toolchain,
     pub ty: EthTerm,
     /// this is the index for all symbols with the same type
@@ -19,12 +19,12 @@ pub struct EthSymbol {
 
 #[test]
 fn term_symbol_size_works() {
-    assert_eq!(std::mem::size_of::<EthSymbol>(), std::mem::size_of::<u32>());
+    assert_eq!(std::mem::size_of::<EthSvar>(), std::mem::size_of::<u32>());
 }
 
-impl EthSymbol {
+impl EthSvar {
     #[inline(always)]
-    pub fn from_dec(db: &::salsa::Db, declarative_term_symbol: DecSymbol) -> EthTermResult<Self> {
+    pub fn from_dec(db: &::salsa::Db, declarative_term_symbol: DecSvar) -> EthTermResult<Self> {
         let ty = declarative_term_symbol.ty(db)?;
         let ty = EthTerm::ty_from_dec(db, ty)?;
         Ok(Self::new_inner(
@@ -45,17 +45,17 @@ pub enum TermSymbolTypeErrorKind {
 }
 pub type TermSymbolTypeResult<T> = Result<T, TermSymbolTypeErrorKind>;
 
-impl salsa::DebugWithDb for EthSymbol {
+impl salsa::DebugWithDb for EthSvar {
     fn debug_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &salsa::Db,
     ) -> std::fmt::Result {
-        f.write_fmt(format_args!("EthSymbol(`{}`)", self.display(db)))
+        f.write_fmt(format_args!("EthSvar(`{}`)", self.display(db)))
     }
 }
 
-impl salsa::DisplayWithDb for EthSymbol {
+impl salsa::DisplayWithDb for EthSvar {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -65,7 +65,7 @@ impl salsa::DisplayWithDb for EthSymbol {
     }
 }
 
-impl EthInstantiate for EthSymbol {
+impl EthInstantiate for EthSvar {
     type Output = EthTerm;
 
     fn instantiate(self, _db: &::salsa::Db, instantiation: &EthInstantiation) -> Self::Output {

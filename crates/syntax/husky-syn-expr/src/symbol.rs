@@ -38,7 +38,7 @@ pub enum ImplicitParameterSymbol {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct InheritedSynSymbol {
     parent_symbol_idx: ParentSynSymbolIdx,
-    modifier: SymbolModifier,
+    modifier: SvarModifier,
     kind: InheritedSynSymbolKind,
 }
 
@@ -91,7 +91,7 @@ pub enum InheritedTemplateParameterSynSymbol {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct CurrentSynSymbol {
-    modifier: SymbolModifier,
+    modifier: SvarModifier,
     access_start: RegionalTokenIdx,
     /// this is none only for lambda variable
     access_end: Option<RegionalTokenIdxRangeEnd>,
@@ -116,7 +116,7 @@ impl CurrentSynSymbol {
 
 /// # getters
 impl CurrentSynSymbol {
-    pub fn modifier(&self) -> SymbolModifier {
+    pub fn modifier(&self) -> SvarModifier {
         self.modifier
     }
 
@@ -318,9 +318,9 @@ pub enum TemplateSymbolSynAttr {
 }
 
 impl CurrentSynSymbolData {
-    fn symbol_modifier(&self, pattern_expr_region: &SynPatternExprRegion) -> SymbolModifier {
+    fn symbol_modifier(&self, pattern_expr_region: &SynPatternExprRegion) -> SvarModifier {
         match self {
-            CurrentSynSymbolData::TemplateParameter { .. } => SymbolModifier::Const,
+            CurrentSynSymbolData::TemplateParameter { .. } => SvarModifier::Const,
             CurrentSynSymbolData::ParenateRegularParameter {
                 pattern_symbol_idx, ..
             }
@@ -336,13 +336,13 @@ impl CurrentSynSymbolData {
             CurrentSynSymbolData::ParenateVariadicParameter {
                 symbol_modifier_keyword_group,
                 ..
-            } => SymbolModifier::new(*symbol_modifier_keyword_group),
-            CurrentSynSymbolData::LoopVariable { .. } => SymbolModifier::Pure,
-            CurrentSynSymbolData::SelfType => SymbolModifier::Const,
+            } => SvarModifier::new(*symbol_modifier_keyword_group),
+            CurrentSynSymbolData::LoopVariable { .. } => SvarModifier::Pure,
+            CurrentSynSymbolData::SelfType => SvarModifier::Const,
             CurrentSynSymbolData::SelfValue {
                 symbol_modifier_keyword_group,
-            } => SymbolModifier::new(*symbol_modifier_keyword_group),
-            CurrentSynSymbolData::FieldVariable { .. } => SymbolModifier::Pure,
+            } => SvarModifier::new(*symbol_modifier_keyword_group),
+            CurrentSynSymbolData::FieldVariable { .. } => SvarModifier::Pure,
         }
     }
 }

@@ -1,5 +1,5 @@
 use super::*;
-use husky_eth_term::term::symbol::EthSymbol;
+use husky_eth_term::term::svar::EthSvar;
 
 impl<'a> SemaExprEngine<'a> {
     pub(super) fn infer_current_parameter_symbols(&mut self) {
@@ -16,7 +16,7 @@ impl<'a> SemaExprEngine<'a> {
                 return;
             };
             if let Some(symbol) = signature.term_symbol() {
-                if let Ok(symbol) = EthSymbol::from_dec(self.db, symbol) {
+                if let Ok(symbol) = EthSvar::from_dec(self.db, symbol) {
                     self.symbol_terms
                         .insert_new(current_syn_symbol_idx, symbol.into())
                 }

@@ -4,7 +4,7 @@ mod html;
 pub use self::call_list::*;
 pub use self::html::*;
 
-use crate::{symbol::runtime_symbol::HirEagerRuntimeSymbolIdx, *};
+use crate::{var::rvar::HirEagerRvarIdx, *};
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::{
     dispatch::StaticDispatch,
@@ -41,11 +41,10 @@ pub enum HirEagerExprData {
     AssocFn {
         assoc_item_path: AssocItemPath,
     },
-    ConstSymbol {
+    ConstSvar {
         ident: Ident,
     },
-    // (HirConstSymbol),
-    Variable(HirEagerRuntimeSymbolIdx),
+    Variable(HirEagerRvarIdx),
     Binary {
         lopd: HirEagerExprIdx,
         opr: HirBinaryOpr,
@@ -175,7 +174,7 @@ impl ToHirEager for SemaExprIdx {
                     InheritedTemplateParameterSynSymbol::Place { label: _ } => todo!(),
                     InheritedTemplateParameterSynSymbol::Type { ident: _ } => todo!(),
                     InheritedTemplateParameterSynSymbol::Constant { ident } => {
-                        HirEagerExprData::ConstSymbol { ident }
+                        HirEagerExprData::ConstSvar { ident }
                     }
                 },
                 InheritedSynSymbolKind::ParenateParameter { .. }

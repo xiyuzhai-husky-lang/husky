@@ -6,7 +6,7 @@ impl EthTerm {
         match self {
             EthTerm::Literal(_) => None,
             EthTerm::Symbol(term) => Some(term.toolchain(db)),
-            EthTerm::Rune(term) => term.toolchain(db),
+            EthTerm::Hvar(term) => term.toolchain(db),
             EthTerm::EntityPath(path) => Some(path.toolchain(db)),
             EthTerm::Category(_) => None,
             EthTerm::Universe(_) => None,

@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_tree::HasAssocItemPaths;
-use husky_eth_term::term::symbol::EthSymbol;
+use husky_eth_term::term::svar::EthSvar;
 use husky_term_prelude::TypeFinalDestinationExpectation;
 use smallvec::SmallVec;
 use vec_like::VecMapGetEntry;
@@ -23,7 +23,7 @@ impl TraitForTypeImplBlockEthTemplate {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EtherealSelfTypeInTraitImpl {
     PathLeading(EthTerm),
-    DeriveAny(EthSymbol),
+    DeriveAny(EthSvar),
 }
 
 impl EtherealSelfTypeInTraitImpl {
@@ -58,7 +58,7 @@ impl EtherealSelfTypeInTraitImpl {
                 )?)
             }
             DeclarativeSelfType::DerivedAny(declarative_term_symbol) => {
-                EtherealSelfTypeInTraitImpl::DeriveAny(EthSymbol::from_dec(
+                EtherealSelfTypeInTraitImpl::DeriveAny(EthSvar::from_dec(
                     db,
                     declarative_term_symbol,
                 )?)
@@ -66,7 +66,7 @@ impl EtherealSelfTypeInTraitImpl {
         })
     }
 
-    pub fn parameter_symbol(self) -> Option<EthSymbol> {
+    pub fn parameter_symbol(self) -> Option<EthSvar> {
         match self {
             EtherealSelfTypeInTraitImpl::PathLeading(_) => None,
             EtherealSelfTypeInTraitImpl::DeriveAny(symbol) => Some(symbol),

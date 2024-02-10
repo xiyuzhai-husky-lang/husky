@@ -12,9 +12,9 @@ use salsa::DisplayWithDb;
 use thiserror::Error;
 use vec_like::VecSet;
 
-/// symbols are defined in a top-down manner through generics
+/// svar are variables defined in a stack-like top-down manner through generics
 #[salsa::interned(db = DecTermDb, jar = DecTermJar)]
-pub struct DecSymbol {
+pub struct DecSvar {
     pub toolchain: Toolchain,
     pub ty: DecTermSymbolTypeResult<DecTerm>,
     /// this is the index for all symbols with the same type
@@ -23,7 +23,7 @@ pub struct DecSymbol {
     pub index: DecTermSymbolIndex,
 }
 
-impl DecSymbol {
+impl DecSvar {
     #[inline(always)]
     pub fn new_self_ty(
         db: &::salsa::Db,
@@ -31,7 +31,7 @@ impl DecSymbol {
         registry: &mut TermSymbolRegistry,
     ) -> Self {
         // todo: general universe??? or ignore universes totally
-        DecSymbol::new(
+        DecSvar::new(
             db,
             toolchain,
             Ok(DecTerm::TYPE),
@@ -47,7 +47,7 @@ impl DecSymbol {
         _self_ty_term: DecTerm,
     ) -> Self {
         // todo: general universe??? or ignore universes totally
-        DecSymbol::new(
+        DecSvar::new(
             db,
             toolchain,
             Ok(DecTerm::TYPE),
@@ -109,7 +109,7 @@ impl DecSymbol {
         let ty = Ok(menu.ty0().into());
         (
             ty,
-            DecSymbol::new(db, toolchain, ty, registry.issue_ty_index(attrs, variance)),
+            DecSvar::new(db, toolchain, ty, registry.issue_ty_index(attrs, variance)),
         )
     }
 
@@ -171,7 +171,7 @@ impl DecSymbol {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        name_map: &DecSymbolNameMap,
+        name_map: &DecSvarNameMap,
     ) -> std::fmt::Result {
         name_map[self].display_fmt_with_db(f, db)
     }
@@ -189,7 +189,7 @@ pub enum DecTermSymbolTypeErrorKind {
 
 pub type DecTermSymbolTypeResult<T> = Result<T, DecTermSymbolTypeErrorKind>;
 
-impl salsa::DisplayWithDb for DecSymbol {
+impl salsa::DisplayWithDb for DecSvar {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,

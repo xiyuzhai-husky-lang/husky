@@ -16,7 +16,7 @@ impl<'a, 'b> VmirBlockBuilder<'a, 'b> {
             HirEagerExprData::Literal(_) => todo!(),
             HirEagerExprData::PrincipalEntityPath(_) => todo!(),
             HirEagerExprData::AssocFn { assoc_item_path } => todo!(),
-            HirEagerExprData::ConstSymbol { ident } => todo!(),
+            HirEagerExprData::ConstSvar { ident } => todo!(),
             HirEagerExprData::Variable(_) => todo!(),
             HirEagerExprData::Binary { lopd, opr, ropd } => todo!(),
             HirEagerExprData::Be { src, ref target } => todo!(),

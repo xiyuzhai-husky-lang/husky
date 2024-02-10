@@ -42,7 +42,7 @@ impl FlyTerm {
                     }
                     FlyTermData::Hole(_, _) => todo!(),
                     FlyTermData::Symbol { .. } => todo!(),
-                    FlyTermData::Rune { .. } => todo!(),
+                    FlyTermData::Hvar { .. } => todo!(),
                     FlyTermData::TypeVariant { .. } => todo!(),
                     FlyTermData::Category(_)
                     | FlyTermData::Literal(_)

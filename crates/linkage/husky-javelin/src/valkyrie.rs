@@ -215,7 +215,7 @@ impl ValkyrieRides {
                     }
                 }
                 HirEagerExprData::Literal(_)
-                | HirEagerExprData::ConstSymbol { .. }
+                | HirEagerExprData::ConstSvar { .. }
                 | HirEagerExprData::Variable(_)
                 | HirEagerExprData::Binary { .. }
                 | HirEagerExprData::Prefix { .. }

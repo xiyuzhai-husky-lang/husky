@@ -1,5 +1,5 @@
 use super::*;
-use husky_eth_term::term::symbol::EthTermSymbolIndexImpl;
+use husky_eth_term::term::svar::EthTermSymbolIndexImpl;
 use husky_regional_token::IdentRegionalToken;
 
 #[salsa::debug_with_db]

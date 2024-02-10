@@ -1,8 +1,8 @@
-use crate::symbol::SymbolId;
+use crate::var::SymbolId;
 
 pub enum BcExpr {
-    Symbol(SymbolId),
-    Rune(SymbolId),
+    Svar(SymbolId),
+    Hvar(SymbolId),
     ForAll { symbol: SymbolId },
     Lambda(SymbolId),
     Composite(BcExprs),

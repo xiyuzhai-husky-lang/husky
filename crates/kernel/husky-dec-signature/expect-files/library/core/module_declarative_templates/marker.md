@@ -13,7 +13,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: DecSymbol(
+                                    svar: DecSvar(
                                         Id {
                                             value: 5,
                                         },
@@ -41,7 +41,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: DecSymbol(
+                                    svar: DecSvar(
                                         Id {
                                             value: 5,
                                         },
@@ -76,7 +76,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: DecSymbol(
+                                    svar: DecSvar(
                                         Id {
                                             value: 5,
                                         },
@@ -97,7 +97,7 @@
                             ),
                         ),
                         self_ty: DeclarativeSelfType::DerivedAny(
-                            DecSymbol {
+                            DecSvar {
                                 toolchain: Toolchain {
                                     data: ToolchainData::Local {
                                         library_path: VirtualPath {

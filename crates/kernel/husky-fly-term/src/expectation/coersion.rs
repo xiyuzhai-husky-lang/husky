@@ -251,7 +251,7 @@ impl ExpectCoersion {
                 todo!()
             }
             FlyBaseTypeData::Symbol { symbol: term } => AltNone,
-            FlyBaseTypeData::Rune { rune } => todo!(),
+            FlyBaseTypeData::Hvar { hvar } => todo!(),
         }
     }
 }

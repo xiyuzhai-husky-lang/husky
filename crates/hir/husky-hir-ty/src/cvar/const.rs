@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::interned(db = HirTypeDb, jar = HirTypeJar, constructor = pub(crate) new)]
-pub struct HirConstSymbol {
+pub struct HirConstSvar {
     pub ty: HirType,
     pub index: HirConstSymbolIndex,
 }
@@ -10,25 +10,25 @@ pub struct HirConstSymbol {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum HirConstSymbolIndex {
     PathLeading {
-        attrs: HirTemplateSymbolAttrs,
+        attrs: HirTemplateVarAttrs,
         disambiguator: u8,
         ty_path: TypePath,
     },
     Other {
-        attrs: HirTemplateSymbolAttrs,
+        attrs: HirTemplateVarAttrs,
         disambiguator: u8,
     },
 }
 
 impl HirConstSymbolIndex {
-    pub fn attrs(self) -> HirTemplateSymbolAttrs {
+    pub fn attrs(self) -> HirTemplateVarAttrs {
         match self {
             HirConstSymbolIndex::PathLeading { attrs, .. }
             | HirConstSymbolIndex::Other { attrs, .. } => attrs,
         }
     }
 
-    pub fn class(self) -> HirTemplateSymbolClass {
+    pub fn class(self) -> HirTemplateVarClass {
         self.attrs().class
     }
 }
