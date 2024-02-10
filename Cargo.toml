@@ -19,6 +19,7 @@ members = [
     "crates/semantics/*",
     "crates/syntax/*",
     "crates/tasks/*",
+    "crates/typst/*",
     "crates/utils/*",
     "crates/vm/*",
     "crates/benchmarks/*",
@@ -26,6 +27,22 @@ members = [
     "registry/*",
 ]
 resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+rust-version = "1.77.0"
+authors = ["Xiyu Zhai"]
+edition = "2021"
+homepage = "todo"
+repository = "https://github.com/xiyuzhai-husky-lang/husky"
+readme = "README.md"
+license = "MIT"
+categories = ["compilers"]
+keywords = ["husky"]
+
+[workspace.lints.clippy]
+uninlined_format_args = "warn"
+blocks_in_if_conditions = "allow"
 
 [profile.dev]
 opt-level = 0
@@ -42,15 +59,35 @@ lto = false
 arc-swap = "1.4.0"
 atomic_enum = "0.2.0"
 axum = { version = "0.7.4" }
-cargo = "0.76.0"
+az = "1.2"
+base64 = "0.21.2"
+bitflags = { version = "2", features = ["serde"] }
+bytemuck = "1"
+cargo = "0.77.0"
 cargo-manifest = "0.13.0"
-clap = { version = "4.4.6", features = ["derive"] }
+chinese-number = { version = "0.7.2", default-features = false, features = [
+    "number-to-chinese"
+] }
+chrono = { version = "0.4.24", default-features = false, features = [
+    "clock",
+    "std"
+] }
+ciborium = "0.2.1"
+clap = { version = "4.4.6", features = ["derive", "env"] }
+clap_complete = "4.2.1"
+clap_mangen = "0.2.10"
 colored = "2.0.0"
 crossbeam = "0.8.1"
 crossbeam-channel = "0.5.0"
 crossbeam-utils = { version = "0.8", default-features = false }
+ctrlc = "3.4.1"
+codespan-reporting = "0.11"
+comemo = { git = "https://github.com/typst/comemo", rev = "ddb3773" }
+csv = "1"
 dashmap = "5.5.1"
+dirs = "5"
 ecolor = { version = "0.26.0", features = ["serde", "bytemuck"] }
+ecow = { version = "0.2", features = ["serde"] }
 eframe = "0.26.0"
 egui = { version = "0.26.0", features = [
     "callstack",
@@ -59,6 +96,7 @@ egui = { version = "0.26.0", features = [
     "document-features"
 ] }
 either = "1.8.1"
+env_proxy = "0.4"
 epaint = "0.26.0"
 expect-test = "1.4.1"
 futures = "0.3.28"
@@ -110,6 +148,90 @@ tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 xxhash-rust = { version = "0.8.5" }
 winapi = "0.3.9"
+# typst dependencies
+flate2 = "1"
+fontdb = { version = "0.16", default-features = false }
+hayagriva = "0.5.1"
+heck = "0.4"
+hypher = "0.1.4"
+iai = { git = "https://github.com/typst/iai", rev = "3f0f927" }
+icu_properties = { version = "1.4", features = ["serde"] }
+icu_provider = { version = "1.4", features = ["sync"] }
+icu_provider_adapters = "1.4"
+icu_provider_blob = "1.4"
+icu_segmenter = { version = "1.4", features = ["serde"] }
+if_chain = "1"
+include_dir = "0.7"
+kurbo = "0.9" # in sync with usvg
+libfuzzer-sys = "0.4"
+lipsum = "0.9"
+miniz_oxide = "0.7"
+native-tls = "0.2"
+notify = "6"
+open = "5.0.1"
+oxipng = { version = "9.0", default-features = false, features = [
+    "filetime",
+    "parallel",
+    "zopfli"
+] }
+palette = { version = "0.7.3", default-features = false, features = [
+    "approx",
+    "libm"
+] }
+pdf-writer = "0.9.2"
+phf = { version = "0.11", features = ["macros"] }
+pixglyph = "0.3"
+pulldown-cmark = "0.9"
+rayon = "1.7.0"
+regex = "1"
+resvg = { version = "0.38.0", default-features = false, features = [
+    "raster-images"
+] }
+roxmltree = "0.19"
+rustybuzz = "0.12.1"
+same-file = "1"
+self-replace = "1.3.7"
+semver = "1"
+serde_yaml = "0.9"
+siphasher = "1"
+subsetter = "0.1.1"
+svg2pdf = { git = "https://github.com/typst/svg2pdf", rev = "49891ef" }
+syntect = { version = "5", default-features = false, features = [
+    "parsing",
+    "regex-fancy",
+    "plist-load",
+    "yaml-load"
+] }
+tar = "0.4"
+tempfile = "3.7.0"
+time = { version = "0.3.34", features = ["formatting", "macros", "parsing"] }
+tiny-skia = "0.11"
+ttf-parser = "0.20.0"
+two-face = { version = "0.3.0", default-features = false, features = [
+    "syntect-fancy"
+] }
+typed-arena = "2"
+unicode_names2 = { git = "https://github.com/xiyuzhai-husky-lang/unicode_names2" }
+unicode-bidi = "0.3.13"
+unicode-ident = "1.0"
+unicode-math-class = "0.1"
+unicode-properties = "0.1"
+unicode-script = "0.5"
+unicode-segmentation = "1"
+unscanny = "0.1"
+ureq = { version = "2", default-features = false, features = [
+    "native-tls",
+    "gzip"
+] }
+usvg = { version = "0.38.0", default-features = false, features = ["text"] }
+walkdir = "2"
+wasmi = "0.31.0"
+xmlparser = "0.13.5"
+xmlwriter = "0.1.0"
+xmp-writer = "0.2"
+xz2 = "0.1"
+yaml-front-matter = "0.1"
+zip = { version = "0.6", default-features = false, features = ["deflate"] }
 # abstractions
 alt-option = { path = "crates/abstractions/alt-option" }
 enum-class = { path = "crates/abstractions/enum-class" }
@@ -220,6 +342,17 @@ husky-manifest-ast = { path = "crates/toml/husky-manifest-ast" }
 husky-toml-ast = { path = "crates/toml/husky-toml-ast" }
 husky-toml-token = { path = "crates/toml/husky-toml-token" }
 husky-toolchain-config-ast = { path = "crates/toml/husky-toolchain-config-ast" }
+# typst
+typst = { path = "crates/typst/typst" }
+typst-cli = { path = "crates/typst/typst-cli" }
+typst-docs = { path = "crates/typst/typst-docs" }
+typst-ide = { path = "crates/typst/typst-ide" }
+typst-macros = { path = "crates/typst/typst-macros" }
+typst-pdf = { path = "crates/typst/typst-pdf" }
+typst-render = { path = "crates/typst/typst-render" }
+typst-svg = { path = "crates/typst/typst-svg" }
+typst-syntax = { path = "crates/typst/typst-syntax" }
+typst-timing = { path = "crates/typst/typst-timing" }
 # utls
 husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
 husky-check-utils = { path = "crates/utils/husky-check-utils" }

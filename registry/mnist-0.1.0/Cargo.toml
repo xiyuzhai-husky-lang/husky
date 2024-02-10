@@ -1,6 +1,6 @@
 [package]
 name = "mnist"
-version = "0.1.0"
+version.workspace = true
 authors = ["my_name"]
 edition = "2021"
 
