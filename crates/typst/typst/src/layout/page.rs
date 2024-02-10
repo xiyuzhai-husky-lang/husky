@@ -6,8 +6,8 @@ use std::str::FromStr;
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, AutoValue, Cast, Content, Dict, Fold, Func, NativeElement, Packed, Resolve, Smart,
-    StyleChain, TypstValue,
+    cast, elem, AutoValue, Cast, Content, Fold, Func, NativeElement, Packed, Resolve, Smart,
+    StyleChain, TypstDict, TypstValue,
 };
 use crate::introspection::{Counter, CounterKey, ManualPageCounter};
 use crate::layout::{
@@ -567,7 +567,7 @@ impl Fold for Margin {
 cast! {
     Margin,
     self => {
-        let mut dict = Dict::new();
+        let mut dict = TypstDict::new();
         let mut handle = |key: &str, component: TypstValue| {
             let value = component.into_value();
             if value != TypstValue::None {
@@ -589,7 +589,7 @@ cast! {
     },
     _: AutoValue => Self::splat(Some(Smart::Auto)),
     v: Rel<Length> => Self::splat(Some(Smart::Custom(v))),
-    mut dict: Dict => {
+    mut dict: TypstDict => {
         let mut take = |key| dict.take(key).ok().map(TypstValue::cast).transpose();
 
         let rest = take("rest")?;

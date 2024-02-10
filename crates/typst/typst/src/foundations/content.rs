@@ -14,8 +14,8 @@ use smallvec::smallvec;
 use crate::diag::{SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    elem, func, scope, ty, Dict, Element, Fields, IntoTypstValue, Label, NativeElement, Recipe,
-    RecipeIndex, Repr, Selector, Str, Style, StyleChain, Styles, TypstValue,
+    elem, func, scope, ty, Element, Fields, IntoTypstValue, Label, NativeElement, Recipe,
+    RecipeIndex, Repr, Selector, Str, Style, StyleChain, Styles, TypstDict, TypstValue,
 };
 use crate::introspection::{Location, Meta, MetaElem};
 use crate::layout::{AlignElem, Alignment, Axes, Length, MoveElem, PadElem, Rel, Sides};
@@ -569,7 +569,7 @@ impl Content {
     /// ).fields()
     /// ```
     #[func]
-    pub fn fields(&self) -> Dict {
+    pub fn fields(&self) -> TypstDict {
         let mut dict = self.inner.elem.fields();
         if let Some(label) = self.label() {
             dict.insert("label".into(), label.into_value());

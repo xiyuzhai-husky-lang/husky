@@ -2,7 +2,7 @@ use ecow::EcoString;
 
 use crate::diag::{format_xml_like_error, At, FileError, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{dict, func, scope, Array, Dict, IntoTypstValue, Str, TypstValue};
+use crate::foundations::{dict, func, scope, Array, IntoTypstValue, Str, TypstDict, TypstValue};
 use crate::loading::Readable;
 use crate::syntax::Spanned;
 use crate::World;
@@ -99,7 +99,7 @@ fn convert_xml(node: roxmltree::Node) -> TypstValue {
     }
 
     let tag: Str = node.tag_name().name().into();
-    let attrs: Dict = node
+    let attrs: TypstDict = node
         .attributes()
         .map(|attr| (attr.name().into(), attr.value().into_value()))
         .collect();

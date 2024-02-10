@@ -39,8 +39,8 @@ use crate::diag::{bail, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::Packed;
 use crate::foundations::{
-    cast, category, elem, Args, Array, Cast, Category, Construct, Content, Dict, Fold,
-    NativeElement, Never, PlainText, Repr, Resolve, Scope, Set, Smart, StyleChain,
+    cast, category, elem, Args, Array, Cast, Category, Construct, Content, Fold, NativeElement,
+    Never, PlainText, Repr, Resolve, Scope, Set, Smart, StyleChain, TypstDict,
 };
 use crate::layout::Em;
 use crate::layout::{Abs, Axis, Dir, Length, Rel};
@@ -751,7 +751,11 @@ pub(crate) fn families(styles: StyleChain) -> impl Iterator<Item = &str> + Clone
         "segoe ui emoji",
     ];
 
-    let tail = if TextElem::fallback_in(styles) { FALLBACKS } else { &[] };
+    let tail = if TextElem::fallback_in(styles) {
+        FALLBACKS
+    } else {
+        &[]
+    };
     TextElem::font_in(styles)
         .into_iter()
         .map(|family| family.as_str())
@@ -1049,7 +1053,7 @@ cast! {
             let key = std::str::from_utf8(&bytes).unwrap_or_default();
             (key.into(), num.into_value())
         })
-        .collect::<Dict>()
+        .collect::<TypstDict>()
         .into_value(),
     values: Array => Self(values
         .into_iter()
@@ -1058,7 +1062,7 @@ cast! {
             Ok((Tag::from_bytes_lossy(tag.as_bytes()), 1))
         })
         .collect::<StrResult<_>>()?),
-    values: Dict => Self(values
+    values: TypstDict => Self(values
         .into_iter()
         .map(|(k, v)| {
             let num = v.cast::<u32>()?;

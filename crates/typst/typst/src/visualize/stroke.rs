@@ -2,8 +2,8 @@ use ecow::EcoString;
 
 use crate::diag::{SourceResult, StrResult};
 use crate::foundations::{
-    cast, dict, func, scope, ty, Args, Cast, Dict, Fold, FromTypstValue, NoneValue, Repr, Resolve,
-    Smart, StyleChain, TypstValue,
+    cast, dict, func, scope, ty, Args, Cast, Fold, FromTypstValue, NoneValue, Repr, Resolve, Smart,
+    StyleChain, TypstDict, TypstValue,
 };
 use crate::layout::{Abs, Length};
 use crate::util::{Numeric, Scalar};
@@ -390,9 +390,9 @@ cast! {
         paint: Smart::Custom(pattern.into()),
         ..Default::default()
     },
-    mut dict: Dict => {
+    mut dict: TypstDict => {
         // Get a value by key, accepting either Auto or something convertible to type T.
-        fn take<T: FromTypstValue>(dict: &mut Dict, key: &str) -> StrResult<Smart<T>> {
+        fn take<T: FromTypstValue>(dict: &mut TypstDict, key: &str) -> StrResult<Smart<T>> {
             Ok(dict.take(key).ok().map(Smart::<T>::from_value)
                 .transpose()?.unwrap_or(Smart::Auto))
         }
@@ -528,7 +528,7 @@ cast! {
     "loosely-dash-dotted" => vec![Abs::pt(3.0).into(), Abs::pt(4.0).into(), DashLength::LineWidth, Abs::pt(4.0).into()].into(),
 
     array: Vec<DashLength> => Self { array, phase: Length::zero() },
-    mut dict: Dict => {
+    mut dict: TypstDict => {
         let array: Vec<DashLength> = dict.take("array")?.cast()?;
         let phase = dict.take("phase").ok().map(TypstValue::cast)
             .transpose()?.unwrap_or(Length::zero());

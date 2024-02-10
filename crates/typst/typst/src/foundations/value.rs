@@ -12,9 +12,9 @@ use serde::{Deserialize, Deserializer, Serialize, Serializer};
 use crate::diag::StrResult;
 use crate::eval::ops;
 use crate::foundations::{
-    fields, repr, Args, Array, AutoValue, Bytes, CastInfo, Content, Datetime, Dict, Duration,
+    fields, repr, Args, Array, AutoValue, Bytes, CastInfo, Content, Datetime, Duration,
     FromTypstValue, Func, IntoTypstValue, Label, Module, NativeElement, NativeType, NoneValue,
-    Plugin, Reflect, Repr, Scope, Str, Styles, Type, Version,
+    Plugin, Reflect, Repr, Scope, Str, Styles, Type, TypstDict, Version,
 };
 use crate::layout::{Abs, Angle, Em, Fr, Length, Ratio, Rel};
 use crate::symbols::Symbol;
@@ -73,7 +73,7 @@ pub enum TypstValue {
     /// An array of values: `(1, "hi", 12cm)`.
     Array(Array),
     /// A dictionary value: `(a: 1, b: "hi")`.
-    Dict(Dict),
+    Dict(TypstDict),
     /// An executable function.
     Func(Func),
     /// Captured arguments to a function.
@@ -139,7 +139,7 @@ impl TypstValue {
             Self::Content(_) => Type::of::<Content>(),
             Self::Styles(_) => Type::of::<Styles>(),
             Self::Array(_) => Type::of::<Array>(),
-            Self::Dict(_) => Type::of::<Dict>(),
+            Self::Dict(_) => Type::of::<TypstDict>(),
             Self::Func(_) => Type::of::<Func>(),
             Self::Args(_) => Type::of::<Args>(),
             Self::Type(_) => Type::of::<Type>(),
@@ -480,7 +480,7 @@ impl<'de> Visitor<'de> for ValueVisitor {
     }
 
     fn visit_map<A: MapAccess<'de>>(self, map: A) -> Result<Self::Value, A::Error> {
-        let dict = Dict::deserialize(MapAccessDeserializer::new(map))?;
+        let dict = TypstDict::deserialize(MapAccessDeserializer::new(map))?;
         Ok(match Datetime::from_toml_dict(&dict) {
             None => dict.into_value(),
             Some(datetime) => datetime.into_value(),
@@ -656,7 +656,7 @@ primitive! { Content: "content",
 }
 primitive! { Styles: "styles", Styles }
 primitive! { Array: "array", Array }
-primitive! { Dict: "dictionary", Dict }
+primitive! { TypstDict: "dictionary", Dict }
 primitive! {
     Func: "function",
     Func,

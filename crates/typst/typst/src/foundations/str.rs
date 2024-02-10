@@ -10,8 +10,8 @@ use unicode_segmentation::UnicodeSegmentation;
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, dict, func, repr, scope, ty, Array, Bytes, Dict, Func, IntoTypstValue, Label, Repr, Type,
-    TypstValue, Version,
+    cast, dict, func, repr, scope, ty, Array, Bytes, Func, IntoTypstValue, Label, Repr, Type,
+    TypstDict, TypstValue, Version,
 };
 use crate::layout::Alignment;
 use crate::syntax::{Span, Spanned};
@@ -392,7 +392,7 @@ impl Str {
         &self,
         /// The pattern to search for.
         pattern: StrPattern,
-    ) -> Option<Dict> {
+    ) -> Option<TypstDict> {
         match pattern {
             StrPattern::Str(pat) => self.0.match_indices(pat.as_str()).next().map(match_to_dict),
             StrPattern::Regex(re) => re.captures(self).map(captures_to_dict),
@@ -447,7 +447,7 @@ impl Str {
 
         // Replace one match of a pattern with the replacement.
         let mut last_match = 0;
-        let mut handle_match = |range: Range<usize>, dict: Dict| -> SourceResult<()> {
+        let mut handle_match = |range: Range<usize>, dict: TypstDict| -> SourceResult<()> {
             // Push everything until the match.
             output.push_str(&self[last_match..range.start]);
             last_match = range.end;
@@ -783,7 +783,7 @@ cast! {
 }
 
 /// Convert an item of std's `match_indices` to a dictionary.
-fn match_to_dict((start, text): (usize, &str)) -> Dict {
+fn match_to_dict((start, text): (usize, &str)) -> TypstDict {
     dict! {
         "start" => start,
         "end" => start + text.len(),
@@ -793,7 +793,7 @@ fn match_to_dict((start, text): (usize, &str)) -> Dict {
 }
 
 /// Convert regex captures to a dictionary.
-fn captures_to_dict(cap: regex::Captures) -> Dict {
+fn captures_to_dict(cap: regex::Captures) -> TypstDict {
     let m = cap.get(0).expect("missing first match");
     dict! {
         "start" => m.start(),

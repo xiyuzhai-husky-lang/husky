@@ -1,9 +1,9 @@
 //! System-related things.
 
-use crate::foundations::{Dict, Module, Scope, Version};
+use crate::foundations::{Module, Scope, TypstDict, Version};
 
 /// A module with system-related things.
-pub fn module(inputs: Dict) -> Module {
+pub fn module(inputs: TypstDict) -> Module {
     let mut scope = Scope::deduplicating();
     scope.define(
         "version",

@@ -2,7 +2,7 @@ use ecow::eco_format;
 
 use crate::diag::{bail, At, Hint, SourceResult, Trace, Tracepoint};
 use crate::eval::{Eval, Vm};
-use crate::foundations::{call_method_access, is_accessor_method, Dict, TypstValue};
+use crate::foundations::{call_method_access, is_accessor_method, TypstDict, TypstValue};
 use crate::syntax::ast::{self, AstNode};
 
 /// Access an expression mutably.
@@ -74,7 +74,7 @@ impl Access for ast::FuncCall<'_> {
 pub(crate) fn access_dict<'a>(
     vm: &'a mut Vm,
     access: ast::FieldAccess,
-) -> SourceResult<&'a mut Dict> {
+) -> SourceResult<&'a mut TypstDict> {
     match access.target().access(vm)? {
         TypstValue::Dict(dict) => Ok(dict),
         value => {

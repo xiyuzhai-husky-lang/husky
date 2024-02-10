@@ -2,7 +2,7 @@ use ecow::EcoString;
 use unicode_segmentation::UnicodeSegmentation;
 
 use crate::diag::{bail, StrResult};
-use crate::foundations::{array, cast, dict, elem, Array, Dict, FromTypstValue, Smart, Str};
+use crate::foundations::{array, cast, dict, elem, Array, FromTypstValue, Smart, Str, TypstDict};
 use crate::layout::Dir;
 use crate::syntax::is_newline;
 use crate::text::{Lang, Region};
@@ -343,7 +343,7 @@ pub struct SmartQuoteDict {
 cast! {
     SmartQuoteDict,
     self => dict! { "double" => self.double, "single" => self.single }.into_value(),
-    mut value: Dict => {
+    mut value: TypstDict => {
         let keys = ["double", "single"];
 
         let double = value

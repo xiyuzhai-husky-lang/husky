@@ -1035,8 +1035,8 @@ fn create_fields_impl(element: &Elem) -> TokenStream {
                #(#materializes)*
             }
 
-            fn fields(&self) -> #foundations::Dict {
-                let mut fields = #foundations::Dict::new();
+            fn fields(&self) -> #foundations::TypstDict {
+                let mut fields = #foundations::TypstDict::new();
                 #(#field_inserts)*
                 fields
             }

@@ -2,7 +2,8 @@ use std::fmt::{self, Debug, Formatter};
 
 use crate::diag::StrResult;
 use crate::foundations::{
-    CastInfo, Dict, Fold, FromTypstValue, IntoTypstValue, Reflect, Resolve, StyleChain, TypstValue,
+    CastInfo, Fold, FromTypstValue, IntoTypstValue, Reflect, Resolve, StyleChain, TypstDict,
+    TypstValue,
 };
 use crate::layout::Side;
 use crate::util::Get;
@@ -141,15 +142,15 @@ impl<T: Debug + PartialEq> Debug for Corners<T> {
 
 impl<T: Reflect> Reflect for Corners<Option<T>> {
     fn input() -> CastInfo {
-        T::input() + Dict::input()
+        T::input() + TypstDict::input()
     }
 
     fn output() -> CastInfo {
-        T::output() + Dict::output()
+        T::output() + TypstDict::output()
     }
 
     fn castable(value: &TypstValue) -> bool {
-        Dict::castable(value) || T::castable(value)
+        TypstDict::castable(value) || T::castable(value)
     }
 }
 
@@ -164,7 +165,7 @@ where
             }
         }
 
-        let mut dict = Dict::new();
+        let mut dict = TypstDict::new();
         let mut handle = |key: &str, component: Option<T>| {
             if let Some(c) = component {
                 dict.insert(key.into(), c.into_value());
@@ -236,7 +237,7 @@ where
             let keys = dict.iter().map(|kv| kv.0.as_str()).collect();
             // Do not hint at expected_keys, because T may be castable from Dict
             // objects with other sets of expected keys.
-            Err(Dict::unexpected_keys(keys, None))
+            Err(TypstDict::unexpected_keys(keys, None))
         } else {
             Err(Self::error(&value))
         }

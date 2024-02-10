@@ -6,8 +6,8 @@ use smallvec::SmallVec;
 
 use crate::diag::{bail, StrResult};
 use crate::foundations::{
-    cast, func, repr, scope, ty, CastInfo, Content, Dict, Element, FromTypstValue, Func, Label,
-    Reflect, Regex, Repr, Str, StyleChain, Type, TypstValue,
+    cast, func, repr, scope, ty, CastInfo, Content, Element, FromTypstValue, Func, Label, Reflect,
+    Regex, Repr, Str, StyleChain, Type, TypstDict, TypstValue,
 };
 use crate::introspection::{Locatable, Location};
 use crate::symbols::Symbol;
@@ -254,7 +254,7 @@ impl Repr for Selector {
                         .iter()
                         .map(|(id, value)| (elem.field_name(*id).unwrap(), value.clone()))
                         .map(|(name, value)| (EcoString::from(name).into(), value))
-                        .collect::<Dict>();
+                        .collect::<TypstDict>();
                     eco_format!("{}.where{}", elem.name(), dict.repr())
                 } else {
                     elem.name().into()

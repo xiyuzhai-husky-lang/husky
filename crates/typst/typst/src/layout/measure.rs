@@ -1,6 +1,6 @@
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{dict, func, Content, Dict, StyleChain, Styles};
+use crate::foundations::{dict, func, Content, StyleChain, Styles, TypstDict};
 use crate::layout::{Abs, Axes, LayoutMultiple, Regions, Size};
 
 /// Measures the layouted size of content.
@@ -47,7 +47,7 @@ pub fn measure(
     content: Content,
     /// The styles with which to layout the content.
     styles: Styles,
-) -> SourceResult<Dict> {
+) -> SourceResult<TypstDict> {
     let pod = Regions::one(Axes::splat(Abs::inf()), Axes::splat(false));
     let styles = StyleChain::new(&styles);
     let frame = content.measure(engine, styles, pod)?.into_frame();

@@ -2,7 +2,7 @@ use std::collections::HashSet;
 
 use crate::diag::{bail, At, SourceResult};
 use crate::eval::{Access, Eval, Vm};
-use crate::foundations::{Array, Dict, TypstValue};
+use crate::foundations::{Array, TypstDict, TypstValue};
 use crate::syntax::ast::{self, AstNode};
 
 impl Eval for ast::LetBinding<'_> {
@@ -136,7 +136,7 @@ where
 
 fn destructure_dict<F>(
     vm: &mut Vm,
-    dict: Dict,
+    dict: TypstDict,
     f: F,
     destruct: ast::Destructuring,
 ) -> SourceResult<()>
@@ -167,7 +167,7 @@ where
     }
 
     if let Some(expr) = sink {
-        let mut sink = Dict::new();
+        let mut sink = TypstDict::new();
         for (key, value) in dict {
             if !used.contains(key.as_str()) {
                 sink.insert(key, value);
