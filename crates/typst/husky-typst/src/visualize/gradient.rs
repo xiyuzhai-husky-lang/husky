@@ -238,7 +238,7 @@ impl Gradient {
                 TypstLayoutDirection::LeftRight => Angle::rad(0.0),
                 TypstLayoutDirection::RightLeft => Angle::rad(PI),
                 TypstLayoutDirection::TopDown => Angle::rad(FRAC_PI_2),
-                TypstLayoutDirection::BOTTOM_UP => Angle::rad(3.0 * FRAC_PI_2),
+                TypstLayoutDirection::BottomUp => Angle::rad(3.0 * FRAC_PI_2),
             }
         } else {
             Angle::rad(0.0)
