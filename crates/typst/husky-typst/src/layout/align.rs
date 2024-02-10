@@ -5,7 +5,7 @@ use ecow::{eco_format, EcoString};
 use crate::diag::{bail, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, func, scope, ty, Content, Fold, Packed, Repr, Resolve, Show, StyleChain,
+    cast, elem, func, scope, ty, Fold, Packed, Repr, Resolve, Show, StyleChain, TypstContent,
 };
 use crate::layout::{Abs, Axes, Axis, Dir, Side};
 use crate::text::TextElem;
@@ -42,12 +42,12 @@ pub struct AlignElem {
 
     /// The content to align.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 }
 
 impl Show for Packed<AlignElem> {
     #[husky_typst_macros::time(name = "align", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         Ok(self
             .body()
             .clone()

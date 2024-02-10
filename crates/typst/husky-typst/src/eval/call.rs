@@ -5,8 +5,8 @@ use crate::diag::{bail, error, At, HintedStrResult, SourceResult, Trace, Tracepo
 use crate::engine::Engine;
 use crate::eval::{Access, Eval, FlowEvent, Route, Tracer, Vm};
 use crate::foundations::{
-    call_method_mut, is_mutating_method, Arg, Args, Bytes, Closure, Content, Func, IntoTypstValue,
-    NativeElement, Scope, Scopes, TypstValue,
+    call_method_mut, is_mutating_method, Arg, Args, Bytes, Closure, Func, IntoTypstValue,
+    NativeElement, Scope, Scopes, TypstContent, TypstValue,
 };
 use crate::introspection::{Introspector, Locator};
 use crate::math::{Accent, AccentElem, LrElem};
@@ -148,8 +148,8 @@ impl Eval for ast::FuncCall<'_> {
                     return Ok(TypstValue::Content(accent.pack()));
                 }
             }
-            let mut body = Content::empty();
-            for (i, arg) in args.all::<Content>()?.into_iter().enumerate() {
+            let mut body = TypstContent::empty();
+            for (i, arg) in args.all::<TypstContent>()?.into_iter().enumerate() {
                 if i > 0 {
                     body += TextElem::packed(',');
                 }

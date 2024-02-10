@@ -27,7 +27,7 @@ use smallvec::SmallVec;
 
 use crate::foundations::Packed;
 use crate::foundations::{
-    category, elem, ty, Behave, Behaviour, Category, Content, Repr, Scope, Unlabellable,
+    category, elem, ty, Behave, Behaviour, Category, Repr, Scope, TypstContent, Unlabellable,
 };
 use crate::model::Destination;
 
@@ -86,7 +86,7 @@ pub enum Meta {
     Link(Destination),
     /// An identifiable element that produces something within the area this
     /// metadata is attached to.
-    Elem(Content),
+    Elem(TypstContent),
     /// Indicates that content should be hidden. This variant doesn't appear
     /// in the final frames as it is removed alongside the content that should
     /// be hidden.

@@ -74,7 +74,7 @@ use comemo::{Tracked, TrackedMut};
 use crate::diag::{bail, SourceResult};
 use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
-use crate::foundations::{category, Category, Content, Scope, StyleChain};
+use crate::foundations::{category, Category, Scope, StyleChain, TypstContent};
 use crate::introspection::{Introspector, Locator};
 use crate::model::Document;
 use crate::realize::{realize_block, realize_root, Scratch};
@@ -121,11 +121,7 @@ pub fn define(global: &mut Scope) {
 /// Root-level layout.
 pub trait LayoutRoot {
     /// Layout into a document with one frame per page.
-    fn layout_root(
-        &self,
-        engine: &mut Engine,
-        styles: StyleChain,
-    ) -> SourceResult<Document>;
+    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Document>;
 }
 
 /// Layout into multiple regions.
@@ -171,15 +167,11 @@ pub trait LayoutSingle {
     ) -> SourceResult<Frame>;
 }
 
-impl LayoutRoot for Content {
-    fn layout_root(
-        &self,
-        engine: &mut Engine,
-        styles: StyleChain,
-    ) -> SourceResult<Document> {
+impl LayoutRoot for TypstContent {
+    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Document> {
         #[comemo::memoize]
         fn cached(
-            content: &Content,
+            content: &TypstContent,
             world: Tracked<dyn World + '_>,
             introspector: Tracked<Introspector>,
             route: Tracked<Route>,
@@ -196,8 +188,7 @@ impl LayoutRoot for Content {
                 tracer,
             };
             let scratch = Scratch::default();
-            let (document, styles) =
-                realize_root(&mut engine, &scratch, content, styles)?;
+            let (document, styles) = realize_root(&mut engine, &scratch, content, styles)?;
             document.layout_root(&mut engine, styles)
         }
 
@@ -213,7 +204,7 @@ impl LayoutRoot for Content {
     }
 }
 
-impl LayoutMultiple for Content {
+impl LayoutMultiple for TypstContent {
     fn layout(
         &self,
         engine: &mut Engine,
@@ -223,7 +214,7 @@ impl LayoutMultiple for Content {
         #[allow(clippy::too_many_arguments)]
         #[comemo::memoize]
         fn cached(
-            content: &Content,
+            content: &TypstContent,
             world: Tracked<dyn World + '_>,
             introspector: Tracked<Introspector>,
             route: Tracked<Route>,
@@ -249,13 +240,11 @@ impl LayoutMultiple for Content {
             }
 
             let scratch = Scratch::default();
-            let (realized, styles) =
-                realize_block(&mut engine, &scratch, content, styles)?;
-            realized.with::<dyn LayoutMultiple>().unwrap().layout(
-                &mut engine,
-                styles,
-                regions,
-            )
+            let (realized, styles) = realize_block(&mut engine, &scratch, content, styles)?;
+            realized
+                .with::<dyn LayoutMultiple>()
+                .unwrap()
+                .layout(&mut engine, styles, regions)
         }
 
         let fragment = cached(

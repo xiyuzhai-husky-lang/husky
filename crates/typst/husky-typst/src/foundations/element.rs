@@ -11,8 +11,8 @@ use smallvec::SmallVec;
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, Args, Content, Func, ParamInfo, Repr, Scope, Selector, StyleChain, Styles, TypstDict,
-    TypstValue,
+    cast, Args, Func, ParamInfo, Repr, Scope, Selector, StyleChain, Styles, TypstContent,
+    TypstDict, TypstValue,
 };
 use crate::text::{Lang, Region};
 use crate::util::Static;
@@ -68,7 +68,7 @@ impl Element {
     }
 
     /// Construct an instance of this element.
-    pub fn construct(self, engine: &mut Engine, args: &mut Args) -> SourceResult<Content> {
+    pub fn construct(self, engine: &mut Engine, args: &mut Args) -> SourceResult<TypstContent> {
         (self.0.construct)(engine, args)
     }
 
@@ -104,7 +104,7 @@ impl Element {
     }
 
     /// Create a selector for this element, filtering for those that
-    /// [fields](crate::foundations::Content::field) match the given argument.
+    /// [fields](crate::foundations::TypstContent::field) match the given argument.
     pub fn where_(self, fields: SmallVec<[(u8, TypstValue); 1]>) -> Selector {
         Selector::Elem(self, Some(fields))
     }
@@ -168,11 +168,11 @@ pub trait NativeElement:
     }
 
     /// Pack the element into type-erased content.
-    fn pack(self) -> Content
+    fn pack(self) -> TypstContent
     where
         Self: Sized,
     {
-        Content::new(self)
+        TypstContent::new(self)
     }
 
     /// Get the element data for the native Rust element.
@@ -221,7 +221,7 @@ pub trait Construct {
     ///
     /// This is passed only the arguments that remain after execution of the
     /// element's set rule.
-    fn construct(engine: &mut Engine, args: &mut Args) -> SourceResult<Content>
+    fn construct(engine: &mut Engine, args: &mut Args) -> SourceResult<TypstContent>
     where
         Self: Sized;
 }
@@ -241,7 +241,7 @@ pub struct NativeElementData {
     pub title: &'static str,
     pub docs: &'static str,
     pub keywords: &'static [&'static str],
-    pub construct: fn(&mut Engine, &mut Args) -> SourceResult<Content>,
+    pub construct: fn(&mut Engine, &mut Args) -> SourceResult<TypstContent>,
     pub set: fn(&mut Engine, &mut Args) -> SourceResult<Styles>,
     pub vtable: fn(capability: TypeId) -> Option<*const ()>,
     pub field_id: fn(name: &str) -> Option<u8>,
@@ -272,7 +272,7 @@ pub trait Synthesize {
 /// Defines a built-in show rule for an element.
 pub trait Show {
     /// Execute the base recipe for this element.
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Content>;
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent>;
 }
 
 /// Defines built-in show set rules for an element.
@@ -293,7 +293,11 @@ pub trait Behave {
     /// Whether this weak element is larger than a previous one and thus picked
     /// as the maximum when the levels are the same.
     #[allow(unused_variables)]
-    fn larger(&self, prev: &(Cow<Content>, Behaviour, StyleChain), styles: StyleChain) -> bool {
+    fn larger(
+        &self,
+        prev: &(Cow<TypstContent>, Behaviour, StyleChain),
+        styles: StyleChain,
+    ) -> bool {
         false
     }
 }

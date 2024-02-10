@@ -1,5 +1,7 @@
 use crate::diag::{bail, SourceResult};
-use crate::foundations::{cast, elem, Content, Packed, Resolve, Smart, StyleChain, TypstValue};
+use crate::foundations::{
+    cast, elem, Packed, Resolve, Smart, StyleChain, TypstContent, TypstValue,
+};
 use crate::layout::{Em, Frame, Length, Point, Rel, Size};
 use crate::math::{
     style_cramped, FrameFragment, GlyphFragment, LayoutMath, MathContext, MathFragment, Scaled,
@@ -27,7 +29,7 @@ pub struct AccentElem {
     /// $arrow(A B C)$
     /// ```
     #[required]
-    pub base: Content,
+    pub base: TypstContent,
 
     /// The accent to apply to the base.
     ///
@@ -135,7 +137,7 @@ cast! {
     Accent,
     self => self.0.into_value(),
     v: char => Self::new(v),
-    v: Content => match v.to_packed::<TextElem>() {
+    v: TypstContent => match v.to_packed::<TextElem>() {
         Some(elem) => TypstValue::Str(elem.text().clone().into()).cast()?,
         None => bail!("expected text"),
     },

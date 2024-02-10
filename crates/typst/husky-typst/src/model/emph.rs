@@ -1,6 +1,6 @@
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{elem, Content, Packed, Show, StyleChain};
+use crate::foundations::{elem, Packed, Show, StyleChain, TypstContent};
 use crate::text::{ItalicToggle, TextElem};
 
 /// Emphasizes content by toggling italics.
@@ -30,12 +30,12 @@ use crate::text::{ItalicToggle, TextElem};
 pub struct EmphElem {
     /// The content to emphasize.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 }
 
 impl Show for Packed<EmphElem> {
     #[husky_typst_macros::time(name = "emph", span = self.span())]
-    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<Content> {
+    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<TypstContent> {
         Ok(self
             .body()
             .clone()

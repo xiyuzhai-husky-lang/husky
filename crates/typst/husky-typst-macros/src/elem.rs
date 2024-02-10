@@ -794,9 +794,9 @@ fn create_construct_impl(element: &Elem) -> TokenStream {
             fn construct(
                 engine: &mut ::husky_typst::engine::Engine,
                 args: &mut #foundations::Args,
-            ) -> ::husky_typst::diag::SourceResult<#foundations::Content> {
+            ) -> ::husky_typst::diag::SourceResult<#foundations::TypstContent> {
                 #(#setup)*
-                Ok(#foundations::Content::new(Self { #(#fields),* }))
+                Ok(#foundations::TypstContent::new(Self { #(#fields),* }))
             }
         }
     }
@@ -1076,7 +1076,7 @@ fn create_into_value_impl(element: &Elem) -> TokenStream {
     quote! {
         impl #foundations::IntoTypstValue for #ident {
             fn into_value(self) -> #foundations::TypstValue {
-                #foundations::TypstValue::Content(#foundations::Content::new(self))
+                #foundations::TypstValue::Content(#foundations::TypstContent::new(self))
             }
         }
     }

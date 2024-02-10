@@ -6,7 +6,7 @@ use crate::diag::{
     bail, error, warning, At, FileError, SourceResult, StrResult, Trace, Tracepoint,
 };
 use crate::eval::{eval, Eval, Vm};
-use crate::foundations::{Content, Module, TypstValue};
+use crate::foundations::{Module, TypstContent, TypstValue};
 use crate::syntax::ast::{self, AstNode};
 use crate::syntax::{FileId, PackageSpec, PackageVersion, Span, VirtualPath};
 use crate::World;
@@ -95,7 +95,7 @@ impl Eval for ast::ModuleImport<'_> {
 }
 
 impl Eval for ast::ModuleInclude<'_> {
-    type Output = Content;
+    type Output = TypstContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let span = self.source().span();

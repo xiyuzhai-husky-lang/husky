@@ -4,7 +4,7 @@ use std::sync::Arc;
 use ecow::{eco_format, EcoString};
 
 use crate::diag::StrResult;
-use crate::foundations::{repr, ty, Content, Scope, TypstValue};
+use crate::foundations::{repr, ty, Scope, TypstContent, TypstValue};
 
 /// An evaluated module, either built-in or resulting from a file.
 ///
@@ -39,7 +39,7 @@ struct Repr {
     /// The top-level definitions that were bound in this module.
     scope: Scope,
     /// The module's layoutable contents.
-    content: Content,
+    content: TypstContent,
 }
 
 impl Module {
@@ -49,7 +49,7 @@ impl Module {
             name: name.into(),
             inner: Arc::new(Repr {
                 scope,
-                content: Content::empty(),
+                content: TypstContent::empty(),
             }),
         }
     }
@@ -67,7 +67,7 @@ impl Module {
     }
 
     /// Update the module's content.
-    pub fn with_content(mut self, content: Content) -> Self {
+    pub fn with_content(mut self, content: TypstContent) -> Self {
         Arc::make_mut(&mut self.inner).content = content;
         self
     }
@@ -95,7 +95,7 @@ impl Module {
     }
 
     /// Extract the module's content.
-    pub fn content(self) -> Content {
+    pub fn content(self) -> TypstContent {
         match Arc::try_unwrap(self.inner) {
             Ok(repr) => repr.content,
             Err(arc) => arc.content.clone(),

@@ -1,6 +1,6 @@
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{elem, Content, Packed, Resolve, StyleChain};
+use crate::foundations::{elem, Packed, Resolve, StyleChain, TypstContent};
 use crate::layout::{Abs, AlignElem, Axes, Fragment, Frame, LayoutMultiple, Point, Regions, Size};
 use crate::util::Numeric;
 
@@ -29,7 +29,7 @@ use crate::util::Numeric;
 pub struct RepeatElem {
     /// The content to repeat.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 }
 
 impl LayoutMultiple for Packed<RepeatElem> {

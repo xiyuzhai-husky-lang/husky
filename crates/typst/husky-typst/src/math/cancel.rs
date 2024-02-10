@@ -1,5 +1,5 @@
 use crate::diag::{At, SourceResult};
-use crate::foundations::{cast, elem, Content, Func, Packed, Resolve, Smart, StyleChain};
+use crate::foundations::{cast, elem, Func, Packed, Resolve, Smart, StyleChain, TypstContent};
 use crate::layout::{Abs, Angle, Frame, FrameItem, Length, Point, Ratio, Rel, Size, Transform};
 use crate::math::{FrameFragment, LayoutMath, MathContext};
 use crate::syntax::Span;
@@ -21,7 +21,7 @@ use crate::visualize::{FixedStroke, Geometry, Stroke};
 pub struct CancelElem {
     /// The content over which the line should be placed.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 
     /// The length of the line, relative to the length of the diagonal spanning
     /// the whole element being "cancelled". A value of `{100%}` would then have

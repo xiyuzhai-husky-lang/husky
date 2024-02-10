@@ -91,7 +91,7 @@ pub(super) fn define(global: &mut Scope, inputs: TypstDict) {
     global.define_type::<Str>();
     global.define_type::<Label>();
     global.define_type::<Bytes>();
-    global.define_type::<Content>();
+    global.define_type::<TypstContent>();
     global.define_type::<Array>();
     global.define_type::<TypstDict>();
     global.define_type::<Func>();

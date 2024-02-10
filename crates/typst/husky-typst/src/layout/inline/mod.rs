@@ -7,17 +7,16 @@ use unicode_script::{Script, UnicodeScript};
 
 use self::linebreak::{breakpoints, Breakpoint};
 use self::shaping::{
-    is_gb_style, is_of_cj_script, shape, ShapedGlyph, ShapedText, BEGIN_PUNCT_PAT,
-    END_PUNCT_PAT,
+    is_gb_style, is_of_cj_script, shape, ShapedGlyph, ShapedText, BEGIN_PUNCT_PAT, END_PUNCT_PAT,
 };
 use crate::diag::{bail, SourceResult};
 use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
-use crate::foundations::{Content, Packed, Resolve, Smart, StyleChain};
+use crate::foundations::{Packed, Resolve, Smart, StyleChain, TypstContent};
 use crate::introspection::{Introspector, Locator, MetaElem};
 use crate::layout::{
-    Abs, AlignElem, Axes, BoxElem, Dir, Em, FixedAlignment, Fr, Fragment, Frame, HElem,
-    Point, Regions, Size, Sizing, Spacing,
+    Abs, AlignElem, Axes, BoxElem, Dir, Em, FixedAlignment, Fr, Fragment, Frame, HElem, Point,
+    Regions, Size, Sizing, Spacing,
 };
 use crate::math::{EquationElem, MathParItem};
 use crate::model::{Linebreaks, ParElem};
@@ -30,7 +29,7 @@ use crate::World;
 
 /// Layouts content inline.
 pub(crate) fn layout_inline(
-    children: &[Prehashed<Content>],
+    children: &[Prehashed<TypstContent>],
     engine: &mut Engine,
     styles: StyleChain,
     consecutive: bool,
@@ -40,7 +39,7 @@ pub(crate) fn layout_inline(
     #[comemo::memoize]
     #[allow(clippy::too_many_arguments)]
     fn cached(
-        children: &[Prehashed<Content>],
+        children: &[Prehashed<TypstContent>],
         world: Tracked<dyn World + '_>,
         introspector: Tracked<Introspector>,
         route: Tracked<Route>,
@@ -61,13 +60,20 @@ pub(crate) fn layout_inline(
         };
 
         // Collect all text into one string for BiDi analysis.
-        let (text, segments, spans) =
-            collect(children, &mut engine, &styles, region, consecutive)?;
+        let (text, segments, spans) = collect(children, &mut engine, &styles, region, consecutive)?;
 
         // Perform BiDi analysis and then prepare paragraph layout by building a
         // representation on which we can do line breaking without layouting
         // each and every line from scratch.
-        let p = prepare(&mut engine, children, &text, segments, spans, styles, region)?;
+        let p = prepare(
+            &mut engine,
+            children,
+            &text,
+            segments,
+            spans,
+            styles,
+            region,
+        )?;
 
         // Break the paragraph into lines.
         let lines = linebreak(&engine, &p, region.x - p.hang);
@@ -202,12 +208,12 @@ impl Segment<'_> {
         match *self {
             Self::Text(len) => len,
             Self::Spacing(_) => SPACING_REPLACE.len_utf8(),
-            Self::Box(_, frac) => {
-                (if frac { SPACING_REPLACE } else { OBJ_REPLACE }).len_utf8()
-            }
-            Self::Equation(_, ref par_items) => {
-                par_items.iter().map(MathParItem::text).map(char::len_utf8).sum()
-            }
+            Self::Box(_, frac) => (if frac { SPACING_REPLACE } else { OBJ_REPLACE }).len_utf8(),
+            Self::Equation(_, ref par_items) => par_items
+                .iter()
+                .map(MathParItem::text)
+                .map(char::len_utf8)
+                .sum(),
             Self::Meta => 0,
         }
     }
@@ -381,12 +387,18 @@ impl<'a> Line<'a> {
 
     /// How much can the line stretch
     fn stretchability(&self) -> Abs {
-        self.items().filter_map(Item::text).map(|s| s.stretchability()).sum()
+        self.items()
+            .filter_map(Item::text)
+            .map(|s| s.stretchability())
+            .sum()
     }
 
     /// How much can the line shrink
     fn shrinkability(&self) -> Abs {
-        self.items().filter_map(Item::text).map(|s| s.shrinkability()).sum()
+        self.items()
+            .filter_map(Item::text)
+            .map(|s| s.shrinkability())
+            .sum()
     }
 
     /// The sum of fractions in the line.
@@ -404,7 +416,7 @@ impl<'a> Line<'a> {
 /// also performs string-level preprocessing like case transformations.
 #[allow(clippy::type_complexity)]
 fn collect<'a>(
-    children: &'a [Prehashed<Content>],
+    children: &'a [Prehashed<TypstContent>],
     engine: &mut Engine<'_>,
     styles: &'a StyleChain<'a>,
     region: Size,
@@ -459,7 +471,11 @@ fn collect<'a>(
             full.push(SPACING_REPLACE);
             Segment::Spacing(*elem.amount())
         } else if let Some(elem) = child.to_packed::<LinebreakElem>() {
-            let c = if elem.justify(styles) { '\u{2028}' } else { '\n' };
+            let c = if elem.justify(styles) {
+                '\u{2028}'
+            } else {
+                '\n'
+            };
             full.push(c);
             Segment::Text(c.len_utf8())
         } else if let Some(elem) = child.to_packed::<SmartQuoteElem>() {
@@ -468,12 +484,8 @@ fn collect<'a>(
                 let quotes = SmartQuoteElem::quotes_in(styles);
                 let lang = TextElem::lang_in(styles);
                 let region = TextElem::region_in(styles);
-                let quotes = SmartQuotes::new(
-                    quotes,
-                    lang,
-                    region,
-                    SmartQuoteElem::alternative_in(styles),
-                );
+                let quotes =
+                    SmartQuotes::new(quotes, lang, region, SmartQuoteElem::alternative_in(styles));
                 let peeked = iter.peek().and_then(|child| {
                     let child = if let Some((child, _)) = child.to_styled() {
                         child
@@ -503,7 +515,9 @@ fn collect<'a>(
             let pod = Regions::one(region, Axes::splat(false));
             let mut items = elem.layout_inline(engine, styles, pod)?;
             for item in &mut items {
-                let MathParItem::Frame(frame) = item else { continue };
+                let MathParItem::Frame(frame) = item else {
+                    continue;
+                };
                 frame.meta(styles, false);
             }
             full.extend(items.iter().map(MathParItem::text));
@@ -542,7 +556,7 @@ fn collect<'a>(
 /// Prepare paragraph layout by shaping the whole paragraph.
 fn prepare<'a>(
     engine: &mut Engine,
-    children: &'a [Prehashed<Content>],
+    children: &'a [Prehashed<TypstContent>],
     text: &'a str,
     segments: Vec<(Segment<'a>, StyleChain<'a>)>,
     spans: SpanMapper,
@@ -636,7 +650,10 @@ fn prepare<'a>(
 /// See Requirements for Chinese Text Layout, Section 3.2.2 Mixed Text Composition in Horizontal
 /// Written Mode
 fn add_cjk_latin_spacing(items: &mut [Item]) {
-    let mut items = items.iter_mut().filter(|x| !matches!(x, Item::Meta(_))).peekable();
+    let mut items = items
+        .iter_mut()
+        .filter(|x| !matches!(x, Item::Meta(_)))
+        .peekable();
     let mut prev: Option<&ShapedGlyph> = None;
     while let Some(item) = items.next() {
         let Some(text) = item.text_mut() else {
@@ -720,9 +737,10 @@ fn shape_range<'a>(
 
         let level = bidi.levels[i];
         let curr_script = match script {
-            Smart::Auto => {
-                bidi.text[i..].chars().next().map_or(Script::Unknown, |c| c.script())
-            }
+            Smart::Auto => bidi.text[i..]
+                .chars()
+                .next()
+                .map_or(Script::Unknown, |c| c.script()),
             Smart::Custom(_) => Script::Unknown,
         };
 
@@ -755,7 +773,7 @@ fn is_compatible(a: Script, b: Script) -> bool {
 /// paragraph.
 fn shared_get<T: PartialEq>(
     styles: StyleChain<'_>,
-    children: &[Prehashed<Content>],
+    children: &[Prehashed<TypstContent>],
     getter: fn(StyleChain) -> T,
 ) -> Option<T> {
     let value = getter(styles);
@@ -785,11 +803,7 @@ fn linebreak<'a>(engine: &Engine, p: &'a Preparation<'a>, width: Abs) -> Vec<Lin
 /// Perform line breaking in simple first-fit style. This means that we build
 /// lines greedily, always taking the longest possible line. This may lead to
 /// very unbalanced line, but is fast and simple.
-fn linebreak_simple<'a>(
-    engine: &Engine,
-    p: &'a Preparation<'a>,
-    width: Abs,
-) -> Vec<Line<'a>> {
+fn linebreak_simple<'a>(engine: &Engine, p: &'a Preparation<'a>, width: Abs) -> Vec<Line<'a>> {
     let mut lines = Vec::with_capacity(16);
     let mut start = 0;
     let mut last = None;
@@ -845,11 +859,7 @@ fn linebreak_simple<'a>(
 /// computed and stored in dynamic programming table) is minimal. The final
 /// result is simply the layout determined for the last breakpoint at the end of
 /// text.
-fn linebreak_optimized<'a>(
-    engine: &Engine,
-    p: &'a Preparation<'a>,
-    width: Abs,
-) -> Vec<Line<'a>> {
+fn linebreak_optimized<'a>(engine: &Engine, p: &'a Preparation<'a>, width: Abs) -> Vec<Line<'a>> {
     /// The cost of a line or paragraph layout.
     type Cost = f64;
 
@@ -909,8 +919,7 @@ fn linebreak_optimized<'a>(
             if ratio > 1.0 {
                 // We should stretch the line above its stretchability. Now
                 // calculate the extra amount. Also, don't divide by zero.
-                let extra_stretch =
-                    (delta - adjust) / attempt.justifiables().max(1) as f64;
+                let extra_stretch = (delta - adjust) / attempt.justifiables().max(1) as f64;
                 // Normalize the amount by half Em size.
                 ratio = 1.0 + extra_stretch / (em / 2.0);
             }
@@ -974,7 +983,11 @@ fn linebreak_optimized<'a>(
 
             // If this attempt is better than what we had before, take it!
             if best.as_ref().map_or(true, |best| best.total >= total) {
-                best = Some(Entry { pred: i, total, line: attempt });
+                best = Some(Entry {
+                    pred: i,
+                    total,
+                    line: attempt,
+                });
             }
         }
 
@@ -1002,8 +1015,7 @@ fn line<'a>(
     breakpoint: Breakpoint,
 ) -> Line<'a> {
     let end = range.end;
-    let mut justify =
-        p.justify && end < p.bidi.text.len() && breakpoint != Breakpoint::Mandatory;
+    let mut justify = p.justify && end < p.bidi.text.len() && breakpoint != Breakpoint::Mandatory;
 
     if range.is_empty() {
         return Line {
@@ -1079,8 +1091,7 @@ fn line<'a>(
                     {
                         // If the last glyph is a CJK character adjusted by [`add_cjk_latin_spacing`],
                         // restore the original width.
-                        let shrink_amount =
-                            last_glyph.x_advance - last_glyph.x_offset - Em::one();
+                        let shrink_amount = last_glyph.x_advance - last_glyph.x_offset - Em::one();
                         let glyph = reshaped.glyphs.to_mut().last_mut().unwrap();
                         glyph.x_advance -= shrink_amount;
                         glyph.adjustability.shrinkability.1 = Em::zero();
@@ -1180,15 +1191,19 @@ fn finalize(
 ) -> SourceResult<Fragment> {
     // Determine the paragraph's width: Full width of the region if we
     // should expand or there's fractional spacing, fit-to-width otherwise.
-    let width = if !region.x.is_finite()
-        || (!expand && lines.iter().all(|line| line.fr().is_zero()))
-    {
-        region
-            .x
-            .min(p.hang + lines.iter().map(|line| line.width).max().unwrap_or_default())
-    } else {
-        region.x
-    };
+    let width =
+        if !region.x.is_finite() || (!expand && lines.iter().all(|line| line.fr().is_zero())) {
+            region.x.min(
+                p.hang
+                    + lines
+                        .iter()
+                        .map(|line| line.width)
+                        .max()
+                        .unwrap_or_default(),
+            )
+        } else {
+            region.x
+        };
 
     // Stack the lines into one frame per region.
     let mut frames: Vec<Frame> = lines
@@ -1328,8 +1343,7 @@ fn commit(
                 }
             }
             Item::Text(shaped) => {
-                let mut frame =
-                    shaped.build(engine, justification_ratio, extra_justification);
+                let mut frame = shaped.build(engine, justification_ratio, extra_justification);
                 frame.meta(shaped.styles, false);
                 push(&mut offset, frame);
             }

@@ -11,7 +11,7 @@ use smallvec::SmallVec;
 use crate::diag::{SourceResult, Trace, Tracepoint};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, func, ty, Content, Element, Func, NativeElement, Packed, Repr, Selector, Show,
+    cast, elem, func, ty, Element, Func, NativeElement, Packed, Repr, Selector, Show, TypstContent,
 };
 use crate::syntax::Span;
 use crate::text::{FontFamily, FontList, TextElem};
@@ -43,7 +43,7 @@ pub fn style(
     /// `style` appears in the document. That makes it possible to generate
     /// content that depends on the style context it appears in.
     func: Func,
-) -> Content {
+) -> TypstContent {
     StyleElem::new(func).pack().spanned(span)
 }
 
@@ -57,7 +57,7 @@ struct StyleElem {
 
 impl Show for Packed<StyleElem> {
     #[husky_typst_macros::time(name = "style", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         Ok(self.func().call(engine, [styles.to_map()])?.display())
     }
 }
@@ -378,14 +378,14 @@ impl Recipe {
     }
 
     /// Whether the recipe is applicable to the target.
-    pub fn applicable(&self, target: &Content, styles: StyleChain) -> bool {
+    pub fn applicable(&self, target: &TypstContent, styles: StyleChain) -> bool {
         self.selector
             .as_ref()
             .map_or(false, |selector| selector.matches(target, Some(styles)))
     }
 
     /// Apply the recipe to the given content.
-    pub fn apply(&self, engine: &mut Engine, content: Content) -> SourceResult<Content> {
+    pub fn apply(&self, engine: &mut Engine, content: TypstContent) -> SourceResult<TypstContent> {
         let mut content = match &self.transform {
             Transformation::Content(content) => content.clone(),
             Transformation::Func(func) => {
@@ -424,7 +424,7 @@ pub struct RecipeIndex(pub usize);
 #[derive(Clone, PartialEq, Hash)]
 pub enum Transformation {
     /// Replacement content.
-    Content(Content),
+    Content(TypstContent),
     /// A function to apply to the match.
     Func(Func),
     /// Apply styles to the content.
@@ -443,7 +443,7 @@ impl Debug for Transformation {
 
 cast! {
     Transformation,
-    content: Content => Self::Content(content),
+    content: TypstContent => Self::Content(content),
     func: Func => Self::Func(func),
 }
 
@@ -758,8 +758,8 @@ impl<T> StyleVec<T> {
     }
 }
 
-impl<'a> StyleVec<Cow<'a, Content>> {
-    pub fn to_vec<F: From<Content>>(self) -> Vec<F> {
+impl<'a> StyleVec<Cow<'a, TypstContent>> {
+    pub fn to_vec<F: From<TypstContent>>(self) -> Vec<F> {
         self.items
             .into_iter()
             .zip(

@@ -1,5 +1,5 @@
 use crate::diag::{bail, SourceResult};
-use crate::foundations::{elem, Content, Packed, StyleChain, TypstValue};
+use crate::foundations::{elem, Packed, StyleChain, TypstContent, TypstValue};
 use crate::layout::{Em, Frame, FrameItem, Point, Size};
 use crate::math::{
     scaled_font_size, style_for_denominator, style_for_numerator, FrameFragment, GlyphFragment,
@@ -28,11 +28,11 @@ const FRAC_AROUND: Em = Em::new(0.1);
 pub struct FracElem {
     /// The fraction's numerator.
     #[required]
-    pub num: Content,
+    pub num: TypstContent,
 
     /// The fraction's denominator.
     #[required]
-    pub denom: Content,
+    pub denom: TypstContent,
 }
 
 impl LayoutMath for Packed<FracElem> {
@@ -60,7 +60,7 @@ impl LayoutMath for Packed<FracElem> {
 pub struct BinomElem {
     /// The binomial's upper index.
     #[required]
-    pub upper: Content,
+    pub upper: TypstContent,
 
     /// The binomial's lower index.
     #[required]
@@ -73,7 +73,7 @@ pub struct BinomElem {
         }
         values.into_iter().map(|spanned| spanned.v.display()).collect()
     )]
-    pub lower: Vec<Content>,
+    pub lower: Vec<TypstContent>,
 }
 
 impl LayoutMath for Packed<BinomElem> {
@@ -87,8 +87,8 @@ impl LayoutMath for Packed<BinomElem> {
 fn layout(
     ctx: &mut MathContext,
     styles: StyleChain,
-    num: &Content,
-    denom: &[Content],
+    num: &TypstContent,
+    denom: &[TypstContent],
     binom: bool,
     span: Span,
 ) -> SourceResult<()> {
@@ -122,7 +122,7 @@ fn layout(
 
     let denom_style = style_for_denominator(styles);
     let denom = ctx.layout_frame(
-        &Content::sequence(
+        &TypstContent::sequence(
             // Add a comma between each element.
             denom
                 .iter()

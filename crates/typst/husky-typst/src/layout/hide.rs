@@ -2,7 +2,7 @@ use smallvec::smallvec;
 
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{elem, Content, Packed, Show, StyleChain};
+use crate::foundations::{elem, Packed, Show, StyleChain, TypstContent};
 use crate::introspection::{Meta, MetaElem};
 
 /// Hides content without affecting layout.
@@ -21,12 +21,12 @@ use crate::introspection::{Meta, MetaElem};
 pub struct HideElem {
     /// The content to hide.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 }
 
 impl Show for Packed<HideElem> {
     #[husky_typst_macros::time(name = "hide", span = self.span())]
-    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<Content> {
+    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<TypstContent> {
         Ok(self
             .body()
             .clone()

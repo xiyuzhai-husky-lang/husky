@@ -4,7 +4,7 @@ use ecow::eco_format;
 
 use crate::diag::{SourceResult, Trace, Tracepoint};
 use crate::engine::Engine;
-use crate::foundations::{cast, elem, scope, Content, Fold, Packed, Show, Smart, StyleChain};
+use crate::foundations::{cast, elem, scope, Fold, Packed, Show, Smart, StyleChain, TypstContent};
 use crate::layout::{
     show_grid_cell, Abs, Alignment, Axes, Cell, CellGrid, Celled, Fragment, GridLayouter,
     LayoutMultiple, Length, Regions, Rel, ResolvableCell, Sides, TrackSizings,
@@ -334,7 +334,7 @@ impl Figurable for Packed<TableElem> {}
 pub struct TableCell {
     /// The cell's body.
     #[required]
-    body: Content,
+    body: TypstContent,
 
     /// The cell's column (zero-indexed).
     /// Functions identically to the `x` field in [`grid.cell`]($grid.cell).
@@ -360,12 +360,12 @@ pub struct TableCell {
 
 cast! {
     TableCell,
-    v: Content => v.into(),
+    v: TypstContent => v.into(),
 }
 
 impl Default for Packed<TableCell> {
     fn default() -> Self {
-        Packed::new(TableCell::new(Content::default()))
+        Packed::new(TableCell::new(TypstContent::default()))
     }
 }
 
@@ -422,13 +422,13 @@ impl ResolvableCell for Packed<TableCell> {
 }
 
 impl Show for Packed<TableCell> {
-    fn show(&self, _engine: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, _engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         show_grid_cell(self.body().clone(), self.inset(styles), self.align(styles))
     }
 }
 
-impl From<Content> for TableCell {
-    fn from(value: Content) -> Self {
+impl From<TypstContent> for TableCell {
+    fn from(value: TypstContent) -> Self {
         #[allow(clippy::unwrap_or_default)]
         value.unpack::<Self>().unwrap_or_else(Self::new)
     }

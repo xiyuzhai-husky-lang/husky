@@ -5,7 +5,8 @@ use unicode_math_class::MathClass;
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    elem, Content, NativeElement, Packed, Resolve, ShowSet, Smart, StyleChain, Styles, Synthesize,
+    elem, NativeElement, Packed, Resolve, ShowSet, Smart, StyleChain, Styles, Synthesize,
+    TypstContent,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable};
 use crate::layout::{
@@ -94,7 +95,7 @@ pub struct EquationElem {
 
     /// The contents of the equation.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 
     /// The size of the glyphs.
     #[internal]
@@ -134,7 +135,7 @@ impl Synthesize for Packed<EquationElem> {
     fn synthesize(&mut self, engine: &mut Engine, styles: StyleChain) -> SourceResult<()> {
         let supplement = match self.as_ref().supplement(styles) {
             Smart::Auto => TextElem::packed(Self::local_name_in(styles)),
-            Smart::Custom(None) => Content::empty(),
+            Smart::Custom(None) => TypstContent::empty(),
             Smart::Custom(Some(supplement)) => supplement.resolve(engine, [self.clone().pack()])?,
         };
 
@@ -324,11 +325,11 @@ impl LocalName for Packed<EquationElem> {
 }
 
 impl Refable for Packed<EquationElem> {
-    fn supplement(&self) -> Content {
+    fn supplement(&self) -> TypstContent {
         // After synthesis, this should always be custom content.
         match (**self).supplement(StyleChain::default()) {
             Smart::Custom(Some(Supplement::Content(content))) => content,
-            _ => Content::empty(),
+            _ => TypstContent::empty(),
         }
     }
 
@@ -342,7 +343,7 @@ impl Refable for Packed<EquationElem> {
 }
 
 impl Outlinable for Packed<EquationElem> {
-    fn outline(&self, engine: &mut Engine) -> SourceResult<Option<Content>> {
+    fn outline(&self, engine: &mut Engine) -> SourceResult<Option<TypstContent>> {
         if !self.block(StyleChain::default()) {
             return Ok(None);
         }
@@ -353,7 +354,7 @@ impl Outlinable for Packed<EquationElem> {
         // After synthesis, this should always be custom content.
         let mut supplement = match (**self).supplement(StyleChain::default()) {
             Smart::Custom(Some(Supplement::Content(content))) => content,
-            _ => Content::empty(),
+            _ => TypstContent::empty(),
         };
 
         if !supplement.is_empty() {

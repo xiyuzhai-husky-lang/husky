@@ -39,8 +39,8 @@ use crate::diag::{bail, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::Packed;
 use crate::foundations::{
-    cast, category, elem, Args, Array, Cast, Category, Construct, Content, Fold, NativeElement,
-    Never, PlainText, Repr, Resolve, Scope, Set, Smart, StyleChain, TypstDict,
+    cast, category, elem, Args, Array, Cast, Category, Construct, Fold, NativeElement, Never,
+    PlainText, Repr, Resolve, Scope, Set, Smart, StyleChain, TypstContent, TypstDict,
 };
 use crate::layout::Em;
 use crate::layout::{Abs, Axis, Dir, Length, Rel};
@@ -616,7 +616,7 @@ pub struct TextElem {
     /// Content in which all text is styled according to the other arguments.
     #[external]
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 
     /// The text.
     #[required]
@@ -655,7 +655,7 @@ pub struct TextElem {
 
 impl TextElem {
     /// Create a new packed text element.
-    pub fn packed(text: impl Into<EcoString>) -> Content {
+    pub fn packed(text: impl Into<EcoString>) -> TypstContent {
         Self::new(text.into()).pack()
     }
 }
@@ -673,12 +673,12 @@ impl Repr for TextElem {
 }
 
 impl Construct for TextElem {
-    fn construct(engine: &mut Engine, args: &mut Args) -> SourceResult<Content> {
+    fn construct(engine: &mut Engine, args: &mut Args) -> SourceResult<TypstContent> {
         // The text constructor is special: It doesn't create a text element.
         // Instead, it leaves the passed argument structurally unchanged, but
         // styles all text in it.
         let styles = Self::set(engine, args)?;
-        let body = args.expect::<Content>("body")?;
+        let body = args.expect::<TypstContent>("body")?;
         Ok(body.styled_with_map(styles))
     }
 }

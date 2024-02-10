@@ -1,5 +1,5 @@
 use crate::diag::SourceResult;
-use crate::foundations::{elem, func, Content, NativeElement, Packed, StyleChain};
+use crate::foundations::{elem, func, NativeElement, Packed, StyleChain, TypstContent};
 use crate::layout::{Abs, Frame, FrameItem, Point, Size};
 use crate::math::{
     style_cramped, EquationElem, FrameFragment, GlyphFragment, LayoutMath, MathContext, MathSize,
@@ -19,8 +19,8 @@ pub fn sqrt(
     /// The call span of this function.
     span: Span,
     /// The expression to take the square root of.
-    radicand: Content,
-) -> Content {
+    radicand: TypstContent,
+) -> TypstContent {
     RootElem::new(radicand).pack().spanned(span)
 }
 
@@ -33,11 +33,11 @@ pub fn sqrt(
 pub struct RootElem {
     /// Which root of the radicand to take.
     #[positional]
-    pub index: Option<Content>,
+    pub index: Option<TypstContent>,
 
     /// The expression to take the root of.
     #[required]
-    pub radicand: Content,
+    pub radicand: TypstContent,
 }
 
 impl LayoutMath for Packed<RootElem> {
@@ -60,8 +60,8 @@ impl LayoutMath for Packed<RootElem> {
 fn layout(
     ctx: &mut MathContext,
     styles: StyleChain,
-    index: Option<&Content>,
-    radicand: &Content,
+    index: Option<&TypstContent>,
+    radicand: &TypstContent,
     span: Span,
 ) -> SourceResult<()> {
     let gap = scaled!(

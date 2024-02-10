@@ -16,8 +16,8 @@ use ecow::EcoString;
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, func, scope, Bytes, Cast, Content, NativeElement, Packed, Resolve, Smart,
-    StyleChain,
+    cast, elem, func, scope, Bytes, Cast, NativeElement, Packed, Resolve, Smart, StyleChain,
+    TypstContent,
 };
 use crate::layout::{
     Abs, Axes, FixedAlignment, Frame, FrameItem, LayoutSingle, Length, Point, Regions, Rel, Size,
@@ -122,7 +122,7 @@ impl ImageElem {
         /// How the image should adjust itself to a given area.
         #[named]
         fit: Option<ImageFit>,
-    ) -> StrResult<Content> {
+    ) -> StrResult<TypstContent> {
         let mut elem = ImageElem::new(EcoString::new(), data);
         if let Some(format) = format {
             elem.push_format(format);

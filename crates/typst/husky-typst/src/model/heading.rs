@@ -3,7 +3,7 @@ use std::num::NonZeroUsize;
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    elem, Content, NativeElement, Packed, Show, ShowSet, Smart, StyleChain, Styles, Synthesize,
+    elem, NativeElement, Packed, Show, ShowSet, Smart, StyleChain, Styles, Synthesize, TypstContent,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable};
 use crate::layout::{BlockElem, Em, HElem, VElem};
@@ -124,14 +124,14 @@ pub struct HeadingElem {
 
     /// The heading's title.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 }
 
 impl Synthesize for Packed<HeadingElem> {
     fn synthesize(&mut self, engine: &mut Engine, styles: StyleChain) -> SourceResult<()> {
         let supplement = match (**self).supplement(styles) {
             Smart::Auto => TextElem::packed(Self::local_name_in(styles)),
-            Smart::Custom(None) => Content::empty(),
+            Smart::Custom(None) => TypstContent::empty(),
             Smart::Custom(Some(supplement)) => supplement.resolve(engine, [self.clone().pack()])?,
         };
 
@@ -142,7 +142,7 @@ impl Synthesize for Packed<HeadingElem> {
 
 impl Show for Packed<HeadingElem> {
     #[husky_typst_macros::time(name = "heading", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         let mut realized = self.body().clone();
         if let Some(numbering) = (**self).numbering(styles).as_ref() {
             realized = Counter::of(HeadingElem::elem())
@@ -192,11 +192,11 @@ impl Count for Packed<HeadingElem> {
 }
 
 impl Refable for Packed<HeadingElem> {
-    fn supplement(&self) -> Content {
+    fn supplement(&self) -> TypstContent {
         // After synthesis, this should always be custom content.
         match (**self).supplement(StyleChain::default()) {
             Smart::Custom(Some(Supplement::Content(content))) => content,
-            _ => Content::empty(),
+            _ => TypstContent::empty(),
         }
     }
 
@@ -210,7 +210,7 @@ impl Refable for Packed<HeadingElem> {
 }
 
 impl Outlinable for Packed<HeadingElem> {
-    fn outline(&self, engine: &mut Engine) -> SourceResult<Option<Content>> {
+    fn outline(&self, engine: &mut Engine) -> SourceResult<Option<TypstContent>> {
         if !self.outlined(StyleChain::default()) {
             return Ok(None);
         }

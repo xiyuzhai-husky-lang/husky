@@ -2,7 +2,7 @@ use comemo::Track;
 use ecow::{eco_format, EcoString};
 use husky_typst::diag::{bail, StrResult};
 use husky_typst::eval::{eval_string, EvalMode, Tracer};
-use husky_typst::foundations::{Content, IntoTypstValue, LocatableSelector, Scope};
+use husky_typst::foundations::{IntoTypstValue, LocatableSelector, Scope, TypstContent};
 use husky_typst::model::Document;
 use husky_typst::syntax::Span;
 use husky_typst::World;
@@ -50,7 +50,7 @@ fn retrieve(
     world: &dyn World,
     command: &QueryCommand,
     document: &Document,
-) -> StrResult<Vec<Content>> {
+) -> StrResult<Vec<TypstContent>> {
     let selector = eval_string(
         world.track(),
         &command.selector,
@@ -77,7 +77,7 @@ fn retrieve(
 }
 
 /// Format the query result in the output format.
-fn format(elements: Vec<Content>, command: &QueryCommand) -> StrResult<String> {
+fn format(elements: Vec<TypstContent>, command: &QueryCommand) -> StrResult<String> {
     if command.one && elements.len() != 1 {
         bail!("expected exactly one element, found {}", elements.len());
     }

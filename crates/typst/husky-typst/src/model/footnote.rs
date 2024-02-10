@@ -4,8 +4,8 @@ use std::str::FromStr;
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, Content, Label, NativeElement, Packed, Show, ShowSet, Smart, StyleChain,
-    Styles,
+    cast, elem, scope, Label, NativeElement, Packed, Show, ShowSet, Smart, StyleChain, Styles,
+    TypstContent,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable, Location};
 use crate::layout::{Abs, Em, HElem, Length, Ratio};
@@ -84,7 +84,7 @@ impl FootnoteElem {
 
 impl FootnoteElem {
     /// Creates a new footnote that the passed content as its body.
-    pub fn with_content(content: Content) -> Self {
+    pub fn with_content(content: TypstContent) -> Self {
         Self::new(FootnoteBody::Content(content))
     }
 
@@ -99,7 +99,7 @@ impl FootnoteElem {
     }
 
     /// Returns the content of the body of this footnote if it is not a ref.
-    pub fn body_content(&self) -> Option<&Content> {
+    pub fn body_content(&self) -> Option<&TypstContent> {
         match self.body() {
             FootnoteBody::Content(content) => Some(content),
             _ => None,
@@ -125,7 +125,7 @@ impl Packed<FootnoteElem> {
 
 impl Show for Packed<FootnoteElem> {
     #[husky_typst_macros::time(name = "footnote", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         let loc = self.declaration_location(engine).at(self.span())?;
         let numbering = self.numbering(styles);
         let counter = Counter::of(FootnoteElem::elem());
@@ -147,7 +147,7 @@ impl Count for Packed<FootnoteElem> {
 /// another footnote.
 #[derive(Debug, Clone, PartialEq, Hash)]
 pub enum FootnoteBody {
-    Content(Content),
+    Content(TypstContent),
     Reference(Label),
 }
 
@@ -157,7 +157,7 @@ cast! {
         Self::Content(v) => v.into_value(),
         Self::Reference(v) => v.into_value(),
     },
-    v: Content => Self::Content(v),
+    v: TypstContent => Self::Content(v),
     v: Label => Self::Reference(v),
 }
 
@@ -221,7 +221,7 @@ pub struct FootnoteEntry {
             })
             .pack()
     )]
-    pub separator: Content,
+    pub separator: TypstContent,
 
     /// The amount of clearance between the document body and the separator.
     ///
@@ -265,7 +265,7 @@ pub struct FootnoteEntry {
 
 impl Show for Packed<FootnoteEntry> {
     #[husky_typst_macros::time(name = "footnote.entry", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         let note = self.note();
         let number_gap = Em::new(0.05);
         let default = StyleChain::default();
@@ -284,7 +284,7 @@ impl Show for Packed<FootnoteEntry> {
             .spanned(self.span())
             .linked(Destination::Location(loc))
             .backlinked(loc.variant(1));
-        Ok(Content::sequence([
+        Ok(TypstContent::sequence([
             HElem::new(self.indent(styles).into()).pack(),
             sup,
             HElem::new(number_gap.into()).with_weak(true).pack(),
@@ -306,5 +306,5 @@ impl ShowSet for Packed<FootnoteEntry> {
 
 cast! {
     FootnoteElem,
-    v: Content => v.unpack::<Self>().unwrap_or_else(Self::with_content)
+    v: TypstContent => v.unpack::<Self>().unwrap_or_else(Self::with_content)
 }

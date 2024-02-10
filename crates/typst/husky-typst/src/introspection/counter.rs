@@ -9,8 +9,8 @@ use crate::diag::{At, SourceResult, StrResult};
 use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
 use crate::foundations::{
-    cast, elem, func, scope, select_where, ty, Array, Content, Element, Func, IntoTypstValue,
-    Label, LocatableSelector, NativeElement, Packed, Repr, Selector, Show, Str, StyleChain,
+    cast, elem, func, scope, select_where, ty, Array, Element, Func, IntoTypstValue, Label,
+    LocatableSelector, NativeElement, Packed, Repr, Selector, Show, Str, StyleChain, TypstContent,
     TypstValue,
 };
 use crate::introspection::{Introspector, Locatable, Location, Locator, Meta};
@@ -373,7 +373,7 @@ impl Counter {
         #[named]
         #[default(false)]
         both: bool,
-    ) -> Content {
+    ) -> TypstContent {
         DisplayElem::new(self, numbering, both).pack().spanned(span)
     }
 
@@ -394,7 +394,7 @@ impl Counter {
         #[named]
         #[default(NonZeroUsize::ONE)]
         level: NonZeroUsize,
-    ) -> Content {
+    ) -> TypstContent {
         self.update(span, CounterUpdate::Step(level))
     }
 
@@ -412,7 +412,7 @@ impl Counter {
         /// counter value (with each number as a separate argument) and has to
         /// return the new value (integer or array).
         update: CounterUpdate,
-    ) -> Content {
+    ) -> TypstContent {
         UpdateElem::new(self.0, update).pack().spanned(span)
     }
 
@@ -600,7 +600,11 @@ impl CounterState {
     }
 
     /// Display the counter state with a numbering.
-    pub fn display(&self, engine: &mut Engine, numbering: &Numbering) -> SourceResult<Content> {
+    pub fn display(
+        &self,
+        engine: &mut Engine,
+        numbering: &Numbering,
+    ) -> SourceResult<TypstContent> {
         Ok(numbering.apply(engine, &self.0)?.display())
     }
 }
@@ -633,7 +637,7 @@ struct DisplayElem {
 
 impl Show for Packed<DisplayElem> {
     #[husky_typst_macros::time(name = "counter.display", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         let location = self.location().unwrap();
         let counter = self.counter();
         let numbering = self
@@ -679,8 +683,8 @@ struct UpdateElem {
 }
 
 impl Show for Packed<UpdateElem> {
-    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<Content> {
-        Ok(Content::empty())
+    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<TypstContent> {
+        Ok(TypstContent::empty())
     }
 }
 

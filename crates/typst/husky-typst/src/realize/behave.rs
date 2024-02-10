@@ -2,19 +2,17 @@
 
 use std::borrow::Cow;
 
-use crate::foundations::{
-    Behave, Behaviour, Content, StyleChain, StyleVec, StyleVecBuilder,
-};
+use crate::foundations::{Behave, Behaviour, StyleChain, StyleVec, StyleVecBuilder, TypstContent};
 
 /// A wrapper around a [`StyleVecBuilder`] that allows elements to interact.
 #[derive(Debug)]
 pub struct BehavedBuilder<'a> {
     /// The internal builder.
-    builder: StyleVecBuilder<'a, Cow<'a, Content>>,
+    builder: StyleVecBuilder<'a, Cow<'a, TypstContent>>,
     /// Staged weak and ignorant elements that we can't yet commit to the
     /// builder. The option is `Some(_)` for weak elements and `None` for
     /// ignorant elements.
-    staged: Vec<(Cow<'a, Content>, Behaviour, StyleChain<'a>)>,
+    staged: Vec<(Cow<'a, TypstContent>, Behaviour, StyleChain<'a>)>,
     /// What the last non-ignorant item was.
     last: Behaviour,
 }
@@ -45,7 +43,7 @@ impl<'a> BehavedBuilder<'a> {
     }
 
     /// Push an item into the sequence.
-    pub fn push(&mut self, elem: Cow<'a, Content>, styles: StyleChain<'a>) {
+    pub fn push(&mut self, elem: Cow<'a, TypstContent>, styles: StyleChain<'a>) {
         let interaction = elem
             .with::<dyn Behave>()
             .map_or(Behaviour::Supportive, Behave::behaviour);
@@ -55,9 +53,10 @@ impl<'a> BehavedBuilder<'a> {
                 if matches!(self.last, Behaviour::Weak(_)) {
                     let item = elem.with::<dyn Behave>().unwrap();
                     let i = self.staged.iter().position(|prev| {
-                        let Behaviour::Weak(prev_level) = prev.1 else { return false };
-                        level < prev_level
-                            || (level == prev_level && item.larger(prev, styles))
+                        let Behaviour::Weak(prev_level) = prev.1 else {
+                            return false;
+                        };
+                        level < prev_level || (level == prev_level && item.larger(prev, styles))
                     });
                     let Some(i) = i else { return };
                     self.staged.remove(i);
@@ -85,7 +84,7 @@ impl<'a> BehavedBuilder<'a> {
     }
 
     /// Return the finish style vec and the common prefix chain.
-    pub fn finish(mut self) -> (StyleVec<Cow<'a, Content>>, StyleChain<'a>) {
+    pub fn finish(mut self) -> (StyleVec<Cow<'a, TypstContent>>, StyleChain<'a>) {
         self.flush(false);
         self.builder.finish()
     }

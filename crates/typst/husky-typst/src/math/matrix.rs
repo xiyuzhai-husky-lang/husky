@@ -2,8 +2,8 @@ use smallvec::{smallvec, SmallVec};
 
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::foundations::{
-    cast, dict, elem, Array, Cast, Content, Fold, Packed, Resolve, Smart, StyleChain, TypstDict,
-    TypstValue,
+    cast, dict, elem, Array, Cast, Fold, Packed, Resolve, Smart, StyleChain, TypstContent,
+    TypstDict, TypstValue,
 };
 use crate::layout::{
     Abs, Axes, Em, FixedAlignment, Frame, FrameItem, Length, Point, Ratio, Rel, Size,
@@ -54,7 +54,7 @@ pub struct VecElem {
 
     /// The elements of the vector.
     #[variadic]
-    pub children: Vec<Content>,
+    pub children: Vec<TypstContent>,
 }
 
 impl LayoutMath for Packed<VecElem> {
@@ -204,13 +204,13 @@ pub struct MatElem {
 
         for row in &mut rows {
             if row.len() < width {
-                row.resize(width, Content::empty());
+                row.resize(width, TypstContent::empty());
             }
         }
 
         rows
     )]
-    pub rows: Vec<Vec<Content>>,
+    pub rows: Vec<Vec<TypstContent>>,
 }
 
 impl LayoutMath for Packed<MatElem> {
@@ -319,7 +319,7 @@ pub struct CasesElem {
 
     /// The branches of the case distinction.
     #[variadic]
-    pub children: Vec<Content>,
+    pub children: Vec<TypstContent>,
 }
 
 impl LayoutMath for Packed<CasesElem> {
@@ -392,7 +392,7 @@ impl Delimiter {
 fn layout_vec_body(
     ctx: &mut MathContext,
     styles: StyleChain,
-    column: &[Content],
+    column: &[TypstContent],
     align: FixedAlignment,
     row_gap: Rel<Abs>,
 ) -> SourceResult<Frame> {
@@ -411,7 +411,7 @@ fn layout_vec_body(
 fn layout_mat_body(
     ctx: &mut MathContext,
     styles: StyleChain,
-    rows: &[Vec<Content>],
+    rows: &[Vec<TypstContent>],
     augment: Option<Augment<Abs>>,
     gap: Axes<Rel<Abs>>,
     span: Span,

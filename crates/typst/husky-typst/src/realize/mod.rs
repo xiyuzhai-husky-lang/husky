@@ -14,8 +14,8 @@ use typed_arena::Arena;
 use crate::diag::{bail, SourceResult};
 use crate::engine::{Engine, Route};
 use crate::foundations::{
-    Behave, Behaviour, Content, NativeElement, Packed, Recipe, RecipeIndex, Regex, Selector, Show,
-    ShowSet, Style, StyleChain, StyleVec, StyleVecBuilder, Styles, Synthesize, Transformation,
+    Behave, Behaviour, NativeElement, Packed, Recipe, RecipeIndex, Regex, Selector, Show, ShowSet,
+    Style, StyleChain, StyleVec, StyleVecBuilder, Styles, Synthesize, Transformation, TypstContent,
 };
 use crate::introspection::{Locatable, Meta, MetaElem};
 use crate::layout::{
@@ -36,7 +36,7 @@ use crate::util::{hash128, BitSet};
 pub fn realize_root<'a>(
     engine: &mut Engine,
     scratch: &'a Scratch<'a>,
-    content: &'a Content,
+    content: &'a TypstContent,
     styles: StyleChain<'a>,
 ) -> SourceResult<(Packed<DocumentElem>, StyleChain<'a>)> {
     let mut builder = Builder::new(engine, scratch, true);
@@ -55,9 +55,9 @@ pub fn realize_root<'a>(
 pub fn realize_block<'a>(
     engine: &mut Engine,
     scratch: &'a Scratch<'a>,
-    content: &'a Content,
+    content: &'a TypstContent,
     styles: StyleChain<'a>,
-) -> SourceResult<(Cow<'a, Content>, StyleChain<'a>)> {
+) -> SourceResult<(Cow<'a, TypstContent>, StyleChain<'a>)> {
     // These elements implement `Layout` but still require a flow for
     // proper layout.
     if content.can::<dyn LayoutMultiple>() && verdict(engine, content, styles).is_none() {
@@ -79,9 +79,9 @@ pub fn realize_block<'a>(
 /// Apply the show rules in the given style chain to a target element.
 pub fn realize(
     engine: &mut Engine,
-    target: &Content,
+    target: &TypstContent,
     styles: StyleChain,
-) -> SourceResult<Option<Content>> {
+) -> SourceResult<Option<TypstContent>> {
     let Some(Verdict {
         prepared,
         mut map,
@@ -146,7 +146,7 @@ enum ShowStep<'a> {
 /// proceed with the styling.
 fn verdict<'a>(
     engine: &mut Engine,
-    target: &'a Content,
+    target: &'a TypstContent,
     styles: StyleChain<'a>,
 ) -> Option<Verdict<'a>> {
     let mut target = target;
@@ -248,7 +248,7 @@ fn verdict<'a>(
 /// This is only executed the first time an element is visited.
 fn prepare(
     engine: &mut Engine,
-    target: &mut Content,
+    target: &mut TypstContent,
     map: &mut Styles,
     styles: StyleChain,
 ) -> SourceResult<Option<Packed<MetaElem>>> {
@@ -300,10 +300,10 @@ fn prepare(
 /// Apply a step.
 fn show(
     engine: &mut Engine,
-    target: Content,
+    target: TypstContent,
     step: ShowStep,
     styles: StyleChain,
-) -> SourceResult<Content> {
+) -> SourceResult<TypstContent> {
     match step {
         // Apply a user-defined show rule.
         ShowStep::Recipe(recipe, guard) => match &recipe.selector {
@@ -331,7 +331,7 @@ fn show_regex(
     regex: &Regex,
     recipe: &Recipe,
     index: RecipeIndex,
-) -> SourceResult<Content> {
+) -> SourceResult<TypstContent> {
     let make = |s: &str| {
         let mut fresh = elem.clone();
         fresh.push_text(s.into());
@@ -370,7 +370,7 @@ fn show_regex(
     // that rematches is bad practice: It can for instance also lead to
     // surprising query results, so it's better to let the user deal with it.
     // All these problems don't exist for text, so it's fine here.
-    Ok(Content::sequence(result).styled(Style::Revocation(index)))
+    Ok(TypstContent::sequence(result).styled(Style::Revocation(index)))
 }
 
 /// Builds a document or a flow element from content.
@@ -397,7 +397,7 @@ pub struct Scratch<'a> {
     /// An arena where intermediate style chains are stored.
     styles: Arena<StyleChain<'a>>,
     /// An arena where intermediate content resulting from show rules is stored.
-    content: Arena<Content>,
+    content: Arena<TypstContent>,
 }
 
 impl<'a, 'v, 't> Builder<'a, 'v, 't> {
@@ -413,7 +413,11 @@ impl<'a, 'v, 't> Builder<'a, 'v, 't> {
         }
     }
 
-    fn accept(&mut self, mut content: &'a Content, styles: StyleChain<'a>) -> SourceResult<()> {
+    fn accept(
+        &mut self,
+        mut content: &'a TypstContent,
+        styles: StyleChain<'a>,
+    ) -> SourceResult<()> {
         if content.can::<dyn LayoutMath>() && !content.is::<EquationElem>() {
             content = self.scratch.content.alloc(
                 EquationElem::new(content.clone())
@@ -501,7 +505,7 @@ impl<'a, 'v, 't> Builder<'a, 'v, 't> {
 
     fn styled(
         &mut self,
-        elem: &'a Content,
+        elem: &'a TypstContent,
         map: &'a Styles,
         styles: StyleChain<'a>,
     ) -> SourceResult<()> {
@@ -616,7 +620,7 @@ impl<'a, 'v, 't> Builder<'a, 'v, 't> {
 /// Accepts pagebreaks and pages.
 struct DocBuilder<'a> {
     /// The page runs built so far.
-    pages: StyleVecBuilder<'a, Cow<'a, Content>>,
+    pages: StyleVecBuilder<'a, Cow<'a, TypstContent>>,
     /// Whether to keep a following page even if it is empty.
     keep_next: bool,
     /// Whether the next page should be cleared to an even or odd number.
@@ -624,7 +628,7 @@ struct DocBuilder<'a> {
 }
 
 impl<'a> DocBuilder<'a> {
-    fn accept(&mut self, content: &'a Content, styles: StyleChain<'a>) -> bool {
+    fn accept(&mut self, content: &'a TypstContent, styles: StyleChain<'a>) -> bool {
         if let Some(pagebreak) = content.to_packed::<PagebreakElem>() {
             self.keep_next = !pagebreak.weak(styles);
             self.clear_next = pagebreak.to(styles);
@@ -664,7 +668,7 @@ impl Default for DocBuilder<'_> {
 struct FlowBuilder<'a>(BehavedBuilder<'a>, bool);
 
 impl<'a> FlowBuilder<'a> {
-    fn accept(&mut self, content: &'a Content, styles: StyleChain<'a>) -> bool {
+    fn accept(&mut self, content: &'a TypstContent, styles: StyleChain<'a>) -> bool {
         if content.is::<ParbreakElem>() {
             self.1 = true;
             return true;
@@ -723,7 +727,7 @@ impl<'a> FlowBuilder<'a> {
 struct ParBuilder<'a>(BehavedBuilder<'a>);
 
 impl<'a> ParBuilder<'a> {
-    fn accept(&mut self, content: &'a Content, styles: StyleChain<'a>) -> bool {
+    fn accept(&mut self, content: &'a TypstContent, styles: StyleChain<'a>) -> bool {
         if content.is::<MetaElem>() {
             if self.0.has_strong_elements(false) {
                 self.0.push(Cow::Borrowed(content), styles);
@@ -746,7 +750,7 @@ impl<'a> ParBuilder<'a> {
         false
     }
 
-    fn finish(self) -> (Content, StyleChain<'a>) {
+    fn finish(self) -> (TypstContent, StyleChain<'a>) {
         let (children, shared) = self.0.finish();
         let span = first_span(&children);
         (ParElem::new(children.to_vec()).pack().spanned(span), shared)
@@ -756,15 +760,15 @@ impl<'a> ParBuilder<'a> {
 /// Accepts list / enum items, spaces, paragraph breaks.
 struct ListBuilder<'a> {
     /// The list items collected so far.
-    items: StyleVecBuilder<'a, Cow<'a, Content>>,
+    items: StyleVecBuilder<'a, Cow<'a, TypstContent>>,
     /// Whether the list contains no paragraph breaks.
     tight: bool,
     /// Trailing content for which it is unclear whether it is part of the list.
-    staged: Vec<(&'a Content, StyleChain<'a>)>,
+    staged: Vec<(&'a TypstContent, StyleChain<'a>)>,
 }
 
 impl<'a> ListBuilder<'a> {
-    fn accept(&mut self, content: &'a Content, styles: StyleChain<'a>) -> bool {
+    fn accept(&mut self, content: &'a TypstContent, styles: StyleChain<'a>) -> bool {
         if !self.items.is_empty() && (content.is::<SpaceElem>() || content.is::<ParbreakElem>()) {
             self.staged.push((content, styles));
             return true;
@@ -785,7 +789,7 @@ impl<'a> ListBuilder<'a> {
         false
     }
 
-    fn finish(self) -> (Content, StyleChain<'a>) {
+    fn finish(self) -> (TypstContent, StyleChain<'a>) {
         let (items, shared) = self.items.finish();
         let span = first_span(&items);
         let item = items.items().next().unwrap();
@@ -861,11 +865,11 @@ struct CiteGroupBuilder<'a> {
     /// The citations.
     items: Vec<Packed<CiteElem>>,
     /// Trailing content for which it is unclear whether it is part of the list.
-    staged: Vec<(&'a Content, StyleChain<'a>)>,
+    staged: Vec<(&'a TypstContent, StyleChain<'a>)>,
 }
 
 impl<'a> CiteGroupBuilder<'a> {
-    fn accept(&mut self, content: &'a Content, styles: StyleChain<'a>) -> bool {
+    fn accept(&mut self, content: &'a TypstContent, styles: StyleChain<'a>) -> bool {
         if !self.items.is_empty() && (content.is::<SpaceElem>() || content.is::<MetaElem>()) {
             self.staged.push((content, styles));
             return true;
@@ -883,7 +887,7 @@ impl<'a> CiteGroupBuilder<'a> {
         false
     }
 
-    fn finish(self) -> (Content, StyleChain<'a>) {
+    fn finish(self) -> (TypstContent, StyleChain<'a>) {
         let span = self
             .items
             .first()
@@ -894,7 +898,7 @@ impl<'a> CiteGroupBuilder<'a> {
 }
 
 /// Find the first span that isn't detached.
-fn first_span(children: &StyleVec<Cow<Content>>) -> Span {
+fn first_span(children: &StyleVec<Cow<TypstContent>>) -> Span {
     children
         .iter()
         .filter(|(elem, _)| {

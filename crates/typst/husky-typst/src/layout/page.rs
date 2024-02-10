@@ -6,8 +6,8 @@ use std::str::FromStr;
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, AutoValue, Cast, Content, Fold, Func, NativeElement, Packed, Resolve, Smart,
-    StyleChain, TypstDict, TypstValue,
+    cast, elem, AutoValue, Cast, Fold, Func, NativeElement, Packed, Resolve, Smart, StyleChain,
+    TypstContent, TypstDict, TypstValue,
 };
 use crate::introspection::{Counter, CounterKey, ManualPageCounter};
 use crate::layout::{
@@ -249,7 +249,7 @@ pub struct PageElem {
     /// #lorem(19)
     /// ```
     #[borrowed]
-    pub header: Option<Content>,
+    pub header: Option<TypstContent>,
 
     /// The amount the header is raised into the top margin.
     #[resolve]
@@ -280,7 +280,7 @@ pub struct PageElem {
     /// #lorem(48)
     /// ```
     #[borrowed]
-    pub footer: Option<Content>,
+    pub footer: Option<TypstContent>,
 
     /// The amount the footer is lowered into the bottom margin.
     #[resolve]
@@ -304,7 +304,7 @@ pub struct PageElem {
     /// over the world (of typesetting).
     /// ```
     #[borrowed]
-    pub background: Option<Content>,
+    pub background: Option<TypstContent>,
 
     /// Content in the page's foreground.
     ///
@@ -318,7 +318,7 @@ pub struct PageElem {
     /// not understand our approach...
     /// ```
     #[borrowed]
-    pub foreground: Option<Content>,
+    pub foreground: Option<TypstContent>,
 
     /// The contents of the page(s).
     ///
@@ -326,7 +326,7 @@ pub struct PageElem {
     /// page. A new page with the page properties prior to the function invocation
     /// will be created after the body has been typeset.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 
     /// Whether the page should be aligned to an even or odd page.
     #[internal]
@@ -673,14 +673,14 @@ cast! {
 #[derive(Debug, Clone, Hash)]
 pub enum Marginal {
     /// Bare content.
-    Content(Content),
+    Content(TypstContent),
     /// A closure mapping from a page number to content.
     Func(Func),
 }
 
 impl Marginal {
     /// Resolve the marginal based on the page number.
-    pub fn resolve(&self, engine: &mut Engine, page: usize) -> SourceResult<Cow<'_, Content>> {
+    pub fn resolve(&self, engine: &mut Engine, page: usize) -> SourceResult<Cow<'_, TypstContent>> {
         Ok(match self {
             Self::Content(content) => Cow::Borrowed(content),
             Self::Func(func) => Cow::Owned(func.call(engine, [page])?.display()),
@@ -694,7 +694,7 @@ cast! {
         Self::Content(v) => v.into_value(),
         Self::Func(v) => v.into_value(),
     },
-    v: Content => Self::Content(v),
+    v: TypstContent => Self::Content(v),
     v: Func => Self::Func(v),
 }
 

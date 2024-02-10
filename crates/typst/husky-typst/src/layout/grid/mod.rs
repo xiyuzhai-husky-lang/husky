@@ -10,7 +10,7 @@ use smallvec::{smallvec, SmallVec};
 use crate::diag::{SourceResult, StrResult, Trace, Tracepoint};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, Array, Content, Fold, Packed, Show, Smart, StyleChain, TypstValue,
+    cast, elem, scope, Array, Fold, Packed, Show, Smart, StyleChain, TypstContent, TypstValue,
 };
 use crate::layout::{
     AlignElem, Alignment, Axes, Fragment, LayoutMultiple, Length, Regions, Rel, Sides, Sizing,
@@ -382,7 +382,7 @@ cast! {
 pub struct GridCell {
     /// The cell's body.
     #[required]
-    body: Content,
+    body: TypstContent,
 
     /// The cell's column (zero-indexed).
     /// This field may be used in show rules to style a cell depending on its
@@ -444,12 +444,12 @@ pub struct GridCell {
 
 cast! {
     GridCell,
-    v: Content => v.into(),
+    v: TypstContent => v.into(),
 }
 
 impl Default for Packed<GridCell> {
     fn default() -> Self {
-        Packed::new(GridCell::new(Content::default()))
+        Packed::new(GridCell::new(TypstContent::default()))
     }
 }
 
@@ -506,13 +506,13 @@ impl ResolvableCell for Packed<GridCell> {
 }
 
 impl Show for Packed<GridCell> {
-    fn show(&self, _engine: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, _engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         show_grid_cell(self.body().clone(), self.inset(styles), self.align(styles))
     }
 }
 
-impl From<Content> for GridCell {
-    fn from(value: Content) -> Self {
+impl From<TypstContent> for GridCell {
+    fn from(value: TypstContent) -> Self {
         #[allow(clippy::unwrap_or_default)]
         value.unpack::<Self>().unwrap_or_else(Self::new)
     }
@@ -520,10 +520,10 @@ impl From<Content> for GridCell {
 
 /// Function with common code to display a grid cell or table cell.
 pub fn show_grid_cell(
-    mut body: Content,
+    mut body: TypstContent,
     inset: Smart<Sides<Option<Rel<Length>>>>,
     align: Smart<Alignment>,
-) -> SourceResult<Content> {
+) -> SourceResult<TypstContent> {
     let inset = inset.unwrap_or_default().map(Option::unwrap_or_default);
 
     if inset != Sides::default() {

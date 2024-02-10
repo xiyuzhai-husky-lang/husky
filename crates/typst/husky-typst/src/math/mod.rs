@@ -43,7 +43,7 @@ use self::spacing::*;
 use std::borrow::Cow;
 
 use crate::diag::SourceResult;
-use crate::foundations::{category, Category, Content, Module, Resolve, Scope, StyleChain};
+use crate::foundations::{category, Category, Module, Resolve, Scope, StyleChain, TypstContent};
 use crate::layout::{BoxElem, HElem, Spacing};
 use crate::realize::{realize, BehavedBuilder};
 use crate::text::{LinebreakElem, SpaceElem, TextElem};
@@ -217,7 +217,7 @@ pub trait LayoutMath {
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()>;
 }
 
-impl LayoutMath for Content {
+impl LayoutMath for TypstContent {
     #[husky_typst_macros::time(name = "math", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         // Directly layout the body of nested equations instead of handling it
@@ -236,7 +236,7 @@ impl LayoutMath for Content {
 
         if self.is_sequence() {
             let mut bb = BehavedBuilder::new();
-            self.sequence_recursive_for_each(&mut |child: &Content| {
+            self.sequence_recursive_for_each(&mut |child: &TypstContent| {
                 bb.push(Cow::Owned(child.clone()), StyleChain::default())
             });
 

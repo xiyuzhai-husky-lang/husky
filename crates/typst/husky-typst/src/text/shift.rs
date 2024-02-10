@@ -2,7 +2,7 @@ use ecow::EcoString;
 
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{elem, Content, Packed, Show, StyleChain};
+use crate::foundations::{elem, Packed, Show, StyleChain, TypstContent};
 use crate::layout::{Em, Length};
 use crate::text::{variant, SpaceElem, TextElem, TextSize};
 use crate::World;
@@ -44,12 +44,12 @@ pub struct SubElem {
 
     /// The text to display in subscript.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 }
 
 impl Show for Packed<SubElem> {
     #[husky_typst_macros::time(name = "sub", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         let body = self.body().clone();
         let mut transformed = None;
         if self.typographic(styles) {
@@ -104,12 +104,12 @@ pub struct SuperElem {
 
     /// The text to display in superscript.
     #[required]
-    pub body: Content,
+    pub body: TypstContent,
 }
 
 impl Show for Packed<SuperElem> {
     #[husky_typst_macros::time(name = "super", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<Content> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
         let body = self.body().clone();
         let mut transformed = None;
         if self.typographic(styles) {
@@ -129,7 +129,7 @@ impl Show for Packed<SuperElem> {
 
 /// Find and transform the text contained in `content` to the given script kind
 /// if and only if it only consists of `Text`, `Space`, and `Empty` leafs.
-fn search_text(content: &Content, sub: bool) -> Option<EcoString> {
+fn search_text(content: &TypstContent, sub: bool) -> Option<EcoString> {
     if content.is::<SpaceElem>() {
         Some(' '.into())
     } else if let Some(elem) = content.to_packed::<TextElem>() {

@@ -2,15 +2,15 @@ use ecow::eco_format;
 
 use crate::diag::{At, SourceResult};
 use crate::eval::{Eval, Vm};
-use crate::foundations::{Content, NativeElement, TypstValue};
+use crate::foundations::{NativeElement, TypstContent, TypstValue};
 use crate::math::{AlignPointElem, AttachElem, FracElem, LrElem, PrimesElem, RootElem};
 use crate::syntax::ast::{self, AstNode};
 use crate::text::TextElem;
 
 impl Eval for ast::Math<'_> {
-    type Output = Content;
+    type Output = TypstContent;
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
-        Ok(Content::sequence(
+        Ok(TypstContent::sequence(
             self.exprs()
                 .map(|expr| expr.eval_display(vm))
                 .collect::<SourceResult<Vec<_>>>()?,
@@ -27,7 +27,7 @@ impl Eval for ast::MathIdent<'_> {
 }
 
 impl Eval for ast::MathAlignPoint<'_> {
-    type Output = Content;
+    type Output = TypstContent;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
         Ok(AlignPointElem::new().pack())
@@ -35,7 +35,7 @@ impl Eval for ast::MathAlignPoint<'_> {
 }
 
 impl Eval for ast::MathDelimited<'_> {
-    type Output = Content;
+    type Output = TypstContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let open = self.open().eval_display(vm)?;
@@ -46,7 +46,7 @@ impl Eval for ast::MathDelimited<'_> {
 }
 
 impl Eval for ast::MathAttach<'_> {
-    type Output = Content;
+    type Output = TypstContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let base = self.base().eval_display(vm)?;
@@ -67,7 +67,7 @@ impl Eval for ast::MathAttach<'_> {
 }
 
 impl Eval for ast::MathPrimes<'_> {
-    type Output = Content;
+    type Output = TypstContent;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
         Ok(PrimesElem::new(self.count()).pack())
@@ -75,7 +75,7 @@ impl Eval for ast::MathPrimes<'_> {
 }
 
 impl Eval for ast::MathFrac<'_> {
-    type Output = Content;
+    type Output = TypstContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let num = self.num().eval_display(vm)?;
@@ -85,7 +85,7 @@ impl Eval for ast::MathFrac<'_> {
 }
 
 impl Eval for ast::MathRoot<'_> {
-    type Output = Content;
+    type Output = TypstContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let index = self.index().map(|i| TextElem::packed(eco_format!("{i}")));
@@ -95,11 +95,11 @@ impl Eval for ast::MathRoot<'_> {
 }
 
 trait ExprExt {
-    fn eval_display(&self, vm: &mut Vm) -> SourceResult<Content>;
+    fn eval_display(&self, vm: &mut Vm) -> SourceResult<TypstContent>;
 }
 
 impl ExprExt for ast::Expr<'_> {
-    fn eval_display(&self, vm: &mut Vm) -> SourceResult<Content> {
+    fn eval_display(&self, vm: &mut Vm) -> SourceResult<TypstContent> {
         Ok(self.eval(vm)?.display().spanned(self.span()))
     }
 }

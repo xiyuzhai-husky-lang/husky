@@ -1,7 +1,7 @@
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, Array, Content, NativeElement, Packed, Smart, StyleChain,
+    cast, elem, scope, Array, NativeElement, Packed, Smart, StyleChain, TypstContent,
 };
 use crate::layout::{
     BlockElem, Dir, Em, Fragment, HElem, LayoutMultiple, Length, Regions, Sides, Spacing,
@@ -65,7 +65,7 @@ pub struct TermsElem {
     /// ```
     #[default(HElem::new(Em::new(0.6).into()).with_weak(true).pack())]
     #[borrowed]
-    pub separator: Content,
+    pub separator: TypstContent,
 
     /// The indentation of each item.
     pub indent: Length,
@@ -138,7 +138,7 @@ impl LayoutMultiple for Packed<TermsElem> {
             seq.push(child.term().clone().strong());
             seq.push((*separator).clone());
             seq.push(child.description().clone());
-            children.push(StackChild::Block(Content::sequence(seq)));
+            children.push(StackChild::Block(TypstContent::sequence(seq)));
         }
 
         let mut padding = Sides::default();
@@ -161,11 +161,11 @@ impl LayoutMultiple for Packed<TermsElem> {
 pub struct TermItem {
     /// The term described by the list item.
     #[required]
-    pub term: Content,
+    pub term: TypstContent,
 
     /// The description of the term.
     #[required]
-    pub description: Content,
+    pub description: TypstContent,
 }
 
 cast! {
@@ -178,5 +178,5 @@ cast! {
         };
         Self::new(term, description)
     },
-    v: Content => v.unpack::<Self>().map_err(|_| "expected term item or array")?,
+    v: TypstContent => v.unpack::<Self>().map_err(|_| "expected term item or array")?,
 }
