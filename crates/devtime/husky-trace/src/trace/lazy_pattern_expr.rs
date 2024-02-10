@@ -22,6 +22,7 @@ pub enum LazyPatternExprEssence {
     AdHoc,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct LazyPatternExprTraceData {
     path: TracePath,
@@ -29,7 +30,9 @@ pub struct LazyPatternExprTraceData {
     syn_pattern_expr_idx: SynPatternExprIdx,
     hir_lazy_pattern_expr_idx: Option<HirLazyPatternExprIdx>,
     hir_lazy_variable_idxs: IdentPairMap<Option<HirLazyVariableIdx>>,
+    #[skip_fmt]
     sema_expr_region: SemaExprRegion,
+    #[skip_fmt]
     hir_lazy_expr_region: HirLazyExprRegion,
 }
 

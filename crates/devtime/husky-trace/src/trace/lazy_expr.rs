@@ -22,14 +22,18 @@ pub enum LazyExprEssence {
     Haha,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LazyExprTraceData {
     path: TracePath,
     biological_parent: Trace,
     sema_expr_idx: SemaExprIdx,
     hir_lazy_expr_idx: Option<HirLazyExprIdx>,
+    #[skip_fmt]
     sema_expr_region: SemaExprRegion,
+    #[skip_fmt]
     hir_lazy_expr_region: HirLazyExprRegion,
+    #[skip_fmt]
     hir_lazy_expr_source_map: HirLazyExprSourceMap,
 }
 

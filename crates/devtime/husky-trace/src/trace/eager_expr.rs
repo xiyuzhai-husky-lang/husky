@@ -31,8 +31,11 @@ pub struct EagerExprTraceData {
     biological_parent: Trace,
     sema_expr_idx: SemaExprIdx,
     hir_eager_expr_idx: Option<HirEagerExprIdx>,
+    #[skip_fmt]
     sema_expr_region: SemaExprRegion,
+    #[skip_fmt]
     hir_eager_expr_region: HirEagerExprRegion,
+    #[skip_fmt]
     hir_eager_expr_source_map: HirEagerExprSourceMap,
 }
 

@@ -8,12 +8,15 @@ pub struct EagerCallInputTracePathData {
     biological_parent_path: TracePath,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EagerCallInputTraceData {
     path: TracePath,
     biological_parent: Trace,
     input_sketch: EagerCallInputSketch,
+    #[skip_fmt]
     caller_sema_expr_region: SemaExprRegion,
+    #[skip_fmt]
     callee_syn_expr_region: SynExprRegion,
 }
 
