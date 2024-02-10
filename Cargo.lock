@@ -6512,6 +6512,229 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-typst"
+version = "0.1.0"
+dependencies = [
+ "az",
+ "bitflags 2.4.2",
+ "chinese-number",
+ "ciborium",
+ "comemo",
+ "csv",
+ "ecow",
+ "fontdb",
+ "hayagriva",
+ "husky-typst-macros",
+ "husky-typst-syntax",
+ "husky-typst-timing",
+ "hypher",
+ "icu_properties",
+ "icu_provider",
+ "icu_provider_adapters",
+ "icu_provider_blob",
+ "icu_segmenter",
+ "image",
+ "indexmap 2.2.2",
+ "kurbo",
+ "lipsum",
+ "log",
+ "once_cell",
+ "palette",
+ "phf",
+ "rayon",
+ "regex",
+ "roxmltree",
+ "rustybuzz",
+ "serde",
+ "serde_json",
+ "serde_yaml 0.9.31",
+ "siphasher 1.0.0",
+ "smallvec",
+ "stacker",
+ "syntect",
+ "time",
+ "toml",
+ "ttf-parser 0.20.0",
+ "two-face",
+ "typed-arena",
+ "unicode-bidi",
+ "unicode-math-class",
+ "unicode-script",
+ "unicode-segmentation",
+ "usvg",
+ "wasmi",
+]
+
+[[package]]
+name = "husky-typst-cli"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "clap 4.5.0",
+ "clap_complete",
+ "clap_mangen",
+ "codespan-reporting",
+ "comemo",
+ "ctrlc",
+ "dirs 5.0.1",
+ "ecow",
+ "env_proxy",
+ "flate2",
+ "fontdb",
+ "husky-typst",
+ "husky-typst-macros",
+ "husky-typst-pdf",
+ "husky-typst-render",
+ "husky-typst-svg",
+ "husky-typst-timing",
+ "native-tls",
+ "notify",
+ "once_cell",
+ "open",
+ "parking_lot",
+ "pathdiff",
+ "rayon",
+ "same-file",
+ "self-replace",
+ "semver",
+ "serde",
+ "serde_json",
+ "serde_yaml 0.9.31",
+ "siphasher 1.0.0",
+ "tar",
+ "tempfile",
+ "ureq",
+ "xz2",
+ "zip",
+]
+
+[[package]]
+name = "husky-typst-docs"
+version = "0.1.0"
+dependencies = [
+ "comemo",
+ "ecow",
+ "heck",
+ "husky-typst",
+ "include_dir",
+ "once_cell",
+ "pulldown-cmark",
+ "serde",
+ "serde_yaml 0.9.31",
+ "syntect",
+ "typed-arena",
+ "unicode_names2",
+ "unscanny",
+ "yaml-front-matter",
+]
+
+[[package]]
+name = "husky-typst-ide"
+version = "0.1.0"
+dependencies = [
+ "comemo",
+ "ecow",
+ "husky-typst",
+ "if_chain",
+ "log",
+ "serde",
+ "unscanny",
+]
+
+[[package]]
+name = "husky-typst-macros"
+version = "0.1.0"
+dependencies = [
+ "heck",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.48",
+]
+
+[[package]]
+name = "husky-typst-pdf"
+version = "0.1.0"
+dependencies = [
+ "base64",
+ "bytemuck",
+ "comemo",
+ "ecow",
+ "husky-typst",
+ "husky-typst-macros",
+ "husky-typst-timing",
+ "image",
+ "miniz_oxide",
+ "once_cell",
+ "pdf-writer",
+ "subsetter",
+ "svg2pdf",
+ "ttf-parser 0.20.0",
+ "unicode-properties",
+ "unscanny",
+ "xmp-writer",
+]
+
+[[package]]
+name = "husky-typst-render"
+version = "0.1.0"
+dependencies = [
+ "bytemuck",
+ "comemo",
+ "flate2",
+ "husky-typst",
+ "husky-typst-macros",
+ "husky-typst-timing",
+ "image",
+ "pixglyph",
+ "resvg",
+ "roxmltree",
+ "tiny-skia",
+ "ttf-parser 0.20.0",
+ "usvg",
+]
+
+[[package]]
+name = "husky-typst-svg"
+version = "0.1.0"
+dependencies = [
+ "base64",
+ "comemo",
+ "ecow",
+ "flate2",
+ "husky-typst",
+ "husky-typst-macros",
+ "husky-typst-timing",
+ "ttf-parser 0.20.0",
+ "xmlparser",
+ "xmlwriter",
+]
+
+[[package]]
+name = "husky-typst-syntax"
+version = "0.1.0"
+dependencies = [
+ "comemo",
+ "ecow",
+ "once_cell",
+ "serde",
+ "unicode-ident",
+ "unicode-math-class",
+ "unicode-script",
+ "unicode-segmentation",
+ "unscanny",
+]
+
+[[package]]
+name = "husky-typst-timing"
+version = "0.1.0"
+dependencies = [
+ "husky-typst-syntax",
+ "parking_lot",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "husky-unicode-symbols"
 version = "0.1.0"
 
@@ -10815,229 +11038,6 @@ name = "typenum"
 version = "1.17.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "42ff0bf0c66b8238c6f3b578df37d0b7848e55df8577b3f74f92a69acceeb825"
-
-[[package]]
-name = "typst"
-version = "0.1.0"
-dependencies = [
- "az",
- "bitflags 2.4.2",
- "chinese-number",
- "ciborium",
- "comemo",
- "csv",
- "ecow",
- "fontdb",
- "hayagriva",
- "hypher",
- "icu_properties",
- "icu_provider",
- "icu_provider_adapters",
- "icu_provider_blob",
- "icu_segmenter",
- "image",
- "indexmap 2.2.2",
- "kurbo",
- "lipsum",
- "log",
- "once_cell",
- "palette",
- "phf",
- "rayon",
- "regex",
- "roxmltree",
- "rustybuzz",
- "serde",
- "serde_json",
- "serde_yaml 0.9.31",
- "siphasher 1.0.0",
- "smallvec",
- "stacker",
- "syntect",
- "time",
- "toml",
- "ttf-parser 0.20.0",
- "two-face",
- "typed-arena",
- "typst-macros",
- "typst-syntax",
- "typst-timing",
- "unicode-bidi",
- "unicode-math-class",
- "unicode-script",
- "unicode-segmentation",
- "usvg",
- "wasmi",
-]
-
-[[package]]
-name = "typst-cli"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "clap 4.5.0",
- "clap_complete",
- "clap_mangen",
- "codespan-reporting",
- "comemo",
- "ctrlc",
- "dirs 5.0.1",
- "ecow",
- "env_proxy",
- "flate2",
- "fontdb",
- "native-tls",
- "notify",
- "once_cell",
- "open",
- "parking_lot",
- "pathdiff",
- "rayon",
- "same-file",
- "self-replace",
- "semver",
- "serde",
- "serde_json",
- "serde_yaml 0.9.31",
- "siphasher 1.0.0",
- "tar",
- "tempfile",
- "typst",
- "typst-macros",
- "typst-pdf",
- "typst-render",
- "typst-svg",
- "typst-timing",
- "ureq",
- "xz2",
- "zip",
-]
-
-[[package]]
-name = "typst-docs"
-version = "0.1.0"
-dependencies = [
- "comemo",
- "ecow",
- "heck",
- "include_dir",
- "once_cell",
- "pulldown-cmark",
- "serde",
- "serde_yaml 0.9.31",
- "syntect",
- "typed-arena",
- "typst",
- "unicode_names2",
- "unscanny",
- "yaml-front-matter",
-]
-
-[[package]]
-name = "typst-ide"
-version = "0.1.0"
-dependencies = [
- "comemo",
- "ecow",
- "if_chain",
- "log",
- "serde",
- "typst",
- "unscanny",
-]
-
-[[package]]
-name = "typst-macros"
-version = "0.1.0"
-dependencies = [
- "heck",
- "proc-macro2",
- "quote",
- "syn 2.0.48",
-]
-
-[[package]]
-name = "typst-pdf"
-version = "0.1.0"
-dependencies = [
- "base64",
- "bytemuck",
- "comemo",
- "ecow",
- "image",
- "miniz_oxide",
- "once_cell",
- "pdf-writer",
- "subsetter",
- "svg2pdf",
- "ttf-parser 0.20.0",
- "typst",
- "typst-macros",
- "typst-timing",
- "unicode-properties",
- "unscanny",
- "xmp-writer",
-]
-
-[[package]]
-name = "typst-render"
-version = "0.1.0"
-dependencies = [
- "bytemuck",
- "comemo",
- "flate2",
- "image",
- "pixglyph",
- "resvg",
- "roxmltree",
- "tiny-skia",
- "ttf-parser 0.20.0",
- "typst",
- "typst-macros",
- "typst-timing",
- "usvg",
-]
-
-[[package]]
-name = "typst-svg"
-version = "0.1.0"
-dependencies = [
- "base64",
- "comemo",
- "ecow",
- "flate2",
- "ttf-parser 0.20.0",
- "typst",
- "typst-macros",
- "typst-timing",
- "xmlparser",
- "xmlwriter",
-]
-
-[[package]]
-name = "typst-syntax"
-version = "0.1.0"
-dependencies = [
- "comemo",
- "ecow",
- "once_cell",
- "serde",
- "unicode-ident",
- "unicode-math-class",
- "unicode-script",
- "unicode-segmentation",
- "unscanny",
-]
-
-[[package]]
-name = "typst-timing"
-version = "0.1.0"
-dependencies = [
- "parking_lot",
- "serde",
- "serde_json",
- "typst-syntax",
-]
 
 [[package]]
 name = "uds_windows"
