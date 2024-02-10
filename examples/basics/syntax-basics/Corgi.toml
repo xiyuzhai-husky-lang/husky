@@ -1,6 +1,6 @@
 [package]
 name = "syntax-basics"
-version = "0.1.0"
+version.workspace = true
 description = "example mnist classifier"
 license = "MIT OR Apache-2.0"
 

@@ -1,7 +1,7 @@
 [package]
 name = "mnist-classifier"
 edition = "2021"
-version = "0.1.0"
+version.workspace = true
 
 [dependencies.ad-hoc-task-dependency]
 workspace = true

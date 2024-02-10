@@ -1,6 +1,6 @@
 [package]
 name = "husky-platform"
-version = "0.1.0"
+version.workspace = true
 edition = "2021"
 description = "representation of a target platform for the Husky programming language"
 homepage = "https://github.com/xiyuzhai-husky-lang/husky"

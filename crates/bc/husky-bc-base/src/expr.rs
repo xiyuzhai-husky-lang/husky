@@ -1,7 +1,10 @@
 use crate::symbol::SymbolId;
 
 pub enum BcExpr {
-    Atomic(SymbolId),
+    Symbol(SymbolId),
+    Rune(SymbolId),
+    ForAll { symbol: SymbolId },
+    Lambda(SymbolId),
     Composite(BcExprs),
 }
 
