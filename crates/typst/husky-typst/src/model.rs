@@ -4,14 +4,14 @@ mod bibliography;
 mod cite;
 mod document;
 mod emph;
-#[path = "enum.rs"]
+#[path = "model/enum.rs"]
 mod enum_;
 mod figure;
 mod footnote;
 mod heading;
 mod link;
 mod list;
-#[path = "numbering.rs"]
+#[path = "model/numbering.rs"]
 mod numbering_;
 mod outline;
 mod par;
