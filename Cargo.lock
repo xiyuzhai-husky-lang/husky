@@ -4425,6 +4425,7 @@ dependencies = [
 name = "husky-bc-base"
 version = "0.1.0"
 dependencies = [
+ "husky-ddp-task",
  "shifted-unsigned-int",
 ]
 
