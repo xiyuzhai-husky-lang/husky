@@ -14,8 +14,8 @@ use smallvec::smallvec;
 use crate::diag::{SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    elem, func, scope, ty, Element, Fields, IntoTypstValue, Label, NativeElement, Recipe,
-    RecipeIndex, Repr, Selector, Str, Style, StyleChain, Styles, TypstDict, TypstValue,
+    elem, func, scope, ty, ElementSchemaRef, Fields, IntoTypstValue, Label, Recipe, RecipeIndex,
+    Repr, Selector, Str, Style, StyleChain, Styles, TypstDict, TypstElement, TypstValue,
 };
 use crate::introspection::{Location, Meta, MetaElem};
 use crate::layout::{AlignElem, Alignment, Axes, Length, MoveElem, PadElem, Rel, Sides};
@@ -72,14 +72,14 @@ use crate::util::{fat, BitSet};
 #[allow(clippy::derived_hash_with_manual_eq)]
 pub struct TypstContent {
     /// The partially element-dependant inner data.
-    inner: Arc<Inner<dyn Bounds>>,
+    inner: Arc<TypstContentInner<dyn TypstElementDyn>>,
     /// The element's source code location.
     span: Span,
 }
 
 /// The inner representation behind the `Arc`.
 #[derive(Hash)]
-struct Inner<T: ?Sized> {
+struct TypstContentInner<T: ?Sized> {
     /// An optional label attached to the element.
     label: Option<Label>,
     /// The element's location which identifies it in the layouted output.
@@ -95,9 +95,9 @@ struct Inner<T: ?Sized> {
 
 impl TypstContent {
     /// Creates a new content from an element.
-    pub fn new<T: NativeElement>(elem: T) -> Self {
+    pub fn new<T: TypstElement>(elem: T) -> Self {
         Self {
-            inner: Arc::new(Inner {
+            inner: Arc::new(TypstContentInner {
                 label: None,
                 location: None,
                 lifecycle: BitSet::new(),
@@ -113,8 +113,8 @@ impl TypstContent {
     }
 
     /// Get the element of this content.
-    pub fn elem(&self) -> Element {
-        self.inner.elem.dyn_elem()
+    pub fn elem(&self) -> ElementSchemaRef {
+        self.inner.elem.element_schema_ref_dyn()
     }
 
     /// Get the span of the content.
@@ -241,36 +241,36 @@ impl TypstContent {
     }
 
     /// Whether the contained element is of type `T`.
-    pub fn is<T: NativeElement>(&self) -> bool {
-        self.inner.elem.dyn_type_id() == TypeId::of::<T>()
+    pub fn is<T: TypstElement>(&self) -> bool {
+        self.inner.elem.type_id_dyn() == TypeId::of::<T>()
     }
 
     /// Downcasts the element to a packed value.
-    pub fn to_packed<T: NativeElement>(&self) -> Option<&Packed<T>> {
+    pub fn to_packed<T: TypstElement>(&self) -> Option<&Packed<T>> {
         Packed::from_ref(self)
     }
 
     /// Downcasts the element to a mutable packed value.
-    pub fn to_packed_mut<T: NativeElement>(&mut self) -> Option<&mut Packed<T>> {
+    pub fn to_packed_mut<T: TypstElement>(&mut self) -> Option<&mut Packed<T>> {
         Packed::from_mut(self)
     }
 
     /// Downcasts the element into an owned packed value.
-    pub fn into_packed<T: NativeElement>(self) -> Result<Packed<T>, Self> {
+    pub fn into_packed<T: TypstElement>(self) -> Result<Packed<T>, Self> {
         Packed::from_owned(self)
     }
 
     /// Extract the raw underlying element.
-    pub fn unpack<T: NativeElement>(self) -> Result<T, Self> {
+    pub fn unpack<T: TypstElement>(self) -> Result<T, Self> {
         self.into_packed::<T>().map(Packed::unpack)
     }
 
     /// Makes sure the content is not shared and returns a mutable reference to
     /// the inner data.
-    fn make_mut(&mut self) -> &mut Inner<dyn Bounds> {
+    fn make_mut(&mut self) -> &mut TypstContentInner<dyn TypstElementDyn> {
         let arc = &mut self.inner;
         if Arc::strong_count(arc) > 1 || Arc::weak_count(arc) > 0 {
-            *self = arc.elem.dyn_clone(arc, self.span);
+            *self = arc.elem.clone_dyn(arc, self.span);
         }
         Arc::get_mut(&mut self.inner).unwrap()
     }
@@ -349,7 +349,7 @@ impl TypstContent {
 
     /// Access the child and styles.
     pub fn to_styled(&self) -> Option<(&TypstContent, &Styles)> {
-        let styled = self.to_packed::<StyledElem>()?;
+        let styled = self.to_packed::<StyledTypstElement>()?;
         let child = styled.child();
         let styles = styled.styles();
         Some((child, styles))
@@ -371,7 +371,7 @@ impl TypstContent {
 
     /// Style this content with a style entry.
     pub fn styled(mut self, style: impl Into<Style>) -> Self {
-        if let Some(style_elem) = self.to_packed_mut::<StyledElem>() {
+        if let Some(style_elem) = self.to_packed_mut::<StyledTypstElement>() {
             style_elem.styles.apply_one(style.into());
             self
         } else {
@@ -385,11 +385,11 @@ impl TypstContent {
             return self;
         }
 
-        if let Some(style_elem) = self.to_packed_mut::<StyledElem>() {
+        if let Some(style_elem) = self.to_packed_mut::<StyledTypstElement>() {
             style_elem.styles.apply(styles);
             self
         } else {
-            StyledElem::new(Prehashed::new(self), styles).into()
+            StyledTypstElement::new(Prehashed::new(self), styles).into()
         }
     }
 
@@ -521,7 +521,7 @@ impl TypstContent {
     /// a specific
     /// kind of element.
     #[func]
-    pub fn func(&self) -> Element {
+    pub fn func(&self) -> ElementSchemaRef {
         self.elem()
     }
 
@@ -600,7 +600,7 @@ impl Debug for TypstContent {
     }
 }
 
-impl<T: NativeElement> From<T> for TypstContent {
+impl<T: TypstElement> From<T> for TypstContent {
     fn from(value: T) -> Self {
         Self::new(value)
     }
@@ -609,7 +609,7 @@ impl<T: NativeElement> From<T> for TypstContent {
 impl PartialEq for TypstContent {
     fn eq(&self, other: &Self) -> bool {
         // Additional short circuit for different elements.
-        self.elem() == other.elem() && self.inner.elem.dyn_eq(other)
+        self.elem() == other.elem() && self.inner.elem.eq_dyn(other)
     }
 }
 
@@ -705,26 +705,31 @@ impl Serialize for TypstContent {
 }
 
 /// The trait that combines all the other traits into a trait object.
-trait Bounds: Debug + Repr + Fields + Send + Sync + 'static {
-    fn dyn_type_id(&self) -> TypeId;
-    fn dyn_elem(&self) -> Element;
-    fn dyn_clone(&self, inner: &Inner<dyn Bounds>, span: Span) -> TypstContent;
-    fn dyn_hash(&self, hasher: &mut dyn Hasher);
-    fn dyn_eq(&self, other: &TypstContent) -> bool;
+trait TypstElementDyn: Debug + Repr + Fields + Send + Sync + 'static {
+    fn type_id_dyn(&self) -> TypeId;
+    fn element_schema_ref_dyn(&self) -> ElementSchemaRef;
+    fn clone_dyn(&self, inner: &TypstContentInner<dyn TypstElementDyn>, span: Span)
+        -> TypstContent;
+    fn hash_dyn(&self, hasher: &mut dyn Hasher);
+    fn eq_dyn(&self, other: &TypstContent) -> bool;
 }
 
-impl<T: NativeElement> Bounds for T {
-    fn dyn_type_id(&self) -> TypeId {
+impl<T: TypstElement> TypstElementDyn for T {
+    fn type_id_dyn(&self) -> TypeId {
         TypeId::of::<Self>()
     }
 
-    fn dyn_elem(&self) -> Element {
+    fn element_schema_ref_dyn(&self) -> ElementSchemaRef {
         Self::elem()
     }
 
-    fn dyn_clone(&self, inner: &Inner<dyn Bounds>, span: Span) -> TypstContent {
+    fn clone_dyn(
+        &self,
+        inner: &TypstContentInner<dyn TypstElementDyn>,
+        span: Span,
+    ) -> TypstContent {
         TypstContent {
-            inner: Arc::new(Inner {
+            inner: Arc::new(TypstContentInner {
                 label: inner.label,
                 location: inner.location,
                 lifecycle: inner.lifecycle.clone(),
@@ -734,12 +739,12 @@ impl<T: NativeElement> Bounds for T {
         }
     }
 
-    fn dyn_hash(&self, mut state: &mut dyn Hasher) {
+    fn hash_dyn(&self, mut state: &mut dyn Hasher) {
         TypeId::of::<Self>().hash(&mut state);
         self.hash(&mut state);
     }
 
-    fn dyn_eq(&self, other: &TypstContent) -> bool {
+    fn eq_dyn(&self, other: &TypstContent) -> bool {
         let Some(other) = other.to_packed::<Self>() else {
             return false;
         };
@@ -747,22 +752,22 @@ impl<T: NativeElement> Bounds for T {
     }
 }
 
-impl Hash for dyn Bounds {
+impl Hash for dyn TypstElementDyn {
     fn hash<H: Hasher>(&self, state: &mut H) {
-        self.dyn_hash(state);
+        self.hash_dyn(state);
     }
 }
 
 /// A packed element of a static type.
 #[derive(Clone, PartialEq, Hash)]
 #[repr(transparent)]
-pub struct Packed<T: NativeElement>(
+pub struct Packed<T: TypstElement>(
     /// Invariant: Must be of type `T`.
     TypstContent,
     PhantomData<T>,
 );
 
-impl<T: NativeElement> Packed<T> {
+impl<T: TypstElement> Packed<T> {
     /// Pack element while retaining its static type.
     pub fn new(element: T) -> Self {
         // Safety: The element is known to be of type `T`.
@@ -839,19 +844,19 @@ impl<T: NativeElement> Packed<T> {
     }
 }
 
-impl<T: NativeElement> AsRef<T> for Packed<T> {
+impl<T: TypstElement> AsRef<T> for Packed<T> {
     fn as_ref(&self) -> &T {
         self
     }
 }
 
-impl<T: NativeElement> AsMut<T> for Packed<T> {
+impl<T: TypstElement> AsMut<T> for Packed<T> {
     fn as_mut(&mut self) -> &mut T {
         self
     }
 }
 
-impl<T: NativeElement> Deref for Packed<T> {
+impl<T: TypstElement> Deref for Packed<T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
@@ -861,11 +866,11 @@ impl<T: NativeElement> Deref for Packed<T> {
         // - This downcast works the same way as dyn Any's does. We can't reuse
         //   that one because we don't want to pay the cost for every deref.
         let elem = &self.0.inner.elem;
-        unsafe { &*(elem as *const dyn Bounds as *const T) }
+        unsafe { &*(elem as *const dyn TypstElementDyn as *const T) }
     }
 }
 
-impl<T: NativeElement> DerefMut for Packed<T> {
+impl<T: TypstElement> DerefMut for Packed<T> {
     fn deref_mut(&mut self) -> &mut Self::Target {
         // Safety:
         // - Packed<T> guarantees that the content trait object wraps
@@ -874,11 +879,11 @@ impl<T: NativeElement> DerefMut for Packed<T> {
         // - This downcast works the same way as dyn Any's does. We can't reuse
         //   that one because we don't want to pay the cost for every deref.
         let elem = &mut self.0.make_mut().elem;
-        unsafe { &mut *(elem as *mut dyn Bounds as *mut T) }
+        unsafe { &mut *(elem as *mut dyn TypstElementDyn as *mut T) }
     }
 }
 
-impl<T: NativeElement + Debug> Debug for Packed<T> {
+impl<T: TypstElement + Debug> Debug for Packed<T> {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         self.0.fmt(f)
     }
@@ -939,14 +944,14 @@ impl Repr for SequenceElem {
 
 /// Defines the `ElemFunc` for styled elements.
 #[elem(Debug, Repr, PartialEq)]
-struct StyledElem {
+struct StyledTypstElement {
     #[required]
     child: Prehashed<TypstContent>,
     #[required]
     styles: Styles,
 }
 
-impl Debug for StyledElem {
+impl Debug for StyledTypstElement {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         for style in self.styles.iter() {
             writeln!(f, "#{style:?}")?;
@@ -955,13 +960,13 @@ impl Debug for StyledElem {
     }
 }
 
-impl PartialEq for StyledElem {
+impl PartialEq for StyledTypstElement {
     fn eq(&self, other: &Self) -> bool {
         *self.child == *other.child
     }
 }
 
-impl Repr for StyledElem {
+impl Repr for StyledTypstElement {
     fn repr(&self) -> EcoString {
         eco_format!("styled(child: {}, ..)", self.child.repr())
     }

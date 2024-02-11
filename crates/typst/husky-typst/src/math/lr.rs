@@ -2,7 +2,7 @@ use unicode_math_class::MathClass;
 
 use crate::diag::SourceResult;
 use crate::foundations::{
-    elem, func, NativeElement, Packed, Resolve, Smart, StyleChain, TypstContent,
+    elem, func, Packed, Resolve, Smart, StyleChain, TypstContent, TypstElement,
 };
 use crate::layout::{Abs, Length, LengthInEm, Rel};
 use crate::math::{GlyphFragment, LayoutMath, MathContext, MathFragment, Scaled, SpacingFragment};

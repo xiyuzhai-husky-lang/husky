@@ -27,7 +27,7 @@ use comemo::{Track, Tracked, TrackedMut};
 
 use crate::diag::{bail, SourceResult};
 use crate::engine::{Engine, Route};
-use crate::foundations::{Cast, Module, NativeElement, Scope, Scopes, TypstValue};
+use crate::foundations::{Cast, Module, Scope, Scopes, TypstElement, TypstValue};
 use crate::introspection::{Introspector, Locator};
 use crate::math::EquationElem;
 use crate::syntax::{ast, parse, parse_code, parse_math, Source, Span};

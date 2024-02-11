@@ -2,7 +2,7 @@ use ecow::eco_format;
 
 use crate::diag::{At, SourceResult};
 use crate::eval::{Eval, Vm};
-use crate::foundations::{NativeElement, TypstContent, TypstValue};
+use crate::foundations::{TypstContent, TypstElement, TypstValue};
 use crate::math::{AlignPointElem, AttachElem, FracElem, LrElem, PrimesElem, RootElem};
 use crate::syntax::ast::{self, AstNode};
 use crate::text::TextElem;

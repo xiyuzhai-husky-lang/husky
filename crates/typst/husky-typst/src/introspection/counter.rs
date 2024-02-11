@@ -9,9 +9,9 @@ use crate::diag::{At, SourceResult, StrResult};
 use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
 use crate::foundations::{
-    cast, elem, func, scope, select_where, ty, Array, Element, Func, IntoTypstValue, Label,
-    LocatableSelector, NativeElement, Packed, Repr, Selector, Show, Str, StyleChain, TypstContent,
-    TypstValue,
+    cast, elem, func, scope, select_where, ty, Array, ElementSchemaRef, Func, IntoTypstValue,
+    Label, LocatableSelector, Packed, Repr, Selector, Show, Str, StyleChain, TypstContent,
+    TypstElement, TypstValue,
 };
 use crate::introspection::{Introspector, Locatable, Location, Locator, Meta};
 use crate::layout::{Frame, FrameItem, PageElem};
@@ -219,7 +219,7 @@ impl Counter {
     }
 
     /// The counter for the given element.
-    pub fn of(func: Element) -> Self {
+    pub fn of(func: ElementSchemaRef) -> Self {
         Self::construct(CounterKey::Selector(Selector::Elem(func, None)))
     }
 
@@ -501,7 +501,7 @@ cast! {
     },
     v: Str => Self::Str(v),
     v: Label => Self::Selector(Selector::Label(v)),
-    v: Element => {
+    v: ElementSchemaRef => {
         if v == PageElem::elem() {
             Self::Page
         } else {

@@ -5,7 +5,7 @@ use comemo::Prehashed;
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    elem, Args, Cast, Construct, NativeElement, Packed, Set, Smart, StyleChain, TypstContent,
+    elem, Args, Cast, Construct, Packed, Set, Smart, StyleChain, TypstContent, TypstElement,
     Unlabellable,
 };
 use crate::layout::{Fragment, Length, LengthInEm, Size};

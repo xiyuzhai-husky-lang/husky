@@ -16,8 +16,8 @@ use ecow::EcoString;
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, func, scope, Bytes, Cast, NativeElement, Packed, Resolve, Smart, StyleChain,
-    TypstContent,
+    cast, elem, func, scope, Bytes, Cast, Packed, Resolve, Smart, StyleChain, TypstContent,
+    TypstElement,
 };
 use crate::layout::{
     Abs, Axes, FixedAlignment, Frame, FrameItem, LayoutSingle, Length, Point, Regions, Rel, Size,

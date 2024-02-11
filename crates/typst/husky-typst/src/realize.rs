@@ -14,8 +14,9 @@ use typed_arena::Arena;
 use crate::diag::{bail, SourceResult};
 use crate::engine::{Engine, Route};
 use crate::foundations::{
-    Behave, Behaviour, NativeElement, Packed, Recipe, RecipeIndex, Regex, Selector, Show, ShowSet,
-    Style, StyleChain, StyleVec, StyleVecBuilder, Styles, Synthesize, Transformation, TypstContent,
+    Behave, Behaviour, Packed, Recipe, RecipeIndex, Regex, Selector, Show, ShowSet, Style,
+    StyleChain, StyleVec, StyleVecBuilder, Styles, Synthesize, Transformation, TypstContent,
+    TypstElement,
 };
 use crate::introspection::{Locatable, Meta, MetaElem};
 use crate::layout::{

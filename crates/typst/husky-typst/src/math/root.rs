@@ -1,5 +1,5 @@
 use crate::diag::SourceResult;
-use crate::foundations::{elem, func, NativeElement, Packed, StyleChain, TypstContent};
+use crate::foundations::{elem, func, Packed, StyleChain, TypstContent, TypstElement};
 use crate::layout::{Abs, Frame, FrameItem, Point, Size};
 use crate::math::{
     style_cramped, EquationElem, FrameFragment, GlyphFragment, LayoutMath, MathContext, MathSize,

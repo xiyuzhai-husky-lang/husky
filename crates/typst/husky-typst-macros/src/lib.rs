@@ -132,7 +132,7 @@ pub fn ty(stream: BoundaryStream, item: BoundaryStream) -> BoundaryStream {
 
 /// Makes a native Rust type usable as a Typst element.
 ///
-/// This implements `NativeElement` for the given type.
+/// This implements `TypstElement` for the given type.
 ///
 /// ```
 /// /// A section heading.

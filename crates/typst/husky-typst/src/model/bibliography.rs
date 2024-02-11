@@ -23,9 +23,9 @@ use crate::diag::{bail, error, At, FileError, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::eval::{eval_string, EvalMode};
 use crate::foundations::{
-    cast, elem, ty, Args, Array, Bytes, CastInfo, FromTypstValue, IntoTypstValue, Label,
-    NativeElement, Packed, Reflect, Repr, Scope, Show, ShowSet, Smart, Str, StyleChain, Styles,
-    Synthesize, Type, TypstContent, TypstValue,
+    cast, elem, ty, Args, Array, Bytes, CastInfo, FromTypstValue, IntoTypstValue, Label, Packed,
+    Reflect, Repr, Scope, Show, ShowSet, Smart, Str, StyleChain, Styles, Synthesize, Type,
+    TypstContent, TypstElement, TypstValue,
 };
 use crate::introspection::{Introspector, Locatable, Location};
 use crate::layout::{

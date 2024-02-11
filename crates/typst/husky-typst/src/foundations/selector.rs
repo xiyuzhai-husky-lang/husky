@@ -6,8 +6,8 @@ use smallvec::SmallVec;
 
 use crate::diag::{bail, StrResult};
 use crate::foundations::{
-    cast, func, repr, scope, ty, CastInfo, Element, FromTypstValue, Func, Label, Reflect, Regex,
-    Repr, Str, StyleChain, Type, TypstContent, TypstDict, TypstValue,
+    cast, func, repr, scope, ty, CastInfo, ElementSchemaRef, FromTypstValue, Func, Label, Reflect,
+    Regex, Repr, Str, StyleChain, Type, TypstContent, TypstDict, TypstValue,
 };
 use crate::introspection::{Locatable, Location};
 use crate::symbols::Symbol;
@@ -31,7 +31,7 @@ macro_rules! __select_where {
             ));
         )*
         $crate::foundations::Selector::Elem(
-            <$ty as $crate::foundations::NativeElement>::elem(),
+            <$ty as $crate::foundations::TypstElement>::elem(),
             Some(fields),
         )
     }};
@@ -83,7 +83,7 @@ pub enum Selector {
     ///
     /// If there is a dictionary, only elements with the fields from the
     /// dictionary match.
-    Elem(Element, Option<SmallVec<[(u8, TypstValue); 1]>>),
+    Elem(ElementSchemaRef, Option<SmallVec<[(u8, TypstValue); 1]>>),
     /// Matches the element at the specified location.
     Location(Location),
     /// Matches elements with a specific label.

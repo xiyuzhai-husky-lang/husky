@@ -4,7 +4,7 @@ use comemo::Prehashed;
 
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{elem, NativeElement, Packed, Resolve, Smart, StyleChain, TypstContent};
+use crate::foundations::{elem, Packed, Resolve, Smart, StyleChain, TypstContent, TypstElement};
 use crate::introspection::{Meta, MetaElem};
 use crate::layout::{
     Abs, AlignElem, Axes, BlockElem, ColbreakElem, ColumnsElem, FixedAlignment, Fr, Fragment,

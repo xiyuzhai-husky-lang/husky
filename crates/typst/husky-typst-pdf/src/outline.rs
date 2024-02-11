@@ -1,6 +1,6 @@
 use std::num::NonZeroUsize;
 
-use husky_typst::foundations::{NativeElement, Packed, StyleChain};
+use husky_typst::foundations::{Packed, StyleChain, TypstElement};
 use husky_typst::layout::Abs;
 use husky_typst::model::HeadingElem;
 use pdf_writer::{Finish, Ref, TextStr};

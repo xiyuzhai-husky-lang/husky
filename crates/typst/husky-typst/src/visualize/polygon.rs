@@ -3,7 +3,7 @@ use std::f64::consts::PI;
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    elem, func, scope, NativeElement, Packed, Resolve, Smart, StyleChain, TypstContent,
+    elem, func, scope, Packed, Resolve, Smart, StyleChain, TypstContent, TypstElement,
 };
 use crate::layout::{
     Axes, Frame, FrameItem, LayoutSingle, Length, LengthInEm, Point, Regions, Rel,

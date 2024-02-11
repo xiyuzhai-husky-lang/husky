@@ -7,8 +7,8 @@ use ecow::EcoString;
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, select_where, Element, NativeElement, Packed, Selector, Show, ShowSet,
-    Smart, StyleChain, Styles, Synthesize, TypstContent,
+    cast, elem, scope, select_where, ElementSchemaRef, Packed, Selector, Show, ShowSet, Smart,
+    StyleChain, Styles, Synthesize, TypstContent, TypstElement,
 };
 use crate::introspection::{Count, Counter, CounterKey, CounterUpdate, Locatable, Location};
 use crate::layout::{
@@ -577,7 +577,7 @@ cast! {
 #[derive(Debug, Clone, PartialEq, Hash)]
 pub enum FigureKind {
     /// The kind is an element function.
-    Elem(Element),
+    Elem(ElementSchemaRef),
     /// The kind is a name.
     Name(EcoString),
 }
@@ -588,7 +588,7 @@ cast! {
         Self::Elem(v) => v.into_value(),
         Self::Name(v) => v.into_value(),
     },
-    v: Element => Self::Elem(v),
+    v: ElementSchemaRef => Self::Elem(v),
     v: EcoString => Self::Name(v),
 }
 
