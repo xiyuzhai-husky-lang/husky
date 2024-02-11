@@ -13,8 +13,8 @@ use crate::diag::StrResult;
 use crate::eval::ops;
 use crate::foundations::{
     fields, repr, Args, Array, AutoValue, Bytes, CastInfo, Datetime, Duration, FromTypstValue,
-    Func, IntoTypstValue, Label, Module, NativeElement, NativeType, NoneValue, Plugin, Reflect,
-    Repr, Scope, Str, Styles, Type, TypstContent, TypstDict, Version,
+    Func, IntoTypstValue, Label, Module, NativeType, NoneValue, Plugin, Reflect, Repr, Scope, Str,
+    Styles, Type, TypstContent, TypstDict, TypstElement, Version,
 };
 use crate::layout::{Abs, Angle, Fr, Length, LengthInEm, Ratio, Rel};
 use crate::symbols::Symbol;
@@ -85,7 +85,7 @@ pub enum TypstValue {
     /// A WebAssembly plugin.
     Plugin(Plugin),
     /// A dynamic value.
-    Dyn(Dynamic),
+    Dyn(CustomTypstValue),
 }
 
 impl TypstValue {
@@ -94,7 +94,7 @@ impl TypstValue {
     where
         T: Debug + Repr + NativeType + PartialEq + Hash + Sync + Send + 'static,
     {
-        Self::Dyn(Dynamic::new(any))
+        Self::Dyn(CustomTypstValue::new(any))
     }
 
     /// Create a numeric value from a number with a unit.
@@ -491,9 +491,9 @@ impl<'de> Visitor<'de> for ValueVisitor {
 /// A value that is not part of the built-in enum.
 #[derive(Clone, Hash)]
 #[allow(clippy::derived_hash_with_manual_eq)]
-pub struct Dynamic(Arc<dyn Bounds>);
+pub struct CustomTypstValue(Arc<dyn TypstValueDyn>);
 
-impl Dynamic {
+impl CustomTypstValue {
     /// Create a new instance from any value that satisfies the required bounds.
     pub fn new<T>(any: T) -> Self
     where
@@ -518,32 +518,32 @@ impl Dynamic {
     }
 }
 
-impl Debug for Dynamic {
+impl Debug for CustomTypstValue {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         self.0.fmt(f)
     }
 }
 
-impl Repr for Dynamic {
+impl Repr for CustomTypstValue {
     fn repr(&self) -> EcoString {
         self.0.repr()
     }
 }
 
-impl PartialEq for Dynamic {
+impl PartialEq for CustomTypstValue {
     fn eq(&self, other: &Self) -> bool {
         self.0.dyn_eq(other)
     }
 }
 
-trait Bounds: Debug + Repr + Sync + Send + 'static {
+trait TypstValueDyn: Debug + Repr + Sync + Send + 'static {
     fn as_any(&self) -> &dyn Any;
-    fn dyn_eq(&self, other: &Dynamic) -> bool;
+    fn dyn_eq(&self, other: &CustomTypstValue) -> bool;
     fn dyn_ty(&self) -> Type;
     fn dyn_hash(&self, state: &mut dyn Hasher);
 }
 
-impl<T> Bounds for T
+impl<T> TypstValueDyn for T
 where
     T: Debug + Repr + NativeType + PartialEq + Hash + Sync + Send + 'static,
 {
@@ -551,7 +551,7 @@ where
         self
     }
 
-    fn dyn_eq(&self, other: &Dynamic) -> bool {
+    fn dyn_eq(&self, other: &CustomTypstValue) -> bool {
         let Some(other) = other.downcast::<Self>() else {
             return false;
         };
@@ -570,7 +570,7 @@ where
     }
 }
 
-impl Hash for dyn Bounds {
+impl Hash for dyn TypstValueDyn {
     fn hash<H: Hasher>(&self, state: &mut H) {
         self.dyn_hash(state);
     }

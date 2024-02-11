@@ -1,8 +1,7 @@
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, Label, NativeElement, Packed, Show, ShowSet, Smart, StyleChain, Styles,
-    TypstContent,
+    cast, elem, Label, Packed, Show, ShowSet, Smart, StyleChain, Styles, TypstContent, TypstElement,
 };
 use crate::layout::{Alignment, BlockElem, HElem, LengthInEm, PadElem, Spacing, VElem};
 use crate::model::{CitationForm, CiteElem};

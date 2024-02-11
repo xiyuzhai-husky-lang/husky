@@ -39,8 +39,8 @@ use crate::diag::{bail, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::Packed;
 use crate::foundations::{
-    cast, category, elem, Args, Array, Cast, Category, Construct, Fold, NativeElement, Never,
-    PlainText, Repr, Resolve, Scope, Set, Smart, StyleChain, TypstContent, TypstDict,
+    cast, category, elem, Args, Array, Cast, Category, Construct, Fold, Never, PlainText, Repr,
+    Resolve, Scope, Set, Smart, StyleChain, TypstContent, TypstDict, TypstElement,
 };
 use crate::layout::LengthInEm;
 use crate::layout::{Abs, Axis, Length, Rel, TypstLayoutDirection};

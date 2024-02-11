@@ -3,7 +3,7 @@ use std::num::NonZeroUsize;
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    elem, NativeElement, Packed, Show, ShowSet, Smart, StyleChain, Styles, Synthesize, TypstContent,
+    elem, Packed, Show, ShowSet, Smart, StyleChain, Styles, Synthesize, TypstContent, TypstElement,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable};
 use crate::layout::{BlockElem, HElem, LengthInEm, VElem};

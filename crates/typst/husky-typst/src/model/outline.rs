@@ -4,8 +4,8 @@ use std::str::FromStr;
 use crate::diag::{bail, At, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, select_where, Func, LocatableSelector, NativeElement, Packed, Show, ShowSet,
-    Smart, StyleChain, Styles, TypstContent,
+    cast, elem, scope, select_where, Func, LocatableSelector, Packed, Show, ShowSet, Smart,
+    StyleChain, Styles, TypstContent, TypstElement,
 };
 use crate::introspection::{Counter, CounterKey, Locatable};
 use crate::layout::{BoxElem, Fr, HElem, HideElem, Length, Rel, RepeatElem, Spacing};

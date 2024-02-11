@@ -5,8 +5,8 @@ use unicode_math_class::MathClass;
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    elem, NativeElement, Packed, Resolve, ShowSet, Smart, StyleChain, Styles, Synthesize,
-    TypstContent,
+    elem, Packed, Resolve, ShowSet, Smart, StyleChain, Styles, Synthesize, TypstContent,
+    TypstElement,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable};
 use crate::layout::{

@@ -22,11 +22,11 @@ pub use husky_typst_macros::elem;
 
 /// A document element.
 #[derive(Copy, Clone, Eq, PartialEq, Hash)]
-pub struct Element(Static<NativeElementData>);
+pub struct ElementSchemaRef(Static<ElementSchema>);
 
-impl Element {
+impl ElementSchemaRef {
     /// Get the element for `T`.
-    pub fn of<T: NativeElement>() -> Self {
+    pub fn of<T: TypstElement>() -> Self {
         T::elem()
     }
 
@@ -125,46 +125,46 @@ impl Element {
     }
 }
 
-impl Debug for Element {
+impl Debug for ElementSchemaRef {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "Element({})", self.name())
     }
 }
 
-impl Repr for Element {
+impl Repr for ElementSchemaRef {
     fn repr(&self) -> EcoString {
         self.name().into()
     }
 }
 
-impl Ord for Element {
+impl Ord for ElementSchemaRef {
     fn cmp(&self, other: &Self) -> Ordering {
         self.name().cmp(other.name())
     }
 }
 
-impl PartialOrd for Element {
+impl PartialOrd for ElementSchemaRef {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
 
 cast! {
-    Element,
+    ElementSchemaRef,
     self => TypstValue::Func(self.into()),
     v: Func => v.element().ok_or("expected element")?,
 }
 
 /// A Typst element that is defined by a native Rust type.
-pub trait NativeElement:
+pub trait TypstElement:
     Debug + Clone + PartialEq + Hash + Construct + Set + Capable + Fields + Repr + Send + Sync + 'static
 {
     /// Get the element for the native Rust element.
-    fn elem() -> Element
+    fn elem() -> ElementSchemaRef
     where
         Self: Sized,
     {
-        Element::from(Self::data())
+        ElementSchemaRef::from(Self::data())
     }
 
     /// Pack the element into type-erased content.
@@ -176,7 +176,7 @@ pub trait NativeElement:
     }
 
     /// Get the element data for the native Rust element.
-    fn data() -> &'static NativeElementData
+    fn data() -> &'static ElementSchema
     where
         Self: Sized;
 }
@@ -236,7 +236,7 @@ pub trait Set {
 
 /// Defines a native element.
 #[derive(Debug)]
-pub struct NativeElementData {
+pub struct ElementSchema {
     pub name: &'static str,
     pub title: &'static str,
     pub docs: &'static str,
@@ -251,15 +251,15 @@ pub struct NativeElementData {
     pub params: Lazy<Vec<ParamInfo>>,
 }
 
-impl From<&'static NativeElementData> for Element {
-    fn from(data: &'static NativeElementData) -> Self {
+impl From<&'static ElementSchema> for ElementSchemaRef {
+    fn from(data: &'static ElementSchema) -> Self {
         Self(Static(data))
     }
 }
 
 cast! {
-    &'static NativeElementData,
-    self => Element::from(self).into_value(),
+    &'static ElementSchema,
+    self => ElementSchemaRef::from(self).into_value(),
 }
 
 /// Synthesize fields on an element. This happens before execution of any show

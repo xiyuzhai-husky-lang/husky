@@ -639,7 +639,7 @@ fn create_style_chain_access(field: &Field, borrowed: bool, inherent: TokenStrea
 
     quote! {
         styles.#getter::<#ty>(
-            <Self as #foundations::NativeElement>::elem(),
+            <Self as #foundations::TypstElement>::elem(),
             Fields::#enum_ident as u8,
             #inherent,
             #default,
@@ -647,7 +647,7 @@ fn create_style_chain_access(field: &Field, borrowed: bool, inherent: TokenStrea
     }
 }
 
-/// Creates the element's `NativeElement` implementation.
+/// Creates the element's `TypstElement` implementation.
 fn create_native_elem_impl(element: &Elem) -> TokenStream {
     let Elem {
         name,
@@ -674,7 +674,7 @@ fn create_native_elem_impl(element: &Elem) -> TokenStream {
     let params = element.doc_fields().map(create_param_info);
 
     let data = quote! {
-        #foundations::NativeElementData {
+        #foundations::ElementSchema {
             name: #name,
             title: #title,
             docs: #docs,
@@ -691,9 +691,9 @@ fn create_native_elem_impl(element: &Elem) -> TokenStream {
     };
 
     quote! {
-        impl #foundations::NativeElement for #ident {
-            fn data() -> &'static #foundations::NativeElementData {
-                static DATA: #foundations::NativeElementData = #data;
+        impl #foundations::TypstElement for #ident {
+            fn data() -> &'static #foundations::ElementSchema {
+                static DATA: #foundations::ElementSchema = #data;
                 &DATA
             }
         }

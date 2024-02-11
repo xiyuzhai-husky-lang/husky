@@ -11,7 +11,8 @@ use smallvec::SmallVec;
 use crate::diag::{SourceResult, Trace, Tracepoint};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, func, ty, Element, Func, NativeElement, Packed, Repr, Selector, Show, TypstContent,
+    cast, elem, func, ty, ElementSchemaRef, Func, Packed, Repr, Selector, Show, TypstContent,
+    TypstElement,
 };
 use crate::syntax::Span;
 use crate::text::{FontFamily, FontList, TextElem};
@@ -127,7 +128,7 @@ impl Styles {
 
     /// Returns `Some(_)` with an optional span if this list contains
     /// styles for the given element.
-    pub fn interruption<T: NativeElement>(&self) -> Option<Option<Span>> {
+    pub fn interruption<T: TypstElement>(&self) -> Option<Option<Span>> {
         let elem = T::elem();
         self.0.iter().find_map(|entry| match &**entry {
             Style::Property(property) => property.is_of(elem).then_some(property.span),
@@ -227,7 +228,7 @@ impl From<Recipe> for Style {
 #[derive(Clone, Hash)]
 pub struct Property {
     /// The element the property belongs to.
-    elem: Element,
+    elem: ElementSchemaRef,
     /// The property's ID.
     id: u8,
     /// The property's value.
@@ -240,7 +241,7 @@ impl Property {
     /// Create a new property from a key-value pair.
     pub fn new<E, T>(id: u8, value: T) -> Self
     where
-        E: NativeElement,
+        E: TypstElement,
         T: Debug + Clone + Hash + Send + Sync + 'static,
     {
         Self {
@@ -252,12 +253,12 @@ impl Property {
     }
 
     /// Whether this property is the given one.
-    pub fn is(&self, elem: Element, id: u8) -> bool {
+    pub fn is(&self, elem: ElementSchemaRef, id: u8) -> bool {
         self.elem == elem && self.id == id
     }
 
     /// Whether this property belongs to the given element.
-    pub fn is_of(&self, elem: Element) -> bool {
+    pub fn is_of(&self, elem: ElementSchemaRef) -> bool {
         self.elem == elem
     }
 
@@ -370,7 +371,7 @@ pub struct Recipe {
 
 impl Recipe {
     /// Whether this recipe is for the given type of element.
-    pub fn is_of(&self, element: Element) -> bool {
+    pub fn is_of(&self, element: ElementSchemaRef) -> bool {
         match self.selector {
             Some(Selector::Elem(own, _)) => own == element,
             _ => false,
@@ -486,7 +487,7 @@ impl<'a> StyleChain<'a> {
     /// Cast the first value for the given property in the chain.
     pub fn get<T: Clone + 'static>(
         self,
-        func: Element,
+        func: ElementSchemaRef,
         id: u8,
         inherent: Option<&T>,
         default: impl Fn() -> T,
@@ -501,7 +502,7 @@ impl<'a> StyleChain<'a> {
     /// returning a borrowed value.
     pub fn get_ref<T: 'static>(
         self,
-        func: Element,
+        func: ElementSchemaRef,
         id: u8,
         inherent: Option<&'a T>,
         default: impl Fn() -> &'a T,
@@ -515,7 +516,7 @@ impl<'a> StyleChain<'a> {
     /// `Fold` implementations into account.
     pub fn get_folded<T: Fold + Clone + 'static>(
         self,
-        func: Element,
+        func: ElementSchemaRef,
         id: u8,
         inherent: Option<&T>,
         default: impl Fn() -> T,
@@ -532,7 +533,7 @@ impl<'a> StyleChain<'a> {
     /// Iterate over all values for the given property in the chain.
     fn properties<T: 'static>(
         self,
-        func: Element,
+        func: ElementSchemaRef,
         id: u8,
         inherent: Option<&'a T>,
     ) -> impl Iterator<Item = &'a T> {

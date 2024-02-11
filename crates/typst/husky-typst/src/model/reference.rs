@@ -3,8 +3,8 @@ use ecow::eco_format;
 use crate::diag::{bail, At, Hint, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, Func, IntoTypstValue, Label, NativeElement, Packed, Show, Smart, StyleChain,
-    Synthesize, TypstContent,
+    cast, elem, Func, IntoTypstValue, Label, Packed, Show, Smart, StyleChain, Synthesize,
+    TypstContent, TypstElement,
 };
 use crate::introspection::{Counter, Locatable};
 use crate::math::EquationElem;

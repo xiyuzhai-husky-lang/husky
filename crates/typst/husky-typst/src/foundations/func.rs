@@ -8,8 +8,8 @@ use once_cell::sync::Lazy;
 use crate::diag::{bail, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, repr, scope, ty, Args, CastInfo, Element, IntoArgs, Scope, Selector, Type, TypstContent,
-    TypstValue,
+    cast, repr, scope, ty, Args, CastInfo, ElementSchemaRef, IntoArgs, Scope, Selector, Type,
+    TypstContent, TypstValue,
 };
 use crate::syntax::{ast, Span, SyntaxNode};
 use crate::util::Static;
@@ -139,7 +139,7 @@ enum Repr {
     /// A native Rust function.
     Native(Static<NativeFuncData>),
     /// A function for an element.
-    Element(Element),
+    Element(ElementSchemaRef),
     /// A user-defined closure.
     Closure(Arc<Prehashed<Closure>>),
     /// A nested function with pre-applied arguments.
@@ -242,7 +242,7 @@ impl Func {
     }
 
     /// Extract the element function, if it is one.
-    pub fn element(&self) -> Option<Element> {
+    pub fn element(&self) -> Option<ElementSchemaRef> {
         match self.repr {
             Repr::Element(func) => Some(func),
             _ => None,
@@ -392,8 +392,8 @@ impl From<Repr> for Func {
     }
 }
 
-impl From<Element> for Func {
-    fn from(func: Element) -> Self {
+impl From<ElementSchemaRef> for Func {
+    fn from(func: ElementSchemaRef) -> Self {
         Repr::Element(func).into()
     }
 }

@@ -5,8 +5,8 @@ use crate::diag::{bail, error, At, HintedStrResult, SourceResult, Trace, Tracepo
 use crate::engine::Engine;
 use crate::eval::{Access, Eval, FlowEvent, Route, Tracer, Vm};
 use crate::foundations::{
-    call_method_mut, is_mutating_method, Arg, Args, Bytes, Closure, Func, IntoTypstValue,
-    NativeElement, Scope, Scopes, TypstContent, TypstValue,
+    call_method_mut, is_mutating_method, Arg, Args, Bytes, Closure, Func, IntoTypstValue, Scope,
+    Scopes, TypstContent, TypstElement, TypstValue,
 };
 use crate::introspection::{Introspector, Locator};
 use crate::math::{Accent, AccentElem, LrElem};

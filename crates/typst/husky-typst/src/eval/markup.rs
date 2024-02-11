@@ -1,6 +1,6 @@
 use crate::diag::{warning, SourceResult};
 use crate::eval::{Eval, Vm};
-use crate::foundations::{Label, NativeElement, Smart, TypstContent, TypstValue, Unlabellable};
+use crate::foundations::{Label, Smart, TypstContent, TypstElement, TypstValue, Unlabellable};
 use crate::math::EquationElem;
 use crate::model::{
     EmphElem, EnumItem, HeadingElem, LinkElem, ListItem, ParbreakElem, RefElem, StrongElem,
