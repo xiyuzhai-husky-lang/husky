@@ -1,13 +1,7 @@
 use std::sync::Arc;
 
 use comemo::Prehashed;
-use husky_typst::{
-    compile,
-    diag::{FileError, FileResult},
-    eval::Tracer,
-    syntax::VirtualPath,
-    LibraryBuilder,
-};
+use husky_typst::{diag::FileResult, syntax::VirtualPath, LibraryBuilder};
 use husky_typst::{
     foundations::Bytes,
     syntax::{FileId, Source},
@@ -29,9 +23,11 @@ fn make_source(source: String) -> Source {
 }
 
 fn fonts() -> Vec<TypstFont> {
+    use husky_path_utils::cargo::cargo_workspace_manifest_dir;
+
     use husky_print_utils::p;
-    p!(std::env::current_dir());
-    std::fs::read_dir("assets/fonts")
+    p!(cargo_workspace_manifest_dir());
+    std::fs::read_dir(cargo_workspace_manifest_dir().unwrap().join("assets/fonts"))
         .unwrap()
         .map(Result::unwrap)
         .flat_map(|entry| {
@@ -106,6 +102,10 @@ impl World for WithSource {
 
 #[test]
 fn sandbox_works() {
+    use expect_test::expect;
+    use husky_typst::compile;
+    use husky_typst::eval::Tracer;
+
     let sandbox = Sandbox::new();
     let mut tracer = Tracer::new();
     let source = r#"hello world
@@ -113,6 +113,39 @@ fn sandbox_works() {
 $ x + x $
 "#
     .to_string();
-    let compiled = compile(&Arc::new(sandbox).with_source(source), &mut tracer);
-    println!("{compiled:?}");
+    expect![[r#"
+        Ok(
+            TypstDocument {
+                pages: [
+                    Page {
+                        frame: Frame [
+                            Text("hello world"),
+                            Group Frame [
+                                Elem(Element(equation)),
+                                Elem(Element(equation)),
+                                Elem(Element(equation)),
+                                Text("𝑥"),
+                                Elem(Element(equation)),
+                                Text("+"),
+                                Elem(Element(equation)),
+                                Text("𝑥"),
+                            ],
+                            Elem(Element(equation)),
+                        ],
+                        numbering: None,
+                        number: 1,
+                    },
+                ],
+                title: None,
+                author: [],
+                keywords: [],
+                date: Auto,
+                introspector: Introspector(..),
+            },
+        )
+    "#]]
+    .assert_debug_eq(&compile(
+        &Arc::new(sandbox).with_source(source),
+        &mut tracer,
+    ));
 }

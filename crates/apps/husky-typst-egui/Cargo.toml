@@ -15,9 +15,11 @@ keywords.workspace = true
 comemo.workspace = true
 eframe.workspace = true
 egui.workspace = true
+expect-test.workspace = true
 # typst
 husky-typst.workspace = true
 # utils
+husky-path-utils.workspace = true
 husky-print-utils.workspace = true
 
 [lints]
