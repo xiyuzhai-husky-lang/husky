@@ -128,14 +128,14 @@ pub use husky_tex_macros::func;
 #[allow(clippy::derived_hash_with_manual_eq)]
 pub struct Func {
     /// The internal representation.
-    repr: Repr,
+    repr: FuncRepr,
     /// The span with which errors are reported when this function is called.
     span: Span,
 }
 
 /// The different kinds of function representations.
 #[derive(Clone, PartialEq, Hash)]
-enum Repr {
+enum FuncRepr {
     /// A native Rust function.
     Native(Static<NativeFuncData>),
     /// A function for an element.
@@ -152,10 +152,10 @@ impl Func {
     /// Returns `None` if this is an anonymous closure.
     pub fn name(&self) -> Option<&str> {
         match &self.repr {
-            Repr::Native(native) => Some(native.name),
-            Repr::Element(elem) => Some(elem.name()),
-            Repr::Closure(closure) => closure.name(),
-            Repr::With(with) => with.0.name(),
+            FuncRepr::Native(native) => Some(native.name),
+            FuncRepr::Element(elem) => Some(elem.name()),
+            FuncRepr::Closure(closure) => closure.name(),
+            FuncRepr::With(with) => with.0.name(),
         }
     }
 
@@ -164,30 +164,30 @@ impl Func {
     /// Returns `None` if this is a closure.
     pub fn title(&self) -> Option<&'static str> {
         match &self.repr {
-            Repr::Native(native) => Some(native.title),
-            Repr::Element(elem) => Some(elem.title()),
-            Repr::Closure(_) => None,
-            Repr::With(with) => with.0.title(),
+            FuncRepr::Native(native) => Some(native.title),
+            FuncRepr::Element(elem) => Some(elem.title()),
+            FuncRepr::Closure(_) => None,
+            FuncRepr::With(with) => with.0.title(),
         }
     }
 
     /// Documentation for the function (as Markdown).
     pub fn docs(&self) -> Option<&'static str> {
         match &self.repr {
-            Repr::Native(native) => Some(native.docs),
-            Repr::Element(elem) => Some(elem.docs()),
-            Repr::Closure(_) => None,
-            Repr::With(with) => with.0.docs(),
+            FuncRepr::Native(native) => Some(native.docs),
+            FuncRepr::Element(elem) => Some(elem.docs()),
+            FuncRepr::Closure(_) => None,
+            FuncRepr::With(with) => with.0.docs(),
         }
     }
 
     /// Get details about this function's parameters if available.
     pub fn params(&self) -> Option<&'static [ParamInfo]> {
         match &self.repr {
-            Repr::Native(native) => Some(&native.0.params),
-            Repr::Element(elem) => Some(elem.params()),
-            Repr::Closure(_) => None,
-            Repr::With(with) => with.0.params(),
+            FuncRepr::Native(native) => Some(&native.0.params),
+            FuncRepr::Element(elem) => Some(elem.params()),
+            FuncRepr::Closure(_) => None,
+            FuncRepr::With(with) => with.0.params(),
         }
     }
 
@@ -200,30 +200,30 @@ impl Func {
     pub fn returns(&self) -> Option<&'static CastInfo> {
         static CONTENT: Lazy<CastInfo> = Lazy::new(|| CastInfo::Type(Type::of::<TexContent>()));
         match &self.repr {
-            Repr::Native(native) => Some(&native.0.returns),
-            Repr::Element(_) => Some(&CONTENT),
-            Repr::Closure(_) => None,
-            Repr::With(with) => with.0.returns(),
+            FuncRepr::Native(native) => Some(&native.0.returns),
+            FuncRepr::Element(_) => Some(&CONTENT),
+            FuncRepr::Closure(_) => None,
+            FuncRepr::With(with) => with.0.returns(),
         }
     }
 
     /// Search keywords for the function.
     pub fn keywords(&self) -> &'static [&'static str] {
         match &self.repr {
-            Repr::Native(native) => native.keywords,
-            Repr::Element(elem) => elem.keywords(),
-            Repr::Closure(_) => &[],
-            Repr::With(with) => with.0.keywords(),
+            FuncRepr::Native(native) => native.keywords,
+            FuncRepr::Element(elem) => elem.keywords(),
+            FuncRepr::Closure(_) => &[],
+            FuncRepr::With(with) => with.0.keywords(),
         }
     }
 
     /// The function's associated scope of sub-definition.
     pub fn scope(&self) -> Option<&'static TexValueAssignmentGroup> {
         match &self.repr {
-            Repr::Native(native) => Some(&native.0.scope),
-            Repr::Element(elem) => Some(elem.scope()),
-            Repr::Closure(_) => None,
-            Repr::With(with) => with.0.scope(),
+            FuncRepr::Native(native) => Some(&native.0.scope),
+            FuncRepr::Element(elem) => Some(elem.scope()),
+            FuncRepr::Closure(_) => None,
+            FuncRepr::With(with) => with.0.scope(),
         }
     }
 
@@ -244,7 +244,7 @@ impl Func {
     /// Extract the element function, if it is one.
     pub fn element(&self) -> Option<ElementSchemaRef> {
         match self.repr {
-            Repr::Element(func) => Some(func),
+            FuncRepr::Element(func) => Some(func),
             _ => None,
         }
     }
@@ -258,17 +258,17 @@ impl Func {
     #[husky_tex_macros::time(name = "func call", span = self.span())]
     fn call_impl(&self, engine: &mut TexEngine, mut args: Args) -> SourceResult<TexValue> {
         match &self.repr {
-            Repr::Native(native) => {
+            FuncRepr::Native(native) => {
                 let value = (native.function)(engine, &mut args)?;
                 args.finish()?;
                 Ok(value)
             }
-            Repr::Element(func) => {
+            FuncRepr::Element(func) => {
                 let value = func.construct(engine, &mut args)?;
                 args.finish()?;
                 Ok(TexValue::Content(value))
             }
-            Repr::Closure(closure) => crate::eval::call_closure(
+            FuncRepr::Closure(closure) => crate::eval::call_closure(
                 self,
                 closure,
                 engine.world,
@@ -278,7 +278,7 @@ impl Func {
                 TrackedMut::reborrow_mut(&mut engine.tracer),
                 args,
             ),
-            Repr::With(with) => {
+            FuncRepr::With(with) => {
                 args.items = with.1.items.iter().cloned().chain(args.items).collect();
                 with.0.call(engine, args)
             }
@@ -315,7 +315,7 @@ impl Func {
     ) -> Func {
         let span = self.span;
         Self {
-            repr: Repr::With(Arc::new((self, args.take()))),
+            repr: FuncRepr::With(Arc::new((self, args.take()))),
             span,
         }
     }
@@ -377,14 +377,14 @@ impl PartialEq for Func {
 impl PartialEq<&NativeFuncData> for Func {
     fn eq(&self, other: &&NativeFuncData) -> bool {
         match &self.repr {
-            Repr::Native(native) => native.function == other.function,
+            FuncRepr::Native(native) => native.function == other.function,
             _ => false,
         }
     }
 }
 
-impl From<Repr> for Func {
-    fn from(repr: Repr) -> Self {
+impl From<FuncRepr> for Func {
+    fn from(repr: FuncRepr) -> Self {
         Self {
             repr,
             span: Span::detached(),
@@ -394,7 +394,7 @@ impl From<Repr> for Func {
 
 impl From<ElementSchemaRef> for Func {
     fn from(func: ElementSchemaRef) -> Self {
-        Repr::Element(func).into()
+        FuncRepr::Element(func).into()
     }
 }
 
@@ -425,7 +425,7 @@ pub struct NativeFuncData {
 
 impl From<&'static NativeFuncData> for Func {
     fn from(data: &'static NativeFuncData) -> Self {
-        Repr::Native(Static(data)).into()
+        FuncRepr::Native(Static(data)).into()
     }
 }
 
@@ -484,7 +484,7 @@ impl Closure {
 
 impl From<Closure> for Func {
     fn from(closure: Closure) -> Self {
-        Repr::Closure(Arc::new(Prehashed::new(closure))).into()
+        FuncRepr::Closure(Arc::new(Prehashed::new(closure))).into()
     }
 }
 
