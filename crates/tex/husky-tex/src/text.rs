@@ -39,8 +39,8 @@ use crate::diag::{bail, SourceResult, StrResult};
 use crate::engine::TexEngine;
 use crate::foundations::TexContentRefined;
 use crate::foundations::{
-    cast, category, elem, Args, Array, Cast, Category, Construct, Fold, IsTexElem, Never,
-    PlainText, Repr, Resolve, Scope, Set, Smart, StyleChain, TexContent, TexDict,
+    cast, category, elem, Args, Array, Cast, Construct, Fold, IsTexElem, Never, PlainText, Repr,
+    Resolve, Set, Smart, StyleChain, TexContent, TexDefnKind, TexDict, TexValueAssignmentGroup,
 };
 use crate::layout::TexEmLength;
 use crate::layout::{Axis, Length, Rel, TexAbsLength, TexLayoutDirection};
@@ -52,10 +52,10 @@ use crate::visualize::{RelativeTo, TexColor, TexPaint, TexStroke};
 ///
 /// The [text function]($text) is of particular interest.
 #[category]
-pub static TEXT: Category;
+pub static TEXT: TexDefnKind;
 
 /// Hook up all `text` definitions.
-pub(super) fn define(global: &mut Scope) {
+pub(super) fn define(global: &mut TexValueAssignmentGroup) {
     global.category(TEXT);
     global.define_elem::<TextElem>();
     global.define_elem::<LinebreakElem>();

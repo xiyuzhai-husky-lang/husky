@@ -43,7 +43,10 @@ use self::spacing::*;
 use std::borrow::Cow;
 
 use crate::diag::SourceResult;
-use crate::foundations::{category, Category, Module, Resolve, Scope, StyleChain, TexContent};
+use crate::foundations::{
+    category, Resolve, StyleChain, TexContent, TexDefnKind, TexModuleEvaluation,
+    TexValueAssignmentGroup,
+};
 use crate::layout::{BoxTexElem, HElem, Spacing};
 use crate::realize::{realize, BehavedBuilder};
 use crate::text::{LinebreakElem, SpaceElem, TextElem};
@@ -151,11 +154,11 @@ use crate::text::{LinebreakElem, SpaceElem, TextElem};
 /// which is available by default in equations. Outside of equations, they can
 /// be accessed with the `math.` prefix.
 #[category]
-pub static MATH: Category;
+pub static MATH: TexDefnKind;
 
 /// Create a module with all math definitions.
-pub fn module() -> Module {
-    let mut math = Scope::deduplicating();
+pub fn module() -> TexModuleEvaluation {
+    let mut math = TexValueAssignmentGroup::deduplicating();
     math.category(MATH);
     math.define_elem::<EquationTexElem>();
     math.define_elem::<TextElem>();
@@ -208,7 +211,7 @@ pub fn module() -> Module {
         math.define(*name, symbol.clone());
     }
 
-    Module::new("math", math)
+    TexModuleEvaluation::new("math", math)
 }
 
 /// Layout for math elements.

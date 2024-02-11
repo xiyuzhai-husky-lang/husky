@@ -255,7 +255,7 @@ fn create_func_data(func: &Func) -> TokenStream {
     let scope = if *scope {
         quote! { <#ident as #foundations::NativeScope>::scope() }
     } else {
-        quote! { #foundations::Scope::new() }
+        quote! { #foundations::TexValueAssignmentGroup::new() }
     };
 
     let closure = create_wrapper_closure(func);

@@ -11,8 +11,8 @@ use crate::engine::TexEngine;
 use crate::eval::{eval_string, EvalMode};
 use crate::foundations::{
     cast, elem, ty, Args, Array, Bytes, CastInfo, FromTexValue, IntoTexValue, IsTexElem, Label,
-    Reflect, Repr, Scope, Show, ShowSet, Smart, Str, StyleChain, Styles, Synthesize, TexContent,
-    TexContentRefined, TexValue, Type,
+    Reflect, Repr, Show, ShowSet, Smart, Str, StyleChain, Styles, Synthesize, TexContent,
+    TexContentRefined, TexValue, TexValueAssignmentGroup, Type,
 };
 use crate::introspection::{Introspector, Locatable, Location};
 use crate::layout::{
@@ -994,9 +994,15 @@ impl ElemRenderer<'_> {
 
     /// Display math.
     fn display_math(&self, math: &str) -> TexContent {
-        eval_string(self.world, math, self.span, EvalMode::Math, Scope::new())
-            .map(TexValue::display)
-            .unwrap_or_else(|_| TextElem::packed(math).spanned(self.span))
+        eval_string(
+            self.world,
+            math,
+            self.span,
+            EvalMode::Math,
+            TexValueAssignmentGroup::new(),
+        )
+        .map(TexValue::display)
+        .unwrap_or_else(|_| TextElem::packed(math).spanned(self.span))
     }
 
     /// Display a link.

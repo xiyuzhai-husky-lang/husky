@@ -1,10 +1,10 @@
 //! System-related things.
 
-use crate::foundations::{Module, Scope, TexDict, Version};
+use crate::foundations::{TexDict, TexModuleEvaluation, TexValueAssignmentGroup, Version};
 
 /// A module with system-related things.
-pub fn module(inputs: TexDict) -> Module {
-    let mut scope = Scope::deduplicating();
+pub fn module(inputs: TexDict) -> TexModuleEvaluation {
+    let mut scope = TexValueAssignmentGroup::deduplicating();
     scope.define(
         "version",
         Version::from_iter([
@@ -14,5 +14,5 @@ pub fn module(inputs: TexDict) -> Module {
         ]),
     );
     scope.define("inputs", inputs);
-    Module::new("sys", scope)
+    TexModuleEvaluation::new("sys", scope)
 }

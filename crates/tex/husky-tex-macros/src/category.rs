@@ -12,7 +12,13 @@ pub fn category(_: TokenStream, item: syn::Item) -> Result<TokenStream> {
         bail!(item, "expected bare static");
     };
 
-    let BareStatic { attrs, vis, ident, ty, .. } = syn::parse2(stream)?;
+    let BareStatic {
+        attrs,
+        vis,
+        ident,
+        ty,
+        ..
+    } = syn::parse2(stream)?;
 
     let name = ident.to_string().to_kebab_case();
     let title = name.to_title_case();
@@ -21,12 +27,12 @@ pub fn category(_: TokenStream, item: syn::Item) -> Result<TokenStream> {
     Ok(quote! {
         #(#attrs)*
         #vis static #ident: #ty = {
-            static DATA: #foundations::CategoryData = #foundations::CategoryData {
+            static DATA: #foundations::TexCategoryData = #foundations::TexCategoryData {
                 name: #name,
                 title: #title,
                 docs: #docs,
             };
-            #foundations::Category::from_data(&DATA)
+            #foundations::TexDefnKind::from_data(&DATA)
         };
     })
 }

@@ -2,7 +2,9 @@ use comemo::Track;
 use ecow::{eco_format, EcoString};
 use husky_tex::diag::{bail, StrResult};
 use husky_tex::eval::{eval_string, EvalMode, Tracer};
-use husky_tex::foundations::{IntoTexValue, LocatableSelector, Scope, TexContent};
+use husky_tex::foundations::{
+    IntoTexValue, LocatableSelector, TexContent, TexValueAssignmentGroup,
+};
 use husky_tex::model::TexDocument;
 use husky_tex::syntax::Span;
 use husky_tex::IsTexWorld;
@@ -56,7 +58,7 @@ fn retrieve(
         &command.selector,
         Span::detached(),
         EvalMode::Code,
-        Scope::default(),
+        TexValueAssignmentGroup::default(),
     )
     .map_err(|errors| {
         let mut message = EcoString::from("failed to evaluate selector");

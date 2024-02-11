@@ -2,7 +2,9 @@ use ecow::EcoString;
 use unicode_math_class::MathClass;
 
 use crate::diag::SourceResult;
-use crate::foundations::{elem, IsTexElem, Scope, StyleChain, TexContent, TexContentRefined};
+use crate::foundations::{
+    elem, IsTexElem, StyleChain, TexContent, TexContentRefined, TexValueAssignmentGroup,
+};
 use crate::layout::HElem;
 use crate::math::{upright, FrameFragment, Limits, MathContext, TexLayoutMath, THIN};
 use crate::text::TextElem;
@@ -59,7 +61,7 @@ impl TexLayoutMath for TexContentRefined<OpElem> {
 
 macro_rules! ops {
     ($($name:ident $(: $value:literal)? $(($tts:tt))?),* $(,)?) => {
-        pub(super) fn define(math: &mut Scope) {
+        pub(super) fn define(math: &mut TexValueAssignmentGroup) {
             $({
                 let operator = EcoString::from(ops!(@name $name $(: $value)?));
                 math.define(

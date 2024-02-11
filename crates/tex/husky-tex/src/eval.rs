@@ -27,7 +27,10 @@ use comemo::{Track, Tracked, TrackedMut};
 
 use crate::diag::{bail, SourceResult};
 use crate::engine::{Route, TexEngine};
-use crate::foundations::{Cast, IsTexElem, Module, Scope, Scopes, TexValue};
+use crate::foundations::{
+    Cast, IsTexElem, TexModuleEvaluation, TexValue, TexValueAssignmentGroup,
+    TexValueAssignmentGroups,
+};
 use crate::introspection::{Introspector, Locator};
 use crate::math::EquationTexElem;
 use crate::syntax::{ast, parse, parse_code, parse_math, Source, Span};
@@ -41,7 +44,7 @@ pub fn eval(
     route: Tracked<Route>,
     tracer: TrackedMut<Tracer>,
     source: &Source,
-) -> SourceResult<Module> {
+) -> SourceResult<TexModuleEvaluation> {
     // Prevent cyclic evaluation.
     let id = source.id();
     if route.contains(id) {
@@ -61,7 +64,7 @@ pub fn eval(
 
     // Prepare VM.
     let root = source.root();
-    let scopes = Scopes::new(Some(world.library()));
+    let scopes = TexValueAssignmentGroups::new(Some(world.library()));
     let mut vm = Vm::new(engine, scopes, root.span());
 
     // Check for well-formedness unless we are in trace mode.
@@ -87,7 +90,7 @@ pub fn eval(
         .unwrap_or_default()
         .to_string_lossy();
 
-    Ok(Module::new(name, vm.scopes.top).with_content(output))
+    Ok(TexModuleEvaluation::new(name, vm.scopes.top).with_content(output))
 }
 
 /// Evaluate a string as code and return the resulting value.
@@ -99,7 +102,7 @@ pub fn eval_string(
     string: &str,
     span: Span,
     mode: EvalMode,
-    scope: Scope,
+    scope: TexValueAssignmentGroup,
 ) -> SourceResult<TexValue> {
     let mut root = match mode {
         EvalMode::Code => parse_code(string),
@@ -128,7 +131,7 @@ pub fn eval_string(
     };
 
     // Prepare VM.
-    let scopes = Scopes::new(Some(world.library()));
+    let scopes = TexValueAssignmentGroups::new(Some(world.library()));
     let mut vm = Vm::new(engine, scopes, root.span());
     vm.scopes.scopes.push(scope);
 

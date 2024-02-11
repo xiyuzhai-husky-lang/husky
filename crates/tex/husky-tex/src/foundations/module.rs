@@ -4,7 +4,7 @@ use std::sync::Arc;
 use ecow::{eco_format, EcoString};
 
 use crate::diag::StrResult;
-use crate::foundations::{repr, ty, Scope, TexContent, TexValue};
+use crate::foundations::{repr, ty, TexContent, TexValue, TexValueAssignmentGroup};
 
 /// An evaluated module, either built-in or resulting from a file.
 ///
@@ -26,28 +26,28 @@ use crate::foundations::{repr, ty, Scope, TexContent, TexValue};
 #[ty(cast)]
 #[derive(Clone, Hash)]
 #[allow(clippy::derived_hash_with_manual_eq)]
-pub struct Module {
+pub struct TexModuleEvaluation {
     /// The module's name.
     name: EcoString,
     /// The reference-counted inner fields.
-    inner: Arc<Repr>,
+    inner: Arc<TexModuleEvaluationInner>,
 }
 
 /// The internal representation.
 #[derive(Debug, Clone, Hash)]
-struct Repr {
+struct TexModuleEvaluationInner {
     /// The top-level definitions that were bound in this module.
-    scope: Scope,
+    scope: TexValueAssignmentGroup,
     /// The module's layoutable contents.
     content: TexContent,
 }
 
-impl Module {
+impl TexModuleEvaluation {
     /// Create a new module.
-    pub fn new(name: impl Into<EcoString>, scope: Scope) -> Self {
+    pub fn new(name: impl Into<EcoString>, scope: TexValueAssignmentGroup) -> Self {
         Self {
             name: name.into(),
-            inner: Arc::new(Repr {
+            inner: Arc::new(TexModuleEvaluationInner {
                 scope,
                 content: TexContent::empty(),
             }),
@@ -61,7 +61,7 @@ impl Module {
     }
 
     /// Update the module's scope.
-    pub fn with_scope(mut self, scope: Scope) -> Self {
+    pub fn with_scope(mut self, scope: TexValueAssignmentGroup) -> Self {
         Arc::make_mut(&mut self.inner).scope = scope;
         self
     }
@@ -78,12 +78,12 @@ impl Module {
     }
 
     /// Access the module's scope.
-    pub fn scope(&self) -> &Scope {
+    pub fn scope(&self) -> &TexValueAssignmentGroup {
         &self.inner.scope
     }
 
     /// Access the module's scope, mutably.
-    pub fn scope_mut(&mut self) -> &mut Scope {
+    pub fn scope_mut(&mut self) -> &mut TexValueAssignmentGroup {
         &mut Arc::make_mut(&mut self.inner).scope
     }
 
@@ -103,7 +103,7 @@ impl Module {
     }
 }
 
-impl Debug for Module {
+impl Debug for TexModuleEvaluation {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         f.debug_struct("Module")
             .field("name", &self.name)
@@ -113,13 +113,13 @@ impl Debug for Module {
     }
 }
 
-impl repr::Repr for Module {
+impl repr::Repr for TexModuleEvaluation {
     fn repr(&self) -> EcoString {
         eco_format!("<module {}>", self.name())
     }
 }
 
-impl PartialEq for Module {
+impl PartialEq for TexModuleEvaluation {
     fn eq(&self, other: &Self) -> bool {
         self.name == other.name && Arc::ptr_eq(&self.inner, &other.inner)
     }

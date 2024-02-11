@@ -5,7 +5,9 @@ use ecow::{eco_format, EcoString};
 use once_cell::sync::Lazy;
 
 use crate::diag::StrResult;
-use crate::foundations::{cast, func, Func, NativeFuncData, Repr, Scope, TexValue};
+use crate::foundations::{
+    cast, func, Func, NativeFuncData, Repr, TexValue, TexValueAssignmentGroup,
+};
 use crate::util::Static;
 
 #[rustfmt::skip]
@@ -98,7 +100,7 @@ impl Type {
     }
 
     /// The type's associated scope that holds sub-definitions.
-    pub fn scope(&self) -> &'static Scope {
+    pub fn scope(&self) -> &'static TexValueAssignmentGroup {
         &(self.0).0.scope
     }
 
@@ -195,7 +197,7 @@ pub struct NativeTypeData {
     pub docs: &'static str,
     pub keywords: &'static [&'static str],
     pub constructor: Lazy<Option<&'static NativeFuncData>>,
-    pub scope: Lazy<Scope>,
+    pub scope: Lazy<TexValueAssignmentGroup>,
 }
 
 impl From<&'static NativeTypeData> for Type {

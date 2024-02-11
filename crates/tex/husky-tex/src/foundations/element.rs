@@ -11,8 +11,8 @@ use smallvec::SmallVec;
 use crate::diag::SourceResult;
 use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, Args, Func, ParamInfo, Repr, Scope, Selector, StyleChain, Styles, TexContent, TexDict,
-    TexValue,
+    cast, Args, Func, ParamInfo, Repr, Selector, StyleChain, Styles, TexContent, TexDict, TexValue,
+    TexValueAssignmentGroup,
 };
 use crate::text::{Lang, Region};
 use crate::util::Static;
@@ -110,7 +110,7 @@ impl ElementSchemaRef {
     }
 
     /// The element's associated scope of sub-definition.
-    pub fn scope(&self) -> &'static Scope {
+    pub fn scope(&self) -> &'static TexValueAssignmentGroup {
         &(self.0).0.scope
     }
 
@@ -247,7 +247,7 @@ pub struct ElementSchema {
     pub field_id: fn(name: &str) -> Option<u8>,
     pub field_name: fn(u8) -> Option<&'static str>,
     pub local_name: Option<fn(Lang, Option<Region>) -> &'static str>,
-    pub scope: Lazy<Scope>,
+    pub scope: Lazy<TexValueAssignmentGroup>,
     pub params: Lazy<Vec<ParamInfo>>,
 }
 

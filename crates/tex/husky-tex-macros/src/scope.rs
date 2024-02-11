@@ -31,7 +31,8 @@ pub fn scope(_: TokenStream, item: syn::Item) -> Result<TokenStream> {
         definitions.push(def);
     }
 
-    item.items.retain(|item| !matches!(item, syn::ImplItem::Verbatim(_)));
+    item.items
+        .retain(|item| !matches!(item, syn::ImplItem::Verbatim(_)));
 
     let mut base = quote! { #item };
     if let syn::Type::Path(syn::TypePath { path, .. }) = self_ty.as_ref() {
@@ -50,8 +51,8 @@ pub fn scope(_: TokenStream, item: syn::Item) -> Result<TokenStream> {
                 #constructor
             }
 
-            fn scope() -> #foundations::Scope {
-                let mut scope = #foundations::Scope::deduplicating();
+            fn scope() -> #foundations::TexValueAssignmentGroup {
+                let mut scope = #foundations::TexValueAssignmentGroup::deduplicating();
                 #(#definitions;)*
                 scope
             }
@@ -81,7 +82,10 @@ fn handle_type_or_elem(item: &TokenStream) -> Result<TokenStream> {
 /// Process a function, return its definition, and register it as a constructor
 /// if applicable.
 fn handle_fn(self_ty: &syn::Type, item: &mut syn::ImplItemFn) -> Result<FnKind> {
-    let Some(attr) = item.attrs.iter_mut().find(|attr| attr.meta.path().is_ident("func"))
+    let Some(attr) = item
+        .attrs
+        .iter_mut()
+        .find(|attr| attr.meta.path().is_ident("func"))
     else {
         bail!(item, "scope function is missing #[func] attribute");
     };
@@ -97,13 +101,17 @@ fn handle_fn(self_ty: &syn::Type, item: &mut syn::ImplItemFn) -> Result<FnKind> 
             let meta: crate::func::Meta = syn::parse2(tokens.clone())?;
             list.tokens = quote! { #tokens, parent = #self_ty };
             if meta.constructor {
-                return Ok(FnKind::Constructor(quote! { Some(#self_ty::#ident_data()) }));
+                return Ok(FnKind::Constructor(
+                    quote! { Some(#self_ty::#ident_data()) },
+                ));
             }
         }
         syn::Meta::NameValue(_) => bail!(attr.meta, "invalid func attribute"),
     }
 
-    Ok(FnKind::Member(quote! { scope.define_func_with_data(#self_ty::#ident_data()) }))
+    Ok(FnKind::Member(
+        quote! { scope.define_func_with_data(#self_ty::#ident_data()) },
+    ))
 }
 
 enum FnKind {
@@ -121,7 +129,9 @@ fn rewrite_primitive_base(item: &syn::ItemImpl, ident: &syn::Ident) -> TokenStre
     let mut sigs = vec![];
     let mut items = vec![];
     for sub in &item.items {
-        let syn::ImplItem::Fn(mut func) = sub.clone() else { continue };
+        let syn::ImplItem::Fn(mut func) = sub.clone() else {
+            continue;
+        };
         func.vis = syn::Visibility::Inherited;
         items.push(func.clone());
 

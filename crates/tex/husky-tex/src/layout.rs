@@ -74,7 +74,7 @@ use comemo::{Tracked, TrackedMut};
 use crate::diag::{bail, SourceResult};
 use crate::engine::{Route, TexEngine};
 use crate::eval::Tracer;
-use crate::foundations::{category, Category, Scope, StyleChain, TexContent};
+use crate::foundations::{category, StyleChain, TexContent, TexDefnKind, TexValueAssignmentGroup};
 use crate::introspection::{Introspector, Locator};
 use crate::model::TexDocument;
 use crate::realize::{realize_block, realize_root, Scratch};
@@ -84,10 +84,10 @@ use crate::IsTexWorld;
 ///
 /// By combining layout functions, you can create complex and automatic layouts.
 #[category]
-pub static LAYOUT: Category;
+pub static LAYOUT: TexDefnKind;
 
 /// Hook up all `layout` definitions.
-pub fn define(global: &mut Scope) {
+pub fn define(global: &mut TexValueAssignmentGroup) {
     global.category(LAYOUT);
     global.define_type::<Length>();
     global.define_type::<Angle>();

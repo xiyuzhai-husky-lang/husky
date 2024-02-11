@@ -8,8 +8,8 @@ use once_cell::sync::Lazy;
 use crate::diag::{bail, SourceResult, StrResult};
 use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, repr, scope, ty, Args, CastInfo, ElementSchemaRef, IntoArgs, Scope, Selector, TexContent,
-    TexValue, Type,
+    cast, repr, scope, ty, Args, CastInfo, ElementSchemaRef, IntoArgs, Selector, TexContent,
+    TexValue, TexValueAssignmentGroup, Type,
 };
 use crate::syntax::{ast, Span, TexSyntaxNode};
 use crate::util::Static;
@@ -218,7 +218,7 @@ impl Func {
     }
 
     /// The function's associated scope of sub-definition.
-    pub fn scope(&self) -> Option<&'static Scope> {
+    pub fn scope(&self) -> Option<&'static TexValueAssignmentGroup> {
         match &self.repr {
             Repr::Native(native) => Some(&native.0.scope),
             Repr::Element(elem) => Some(elem.scope()),
@@ -418,7 +418,7 @@ pub struct NativeFuncData {
     pub title: &'static str,
     pub docs: &'static str,
     pub keywords: &'static [&'static str],
-    pub scope: Lazy<Scope>,
+    pub scope: Lazy<TexValueAssignmentGroup>,
     pub params: Lazy<Vec<ParamInfo>>,
     pub returns: Lazy<CastInfo>,
 }
@@ -468,7 +468,7 @@ pub struct Closure {
     /// Default values of named parameters.
     pub defaults: Vec<TexValue>,
     /// Captured values from outer scopes.
-    pub captured: Scope,
+    pub captured: TexValueAssignmentGroup,
 }
 
 impl Closure {

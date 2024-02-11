@@ -6,8 +6,8 @@ use indexmap::IndexMap;
 
 use crate::diag::{bail, HintedStrResult, HintedString, StrResult};
 use crate::foundations::{
-    ElementSchemaRef, Func, IntoTexValue, IsTexElem, Module, NativeFunc, NativeFuncData,
-    NativeType, TexValue, Type,
+    ElementSchemaRef, Func, IntoTexValue, IsTexElem, NativeFunc, NativeFuncData, NativeType,
+    TexModuleEvaluation, TexValue, Type,
 };
 use crate::util::Static;
 use crate::Library;
@@ -17,20 +17,20 @@ pub use husky_tex_macros::category;
 
 /// A stack of scopes.
 #[derive(Debug, Default, Clone)]
-pub struct Scopes<'a> {
+pub struct TexValueAssignmentGroups<'a> {
     /// The active scope.
-    pub top: Scope,
+    pub top: TexValueAssignmentGroup,
     /// The stack of lower scopes.
-    pub scopes: Vec<Scope>,
+    pub scopes: Vec<TexValueAssignmentGroup>,
     /// The standard library.
     pub base: Option<&'a Library>,
 }
 
-impl<'a> Scopes<'a> {
+impl<'a> TexValueAssignmentGroups<'a> {
     /// Create a new, empty hierarchy of scopes.
     pub fn new(base: Option<&'a Library>) -> Self {
         Self {
-            top: Scope::new(),
+            top: TexValueAssignmentGroup::new(),
             scopes: vec![],
             base,
         }
@@ -103,13 +103,13 @@ fn unknown_variable(var: &str) -> HintedString {
 
 /// A map from binding names to values.
 #[derive(Default, Clone)]
-pub struct Scope {
-    map: IndexMap<EcoString, Slot>,
+pub struct TexValueAssignmentGroup {
+    map: IndexMap<EcoString, TexValueSlot>,
     deduplicate: bool,
-    category: Option<Category>,
+    kind: Option<TexDefnKind>,
 }
 
-impl Scope {
+impl TexValueAssignmentGroup {
     /// Create a new empty scope.
     pub fn new() -> Self {
         Default::default()
@@ -124,13 +124,13 @@ impl Scope {
     }
 
     /// Enter a new category.
-    pub fn category(&mut self, category: Category) {
-        self.category = Some(category);
+    pub fn category(&mut self, category: TexDefnKind) {
+        self.kind = Some(category);
     }
 
     /// Reset the category.
-    pub fn reset_category(&mut self) {
-        self.category = None;
+    pub fn reset_group(&mut self) {
+        self.kind = None;
     }
 
     /// Bind a value to a name.
@@ -145,7 +145,7 @@ impl Scope {
 
         self.map.insert(
             name,
-            Slot::new(value.into_value(), Kind::Normal, self.category),
+            TexValueSlot::new(value.into_value(), Kind::Normal, self.kind),
         );
     }
 
@@ -173,7 +173,7 @@ impl Scope {
     }
 
     /// Define a module.
-    pub fn define_module(&mut self, module: Module) {
+    pub fn define_module(&mut self, module: TexModuleEvaluation) {
         self.define(module.name().clone(), module);
     }
 
@@ -181,25 +181,25 @@ impl Scope {
     pub fn define_captured(&mut self, var: impl Into<EcoString>, value: impl IntoTexValue) {
         self.map.insert(
             var.into(),
-            Slot::new(value.into_value(), Kind::Captured, self.category),
+            TexValueSlot::new(value.into_value(), Kind::Captured, self.kind),
         );
     }
 
     /// Try to access a variable immutably.
     pub fn get(&self, var: &str) -> Option<&TexValue> {
-        self.map.get(var).map(Slot::read)
+        self.map.get(var).map(TexValueSlot::read)
     }
 
     /// Try to access a variable mutably.
     pub fn get_mut(&mut self, var: &str) -> Option<HintedStrResult<&mut TexValue>> {
         self.map
             .get_mut(var)
-            .map(Slot::write)
+            .map(TexValueSlot::write)
             .map(|res| res.map_err(HintedString::from))
     }
 
     /// Get the category of a definition.
-    pub fn get_category(&self, var: &str) -> Option<Category> {
+    pub fn get_category(&self, var: &str) -> Option<TexDefnKind> {
         self.map.get(var)?.category
     }
 
@@ -209,7 +209,7 @@ impl Scope {
     }
 }
 
-impl Debug for Scope {
+impl Debug for TexValueAssignmentGroup {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         f.write_str("Scope ")?;
         f.debug_map()
@@ -218,14 +218,14 @@ impl Debug for Scope {
     }
 }
 
-impl Hash for Scope {
+impl Hash for TexValueAssignmentGroup {
     fn hash<H: Hasher>(&self, state: &mut H) {
         state.write_usize(self.map.len());
         for item in &self.map {
             item.hash(state);
         }
         self.deduplicate.hash(state);
-        self.category.hash(state);
+        self.kind.hash(state);
     }
 }
 
@@ -235,18 +235,18 @@ pub trait NativeScope {
     fn constructor() -> Option<&'static NativeFuncData>;
 
     /// Get the associated scope for the type.
-    fn scope() -> Scope;
+    fn scope() -> TexValueAssignmentGroup;
 }
 
 /// A slot where a value is stored.
 #[derive(Clone, Hash)]
-struct Slot {
+struct TexValueSlot {
     /// The stored value.
     value: TexValue,
     /// The kind of slot, determines how the value can be accessed.
     kind: Kind,
     /// The category of the slot.
-    category: Option<Category>,
+    category: Option<TexDefnKind>,
 }
 
 /// The different kinds of slots.
@@ -258,9 +258,9 @@ enum Kind {
     Captured,
 }
 
-impl Slot {
+impl TexValueSlot {
     /// Create a new slot.
-    fn new(value: TexValue, kind: Kind, category: Option<Category>) -> Self {
+    fn new(value: TexValue, kind: Kind, category: Option<TexDefnKind>) -> Self {
         Self {
             value,
             kind,
@@ -289,11 +289,11 @@ impl Slot {
 
 /// A group of related definitions.
 #[derive(Copy, Clone, Eq, PartialEq, Hash)]
-pub struct Category(Static<CategoryData>);
+pub struct TexDefnKind(Static<TexCategoryData>);
 
-impl Category {
+impl TexDefnKind {
     /// Create a new category from raw data.
-    pub const fn from_data(data: &'static CategoryData) -> Self {
+    pub const fn from_data(data: &'static TexCategoryData) -> Self {
         Self(Static(data))
     }
 
@@ -313,7 +313,7 @@ impl Category {
     }
 }
 
-impl Debug for Category {
+impl Debug for TexDefnKind {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         write!(f, "Category({})", self.name())
     }
@@ -321,7 +321,7 @@ impl Debug for Category {
 
 /// Defines a category.
 #[derive(Debug)]
-pub struct CategoryData {
+pub struct TexCategoryData {
     pub name: &'static str,
     pub title: &'static str,
     pub docs: &'static str,

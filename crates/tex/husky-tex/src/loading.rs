@@ -23,17 +23,17 @@ pub use self::toml_::*;
 pub use self::xml_::*;
 pub use self::yaml_::*;
 
-use crate::foundations::{cast, category, Bytes, Category, Scope, Str};
+use crate::foundations::{cast, category, Bytes, Str, TexDefnKind, TexValueAssignmentGroup};
 
 /// Data loading from external files.
 ///
 /// These functions help you with loading and embedding data, for example from
 /// the results of an experiment.
 #[category]
-pub static DATA_LOADING: Category;
+pub static DATA_LOADING: TexDefnKind;
 
 /// Hook up all `data-loading` definitions.
-pub(super) fn define(global: &mut Scope) {
+pub(super) fn define(global: &mut TexValueAssignmentGroup) {
     global.category(DATA_LOADING);
     global.define_func::<read>();
     global.define_func::<csv>();

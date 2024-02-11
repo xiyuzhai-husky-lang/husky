@@ -4,7 +4,7 @@ use std::collections::{BTreeSet, HashSet};
 use ecow::{eco_format, EcoString};
 use husky_tex::foundations::{
     fields_on, format_str, mutable_methods_on, repr, AutoTexValue, CastInfo, Func, Label,
-    NoneTexValue, Repr, Scope, TexValue, Type,
+    NoneTexValue, Repr, TexValue, TexValueAssignmentGroup, Type,
 };
 use husky_tex::model::TexDocument;
 use husky_tex::syntax::{
@@ -995,8 +995,8 @@ fn code_completions(ctx: &mut CompletionContext, hash: bool) {
 struct CompletionContext<'a> {
     world: &'a (dyn IsTexWorld + 'a),
     document: Option<&'a TexDocument>,
-    global: &'a Scope,
-    math: &'a Scope,
+    global: &'a TexValueAssignmentGroup,
+    math: &'a TexValueAssignmentGroup,
     text: &'a str,
     before: &'a str,
     after: &'a str,

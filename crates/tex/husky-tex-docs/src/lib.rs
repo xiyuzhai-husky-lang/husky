@@ -16,7 +16,8 @@ use ecow::{eco_format, EcoString};
 use heck::ToTitleCase;
 use husky_tex::diag::{bail, StrResult};
 use husky_tex::foundations::{
-    CastInfo, Category, Func, Module, ParamInfo, Repr, Scope, Smart, TexValue, Type, FOUNDATIONS,
+    CastInfo, Func, ParamInfo, Repr, Smart, TexDefnKind, TexModuleEvaluation, TexValue,
+    TexValueAssignmentGroup, Type, FOUNDATIONS,
 };
 use husky_tex::introspection::INTROSPECTION;
 use husky_tex::layout::{Margin, PageElem, TexAbsLength, LAYOUT};
@@ -187,7 +188,7 @@ fn packages_page(resolver: &dyn Resolver) -> PageModel {
 
 /// Create a page for a category.
 #[track_caller]
-fn category_page(resolver: &dyn Resolver, category: Category) -> PageModel {
+fn category_page(resolver: &dyn Resolver, category: TexDefnKind) -> PageModel {
     let route = eco_format!("/docs/reference/{}/", category.name());
     let mut children = vec![];
     let mut items = vec![];
@@ -195,7 +196,7 @@ fn category_page(resolver: &dyn Resolver, category: Category) -> PageModel {
     let mut markup = vec![];
     let mut math = vec![];
 
-    let (module, path): (&Module, &[&str]) = if category == MATH {
+    let (module, path): (&TexModuleEvaluation, &[&str]) = if category == MATH {
         (&LIBRARY.math, &["math"])
     } else {
         (&LIBRARY.global, &[])
@@ -454,7 +455,11 @@ fn casts(
 }
 
 /// Produce models for a function's scope.
-fn scope_models(resolver: &dyn Resolver, name: &str, scope: &Scope) -> Vec<FuncModel> {
+fn scope_models(
+    resolver: &dyn Resolver,
+    name: &str,
+    scope: &TexValueAssignmentGroup,
+) -> Vec<FuncModel> {
     scope
         .iter()
         .filter_map(|(_, value)| {
@@ -694,7 +699,10 @@ fn symbols_model(resolver: &dyn Resolver, group: &GroupData) -> SymbolsModel {
 
 /// Extract a module from another module.
 #[track_caller]
-fn get_module<'a>(parent: &'a Module, name: &str) -> StrResult<&'a Module> {
+fn get_module<'a>(
+    parent: &'a TexModuleEvaluation,
+    name: &str,
+) -> StrResult<&'a TexModuleEvaluation> {
     match parent.scope().get(name) {
         Some(TexValue::Module(module)) => Ok(module),
         _ => bail!("module doesn't contain module `{name}`"),
@@ -780,7 +788,7 @@ struct GroupData {
 }
 
 impl GroupData {
-    fn module(&self) -> &'static Module {
+    fn module(&self) -> &'static TexModuleEvaluation {
         let mut focus = &LIBRARY.global;
         for path in &self.path {
             focus = get_module(focus, path).unwrap();
