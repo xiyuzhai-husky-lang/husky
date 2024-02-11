@@ -120,8 +120,12 @@ pub struct SynDeclJar(
     // -- ill formed item
     IllFormedItemSynNodeDecl,
     // attr
-    DeriveAttrSynDecl,
-    DeriveAttrSynNodeDecl,
+    crate::decl::attr::derive::DeriveAttrSynNodeDecl,
+    crate::decl::attr::derive::DeriveAttrSynDecl,
+    crate::decl::attr::differential::DifferentialAttrSynNodeDecl,
+    crate::decl::attr::differential::DifferentialAttrSynDecl,
+    crate::decl::attr::effect::EffectAttrSynNodeDecl,
+    crate::decl::attr::effect::EffectAttrSynDecl,
     attr_syn_node_decl,
     attr_syn_decl,
     // sheet

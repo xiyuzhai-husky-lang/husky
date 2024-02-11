@@ -1,28 +1,36 @@
-mod derive;
-
-use husky_coword::coword_menu;
+pub mod derive;
+pub mod differential;
+pub mod effect;
 
 pub use self::derive::*;
 
+use self::{differential::DifferentialAttrSynNodeDecl, effect::EffectAttrSynNodeDecl};
 use super::*;
+use husky_coword::coword_menu;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum AttrSynNodeDecl {
     Derive(DeriveAttrSynNodeDecl),
+    Diff(DifferentialAttrSynNodeDecl),
+    Effect(EffectAttrSynNodeDecl),
 }
 
 /// # getters
 impl AttrSynNodeDecl {
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
-            AttrSynNodeDecl::Derive(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            AttrSynNodeDecl::Derive(slf) => slf.syn_expr_region(db),
+            AttrSynNodeDecl::Diff(slf) => slf.syn_expr_region(db),
+            AttrSynNodeDecl::Effect(slf) => slf.syn_expr_region(db),
         }
     }
 
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
             AttrSynNodeDecl::Derive(slf) => slf.errors(db),
+            AttrSynNodeDecl::Diff(slf) => slf.errors(db),
+            AttrSynNodeDecl::Effect(slf) => slf.errors(db),
         }
     }
 }
@@ -59,12 +67,14 @@ impl AttrSynDecl {
     fn from_node_decl(
         db: &::salsa::Db,
         path: AttrItemPath,
-        syn_node_decl: AttrSynNodeDecl,
+        sndecl: AttrSynNodeDecl,
     ) -> DeclResult<Self> {
-        Ok(match syn_node_decl {
-            AttrSynNodeDecl::Derive(syn_node_decl) => {
-                DeriveAttrSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+        Ok(match sndecl {
+            AttrSynNodeDecl::Derive(sndecl) => {
+                DeriveAttrSynDecl::from_node_decl(db, path, sndecl)?.into()
             }
+            AttrSynNodeDecl::Diff(_) => todo!(),
+            AttrSynNodeDecl::Effect(_) => todo!(),
         })
     }
 }
