@@ -2,6 +2,10 @@ use crate::accom::SigBuilder;
 use crate::types::*;
 use crate::{MizGlobal, MizPath};
 use enum_map::{Enum, EnumMap};
+use idx::{
+    vec::{ext::ExtVec, IdxVec},
+    Idx,
+};
 use quick_xml::events::attributes::Attribute;
 use quick_xml::events::{BytesDecl, BytesEnd, BytesStart, Event};
 use std::borrow::Cow;
@@ -69,9 +73,9 @@ impl MizPath {
                 base: &'a ConstructorsBase,
             }
             impl ForeachConstructor for S<'_> {
-                fn foreach<I: MizIdx, T>(
+                fn foreach<I: Idx, T>(
                     self,
-                    arr: &MizIdxVec<I, T>,
+                    arr: &IdxVec<I, T>,
                     base: impl Fn(&ConstructorsBase) -> u32,
                     mut body: impl FnMut(&[u8], u32, u32, &T),
                 ) {
@@ -297,7 +301,7 @@ impl MizPath {
     pub fn write_formats(
         &self,
         ext: &str,
-        formats: &MizIdxVec<FormatId, Format>,
+        formats: &IdxVec<FormatId, Format>,
         func_prio: &HashMap<FuncSymId, u32>,
     ) {
         let mut w = self.create_xml(true, false, ext).unwrap();
@@ -338,9 +342,9 @@ impl MizPath {
             #[derive(Clone, Copy)]
             struct S<'a>(&'a SigBuilder);
             impl ForeachConstructor for S<'_> {
-                fn foreach<I: MizIdx, T>(
+                fn foreach<I: Idx, T>(
                     self,
-                    arr: &MizIdxVec<I, T>,
+                    arr: &IdxVec<I, T>,
                     base: impl Fn(&ConstructorsBase) -> u32,
                     mut body: impl FnMut(&[u8], u32, u32, &T),
                 ) {
@@ -680,7 +684,7 @@ impl MizWriter {
         }
     }
 
-    fn write_constructor<I: MizIdx>(
+    fn write_constructor<I: Idx>(
         &mut self,
         art: &[u8],
         (kind, nr): (u8, u32),
@@ -729,7 +733,7 @@ impl MizWriter {
         })
     }
 
-    fn write_ty_constructor<I: MizIdx>(
+    fn write_ty_constructor<I: Idx>(
         &mut self,
         art: &[u8],
         kind: (u8, u32),
@@ -1019,9 +1023,9 @@ impl MizWriter {
 }
 
 trait ForeachConstructor: Copy {
-    fn foreach<I: MizIdx, T>(
+    fn foreach<I: Idx, T>(
         self,
-        arr: &MizIdxVec<I, T>,
+        arr: &IdxVec<I, T>,
         base: impl Fn(&ConstructorsBase) -> u32,
         body: impl FnMut(&[u8], u32, u32, &T),
     );

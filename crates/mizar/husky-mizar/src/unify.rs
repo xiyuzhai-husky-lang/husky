@@ -2,10 +2,7 @@ use crate::bignum::{Complex, Rational};
 use crate::checker::{Atoms, Dnf, Open, OrUnsat, Overflow, Unsat};
 use crate::equate::Equalizer;
 use crate::types::*;
-use crate::{
-    vprintln, CheckLocus, EqCtx, Equate, ExpandPrivFunc, LocalContext, MizGlobal, Visit, VisitMut,
-    WithGlobalLocal,
-};
+use crate::*;
 use enum_map::{Enum, EnumMap};
 use itertools::Itertools;
 use std::collections::{BTreeMap, HashMap};
@@ -44,7 +41,7 @@ pub struct Unifier<'a> {
     g: &'a MizGlobal,
     lc: &'a mut LocalContext,
     infer: HashMap<InferId, EqClassId>,
-    eq_class: MizIdxVec<EqClassId, MizEqTerm>,
+    eq_class: IdxVec<EqClassId, MizEqTerm>,
     bas: &'a EnumMap<bool, Atoms>,
 }
 
@@ -82,7 +79,7 @@ impl<'a> Unifier<'a> {
             g: eq.g,
             lc: eq.lc,
             infer: Default::default(),
-            eq_class: MizIdxVec::from_default(eq.next_eq_class.into_usize()),
+            eq_class: IdxVec::from_default(eq.next_eq_class.into_usize()),
             bas,
         };
         for etm in eq.terms.0 {
@@ -130,7 +127,7 @@ impl<'a> Unifier<'a> {
         if self.g.cfg.unify_header {
             eprintln!("falsify: {f:?}");
         }
-        let mut fvars = MizIdxVec::default();
+        let mut fvars = IdxVec::default();
         // Suppose f = ∀ xs, F(xs).
         // First, introduce metavariables ("free vars") to obtain a formula F(?v)
         OpenAsFreeVar(&mut fvars).open_quantifiers(&mut f, false);
@@ -198,7 +195,7 @@ impl<'a> Unifier<'a> {
         // CreateClauses
         let mut all_clauses = Dnf::FALSE;
         let mut atoms = Atoms::default();
-        let mut fvars = MizIdxVec::default();
+        let mut fvars = IdxVec::default();
         // vprintln!("resolution: {fs:#?}");
         // We want to show |- !f_1 \/ ... \/ !f_n
         // Suppose f_i = ∀ xs, F_i(xs). Then !F_i(?v_i) implies !f_i,
@@ -358,7 +355,7 @@ impl<'a> Unifier<'a> {
     }
 }
 
-struct OpenAsFreeVar<'a>(&'a mut MizIdxVec<FVarId, Type>);
+struct OpenAsFreeVar<'a>(&'a mut IdxVec<FVarId, Type>);
 
 impl Open for OpenAsFreeVar<'_> {
     fn mk_var(n: u32) -> Term {
@@ -494,8 +491,8 @@ struct Unify<'a> {
     g: &'a MizGlobal,
     lc: &'a LocalContext,
     infer: &'a HashMap<InferId, EqClassId>,
-    eq_class: &'a MizIdxVec<EqClassId, MizEqTerm>,
-    fvars: &'a MizIdxVec<FVarId, Type>,
+    eq_class: &'a IdxVec<EqClassId, MizEqTerm>,
+    fvars: &'a IdxVec<FVarId, Type>,
     cache: BTreeMap<(FVarId, EqClassId), Dnf<FVarId, EqClassId>>,
     base: u32,
     depth: u32,
@@ -510,7 +507,7 @@ impl WithGlobalLocal for Unify<'_> {
 }
 
 impl Unifier<'_> {
-    fn unify<'a>(&'a mut self, fvars: &'a MizIdxVec<FVarId, Type>) -> Unify<'a> {
+    fn unify<'a>(&'a mut self, fvars: &'a IdxVec<FVarId, Type>) -> Unify<'a> {
         Unify {
             g: self.g,
             lc: self.lc,
@@ -1329,7 +1326,7 @@ impl Unify<'_> {
 
 struct EquateClass<'a> {
     infer: &'a HashMap<InferId, EqClassId>,
-    eq_class: &'a MizIdxVec<EqClassId, MizEqTerm>,
+    eq_class: &'a IdxVec<EqClassId, MizEqTerm>,
 }
 
 impl Unify<'_> {

@@ -31,7 +31,7 @@ pub struct Reader {
     /// Notat
     pub notations: EnumMap<PatternKindClass, ExtVec<Pattern>>,
     /// Definientia
-    pub definitions: MizIdxVec<DefiniensId, Definiens>,
+    pub definitions: IdxVec<DefiniensId, Definiens>,
     /// EqDefinientia
     pub equalities: Vec<Definiens>,
     /// ExDefinientia
@@ -45,7 +45,7 @@ pub struct Reader {
     pub equals: BTreeMap<ConstrKind, Vec<EqualsDef>>,
     pub func_ids: BTreeMap<ConstrKind, Vec<usize>>,
     props: Vec<Formula>,
-    labels: MizIdxVec<LabelId, Option<usize>>,
+    labels: IdxVec<LabelId, Option<usize>>,
     pending_defs: Vec<PendingDef>,
     pub def_map: HashMap<DefRef, DefiniensId>,
     pub pos: Position,

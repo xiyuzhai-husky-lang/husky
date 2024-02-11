@@ -1,6 +1,7 @@
-use crate::parser::{MaybeMut, ParseError, PathResult};
+use crate::parser::{MaybeMut, MizParseError, PathResult};
 use crate::types::*;
 use crate::MizPath;
+use idx::vec::IdxVec;
 use once_cell::sync::OnceCell;
 use std::collections::HashMap;
 
@@ -108,7 +109,7 @@ impl MizPath {
         &self,
         new_prel: bool,
         vocs: &mut Vocabularies,
-        formats: &mut MizIdxVec<FormatId, Format>,
+        formats: &mut IdxVec<FormatId, Format>,
     ) -> PathResult<()> {
         self.get_cache(
             new_prel,
@@ -122,7 +123,7 @@ impl MizPath {
                 if formats2.is_empty() {
                     Err((
                         self.to_path(false, new_prel, "dfr"),
-                        ParseError::MissingFile,
+                        MizParseError::MissingFile,
                     ))
                 } else {
                     Ok(())
@@ -141,7 +142,7 @@ impl MizPath {
                 if dno.pats.is_empty() {
                     Err((
                         self.to_path(false, new_prel, "dno"),
-                        ParseError::MissingFile,
+                        MizParseError::MissingFile,
                     ))
                 } else {
                     Ok(())
@@ -171,7 +172,7 @@ impl MizPath {
                 if dco2.constrs.as_ref().is_empty() {
                     Err((
                         self.to_path(false, new_prel, "dco"),
-                        ParseError::MissingFile,
+                        MizParseError::MissingFile,
                     ))
                 } else {
                     Ok(())
@@ -203,7 +204,7 @@ impl MizPath {
                 if dcl.cl.as_ref().is_empty() {
                     Err((
                         self.to_path(false, new_prel, "dcl"),
-                        ParseError::MissingFile,
+                        MizParseError::MissingFile,
                     ))
                 } else {
                     Ok(())
@@ -232,7 +233,7 @@ impl MizPath {
                 if defs2.is_empty() {
                     Err((
                         self.to_path(false, new_prel, "def"),
-                        ParseError::MissingFile,
+                        MizParseError::MissingFile,
                     ))
                 } else {
                     Ok(())
@@ -259,7 +260,7 @@ impl MizPath {
                 if dpr2.is_empty() {
                     Err((
                         self.to_path(false, new_prel, "dpr"),
-                        ParseError::MissingFile,
+                        MizParseError::MissingFile,
                     ))
                 } else {
                     Ok(())
@@ -288,7 +289,7 @@ impl MizPath {
                 if did2.is_empty() {
                     Err((
                         self.to_path(false, new_prel, "did"),
-                        ParseError::MissingFile,
+                        MizParseError::MissingFile,
                     ))
                 } else {
                     Ok(())
@@ -317,7 +318,7 @@ impl MizPath {
                 if drd2.is_empty() {
                     Err((
                         self.to_path(false, new_prel, "drd"),
-                        ParseError::MissingFile,
+                        MizParseError::MissingFile,
                     ))
                 } else {
                     Ok(())
@@ -336,7 +337,7 @@ impl MizPath {
                 if the.thm.is_empty() {
                     Err((
                         self.to_path(false, new_prel, "the"),
-                        ParseError::MissingFile,
+                        MizParseError::MissingFile,
                     ))
                 } else {
                     Ok(())
@@ -355,7 +356,7 @@ impl MizPath {
                 if sch.sch.is_empty() {
                     Err((
                         self.to_path(false, new_prel, "sch"),
-                        ParseError::MissingFile,
+                        MizParseError::MissingFile,
                     ))
                 } else {
                     Ok(())

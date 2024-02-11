@@ -29,3 +29,5 @@ bytecount = "0.6.3"
 indicatif = "0.17.3"
 clap = { version = "4.1.10", features = ["derive"] }
 num_cpus = "1.15"
+# abstractions
+idx.workspace = true

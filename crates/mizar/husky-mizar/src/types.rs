@@ -1,11 +1,9 @@
 use crate::accom::SigBuilder;
-use crate::VisitMut;
+use crate::*;
 use enum_map::{Enum, EnumMap};
+use idx::vec::sorted::SortedIdxVec;
 use paste::paste;
-use std::cmp::Ordering;
 use std::collections::{BTreeMap, BTreeSet, HashSet};
-use std::marker::PhantomData;
-use std::ops::{Index, IndexMut, Range};
 
 #[derive(Clone)]
 pub enum CowBox<'a, A: ?Sized> {
@@ -36,378 +34,6 @@ impl<A: ?Sized + Clone> CowBox<'_, A> {
             CowBox::Borrowed(x) => Box::new(x.clone()),
             CowBox::Owned(x) => x,
         }
-    }
-}
-
-/// A trait for newtyped integers, that can be used as index types in vectors and sets.
-pub trait MizIdx: Copy + Eq + std::hash::Hash + Ord + std::fmt::Debug + Default {
-    /// Convert from `T` to `usize`
-    fn into_usize(self) -> usize;
-    /// Convert from `usize` to `T`
-    fn from_usize(_: usize) -> Self;
-    /// Generate a fresh variable from a `&mut ID` counter.
-    #[must_use]
-    fn fresh(&mut self) -> Self {
-        let n = *self;
-        *self = Self::from_usize(self.into_usize() + 1);
-        n
-    }
-}
-
-impl MizIdx for usize {
-    fn into_usize(self) -> usize {
-        self
-    }
-    fn from_usize(n: usize) -> Self {
-        n
-    }
-}
-impl MizIdx for u32 {
-    fn into_usize(self) -> usize {
-        self as _
-    }
-    fn from_usize(n: usize) -> Self {
-        n as _
-    }
-}
-
-/// A vector indexed by a custom indexing type `I`, usually a newtyped integer.
-pub struct MizIdxVec<I, T>(pub Vec<T>, PhantomData<I>);
-
-impl<I, T: std::fmt::Debug> std::fmt::Debug for MizIdxVec<I, T> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.0.fmt(f)
-    }
-}
-
-impl<I, T: Clone> Clone for MizIdxVec<I, T> {
-    fn clone(&self) -> Self {
-        Self(self.0.clone(), PhantomData)
-    }
-}
-
-impl<I, T: PartialEq> PartialEq for MizIdxVec<I, T> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<I, T: Eq> Eq for MizIdxVec<I, T> {}
-
-impl<I, T> MizIdxVec<I, T> {
-    /// Construct a new empty [`IdxVec`].
-    #[must_use]
-    pub const fn new() -> Self {
-        Self(vec![], PhantomData)
-    }
-
-    /// Construct a new [`IdxVec`] with the specified capacity.
-    #[must_use]
-    pub fn with_capacity(capacity: usize) -> Self {
-        Vec::with_capacity(capacity).into()
-    }
-
-    /// Construct a new [`IdxVec`] by calling the specified function.
-    #[must_use]
-    pub fn from_fn(size: usize, f: impl FnMut() -> T) -> Self {
-        Self::from(std::iter::repeat_with(f).take(size).collect::<Vec<_>>())
-    }
-
-    /// Construct a new [`IdxVec`] using the default element `size` times.
-    #[must_use]
-    pub fn from_default(size: usize) -> Self
-    where
-        T: Default,
-    {
-        Self::from_fn(size, T::default)
-    }
-
-    /// The number of elements in the [`IdxVec`].
-    #[must_use]
-    pub fn len(&self) -> usize {
-        self.0.len()
-    }
-
-    /// Get a value by index into the vector.
-    pub fn get(&self, index: I) -> Option<&T>
-    where
-        I: MizIdx,
-    {
-        self.0.get(I::into_usize(index))
-    }
-
-    /// Get a value by index into the vector.
-    pub fn get_mut(&mut self, index: I) -> Option<&mut T>
-    where
-        I: MizIdx,
-    {
-        self.0.get_mut(I::into_usize(index))
-    }
-
-    /// Returns the value that would be returned by the next call to `push`.
-    pub fn peek(&self) -> I
-    where
-        I: MizIdx,
-    {
-        I::from_usize(self.0.len())
-    }
-
-    /// Insert a new value at the end of the vector.
-    pub fn push(&mut self, val: T) -> I
-    where
-        I: MizIdx,
-    {
-        let id = self.peek();
-        self.0.push(val);
-        id
-    }
-
-    /// Grow the vector until it is long enough that `vec[idx]` will work.
-    pub fn extend_to_include(&mut self, idx: I)
-    where
-        I: MizIdx,
-        T: Default,
-    {
-        let n = I::into_usize(idx) + 1;
-        if self.0.len() < n {
-            self.0.resize_with(n, T::default)
-        }
-    }
-
-    /// Get the element with index `idx`, extending the vector if necessary.
-    pub fn get_mut_extending(&mut self, idx: I) -> &mut T
-    where
-        I: MizIdx,
-        T: Default,
-    {
-        self.extend_to_include(idx);
-        &mut self[idx]
-    }
-
-    /// An iterator including the indexes, like `iter().enumerate()`, as `I`.
-    pub fn enum_iter(&self) -> impl DoubleEndedIterator<Item = (I, &T)> + Clone
-    where
-        I: MizIdx,
-    {
-        self.0
-            .iter()
-            .enumerate()
-            .map(|(n, val)| (I::from_usize(n), val))
-    }
-
-    /// An iterator including the indexes, like `iter_mut().enumerate()`, as `I`.
-    pub fn enum_iter_mut(&mut self) -> impl DoubleEndedIterator<Item = (I, &mut T)>
-    where
-        I: MizIdx,
-    {
-        self.0
-            .iter_mut()
-            .enumerate()
-            .map(|(n, val)| (I::from_usize(n), val))
-    }
-
-    /// Returns `true` if the vector contains no elements.
-    #[must_use]
-    pub fn is_empty(&self) -> bool {
-        self.0.is_empty()
-    }
-}
-
-impl<I, T> From<Vec<T>> for MizIdxVec<I, T> {
-    fn from(vec: Vec<T>) -> Self {
-        Self(vec, PhantomData)
-    }
-}
-
-impl<I, T> std::iter::FromIterator<T> for MizIdxVec<I, T> {
-    fn from_iter<J: IntoIterator<Item = T>>(iter: J) -> Self {
-        Vec::from_iter(iter).into()
-    }
-}
-
-impl<I, T> Default for MizIdxVec<I, T> {
-    fn default() -> Self {
-        vec![].into()
-    }
-}
-
-impl<I: MizIdx, T> Index<I> for MizIdxVec<I, T> {
-    type Output = T;
-    #[track_caller]
-    fn index(&self, index: I) -> &Self::Output {
-        &self.0[I::into_usize(index)]
-    }
-}
-
-impl<I: MizIdx, T> IndexMut<I> for MizIdxVec<I, T> {
-    #[track_caller]
-    fn index_mut(&mut self, index: I) -> &mut Self::Output {
-        &mut self.0[I::into_usize(index)]
-    }
-}
-
-impl<I: MizIdx, T> Index<Range<I>> for MizIdxVec<I, T> {
-    type Output = [T];
-    #[track_caller]
-    fn index(&self, r: Range<I>) -> &Self::Output {
-        &self.0[I::into_usize(r.start)..I::into_usize(r.end)]
-    }
-}
-
-#[macro_export]
-macro_rules! mk_id {
-  ($($id:ident($ty:ty) $(+ Visit($visit:ident))?,)*) => {
-    $(
-      #[derive(Copy, Clone, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
-      pub struct $id(pub $ty);
-      impl $crate::MizIdx for $id {
-        fn from_usize(n: usize) -> Self { Self(n as $ty) }
-        fn into_usize(self) -> usize { self.0 as usize }
-      }
-      impl std::fmt::Debug for $id {
-        fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-          std::fmt::Debug::fmt(&self.0, f)
-        }
-      }
-      impl std::str::FromStr for $id {
-        type Err = std::num::ParseIntError;
-        fn from_str(s: &str) -> Result<Self, Self::Err> { <$ty>::from_str(s).map($id) }
-      }
-      impl $crate::parser::FromStrPos for $id {
-        fn to_err(_: Self::Err, pos: usize) -> $crate::parser::ParseError {
-          $crate::parser::ParseError::BadInteger(pos)
-        }
-      }
-
-      $(impl<V: VisitMut> Visitable<V> for $id {
-        fn visit(&mut self, v: &mut V) { v.$visit(self) }
-      })?
-    )*
-  };
-}
-
-#[derive(Clone)]
-pub struct SortedIdxVec<I, T> {
-    pub vec: MizIdxVec<I, T>,
-    pub sorted: Vec<I>,
-}
-impl<I, T> std::ops::Deref for SortedIdxVec<I, T> {
-    type Target = MizIdxVec<I, T>;
-    fn deref(&self) -> &Self::Target {
-        &self.vec
-    }
-}
-impl<I, T> std::ops::DerefMut for SortedIdxVec<I, T> {
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.vec
-    }
-}
-
-impl<I, T> Default for SortedIdxVec<I, T> {
-    fn default() -> Self {
-        Self {
-            vec: Default::default(),
-            sorted: Default::default(),
-        }
-    }
-}
-
-impl<I: MizIdx, T: std::fmt::Debug> std::fmt::Debug for SortedIdxVec<I, T> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_list()
-            .entries(self.sorted.iter().map(|&i| &self.vec[i]))
-            .finish()
-    }
-}
-
-impl<I: MizIdx, T> SortedIdxVec<I, T> {
-    pub fn equal_range(&self, p: impl Fn(&T) -> Ordering) -> (usize, usize) {
-        let start = self
-            .sorted
-            .partition_point(|&i| p(&self.vec[i]) == Ordering::Less);
-        let mut end = start;
-        while let Some(&i) = self.sorted.get(end) {
-            if p(&self.vec[i]) == Ordering::Greater {
-                break;
-            }
-            end += 1;
-        }
-        (start, end)
-    }
-
-    pub fn find_index(&self, p: impl Fn(&T) -> Ordering) -> Result<I, usize> {
-        match self.equal_range(p) {
-            (start, end) if start == end => Err(end),
-            (start, _) => Ok(self.sorted[start]),
-        }
-    }
-
-    pub fn find(&self, p: impl Fn(&T) -> Ordering) -> Option<(I, &T)> {
-        let i = self.find_index(p).ok()?;
-        Some((i, &self.vec[i]))
-    }
-
-    pub fn sort_all(&mut self, f: impl Fn(&T, &T) -> Ordering) {
-        self.sorted = (0..self.vec.len()).map(MizIdx::from_usize).collect();
-        self.sorted.sort_by(|&a, &b| f(&self.vec[a], &self.vec[b]));
-    }
-
-    /// Assumes `idx` is the sorted index of `t` (as returned by `find_index`)
-    pub fn insert_at(&mut self, idx: usize, t: T) -> I {
-        let i = self.vec.push(t);
-        self.sorted.insert(idx, i);
-        i
-    }
-
-    pub fn truncate(&mut self, len: usize) {
-        if len < self.0.len() {
-            self.vec.0.truncate(len);
-            self.sorted.retain(|t| MizIdx::into_usize(*t) < len);
-            assert!(self.sorted.len() == len)
-        }
-    }
-}
-
-#[derive(Clone, Debug)]
-pub struct ExtVec<T> {
-    pub vec: Vec<T>,
-    pub limit: usize,
-}
-impl<T> Default for ExtVec<T> {
-    fn default() -> Self {
-        Self {
-            vec: vec![],
-            limit: 0,
-        }
-    }
-}
-impl<T> std::ops::Deref for ExtVec<T> {
-    type Target = [T];
-    fn deref(&self) -> &Self::Target {
-        &self.vec[..self.limit]
-    }
-}
-impl<T> std::ops::DerefMut for ExtVec<T> {
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.vec[..self.limit]
-    }
-}
-impl<T> ExtVec<T> {
-    pub fn push(&mut self, t: T) {
-        assert!(self.vec.len() == self.limit);
-        self.vec.push(t);
-        self.up();
-    }
-    pub fn push_ext(&mut self, t: T) {
-        self.vec.push(t)
-    }
-    pub fn up(&mut self) {
-        self.limit = self.vec.len()
-    }
-    pub fn len(&self) -> usize {
-        self.limit
-    }
-    pub fn ext_len(&self) -> usize {
-        self.vec.len()
     }
 }
 
@@ -480,14 +106,14 @@ impl ArticleId {
 ///
 pub struct RequirementIndexes {
     pub fwd: EnumMap<Requirement, u32>,
-    pub rev: MizIdxVec<FuncId, Option<Requirement>>,
+    pub rev: IdxVec<FuncId, Option<Requirement>>,
 }
 
 impl Default for RequirementIndexes {
     fn default() -> Self {
         Self {
             fwd: Default::default(),
-            rev: MizIdxVec::new(),
+            rev: IdxVec::new(),
         }
     }
 }
@@ -719,7 +345,7 @@ impl<V, T: Visitable<V>> Visitable<V> for ExtVec<T> {
         self.vec.visit(v)
     }
 }
-impl<I, V, T: Visitable<V>> Visitable<V> for MizIdxVec<I, T> {
+impl<I, V, T: Visitable<V>> Visitable<V> for IdxVec<I, T> {
     fn visit(&mut self, v: &mut V) {
         self.0.visit(v)
     }
@@ -1513,10 +1139,10 @@ impl std::ops::DerefMut for Aggregate {
 
 macro_rules! impl_constructors {
   (struct Constructors {
-    $($(#[$attr:meta])* $variant:ident($field:ident): MizIdxVec<$id:ty, $ty:ty> = $lit:expr,)*
+    $($(#[$attr:meta])* $variant:ident($field:ident): IdxVec<$id:ty, $ty:ty> = $lit:expr,)*
   }) => {
     #[derive(Clone, Debug, Default, PartialEq, Eq)]
-    pub struct Constructors { $($(#[$attr])* pub $field: MizIdxVec<$id, $ty>),* }
+    pub struct Constructors { $($(#[$attr])* pub $field: IdxVec<$id, $ty>),* }
 
     impl<V: VisitMut> Visitable<V> for Constructors {
       fn visit(&mut self, v: &mut V) { $(self.$field.visit(v));* }
@@ -1588,7 +1214,7 @@ macro_rules! impl_constructors {
       }
 
       pub fn to_owned(self) -> Constructors {
-        Constructors { $($field: MizIdxVec::from(self.$field.to_vec())),* }
+        Constructors { $($field: IdxVec::from(self.$field.to_vec())),* }
       }
     }
 
@@ -1612,14 +1238,14 @@ macro_rules! impl_constructors {
 
 impl_constructors! {
   struct Constructors {
-    Mode(mode): MizIdxVec<ModeId, TyConstructor<ModeId>> = b'M',
-    Struct(struct_mode): MizIdxVec<StructId, StructMode> = b'S',
+    Mode(mode): IdxVec<ModeId, TyConstructor<ModeId>> = b'M',
+    Struct(struct_mode): IdxVec<StructId, StructMode> = b'S',
     /// Invariant: The `ty` field is always equal to `primary.last()`
-    Attr(attribute): MizIdxVec<AttrId, TyConstructor<AttrId>> = b'V',
-    Pred(predicate): MizIdxVec<PredId, Constructor<PredId>> = b'R',
-    Func(functor): MizIdxVec<FuncId, TyConstructor<FuncId>> = b'K',
-    Sel(selector): MizIdxVec<SelId, TyConstructor<SelId>> = b'U',
-    Aggr(aggregate): MizIdxVec<AggrId, Aggregate> = b'G',
+    Attr(attribute): IdxVec<AttrId, TyConstructor<AttrId>> = b'V',
+    Pred(predicate): IdxVec<PredId, Constructor<PredId>> = b'R',
+    Func(functor): IdxVec<FuncId, TyConstructor<FuncId>> = b'K',
+    Sel(selector): IdxVec<SelId, TyConstructor<SelId>> = b'U',
+    Aggr(aggregate): IdxVec<AggrId, Aggregate> = b'G',
   }
 }
 
@@ -2796,7 +2422,7 @@ impl FormatId {
 
 #[derive(Debug, Default)]
 pub struct Formats {
-    pub formats: MizIdxVec<FormatId, Format>,
+    pub formats: IdxVec<FormatId, Format>,
     // pub priority: Vec<(PriorityKind, u32)>,
 }
 

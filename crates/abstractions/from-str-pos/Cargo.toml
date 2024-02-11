@@ -1,5 +1,5 @@
 [package]
-name = "idx"
+name = "from-str-pos"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,7 +12,6 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-from-str-pos.workspace = true
 
 [lints]
 workspace = true

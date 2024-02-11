@@ -1,8 +1,10 @@
 use crate::error::report_accom_warning;
-use crate::parser::{catch_missing, ParseError, PathResult};
+use crate::parser::{catch_missing, MizParseError, PathResult};
 use crate::reader::DefiniensId;
 use crate::types::*;
 use crate::{mk_id, CmpStyle, MizPath, VisitMut, MML_VCT_PATH};
+use idx::vec::IdxVec;
+use idx::Idx;
 use std::collections::HashMap;
 use std::io;
 
@@ -13,7 +15,7 @@ mk_id! {
 
 #[derive(Debug, Default)]
 struct MizVocBuilder {
-    pub voc: MizIdxVec<MizVocId, (Article, SymbolsBase)>,
+    pub voc: IdxVec<MizVocId, (Article, SymbolsBase)>,
     base: SymbolsBase,
 }
 
@@ -50,7 +52,7 @@ impl MizVocBuilder {
 
 #[derive(Debug, Default)]
 pub struct SigBuilder {
-    pub sig: MizIdxVec<SigId, (Article, ConstructorsBase)>,
+    pub sig: IdxVec<SigId, (Article, ConstructorsBase)>,
     pub base: ConstructorsBase,
 }
 
@@ -281,7 +283,7 @@ impl Accomodator {
     ) -> Option<T> {
         match val {
             Ok(t) => Some(t),
-            Err((path, ParseError::MissingFile)) => {
+            Err((path, MizParseError::MissingFile)) => {
                 report_accom_warning(kind, path, art, pos);
                 None
             }

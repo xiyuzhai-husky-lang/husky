@@ -1,5 +1,5 @@
 use crate::types::*;
-use crate::{LocalContext, MizPath};
+use crate::*;
 use pretty::{Arena, DocAllocator, DocBuilder};
 use std::borrow::Cow;
 use std::cell::Cell;
@@ -30,7 +30,7 @@ pub struct Formatter {
     pub dump: bool,
     pub cfg: MizFormatterConfig,
     pub symbols: HashMap<SymbolKind, String>,
-    pub formats: Box<MizIdxVec<FormatId, Format>>,
+    pub formats: Box<IdxVec<FormatId, Format>>,
     mode: HashMap<ModeId, (u8, Box<[LocusId]>, FormatMode)>,
     struct_mode: HashMap<StructId, (u8, Box<[LocusId]>, FormatStruct)>,
     attr: HashMap<AttrId, (u8, Box<[LocusId]>, FormatAttr)>,
@@ -48,7 +48,7 @@ impl Formatter {
         if self.dump {
             eprintln!("{pat:?}")
         }
-        fn ins<I: MizIdx, F: std::fmt::Debug>(
+        fn ins<I: Idx, F: std::fmt::Debug>(
             c: &Constructor<I>,
             map: &mut HashMap<I, (u8, Box<[LocusId]>, F)>,
             pat: &Pattern,
