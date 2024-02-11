@@ -2895,6 +2895,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "from-str-pos"
+version = "0.1.0"
+
+[[package]]
 name = "fsevent-sys"
 version = "4.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5645,6 +5649,7 @@ dependencies = [
  "clap 4.5.0",
  "ctrlc",
  "enum-map",
+ "idx",
  "im",
  "indicatif",
  "itertools 0.10.5",
@@ -7355,6 +7360,9 @@ dependencies = [
 [[package]]
 name = "idx"
 version = "0.1.0"
+dependencies = [
+ "from-str-pos",
+]
 
 [[package]]
 name = "idx-arena"

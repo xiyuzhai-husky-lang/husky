@@ -1,7 +1,7 @@
 use crate::bignum::{Complex, Rational};
 use crate::checker::{OrUnsat, Unsat};
 use crate::mk_id;
-use crate::types::*;
+use idx::{vec::sorted::SortedIdxVec, Idx};
 use itertools::{EitherOrBoth, Itertools};
 use std::cmp::Ordering;
 use std::collections::{BTreeMap, BTreeSet};
@@ -14,7 +14,7 @@ pub struct Monomial<I> {
     powers: BTreeMap<I, u32>,
 }
 
-impl<I: MizIdx> std::fmt::Debug for Monomial<I> {
+impl<I: Idx> std::fmt::Debug for Monomial<I> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let mut strs = vec![];
         if self.coeff == Complex::NEG_ONE {
@@ -42,7 +42,7 @@ impl<I: MizIdx> std::fmt::Debug for Monomial<I> {
 }
 
 // This ignores the coefficients
-impl<I: MizIdx> Ord for Monomial<I> {
+impl<I: Idx> Ord for Monomial<I> {
     fn cmp(&self, other: &Self) -> Ordering {
         self.degree().cmp(&other.degree()).then_with(|| {
             self.powers
@@ -52,19 +52,21 @@ impl<I: MizIdx> Ord for Monomial<I> {
         })
     }
 }
-impl<I: MizIdx> PartialOrd for Monomial<I> {
+
+impl<I: Idx> PartialOrd for Monomial<I> {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
-impl<I: MizIdx> PartialEq for Monomial<I> {
+
+impl<I: Idx> PartialEq for Monomial<I> {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other) == Ordering::Equal
     }
 }
-impl<I: MizIdx> Eq for Monomial<I> {}
+impl<I: Idx> Eq for Monomial<I> {}
 
-impl<I: MizIdx> Monomial<I> {
+impl<I: Idx> Monomial<I> {
     pub const fn cnst(coeff: Complex) -> Self {
         Self {
             coeff,
@@ -156,7 +158,7 @@ pub struct Polynomial<I>(
     Vec<Monomial<I>>,
 );
 
-impl<I: MizIdx> std::fmt::Debug for Polynomial<I> {
+impl<I: Idx> std::fmt::Debug for Polynomial<I> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         if self.0.is_empty() {
             write!(f, "poly 0")
@@ -166,24 +168,24 @@ impl<I: MizIdx> std::fmt::Debug for Polynomial<I> {
     }
 }
 
-impl<I: MizIdx> Ord for Polynomial<I> {
+impl<I: Idx> Ord for Polynomial<I> {
     fn cmp(&self, other: &Self) -> Ordering {
         self.fcmp(other, |a, b| a.cmp(b))
     }
 }
-impl<I: MizIdx> PartialOrd for Polynomial<I> {
+impl<I: Idx> PartialOrd for Polynomial<I> {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
-impl<I: MizIdx> PartialEq for Polynomial<I> {
+impl<I: Idx> PartialEq for Polynomial<I> {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other) == Ordering::Equal
     }
 }
-impl<I: MizIdx> Eq for Polynomial<I> {}
+impl<I: Idx> Eq for Polynomial<I> {}
 
-impl<I: MizIdx> std::ops::Add for Polynomial<I> {
+impl<I: Idx> std::ops::Add for Polynomial<I> {
     type Output = Self;
     fn add(self, other: Self) -> Self {
         let mut out = Polynomial::ZERO;
@@ -202,14 +204,14 @@ impl<I: MizIdx> std::ops::Add for Polynomial<I> {
     }
 }
 
-impl<I: MizIdx> std::ops::Sub for Polynomial<I> {
+impl<I: Idx> std::ops::Sub for Polynomial<I> {
     type Output = Self;
     fn sub(self, other: Self) -> Self {
         self + other * &Complex::NEG_ONE
     }
 }
 
-impl<I: MizIdx> std::ops::Mul<&Complex> for Polynomial<I> {
+impl<I: Idx> std::ops::Mul<&Complex> for Polynomial<I> {
     type Output = Self;
     fn mul(mut self, other: &Complex) -> Self {
         if *other == Complex::ZERO {
@@ -225,7 +227,7 @@ impl<I: MizIdx> std::ops::Mul<&Complex> for Polynomial<I> {
     }
 }
 
-impl<I: MizIdx> std::ops::Mul for &Polynomial<I> {
+impl<I: Idx> std::ops::Mul for &Polynomial<I> {
     type Output = Polynomial<I>;
     fn mul(self, other: Self) -> Polynomial<I> {
         if self.is_zero() || other.is_zero() {
@@ -244,7 +246,7 @@ impl<I: MizIdx> std::ops::Mul for &Polynomial<I> {
     }
 }
 
-impl<I: MizIdx> std::ops::Mul<&Monomial<I>> for Polynomial<I> {
+impl<I: Idx> std::ops::Mul<&Monomial<I>> for Polynomial<I> {
     type Output = Self;
     fn mul(mut self, other: &Monomial<I>) -> Self {
         if other.coeff == Complex::ZERO {
@@ -277,7 +279,7 @@ impl<I> Polynomial<I> {
     }
 }
 
-impl<I: MizIdx> Polynomial<I> {
+impl<I: Idx> Polynomial<I> {
     fn fcmp(&self, other: &Self, f: impl Fn(&Monomial<I>, &Monomial<I>) -> Ordering) -> Ordering {
         self.0.len().cmp(&other.0.len()).then_with(|| {
             for (a, b) in self.0.iter().zip(&other.0) {
@@ -388,24 +390,24 @@ pub struct LinVar<I> {
 }
 
 // This ignores the coefficients
-impl<I: MizIdx> Ord for LinVar<I> {
+impl<I: Idx> Ord for LinVar<I> {
     fn cmp(&self, other: &Self) -> Ordering {
         self.var.cmp(&other.var)
     }
 }
-impl<I: MizIdx> PartialOrd for LinVar<I> {
+impl<I: Idx> PartialOrd for LinVar<I> {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
-impl<I: MizIdx> PartialEq for LinVar<I> {
+impl<I: Idx> PartialEq for LinVar<I> {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other) == Ordering::Equal
     }
 }
-impl<I: MizIdx> Eq for LinVar<I> {}
+impl<I: Idx> Eq for LinVar<I> {}
 
-impl<I: MizIdx> std::fmt::Debug for LinVar<I> {
+impl<I: Idx> std::fmt::Debug for LinVar<I> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         if self.coeff == Complex::NEG_ONE {
             write!(f, "-")?
@@ -432,7 +434,7 @@ impl<I> Default for LinPoly<I> {
     }
 }
 
-impl<I: MizIdx> std::fmt::Debug for LinPoly<I> {
+impl<I: Idx> std::fmt::Debug for LinPoly<I> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "lin ")?;
         for v in &self.terms {
@@ -442,7 +444,7 @@ impl<I: MizIdx> std::fmt::Debug for LinPoly<I> {
     }
 }
 
-impl<I: MizIdx> Ord for LinPoly<I> {
+impl<I: Idx> Ord for LinPoly<I> {
     fn cmp(&self, other: &Self) -> Ordering {
         for (a, b) in self.terms.iter().zip(&other.terms) {
             match a.var.cmp(&b.var).then_with(|| a.coeff.cmp(&b.coeff)) {
@@ -456,17 +458,17 @@ impl<I: MizIdx> Ord for LinPoly<I> {
             .then_with(|| self.cnst.cmp(&other.cnst))
     }
 }
-impl<I: MizIdx> PartialOrd for LinPoly<I> {
+impl<I: Idx> PartialOrd for LinPoly<I> {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
-impl<I: MizIdx> PartialEq for LinPoly<I> {
+impl<I: Idx> PartialEq for LinPoly<I> {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other) == Ordering::Equal
     }
 }
-impl<I: MizIdx> Eq for LinPoly<I> {}
+impl<I: Idx> Eq for LinPoly<I> {}
 
 impl<I> std::ops::MulAssign<Complex> for LinPoly<I> {
     fn mul_assign(&mut self, rhs: Complex) {
@@ -487,7 +489,7 @@ impl<I> std::ops::Mul<Complex> for LinPoly<I> {
     }
 }
 
-impl<I: MizIdx> std::ops::Add for LinPoly<I> {
+impl<I: Idx> std::ops::Add for LinPoly<I> {
     type Output = Self;
     fn add(self, other: Self) -> Self {
         let mut out = LinPoly::cnst(self.cnst + other.cnst);
@@ -506,13 +508,13 @@ impl<I: MizIdx> std::ops::Add for LinPoly<I> {
     }
 }
 
-impl<I: MizIdx> std::ops::Sub for LinPoly<I> {
+impl<I: Idx> std::ops::Sub for LinPoly<I> {
     type Output = Self;
     fn sub(self, other: Self) -> Self {
         self + other * Complex::NEG_ONE
     }
 }
-impl<I: MizIdx> std::ops::SubAssign for LinPoly<I> {
+impl<I: Idx> std::ops::SubAssign for LinPoly<I> {
     fn sub_assign(&mut self, rhs: Self) {
         *self = std::mem::take(self) - rhs
     }
@@ -527,7 +529,7 @@ impl<I> LinPoly<I> {
     }
     const ZERO: Self = Self::cnst(Complex::ZERO);
 }
-impl<I: MizIdx> LinPoly<I> {
+impl<I: Idx> LinPoly<I> {
     fn dedup(&mut self) {
         let mut it = std::mem::take(&mut self.terms).into_iter();
         if let Some(mut mon) = it.next() {
@@ -550,7 +552,7 @@ impl<I: MizIdx> LinPoly<I> {
 
 mk_id! { MonomialId(u32), }
 
-pub(super) fn gaussian_elimination<I: MizIdx>(
+pub(super) fn gaussian_elimination<I: Idx>(
     vars: &mut SortedIdxVec<MonomialId, BTreeMap<I, u32>>,
     polys: BTreeSet<Polynomial<I>>,
 ) -> OrUnsat<Vec<LinPoly<MonomialId>>> {
@@ -628,8 +630,8 @@ pub(super) fn gaussian_elimination<I: MizIdx>(
     Ok(eqs2)
 }
 
-impl<I: MizIdx> Polynomial<I> {
-    pub(super) fn reduce<J: MizIdx>(
+impl<I: Idx> Polynomial<I> {
+    pub(super) fn reduce<J: Idx>(
         self,
         vars: &SortedIdxVec<J, BTreeMap<I, u32>>,
         eqs: &[LinPoly<J>],

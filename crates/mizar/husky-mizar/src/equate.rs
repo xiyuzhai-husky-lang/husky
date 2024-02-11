@@ -7,6 +7,7 @@ use crate::{
     OnVarMut, Visit, VisitMut, WithGlobalLocal,
 };
 use enum_map::EnumMap;
+use idx::{vec::IdxVec, Idx};
 use itertools::Itertools;
 use std::borrow::Cow;
 use std::cmp::Ordering;
@@ -42,7 +43,7 @@ impl std::fmt::Debug for EqTerm {
 #[derive(Default)]
 struct ConstrMap<I>(BTreeMap<I, Vec<EqMarkId>>);
 
-impl<I: MizIdx> ConstrMap<I> {
+impl<I: Idx> ConstrMap<I> {
     fn insert(&mut self, nr: I, mark: EqMarkId) {
         self.0.entry(nr).or_default().push(mark)
     }
@@ -96,10 +97,10 @@ pub struct Equalizer<'a> {
     pub g: &'a MizGlobal,
     pub lc: &'a mut LocalContext,
     reductions: &'a [Reduction],
-    infers: MizIdxVec<InferId, Option<EqMarkId>>,
+    infers: IdxVec<InferId, Option<EqMarkId>>,
     constrs: ConstrMaps,
     /// TrmS
-    pub terms: MizIdxVec<EqTermId, EqTerm>,
+    pub terms: IdxVec<EqTermId, EqTerm>,
     pub next_eq_class: EqClassId,
     clash: bool,
 }
@@ -113,13 +114,13 @@ impl WithGlobalLocal for Equalizer<'_> {
 }
 
 struct CheckE<'a> {
-    marks: &'a MizIdxVec<EqMarkId, (Term, EqTermId)>,
+    marks: &'a IdxVec<EqMarkId, (Term, EqTermId)>,
     found: bool,
 }
 
 impl<'a> CheckE<'a> {
     fn with(
-        marks: &'a MizIdxVec<EqMarkId, (Term, EqTermId)>,
+        marks: &'a IdxVec<EqMarkId, (Term, EqTermId)>,
         f: impl FnOnce(&mut CheckE<'a>),
     ) -> bool {
         let mut ce = CheckE {
@@ -742,14 +743,11 @@ impl Equals {
 }
 
 struct HasInfer<'a> {
-    infers: &'a MizIdxVec<InferId, Option<EqMarkId>>,
+    infers: &'a IdxVec<InferId, Option<EqMarkId>>,
     found: bool,
 }
 impl<'a> HasInfer<'a> {
-    pub fn get(
-        infers: &'a MizIdxVec<InferId, Option<EqMarkId>>,
-        f: impl FnOnce(&mut Self),
-    ) -> bool {
+    pub fn get(infers: &'a IdxVec<InferId, Option<EqMarkId>>, f: impl FnOnce(&mut Self)) -> bool {
         let mut cb = Self {
             infers,
             found: false,
@@ -782,7 +780,7 @@ impl MizAttr {
 struct Instantiate<'a> {
     g: &'a MizGlobal,
     lc: &'a LocalContext,
-    terms: &'a MizIdxVec<EqTermId, EqTerm>,
+    terms: &'a IdxVec<EqTermId, EqTerm>,
     subst: &'a [Type],
 }
 
@@ -2064,8 +2062,8 @@ impl<'a> Equalizer<'a> {
         assert!(!self.terms[tgt].eq_class.is_empty());
         !etm.eq_class.is_empty() && {
             struct CheckEqTerm<'a> {
-                marks: &'a MizIdxVec<EqMarkId, (Term, EqTermId)>,
-                terms: &'a MizIdxVec<EqTermId, EqTerm>,
+                marks: &'a IdxVec<EqMarkId, (Term, EqTermId)>,
+                terms: &'a IdxVec<EqTermId, EqTerm>,
                 tgt: EqTermId,
                 found: bool,
             }
@@ -3191,7 +3189,7 @@ impl Ineqs {
 
     fn push_if_one_diff(
         &mut self,
-        marks: &MizIdxVec<EqMarkId, (Term, EqTermId)>,
+        marks: &IdxVec<EqMarkId, (Term, EqTermId)>,
         tms1: &[Term],
         tms2: &[Term],
     ) {

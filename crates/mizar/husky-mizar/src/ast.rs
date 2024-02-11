@@ -1,5 +1,6 @@
 use crate::mk_id;
 use crate::types::*;
+use idx::vec::IdxVec;
 use std::rc::Rc;
 use std::str::FromStr;
 
@@ -765,7 +766,7 @@ pub struct SchemeBlock {
 pub struct Reservation {
     pub vars: Vec<Variable>,
     pub tys: Option<Vec<Type>>,
-    pub fvars: Option<MizIdxVec<BoundId, ReservedId>>,
+    pub fvars: Option<IdxVec<BoundId, ReservedId>>,
     pub ty: Box<Type>,
 }
 

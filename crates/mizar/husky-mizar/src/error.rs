@@ -1,4 +1,4 @@
-use crate::parser::{try_to_line_col, ParseError};
+use crate::parser::{try_to_line_col, MizParseError};
 use crate::types::{Article, DirectiveKind, Formula, Position};
 use crate::{LocalContext, MizGlobal, MizPath};
 use std::path::{Path, PathBuf};
@@ -10,7 +10,7 @@ enum Severity {
     Warning,
 }
 
-impl ParseError {
+impl MizParseError {
     pub fn report(self, path: &Path) {
         if let Some(pos) = self.pos() {
             if let Ok((line, col)) = try_to_line_col(path, pos) {

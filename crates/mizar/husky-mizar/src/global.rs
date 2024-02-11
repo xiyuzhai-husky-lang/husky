@@ -1,8 +1,9 @@
 use crate::bignum::Complex;
 use crate::format::Formatter;
 use crate::types::*;
-use crate::{stat, Config};
+use crate::*;
 use enum_map::EnumMap;
+use idx::vec::sorted::SortedIdxVec;
 use itertools::EitherOrBoth;
 use std::cell::RefCell;
 use std::cmp::Ordering;
@@ -330,7 +331,7 @@ pub enum CmpStyle {
 
 impl Term {
     fn locus_list(n: usize) -> Box<[Term]> {
-        (0..n).map(|i| Term::Locus(MizIdx::from_usize(i))).collect()
+        (0..n).map(|i| Term::Locus(Idx::from_usize(i))).collect()
     }
 
     pub fn adjust<'a>(
@@ -2075,7 +2076,7 @@ impl<'a> Subst<'a> {
         assert_eq!(args.len(), essential.len());
         let mut subst = Self::new(len);
         for (&n, t) in essential.iter().zip(args) {
-            subst.subst_term[MizIdx::into_usize(n)] = Some(CowBox::Borrowed(t))
+            subst.subst_term[Idx::into_usize(n)] = Some(CowBox::Borrowed(t))
         }
         subst
     }
@@ -2315,7 +2316,7 @@ impl Equate for Subst<'_> {
     }
     fn locus_var_left(&mut self, ctx: &mut EqCtx<'_>, nr: LocusId, t2: &Term) -> bool {
         // vprintln!("{self:?} @ v{nr:?} =? {t2:?}");
-        match &mut self.subst_term[MizIdx::into_usize(nr)] {
+        match &mut self.subst_term[Idx::into_usize(nr)] {
             x @ None => {
                 ctx.depth1 == 0 && {
                     *x = Some(CowBox::Owned(Box::new(t2.clone())));
@@ -2875,7 +2876,7 @@ impl IdentifyFunc {
             .check_loci_types::<false>(g, lc, &self.primary, false)
             .then_some(())?;
         for &(x, y) in &*self.eq_args {
-            let (ux, uy) = (MizIdx::into_usize(x), MizIdx::into_usize(y));
+            let (ux, uy) = (Idx::into_usize(x), Idx::into_usize(y));
             assert!(subst.subst_term[uy].is_none());
             self.primary[uy]
                 .is_wider_than(g, lc, &self.primary[ux])
@@ -3222,7 +3223,7 @@ impl VisitMut for InternConst<'_> {
 pub struct ExpandConsts<'a> {
     ctx: &'a Constructors,
     lc: &'a LocalContext,
-    ic: &'a MizIdxVec<InferId, Assignment>,
+    ic: &'a IdxVec<InferId, Assignment>,
     depth: u32,
 }
 impl LocalContext {
@@ -3338,23 +3339,23 @@ pub struct LocalContext {
     pub formatter: Formatter,
     /// LocArgTyp
     // FIXME: this is non-owning in mizar
-    pub locus_ty: MizIdxVec<LocusId, Type>,
+    pub locus_ty: IdxVec<LocusId, Type>,
     /// BoundVarNbr, BoundVar
-    pub bound_var: MizIdxVec<BoundId, Type>,
+    pub bound_var: IdxVec<BoundId, Type>,
     /// FixedVar
-    pub fixed_var: MizIdxVec<ConstId, FixedVar>,
+    pub fixed_var: IdxVec<ConstId, FixedVar>,
     /// InferConstDef
     /// sorted by Assignment::def (by CmpStyle::Strict)
     pub infer_const: RefCell<SortedIdxVec<InferId, Assignment>>,
-    pub sch_func_ty: MizIdxVec<SchFuncId, Type>,
+    pub sch_func_ty: IdxVec<SchFuncId, Type>,
     /// LocFuncDef
-    pub priv_func: MizIdxVec<PrivFuncId, FuncDef>,
+    pub priv_func: IdxVec<PrivFuncId, FuncDef>,
     /// gTermCollection
     pub term_cache: RefCell<TermCollection>,
     /// ItTyp
     pub it_type: Option<Box<Type>>,
     /// Not in mizar, used in equalizer for TrmInfo marks
-    pub marks: MizIdxVec<EqMarkId, (Term, EqTermId)>,
+    pub marks: IdxVec<EqMarkId, (Term, EqTermId)>,
     pub attr_sort_bug: bool,
 }
 
@@ -3400,14 +3401,14 @@ impl LocalContext {
             return descope;
         }
         descope.old = ic.vec.0.split_off(len);
-        ic.sorted.retain(|t| MizIdx::into_usize(*t) < len);
+        ic.sorted.retain(|t| Idx::into_usize(*t) < len);
         assert!(ic.sorted.len() == len);
         if check_for_local_const {
             let mut has_local_const = HashSet::<InferId>::new();
             // vprintln!("start loop {} .. {}", len, len + descope.old.len());
             'retry: loop {
                 for (i, asgn) in descope.old.iter().enumerate() {
-                    let i = MizIdx::from_usize(len + i);
+                    let i = Idx::from_usize(len + i);
                     if has_local_const.contains(&i) {
                         continue;
                     }
@@ -3444,7 +3445,7 @@ impl LocalContext {
                 break;
             }
             // vprintln!("done loop {} -> {}", len, old.len());
-            let mut i = MizIdx::from_usize(len);
+            let mut i = Idx::from_usize(len);
             for asgn in &mut descope.old {
                 if !has_local_const.contains(&i) {
                     match ic.find_index(|a| a.def.cmp(Some(ctx), None, &asgn.def, CmpStyle::Strict))
@@ -3516,7 +3517,7 @@ impl LocalContext {
 struct Abstract<'a> {
     base: u32,
     lift: u32,
-    ic: &'a MizIdxVec<InferId, Assignment>,
+    ic: &'a IdxVec<InferId, Assignment>,
     istart: u32,
     depth: u32,
 }

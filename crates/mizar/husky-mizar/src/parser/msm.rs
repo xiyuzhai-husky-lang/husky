@@ -1,13 +1,14 @@
 #![warn(unused)]
-use super::{ParseError, PathResult, Result, XmlReader};
+use super::{MizParseError, PathResult, Result, XmlReader};
 use crate::ast::{SchRef, *};
 use crate::types::{
     ArticleId, AttrSymId, BoundId, ConstId, DefId, FuncSymId, LabelId, LeftBrkSymId, LocusId,
-    MizIdxVec, ModeSymId, Position, PredSymId, PrivFuncId, PrivPredId, PropertyKind, RightBrkSymId,
-    SchFuncId, SchId, SchPredId, SelSymId, StructSymId, ThmId,
+    ModeSymId, Position, PredSymId, PrivFuncId, PrivPredId, PropertyKind, RightBrkSymId, SchFuncId,
+    SchId, SchPredId, SelSymId, StructSymId, ThmId,
 };
 use crate::{types, MizPath};
 use enum_map::Enum;
+use idx::{from_str_pos::FromStrPosParseError, vec::IdxVec};
 use quick_xml::events::{BytesStart, Event};
 use std::borrow::Cow;
 use std::fs::File;
@@ -68,8 +69,8 @@ impl std::str::FromStr for IdentKind {
     }
 }
 impl super::FromStrPos for IdentKind {
-    fn to_err(s: String, pos: usize) -> ParseError {
-        ParseError::UnexpectedElement {
+    fn to_err(s: String, pos: usize) -> FromStrPosParseError {
+        FromStrPosParseError::UnexpectedElement {
             pos,
             expected: "identifier kind",
             found: Some(s.into()),
@@ -617,7 +618,7 @@ impl MsmParser {
                 };
                 let ty = self.parse_type()?.unwrap();
                 let fvars = if self.msm {
-                    let mut out = MizIdxVec::default();
+                    let mut out = IdxVec::default();
                     while let Ok(e) = self.r.try_read_start(&mut self.buf, Some("SetMember"))? {
                         let id = self
                             .r

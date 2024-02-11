@@ -82,7 +82,7 @@ impl ArticleParser<'_> {
                 assert!(matches!(self.r.read_event(&mut self.buf)?, Event::Eof));
                 None
             }
-            _ => return Err(ParseError::unexpected_elem(idx, "item", None)),
+            _ => return Err(MizParseError::unexpected_elem(idx, "item", None)),
         })
     }
 
@@ -104,7 +104,7 @@ impl ArticleParser<'_> {
     fn parse_thesis(&mut self) -> Result<Thesis> {
         let idx = self.r.position();
         let MizElem::Thesis(f) = self.r.parse_elem(&mut self.buf)? else {
-            return Err(ParseError::unexpected_elem(idx, "thesis", None));
+            return Err(MizParseError::unexpected_elem(idx, "thesis", None));
         };
         Ok(f)
     }

@@ -3,6 +3,7 @@ use crate::format::MizFormatterConfig;
 use crate::types::*;
 use clap::{ArgAction, CommandFactory, Parser, ValueEnum};
 use enum_map::EnumMap;
+use idx::{vec::ext::ExtVec, vec::IdxVec, *};
 use indicatif::{MultiProgress, ProgressBar, ProgressDrawTarget, ProgressStyle};
 use itertools::Itertools;
 use std::cmp::Ordering;

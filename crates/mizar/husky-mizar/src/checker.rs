@@ -8,6 +8,7 @@ use crate::{
     set_verbose, stat, Assignment, CheckBound, ExpandPrivFunc, FixedVar, Inst, Inst0, InternConst,
     LocalContext, MizGlobal, OnVarMut, Visit, VisitMut, WithGlobalLocal,
 };
+use idx::{helpers::IdxOrBool, vec::IdxVec, Idx};
 use itertools::Itertools;
 use std::borrow::Cow;
 use std::collections::BTreeMap;
@@ -394,7 +395,7 @@ impl Expand<'_> {
     fn expand_flex(&mut self, terms: &[Term; 2], scope: &Formula, conjs: &mut Vec<Formula>) {
         fn get_number<'a>(
             g: &MizGlobal,
-            ic: &'a MizIdxVec<InferId, Assignment>,
+            ic: &'a IdxVec<InferId, Assignment>,
             mut tm: &'a Term,
             zero: &mut Option<Term>,
         ) -> Option<u32> {
@@ -648,7 +649,7 @@ impl<O: Open + ?Sized> VisitMut for SetVar<O> {
 }
 
 #[derive(Default, Debug)]
-pub struct Atoms(pub MizIdxVec<AtomId, Formula>);
+pub struct Atoms(pub IdxVec<AtomId, Formula>);
 
 impl Atoms {
     pub fn find(&self, g: &MizGlobal, lc: &LocalContext, f: &Formula) -> Option<AtomId> {
@@ -676,31 +677,31 @@ impl<K, V> Conjunct<K, V> {
     pub const TRUE: Self = Self(BTreeMap::new());
 }
 
-impl<K: std::fmt::Debug> std::fmt::Debug for Conjunct<K, bool> {
+impl<K: std::fmt::Debug, V: IdxOrBool> std::fmt::Debug for Conjunct<K, V> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let mut it = self.0.iter();
-        if let Some((a, &b)) = it.next() {
-            write!(f, "{}a{:?}", if b { "" } else { "¬" }, a)?;
-            for (a, &b) in it {
-                write!(f, " ∧ {}a{:?}", if b { "" } else { "¬" }, a)?;
+        if V::is_bool_ty() {
+            let mut it = self.0.iter().map(|(a, &b)| (a, b.into_bool()));
+            if let Some((a, b)) = it.next() {
+                let b = b.into_bool();
+                write!(f, "{}a{:?}", if b { "" } else { "¬" }, a)?;
+                for (a, b) in it {
+                    write!(f, " ∧ {}a{:?}", if b { "" } else { "¬" }, a)?;
+                }
+                Ok(())
+            } else {
+                write!(f, "false")
             }
-            Ok(())
         } else {
-            write!(f, "false")
-        }
-    }
-}
-impl<K: std::fmt::Debug, V: MizIdx> std::fmt::Debug for Conjunct<K, V> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let mut it = self.0.iter();
-        if let Some((a, b)) = it.next() {
-            write!(f, "v{:?} := e{:?}", a, b.into_usize())?;
-            for (a, &b) in it {
-                write!(f, " ∧ v{:?} := e{:?}", a, b.into_usize())?;
+            let mut it = self.0.iter();
+            if let Some((a, b)) = it.next() {
+                write!(f, "v{:?} := e{:?}", a, b.into_usize())?;
+                for (a, &b) in it {
+                    write!(f, " ∧ v{:?} := e{:?}", a, b.into_usize())?;
+                }
+                Ok(())
+            } else {
+                write!(f, "false")
             }
-            Ok(())
-        } else {
-            write!(f, "false")
         }
     }
 }
@@ -968,9 +969,9 @@ enum FuncKind {
 
 #[derive(Clone, Default)]
 struct SchemeSubst {
-    cnst: MizIdxVec<SchFuncId, Option<Term>>,
-    func: MizIdxVec<SchFuncId, Option<FuncKind>>,
-    pred: MizIdxVec<SchPredId, Option<(bool, PredKind)>>,
+    cnst: IdxVec<SchFuncId, Option<Term>>,
+    func: IdxVec<SchFuncId, Option<FuncKind>>,
+    pred: IdxVec<SchPredId, Option<(bool, PredKind)>>,
 }
 
 struct SchemeCtx<'a> {
@@ -1172,7 +1173,7 @@ impl<'a> SchemeCtx<'a> {
                     if let Some(tm) = self.subst.cnst.get_mut_extending(*n1) {
                         self.g.eq(self.lc, &t2, tm)
                     } else if self.wider(
-                        &self.primary[MizIdx::into_usize(*n1)],
+                        &self.primary[Idx::into_usize(*n1)],
                         &t2.get_type(self.g, self.lc, false),
                     ) {
                         // vprintln!("assign S{n1:?}() := {t2:?}");

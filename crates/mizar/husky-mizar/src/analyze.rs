@@ -25,25 +25,25 @@ struct NameLookup {
 struct ResGroup {
     ty: Type,
     /// Present iff name checking is enabled
-    fvars: Option<MizIdxVec<BoundId, ReservedId>>,
+    fvars: Option<IdxVec<BoundId, ReservedId>>,
 }
 
 pub struct Analyzer<'a> {
     pub r: &'a mut Reader,
     pub path: &'a MizPath,
     ident_map: HashMap<Rc<str>, IdentId>,
-    idents: MizIdxVec<IdentId, Rc<str>>,
-    sch_func_args: MizIdxVec<SchFuncId, Box<[Type]>>,
-    priv_func_args: MizIdxVec<PrivPredId, Box<[Type]>>,
-    priv_pred: MizIdxVec<PrivPredId, (Box<[Type]>, Box<Formula>)>,
-    sch_pred_args: MizIdxVec<SchPredId, Box<[Type]>>,
+    idents: IdxVec<IdentId, Rc<str>>,
+    sch_func_args: IdxVec<SchFuncId, Box<[Type]>>,
+    priv_func_args: IdxVec<PrivPredId, Box<[Type]>>,
+    priv_pred: IdxVec<PrivPredId, (Box<[Type]>, Box<Formula>)>,
+    sch_pred_args: IdxVec<SchPredId, Box<[Type]>>,
     sch_names: (HashMap<Rc<str>, SchId>, SchId),
     thesis: Option<Box<Formula>>,
     thesis_stack: Vec<Option<Box<Formula>>>,
-    label_names: MizIdxVec<LabelId, Option<Rc<str>>>,
+    label_names: IdxVec<LabelId, Option<Rc<str>>>,
     lookup: Rc<NameLookup>,
-    reserved: MizIdxVec<ReservedId, (Rc<str>, ResGroupId)>,
-    res_groups: MizIdxVec<ResGroupId, ResGroup>,
+    reserved: IdxVec<ReservedId, (Rc<str>, ResGroupId)>,
+    res_groups: IdxVec<ResGroupId, ResGroup>,
     reserved_by_name: HashMap<Rc<str>, ReservedId>,
     /// does not contain VarKind::Reserved
     reserved_lookup: im::HashMap<ReservedId, VarKind>,
@@ -413,7 +413,7 @@ impl Analyzer<'_> {
                         ty = self.elab_type(&it.ty);
                         self.reserved_extra_depth = 0;
                         self.reserved_lookup = orig_lookup;
-                        Some(MizIdxVec::from(fvars))
+                        Some(IdxVec::from(fvars))
                     };
                     self.lc.bound_var.0.clear();
                     Exportable.visit_type(&ty);
@@ -1563,7 +1563,7 @@ impl Analyzer<'_> {
 
             fn eq_term(
                 ctx: &mut EqCtx<'_>,
-                ic: &'a MizIdxVec<InferId, Assignment>,
+                ic: &'a IdxVec<InferId, Assignment>,
                 t1: &'a Term,
                 t2: &'a Term,
             ) -> Self {
@@ -1658,7 +1658,7 @@ impl Analyzer<'_> {
 
             fn eq_terms(
                 ctx: &mut EqCtx<'_>,
-                ic: &'a MizIdxVec<InferId, Assignment>,
+                ic: &'a IdxVec<InferId, Assignment>,
                 t1: &'a [Term],
                 t2: &'a [Term],
             ) -> Self {
@@ -1674,7 +1674,7 @@ impl Analyzer<'_> {
 
             fn eq_type(
                 ctx: &mut EqCtx<'_>,
-                ic: &'a MizIdxVec<InferId, Assignment>,
+                ic: &'a IdxVec<InferId, Assignment>,
                 ty1: &'a Type,
                 ty2: &'a Type,
             ) -> Self {
@@ -1685,7 +1685,7 @@ impl Analyzer<'_> {
 
             fn eq_formula(
                 ctx: &mut EqCtx<'_>,
-                ic: &'a MizIdxVec<InferId, Assignment>,
+                ic: &'a IdxVec<InferId, Assignment>,
                 f1: &'a Formula,
                 f2: &'a Formula,
             ) -> Self {
@@ -2873,7 +2873,7 @@ impl<'a> PropertiesBuilder<'a> {
         &mut self,
         g: &MizGlobal,
         lc: &LocalContext,
-        to_const: &MizIdxVec<LocusId, ConstId>,
+        to_const: &IdxVec<LocusId, ConstId>,
         f: impl FnOnce(Args) -> PropertyDeclKind<'a>,
     ) {
         match *self.visible {
@@ -3142,8 +3142,8 @@ pub struct FraenkelNameckResult {
 }
 
 struct CollectReserved<'a> {
-    reserved: &'a MizIdxVec<ReservedId, (Rc<str>, ResGroupId)>,
-    res_groups: &'a MizIdxVec<ResGroupId, ResGroup>,
+    reserved: &'a IdxVec<ReservedId, (Rc<str>, ResGroupId)>,
+    res_groups: &'a IdxVec<ResGroupId, ResGroup>,
     reserved_by_name: &'a HashMap<Rc<str>, ReservedId>,
     /// does not contain VarKind::Reserved
     reserved_lookup: &'a im::HashMap<ReservedId, VarKind>,
@@ -4254,8 +4254,8 @@ impl ReadProof for ReconstructThesis {
 }
 
 struct ToLocus<'a> {
-    infer_const: &'a MizIdxVec<InferId, Assignment>,
-    to_locus: &'a MizIdxVec<ConstId, Option<LocusId>>,
+    infer_const: &'a IdxVec<InferId, Assignment>,
+    to_locus: &'a IdxVec<ConstId, Option<LocusId>>,
     it: LocusId,
 }
 
@@ -4288,7 +4288,7 @@ impl VisitMut for ToLocus<'_> {
 struct MakeSelector<'a> {
     base: u8,
     fixed_vars: u32,
-    to_const: &'a MizIdxVec<LocusId, ConstId>,
+    to_const: &'a IdxVec<LocusId, ConstId>,
     terms: Vec<Result<Box<Term>, SelId>>,
 }
 
@@ -4326,9 +4326,9 @@ enum ReconstructAssum {
 
 struct BlockReader {
     kind: BlockKind,
-    to_locus: MizIdxVec<ConstId, Option<LocusId>>,
-    to_const: MizIdxVec<LocusId, ConstId>,
-    primary: MizIdxVec<LocusId, Type>,
+    to_locus: IdxVec<ConstId, Option<LocusId>>,
+    to_const: IdxVec<LocusId, ConstId>,
+    primary: IdxVec<LocusId, Type>,
     assums: Vec<ReconstructAssum>,
     defs: Vec<(Position, Option<PendingDef>)>,
     needs_round_up: bool,
@@ -4386,8 +4386,8 @@ impl BlockReader {
     fn new(kind: BlockKind, lc: &LocalContext) -> Self {
         Self {
             kind,
-            to_locus: MizIdxVec::from_default(lc.fixed_var.len()),
-            to_const: MizIdxVec::default(),
+            to_locus: IdxVec::from_default(lc.fixed_var.len()),
+            to_const: IdxVec::default(),
             primary: Default::default(),
             assums: vec![],
             defs: vec![],

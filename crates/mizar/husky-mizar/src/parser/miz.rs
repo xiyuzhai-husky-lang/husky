@@ -1,12 +1,13 @@
 use crate::ast::{SchRef, *};
 use crate::types::{
     Article, ArticleId, BlockKind, CorrCondKind, DefId, DirectiveKind, Directives, Format,
-    FormatFunc, FormatId, FuncSymId, LeftBrkSymId, LocusId, MizIdxVec, ModeSymId, Position,
-    PredSymId, PriorityKind, PropertyKind, RightBrkSymId, SchId, StructSymId, SymbolKind, Symbols,
-    ThmId, MAX_ARTICLE_LEN,
+    FormatFunc, FormatId, FuncSymId, LeftBrkSymId, LocusId, ModeSymId, Position, PredSymId,
+    PriorityKind, PropertyKind, RightBrkSymId, SchId, StructSymId, SymbolKind, Symbols, ThmId,
+    MAX_ARTICLE_LEN,
 };
 use crate::READ_MAX_LINE_COUNT;
 use enum_map::Enum;
+use idx::vec::IdxVec;
 use indicatif::ProgressBar;
 use radix_trie::{Trie, TrieCommon};
 use std::collections::HashMap;
@@ -416,7 +417,7 @@ pub struct Parser<'a> {
     scan: Scanner<'a>,
     pub art: Article,
     pub articles: HashMap<Article, ArticleId>,
-    pub formats: Box<MizIdxVec<FormatId, Format>>,
+    pub formats: Box<IdxVec<FormatId, Format>>,
     allow_internal_selector: bool,
     max_mode_args: HashMap<ModeSymId, u8>,
     max_struct_args: HashMap<StructSymId, u8>,

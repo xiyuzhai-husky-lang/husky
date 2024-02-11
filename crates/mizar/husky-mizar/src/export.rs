@@ -3,7 +3,7 @@ use crate::analyze::Analyzer;
 use crate::parser::{catch_missing, MaybeMut, PathResult};
 use crate::reader::DefiniensId;
 use crate::types::*;
-use crate::{Assignment, LocalContext, OnVarMut, VisitMut};
+use crate::*;
 use enum_map::EnumMap;
 use itertools::Itertools;
 use std::fmt::Debug;
@@ -44,7 +44,7 @@ fn assert_eq_iter<T: Debug + PartialEq<U>, U: Debug>(
 struct ExportPrep<'a> {
     ctx: Option<&'a Constructors>,
     lc: &'a LocalContext,
-    ic: &'a MizIdxVec<InferId, Assignment>,
+    ic: &'a IdxVec<InferId, Assignment>,
     depth: u32,
 }
 impl VisitMut for ExportPrep<'_> {
