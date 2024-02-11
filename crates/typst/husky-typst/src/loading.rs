@@ -1,18 +1,18 @@
 //! Data loading.
 
-#[path = "cbor.rs"]
+#[path = "loading/cbor.rs"]
 mod cbor_;
-#[path = "csv.rs"]
+#[path = "loading/csv.rs"]
 mod csv_;
-#[path = "json.rs"]
+#[path = "loading/json.rs"]
 mod json_;
-#[path = "read.rs"]
+#[path = "loading/read.rs"]
 mod read_;
-#[path = "toml.rs"]
+#[path = "loading/toml.rs"]
 mod toml_;
-#[path = "xml.rs"]
+#[path = "loading/xml.rs"]
 mod xml_;
-#[path = "yaml.rs"]
+#[path = "loading/yaml.rs"]
 mod yaml_;
 
 pub use self::cbor_::*;

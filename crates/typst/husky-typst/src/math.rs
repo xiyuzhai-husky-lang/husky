@@ -6,7 +6,7 @@ mod accent;
 mod align;
 mod attach;
 mod cancel;
-#[path = "class.rs"]
+#[path = "math/class.rs"]
 mod class_;
 mod equation;
 mod frac;
