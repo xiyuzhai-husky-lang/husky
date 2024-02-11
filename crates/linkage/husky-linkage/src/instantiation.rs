@@ -1,6 +1,6 @@
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSvarResolution},
-    HirTemplateVar, HirTemplateVarClass,
+    HirTemplateSvarClass, HirTemplateVar,
 };
 use husky_javelin::{
     instantiation::{JavInstantiation, JavTermSymbolResolution},
@@ -54,7 +54,7 @@ impl LinInstantiation {
                 |&(symbol, resolution)| {
                     match symbol {
                         HirTemplateVar::Const(symbol)
-                            if symbol.index(db).class() == HirTemplateVarClass::Runtime =>
+                            if symbol.index(db).class() == HirTemplateSvarClass::Runtime =>
                         {
                             return None
                         }

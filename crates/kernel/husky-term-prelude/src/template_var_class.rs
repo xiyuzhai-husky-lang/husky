@@ -1,12 +1,12 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum TemplateVarClass {
+pub enum TemplateSvarClass {
     Phantom,
     Runtime,
     Comptime,
 }
 
-impl Default for TemplateVarClass {
+impl Default for TemplateSvarClass {
     fn default() -> Self {
-        TemplateVarClass::Comptime
+        TemplateSvarClass::Comptime
     }
 }

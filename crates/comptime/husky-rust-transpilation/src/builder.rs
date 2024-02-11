@@ -18,7 +18,7 @@ use husky_entity_path::{PreludeTypePath, TypePath};
 use husky_hir_eager_expr::{
     var::{
         cvar::HirEagerComptimeSvarName,
-        rvar::{HirEagerRvarIdx, HirEagerRvarName},
+        rvar::{HirEagerRuntimeSvarName, HirEagerRvarIdx},
     },
     HirEagerExprArena, HirEagerExprIdx, HirEagerExprRegion, HirEagerPatternExprArena,
     HirEagerStmtArena,
@@ -553,8 +553,8 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerRvarIdx {
             builder.write_str(" ")
         }
         match hir_eager_runtime_symbol_region_data[self].name() {
-            HirEagerRvarName::SelfValue => builder.word("self"),
-            HirEagerRvarName::Ident(ident) => ident.transpile_to_rust(builder),
+            HirEagerRuntimeSvarName::SelfValue => builder.word("self"),
+            HirEagerRuntimeSvarName::Ident(ident) => ident.transpile_to_rust(builder),
         }
     }
 }

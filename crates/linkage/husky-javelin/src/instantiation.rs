@@ -2,7 +2,7 @@ use crate::template_argument::{ty::JavelinType, JavTemplateArgument};
 use husky_entity_path::ItemPath;
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSvarResolution},
-    HirTemplateVar, HirTemplateVarClass,
+    HirTemplateSvarClass, HirTemplateVar,
 };
 use vec_like::SmallVecPairMap;
 
@@ -34,7 +34,7 @@ impl JavInstantiation {
                 .filter_map(|&(symbol, resolution)| {
                     match symbol {
                         HirTemplateVar::Const(symbol)
-                            if symbol.index(db).class() == HirTemplateVarClass::Runtime =>
+                            if symbol.index(db).class() == HirTemplateSvarClass::Runtime =>
                         {
                             return None
                         }

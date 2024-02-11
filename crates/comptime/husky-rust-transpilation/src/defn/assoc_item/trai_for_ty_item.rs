@@ -1,7 +1,7 @@
 use either::Either;
 use husky_entity_path::PreludeTraitPath;
 use husky_hir_decl::decl::HasHirDecl;
-use husky_hir_ty::{HirConstSvar, HirTemplateVar, HirTemplateVarClass};
+use husky_hir_ty::{HirConstSvar, HirTemplateSvarClass, HirTemplateVar};
 use smallvec::SmallVec;
 
 use super::*;
@@ -45,7 +45,7 @@ impl TranspileToRustWith for TraitForTypeAssocFnHirDefn {
                                 .iter()
                                 .filter_map(|param| match param.symbol() {
                                     HirTemplateVar::Const(symbol) => (symbol.index(db).class()
-                                        == HirTemplateVarClass::Runtime)
+                                        == HirTemplateSvarClass::Runtime)
                                         .then_some(symbol),
                                     _ => None,
                                 })

@@ -3,13 +3,13 @@ use husky_term_prelude::Variance;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirLifetimeSvar {
-    pub(crate) attrs: HirTemplateVarAttrs,
+    pub(crate) attrs: HirTemplateSvarAttrs,
     pub(crate) variance: Option<Variance>,
     pub(crate) disambiguator: u8,
 }
 
 impl HirLifetimeSvar {
-    pub fn attrs(&self) -> &HirTemplateVarAttrs {
+    pub fn attrs(&self) -> &HirTemplateSvarAttrs {
         &self.attrs
     }
 

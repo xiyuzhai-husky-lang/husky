@@ -1,7 +1,7 @@
 use crate::{
     var::{
         cvar::HirEagerComptimeSvarRegionData,
-        rvar::{HirEagerRvarIdx, HirEagerRvarRegionData},
+        rvar::{HirEagerRuntimeSvarRegionData, HirEagerRvarIdx},
     },
     *,
 };
@@ -28,7 +28,7 @@ pub(crate) struct HirEagerExprBuilder<'a> {
     sema_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
     sema_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
     hir_eager_comptime_symbol_region_data: HirEagerComptimeSvarRegionData,
-    hir_eager_runtime_symbol_region_data: HirEagerRvarRegionData,
+    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSvarRegionData,
     syn_symbol_to_hir_eager_runtime_symbol_map: SynSymbolMap<HirEagerRvarIdx>,
 }
 
@@ -48,7 +48,7 @@ impl<'a> HirEagerExprBuilder<'a> {
             db,
         );
         let (hir_eager_runtime_symbol_region, syn_symbol_to_hir_eager_runtime_symbol_map) =
-            HirEagerRvarRegionData::from_syn(syn_expr_region_data.symbol_region());
+            HirEagerRuntimeSvarRegionData::from_syn(syn_expr_region_data.symbol_region());
         Self {
             db,
             syn_expr_region_data,
