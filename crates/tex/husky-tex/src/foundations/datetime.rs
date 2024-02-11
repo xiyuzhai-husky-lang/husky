@@ -8,11 +8,11 @@ use time::macros::format_description;
 use time::{format_description, Month, PrimitiveDateTime};
 
 use crate::diag::{bail, StrResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
     cast, func, repr, scope, ty, Duration, Repr, Smart, Str, TexDict, TexValue,
 };
-use crate::World;
+use crate::IsTexWorld;
 
 /// Represents a date, a time, or a combination of both.
 ///
@@ -295,7 +295,7 @@ impl Datetime {
     #[func]
     pub fn today(
         /// The engine.
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// An offset to apply to the current UTC date. If set to `{auto}`, the
         /// offset will be the local offset.
         #[named]

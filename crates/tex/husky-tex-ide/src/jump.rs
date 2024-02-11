@@ -2,11 +2,11 @@ use std::num::NonZeroUsize;
 
 use ecow::EcoString;
 use husky_tex::introspection::Meta;
-use husky_tex::layout::{Frame, FrameItem, Point, Position, Size};
+use husky_tex::layout::{FrameItem, Point, Position, Size, TexFrame};
 use husky_tex::model::{TexDestination, TexDocument};
 use husky_tex::syntax::{FileId, LinkedNode, Source, Span, TexSyntaxKind};
 use husky_tex::visualize::TexGeometry;
-use husky_tex::World;
+use husky_tex::IsTexWorld;
 
 /// Where to [jump](jump_from_click) to.
 #[derive(Debug, Clone, Eq, PartialEq)]
@@ -20,7 +20,7 @@ pub enum Jump {
 }
 
 impl Jump {
-    fn from_span(world: &dyn World, span: Span) -> Option<Self> {
+    fn from_span(world: &dyn IsTexWorld, span: Span) -> Option<Self> {
         let id = span.id()?;
         let source = world.source(id).ok()?;
         let node = source.find(span)?;
@@ -30,9 +30,9 @@ impl Jump {
 
 /// Determine where to jump to based on a click in a frame.
 pub fn jump_from_click(
-    world: &dyn World,
+    world: &dyn IsTexWorld,
     document: &TexDocument,
-    frame: &Frame,
+    frame: &TexFrame,
     click: Point,
 ) -> Option<Jump> {
     // Try to find a link first.
@@ -134,7 +134,7 @@ pub fn jump_from_cursor(
 }
 
 /// Find the position of a span in a frame.
-fn find_in_frame(frame: &Frame, span: Span) -> Option<Point> {
+fn find_in_frame(frame: &TexFrame, span: Span) -> Option<Point> {
     for (mut pos, item) in frame.items() {
         if let FrameItem::Group(group) = item {
             // TODO: Handle transformation.

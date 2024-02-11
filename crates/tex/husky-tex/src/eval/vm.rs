@@ -1,11 +1,11 @@
 use comemo::Tracked;
 
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::eval::FlowEvent;
 use crate::foundations::{IntoTexValue, Scopes};
 use crate::syntax::ast::{self, TexAstNode};
 use crate::syntax::Span;
-use crate::World;
+use crate::IsTexWorld;
 
 /// A virtual machine.
 ///
@@ -13,7 +13,7 @@ use crate::World;
 /// new virtual machine is created for each module evaluation and function call.
 pub struct Vm<'a> {
     /// The underlying virtual typesetter.
-    pub(crate) engine: Engine<'a>,
+    pub(crate) engine: TexEngine<'a>,
     /// A control flow event that is currently happening.
     pub(crate) flow: Option<FlowEvent>,
     /// The stack of scopes.
@@ -24,7 +24,7 @@ pub struct Vm<'a> {
 
 impl<'a> Vm<'a> {
     /// Create a new virtual machine.
-    pub fn new(engine: Engine<'a>, scopes: Scopes<'a>, target: Span) -> Self {
+    pub fn new(engine: TexEngine<'a>, scopes: Scopes<'a>, target: Span) -> Self {
         let inspected = target.id().and_then(|id| engine.tracer.inspected(id));
         Self {
             engine,
@@ -35,7 +35,7 @@ impl<'a> Vm<'a> {
     }
 
     /// Access the underlying world.
-    pub fn world(&self) -> Tracked<'a, dyn World + 'a> {
+    pub fn world(&self) -> Tracked<'a, dyn IsTexWorld + 'a> {
         self.engine.world
     }
 

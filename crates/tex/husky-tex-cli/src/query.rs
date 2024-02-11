@@ -5,7 +5,7 @@ use husky_tex::eval::{eval_string, EvalMode, Tracer};
 use husky_tex::foundations::{IntoTexValue, LocatableSelector, Scope, TexContent};
 use husky_tex::model::TexDocument;
 use husky_tex::syntax::Span;
-use husky_tex::World;
+use husky_tex::IsTexWorld;
 use serde::Serialize;
 
 use crate::args::{QueryCommand, SerializationFormat};
@@ -47,7 +47,7 @@ pub fn query(command: &QueryCommand) -> StrResult<()> {
 
 /// Retrieve the matches for the selector.
 fn retrieve(
-    world: &dyn World,
+    world: &dyn IsTexWorld,
     command: &QueryCommand,
     document: &TexDocument,
 ) -> StrResult<Vec<TexContent>> {

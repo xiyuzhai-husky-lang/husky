@@ -1,9 +1,10 @@
 use crate::diag::SourceResult;
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, elem, IsTexElem, Label, Packed, Show, ShowSet, Smart, StyleChain, Styles, TexContent,
+    cast, elem, IsTexElem, Label, Show, ShowSet, Smart, StyleChain, Styles, TexContent,
+    TexContentRefined,
 };
-use crate::layout::{BlockElem, HElem, LengthInEm, PadElem, Spacing, TexAlignment, VElem};
+use crate::layout::{BlockElem, HElem, PadElem, Spacing, TexAlignment, TexEmLength, VElem};
 use crate::model::{CitationForm, CiteTexElem};
 use crate::text::{SmartQuoteElem, SpaceElem, TextElem};
 
@@ -144,9 +145,9 @@ cast! {
     label: Label => Self::Label(label),
 }
 
-impl Show for Packed<QuoteElem> {
+impl Show for TexContentRefined<QuoteElem> {
     #[husky_tex_macros::time(name = "quote", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, _: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         let mut realized = self.body().clone();
         let block = self.block(styles);
 
@@ -182,7 +183,7 @@ impl Show for Packed<QuoteElem> {
 
                 // Use v(0.9em, weak: true) bring the attribution closer to the
                 // quote.
-                let weak_v = VElem::weak(Spacing::Rel(LengthInEm::new(0.9).into())).pack();
+                let weak_v = VElem::weak(Spacing::Rel(TexEmLength::new(0.9).into())).pack();
                 realized += weak_v + TexContent::sequence(seq).aligned(TexAlignment::END);
             }
 
@@ -196,11 +197,11 @@ impl Show for Packed<QuoteElem> {
     }
 }
 
-impl ShowSet for Packed<QuoteElem> {
+impl ShowSet for TexContentRefined<QuoteElem> {
     fn show_set(&self, _: StyleChain) -> Styles {
-        let x = LengthInEm::new(1.0).into();
-        let above = LengthInEm::new(2.4).into();
-        let below = LengthInEm::new(1.8).into();
+        let x = TexEmLength::new(1.0).into();
+        let above = TexEmLength::new(2.4).into();
+        let below = TexEmLength::new(1.8).into();
         let mut out = Styles::new();
         out.set(PadElem::set_left(x));
         out.set(PadElem::set_right(x));

@@ -5,7 +5,7 @@ use std::ops::{Add, Div, Mul, Neg};
 use ecow::EcoString;
 
 use crate::foundations::{cast, repr, Repr, Resolve, StyleChain, TexValue};
-use crate::layout::Abs;
+use crate::layout::TexAbsLength;
 use crate::text::TextElem;
 use crate::util::{Numeric, Scalar};
 
@@ -13,9 +13,9 @@ use crate::util::{Numeric, Scalar};
 ///
 /// `1em` is the same as the font size.
 #[derive(Default, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
-pub struct LengthInEm(Scalar);
+pub struct TexEmLength(Scalar);
 
-impl LengthInEm {
+impl TexEmLength {
     /// The zero em length.
     pub const fn zero() -> Self {
         Self(Scalar::ZERO)
@@ -37,7 +37,7 @@ impl LengthInEm {
     }
 
     /// Create an em length from a length at the given font size.
-    pub fn from_length(length: Abs, font_size: Abs) -> Self {
+    pub fn from_length(length: TexAbsLength, font_size: TexAbsLength) -> Self {
         let result = length / font_size;
         if result.is_finite() {
             Self(Scalar::new(result))
@@ -57,17 +57,17 @@ impl LengthInEm {
     }
 
     /// Convert to an absolute length at the given font size.
-    pub fn at(self, font_size: Abs) -> Abs {
+    pub fn at(self, font_size: TexAbsLength) -> TexAbsLength {
         let resolved = font_size * self.get();
         if resolved.is_finite() {
             resolved
         } else {
-            Abs::zero()
+            TexAbsLength::zero()
         }
     }
 }
 
-impl Numeric for LengthInEm {
+impl Numeric for TexEmLength {
     fn zero() -> Self {
         Self::zero()
     }
@@ -77,19 +77,19 @@ impl Numeric for LengthInEm {
     }
 }
 
-impl Debug for LengthInEm {
+impl Debug for TexEmLength {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         write!(f, "{:?}em", self.get())
     }
 }
 
-impl Repr for LengthInEm {
+impl Repr for TexEmLength {
     fn repr(&self) -> EcoString {
         repr::format_float_with_unit(self.get(), "em")
     }
 }
 
-impl Neg for LengthInEm {
+impl Neg for TexEmLength {
     type Output = Self;
 
     fn neg(self) -> Self {
@@ -97,7 +97,7 @@ impl Neg for LengthInEm {
     }
 }
 
-impl Add for LengthInEm {
+impl Add for TexEmLength {
     type Output = Self;
 
     fn add(self, other: Self) -> Self {
@@ -105,9 +105,9 @@ impl Add for LengthInEm {
     }
 }
 
-sub_impl!(LengthInEm - LengthInEm -> LengthInEm);
+sub_impl!(TexEmLength - TexEmLength -> TexEmLength);
 
-impl Mul<f64> for LengthInEm {
+impl Mul<f64> for TexEmLength {
     type Output = Self;
 
     fn mul(self, other: f64) -> Self {
@@ -115,15 +115,15 @@ impl Mul<f64> for LengthInEm {
     }
 }
 
-impl Mul<LengthInEm> for f64 {
-    type Output = LengthInEm;
+impl Mul<TexEmLength> for f64 {
+    type Output = TexEmLength;
 
-    fn mul(self, other: LengthInEm) -> LengthInEm {
+    fn mul(self, other: TexEmLength) -> TexEmLength {
         other * self
     }
 }
 
-impl Div<f64> for LengthInEm {
+impl Div<f64> for TexEmLength {
     type Output = Self;
 
     fn div(self, other: f64) -> Self {
@@ -131,7 +131,7 @@ impl Div<f64> for LengthInEm {
     }
 }
 
-impl Div for LengthInEm {
+impl Div for TexEmLength {
     type Output = f64;
 
     fn div(self, other: Self) -> f64 {
@@ -139,28 +139,28 @@ impl Div for LengthInEm {
     }
 }
 
-assign_impl!(LengthInEm += LengthInEm);
-assign_impl!(LengthInEm -= LengthInEm);
-assign_impl!(LengthInEm *= f64);
-assign_impl!(LengthInEm /= f64);
+assign_impl!(TexEmLength += TexEmLength);
+assign_impl!(TexEmLength -= TexEmLength);
+assign_impl!(TexEmLength *= f64);
+assign_impl!(TexEmLength /= f64);
 
-impl Sum for LengthInEm {
+impl Sum for TexEmLength {
     fn sum<I: Iterator<Item = Self>>(iter: I) -> Self {
         Self(iter.map(|s| s.0).sum())
     }
 }
 
 cast! {
-     LengthInEm,
+     TexEmLength,
      self => TexValue::Length(self.into()),
 }
 
-impl Resolve for LengthInEm {
-    type Output = Abs;
+impl Resolve for TexEmLength {
+    type Output = TexAbsLength;
 
     fn resolve(self, styles: StyleChain) -> Self::Output {
         if self.is_zero() {
-            Abs::zero()
+            TexAbsLength::zero()
         } else {
             self.at(TextElem::size_in(styles))
         }

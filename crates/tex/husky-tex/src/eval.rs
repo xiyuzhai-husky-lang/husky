@@ -26,18 +26,18 @@ pub(crate) use self::flow::*;
 use comemo::{Track, Tracked, TrackedMut};
 
 use crate::diag::{bail, SourceResult};
-use crate::engine::{Engine, Route};
+use crate::engine::{Route, TexEngine};
 use crate::foundations::{Cast, IsTexElem, Module, Scope, Scopes, TexValue};
 use crate::introspection::{Introspector, Locator};
-use crate::math::EquationElem;
+use crate::math::EquationTexElem;
 use crate::syntax::{ast, parse, parse_code, parse_math, Source, Span};
-use crate::World;
+use crate::IsTexWorld;
 
 /// Evaluate a source file and return the resulting module.
 #[comemo::memoize]
 #[husky_tex_macros::time(name = "eval", span = source.root().span())]
 pub fn eval(
-    world: Tracked<dyn World + '_>,
+    world: Tracked<dyn IsTexWorld + '_>,
     route: Tracked<Route>,
     tracer: TrackedMut<Tracer>,
     source: &Source,
@@ -51,7 +51,7 @@ pub fn eval(
     // Prepare the engine.
     let mut locator = Locator::new();
     let introspector = Introspector::default();
-    let engine = Engine {
+    let engine = TexEngine {
         world,
         route: Route::extend(route).with_id(id),
         introspector: introspector.track(),
@@ -95,7 +95,7 @@ pub fn eval(
 /// Everything in the output is associated with the given `span`.
 #[comemo::memoize]
 pub fn eval_string(
-    world: Tracked<dyn World + '_>,
+    world: Tracked<dyn IsTexWorld + '_>,
     string: &str,
     span: Span,
     mode: EvalMode,
@@ -119,7 +119,7 @@ pub fn eval_string(
     let mut tracer = Tracer::new();
     let mut locator = Locator::new();
     let introspector = Introspector::default();
-    let engine = Engine {
+    let engine = TexEngine {
         world,
         introspector: introspector.track(),
         route: Route::default(),
@@ -139,7 +139,7 @@ pub fn eval_string(
             TexValue::Content(root.cast::<ast::TexMarkup>().unwrap().eval(&mut vm)?)
         }
         EvalMode::Math => TexValue::Content(
-            EquationElem::new(root.cast::<ast::Math>().unwrap().eval(&mut vm)?)
+            EquationTexElem::new(root.cast::<ast::Math>().unwrap().eval(&mut vm)?)
                 .with_block(false)
                 .pack(),
         ),

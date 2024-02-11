@@ -1,7 +1,7 @@
 use crate::diag::{warning, SourceResult};
 use crate::eval::{Eval, Vm};
 use crate::foundations::{IsTexElem, Label, Smart, TexContent, TexValue, Unlabellable};
-use crate::math::EquationElem;
+use crate::math::EquationTexElem;
 use crate::model::{
     EmphElem, EnumItem, HeadingTexElem, LinkTexElem, ListItem, ParbreakElem, RefElem, StrongElem,
     Supplement, TermItem,
@@ -249,6 +249,6 @@ impl Eval for ast::Equation<'_> {
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let body = self.body().eval(vm)?;
         let block = self.block();
-        Ok(EquationElem::new(body).with_block(block).pack())
+        Ok(EquationTexElem::new(body).with_block(block).pack())
     }
 }

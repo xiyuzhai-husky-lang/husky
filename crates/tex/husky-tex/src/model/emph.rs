@@ -1,6 +1,6 @@
 use crate::diag::SourceResult;
-use crate::engine::Engine;
-use crate::foundations::{elem, Packed, Show, StyleChain, TexContent};
+use crate::engine::TexEngine;
+use crate::foundations::{elem, Show, StyleChain, TexContent, TexContentRefined};
 use crate::text::{ItalicToggle, TextElem};
 
 /// Emphasizes content by toggling italics.
@@ -33,9 +33,9 @@ pub struct EmphElem {
     pub body: TexContent,
 }
 
-impl Show for Packed<EmphElem> {
+impl Show for TexContentRefined<EmphElem> {
     #[husky_tex_macros::time(name = "emph", span = self.span())]
-    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, _: &mut TexEngine, _: StyleChain) -> SourceResult<TexContent> {
         Ok(self
             .body()
             .clone()

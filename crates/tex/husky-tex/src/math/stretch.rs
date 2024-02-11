@@ -1,7 +1,7 @@
 use ttf_parser::math::{GlyphAssembly, GlyphConstruction, GlyphPart};
 use ttf_parser::LazyArray16;
 
-use crate::layout::{Abs, Frame, Point, Size};
+use crate::layout::{Point, Size, TexAbsLength, TexFrame};
 use crate::math::{GlyphFragment, MathContext, Scaled, VariantFragment};
 
 /// Maximum number of times extenders can be repeated.
@@ -12,8 +12,8 @@ impl GlyphFragment {
     pub fn stretch_vertical(
         self,
         ctx: &MathContext,
-        height: Abs,
-        short_fall: Abs,
+        height: TexAbsLength,
+        short_fall: TexAbsLength,
     ) -> VariantFragment {
         stretch_glyph(ctx, self, height, short_fall, false)
     }
@@ -22,8 +22,8 @@ impl GlyphFragment {
     pub fn stretch_horizontal(
         self,
         ctx: &MathContext,
-        width: Abs,
-        short_fall: Abs,
+        width: TexAbsLength,
+        short_fall: TexAbsLength,
     ) -> VariantFragment {
         stretch_glyph(ctx, self, width, short_fall, true)
     }
@@ -35,12 +35,12 @@ impl GlyphFragment {
 fn stretch_glyph(
     ctx: &MathContext,
     mut base: GlyphFragment,
-    target: Abs,
-    short_fall: Abs,
+    target: TexAbsLength,
+    short_fall: TexAbsLength,
     horizontal: bool,
 ) -> VariantFragment {
     let short_target = target - short_fall;
-    let mut min_overlap = Abs::zero();
+    let mut min_overlap = TexAbsLength::zero();
     let construction = ctx
         .table
         .variants
@@ -53,10 +53,17 @@ fn stretch_glyph(
             }
             .get(base.id)
         })
-        .unwrap_or(GlyphConstruction { assembly: None, variants: LazyArray16::new(&[]) });
+        .unwrap_or(GlyphConstruction {
+            assembly: None,
+            variants: LazyArray16::new(&[]),
+        });
 
     // If the base glyph is good enough, use it.
-    let advance = if horizontal { base.width } else { base.height() };
+    let advance = if horizontal {
+        base.width
+    } else {
+        base.height()
+    };
     if short_target <= advance {
         return base.into_variant();
     }
@@ -66,7 +73,10 @@ fn stretch_glyph(
     let mut best_advance = base.width;
     for variant in construction.variants {
         best_id = variant.variant_glyph;
-        best_advance = base.font.to_em(variant.advance_measurement).at(base.font_size);
+        best_advance = base
+            .font
+            .to_em(variant.advance_measurement)
+            .at(base.font_size);
         if short_target <= best_advance {
             break;
         }
@@ -88,8 +98,8 @@ fn assemble(
     ctx: &MathContext,
     base: GlyphFragment,
     assembly: GlyphAssembly,
-    min_overlap: Abs,
-    target: Abs,
+    min_overlap: TexAbsLength,
+    target: TexAbsLength,
     horizontal: bool,
 ) -> VariantFragment {
     // Determine the number of times the extenders need to be repeated as well
@@ -99,11 +109,11 @@ fn assemble(
     let mut ratio;
     let mut repeat = 0;
     loop {
-        full = Abs::zero();
+        full = TexAbsLength::zero();
         ratio = 0.0;
 
         let mut parts = parts(assembly, repeat).peekable();
-        let mut growable = Abs::zero();
+        let mut growable = TexAbsLength::zero();
 
         while let Some(part) = parts.next() {
             let mut advance = part.full_advance.scaled(ctx, base.font_size);
@@ -159,13 +169,17 @@ fn assemble(
         baseline = base.ascent;
     } else {
         let axis = ctx.constants.axis_height().scaled(ctx, base.font_size);
-        let width = selected.iter().map(|(f, _)| f.width).max().unwrap_or_default();
+        let width = selected
+            .iter()
+            .map(|(f, _)| f.width)
+            .max()
+            .unwrap_or_default();
         size = Size::new(width, full);
         baseline = full / 2.0 + axis;
     }
 
-    let mut frame = Frame::soft(size);
-    let mut offset = Abs::zero();
+    let mut frame = TexFrame::soft(size);
+    let mut offset = TexAbsLength::zero();
     frame.set_baseline(baseline);
     frame.meta_iter(base.meta);
 
@@ -179,14 +193,18 @@ fn assemble(
         offset += advance;
     }
 
-    let accent_attach = if horizontal { frame.width() / 2.0 } else { base.accent_attach };
+    let accent_attach = if horizontal {
+        frame.width() / 2.0
+    } else {
+        base.accent_attach
+    };
 
     VariantFragment {
         c: base.c,
         id: None,
         frame,
         font_size: base.font_size,
-        italics_correction: Abs::zero(),
+        italics_correction: TexAbsLength::zero(),
         accent_attach,
         class: base.class,
         math_size: base.math_size,
@@ -200,7 +218,11 @@ fn assemble(
 /// specified number of times.
 fn parts(assembly: GlyphAssembly, repeat: usize) -> impl Iterator<Item = GlyphPart> + '_ {
     assembly.parts.into_iter().flat_map(move |part| {
-        let count = if part.part_flags.extender() { repeat } else { 1 };
+        let count = if part.part_flags.extender() {
+            repeat
+        } else {
+            1
+        };
         std::iter::repeat(part).take(count)
     })
 }

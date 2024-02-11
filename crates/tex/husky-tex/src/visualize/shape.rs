@@ -1,11 +1,11 @@
 use std::f64::consts::SQRT_2;
 
 use crate::diag::SourceResult;
-use crate::engine::Engine;
-use crate::foundations::{elem, Packed, Resolve, Smart, StyleChain, TexContent};
+use crate::engine::TexEngine;
+use crate::foundations::{elem, Resolve, Smart, StyleChain, TexContent, TexContentRefined};
 use crate::layout::{
-    Abs, Axes, Corner, Corners, Frame, FrameItem, LayoutMultiple, LayoutSingle, Length, Point,
-    Ratio, Regions, Rel, Sides, Size,
+    Axes, Corner, Corners, FrameItem, LayoutMultiple, LayoutSingle, Length, Point, Ratio, Regions,
+    Rel, Sides, Size, TexAbsLength, TexFrame,
 };
 use crate::syntax::Span;
 use crate::util::Get;
@@ -114,7 +114,7 @@ pub struct RectElem {
     /// See the [box's documentation]($box.outset) for more details.
     #[resolve]
     #[fold]
-    #[default(Sides::splat(Some(Abs::pt(5.0).into())))]
+    #[default(Sides::splat(Some(TexAbsLength::pt(5.0).into())))]
     pub inset: Sides<Option<Rel<Length>>>,
 
     /// How much to expand the rectangle's size without affecting the layout.
@@ -131,14 +131,14 @@ pub struct RectElem {
     pub body: Option<TexContent>,
 }
 
-impl LayoutSingle for Packed<RectElem> {
+impl LayoutSingle for TexContentRefined<RectElem> {
     #[husky_tex_macros::time(name = "rect", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Frame> {
+    ) -> SourceResult<TexFrame> {
         layout(
             engine,
             styles,
@@ -219,7 +219,7 @@ pub struct SquareElem {
     /// [box's documentation]($box.inset) for more details.
     #[resolve]
     #[fold]
-    #[default(Sides::splat(Some(Abs::pt(5.0).into())))]
+    #[default(Sides::splat(Some(TexAbsLength::pt(5.0).into())))]
     pub inset: Sides<Option<Rel<Length>>>,
 
     /// How much to expand the square's size without affecting the layout. See
@@ -237,14 +237,14 @@ pub struct SquareElem {
     pub body: Option<TexContent>,
 }
 
-impl LayoutSingle for Packed<SquareElem> {
+impl LayoutSingle for TexContentRefined<SquareElem> {
     #[husky_tex_macros::time(name = "square", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Frame> {
+    ) -> SourceResult<TexFrame> {
         layout(
             engine,
             styles,
@@ -298,7 +298,7 @@ pub struct EllipseElem {
     /// [box's documentation]($box.inset) for more details.
     #[resolve]
     #[fold]
-    #[default(Sides::splat(Some(Abs::pt(5.0).into())))]
+    #[default(Sides::splat(Some(TexAbsLength::pt(5.0).into())))]
     pub inset: Sides<Option<Rel<Length>>>,
 
     /// How much to expand the ellipse's size without affecting the layout. See
@@ -315,14 +315,14 @@ pub struct EllipseElem {
     pub body: Option<TexContent>,
 }
 
-impl LayoutSingle for Packed<EllipseElem> {
+impl LayoutSingle for TexContentRefined<EllipseElem> {
     #[husky_tex_macros::time(name = "ellipse", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Frame> {
+    ) -> SourceResult<TexFrame> {
         layout(
             engine,
             styles,
@@ -403,7 +403,7 @@ pub struct CircleElem {
     /// [box's documentation]($box.inset) for more details.
     #[resolve]
     #[fold]
-    #[default(Sides::splat(Some(Abs::pt(5.0).into())))]
+    #[default(Sides::splat(Some(TexAbsLength::pt(5.0).into())))]
     pub inset: Sides<Option<Rel<Length>>>,
 
     /// How much to expand the circle's size without affecting the layout. See
@@ -418,14 +418,14 @@ pub struct CircleElem {
     pub body: Option<TexContent>,
 }
 
-impl LayoutSingle for Packed<CircleElem> {
+impl LayoutSingle for TexContentRefined<CircleElem> {
     #[husky_tex_macros::time(name = "circle", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Frame> {
+    ) -> SourceResult<TexFrame> {
         layout(
             engine,
             styles,
@@ -446,19 +446,19 @@ impl LayoutSingle for Packed<CircleElem> {
 /// Layout a shape.
 #[allow(clippy::too_many_arguments)]
 fn layout(
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     styles: StyleChain,
     regions: Regions,
     kind: ShapeKind,
     body: &Option<TexContent>,
     sizing: Axes<Smart<Rel<Length>>>,
     fill: Option<TexPaint>,
-    stroke: Smart<Sides<Option<Option<TexStroke<Abs>>>>>,
-    inset: Sides<Option<Rel<Abs>>>,
-    outset: Sides<Option<Rel<Abs>>>,
-    radius: Corners<Option<Rel<Abs>>>,
+    stroke: Smart<Sides<Option<Option<TexStroke<TexAbsLength>>>>>,
+    inset: Sides<Option<Rel<TexAbsLength>>>,
+    outset: Sides<Option<Rel<TexAbsLength>>>,
+    radius: Corners<Option<Rel<TexAbsLength>>>,
     span: Span,
-) -> SourceResult<Frame> {
+) -> SourceResult<TexFrame> {
     let resolved = sizing.zip_map(regions.base(), |s, r| {
         s.map(|v| v.resolve(styles).relative_to(r))
     });
@@ -501,12 +501,12 @@ fn layout(
     } else {
         // The default size that a shape takes on if it has no child and
         // enough space.
-        let default = Size::new(Abs::pt(45.0), Abs::pt(30.0));
+        let default = Size::new(TexAbsLength::pt(45.0), TexAbsLength::pt(30.0));
         let mut size = resolved.unwrap_or(default.min(regions.base()));
         if kind.is_quadratic() {
             size = Size::splat(size.min_by_side());
         }
-        frame = Frame::soft(size);
+        frame = TexFrame::soft(size);
     }
 
     // Prepare stroke.
@@ -623,7 +623,7 @@ pub(crate) fn ellipse(
     stroke: Option<TexFixedStroke>,
 ) -> TexShape {
     // https://stackoverflow.com/a/2007782
-    let z = Abs::zero();
+    let z = TexAbsLength::zero();
     let rx = size.x / 2.0;
     let ry = size.y / 2.0;
     let m = 0.551784;
@@ -648,15 +648,20 @@ pub(crate) fn ellipse(
 /// Creates a new rectangle as a path.
 pub(crate) fn clip_rect(
     size: Size,
-    radius: Corners<Rel<Abs>>,
+    radius: Corners<Rel<TexAbsLength>>,
     stroke: &Sides<Option<TexFixedStroke>>,
 ) -> Path {
-    let stroke_widths = stroke
-        .as_ref()
-        .map(|s| s.as_ref().map_or(Abs::zero(), |s| s.thickness / 2.0));
+    let stroke_widths = stroke.as_ref().map(|s| {
+        s.as_ref()
+            .map_or(TexAbsLength::zero(), |s| s.thickness / 2.0)
+    });
 
-    let max_radius =
-        (size.x.min(size.y)) / 2.0 + stroke_widths.iter().cloned().min().unwrap_or(Abs::zero());
+    let max_radius = (size.x.min(size.y)) / 2.0
+        + stroke_widths
+            .iter()
+            .cloned()
+            .min()
+            .unwrap_or(TexAbsLength::zero());
 
     let radius = radius.map(|side| side.relative_to(max_radius * 2.0).min(max_radius));
 
@@ -697,7 +702,7 @@ pub(crate) fn clip_rect(
 /// - use fill for sides for best looks
 pub(crate) fn styled_rect(
     size: Size,
-    radius: Corners<Rel<Abs>>,
+    radius: Corners<Rel<TexAbsLength>>,
     fill: Option<TexPaint>,
     stroke: Sides<Option<TexFixedStroke>>,
 ) -> Vec<TexShape> {
@@ -723,9 +728,9 @@ fn simple_rect(
 
 fn corners_control_points(
     size: Size,
-    radius: Corners<Abs>,
+    radius: Corners<TexAbsLength>,
     strokes: &Sides<Option<TexFixedStroke>>,
-    stroke_widths: Sides<Abs>,
+    stroke_widths: Sides<TexAbsLength>,
 ) -> Corners<ControlPoints> {
     Corners {
         top_left: Corner::TopLeft,
@@ -753,17 +758,22 @@ fn corners_control_points(
 /// Use stroke and fill for the rectangle
 fn segmented_rect(
     size: Size,
-    radius: Corners<Rel<Abs>>,
+    radius: Corners<Rel<TexAbsLength>>,
     fill: Option<TexPaint>,
     strokes: Sides<Option<TexFixedStroke>>,
 ) -> Vec<TexShape> {
     let mut res = vec![];
-    let stroke_widths = strokes
-        .as_ref()
-        .map(|s| s.as_ref().map_or(Abs::zero(), |s| s.thickness / 2.0));
+    let stroke_widths = strokes.as_ref().map(|s| {
+        s.as_ref()
+            .map_or(TexAbsLength::zero(), |s| s.thickness / 2.0)
+    });
 
-    let max_radius =
-        (size.x.min(size.y)) / 2.0 + stroke_widths.iter().cloned().min().unwrap_or(Abs::zero());
+    let max_radius = (size.x.min(size.y)) / 2.0
+        + stroke_widths
+            .iter()
+            .cloned()
+            .min()
+            .unwrap_or(TexAbsLength::zero());
 
     let radius = radius.map(|side| side.relative_to(max_radius * 2.0).min(max_radius));
 
@@ -1045,9 +1055,9 @@ fn fill_segment(
 ///    |-------r--------|
 /// ```
 struct ControlPoints {
-    radius: Abs,
-    stroke_after: Abs,
-    stroke_before: Abs,
+    radius: TexAbsLength,
+    stroke_after: TexAbsLength,
+    stroke_before: TexAbsLength,
     corner: Corner,
     size: Size,
     same: bool,
@@ -1107,18 +1117,18 @@ impl ControlPoints {
     }
 
     /// Radius of the outer arc.
-    pub fn radius_outer(&self) -> Abs {
+    pub fn radius_outer(&self) -> TexAbsLength {
         self.radius
     }
 
     /// Radius of the middle arc.
-    pub fn radius(&self) -> Abs {
-        (self.radius - self.stroke_before.min(self.stroke_after)).max(Abs::zero())
+    pub fn radius(&self) -> TexAbsLength {
+        (self.radius - self.stroke_before.min(self.stroke_after)).max(TexAbsLength::zero())
     }
 
     /// Radius of the inner arc.
-    pub fn radius_inner(&self) -> Abs {
-        (self.radius - 2.0 * self.stroke_before.max(self.stroke_after)).max(Abs::zero())
+    pub fn radius_inner(&self) -> TexAbsLength {
+        (self.radius - 2.0 * self.stroke_before.max(self.stroke_after)).max(TexAbsLength::zero())
     }
 
     /// Middle of the corner on the outside of the stroke.
@@ -1157,16 +1167,16 @@ impl ControlPoints {
 
     /// If an outer arc is required.
     pub fn arc_outer(&self) -> bool {
-        self.radius_outer() > Abs::zero()
+        self.radius_outer() > TexAbsLength::zero()
     }
 
     pub fn arc(&self) -> bool {
-        self.radius() > Abs::zero()
+        self.radius() > TexAbsLength::zero()
     }
 
     /// If an inner arc is required.
     pub fn arc_inner(&self) -> bool {
-        self.radius_inner() > Abs::zero()
+        self.radius_inner() > TexAbsLength::zero()
     }
 
     /// Start of the corner on the outside of the stroke.

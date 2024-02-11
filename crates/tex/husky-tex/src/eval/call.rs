@@ -2,7 +2,7 @@ use comemo::{Prehashed, Tracked, TrackedMut};
 use ecow::{eco_format, EcoVec};
 
 use crate::diag::{bail, error, At, HintedStrResult, SourceResult, Trace, Tracepoint};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::eval::{Access, Eval, FlowEvent, Route, Tracer, Vm};
 use crate::foundations::{
     call_method_mut, is_mutating_method, Arg, Args, Bytes, Closure, Func, IntoTexValue, IsTexElem,
@@ -14,7 +14,7 @@ use crate::symbols::Symbol;
 use crate::syntax::ast::{self, TexAstNode};
 use crate::syntax::{Spanned, TexSyntaxNode};
 use crate::text::TextElem;
-use crate::World;
+use crate::IsTexWorld;
 
 impl Eval for ast::FuncCall<'_> {
     type Output = TexValue;
@@ -268,7 +268,7 @@ impl Eval for ast::Closure<'_> {
 pub(crate) fn call_closure(
     func: &Func,
     closure: &Prehashed<Closure>,
-    world: Tracked<dyn World + '_>,
+    world: Tracked<dyn IsTexWorld + '_>,
     introspector: Tracked<Introspector>,
     route: Tracked<Route>,
     locator: Tracked<Locator>,
@@ -284,7 +284,7 @@ pub(crate) fn call_closure(
 
     // Prepare the engine.
     let mut locator = Locator::chained(locator);
-    let engine = Engine {
+    let engine = TexEngine {
         world,
         introspector,
         route: Route::extend(route),

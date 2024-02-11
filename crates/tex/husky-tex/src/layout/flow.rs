@@ -3,13 +3,15 @@ use std::fmt::{self, Debug, Formatter};
 use comemo::Prehashed;
 
 use crate::diag::{bail, SourceResult};
-use crate::engine::Engine;
-use crate::foundations::{elem, IsTexElem, Packed, Resolve, Smart, StyleChain, TexContent};
-use crate::introspection::{Meta, MetaElem};
+use crate::engine::TexEngine;
+use crate::foundations::{
+    elem, IsTexElem, Resolve, Smart, StyleChain, TexContent, TexContentRefined,
+};
+use crate::introspection::{Meta, MetaTexElem};
 use crate::layout::{
-    Abs, AlignElem, Axes, BlockElem, ColbreakElem, ColumnsElem, FixedAlignment, Fr, Fragment,
-    Frame, FrameItem, LayoutMultiple, LayoutSingle, PlaceElem, Point, Regions, Rel, Size, Spacing,
-    VAlignment, VElem,
+    AlignElem, Axes, BlockElem, ColbreakElem, ColumnsElem, FixedAlignment, FrameItem,
+    LayoutMultiple, LayoutSingle, PlaceElem, Point, Regions, Rel, Size, Spacing, TexAbsLength,
+    TexFraction, TexFrame, TexLayoutFragment, VAlignment, VElem,
 };
 use crate::model::{FootnoteEntry, FootnoteTexElem, ParagraphTexElem};
 use crate::util::Numeric;
@@ -25,14 +27,14 @@ pub struct FlowElem {
     pub children: Vec<Prehashed<TexContent>>,
 }
 
-impl LayoutMultiple for Packed<FlowElem> {
+impl LayoutMultiple for TexContentRefined<FlowElem> {
     #[husky_tex_macros::time(name = "flow", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         if !regions.size.x.is_finite() && regions.expand.x {
             bail!(self.span(), "cannot expand into infinite width");
         }
@@ -49,7 +51,7 @@ impl LayoutMultiple for Packed<FlowElem> {
                 styles = outer.chain(map);
             }
 
-            if child.is::<MetaElem>() {
+            if child.is::<MetaTexElem>() {
                 layouter.layout_meta(styles);
             } else if let Some(elem) = child.to_packed::<VElem>() {
                 layouter.layout_spacing(engine, elem, styles)?;
@@ -105,51 +107,51 @@ struct FlowLayouter<'a> {
     /// Footnote configuration.
     footnote_config: FootnoteConfig,
     /// Finished frames for previous regions.
-    finished: Vec<Frame>,
+    finished: Vec<TexFrame>,
 }
 
 /// Cached footnote configuration.
 struct FootnoteConfig {
     separator: TexContent,
-    clearance: Abs,
-    gap: Abs,
+    clearance: TexAbsLength,
+    gap: TexAbsLength,
 }
 
 /// A prepared item in a flow layout.
 #[derive(Debug)]
 enum FlowItem {
     /// Spacing between other items and whether it is weak.
-    Absolute(Abs, bool),
+    Absolute(TexAbsLength, bool),
     /// Fractional spacing between other items.
-    Fractional(Fr),
+    Fractional(TexFraction),
     /// A frame for a layouted block, how to align it, whether it sticks to the
     /// item after it (for orphan prevention), and whether it is movable
     /// (to keep it together with its footnotes).
     Frame {
-        frame: Frame,
+        frame: TexFrame,
         align: Axes<FixedAlignment>,
         sticky: bool,
         movable: bool,
     },
     /// An absolutely placed frame.
     Placed {
-        frame: Frame,
+        frame: TexFrame,
         x_align: FixedAlignment,
         y_align: Smart<Option<FixedAlignment>>,
-        delta: Axes<Rel<Abs>>,
+        delta: Axes<Rel<TexAbsLength>>,
         float: bool,
-        clearance: Abs,
+        clearance: TexAbsLength,
     },
     /// A footnote frame (can also be the separator).
-    Footnote(Frame),
+    Footnote(TexFrame),
 }
 
 impl FlowItem {
     /// The inherent height of the item.
-    fn height(&self) -> Abs {
+    fn height(&self) -> TexAbsLength {
         match self {
             Self::Absolute(v, _) => *v,
-            Self::Fractional(_) | Self::Placed { .. } => Abs::zero(),
+            Self::Fractional(_) | Self::Placed { .. } => TexAbsLength::zero(),
             Self::Frame { frame, .. } | Self::Footnote(frame) => frame.height(),
         }
     }
@@ -198,7 +200,7 @@ impl<'a> FlowLayouter<'a> {
 
     /// Place explicit metadata into the flow.
     fn layout_meta(&mut self, styles: StyleChain) {
-        let mut frame = Frame::soft(Size::zero());
+        let mut frame = TexFrame::soft(Size::zero());
         frame.meta(styles, true);
         self.items.push(FlowItem::Frame {
             frame,
@@ -211,8 +213,8 @@ impl<'a> FlowLayouter<'a> {
     /// Layout vertical spacing.
     fn layout_spacing(
         &mut self,
-        engine: &mut Engine,
-        v: &Packed<VElem>,
+        engine: &mut TexEngine,
+        v: &TexContentRefined<VElem>,
         styles: StyleChain,
     ) -> SourceResult<()> {
         self.layout_item(
@@ -230,8 +232,8 @@ impl<'a> FlowLayouter<'a> {
     /// Layout a paragraph.
     fn layout_par(
         &mut self,
-        engine: &mut Engine,
-        par: &Packed<ParagraphTexElem>,
+        engine: &mut TexEngine,
+        par: &TexContentRefined<ParagraphTexElem>,
         styles: StyleChain,
     ) -> SourceResult<()> {
         let align = AlignElem::alignment_in(styles).resolve(styles);
@@ -289,7 +291,7 @@ impl<'a> FlowLayouter<'a> {
     /// Layout into a single region.
     fn layout_single(
         &mut self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         layoutable: &dyn LayoutSingle,
         styles: StyleChain,
     ) -> SourceResult<()> {
@@ -314,8 +316,8 @@ impl<'a> FlowLayouter<'a> {
     /// Layout a placed element.
     fn layout_placed(
         &mut self,
-        engine: &mut Engine,
-        placed: &Packed<PlaceElem>,
+        engine: &mut TexEngine,
+        placed: &TexContentRefined<PlaceElem>,
         styles: StyleChain,
     ) -> SourceResult<()> {
         let float = placed.float(styles);
@@ -342,7 +344,7 @@ impl<'a> FlowLayouter<'a> {
     /// Layout into multiple regions.
     fn layout_multiple(
         &mut self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         child: &TexContent,
         styles: StyleChain,
     ) -> SourceResult<()> {
@@ -406,7 +408,7 @@ impl<'a> FlowLayouter<'a> {
     }
 
     /// Layout a finished frame.
-    fn layout_item(&mut self, engine: &mut Engine, mut item: FlowItem) -> SourceResult<()> {
+    fn layout_item(&mut self, engine: &mut TexEngine, mut item: FlowItem) -> SourceResult<()> {
         match item {
             FlowItem::Absolute(v, weak) => {
                 if weak
@@ -498,9 +500,9 @@ impl<'a> FlowLayouter<'a> {
     /// Set `force` to `true` to allow creating a frame for out-of-flow elements
     /// only (this is used to force the creation of a frame in case the
     /// remaining elements are all out-of-flow).
-    fn finish_region(&mut self, engine: &mut Engine, force: bool) -> SourceResult<()> {
+    fn finish_region(&mut self, engine: &mut TexEngine, force: bool) -> SourceResult<()> {
         if !force && !self.items.is_empty() && self.items.iter().all(FlowItem::is_out_of_flow) {
-            self.finished.push(Frame::soft(self.initial));
+            self.finished.push(TexFrame::soft(self.initial));
             self.regions.next();
             self.initial = self.regions.size;
             return Ok(());
@@ -516,11 +518,11 @@ impl<'a> FlowLayouter<'a> {
         }
 
         // Determine the used size.
-        let mut fr = Fr::zero();
+        let mut fr = TexFraction::zero();
         let mut used = Size::zero();
-        let mut footnote_height = Abs::zero();
-        let mut float_top_height = Abs::zero();
-        let mut float_bottom_height = Abs::zero();
+        let mut footnote_height = TexAbsLength::zero();
+        let mut float_top_height = TexAbsLength::zero();
+        let mut float_bottom_height = TexAbsLength::zero();
         let mut first_footnote = true;
         for item in &self.items {
             match item {
@@ -565,12 +567,12 @@ impl<'a> FlowLayouter<'a> {
             size.y = self.initial.y;
         }
 
-        let mut output = Frame::soft(size);
+        let mut output = TexFrame::soft(size);
         let mut ruler = FixedAlignment::Start;
-        let mut float_top_offset = Abs::zero();
+        let mut float_top_offset = TexAbsLength::zero();
         let mut offset = float_top_height;
-        let mut float_bottom_offset = Abs::zero();
-        let mut footnote_offset = Abs::zero();
+        let mut float_bottom_offset = TexAbsLength::zero();
+        let mut footnote_offset = TexAbsLength::zero();
 
         // Place all frames.
         for item in self.items.drain(..) {
@@ -648,7 +650,7 @@ impl<'a> FlowLayouter<'a> {
     }
 
     /// Finish layouting and return the resulting fragment.
-    fn finish(mut self, engine: &mut Engine) -> SourceResult<Fragment> {
+    fn finish(mut self, engine: &mut TexEngine) -> SourceResult<TexLayoutFragment> {
         if self.expand.y {
             while !self.regions.backlog.is_empty() {
                 self.finish_region(engine, true)?;
@@ -660,15 +662,15 @@ impl<'a> FlowLayouter<'a> {
             self.finish_region(engine, true)?;
         }
 
-        Ok(Fragment::frames(self.finished))
+        Ok(TexLayoutFragment::frames(self.finished))
     }
 }
 
 impl FlowLayouter<'_> {
     fn try_handle_footnotes(
         &mut self,
-        engine: &mut Engine,
-        mut notes: Vec<Packed<FootnoteTexElem>>,
+        engine: &mut TexEngine,
+        mut notes: Vec<TexContentRefined<FootnoteTexElem>>,
     ) -> SourceResult<()> {
         if self.root && !self.handle_footnotes(engine, &mut notes, false, false)? {
             self.finish_region(engine, false)?;
@@ -680,8 +682,8 @@ impl FlowLayouter<'_> {
     /// Processes all footnotes in the frame.
     fn handle_footnotes(
         &mut self,
-        engine: &mut Engine,
-        notes: &mut Vec<Packed<FootnoteTexElem>>,
+        engine: &mut TexEngine,
+        notes: &mut Vec<TexContentRefined<FootnoteTexElem>>,
         movable: bool,
         force: bool,
     ) -> SourceResult<bool> {
@@ -709,7 +711,7 @@ impl FlowLayouter<'_> {
 
             // If the entries didn't fit, abort (to keep footnote and entry
             // together).
-            if !force && (k == 0 || movable) && frames.first().map_or(false, Frame::is_empty) {
+            if !force && (k == 0 || movable) && frames.first().map_or(false, TexFrame::is_empty) {
                 // Remove existing footnotes attempts because we need to
                 // move the item to the next page.
                 notes.truncate(notes_len);
@@ -751,7 +753,7 @@ impl FlowLayouter<'_> {
     }
 
     /// Layout and save the footnote separator, typically a line.
-    fn layout_footnote_separator(&mut self, engine: &mut Engine) -> SourceResult<()> {
+    fn layout_footnote_separator(&mut self, engine: &mut TexEngine) -> SourceResult<()> {
         let expand = Axes::new(self.regions.expand.x, false);
         let pod = Regions::one(self.regions.base(), expand);
         let separator = &self.footnote_config.separator;
@@ -769,7 +771,7 @@ impl FlowLayouter<'_> {
 }
 
 /// Finds all footnotes in the frame.
-fn find_footnotes(notes: &mut Vec<Packed<FootnoteTexElem>>, frame: &Frame) {
+fn find_footnotes(notes: &mut Vec<TexContentRefined<FootnoteTexElem>>, frame: &TexFrame) {
     for (_, item) in frame.items() {
         match item {
             FrameItem::Group(group) => find_footnotes(notes, &group.frame),

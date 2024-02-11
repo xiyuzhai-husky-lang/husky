@@ -6,7 +6,7 @@ use crate::foundations::{
     cast, CastInfo, Fold, FromTexValue, IntoTexValue, Reflect, Resolve, StyleChain, TexDict,
     TexValue,
 };
-use crate::layout::{Abs, Axes, Axis, Corner, Rel, Size, TexAlignment};
+use crate::layout::{Axes, Axis, Corner, Rel, Size, TexAbsLength, TexAlignment};
 use crate::util::Get;
 
 /// A container with left, top, right and bottom components.
@@ -110,9 +110,9 @@ impl<T> Sides<Option<T>> {
     }
 }
 
-impl Sides<Rel<Abs>> {
+impl Sides<Rel<TexAbsLength>> {
     /// Evaluate the sides relative to the given `size`.
-    pub fn relative_to(self, size: Size) -> Sides<Abs> {
+    pub fn relative_to(self, size: Size) -> Sides<TexAbsLength> {
         Sides {
             left: self.left.relative_to(size.x),
             top: self.top.relative_to(size.y),

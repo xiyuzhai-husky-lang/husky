@@ -9,10 +9,10 @@ use ecow::{eco_vec, EcoString, EcoVec};
 use smallvec::SmallVec;
 
 use crate::diag::{SourceResult, Trace, Tracepoint};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, elem, func, ty, ElementSchemaRef, Func, IsTexElem, Packed, Repr, Selector, Show,
-    TexContent,
+    cast, elem, func, ty, ElementSchemaRef, Func, IsTexElem, Repr, Selector, Show, TexContent,
+    TexContentRefined,
 };
 use crate::syntax::Span;
 use crate::text::{FontFamily, FontList, TextElem};
@@ -56,9 +56,9 @@ struct StyleElem {
     func: Func,
 }
 
-impl Show for Packed<StyleElem> {
+impl Show for TexContentRefined<StyleElem> {
     #[husky_tex_macros::time(name = "style", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         Ok(self.func().call(engine, [styles.to_map()])?.display())
     }
 }
@@ -386,7 +386,7 @@ impl Recipe {
     }
 
     /// Apply the recipe to the given content.
-    pub fn apply(&self, engine: &mut Engine, content: TexContent) -> SourceResult<TexContent> {
+    pub fn apply(&self, engine: &mut TexEngine, content: TexContent) -> SourceResult<TexContent> {
         let mut content = match &self.transform {
             Transformation::Content(content) => content.clone(),
             Transformation::Func(func) => {

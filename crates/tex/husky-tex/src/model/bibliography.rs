@@ -7,16 +7,16 @@ use std::path::Path;
 use std::sync::Arc;
 
 use crate::diag::{bail, error, At, FileError, SourceResult, StrResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::eval::{eval_string, EvalMode};
 use crate::foundations::{
     cast, elem, ty, Args, Array, Bytes, CastInfo, FromTexValue, IntoTexValue, IsTexElem, Label,
-    Packed, Reflect, Repr, Scope, Show, ShowSet, Smart, Str, StyleChain, Styles, Synthesize,
-    TexContent, TexValue, Type,
+    Reflect, Repr, Scope, Show, ShowSet, Smart, Str, StyleChain, Styles, Synthesize, TexContent,
+    TexContentRefined, TexValue, Type,
 };
 use crate::introspection::{Introspector, Locatable, Location};
 use crate::layout::{
-    BlockElem, GridCell, GridElem, HElem, LengthInEm, PadElem, TexSizing, TrackSizings, VElem,
+    BlockElem, GridCell, GridElem, HElem, PadElem, TexEmLength, TexSizing, TrackSizings, VElem,
 };
 use crate::model::{
     CitationForm, FootnoteTexElem, HeadingTexElem, LinkTexElem, ParagraphTexElem, TexCiteGroup,
@@ -27,7 +27,7 @@ use crate::text::{
     Lang, LocalName, Region, SubElem, SuperElem, TexFontStyle, TextElem, WeightDelta,
 };
 use crate::util::{option_eq, NonZeroExt, PicoStr};
-use crate::World;
+use crate::IsTexWorld;
 use comemo::{Prehashed, Tracked};
 use ecow::{eco_format, EcoString, EcoVec};
 use hayagriva::archive::ArchivedStyle;
@@ -154,7 +154,7 @@ cast! {
 
 impl BibliographyElem {
     /// Find the document's bibliography.
-    pub fn find(introspector: Tracked<Introspector>) -> StrResult<Packed<Self>> {
+    pub fn find(introspector: Tracked<Introspector>) -> StrResult<TexContentRefined<Self>> {
         let query = introspector.query(&Self::elem().select());
         let mut iter = query.iter();
         let Some(elem) = iter.next() else {
@@ -169,7 +169,7 @@ impl BibliographyElem {
     }
 
     /// Whether the bibliography contains the given key.
-    pub fn has(engine: &Engine, key: impl Into<PicoStr>) -> bool {
+    pub fn has(engine: &TexEngine, key: impl Into<PicoStr>) -> bool {
         let key = key.into();
         engine
             .introspector
@@ -193,8 +193,8 @@ impl BibliographyElem {
     }
 }
 
-impl Synthesize for Packed<BibliographyElem> {
-    fn synthesize(&mut self, _: &mut Engine, styles: StyleChain) -> SourceResult<()> {
+impl Synthesize for TexContentRefined<BibliographyElem> {
+    fn synthesize(&mut self, _: &mut TexEngine, styles: StyleChain) -> SourceResult<()> {
         let elem = self.as_mut();
         elem.push_lang(TextElem::lang_in(styles));
         elem.push_region(TextElem::region_in(styles));
@@ -202,11 +202,11 @@ impl Synthesize for Packed<BibliographyElem> {
     }
 }
 
-impl Show for Packed<BibliographyElem> {
+impl Show for TexContentRefined<BibliographyElem> {
     #[husky_tex_macros::time(name = "bibliography", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
-        const COLUMN_GUTTER: LengthInEm = LengthInEm::new(0.65);
-        const INDENT: LengthInEm = LengthInEm::new(1.5);
+    fn show(&self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
+        const COLUMN_GUTTER: TexEmLength = TexEmLength::new(0.65);
+        const INDENT: TexEmLength = TexEmLength::new(1.5);
 
         let mut seq = vec![];
         if let Some(title) = self.title(styles) {
@@ -235,9 +235,10 @@ impl Show for Packed<BibliographyElem> {
             let mut cells = vec![];
             for (prefix, reference) in references {
                 cells.push(
-                    Packed::new(GridCell::new(prefix.clone().unwrap_or_default())).spanned(span),
+                    TexContentRefined::new(GridCell::new(prefix.clone().unwrap_or_default()))
+                        .spanned(span),
                 );
-                cells.push(Packed::new(GridCell::new(reference.clone())).spanned(span));
+                cells.push(TexContentRefined::new(GridCell::new(reference.clone())).spanned(span));
             }
 
             seq.push(VElem::new(row_gutter).with_weakness(3).pack());
@@ -265,9 +266,9 @@ impl Show for Packed<BibliographyElem> {
     }
 }
 
-impl ShowSet for Packed<BibliographyElem> {
+impl ShowSet for TexContentRefined<BibliographyElem> {
     fn show_set(&self, _: StyleChain) -> Styles {
-        const INDENT: LengthInEm = LengthInEm::new(1.0);
+        const INDENT: TexEmLength = TexEmLength::new(1.0);
         let mut out = Styles::new();
         out.set(HeadingTexElem::set_numbering(None));
         out.set(PadElem::set_left(INDENT.into()));
@@ -275,7 +276,7 @@ impl ShowSet for Packed<BibliographyElem> {
     }
 }
 
-impl LocalName for Packed<BibliographyElem> {
+impl LocalName for TexContentRefined<BibliographyElem> {
     fn local_name(lang: Lang, region: Option<Region>) -> &'static str {
         match lang {
             Lang::ALBANIAN => "Bibliografi",
@@ -323,7 +324,7 @@ pub struct Bibliography {
 impl Bibliography {
     /// Parse the bibliography argument.
     fn parse(
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         args: &mut Args,
     ) -> SourceResult<(BibliographyPaths, Bibliography)> {
         let Spanned { v: paths, span } =
@@ -436,7 +437,7 @@ pub struct CslStyle {
 
 impl CslStyle {
     /// Parse the style argument.
-    pub fn parse(engine: &mut Engine, args: &mut Args) -> SourceResult<Option<CslStyle>> {
+    pub fn parse(engine: &mut TexEngine, args: &mut Args) -> SourceResult<Option<CslStyle>> {
         let Some(Spanned { v: string, span }) = args.named::<Spanned<EcoString>>("style")? else {
             return Ok(None);
         };
@@ -446,7 +447,7 @@ impl CslStyle {
 
     /// Parse the style argument with `Smart`.
     pub fn parse_smart(
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         args: &mut Args,
     ) -> SourceResult<Option<Smart<CslStyle>>> {
         let Some(Spanned { v: smart, span }) = args.named::<Spanned<Smart<EcoString>>>("style")?
@@ -463,7 +464,7 @@ impl CslStyle {
     }
 
     /// Parse internally.
-    fn parse_impl(engine: &mut Engine, string: &str, span: Span) -> StrResult<CslStyle> {
+    fn parse_impl(engine: &mut TexEngine, string: &str, span: Span) -> StrResult<CslStyle> {
         let ext = Path::new(string)
             .extension()
             .and_then(OsStr::to_str)
@@ -582,7 +583,7 @@ impl Works {
     /// Generate all citations and the whole bibliography.
     #[comemo::memoize]
     pub fn generate(
-        world: Tracked<dyn World + '_>,
+        world: Tracked<dyn IsTexWorld + '_>,
         introspector: Tracked<Introspector>,
     ) -> StrResult<Arc<Works>> {
         let mut generator = Generator::new(world, introspector)?;
@@ -595,9 +596,9 @@ impl Works {
 /// Context for generating the bibliography.
 struct Generator<'a> {
     /// The world that is used to evaluate mathematical material in citations.
-    world: Tracked<'a, dyn World + 'a>,
+    world: Tracked<'a, dyn IsTexWorld + 'a>,
     /// The document's bibliography.
-    bibliography: Packed<BibliographyElem>,
+    bibliography: TexContentRefined<BibliographyElem>,
     /// The document's citation groups.
     groups: EcoVec<Prehashed<TexContent>>,
     /// Details about each group that are accumulated while driving hayagriva's
@@ -634,7 +635,7 @@ struct CiteInfo {
 impl<'a> Generator<'a> {
     /// Create a new generator.
     fn new(
-        world: Tracked<'a, dyn World + 'a>,
+        world: Tracked<'a, dyn IsTexWorld + 'a>,
         introspector: Tracked<Introspector>,
     ) -> StrResult<Self> {
         let bibliography = BibliographyElem::find(introspector)?;
@@ -896,7 +897,7 @@ impl<'a> Generator<'a> {
 /// Renders hayagriva elements into content.
 struct ElemRenderer<'a> {
     /// The world that is used to evaluate mathematical material.
-    world: Tracked<'a, dyn World + 'a>,
+    world: Tracked<'a, dyn IsTexWorld + 'a>,
     /// The span that is attached to all of the resulting content.
     span: Span,
     /// Resolves the supplement of i-th citation in the request.
@@ -953,10 +954,10 @@ impl ElemRenderer<'_> {
         );
 
         if let Some(prefix) = suf_prefix {
-            const COLUMN_GUTTER: LengthInEm = LengthInEm::new(0.65);
+            const COLUMN_GUTTER: TexEmLength = TexEmLength::new(0.65);
             content = GridElem::new(vec![
-                Packed::new(GridCell::new(prefix)).spanned(self.span),
-                Packed::new(GridCell::new(content)).spanned(self.span),
+                TexContentRefined::new(GridCell::new(prefix)).spanned(self.span),
+                TexContentRefined::new(GridCell::new(content)).spanned(self.span),
             ])
             .with_columns(TrackSizings(smallvec![TexSizing::Auto; 2]))
             .with_column_gutter(TrackSizings(smallvec![COLUMN_GUTTER.into()]))

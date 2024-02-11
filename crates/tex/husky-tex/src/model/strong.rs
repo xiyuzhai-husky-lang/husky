@@ -1,6 +1,6 @@
 use crate::diag::SourceResult;
-use crate::engine::Engine;
-use crate::foundations::{elem, Packed, Show, StyleChain, TexContent};
+use crate::engine::TexEngine;
+use crate::foundations::{elem, Show, StyleChain, TexContent, TexContentRefined};
 use crate::text::{TextElem, WeightDelta};
 
 /// Strongly emphasizes content by increasing the font weight.
@@ -37,9 +37,9 @@ pub struct StrongElem {
     pub body: TexContent,
 }
 
-impl Show for Packed<StrongElem> {
+impl Show for TexContentRefined<StrongElem> {
     #[husky_tex_macros::time(name = "strong", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, _: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         Ok(self
             .body()
             .clone()

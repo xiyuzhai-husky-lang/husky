@@ -1,15 +1,15 @@
 use crate::diag::{bail, SourceResult};
-use crate::foundations::{elem, Packed, StyleChain, TexContent, TexValue};
-use crate::layout::{Frame, FrameItem, LengthInEm, Point, Size};
+use crate::foundations::{elem, StyleChain, TexContent, TexContentRefined, TexValue};
+use crate::layout::{FrameItem, Point, Size, TexEmLength, TexFrame};
 use crate::math::{
     scaled_font_size, style_for_denominator, style_for_numerator, FrameFragment, GlyphFragment,
-    LayoutMath, MathContext, Scaled, DELIM_SHORT_FALL,
+    MathContext, Scaled, TexLayoutMath, DELIM_SHORT_FALL,
 };
 use crate::syntax::{Span, Spanned};
 use crate::text::TextElem;
 use crate::visualize::{TexFixedStroke, TexGeometry};
 
-const FRAC_AROUND: LengthInEm = LengthInEm::new(0.1);
+const FRAC_AROUND: TexEmLength = TexEmLength::new(0.1);
 
 /// A mathematical fraction.
 ///
@@ -24,7 +24,7 @@ const FRAC_AROUND: LengthInEm = LengthInEm::new(0.1);
 /// expressions into a fraction. Multiple atoms can be grouped into a single
 /// expression using round grouping parenthesis. Such parentheses are removed
 /// from the output, but you can nest multiple to force them.
-#[elem(title = "Fraction", LayoutMath)]
+#[elem(title = "Fraction", TexLayoutMath)]
 pub struct FracElem {
     /// The fraction's numerator.
     #[required]
@@ -35,7 +35,7 @@ pub struct FracElem {
     pub denom: TexContent,
 }
 
-impl LayoutMath for Packed<FracElem> {
+impl TexLayoutMath for TexContentRefined<FracElem> {
     #[husky_tex_macros::time(name = "math.frac", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         layout(
@@ -56,7 +56,7 @@ impl LayoutMath for Packed<FracElem> {
 /// $ binom(n, k) $
 /// $ binom(n, k_1, k_2, k_3, ..., k_m) $
 /// ```
-#[elem(title = "Binomial", LayoutMath)]
+#[elem(title = "Binomial", TexLayoutMath)]
 pub struct BinomElem {
     /// The binomial's upper index.
     #[required]
@@ -76,7 +76,7 @@ pub struct BinomElem {
     pub lower: Vec<TexContent>,
 }
 
-impl LayoutMath for Packed<BinomElem> {
+impl TexLayoutMath for TexContentRefined<BinomElem> {
     #[husky_tex_macros::time(name = "math.binom", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         layout(ctx, styles, self.upper(), self.lower(), true, self.span())
@@ -148,7 +148,7 @@ fn layout(
     let denom_pos = Point::new((width - denom.width()) / 2.0, height - denom.height());
     let baseline = line_pos.y + axis;
 
-    let mut frame = Frame::soft(size);
+    let mut frame = TexFrame::soft(size);
     frame.set_baseline(baseline);
     frame.push_frame(num_pos, num);
     frame.push_frame(denom_pos, denom);

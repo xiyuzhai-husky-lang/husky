@@ -1,7 +1,10 @@
 use crate::diag::{bail, SourceResult};
-use crate::engine::Engine;
-use crate::foundations::{elem, Packed, Resolve, StyleChain, TexContent};
-use crate::layout::{Abs, AlignElem, Axes, Fragment, Frame, LayoutMultiple, Point, Regions, Size};
+use crate::engine::TexEngine;
+use crate::foundations::{elem, Resolve, StyleChain, TexContent, TexContentRefined};
+use crate::layout::{
+    AlignElem, Axes, LayoutMultiple, Point, Regions, Size, TexAbsLength, TexFrame,
+    TexLayoutFragment,
+};
 use crate::util::Numeric;
 
 /// Repeats content to the available space.
@@ -32,14 +35,14 @@ pub struct RepeatElem {
     pub body: TexContent,
 }
 
-impl LayoutMultiple for Packed<RepeatElem> {
+impl LayoutMultiple for TexContentRefined<RepeatElem> {
     #[husky_tex_macros::time(name = "repeat", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         let pod = Regions::one(regions.size, Axes::new(false, false));
         let piece = self.body().layout(engine, styles, pod)?.into_frame();
         let align = AlignElem::alignment_in(styles).resolve(styles);
@@ -56,23 +59,23 @@ impl LayoutMultiple for Packed<RepeatElem> {
             bail!(self.span(), "repeat with no size restrictions");
         }
 
-        let mut frame = Frame::soft(size);
+        let mut frame = TexFrame::soft(size);
         if piece.has_baseline() {
             frame.set_baseline(piece.baseline());
         }
 
-        let mut offset = Abs::zero();
+        let mut offset = TexAbsLength::zero();
         if count == 1.0 {
             offset += align.x.position(remaining);
         }
 
-        if width > Abs::zero() {
+        if width > TexAbsLength::zero() {
             for _ in 0..(count as usize).min(1000) {
                 frame.push_frame(Point::with_x(offset), piece.clone());
                 offset += piece.width() + apart;
             }
         }
 
-        Ok(Fragment::frame(frame))
+        Ok(TexLayoutFragment::frame(frame))
     }
 }

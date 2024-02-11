@@ -7,8 +7,8 @@ use base64::Engine;
 use ecow::{eco_format, EcoString};
 use husky_tex::foundations::Repr;
 use husky_tex::layout::{
-    Abs, Angle, Axes, Frame, FrameItem, FrameKind, GroupItem, Point, Quadrant, Ratio, Size,
-    Transform,
+    Angle, Axes, FrameItem, FrameKind, GroupItem, Point, Quadrant, Ratio, Size, TexAbsLength,
+    TexFrame, Transform,
 };
 use husky_tex::model::TexDocument;
 use husky_tex::text::{TexFont, TextItem};
@@ -28,7 +28,7 @@ const CONIC_SEGMENT: usize = 360;
 
 /// Export a frame into a SVG file.
 #[husky_tex_macros::time(name = "svg")]
-pub fn svg(frame: &Frame) -> String {
+pub fn svg(frame: &TexFrame) -> String {
     let mut renderer = SVGRenderer::new();
     renderer.write_header(frame.size());
 
@@ -40,7 +40,7 @@ pub fn svg(frame: &Frame) -> String {
 /// Export a document with potentially multiple pages into a single SVG file.
 ///
 /// The padding will be added around and between the individual frames.
-pub fn svg_merged(document: &TexDocument, padding: Abs) -> String {
+pub fn svg_merged(document: &TexDocument, padding: TexAbsLength) -> String {
     let width = 2.0 * padding
         + document
             .pages
@@ -53,7 +53,7 @@ pub fn svg_merged(document: &TexDocument, padding: Abs) -> String {
             .pages
             .iter()
             .map(|page| page.frame.height() + padding)
-            .sum::<Abs>();
+            .sum::<TexAbsLength>();
 
     let mut renderer = SVGRenderer::new();
     renderer.write_header(Size::new(width, height));
@@ -266,7 +266,7 @@ impl SVGRenderer {
     }
 
     /// Render a frame to a string.
-    fn render_pattern_frame(&mut self, state: State, ts: Transform, frame: &Frame) -> String {
+    fn render_pattern_frame(&mut self, state: State, ts: Transform, frame: &TexFrame) -> String {
         let mut xml = XmlWriter::new(xmlwriter::Options::default());
         std::mem::swap(&mut self.xml, &mut xml);
         self.render_frame(state, ts, frame);
@@ -275,7 +275,7 @@ impl SVGRenderer {
     }
 
     /// Render a frame with the given transform.
-    fn render_frame(&mut self, state: State, ts: Transform, frame: &Frame) {
+    fn render_frame(&mut self, state: State, ts: Transform, frame: &TexFrame) {
         self.xml.start_element("g");
         if !ts.is_identity() {
             self.xml.write_attribute("transform", &SvgMatrix(ts));
@@ -354,7 +354,10 @@ impl SVGRenderer {
                     self.render_outline_glyph(
                         state
                             .pre_concat(Transform::scale(Ratio::one(), -Ratio::one()))
-                            .pre_translate(Point::new(Abs::pt(offset), Abs::zero())),
+                            .pre_translate(Point::new(
+                                TexAbsLength::pt(offset),
+                                TexAbsLength::zero(),
+                            )),
                         text,
                         id,
                         offset,
@@ -377,7 +380,7 @@ impl SVGRenderer {
         scale: f64,
     ) -> Option<()> {
         let data_url = convert_svg_glyph_to_base64_url(&text.font, id)?;
-        let upem = Abs::raw(text.font.units_per_em());
+        let upem = TexAbsLength::raw(text.font.units_per_em());
         let origin_ascender = text.font.metrics().ascender.at(upem).to_pt();
 
         let glyph_hash = hash128(&(&text.font, id));
@@ -387,7 +390,7 @@ impl SVGRenderer {
                 url: data_url,
                 width: upem.to_pt(),
                 height: upem.to_pt(),
-                ts: Transform::translate(Abs::zero(), Abs::pt(-origin_ascender))
+                ts: Transform::translate(TexAbsLength::zero(), TexAbsLength::pt(-origin_ascender))
                     .post_concat(Transform::scale(Ratio::new(scale), Ratio::new(-scale))),
             });
 
@@ -410,8 +413,10 @@ impl SVGRenderer {
             let width = image.width() as f64;
             let height = image.height() as f64;
             let url = convert_image_to_base64_url(&image);
-            let ts =
-                Transform::translate(Abs::pt(bitmap_x_offset), Abs::pt(-height - bitmap_y_offset));
+            let ts = Transform::translate(
+                TexAbsLength::pt(bitmap_x_offset),
+                TexAbsLength::pt(-height - bitmap_y_offset),
+            );
             RenderedGlyph::Image {
                 url,
                 width,
@@ -464,13 +469,13 @@ impl SVGRenderer {
             .write_attribute_fmt("x", format_args!("{x_offset}"));
         self.write_fill(
             &text.fill,
-            Size::new(Abs::pt(width), Abs::pt(height)),
+            Size::new(TexAbsLength::pt(width), TexAbsLength::pt(height)),
             self.text_paint_transform(state, &text.fill),
         );
         if let Some(stroke) = &text.stroke {
             self.write_stroke(
                 stroke,
-                Size::new(Abs::pt(width), Abs::pt(height)),
+                Size::new(TexAbsLength::pt(width), TexAbsLength::pt(height)),
                 self.text_paint_transform(state, &stroke.paint),
             );
         }
@@ -530,11 +535,11 @@ impl SVGRenderer {
         let mut shape_size = shape.geometry.bbox_size();
         // Edge cases for strokes.
         if shape_size.x.to_pt() == 0.0 {
-            shape_size.x = Abs::pt(1.0);
+            shape_size.x = TexAbsLength::pt(1.0);
         }
 
         if shape_size.y.to_pt() == 0.0 {
-            shape_size.y = Abs::pt(1.0);
+            shape_size.y = TexAbsLength::pt(1.0);
         }
 
         if let TexPaint::Gradient(gradient) = paint {
@@ -564,11 +569,11 @@ impl SVGRenderer {
         let mut shape_size = shape.geometry.bbox_size();
         // Edge cases for strokes.
         if shape_size.x.to_pt() == 0.0 {
-            shape_size.x = Abs::pt(1.0);
+            shape_size.x = TexAbsLength::pt(1.0);
         }
 
         if shape_size.y.to_pt() == 0.0 {
-            shape_size.y = Abs::pt(1.0);
+            shape_size.y = TexAbsLength::pt(1.0);
         }
 
         if let TexPaint::Gradient(gradient) = paint {
@@ -701,7 +706,7 @@ impl SVGRenderer {
     }
 
     /// Render an image element.
-    fn render_image(&mut self, image: &Image, size: &Axes<Abs>) {
+    fn render_image(&mut self, image: &Image, size: &Axes<TexAbsLength>) {
         let url = convert_image_to_base64_url(image);
         self.xml.start_element("image");
         self.xml.write_attribute("xlink:href", &url);
@@ -1129,7 +1134,7 @@ fn convert_svg_glyph_to_base64_url(font: &TexFont, id: GlyphId) -> Option<EcoStr
         data = &decoded;
     }
 
-    let upem = Abs::raw(font.units_per_em());
+    let upem = TexAbsLength::raw(font.units_per_em());
     let (width, height) = (upem.to_pt(), upem.to_pt());
     let origin_ascender = font.metrics().ascender.at(upem).to_pt();
 

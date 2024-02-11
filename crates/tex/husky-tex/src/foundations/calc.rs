@@ -7,7 +7,7 @@ use std::ops::{Div, Rem};
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::eval::ops;
 use crate::foundations::{cast, func, IntoTexValue, Module, Scope, TexValue};
-use crate::layout::{Angle, Fr, Length, Ratio};
+use crate::layout::{Angle, Length, Ratio, TexFraction};
 use crate::syntax::{Span, Spanned};
 
 /// A module with calculation definitions.
@@ -83,7 +83,7 @@ cast! {
         .ok_or("cannot take absolute value of this length")?)),
     v: Angle => Self(TexValue::Angle(v.abs())),
     v: Ratio => Self(TexValue::Ratio(v.abs())),
-    v: Fr => Self(TexValue::Fraction(v.abs())),
+    v: TexFraction => Self(TexValue::Fraction(v.abs())),
 }
 
 /// Raises a value to some exponent.

@@ -9,7 +9,7 @@ use crate::eval::{eval, Eval, Vm};
 use crate::foundations::{Module, TexContent, TexValue};
 use crate::syntax::ast::{self, TexAstNode};
 use crate::syntax::{FileId, PackageSpec, PackageVersion, Span, VirtualPath};
-use crate::World;
+use crate::IsTexWorld;
 
 impl Eval for ast::ModuleImport<'_> {
     type Output = TexValue;

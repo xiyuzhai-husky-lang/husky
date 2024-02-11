@@ -1,4 +1,4 @@
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{func, Array, LocatableSelector, TexValue};
 use crate::introspection::Location;
 
@@ -133,7 +133,7 @@ use crate::introspection::Location;
 #[func]
 pub fn query(
     /// The engine.
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     /// Can be an element function like a `heading` or `figure`, a `{<label>}`
     /// or a more complex selector like `{heading.where(level: 1)}`.
     ///

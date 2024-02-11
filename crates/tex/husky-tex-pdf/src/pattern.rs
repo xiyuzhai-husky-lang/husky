@@ -1,5 +1,5 @@
 use ecow::eco_format;
-use husky_tex::layout::{Abs, Ratio, Transform};
+use husky_tex::layout::{Ratio, TexAbsLength, Transform};
 use husky_tex::util::Numeric;
 use husky_tex::visualize::{Pattern, RelativeTo};
 use pdf_writer::types::{ColorSpaceOperand, PaintType, TilingType};
@@ -107,11 +107,11 @@ fn register_pattern(
 ) -> usize {
     // Edge cases for strokes.
     if transforms.size.x.is_zero() {
-        transforms.size.x = Abs::pt(1.0);
+        transforms.size.x = TexAbsLength::pt(1.0);
     }
 
     if transforms.size.y.is_zero() {
-        transforms.size.y = Abs::pt(1.0);
+        transforms.size.y = TexAbsLength::pt(1.0);
     }
 
     let transform = match pattern.unwrap_relative(on_text) {

@@ -6,10 +6,10 @@ use ecow::{eco_format, EcoString};
 use wasmi::{AsContext, AsContextMut};
 
 use crate::diag::{bail, At, SourceResult, StrResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{func, repr, scope, ty, Bytes};
 use crate::syntax::Spanned;
-use crate::World;
+use crate::IsTexWorld;
 
 /// A WebAssembly plugin.
 ///
@@ -153,7 +153,7 @@ impl Plugin {
     #[func(constructor)]
     pub fn construct(
         /// The engine.
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// Path to a WebAssembly file.
         path: Spanned<EcoString>,
     ) -> SourceResult<Plugin> {

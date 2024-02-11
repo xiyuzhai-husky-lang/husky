@@ -1,7 +1,11 @@
 use crate::diag::{At, SourceResult};
-use crate::foundations::{cast, elem, Func, Packed, Resolve, Smart, StyleChain, TexContent};
-use crate::layout::{Abs, Angle, Frame, FrameItem, Length, Point, Ratio, Rel, Size, Transform};
-use crate::math::{FrameFragment, LayoutMath, MathContext};
+use crate::foundations::{
+    cast, elem, Func, Resolve, Smart, StyleChain, TexContent, TexContentRefined,
+};
+use crate::layout::{
+    Angle, FrameItem, Length, Point, Ratio, Rel, Size, TexAbsLength, TexFrame, Transform,
+};
+use crate::math::{FrameFragment, MathContext, TexLayoutMath};
 use crate::syntax::Span;
 use crate::text::TextElem;
 use crate::visualize::{TexFixedStroke, TexGeometry, TexStroke};
@@ -17,8 +21,8 @@ use crate::visualize::{TexFixedStroke, TexGeometry, TexStroke};
 /// $ (a dot b dot cancel(x)) /
 ///     cancel(x) $
 /// ```
-#[elem(LayoutMath)]
-pub struct CancelElem {
+#[elem(TexLayoutMath)]
+pub struct CancelLineTexElem {
     /// The content over which the line should be placed.
     #[required]
     pub body: TexContent,
@@ -32,7 +36,7 @@ pub struct CancelElem {
     /// $ a + cancel(x, length: #200%)
     ///     - cancel(x, length: #200%) $
     /// ```
-    #[default(Rel::new(Ratio::one(), Abs::pt(3.0).into()))]
+    #[default(Rel::new(Ratio::one(), TexAbsLength::pt(3.0).into()))]
     pub length: Rel<Length>,
 
     /// Whether the cancel line should be inverted (flipped along the y-axis).
@@ -95,13 +99,13 @@ pub struct CancelElem {
     #[fold]
     #[default(TexStroke {
         // Default stroke has 0.5pt for better visuals.
-        thickness: Smart::Custom(Abs::pt(0.5).into()),
+        thickness: Smart::Custom(TexAbsLength::pt(0.5).into()),
         ..Default::default()
     })]
     pub stroke: TexStroke,
 }
 
-impl LayoutMath for Packed<CancelElem> {
+impl TexLayoutMath for TexContentRefined<CancelLineTexElem> {
     #[husky_tex_macros::time(name = "math.cancel", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         let body = ctx.layout_fragment(self.body(), styles)?;
@@ -179,13 +183,13 @@ cast! {
 /// Draws a cancel line.
 fn draw_cancel_line(
     ctx: &mut MathContext,
-    length_scale: Rel<Abs>,
+    length_scale: Rel<TexAbsLength>,
     stroke: TexFixedStroke,
     invert: bool,
     angle: &Smart<CancelAngle>,
     body_size: Size,
     span: Span,
-) -> SourceResult<Frame> {
+) -> SourceResult<TexFrame> {
     let default = default_angle(body_size);
     let mut angle = match angle {
         // Non specified angle defaults to the diagonal
@@ -208,10 +212,10 @@ fn draw_cancel_line(
     let length = length_scale.relative_to(default_length);
 
     // Draw a vertical line of length and rotate it by angle
-    let start = Point::new(Abs::zero(), length / 2.0);
-    let delta = Point::new(Abs::zero(), -length);
+    let start = Point::new(TexAbsLength::zero(), length / 2.0);
+    let delta = Point::new(TexAbsLength::zero(), -length);
 
-    let mut frame = Frame::soft(body_size);
+    let mut frame = TexFrame::soft(body_size);
     frame.push(
         start,
         FrameItem::Shape(TexGeometry::Line(delta).stroked(stroke), span),

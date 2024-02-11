@@ -1,7 +1,7 @@
 use std::num::NonZeroUsize;
 
-use husky_tex::foundations::{IsTexElem, Packed, StyleChain};
-use husky_tex::layout::Abs;
+use husky_tex::foundations::{IsTexElem, StyleChain, TexContentRefined};
+use husky_tex::layout::TexAbsLength;
 use husky_tex::model::HeadingTexElem;
 use pdf_writer::{Finish, Ref, TextStr};
 
@@ -114,14 +114,14 @@ pub(crate) fn write_outline(ctx: &mut PdfContext) -> Option<Ref> {
 /// A heading in the outline panel.
 #[derive(Debug, Clone)]
 struct HeadingNode<'a> {
-    element: &'a Packed<HeadingTexElem>,
+    element: &'a TexContentRefined<HeadingTexElem>,
     level: NonZeroUsize,
     bookmarked: bool,
     children: Vec<HeadingNode<'a>>,
 }
 
 impl<'a> HeadingNode<'a> {
-    fn leaf(element: &'a Packed<HeadingTexElem>) -> Self {
+    fn leaf(element: &'a TexContentRefined<HeadingTexElem>) -> Self {
         HeadingNode {
             level: element.level(StyleChain::default()),
             // 'bookmarked' set to 'auto' falls back to the value of 'outlined'.
@@ -174,7 +174,7 @@ fn write_outline_item(
     let pos = ctx.document.introspector.position(loc);
     let index = pos.page.get() - 1;
     if let Some(page) = ctx.pages.get(index) {
-        let y = (pos.point.y - Abs::pt(10.0)).max(Abs::zero());
+        let y = (pos.point.y - TexAbsLength::pt(10.0)).max(TexAbsLength::zero());
         outline.dest().page(ctx.page_refs[index]).xyz(
             pos.point.x.to_f32(),
             (page.size.y - y).to_f32(),

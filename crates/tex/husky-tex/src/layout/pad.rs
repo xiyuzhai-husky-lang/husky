@@ -1,7 +1,9 @@
 use crate::diag::SourceResult;
-use crate::engine::Engine;
-use crate::foundations::{elem, Packed, Resolve, StyleChain, TexContent};
-use crate::layout::{Abs, Fragment, LayoutMultiple, Length, Point, Regions, Rel, Sides, Size};
+use crate::engine::TexEngine;
+use crate::foundations::{elem, Resolve, StyleChain, TexContent, TexContentRefined};
+use crate::layout::{
+    LayoutMultiple, Length, Point, Regions, Rel, Sides, Size, TexAbsLength, TexLayoutFragment,
+};
 
 /// Adds spacing around content.
 ///
@@ -58,14 +60,14 @@ pub struct PadElem {
     pub body: TexContent,
 }
 
-impl LayoutMultiple for Packed<PadElem> {
+impl LayoutMultiple for TexContentRefined<PadElem> {
     #[husky_tex_macros::time(name = "pad", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         let sides = Sides::new(
             self.left(styles),
             self.top(styles),
@@ -96,7 +98,7 @@ impl LayoutMultiple for Packed<PadElem> {
 }
 
 /// Shrink a size by padding relative to the size itself.
-fn shrink(size: Size, padding: Sides<Rel<Abs>>) -> Size {
+fn shrink(size: Size, padding: Sides<Rel<TexAbsLength>>) -> Size {
     size - padding.relative_to(size).sum_by_axis()
 }
 
@@ -119,7 +121,7 @@ fn shrink(size: Size, padding: Sides<Rel<Abs>>) -> Size {
 ///   <=> w - p.rel * w - p.abs = s
 ///   <=> (1 - p.rel) * w = s + p.abs
 ///   <=> w = (s + p.abs) / (1 - p.rel)
-fn grow(size: Size, padding: Sides<Rel<Abs>>) -> Size {
+fn grow(size: Size, padding: Sides<Rel<TexAbsLength>>) -> Size {
     size.zip_map(padding.sum_by_axis(), |s, p| {
         (s + p.abs).safe_div(1.0 - p.rel.get())
     })

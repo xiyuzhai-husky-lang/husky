@@ -1,11 +1,11 @@
 use ecow::{eco_format, EcoString};
 
 use crate::diag::{bail, At, SourceResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{cast, func, scope, Array, IntoTexValue, TexDict, TexValue, Type};
 use crate::loading::Readable;
 use crate::syntax::Spanned;
-use crate::World;
+use crate::IsTexWorld;
 
 /// Reads structured data from a CSV file.
 ///
@@ -27,7 +27,7 @@ use crate::World;
 #[func(scope, title = "CSV")]
 pub fn csv(
     /// The engine.
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     /// Path to a CSV file.
     path: Spanned<EcoString>,
     /// The delimiter that separates columns in the CSV file.

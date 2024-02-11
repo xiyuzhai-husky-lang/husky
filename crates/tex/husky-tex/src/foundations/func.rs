@@ -6,7 +6,7 @@ use ecow::{eco_format, EcoString};
 use once_cell::sync::Lazy;
 
 use crate::diag::{bail, SourceResult, StrResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
     cast, repr, scope, ty, Args, CastInfo, ElementSchemaRef, IntoArgs, Scope, Selector, TexContent,
     TexValue, Type,
@@ -250,13 +250,13 @@ impl Func {
     }
 
     /// Call the function with the given arguments.
-    pub fn call(&self, engine: &mut Engine, args: impl IntoArgs) -> SourceResult<TexValue> {
+    pub fn call(&self, engine: &mut TexEngine, args: impl IntoArgs) -> SourceResult<TexValue> {
         self.call_impl(engine, args.into_args(self.span))
     }
 
     /// Non-generic implementation of `call`.
     #[husky_tex_macros::time(name = "func call", span = self.span())]
-    fn call_impl(&self, engine: &mut Engine, mut args: Args) -> SourceResult<TexValue> {
+    fn call_impl(&self, engine: &mut TexEngine, mut args: Args) -> SourceResult<TexValue> {
         match &self.repr {
             Repr::Native(native) => {
                 let value = (native.function)(engine, &mut args)?;
@@ -413,7 +413,7 @@ pub trait NativeFunc {
 /// Defines a native function.
 #[derive(Debug)]
 pub struct NativeFuncData {
-    pub function: fn(&mut Engine, &mut Args) -> SourceResult<TexValue>,
+    pub function: fn(&mut TexEngine, &mut Args) -> SourceResult<TexValue>,
     pub name: &'static str,
     pub title: &'static str,
     pub docs: &'static str,

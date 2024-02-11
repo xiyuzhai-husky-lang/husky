@@ -3,12 +3,12 @@ use std::fmt::{self, Debug, Formatter};
 use comemo::Prehashed;
 
 use crate::diag::SourceResult;
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    elem, Args, Cast, Construct, IsTexElem, Packed, Set, Smart, StyleChain, TexContent,
+    elem, Args, Cast, Construct, IsTexElem, Set, Smart, StyleChain, TexContent, TexContentRefined,
     Unlabellable,
 };
-use crate::layout::{Fragment, Length, LengthInEm, Size};
+use crate::layout::{Length, Size, TexEmLength, TexLayoutFragment};
 
 /// Arranges text, spacing and inline-level elements into a paragraph.
 ///
@@ -40,7 +40,7 @@ pub struct ParagraphTexElem {
     /// The spacing between lines.
     #[resolve]
     #[ghost]
-    #[default(LengthInEm::new(0.65).into())]
+    #[default(TexEmLength::new(0.65).into())]
     pub leading: Length,
 
     /// Whether to justify text in its line.
@@ -110,7 +110,7 @@ pub struct ParagraphTexElem {
 }
 
 impl Construct for ParagraphTexElem {
-    fn construct(engine: &mut Engine, args: &mut Args) -> SourceResult<TexContent> {
+    fn construct(engine: &mut TexEngine, args: &mut Args) -> SourceResult<TexContent> {
         // The paragraph constructor is special: It doesn't create a paragraph
         // element. Instead, it just ensures that the passed content lives in a
         // separate paragraph and styles it.
@@ -124,17 +124,17 @@ impl Construct for ParagraphTexElem {
     }
 }
 
-impl Packed<ParagraphTexElem> {
+impl TexContentRefined<ParagraphTexElem> {
     /// Layout the paragraph into a collection of lines.
     #[husky_tex_macros::time(name = "par", span = self.span())]
     pub fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         consecutive: bool,
         region: Size,
         expand: bool,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         crate::layout::layout_inline(self.children(), engine, styles, consecutive, region, expand)
     }
 }
@@ -179,4 +179,4 @@ pub enum Linebreaks {
 #[elem(title = "Paragraph Break", Unlabellable)]
 pub struct ParbreakElem {}
 
-impl Unlabellable for Packed<ParbreakElem> {}
+impl Unlabellable for TexContentRefined<ParbreakElem> {}

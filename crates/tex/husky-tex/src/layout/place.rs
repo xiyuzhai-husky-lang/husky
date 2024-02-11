@@ -1,8 +1,11 @@
 use crate::diag::{bail, At, Hint, SourceResult};
-use crate::engine::Engine;
-use crate::foundations::{elem, Behave, Behaviour, Packed, Smart, StyleChain, TexContent};
+use crate::engine::TexEngine;
+use crate::foundations::{
+    elem, Behave, Behaviour, Smart, StyleChain, TexContent, TexContentRefined,
+};
 use crate::layout::{
-    Axes, Fragment, LayoutMultiple, Length, LengthInEm, Regions, Rel, TexAlignment, VAlignment,
+    Axes, LayoutMultiple, Length, Regions, Rel, TexAlignment, TexEmLength, TexLayoutFragment,
+    VAlignment,
 };
 
 /// Places content at an absolute position.
@@ -63,7 +66,7 @@ pub struct PlaceElem {
     pub float: bool,
 
     /// The amount of clearance the placed element has in a floating layout.
-    #[default(LengthInEm::new(1.5).into())]
+    #[default(TexEmLength::new(1.5).into())]
     #[resolve]
     pub clearance: Length,
 
@@ -86,14 +89,14 @@ pub struct PlaceElem {
     pub body: TexContent,
 }
 
-impl Packed<PlaceElem> {
+impl TexContentRefined<PlaceElem> {
     #[husky_tex_macros::time(name = "place", span = self.span())]
     pub fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         // The pod is the base area of the region because for absolute
         // placement we don't really care about the already used area.
         let base = regions.base();
@@ -122,11 +125,11 @@ impl Packed<PlaceElem> {
 
         let pod = Regions::one(base, Axes::splat(false));
         let frame = child.layout(engine, styles, pod)?.into_frame();
-        Ok(Fragment::frame(frame))
+        Ok(TexLayoutFragment::frame(frame))
     }
 }
 
-impl Behave for Packed<PlaceElem> {
+impl Behave for TexContentRefined<PlaceElem> {
     fn behaviour(&self) -> Behaviour {
         Behaviour::Ignorant
     }

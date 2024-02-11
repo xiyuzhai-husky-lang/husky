@@ -1,11 +1,11 @@
 use std::fmt::{self, Debug, Formatter};
 
 use crate::diag::SourceResult;
-use crate::engine::Engine;
-use crate::foundations::{cast, elem, Packed, Resolve, StyleChain, TexContent};
+use crate::engine::TexEngine;
+use crate::foundations::{cast, elem, Resolve, StyleChain, TexContent, TexContentRefined};
 use crate::layout::{
-    Abs, AlignElem, Axes, Axis, FixedAlignment, Fr, Fragment, Frame, LayoutMultiple, Point,
-    Regions, Size, Spacing, TexLayoutDirection,
+    AlignElem, Axes, Axis, FixedAlignment, LayoutMultiple, Point, Regions, Size, Spacing,
+    TexAbsLength, TexFraction, TexFrame, TexLayoutDirection, TexLayoutFragment,
 };
 use crate::util::{Get, Numeric};
 
@@ -51,14 +51,14 @@ pub struct StackElem {
     pub children: Vec<StackChild>,
 }
 
-impl LayoutMultiple for Packed<StackElem> {
+impl LayoutMultiple for TexContentRefined<StackElem> {
     #[husky_tex_macros::time(name = "stack", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         let mut layouter = StackLayouter::new(self.dir(styles), regions, styles);
 
         // Spacing to insert before the next block.
@@ -129,24 +129,24 @@ struct StackLayouter<'a> {
     /// The initial size of the current region before we started subtracting.
     initial: Size,
     /// The generic size used by the frames for the current region.
-    used: Gen<Abs>,
+    used: Gen<TexAbsLength>,
     /// The sum of fractions in the current region.
-    fr: Fr,
+    fr: TexFraction,
     /// Already layouted items whose exact positions are not yet known due to
     /// fractional spacing.
     items: Vec<StackItem>,
     /// Finished frames for previous regions.
-    finished: Vec<Frame>,
+    finished: Vec<TexFrame>,
 }
 
 /// A prepared item in a stack layout.
 enum StackItem {
     /// Absolute spacing between other items.
-    Absolute(Abs),
+    Absolute(TexAbsLength),
     /// Fractional spacing between other items.
-    Fractional(Fr),
+    Fractional(TexFraction),
     /// A frame for a layouted block.
-    Frame(Frame, Axes<FixedAlignment>),
+    Frame(TexFrame, Axes<FixedAlignment>),
 }
 
 impl<'a> StackLayouter<'a> {
@@ -166,7 +166,7 @@ impl<'a> StackLayouter<'a> {
             expand,
             initial: regions.size,
             used: Gen::zero(),
-            fr: Fr::zero(),
+            fr: TexFraction::zero(),
             items: vec![],
             finished: vec![],
         }
@@ -198,7 +198,7 @@ impl<'a> StackLayouter<'a> {
     /// Layout an arbitrary block.
     fn layout_block(
         &mut self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         block: &TexContent,
         styles: StyleChain,
     ) -> SourceResult<()> {
@@ -260,8 +260,8 @@ impl<'a> StackLayouter<'a> {
             size.set(self.axis, full);
         }
 
-        let mut output = Frame::hard(size);
-        let mut cursor = Abs::zero();
+        let mut output = TexFrame::hard(size);
+        let mut cursor = TexAbsLength::zero();
         let mut ruler: FixedAlignment = self.dir.start().into();
 
         // Place all frames.
@@ -303,14 +303,14 @@ impl<'a> StackLayouter<'a> {
         self.regions.next();
         self.initial = self.regions.size;
         self.used = Gen::zero();
-        self.fr = Fr::zero();
+        self.fr = TexFraction::zero();
         self.finished.push(output);
     }
 
     /// Finish layouting and return the resulting frames.
-    fn finish(mut self) -> Fragment {
+    fn finish(mut self) -> TexLayoutFragment {
         self.finish_region();
-        Fragment::frames(self.finished)
+        TexLayoutFragment::frames(self.finished)
     }
 }
 
@@ -338,12 +338,12 @@ impl<T> Gen<T> {
     }
 }
 
-impl Gen<Abs> {
+impl Gen<TexAbsLength> {
     /// The zero value.
     fn zero() -> Self {
         Self {
-            cross: Abs::zero(),
-            main: Abs::zero(),
+            cross: TexAbsLength::zero(),
+            main: TexAbsLength::zero(),
         }
     }
 

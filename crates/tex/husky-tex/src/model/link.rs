@@ -1,8 +1,10 @@
 use ecow::{eco_format, EcoString};
 
 use crate::diag::{At, SourceResult};
-use crate::engine::Engine;
-use crate::foundations::{cast, elem, Label, Packed, Repr, Show, Smart, StyleChain, TexContent};
+use crate::engine::TexEngine;
+use crate::foundations::{
+    cast, elem, Label, Repr, Show, Smart, StyleChain, TexContent, TexContentRefined,
+};
 use crate::introspection::Location;
 use crate::layout::Position;
 use crate::text::{Hyphenate, TextElem};
@@ -87,9 +89,9 @@ impl LinkTexElem {
     }
 }
 
-impl Show for Packed<LinkTexElem> {
+impl Show for TexContentRefined<LinkTexElem> {
     #[husky_tex_macros::time(name = "link", span = self.span())]
-    fn show(&self, engine: &mut Engine, _: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, engine: &mut TexEngine, _: StyleChain) -> SourceResult<TexContent> {
         let body = self.body().clone();
         let linked = match self.dest() {
             LinkTarget::Dest(dest) => body.linked(dest.clone()),

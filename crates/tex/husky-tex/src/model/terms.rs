@@ -1,11 +1,11 @@
 use crate::diag::{bail, SourceResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, elem, scope, Array, IsTexElem, Packed, Smart, StyleChain, TexContent,
+    cast, elem, scope, Array, IsTexElem, Smart, StyleChain, TexContent, TexContentRefined,
 };
 use crate::layout::{
-    BlockElem, Fragment, HElem, LayoutMultiple, Length, LengthInEm, Regions, Sides, Spacing,
-    StackChild, StackElem, TexLayoutDirection,
+    BlockElem, HElem, LayoutMultiple, Length, Regions, Sides, Spacing, StackChild, StackElem,
+    TexEmLength, TexLayoutDirection, TexLayoutFragment,
 };
 use crate::model::ParagraphTexElem;
 use crate::text::TextElem;
@@ -63,7 +63,7 @@ pub struct TermsElem {
     ///
     /// / Colon: A nice separator symbol.
     /// ```
-    #[default(HElem::new(LengthInEm::new(0.6).into()).with_weak(true).pack())]
+    #[default(HElem::new(TexEmLength::new(0.6).into()).with_weak(true).pack())]
     #[borrowed]
     pub separator: TexContent,
 
@@ -79,7 +79,7 @@ pub struct TermsElem {
     /// / Term: This term list does not
     ///   make use of hanging indents.
     /// ```
-    #[default(LengthInEm::new(2.0).into())]
+    #[default(TexEmLength::new(2.0).into())]
     pub hanging_indent: Length,
 
     /// The spacing between the items of a wide (non-tight) term list.
@@ -100,7 +100,7 @@ pub struct TermsElem {
     /// ) [/ #product: Born in #year.]
     /// ```
     #[variadic]
-    pub children: Vec<Packed<TermItem>>,
+    pub children: Vec<TexContentRefined<TermItem>>,
 }
 
 #[scope]
@@ -109,14 +109,14 @@ impl TermsElem {
     type TermItem;
 }
 
-impl LayoutMultiple for Packed<TermsElem> {
+impl LayoutMultiple for TexContentRefined<TermsElem> {
     #[husky_tex_macros::time(name = "terms", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         let separator = self.separator(styles);
         let indent = self.indent(styles);
         let hanging_indent = self.hanging_indent(styles);

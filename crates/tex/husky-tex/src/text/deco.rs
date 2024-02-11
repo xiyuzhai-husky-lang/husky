@@ -3,9 +3,9 @@ use smallvec::smallvec;
 use ttf_parser::{GlyphId, OutlineBuilder};
 
 use crate::diag::SourceResult;
-use crate::engine::Engine;
-use crate::foundations::{elem, Packed, Show, Smart, StyleChain, TexContent};
-use crate::layout::{Abs, Frame, FrameItem, Length, LengthInEm, Point, Size};
+use crate::engine::TexEngine;
+use crate::foundations::{elem, Show, Smart, StyleChain, TexContent, TexContentRefined};
+use crate::layout::{FrameItem, Length, Point, Size, TexAbsLength, TexEmLength, TexFrame};
 use crate::syntax::Span;
 use crate::text::{BottomEdge, BottomEdgeMetric, TextElem, TextItem, TopEdge, TopEdgeMetric};
 use crate::visualize::{TexColor, TexFixedStroke, TexGeometry, TexPaint, TexStroke};
@@ -81,9 +81,9 @@ pub struct UnderlineElem {
     pub body: TexContent,
 }
 
-impl Show for Packed<UnderlineElem> {
+impl Show for TexContentRefined<UnderlineElem> {
     #[husky_tex_macros::time(name = "underline", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, _: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         Ok(self
             .body()
             .clone()
@@ -176,9 +176,9 @@ pub struct OverlineElem {
     pub body: TexContent,
 }
 
-impl Show for Packed<OverlineElem> {
+impl Show for TexContentRefined<OverlineElem> {
     #[husky_tex_macros::time(name = "overline", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, _: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         Ok(self
             .body()
             .clone()
@@ -256,9 +256,9 @@ pub struct StrikeElem {
     pub body: TexContent,
 }
 
-impl Show for Packed<StrikeElem> {
+impl Show for TexContentRefined<StrikeElem> {
     #[husky_tex_macros::time(name = "strike", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, _: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         Ok(self
             .body()
             .clone()
@@ -329,9 +329,9 @@ pub struct HighlightElem {
     pub body: TexContent,
 }
 
-impl Show for Packed<HighlightElem> {
+impl Show for TexContentRefined<HighlightElem> {
     #[husky_tex_macros::time(name = "highlight", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, _: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         Ok(self
             .body()
             .clone()
@@ -353,26 +353,26 @@ impl Show for Packed<HighlightElem> {
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
 pub struct Decoration {
     line: DecoLine,
-    extent: Abs,
+    extent: TexAbsLength,
 }
 
 /// A kind of decorative line.
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
 enum DecoLine {
     Underline {
-        stroke: TexStroke<Abs>,
-        offset: Smart<Abs>,
+        stroke: TexStroke<TexAbsLength>,
+        offset: Smart<TexAbsLength>,
         evade: bool,
         background: bool,
     },
     Strikethrough {
-        stroke: TexStroke<Abs>,
-        offset: Smart<Abs>,
+        stroke: TexStroke<TexAbsLength>,
+        offset: Smart<TexAbsLength>,
         background: bool,
     },
     Overline {
-        stroke: TexStroke<Abs>,
-        offset: Smart<Abs>,
+        stroke: TexStroke<TexAbsLength>,
+        offset: Smart<TexAbsLength>,
         evade: bool,
         background: bool,
     },
@@ -385,11 +385,11 @@ enum DecoLine {
 
 /// Add line decorations to a single run of shaped text.
 pub(crate) fn decorate(
-    frame: &mut Frame,
+    frame: &mut TexFrame,
     deco: &Decoration,
     text: &TextItem,
-    width: Abs,
-    shift: Abs,
+    width: TexAbsLength,
+    shift: TexAbsLength,
     pos: Point,
 ) {
     let font_metrics = text.font.metrics();
@@ -447,9 +447,9 @@ pub(crate) fn decorate(
     let start = pos.x - deco.extent;
     let end = pos.x + width + deco.extent;
 
-    let mut push_segment = |from: Abs, to: Abs, prepend: bool| {
+    let mut push_segment = |from: TexAbsLength, to: TexAbsLength, prepend: bool| {
         let origin = Point::new(from, pos.y + offset);
-        let target = Point::new(to - from, Abs::zero());
+        let target = Point::new(to - from, TexAbsLength::zero());
 
         if target.x >= min_width || !evade {
             let shape = TexGeometry::Line(target).stroked(stroke.clone());
@@ -500,7 +500,7 @@ pub(crate) fn decorate(
             intersections.extend(
                 path.segments()
                     .flat_map(|seg| seg.intersect_line(line))
-                    .map(|is| Abs::raw(line.eval(is.line_t).x)),
+                    .map(|is| TexAbsLength::raw(line.eval(is.line_t).x)),
             );
         }
     }
@@ -526,7 +526,11 @@ pub(crate) fn decorate(
 }
 
 // Return the top/bottom edge of the text given the metric of the font.
-fn determine_edges(text: &TextItem, top_edge: TopEdge, bottom_edge: BottomEdge) -> (Abs, Abs) {
+fn determine_edges(
+    text: &TextItem,
+    top_edge: TopEdge,
+    bottom_edge: BottomEdge,
+) -> (TexAbsLength, TexAbsLength) {
     let mut bbox = None;
     if top_edge.is_bounds() || bottom_edge.is_bounds() {
         let ttf = text.font.ttf();
@@ -550,12 +554,12 @@ fn determine_edges(text: &TextItem, top_edge: TopEdge, bottom_edge: BottomEdge) 
 struct BezPathBuilder {
     path: BezPath,
     units_per_em: f64,
-    font_size: Abs,
+    font_size: TexAbsLength,
     x_offset: f64,
 }
 
 impl BezPathBuilder {
-    fn new(units_per_em: f64, font_size: Abs, x_offset: f64) -> Self {
+    fn new(units_per_em: f64, font_size: TexAbsLength, x_offset: f64) -> Self {
         Self {
             path: BezPath::new(),
             units_per_em,
@@ -573,7 +577,7 @@ impl BezPathBuilder {
     }
 
     fn s(&self, v: f32) -> f64 {
-        LengthInEm::from_units(v, self.units_per_em)
+        TexEmLength::from_units(v, self.units_per_em)
             .at(self.font_size)
             .to_raw()
     }

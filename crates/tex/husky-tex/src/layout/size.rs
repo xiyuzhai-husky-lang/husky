@@ -1,15 +1,18 @@
 use std::ops::{Add, Div, Mul, Neg};
 
-use crate::layout::{Abs, Axes, Point, Ratio};
+use crate::layout::{Axes, Point, Ratio, TexAbsLength};
 use crate::util::Numeric;
 
 /// A size in 2D.
-pub type Size = Axes<Abs>;
+pub type Size = Axes<TexAbsLength>;
 
 impl Size {
     /// The zero value.
     pub const fn zero() -> Self {
-        Self { x: Abs::zero(), y: Abs::zero() }
+        Self {
+            x: TexAbsLength::zero(),
+            y: TexAbsLength::zero(),
+        }
     }
 
     /// Whether the other size fits into this one (smaller width and height).
@@ -42,7 +45,10 @@ impl Neg for Size {
     type Output = Self;
 
     fn neg(self) -> Self {
-        Self { x: -self.x, y: -self.y }
+        Self {
+            x: -self.x,
+            y: -self.y,
+        }
     }
 }
 
@@ -50,7 +56,10 @@ impl Add for Size {
     type Output = Self;
 
     fn add(self, other: Self) -> Self {
-        Self { x: self.x + other.x, y: self.y + other.y }
+        Self {
+            x: self.x + other.x,
+            y: self.y + other.y,
+        }
     }
 }
 
@@ -60,7 +69,10 @@ impl Mul<f64> for Size {
     type Output = Self;
 
     fn mul(self, other: f64) -> Self {
-        Self { x: self.x * other, y: self.y * other }
+        Self {
+            x: self.x * other,
+            y: self.y * other,
+        }
     }
 }
 
@@ -76,7 +88,10 @@ impl Div<f64> for Size {
     type Output = Self;
 
     fn div(self, other: f64) -> Self {
-        Self { x: self.x / other, y: self.y / other }
+        Self {
+            x: self.x / other,
+            y: self.y / other,
+        }
     }
 }
 

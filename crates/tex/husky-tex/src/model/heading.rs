@@ -1,12 +1,13 @@
 use std::num::NonZeroUsize;
 
 use crate::diag::SourceResult;
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    elem, IsTexElem, Packed, Show, ShowSet, Smart, StyleChain, Styles, Synthesize, TexContent,
+    elem, IsTexElem, Show, ShowSet, Smart, StyleChain, Styles, Synthesize, TexContent,
+    TexContentRefined,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable};
-use crate::layout::{BlockElem, HElem, LengthInEm, VElem};
+use crate::layout::{BlockElem, HElem, TexEmLength, VElem};
 use crate::model::{Numbering, Outlinable, Refable, Supplement};
 use crate::text::{FontWeight, Lang, LocalName, Region, SpaceElem, TextElem, TextSize};
 use crate::util::{option_eq, NonZeroExt};
@@ -127,8 +128,8 @@ pub struct HeadingTexElem {
     pub body: TexContent,
 }
 
-impl Synthesize for Packed<HeadingTexElem> {
-    fn synthesize(&mut self, engine: &mut Engine, styles: StyleChain) -> SourceResult<()> {
+impl Synthesize for TexContentRefined<HeadingTexElem> {
+    fn synthesize(&mut self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<()> {
         let supplement = match (**self).supplement(styles) {
             Smart::Auto => TextElem::packed(Self::local_name_in(styles)),
             Smart::Custom(None) => TexContent::empty(),
@@ -140,16 +141,16 @@ impl Synthesize for Packed<HeadingTexElem> {
     }
 }
 
-impl Show for Packed<HeadingTexElem> {
+impl Show for TexContentRefined<HeadingTexElem> {
     #[husky_tex_macros::time(name = "heading", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         let mut realized = self.body().clone();
         if let Some(numbering) = (**self).numbering(styles).as_ref() {
             realized = Counter::of(HeadingTexElem::elem())
                 .at(engine, self.location().unwrap())?
                 .display(engine, numbering)?
                 .spanned(self.span())
-                + HElem::new(LengthInEm::new(0.3).into())
+                + HElem::new(TexEmLength::new(0.3).into())
                     .with_weak(true)
                     .pack()
                 + realized;
@@ -161,7 +162,7 @@ impl Show for Packed<HeadingTexElem> {
     }
 }
 
-impl ShowSet for Packed<HeadingTexElem> {
+impl ShowSet for TexContentRefined<HeadingTexElem> {
     fn show_set(&self, styles: StyleChain) -> Styles {
         let level = (**self).level(styles).get();
         let scale = match level {
@@ -170,9 +171,9 @@ impl ShowSet for Packed<HeadingTexElem> {
             _ => 1.0,
         };
 
-        let size = LengthInEm::new(scale);
-        let above = LengthInEm::new(if level == 1 { 1.8 } else { 1.44 }) / scale;
-        let below = LengthInEm::new(0.75) / scale;
+        let size = TexEmLength::new(scale);
+        let above = TexEmLength::new(if level == 1 { 1.8 } else { 1.44 }) / scale;
+        let below = TexEmLength::new(0.75) / scale;
 
         let mut out = Styles::new();
         out.set(TextElem::set_size(TextSize(size.into())));
@@ -184,7 +185,7 @@ impl ShowSet for Packed<HeadingTexElem> {
     }
 }
 
-impl Count for Packed<HeadingTexElem> {
+impl Count for TexContentRefined<HeadingTexElem> {
     fn update(&self) -> Option<CounterUpdate> {
         (**self)
             .numbering(StyleChain::default())
@@ -193,7 +194,7 @@ impl Count for Packed<HeadingTexElem> {
     }
 }
 
-impl Refable for Packed<HeadingTexElem> {
+impl Refable for TexContentRefined<HeadingTexElem> {
     fn supplement(&self) -> TexContent {
         // After synthesis, this should always be custom content.
         match (**self).supplement(StyleChain::default()) {
@@ -211,8 +212,8 @@ impl Refable for Packed<HeadingTexElem> {
     }
 }
 
-impl Outlinable for Packed<HeadingTexElem> {
-    fn outline(&self, engine: &mut Engine) -> SourceResult<Option<TexContent>> {
+impl Outlinable for TexContentRefined<HeadingTexElem> {
+    fn outline(&self, engine: &mut TexEngine) -> SourceResult<Option<TexContent>> {
         if !self.outlined(StyleChain::default()) {
             return Ok(None);
         }
@@ -233,7 +234,7 @@ impl Outlinable for Packed<HeadingTexElem> {
     }
 }
 
-impl LocalName for Packed<HeadingTexElem> {
+impl LocalName for TexContentRefined<HeadingTexElem> {
     fn local_name(lang: Lang, region: Option<Region>) -> &'static str {
         match lang {
             Lang::ALBANIAN => "Kapitull",

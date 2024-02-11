@@ -5,13 +5,13 @@ use comemo::Prehashed;
 use ecow::{eco_format, EcoString};
 
 use crate::diag::{bail, SourceResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{func, repr, scope, ty, Smart, StyleChain, TexContent};
-use crate::layout::{Abs, Axes, Frame, LayoutMultiple, Length, Regions, Size};
+use crate::layout::{Axes, LayoutMultiple, Length, Regions, Size, TexAbsLength, TexFrame};
 use crate::syntax::{Span, Spanned};
 use crate::util::Numeric;
 use crate::visualize::RelativeTo;
-use crate::World;
+use crate::IsTexWorld;
 
 /// A repeating pattern fill.
 ///
@@ -103,7 +103,7 @@ pub struct Pattern(Arc<Repr>);
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
 struct Repr {
     /// The pattern's rendered content.
-    frame: Prehashed<Frame>,
+    frame: Prehashed<TexFrame>,
     /// The pattern's tile size.
     size: Size,
     /// The pattern's tile spacing.
@@ -134,7 +134,7 @@ impl Pattern {
     /// ```
     #[func(constructor)]
     pub fn construct(
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// The callsite span.
         span: Span,
         /// The bounding box of each cell of the pattern.
@@ -185,7 +185,7 @@ impl Pattern {
 
         // The size of the frame
         let size = size.v.map(|l| l.map(|a| a.abs));
-        let region = size.unwrap_or_else(|| Axes::splat(Abs::inf()));
+        let region = size.unwrap_or_else(|| Axes::splat(TexAbsLength::inf()));
 
         // Layout the pattern.
         let world = engine.world;
@@ -232,7 +232,7 @@ impl Pattern {
     }
 
     /// Return the frame of the pattern.
-    pub fn frame(&self) -> &Frame {
+    pub fn frame(&self) -> &TexFrame {
         &self.0.frame
     }
 

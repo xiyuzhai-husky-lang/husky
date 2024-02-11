@@ -1,10 +1,13 @@
 use kurbo::{CubicBez, ParamCurveExtrema};
 
 use crate::diag::{bail, SourceResult};
-use crate::engine::Engine;
-use crate::foundations::{array, cast, elem, Array, Packed, Reflect, Resolve, Smart, StyleChain};
+use crate::engine::TexEngine;
+use crate::foundations::{
+    array, cast, elem, Array, Reflect, Resolve, Smart, StyleChain, TexContentRefined,
+};
 use crate::layout::{
-    Abs, Axes, Fragment, Frame, FrameItem, LayoutMultiple, Length, Point, Regions, Rel, Size,
+    Axes, FrameItem, LayoutMultiple, Length, Point, Regions, Rel, Size, TexAbsLength, TexFrame,
+    TexLayoutFragment,
 };
 use crate::visualize::{TexFixedStroke, TexGeometry, TexPaint, TexShape, TexStroke};
 
@@ -68,14 +71,14 @@ pub struct PathElem {
     pub vertices: Vec<PathVertex>,
 }
 
-impl LayoutMultiple for Packed<PathElem> {
+impl LayoutMultiple for TexContentRefined<PathElem> {
     #[husky_tex_macros::time(name = "path", span = self.span())]
     fn layout(
         &self,
-        _: &mut Engine,
+        _: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         let resolve = |axes: Axes<Rel<Length>>| {
             axes.resolve(styles)
                 .zip_map(regions.base(), Rel::relative_to)
@@ -87,7 +90,7 @@ impl LayoutMultiple for Packed<PathElem> {
 
         let mut size = Size::zero();
         if points.is_empty() {
-            return Ok(Fragment::frame(Frame::soft(size)));
+            return Ok(TexLayoutFragment::frame(TexFrame::soft(size)));
         }
 
         // Only create a path if there are more than zero points.
@@ -108,8 +111,8 @@ impl LayoutMultiple for Packed<PathElem> {
                     kurbo::Point::new(to_control_point.x.to_raw(), to_control_point.y.to_raw());
                 let p3 = kurbo::Point::new(to_point.x.to_raw(), to_point.y.to_raw());
                 let extrema = CubicBez::new(p0, p1, p2, p3).bounding_box();
-                size.x.set_max(Abs::raw(extrema.x1));
-                size.y.set_max(Abs::raw(extrema.y1));
+                size.x.set_max(TexAbsLength::raw(extrema.x1));
+                size.y.set_max(TexAbsLength::raw(extrema.y1));
             };
 
         for (vertex_window, point_window) in vertices.windows(2).zip(points.windows(2)) {
@@ -139,7 +142,7 @@ impl LayoutMultiple for Packed<PathElem> {
             Smart::Custom(stroke) => stroke.map(TexStroke::unwrap_or_default),
         };
 
-        let mut frame = Frame::soft(size);
+        let mut frame = TexFrame::soft(size);
         let shape = TexShape {
             geometry: TexGeometry::Path(path),
             stroke,
@@ -147,7 +150,7 @@ impl LayoutMultiple for Packed<PathElem> {
         };
         frame.push(Point::zero(), FrameItem::Shape(shape, self.span()));
 
-        Ok(Fragment::frame(frame))
+        Ok(TexLayoutFragment::frame(frame))
     }
 }
 
@@ -234,7 +237,7 @@ impl Path {
 
     /// Create a path that describes a rectangle.
     pub fn rect(size: Size) -> Self {
-        let z = Abs::zero();
+        let z = TexAbsLength::zero();
         let point = Point::new;
         let mut path = Self::new();
         path.move_to(point(z, z));
@@ -267,10 +270,10 @@ impl Path {
 
     /// Computes the size of bounding box of this path.
     pub fn bbox_size(&self) -> Size {
-        let mut min_x = Abs::inf();
-        let mut min_y = Abs::inf();
-        let mut max_x = -Abs::inf();
-        let mut max_y = -Abs::inf();
+        let mut min_x = TexAbsLength::inf();
+        let mut min_y = TexAbsLength::inf();
+        let mut max_x = -TexAbsLength::inf();
+        let mut max_y = -TexAbsLength::inf();
 
         let mut cursor = Point::zero();
         for item in self.0.iter() {
@@ -298,10 +301,18 @@ impl Path {
                     );
 
                     let bbox = cubic.bounding_box();
-                    min_x = min_x.min(Abs::pt(bbox.x0)).min(Abs::pt(bbox.x1));
-                    min_y = min_y.min(Abs::pt(bbox.y0)).min(Abs::pt(bbox.y1));
-                    max_x = max_x.max(Abs::pt(bbox.x0)).max(Abs::pt(bbox.x1));
-                    max_y = max_y.max(Abs::pt(bbox.y0)).max(Abs::pt(bbox.y1));
+                    min_x = min_x
+                        .min(TexAbsLength::pt(bbox.x0))
+                        .min(TexAbsLength::pt(bbox.x1));
+                    min_y = min_y
+                        .min(TexAbsLength::pt(bbox.y0))
+                        .min(TexAbsLength::pt(bbox.y1));
+                    max_x = max_x
+                        .max(TexAbsLength::pt(bbox.x0))
+                        .max(TexAbsLength::pt(bbox.x1));
+                    max_y = max_y
+                        .max(TexAbsLength::pt(bbox.y0))
+                        .max(TexAbsLength::pt(bbox.y1));
                     cursor = *end;
                 }
                 PathItem::ClosePath => (),

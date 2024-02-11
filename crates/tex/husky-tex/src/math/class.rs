@@ -1,8 +1,8 @@
 use unicode_math_class::MathClass;
 
 use crate::diag::SourceResult;
-use crate::foundations::{elem, Packed, StyleChain, TexContent};
-use crate::math::{EquationElem, LayoutMath, Limits, MathContext};
+use crate::foundations::{elem, StyleChain, TexContent, TexContentRefined};
+use crate::math::{EquationTexElem, Limits, MathContext, TexLayoutMath};
 
 /// Forced use of a certain math class.
 ///
@@ -21,8 +21,8 @@ use crate::math::{EquationElem, LayoutMath, Limits, MathContext};
 ///
 /// $x loves y and y loves 5$
 /// ```
-#[elem(LayoutMath)]
-pub struct ClassElem {
+#[elem(TexLayoutMath)]
+pub struct ClassTexElem {
     /// The class to apply to the content.
     #[required]
     pub class: MathClass,
@@ -32,11 +32,11 @@ pub struct ClassElem {
     pub body: TexContent,
 }
 
-impl LayoutMath for Packed<ClassElem> {
+impl TexLayoutMath for TexContentRefined<ClassTexElem> {
     #[husky_tex_macros::time(name = "math.class", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         let class = *self.class();
-        let style = EquationElem::set_class(Some(class)).wrap();
+        let style = EquationTexElem::set_class(Some(class)).wrap();
         let mut fragment = ctx.layout_fragment(self.body(), styles.chain(&style))?;
         fragment.set_class(class);
         fragment.set_limits(Limits::for_class(class));

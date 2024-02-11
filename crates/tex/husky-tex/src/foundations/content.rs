@@ -12,12 +12,12 @@ use serde::{Serialize, Serializer};
 use smallvec::smallvec;
 
 use crate::diag::{SourceResult, StrResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
     elem, func, scope, ty, ElementSchemaRef, Fields, IntoTexValue, IsTexElem, Label, Recipe,
     RecipeIndex, Repr, Selector, Str, Style, StyleChain, Styles, TexDict, TexValue,
 };
-use crate::introspection::{Location, Meta, MetaElem};
+use crate::introspection::{Location, Meta, MetaTexElem};
 use crate::layout::{AlignElem, Axes, Length, MoveElem, PadElem, Rel, Sides, TexAlignment};
 use crate::model::{EmphElem, StrongElem, TexDestination};
 use crate::syntax::Span;
@@ -246,23 +246,23 @@ impl TexContent {
     }
 
     /// Downcasts the element to a packed value.
-    pub fn to_packed<T: IsTexElem>(&self) -> Option<&Packed<T>> {
-        Packed::from_ref(self)
+    pub fn to_packed<T: IsTexElem>(&self) -> Option<&TexContentRefined<T>> {
+        TexContentRefined::from_ref(self)
     }
 
     /// Downcasts the element to a mutable packed value.
-    pub fn to_packed_mut<T: IsTexElem>(&mut self) -> Option<&mut Packed<T>> {
-        Packed::from_mut(self)
+    pub fn to_packed_mut<T: IsTexElem>(&mut self) -> Option<&mut TexContentRefined<T>> {
+        TexContentRefined::from_mut(self)
     }
 
     /// Downcasts the element into an owned packed value.
-    pub fn into_packed<T: IsTexElem>(self) -> Result<Packed<T>, Self> {
-        Packed::from_owned(self)
+    pub fn into_packed<T: IsTexElem>(self) -> Result<TexContentRefined<T>, Self> {
+        TexContentRefined::from_owned(self)
     }
 
     /// Extract the raw underlying element.
     pub fn unpack<T: IsTexElem>(self) -> Result<T, Self> {
-        self.into_packed::<T>().map(Packed::unpack)
+        self.into_packed::<T>().map(TexContentRefined::unpack)
     }
 
     /// Makes sure the content is not shared and returns a mutable reference to
@@ -290,8 +290,8 @@ impl TexContent {
         C: ?Sized + 'static,
     {
         // Safety: The vtable comes from the `Capable` implementation which
-        // guarantees to return a matching vtable for `Packed<T>` and `C`.
-        // Since any `Packed<T>` is a repr(transparent) `Content`, we can also
+        // guarantees to return a matching vtable for `TexContentRefined<T>` and `C`.
+        // Since any `TexContentRefined<T>` is a repr(transparent) `Content`, we can also
         // use a `*const Content` pointer.
         let vtable = self.elem().vtable()(TypeId::of::<C>())?;
         let data = self as *const TexContent as *const ();
@@ -305,13 +305,13 @@ impl TexContent {
         C: ?Sized + 'static,
     {
         // Safety: The vtable comes from the `Capable` implementation which
-        // guarantees to return a matching vtable for `Packed<T>` and `C`.
-        // Since any `Packed<T>` is a repr(transparent) `Content`, we can also
+        // guarantees to return a matching vtable for `TexContentRefined<T>` and `C`.
+        // Since any `TexContentRefined<T>` is a repr(transparent) `Content`, we can also
         // use a `*const Content` pointer.
         //
-        // The resulting trait object contains an `&mut Packed<T>`. We do _not_
+        // The resulting trait object contains an `&mut TexContentRefined<T>`. We do _not_
         // need to ensure that we hold the only reference to the `Arc` here
-        // because `Packed<T>`'s DerefMut impl will take care of that if
+        // because `TexContentRefined<T>`'s DerefMut impl will take care of that if
         // mutable access is required.
         let vtable = self.elem().vtable()(TypeId::of::<C>())?;
         let data = self as *mut TexContent as *mut ();
@@ -356,7 +356,7 @@ impl TexContent {
     }
 
     /// Style this content with a recipe, eagerly applying it if possible.
-    pub fn styled_with_recipe(self, engine: &mut Engine, recipe: Recipe) -> SourceResult<Self> {
+    pub fn styled_with_recipe(self, engine: &mut TexEngine, recipe: Recipe) -> SourceResult<Self> {
         if recipe.selector.is_none() {
             recipe.apply(engine, self)
         } else {
@@ -480,7 +480,7 @@ impl TexContent {
 
     /// Link the content somewhere.
     pub fn linked(self, dest: TexDestination) -> Self {
-        self.styled(MetaElem::set_data(smallvec![Meta::Link(dest)]))
+        self.styled(MetaTexElem::set_data(smallvec![Meta::Link(dest)]))
     }
 
     /// Make the content linkable by `.linked(Destination::Location(loc))`.
@@ -489,7 +489,7 @@ impl TexContent {
     pub fn backlinked(self, loc: Location) -> Self {
         let mut backlink = TexContent::empty();
         backlink.set_location(loc);
-        self.styled(MetaElem::set_data(smallvec![Meta::Elem(backlink)]))
+        self.styled(MetaTexElem::set_data(smallvec![Meta::Elem(backlink)]))
     }
 
     /// Set alignments for this content.
@@ -756,17 +756,17 @@ impl Hash for dyn IsTexElemDyn {
 /// A packed element of a static type.
 #[derive(Clone, PartialEq, Hash)]
 #[repr(transparent)]
-pub struct Packed<T: IsTexElem>(
+pub struct TexContentRefined<T: IsTexElem>(
     /// Invariant: Must be of type `T`.
     TexContent,
     PhantomData<T>,
 );
 
-impl<T: IsTexElem> Packed<T> {
+impl<T: IsTexElem> TexContentRefined<T> {
     /// Pack element while retaining its static type.
     pub fn new(element: T) -> Self {
         // Safety: The element is known to be of type `T`.
-        Packed(element.pack(), PhantomData)
+        TexContentRefined(element.pack(), PhantomData)
     }
 
     /// Try to cast type-erased content into a statically known packed element.
@@ -774,7 +774,7 @@ impl<T: IsTexElem> Packed<T> {
         if content.is::<T>() {
             // Safety:
             // - We have checked the type.
-            // - Packed<T> is repr(transparent).
+            // - TexContentRefined<T> is repr(transparent).
             return Some(unsafe { std::mem::transmute(content) });
         }
         None
@@ -785,7 +785,7 @@ impl<T: IsTexElem> Packed<T> {
         if content.is::<T>() {
             // Safety:
             // - We have checked the type.
-            // - Packed<T> is repr(transparent).
+            // - TexContentRefined<T> is repr(transparent).
             return Some(unsafe { std::mem::transmute(content) });
         }
         None
@@ -796,7 +796,7 @@ impl<T: IsTexElem> Packed<T> {
         if content.is::<T>() {
             // Safety:
             // - We have checked the type.
-            // - Packed<T> is repr(transparent).
+            // - TexContentRefined<T> is repr(transparent).
             return Ok(unsafe { std::mem::transmute(content) });
         }
         Err(content)
@@ -839,24 +839,24 @@ impl<T: IsTexElem> Packed<T> {
     }
 }
 
-impl<T: IsTexElem> AsRef<T> for Packed<T> {
+impl<T: IsTexElem> AsRef<T> for TexContentRefined<T> {
     fn as_ref(&self) -> &T {
         self
     }
 }
 
-impl<T: IsTexElem> AsMut<T> for Packed<T> {
+impl<T: IsTexElem> AsMut<T> for TexContentRefined<T> {
     fn as_mut(&mut self) -> &mut T {
         self
     }
 }
 
-impl<T: IsTexElem> Deref for Packed<T> {
+impl<T: IsTexElem> Deref for TexContentRefined<T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
         // Safety:
-        // - Packed<T> guarantees that the content trait object wraps
+        // - TexContentRefined<T> guarantees that the content trait object wraps
         //   an element of type `T`.
         // - This downcast works the same way as dyn Any's does. We can't reuse
         //   that one because we don't want to pay the cost for every deref.
@@ -865,10 +865,10 @@ impl<T: IsTexElem> Deref for Packed<T> {
     }
 }
 
-impl<T: IsTexElem> DerefMut for Packed<T> {
+impl<T: IsTexElem> DerefMut for TexContentRefined<T> {
     fn deref_mut(&mut self) -> &mut Self::Target {
         // Safety:
-        // - Packed<T> guarantees that the content trait object wraps
+        // - TexContentRefined<T> guarantees that the content trait object wraps
         //   an element of type `T`.
         // - We have guaranteed unique access thanks to `make_mut`.
         // - This downcast works the same way as dyn Any's does. We can't reuse
@@ -878,7 +878,7 @@ impl<T: IsTexElem> DerefMut for Packed<T> {
     }
 }
 
-impl<T: IsTexElem + Debug> Debug for Packed<T> {
+impl<T: IsTexElem + Debug> Debug for TexContentRefined<T> {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         self.0.fmt(f)
     }

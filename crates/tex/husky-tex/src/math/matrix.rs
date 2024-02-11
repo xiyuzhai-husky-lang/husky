@@ -2,25 +2,26 @@ use smallvec::{smallvec, SmallVec};
 
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::foundations::{
-    cast, dict, elem, Array, Cast, Fold, Packed, Resolve, Smart, StyleChain, TexContent, TexDict,
-    TexValue,
+    cast, dict, elem, Array, Cast, Fold, Resolve, Smart, StyleChain, TexContent, TexContentRefined,
+    TexDict, TexValue,
 };
 use crate::layout::{
-    Abs, Axes, FixedAlignment, Frame, FrameItem, Length, LengthInEm, Point, Ratio, Rel, Size,
+    Axes, FixedAlignment, FrameItem, Length, Point, Ratio, Rel, Size, TexAbsLength, TexEmLength,
+    TexFrame,
 };
 use crate::math::{
-    alignments, scaled_font_size, stack, style_for_denominator, AlignmentResult, FrameFragment,
-    GlyphFragment, LayoutMath, MathContext, Scaled, DELIM_SHORT_FALL,
+    alignments, scaled_font_size, stack, style_for_denominator, FrameFragment, GlyphFragment,
+    MathContext, Scaled, TexAlignmentResult, TexLayoutMath, DELIM_SHORT_FALL,
 };
 use crate::syntax::{Span, Spanned};
 use crate::text::TextElem;
 use crate::util::Numeric;
 use crate::visualize::{LineCap, TexFixedStroke, TexGeometry, TexShape, TexStroke};
 
-const DEFAULT_ROW_GAP: LengthInEm = LengthInEm::new(0.5);
-const DEFAULT_COL_GAP: LengthInEm = LengthInEm::new(0.5);
+const DEFAULT_ROW_GAP: TexEmLength = TexEmLength::new(0.5);
+const DEFAULT_COL_GAP: TexEmLength = TexEmLength::new(0.5);
 const VERTICAL_PADDING: Ratio = Ratio::new(0.1);
-const DEFAULT_STROKE_THICKNESS: LengthInEm = LengthInEm::new(0.05);
+const DEFAULT_STROKE_THICKNESS: TexEmLength = TexEmLength::new(0.05);
 
 /// A column vector.
 ///
@@ -31,7 +32,7 @@ const DEFAULT_STROKE_THICKNESS: LengthInEm = LengthInEm::new(0.05);
 /// $ vec(a, b, c) dot vec(1, 2, 3)
 ///     = a + 2b + 3c $
 /// ```
-#[elem(title = "Vector", LayoutMath)]
+#[elem(title = "Vector", TexLayoutMath)]
 pub struct VecElem {
     /// The delimiter to use.
     ///
@@ -57,7 +58,7 @@ pub struct VecElem {
     pub children: Vec<TexContent>,
 }
 
-impl LayoutMath for Packed<VecElem> {
+impl TexLayoutMath for TexContentRefined<VecElem> {
     #[husky_tex_macros::time(name = "math.vec", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         let delim = self.delim(styles);
@@ -99,7 +100,7 @@ impl LayoutMath for Packed<VecElem> {
 ///   10, 10, ..., 10;
 /// ) $
 /// ```
-#[elem(title = "Matrix", LayoutMath)]
+#[elem(title = "Matrix", TexLayoutMath)]
 pub struct MatElem {
     /// The delimiter to use.
     ///
@@ -213,7 +214,7 @@ pub struct MatElem {
     pub rows: Vec<Vec<TexContent>>,
 }
 
-impl LayoutMath for Packed<MatElem> {
+impl TexLayoutMath for TexContentRefined<MatElem> {
     #[husky_tex_macros::time(name = "math.mat", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         let augment = self.augment(styles);
@@ -287,7 +288,7 @@ impl LayoutMath for Packed<MatElem> {
 ///   4 "else",
 /// ) $
 /// ```
-#[elem(LayoutMath)]
+#[elem(TexLayoutMath)]
 pub struct CasesElem {
     /// The delimiter to use.
     ///
@@ -322,7 +323,7 @@ pub struct CasesElem {
     pub children: Vec<TexContent>,
 }
 
-impl LayoutMath for Packed<CasesElem> {
+impl TexLayoutMath for TexContentRefined<CasesElem> {
     #[husky_tex_macros::time(name = "math.cases", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         let delim = self.delim(styles);
@@ -394,8 +395,8 @@ fn layout_vec_body(
     styles: StyleChain,
     column: &[TexContent],
     align: FixedAlignment,
-    row_gap: Rel<Abs>,
-) -> SourceResult<Frame> {
+    row_gap: Rel<TexAbsLength>,
+) -> SourceResult<TexFrame> {
     let gap = row_gap.relative_to(ctx.regions.base().y);
 
     let denom_style = style_for_denominator(styles);
@@ -412,10 +413,10 @@ fn layout_mat_body(
     ctx: &mut MathContext,
     styles: StyleChain,
     rows: &[Vec<TexContent>],
-    augment: Option<Augment<Abs>>,
-    gap: Axes<Rel<Abs>>,
+    augment: Option<Augment<TexAbsLength>>,
+    gap: Axes<Rel<TexAbsLength>>,
     span: Span,
-) -> SourceResult<Frame> {
+) -> SourceResult<TexFrame> {
     let gap = gap.zip_map(ctx.regions.base(), Rel::relative_to);
     let half_gap = gap * 0.5;
 
@@ -448,7 +449,7 @@ fn layout_mat_body(
     let ncols = rows.first().map_or(0, |row| row.len());
     let nrows = rows.len();
     if ncols == 0 || nrows == 0 {
-        return Ok(Frame::soft(Size::zero()));
+        return Ok(TexFrame::soft(Size::zero()));
     }
 
     // Before the full matrix body can be laid out, the
@@ -456,7 +457,7 @@ fn layout_mat_body(
     // so we can ensure alignment across rows and columns.
 
     // This variable stores the maximum ascent and descent for each row.
-    let mut heights = vec![(Abs::zero(), Abs::zero()); nrows];
+    let mut heights = vec![(TexAbsLength::zero(), TexAbsLength::zero()); nrows];
 
     // We want to transpose our data layout to columns
     // before final layout. For efficiency, the columns
@@ -479,20 +480,20 @@ fn layout_mat_body(
     // For each row, combine maximum ascent and descent into a row height.
     // Sum the row heights, then add the total height of the gaps between rows.
     let total_height =
-        heights.iter().map(|&(a, b)| a + b).sum::<Abs>() + gap.y * (nrows - 1) as f64;
+        heights.iter().map(|&(a, b)| a + b).sum::<TexAbsLength>() + gap.y * (nrows - 1) as f64;
 
     // Width starts at zero because it can't be calculated until later
-    let mut frame = Frame::soft(Size::new(Abs::zero(), total_height));
+    let mut frame = TexFrame::soft(Size::new(TexAbsLength::zero(), total_height));
 
-    let mut x = Abs::zero();
+    let mut x = TexAbsLength::zero();
 
     for (index, col) in cols.into_iter().enumerate() {
-        let AlignmentResult {
+        let TexAlignmentResult {
             points,
             width: rcol,
         } = alignments(&col);
 
-        let mut y = Abs::zero();
+        let mut y = TexAbsLength::zero();
 
         for (cell, &(ascent, descent)) in col.into_iter().zip(&heights) {
             let cell = cell.into_aligned_frame(ctx, styles, &points, FixedAlignment::Center);
@@ -540,7 +541,7 @@ fn layout_mat_body(
         let offset = (heights[0..real_line]
             .iter()
             .map(|&(a, b)| a + b)
-            .sum::<Abs>()
+            .sum::<TexAbsLength>()
             + gap.y * (real_line - 1) as f64)
             + half_gap.y;
 
@@ -555,7 +556,12 @@ fn layout_mat_body(
     Ok(frame)
 }
 
-fn line_item(length: Abs, vertical: bool, stroke: TexFixedStroke, span: Span) -> FrameItem {
+fn line_item(
+    length: TexAbsLength,
+    vertical: bool,
+    stroke: TexFixedStroke,
+    span: Span,
+) -> FrameItem {
     let line_geom = if vertical {
         TexGeometry::Line(Point::with_y(length))
     } else {
@@ -576,7 +582,7 @@ fn line_item(length: Abs, vertical: bool, stroke: TexFixedStroke, span: Span) ->
 fn layout_delimiters(
     ctx: &mut MathContext,
     styles: StyleChain,
-    mut frame: Frame,
+    mut frame: TexFrame,
     left: Option<char>,
     right: Option<char>,
     span: Span,
@@ -632,7 +638,7 @@ impl<T: Numeric + Fold> Fold for Augment<T> {
 }
 
 impl Resolve for Augment {
-    type Output = Augment<Abs>;
+    type Output = Augment<TexAbsLength>;
 
     fn resolve(self, styles: StyleChain) -> Self::Output {
         Augment {
@@ -677,7 +683,7 @@ cast! {
 }
 
 cast! {
-    Augment<Abs>,
+    Augment<TexAbsLength>,
     self => self.into_value(),
 }
 

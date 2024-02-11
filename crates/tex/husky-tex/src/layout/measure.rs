@@ -1,7 +1,7 @@
 use crate::diag::SourceResult;
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{dict, func, StyleChain, Styles, TexContent, TexDict};
-use crate::layout::{Abs, Axes, LayoutMultiple, Regions, Size};
+use crate::layout::{Axes, LayoutMultiple, Regions, Size, TexAbsLength};
 
 /// Measures the layouted size of content.
 ///
@@ -42,13 +42,13 @@ use crate::layout::{Abs, Axes, LayoutMultiple, Regions, Size};
 #[func]
 pub fn measure(
     /// The engine.
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     /// The content whose size to measure.
     content: TexContent,
     /// The styles with which to layout the content.
     styles: Styles,
 ) -> SourceResult<TexDict> {
-    let pod = Regions::one(Axes::splat(Abs::inf()), Axes::splat(false));
+    let pod = Regions::one(Axes::splat(TexAbsLength::inf()), Axes::splat(false));
     let styles = StyleChain::new(&styles);
     let frame = content.measure(engine, styles, pod)?.into_frame();
     let Size { x, y } = frame.size();

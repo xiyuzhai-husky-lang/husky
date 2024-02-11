@@ -1,9 +1,9 @@
 use smallvec::smallvec;
 
 use crate::diag::SourceResult;
-use crate::engine::Engine;
-use crate::foundations::{elem, Packed, Show, StyleChain, TexContent};
-use crate::introspection::{Meta, MetaElem};
+use crate::engine::TexEngine;
+use crate::foundations::{elem, Show, StyleChain, TexContent, TexContentRefined};
+use crate::introspection::{Meta, MetaTexElem};
 
 /// Hides content without affecting layout.
 ///
@@ -24,12 +24,12 @@ pub struct HideElem {
     pub body: TexContent,
 }
 
-impl Show for Packed<HideElem> {
+impl Show for TexContentRefined<HideElem> {
     #[husky_tex_macros::time(name = "hide", span = self.span())]
-    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, _: &mut TexEngine, _: StyleChain) -> SourceResult<TexContent> {
         Ok(self
             .body()
             .clone()
-            .styled(MetaElem::set_data(smallvec![Meta::Hide])))
+            .styled(MetaTexElem::set_data(smallvec![Meta::Hide])))
     }
 }

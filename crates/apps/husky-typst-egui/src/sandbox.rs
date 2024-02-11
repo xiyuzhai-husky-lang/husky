@@ -9,7 +9,7 @@ use husky_tex::{
 use husky_tex::{foundations::Datetime, Library};
 use husky_tex::{
     text::{TexFont, TexFontBook},
-    World,
+    IsTexWorld,
 };
 
 pub struct Sandbox {
@@ -68,7 +68,7 @@ impl WithSource {
     }
 }
 
-impl World for WithSource {
+impl IsTexWorld for WithSource {
     fn library(&self) -> &Prehashed<Library> {
         &self.sandbox.library
     }
@@ -121,16 +121,16 @@ $ x + x $
                         frame: Frame [
                             Text("hello world"),
                             Group Frame [
-                                Elem(Element(equation)),
-                                Elem(Element(equation)),
-                                Elem(Element(equation)),
+                                Elem(Element(equation-tex)),
+                                Elem(Element(equation-tex)),
+                                Elem(Element(equation-tex)),
                                 Text("𝑥"),
-                                Elem(Element(equation)),
+                                Elem(Element(equation-tex)),
                                 Text("+"),
-                                Elem(Element(equation)),
+                                Elem(Element(equation-tex)),
                                 Text("𝑥"),
                             ],
-                            Elem(Element(equation)),
+                            Elem(Element(equation-tex)),
                         ],
                         numbering: None,
                         number: 1,

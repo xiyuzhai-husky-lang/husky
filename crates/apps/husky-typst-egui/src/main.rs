@@ -2,11 +2,11 @@ use eframe::egui;
 use egui::{vec2, Align2, Color32, Pos2, Rect, Rounding, Sense, Stroke, TextStyle};
 use husky_tex::{
     eval::Tracer,
-    layout::Abs,
+    layout::TexAbsLength,
     visualize::{TexColor, TexFixedStroke, TexGeometry, TexPaint, TexRgb, TexRgba},
 };
 use husky_tex::{
-    layout::{Frame, FrameItem, GroupItem, Point, Size},
+    layout::{FrameItem, GroupItem, Point, Size, TexFrame},
     visualize::TexShape,
 };
 use render::render;
@@ -29,10 +29,10 @@ fn main() {
 
 struct App {
     renderer: SyncSender<String>,
-    rendered: Receiver<Result<Frame, String>>,
+    rendered: Receiver<Result<TexFrame, String>>,
 
     buffer: String,
-    current_frame: Option<Result<Frame, String>>,
+    current_frame: Option<Result<TexFrame, String>>,
 }
 
 impl App {
@@ -63,7 +63,7 @@ impl App {
 
 const PIXELS_PER_POINT: f32 = 1.25;
 
-fn to_px(abs: Abs) -> f32 {
+fn to_px(abs: TexAbsLength) -> f32 {
     abs.to_pt() as f32 * PIXELS_PER_POINT
 }
 

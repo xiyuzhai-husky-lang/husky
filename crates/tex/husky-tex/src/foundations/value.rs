@@ -13,10 +13,10 @@ use crate::diag::StrResult;
 use crate::eval::ops;
 use crate::foundations::{
     fields, repr, Args, Array, AutoTexValue, Bytes, CastInfo, Datetime, Duration, FromTexValue,
-    Func, IntoTexValue, IsTexElem, Label, Module, NativeType, NoneValue, Plugin, Reflect, Repr,
+    Func, IntoTexValue, IsTexElem, Label, Module, NativeType, NoneTexValue, Plugin, Reflect, Repr,
     Scope, Str, Styles, TexContent, TexDict, Type, Version,
 };
-use crate::layout::{Abs, Angle, Fr, Length, LengthInEm, Ratio, Rel};
+use crate::layout::{Angle, Length, Ratio, Rel, TexAbsLength, TexEmLength, TexFraction};
 use crate::symbols::Symbol;
 use crate::syntax::{ast, Span};
 use crate::text::{RawElem, TextElem};
@@ -45,7 +45,7 @@ pub enum TexValue {
     /// A relative length, combination of a ratio and a length: `20% + 5cm`.
     Relative(Rel<Length>),
     /// A fraction: `1fr`.
-    Fraction(Fr),
+    Fraction(TexFraction),
     /// A color value: `#f79143ff`.
     Color(TexColor),
     /// A gradient value: `gradient.linear(...)`.
@@ -101,14 +101,14 @@ impl TexValue {
     pub fn numeric(pair: (f64, ast::Unit)) -> Self {
         let (v, unit) = pair;
         match unit {
-            ast::Unit::Pt => Abs::pt(v).into_value(),
-            ast::Unit::Mm => Abs::mm(v).into_value(),
-            ast::Unit::Cm => Abs::cm(v).into_value(),
-            ast::Unit::In => Abs::inches(v).into_value(),
+            ast::Unit::Pt => TexAbsLength::pt(v).into_value(),
+            ast::Unit::Mm => TexAbsLength::mm(v).into_value(),
+            ast::Unit::Cm => TexAbsLength::cm(v).into_value(),
+            ast::Unit::In => TexAbsLength::inches(v).into_value(),
             ast::Unit::Rad => Angle::rad(v).into_value(),
             ast::Unit::Deg => Angle::deg(v).into_value(),
-            ast::Unit::Em => LengthInEm::new(v).into_value(),
-            ast::Unit::Fr => Fr::new(v).into_value(),
+            ast::Unit::Em => TexEmLength::new(v).into_value(),
+            ast::Unit::Fr => TexFraction::new(v).into_value(),
             ast::Unit::Percent => Ratio::new(v / 100.0).into_value(),
         }
     }
@@ -116,7 +116,7 @@ impl TexValue {
     /// The type of this value.
     pub fn ty(&self) -> Type {
         match self {
-            Self::None => Type::of::<NoneValue>(),
+            Self::None => Type::of::<NoneTexValue>(),
             Self::Auto => Type::of::<AutoTexValue>(),
             Self::Bool(_) => Type::of::<bool>(),
             Self::Int(_) => Type::of::<i64>(),
@@ -125,7 +125,7 @@ impl TexValue {
             Self::Angle(_) => Type::of::<Angle>(),
             Self::Ratio(_) => Type::of::<Ratio>(),
             Self::Relative(_) => Type::of::<Rel<Length>>(),
-            Self::Fraction(_) => Type::of::<Fr>(),
+            Self::Fraction(_) => Type::of::<TexFraction>(),
             Self::Color(_) => Type::of::<TexColor>(),
             Self::Gradient(_) => Type::of::<Gradient>(),
             Self::Pattern(_) => Type::of::<Pattern>(),
@@ -228,7 +228,7 @@ impl TexValue {
 impl Debug for TexValue {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         match self {
-            Self::None => Debug::fmt(&NoneValue, f),
+            Self::None => Debug::fmt(&NoneTexValue, f),
             Self::Auto => Debug::fmt(&AutoTexValue, f),
             Self::Bool(v) => Debug::fmt(v, f),
             Self::Int(v) => Debug::fmt(v, f),
@@ -265,7 +265,7 @@ impl Debug for TexValue {
 impl Repr for TexValue {
     fn repr(&self) -> EcoString {
         match self {
-            Self::None => NoneValue.repr(),
+            Self::None => NoneTexValue.repr(),
             Self::Auto => AutoTexValue.repr(),
             Self::Bool(v) => v.repr(),
             Self::Int(v) => v.repr(),
@@ -355,7 +355,7 @@ impl Serialize for TexValue {
         S: Serializer,
     {
         match self {
-            Self::None => NoneValue.serialize(serializer),
+            Self::None => NoneTexValue.serialize(serializer),
             Self::Bool(v) => v.serialize(serializer),
             Self::Int(v) => v.serialize(serializer),
             Self::Float(v) => v.serialize(serializer),
@@ -633,7 +633,7 @@ primitive! { Rel<Length>:  "relative length",
     Length(v) => v.into(),
     Ratio(v) => v.into()
 }
-primitive! { Fr: "fraction", Fraction }
+primitive! { TexFraction: "fraction", Fraction }
 primitive! { TexColor: "color", Color }
 primitive! { Gradient: "gradient", Gradient }
 primitive! { Pattern: "pattern", Pattern }
@@ -684,14 +684,14 @@ mod tests {
         test(false, "false");
         test(12i64, "12");
         test(3.24, "3.24");
-        test(Abs::pt(5.5), "5.5pt");
+        test(TexAbsLength::pt(5.5), "5.5pt");
         test(Angle::deg(90.0), "90deg");
         test(Ratio::one() / 2.0, "50%");
         test(
-            Ratio::new(0.3) + Length::from(Abs::cm(2.0)),
+            Ratio::new(0.3) + Length::from(TexAbsLength::cm(2.0)),
             "30% + 56.69pt",
         );
-        test(Fr::one() * 7.55, "7.55fr");
+        test(TexFraction::one() * 7.55, "7.55fr");
 
         // Collections.
         test("hello", r#""hello""#);

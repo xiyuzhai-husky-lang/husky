@@ -5,14 +5,14 @@ use std::str::FromStr;
 use ecow::EcoString;
 
 use crate::diag::{bail, SourceResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, elem, scope, select_where, ElementSchemaRef, IsTexElem, Packed, Selector, Show, ShowSet,
-    Smart, StyleChain, Styles, Synthesize, TexContent,
+    cast, elem, scope, select_where, ElementSchemaRef, IsTexElem, Selector, Show, ShowSet, Smart,
+    StyleChain, Styles, Synthesize, TexContent, TexContentRefined,
 };
 use crate::introspection::{Count, Counter, CounterKey, CounterUpdate, Locatable, Location};
 use crate::layout::{
-    BlockElem, HAlignment, Length, LengthInEm, PlaceElem, TexAlignment, VAlignment, VElem,
+    BlockElem, HAlignment, Length, PlaceElem, TexAlignment, TexEmLength, VAlignment, VElem,
 };
 use crate::model::{Numbering, NumberingPattern, Outlinable, Refable, Supplement};
 use crate::syntax::Spanned;
@@ -134,7 +134,7 @@ pub struct FigureElem {
     pub placement: Option<Smart<VAlignment>>,
 
     /// The figure's caption.
-    pub caption: Option<Packed<FigureCaption>>,
+    pub caption: Option<TexContentRefined<FigureCaption>>,
 
     /// The kind of figure this is.
     ///
@@ -196,7 +196,7 @@ pub struct FigureElem {
     pub numbering: Option<Numbering>,
 
     /// The vertical gap between the body and caption.
-    #[default(LengthInEm::new(0.65).into())]
+    #[default(TexEmLength::new(0.65).into())]
     pub gap: Length,
 
     /// Whether the figure should appear in an [`outline`]($outline) of figures.
@@ -222,8 +222,8 @@ impl FigureElem {
     type FigureCaption;
 }
 
-impl Synthesize for Packed<FigureElem> {
-    fn synthesize(&mut self, engine: &mut Engine, styles: StyleChain) -> SourceResult<()> {
+impl Synthesize for TexContentRefined<FigureElem> {
+    fn synthesize(&mut self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<()> {
         let span = self.span();
         let location = self.location();
         let elem = self.as_mut();
@@ -295,9 +295,9 @@ impl Synthesize for Packed<FigureElem> {
     }
 }
 
-impl Show for Packed<FigureElem> {
+impl Show for TexContentRefined<FigureElem> {
     #[husky_tex_macros::time(name = "figure", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, _: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         let mut realized = self.body().clone();
 
         // Build the caption, if any.
@@ -330,7 +330,7 @@ impl Show for Packed<FigureElem> {
     }
 }
 
-impl ShowSet for Packed<FigureElem> {
+impl ShowSet for TexContentRefined<FigureElem> {
     fn show_set(&self, _: StyleChain) -> Styles {
         // Still allows breakable figures with
         // `show figure: set block(breakable: true)`.
@@ -338,7 +338,7 @@ impl ShowSet for Packed<FigureElem> {
     }
 }
 
-impl Count for Packed<FigureElem> {
+impl Count for TexContentRefined<FigureElem> {
     fn update(&self) -> Option<CounterUpdate> {
         // If the figure is numbered, step the counter by one.
         // This steps the `counter(figure)` which is global to all numbered figures.
@@ -348,7 +348,7 @@ impl Count for Packed<FigureElem> {
     }
 }
 
-impl Refable for Packed<FigureElem> {
+impl Refable for TexContentRefined<FigureElem> {
     fn supplement(&self) -> TexContent {
         // After synthesis, this should always be custom content.
         match (**self).supplement(StyleChain::default()).as_ref() {
@@ -370,8 +370,8 @@ impl Refable for Packed<FigureElem> {
     }
 }
 
-impl Outlinable for Packed<FigureElem> {
-    fn outline(&self, engine: &mut Engine) -> SourceResult<Option<TexContent>> {
+impl Outlinable for TexContentRefined<FigureElem> {
+    fn outline(&self, engine: &mut TexEngine) -> SourceResult<Option<TexContent>> {
         if !self.outlined(StyleChain::default()) {
             return Ok(None);
         }
@@ -541,9 +541,9 @@ impl FigureCaption {
     }
 }
 
-impl Show for Packed<FigureCaption> {
+impl Show for TexContentRefined<FigureCaption> {
     #[husky_tex_macros::time(name = "figure.caption", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         let mut realized = self.body().clone();
 
         if let (

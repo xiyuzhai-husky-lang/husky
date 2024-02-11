@@ -5,7 +5,7 @@ use std::ops::{Add, Div, Mul, Neg};
 use ecow::EcoString;
 
 use crate::foundations::{repr, ty, Repr};
-use crate::layout::Abs;
+use crate::layout::TexAbsLength;
 use crate::util::{Numeric, Scalar};
 
 /// Defines how the the remaining space in a layout is distributed.
@@ -22,9 +22,9 @@ use crate::util::{Numeric, Scalar};
 /// ```
 #[ty(cast, name = "fraction")]
 #[derive(Default, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
-pub struct Fr(Scalar);
+pub struct TexFraction(Scalar);
 
-impl Fr {
+impl TexFraction {
     /// Takes up zero space: `0fr`.
     pub const fn zero() -> Self {
         Self(Scalar::ZERO)
@@ -51,17 +51,17 @@ impl Fr {
     }
 
     /// Determine this fraction's share in the remaining space.
-    pub fn share(self, total: Self, remaining: Abs) -> Abs {
+    pub fn share(self, total: Self, remaining: TexAbsLength) -> TexAbsLength {
         let ratio = self / total;
         if ratio.is_finite() && remaining.is_finite() {
-            (ratio * remaining).max(Abs::zero())
+            (ratio * remaining).max(TexAbsLength::zero())
         } else {
-            Abs::zero()
+            TexAbsLength::zero()
         }
     }
 }
 
-impl Numeric for Fr {
+impl Numeric for TexFraction {
     fn zero() -> Self {
         Self::zero()
     }
@@ -71,19 +71,19 @@ impl Numeric for Fr {
     }
 }
 
-impl Debug for Fr {
+impl Debug for TexFraction {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         write!(f, "{:?}fr", self.get())
     }
 }
 
-impl Repr for Fr {
+impl Repr for TexFraction {
     fn repr(&self) -> EcoString {
         repr::format_float_with_unit(self.get(), "fr")
     }
 }
 
-impl Neg for Fr {
+impl Neg for TexFraction {
     type Output = Self;
 
     fn neg(self) -> Self {
@@ -91,7 +91,7 @@ impl Neg for Fr {
     }
 }
 
-impl Add for Fr {
+impl Add for TexFraction {
     type Output = Self;
 
     fn add(self, other: Self) -> Self {
@@ -99,9 +99,9 @@ impl Add for Fr {
     }
 }
 
-sub_impl!(Fr - Fr -> Fr);
+sub_impl!(TexFraction - TexFraction -> TexFraction);
 
-impl Mul<f64> for Fr {
+impl Mul<f64> for TexFraction {
     type Output = Self;
 
     fn mul(self, other: f64) -> Self {
@@ -109,15 +109,15 @@ impl Mul<f64> for Fr {
     }
 }
 
-impl Mul<Fr> for f64 {
-    type Output = Fr;
+impl Mul<TexFraction> for f64 {
+    type Output = TexFraction;
 
-    fn mul(self, other: Fr) -> Fr {
+    fn mul(self, other: TexFraction) -> TexFraction {
         other * self
     }
 }
 
-impl Div for Fr {
+impl Div for TexFraction {
     type Output = f64;
 
     fn div(self, other: Self) -> f64 {
@@ -125,7 +125,7 @@ impl Div for Fr {
     }
 }
 
-impl Div<f64> for Fr {
+impl Div<f64> for TexFraction {
     type Output = Self;
 
     fn div(self, other: f64) -> Self {
@@ -133,12 +133,12 @@ impl Div<f64> for Fr {
     }
 }
 
-assign_impl!(Fr += Fr);
-assign_impl!(Fr -= Fr);
-assign_impl!(Fr *= f64);
-assign_impl!(Fr /= f64);
+assign_impl!(TexFraction += TexFraction);
+assign_impl!(TexFraction -= TexFraction);
+assign_impl!(TexFraction *= f64);
+assign_impl!(TexFraction /= f64);
 
-impl Sum for Fr {
+impl Sum for TexFraction {
     fn sum<I: Iterator<Item = Self>>(iter: I) -> Self {
         Self(iter.map(|s| s.0).sum())
     }

@@ -10,7 +10,7 @@ use comemo::Tracked;
 use ecow::{eco_vec, EcoVec};
 
 use crate::syntax::{PackageSpec, Span, Spanned, SyntaxError};
-use crate::{World, WorldExt};
+use crate::{IsTexWorld, WorldExt};
 
 /// Early-return with a [`StrResult`] or [`SourceResult`].
 ///
@@ -234,13 +234,13 @@ impl Display for Tracepoint {
 /// Enrich a [`SourceResult`] with a tracepoint.
 pub trait Trace<T> {
     /// Add the tracepoint to all errors that lie outside the `span`.
-    fn trace<F>(self, world: Tracked<dyn World + '_>, make_point: F, span: Span) -> Self
+    fn trace<F>(self, world: Tracked<dyn IsTexWorld + '_>, make_point: F, span: Span) -> Self
     where
         F: Fn() -> Tracepoint;
 }
 
 impl<T> Trace<T> for SourceResult<T> {
-    fn trace<F>(self, world: Tracked<dyn World + '_>, make_point: F, span: Span) -> Self
+    fn trace<F>(self, world: Tracked<dyn IsTexWorld + '_>, make_point: F, span: Span) -> Self
     where
         F: Fn() -> Tracepoint,
     {

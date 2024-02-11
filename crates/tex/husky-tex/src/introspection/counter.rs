@@ -6,20 +6,20 @@ use ecow::{eco_format, eco_vec, EcoString, EcoVec};
 use smallvec::{smallvec, SmallVec};
 
 use crate::diag::{At, SourceResult, StrResult};
-use crate::engine::{Engine, Route};
+use crate::engine::{Route, TexEngine};
 use crate::eval::Tracer;
 use crate::foundations::{
     cast, elem, func, scope, select_where, ty, Array, ElementSchemaRef, Func, IntoTexValue,
-    IsTexElem, Label, LocatableSelector, Packed, Repr, Selector, Show, Str, StyleChain, TexContent,
-    TexValue,
+    IsTexElem, Label, LocatableSelector, Repr, Selector, Show, Str, StyleChain, TexContent,
+    TexContentRefined, TexValue,
 };
 use crate::introspection::{Introspector, Locatable, Location, Locator, Meta};
-use crate::layout::{Frame, FrameItem, PageElem};
-use crate::math::EquationElem;
+use crate::layout::{FrameItem, PageElem, TexFrame};
+use crate::math::EquationTexElem;
 use crate::model::{FigureElem, HeadingTexElem, Numbering, NumberingPattern};
 use crate::syntax::Span;
 use crate::util::NonZeroExt;
-use crate::World;
+use crate::IsTexWorld;
 
 /// Counts through pages, elements, and more.
 ///
@@ -224,7 +224,7 @@ impl Counter {
     }
 
     /// Gets the current and final value of the state combined in one state.
-    pub fn both(&self, engine: &mut Engine, location: Location) -> SourceResult<CounterState> {
+    pub fn both(&self, engine: &mut TexEngine, location: Location) -> SourceResult<CounterState> {
         let sequence = self.sequence(engine)?;
         let offset = engine
             .introspector
@@ -256,7 +256,10 @@ impl Counter {
     ///
     /// This has to happen just once for all counters, cutting down the number
     /// of counter updates from quadratic to linear.
-    fn sequence(&self, engine: &mut Engine) -> SourceResult<EcoVec<(CounterState, NonZeroUsize)>> {
+    fn sequence(
+        &self,
+        engine: &mut TexEngine,
+    ) -> SourceResult<EcoVec<(CounterState, NonZeroUsize)>> {
         self.sequence_impl(
             engine.world,
             engine.introspector,
@@ -270,14 +273,14 @@ impl Counter {
     #[comemo::memoize]
     fn sequence_impl(
         &self,
-        world: Tracked<dyn World + '_>,
+        world: Tracked<dyn IsTexWorld + '_>,
         introspector: Tracked<Introspector>,
         route: Tracked<Route>,
         locator: Tracked<Locator>,
         tracer: TrackedMut<Tracer>,
     ) -> SourceResult<EcoVec<(CounterState, NonZeroUsize)>> {
         let mut locator = Locator::chained(locator);
-        let mut engine = Engine {
+        let mut engine = TexEngine {
             world,
             introspector,
             route: Route::extend(route).unnested(),
@@ -422,7 +425,7 @@ impl Counter {
     pub fn at(
         &self,
         /// The engine.
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// The location at which the counter value should be retrieved. A
         /// suitable location can be retrieved from [`locate`]($locate) or
         /// [`query`]($query).
@@ -452,7 +455,7 @@ impl Counter {
     pub fn final_(
         &self,
         /// The engine.
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// Can be an arbitrary location, as its value is irrelevant for the
         /// method's return value. Why is it required then? Tex has to
         /// evaluate parts of your code multiple times to determine all counter
@@ -566,7 +569,7 @@ impl CounterState {
     }
 
     /// Advance the counter and return the numbers for the given heading.
-    pub fn update(&mut self, engine: &mut Engine, update: CounterUpdate) -> SourceResult<()> {
+    pub fn update(&mut self, engine: &mut TexEngine, update: CounterUpdate) -> SourceResult<()> {
         match update {
             CounterUpdate::Set(state) => *self = state,
             CounterUpdate::Step(level) => self.step(level, 1),
@@ -600,7 +603,11 @@ impl CounterState {
     }
 
     /// Display the counter state with a numbering.
-    pub fn display(&self, engine: &mut Engine, numbering: &Numbering) -> SourceResult<TexContent> {
+    pub fn display(
+        &self,
+        engine: &mut TexEngine,
+        numbering: &Numbering,
+    ) -> SourceResult<TexContent> {
         Ok(numbering.apply(engine, &self.0)?.display())
     }
 }
@@ -631,9 +638,9 @@ struct DisplayElem {
     both: bool,
 }
 
-impl Show for Packed<DisplayElem> {
+impl Show for TexContentRefined<DisplayElem> {
     #[husky_tex_macros::time(name = "counter.display", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         let location = self.location().unwrap();
         let counter = self.counter();
         let numbering = self
@@ -648,8 +655,8 @@ impl Show for Packed<DisplayElem> {
                     HeadingTexElem::numbering_in(styles).clone()
                 } else if func == FigureElem::elem() {
                     FigureElem::numbering_in(styles).clone()
-                } else if func == EquationElem::elem() {
-                    EquationElem::numbering_in(styles).clone()
+                } else if func == EquationTexElem::elem() {
+                    EquationTexElem::numbering_in(styles).clone()
                 } else {
                     None
                 }
@@ -678,13 +685,13 @@ struct UpdateElem {
     update: CounterUpdate,
 }
 
-impl Show for Packed<UpdateElem> {
-    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<TexContent> {
+impl Show for TexContentRefined<UpdateElem> {
+    fn show(&self, _: &mut TexEngine, _: StyleChain) -> SourceResult<TexContent> {
         Ok(TexContent::empty())
     }
 }
 
-impl Count for Packed<UpdateElem> {
+impl Count for TexContentRefined<UpdateElem> {
     fn update(&self) -> Option<CounterUpdate> {
         Some(self.update.clone())
     }
@@ -718,7 +725,7 @@ impl ManualPageCounter {
     }
 
     /// Advance past a page.
-    pub fn visit(&mut self, engine: &mut Engine, page: &Frame) -> SourceResult<()> {
+    pub fn visit(&mut self, engine: &mut TexEngine, page: &TexFrame) -> SourceResult<()> {
         for (_, item) in page.items() {
             match item {
                 FrameItem::Group(group) => self.visit(engine, &group.frame)?,

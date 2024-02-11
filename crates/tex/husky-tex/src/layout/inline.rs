@@ -10,37 +10,38 @@ use self::shaping::{
     is_gb_style, is_of_cj_script, shape, ShapedGlyph, ShapedText, BEGIN_PUNCT_PAT, END_PUNCT_PAT,
 };
 use crate::diag::{bail, SourceResult};
-use crate::engine::{Engine, Route};
+use crate::engine::{Route, TexEngine};
 use crate::eval::Tracer;
-use crate::foundations::{Packed, Resolve, Smart, StyleChain, TexContent};
-use crate::introspection::{Introspector, Locator, MetaElem};
+use crate::foundations::{Resolve, Smart, StyleChain, TexContent, TexContentRefined};
+use crate::introspection::{Introspector, Locator, MetaTexElem};
 use crate::layout::{
-    Abs, AlignElem, Axes, BoxElem, FixedAlignment, Fr, Fragment, Frame, HElem, LengthInEm, Point,
-    Regions, Size, Spacing, TexLayoutDirection, TexSizing,
+    AlignElem, Axes, BoxTexElem, FixedAlignment, HElem, Point, Regions, Size, Spacing,
+    TexAbsLength, TexEmLength, TexFraction, TexFrame, TexLayoutDirection, TexLayoutFragment,
+    TexSizing,
 };
-use crate::math::{EquationElem, MathParItem};
+use crate::math::{EquationTexElem, MathParItem};
 use crate::model::{Linebreaks, ParagraphTexElem};
 use crate::syntax::Span;
 use crate::text::{
     Lang, LinebreakElem, SmartQuoteElem, SmartQuoter, SmartQuotes, SpaceElem, TextElem,
 };
 use crate::util::Numeric;
-use crate::World;
+use crate::IsTexWorld;
 
 /// Layouts content inline.
 pub(crate) fn layout_inline(
     children: &[Prehashed<TexContent>],
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     styles: StyleChain,
     consecutive: bool,
     region: Size,
     expand: bool,
-) -> SourceResult<Fragment> {
+) -> SourceResult<TexLayoutFragment> {
     #[comemo::memoize]
     #[allow(clippy::too_many_arguments)]
     fn cached(
         children: &[Prehashed<TexContent>],
-        world: Tracked<dyn World + '_>,
+        world: Tracked<dyn IsTexWorld + '_>,
         introspector: Tracked<Introspector>,
         route: Tracked<Route>,
         locator: Tracked<Locator>,
@@ -49,9 +50,9 @@ pub(crate) fn layout_inline(
         consecutive: bool,
         region: Size,
         expand: bool,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         let mut locator = Locator::chained(locator);
-        let mut engine = Engine {
+        let mut engine = TexEngine {
             world,
             introspector,
             route: Route::extend(route),
@@ -129,17 +130,17 @@ struct Preparation<'a> {
     /// Whether to justify the paragraph.
     justify: bool,
     /// The paragraph's hanging indent.
-    hang: Abs,
+    hang: TexAbsLength,
     /// Whether to add spacing between CJK and Latin characters.
     cjk_latin_spacing: bool,
     /// Whether font fallback is enabled for this paragraph.
     fallback: bool,
     /// The leading of the paragraph.
-    leading: Abs,
+    leading: TexAbsLength,
     /// How to determine line breaks.
     linebreaks: Smart<Linebreaks>,
     /// The text size.
-    size: Abs,
+    size: TexAbsLength,
 }
 
 impl<'a> Preparation<'a> {
@@ -195,9 +196,9 @@ enum Segment<'a> {
     /// Horizontal spacing between other segments.
     Spacing(Spacing),
     /// A mathematical equation.
-    Equation(&'a Packed<EquationElem>, Vec<MathParItem>),
+    Equation(&'a TexContentRefined<EquationTexElem>, Vec<MathParItem>),
     /// A box with arbitrary content.
-    Box(&'a Packed<BoxElem>, bool),
+    Box(&'a TexContentRefined<BoxTexElem>, bool),
     /// Metadata.
     Meta,
 }
@@ -225,13 +226,16 @@ enum Item<'a> {
     /// A shaped text run with consistent style and direction.
     Text(ShapedText<'a>),
     /// Absolute spacing between other items.
-    Absolute(Abs),
+    Absolute(TexAbsLength),
     /// Fractional spacing between other items.
-    Fractional(Fr, Option<(&'a Packed<BoxElem>, StyleChain<'a>)>),
+    Fractional(
+        TexFraction,
+        Option<(&'a TexContentRefined<BoxTexElem>, StyleChain<'a>)>,
+    ),
     /// Layouted inline-level content.
-    Frame(Frame),
+    Frame(TexFrame),
     /// Metadata.
-    Meta(Frame),
+    Meta(TexFrame),
 }
 
 impl<'a> Item<'a> {
@@ -262,12 +266,12 @@ impl<'a> Item<'a> {
     }
 
     /// The natural layouted width of the item.
-    fn width(&self) -> Abs {
+    fn width(&self) -> TexAbsLength {
         match self {
             Self::Text(shaped) => shaped.width,
             Self::Absolute(v) => *v,
             Self::Frame(frame) => frame.width(),
-            Self::Fractional(_, _) | Self::Meta(_) => Abs::zero(),
+            Self::Fractional(_, _) | Self::Meta(_) => TexAbsLength::zero(),
         }
     }
 }
@@ -326,7 +330,7 @@ struct Line<'a> {
     /// there is only one text item, this takes precedence over `first`.
     last: Option<Item<'a>>,
     /// The width of the line.
-    width: Abs,
+    width: TexAbsLength,
     /// Whether the line should be justified.
     justify: bool,
     /// Whether the line ends with a hyphen or dash, either naturally or through
@@ -386,7 +390,7 @@ impl<'a> Line<'a> {
     }
 
     /// How much can the line stretch
-    fn stretchability(&self) -> Abs {
+    fn stretchability(&self) -> TexAbsLength {
         self.items()
             .filter_map(Item::text)
             .map(|s| s.stretchability())
@@ -394,7 +398,7 @@ impl<'a> Line<'a> {
     }
 
     /// How much can the line shrink
-    fn shrinkability(&self) -> Abs {
+    fn shrinkability(&self) -> TexAbsLength {
         self.items()
             .filter_map(Item::text)
             .map(|s| s.shrinkability())
@@ -402,7 +406,7 @@ impl<'a> Line<'a> {
     }
 
     /// The sum of fractions in the line.
-    fn fr(&self) -> Fr {
+    fn fr(&self) -> TexFraction {
         self.items()
             .filter_map(|item| match item {
                 Item::Fractional(fr, _) => Some(*fr),
@@ -417,7 +421,7 @@ impl<'a> Line<'a> {
 #[allow(clippy::type_complexity)]
 fn collect<'a>(
     children: &'a [Prehashed<TexContent>],
-    engine: &mut Engine<'_>,
+    engine: &mut TexEngine<'_>,
     styles: &'a StyleChain<'a>,
     region: Size,
     consecutive: bool,
@@ -511,7 +515,7 @@ fn collect<'a>(
                 full.push(if elem.double(styles) { '"' } else { '\'' });
             }
             Segment::Text(full.len() - prev)
-        } else if let Some(elem) = child.to_packed::<EquationElem>() {
+        } else if let Some(elem) = child.to_packed::<EquationTexElem>() {
             let pod = Regions::one(region, Axes::splat(false));
             let mut items = elem.layout_inline(engine, styles, pod)?;
             for item in &mut items {
@@ -522,11 +526,11 @@ fn collect<'a>(
             }
             full.extend(items.iter().map(MathParItem::text));
             Segment::Equation(elem, items)
-        } else if let Some(elem) = child.to_packed::<BoxElem>() {
+        } else if let Some(elem) = child.to_packed::<BoxTexElem>() {
             let frac = elem.width(styles).is_fractional();
             full.push(if frac { SPACING_REPLACE } else { OBJ_REPLACE });
             Segment::Box(elem, frac)
-        } else if child.is::<MetaElem>() {
+        } else if child.is::<MetaTexElem>() {
             Segment::Meta
         } else {
             bail!(child.span(), "unexpected paragraph child");
@@ -555,7 +559,7 @@ fn collect<'a>(
 
 /// Prepare paragraph layout by shaping the whole paragraph.
 fn prepare<'a>(
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     children: &'a [Prehashed<TexContent>],
     text: &'a str,
     segments: Vec<(Segment<'a>, StyleChain<'a>)>,
@@ -615,7 +619,7 @@ fn prepare<'a>(
                 }
             }
             Segment::Meta => {
-                let mut frame = Frame::soft(Size::zero());
+                let mut frame = TexFrame::soft(Size::zero());
                 frame.meta(styles, true);
                 items.push(Item::Meta(frame));
             }
@@ -677,17 +681,17 @@ fn add_cjk_latin_spacing(items: &mut [Item]) {
             // Case 1: CJ followed by a Latin character
             if glyph.is_cj_script() && next.map_or(false, |g| g.is_letter_or_number()) {
                 // The spacing is default to 1/4 em, and can be shrunk to 1/8 em.
-                glyph.x_advance += LengthInEm::new(0.25);
-                glyph.adjustability.shrinkability.1 += LengthInEm::new(0.125);
-                text.width += LengthInEm::new(0.25).at(text.size);
+                glyph.x_advance += TexEmLength::new(0.25);
+                glyph.adjustability.shrinkability.1 += TexEmLength::new(0.125);
+                text.width += TexEmLength::new(0.25).at(text.size);
             }
 
             // Case 2: Latin followed by a CJ character
             if glyph.is_cj_script() && prev.map_or(false, |g| g.is_letter_or_number()) {
-                glyph.x_advance += LengthInEm::new(0.25);
-                glyph.x_offset += LengthInEm::new(0.25);
-                glyph.adjustability.shrinkability.0 += LengthInEm::new(0.125);
-                text.width += LengthInEm::new(0.25).at(text.size);
+                glyph.x_advance += TexEmLength::new(0.25);
+                glyph.x_offset += TexEmLength::new(0.25);
+                glyph.adjustability.shrinkability.0 += TexEmLength::new(0.125);
+                text.width += TexEmLength::new(0.25).at(text.size);
             }
 
             prev = Some(glyph);
@@ -699,7 +703,7 @@ fn add_cjk_latin_spacing(items: &mut [Item]) {
 /// items for them.
 fn shape_range<'a>(
     items: &mut Vec<Item<'a>>,
-    engine: &Engine,
+    engine: &TexEngine,
     bidi: &BidiInfo<'a>,
     range: Range,
     spans: &SpanMapper,
@@ -789,7 +793,7 @@ fn shared_get<T: PartialEq>(
 }
 
 /// Find suitable linebreaks.
-fn linebreak<'a>(engine: &Engine, p: &'a Preparation<'a>, width: Abs) -> Vec<Line<'a>> {
+fn linebreak<'a>(engine: &TexEngine, p: &'a Preparation<'a>, width: TexAbsLength) -> Vec<Line<'a>> {
     let linebreaks = p.linebreaks.unwrap_or_else(|| {
         if p.justify {
             Linebreaks::Optimized
@@ -807,7 +811,11 @@ fn linebreak<'a>(engine: &Engine, p: &'a Preparation<'a>, width: Abs) -> Vec<Lin
 /// Perform line breaking in simple first-fit style. This means that we build
 /// lines greedily, always taking the longest possible line. This may lead to
 /// very unbalanced line, but is fast and simple.
-fn linebreak_simple<'a>(engine: &Engine, p: &'a Preparation<'a>, width: Abs) -> Vec<Line<'a>> {
+fn linebreak_simple<'a>(
+    engine: &TexEngine,
+    p: &'a Preparation<'a>,
+    width: TexAbsLength,
+) -> Vec<Line<'a>> {
     let mut lines = Vec::with_capacity(16);
     let mut start = 0;
     let mut last = None;
@@ -863,7 +871,11 @@ fn linebreak_simple<'a>(engine: &Engine, p: &'a Preparation<'a>, width: Abs) -> 
 /// computed and stored in dynamic programming table) is minimal. The final
 /// result is simply the layout determined for the last breakpoint at the end of
 /// text.
-fn linebreak_optimized<'a>(engine: &Engine, p: &'a Preparation<'a>, width: Abs) -> Vec<Line<'a>> {
+fn linebreak_optimized<'a>(
+    engine: &TexEngine,
+    p: &'a Preparation<'a>,
+    width: TexAbsLength,
+) -> Vec<Line<'a>> {
     /// The cost of a line or paragraph layout.
     type Cost = f64;
 
@@ -907,7 +919,7 @@ fn linebreak_optimized<'a>(engine: &Engine, p: &'a Preparation<'a>, width: Abs) 
             // to make it the desired width.
             let delta = width - attempt.width;
             // Determine how much stretch are permitted.
-            let adjust = if delta >= Abs::zero() {
+            let adjust = if delta >= TexAbsLength::zero() {
                 attempt.stretchability()
             } else {
                 attempt.shrinkability()
@@ -1013,7 +1025,7 @@ fn linebreak_optimized<'a>(engine: &Engine, p: &'a Preparation<'a>, width: Abs) 
 
 /// Create a line which spans the given range.
 fn line<'a>(
-    engine: &Engine,
+    engine: &TexEngine,
     p: &'a Preparation,
     mut range: Range,
     breakpoint: Breakpoint,
@@ -1029,7 +1041,7 @@ fn line<'a>(
             first: None,
             inner: &[],
             last: None,
-            width: Abs::zero(),
+            width: TexAbsLength::zero(),
             justify,
             dash: false,
         };
@@ -1037,7 +1049,7 @@ fn line<'a>(
 
     // Slice out the relevant items.
     let (expanded, mut inner) = p.slice(range.clone());
-    let mut width = Abs::zero();
+    let mut width = TexAbsLength::zero();
 
     // Reshape the last item if it's split in half or hyphenated.
     let mut last = None;
@@ -1091,15 +1103,15 @@ fn line<'a>(
                         reshaped.width -= shrink_amount.at(reshaped.size);
                     } else if p.cjk_latin_spacing
                         && last_glyph.is_cj_script()
-                        && (last_glyph.x_advance - last_glyph.x_offset) > LengthInEm::one()
+                        && (last_glyph.x_advance - last_glyph.x_offset) > TexEmLength::one()
                     {
                         // If the last glyph is a CJK character adjusted by [`add_cjk_latin_spacing`],
                         // restore the original width.
                         let shrink_amount =
-                            last_glyph.x_advance - last_glyph.x_offset - LengthInEm::one();
+                            last_glyph.x_advance - last_glyph.x_offset - TexEmLength::one();
                         let glyph = reshaped.glyphs.to_mut().last_mut().unwrap();
                         glyph.x_advance -= shrink_amount;
-                        glyph.adjustability.shrinkability.1 = LengthInEm::zero();
+                        glyph.adjustability.shrinkability.1 = TexEmLength::zero();
                         reshaped.width -= shrink_amount.at(reshaped.size);
                     }
                 }
@@ -1151,15 +1163,15 @@ fn line<'a>(
                     width -= amount_abs;
                 } else if p.cjk_latin_spacing
                     && first_glyph.is_cj_script()
-                    && first_glyph.x_offset > LengthInEm::zero()
+                    && first_glyph.x_offset > TexEmLength::zero()
                 {
                     // If the first glyph is a CJK character adjusted by [`add_cjk_latin_spacing`],
                     // restore the original width.
                     let shrink_amount = first_glyph.x_offset;
                     let glyph = reshaped.glyphs.to_mut().first_mut().unwrap();
                     glyph.x_advance -= shrink_amount;
-                    glyph.x_offset = LengthInEm::zero();
-                    glyph.adjustability.shrinkability.0 = LengthInEm::zero();
+                    glyph.x_offset = TexEmLength::zero();
+                    glyph.adjustability.shrinkability.0 = TexEmLength::zero();
                     let amount_abs = shrink_amount.at(reshaped.size);
                     reshaped.width -= amount_abs;
                     width -= amount_abs;
@@ -1188,12 +1200,12 @@ fn line<'a>(
 
 /// Combine layouted lines into one frame per region.
 fn finalize(
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     p: &Preparation,
     lines: &[Line],
     region: Size,
     expand: bool,
-) -> SourceResult<Fragment> {
+) -> SourceResult<TexLayoutFragment> {
     // Determine the paragraph's width: Full width of the region if we
     // should expand or there's fractional spacing, fit-to-width otherwise.
     let width =
@@ -1211,7 +1223,7 @@ fn finalize(
         };
 
     // Stack the lines into one frame per region.
-    let mut frames: Vec<Frame> = lines
+    let mut frames: Vec<TexFrame> = lines
         .iter()
         .map(|line| commit(engine, p, line, width, region.y))
         .collect::<SourceResult<_>>()?;
@@ -1231,11 +1243,11 @@ fn finalize(
         merge(first, second, p.leading);
     }
 
-    Ok(Fragment::frames(frames))
+    Ok(TexLayoutFragment::frames(frames))
 }
 
 /// Merge two line frames
-fn merge(first: &mut Frame, second: Frame, leading: Abs) {
+fn merge(first: &mut TexFrame, second: TexFrame, leading: TexAbsLength) {
     let offset = first.height() + leading;
     let total = offset + second.height();
     first.push_frame(Point::with_y(offset), second);
@@ -1244,14 +1256,14 @@ fn merge(first: &mut Frame, second: Frame, leading: Abs) {
 
 /// Commit to a line and build its frame.
 fn commit(
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     p: &Preparation,
     line: &Line,
-    width: Abs,
-    full: Abs,
-) -> SourceResult<Frame> {
+    width: TexAbsLength,
+    full: TexAbsLength,
+) -> SourceResult<TexFrame> {
     let mut remaining = width - line.width - p.hang;
-    let mut offset = Abs::zero();
+    let mut offset = TexAbsLength::zero();
 
     // Reorder the line from logical to visual order.
     let (reordered, starts_rtl) = reorder(line);
@@ -1293,36 +1305,36 @@ fn commit(
     // Character Space Expansion in W3C document Chinese Layout Requirements.
     let fr = line.fr();
     let mut justification_ratio = 0.0;
-    let mut extra_justification = Abs::zero();
+    let mut extra_justification = TexAbsLength::zero();
 
     let shrink = line.shrinkability();
     let stretch = line.stretchability();
-    if remaining < Abs::zero() && shrink > Abs::zero() {
+    if remaining < TexAbsLength::zero() && shrink > TexAbsLength::zero() {
         // Attempt to reduce the length of the line, using shrinkability.
         justification_ratio = (remaining / shrink).max(-1.0);
-        remaining = (remaining + shrink).min(Abs::zero());
+        remaining = (remaining + shrink).min(TexAbsLength::zero());
     } else if line.justify && fr.is_zero() {
         // Attempt to increase the length of the line, using stretchability.
-        if stretch > Abs::zero() {
+        if stretch > TexAbsLength::zero() {
             justification_ratio = (remaining / stretch).min(1.0);
-            remaining = (remaining - stretch).max(Abs::zero());
+            remaining = (remaining - stretch).max(TexAbsLength::zero());
         }
 
         let justifiables = line.justifiables();
-        if justifiables > 0 && remaining > Abs::zero() {
+        if justifiables > 0 && remaining > TexAbsLength::zero() {
             // Underfull line, distribute the extra space.
             extra_justification = remaining / justifiables as f64;
-            remaining = Abs::zero();
+            remaining = TexAbsLength::zero();
         }
     }
 
-    let mut top = Abs::zero();
-    let mut bottom = Abs::zero();
+    let mut top = TexAbsLength::zero();
+    let mut bottom = TexAbsLength::zero();
 
     // Build the frames and determine the height and baseline.
     let mut frames = vec![];
     for item in reordered {
-        let mut push = |offset: &mut Abs, frame: Frame| {
+        let mut push = |offset: &mut TexAbsLength, frame: TexFrame| {
             let width = frame.width();
             top.set_max(frame.baseline());
             bottom.set_max(frame.size().y - frame.baseline());
@@ -1360,11 +1372,11 @@ fn commit(
 
     // Remaining space is distributed now.
     if !fr.is_zero() {
-        remaining = Abs::zero();
+        remaining = TexAbsLength::zero();
     }
 
     let size = Size::new(width, top + bottom);
-    let mut output = Frame::soft(size);
+    let mut output = TexFrame::soft(size);
     output.set_baseline(top);
 
     // Construct the line's frame.

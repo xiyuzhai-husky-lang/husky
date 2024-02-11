@@ -1,7 +1,9 @@
 use std::borrow::Cow;
 
-use crate::foundations::{cast, elem, Behave, Behaviour, Packed, Resolve, StyleChain, TexContent};
-use crate::layout::{Abs, Fr, Length, LengthInEm, Ratio, Rel};
+use crate::foundations::{
+    cast, elem, Behave, Behaviour, Resolve, StyleChain, TexContent, TexContentRefined,
+};
+use crate::layout::{Length, Ratio, Rel, TexAbsLength, TexEmLength, TexFraction};
 use crate::util::Numeric;
 
 /// Inserts horizontal spacing into a paragraph.
@@ -58,11 +60,11 @@ pub struct HElem {
 impl HElem {
     /// Zero-width horizontal weak spacing that eats surrounding spaces.
     pub fn hole() -> Self {
-        Self::new(Abs::zero().into()).with_weak(true)
+        Self::new(TexAbsLength::zero().into()).with_weak(true)
     }
 }
 
-impl Behave for Packed<HElem> {
+impl Behave for TexContentRefined<HElem> {
     fn behaviour(&self) -> Behaviour {
         if self.amount().is_fractional() {
             Behaviour::Destructive
@@ -162,7 +164,7 @@ impl VElem {
     }
 }
 
-impl Behave for Packed<VElem> {
+impl Behave for TexContentRefined<VElem> {
     fn behaviour(&self) -> Behaviour {
         if self.amount().is_fractional() {
             Behaviour::Destructive
@@ -199,7 +201,7 @@ pub enum Spacing {
     Rel(Rel<Length>),
     /// Spacing specified as a fraction of the remaining free space in the
     /// parent.
-    Fr(Fr),
+    Fr(TexFraction),
 }
 
 impl Spacing {
@@ -217,14 +219,14 @@ impl Spacing {
     }
 }
 
-impl From<Abs> for Spacing {
-    fn from(abs: Abs) -> Self {
+impl From<TexAbsLength> for Spacing {
+    fn from(abs: TexAbsLength) -> Self {
         Self::Rel(abs.into())
     }
 }
 
-impl From<LengthInEm> for Spacing {
-    fn from(em: LengthInEm) -> Self {
+impl From<TexEmLength> for Spacing {
+    fn from(em: TexEmLength) -> Self {
         Self::Rel(Rel::new(Ratio::zero(), em.into()))
     }
 }
@@ -235,8 +237,8 @@ impl From<Length> for Spacing {
     }
 }
 
-impl From<Fr> for Spacing {
-    fn from(fr: Fr) -> Self {
+impl From<TexFraction> for Spacing {
+    fn from(fr: TexFraction) -> Self {
         Self::Fr(fr)
     }
 }
@@ -256,5 +258,5 @@ cast! {
         Self::Fr(fr) => fr.into_value(),
     },
     v: Rel<Length> => Self::Rel(v),
-    v: Fr => Self::Fr(v),
+    v: TexFraction => Self::Fr(v),
 }

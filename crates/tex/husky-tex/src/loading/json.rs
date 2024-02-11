@@ -1,11 +1,11 @@
 use ecow::{eco_format, EcoString};
 
 use crate::diag::{At, SourceResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{func, scope, Str, TexValue};
 use crate::loading::Readable;
 use crate::syntax::Spanned;
-use crate::World;
+use crate::IsTexWorld;
 
 /// Reads structured data from a JSON file.
 ///
@@ -47,7 +47,7 @@ use crate::World;
 #[func(scope, title = "JSON")]
 pub fn json(
     /// The engine.
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     /// Path to a JSON file.
     path: Spanned<EcoString>,
 ) -> SourceResult<TexValue> {

@@ -1,7 +1,7 @@
 use crate::diag::{bail, At, SourceResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, elem, Cast, Label, Packed, Show, Smart, StyleChain, Synthesize, TexContent,
+    cast, elem, Cast, Label, Show, Smart, StyleChain, Synthesize, TexContent, TexContentRefined,
 };
 use crate::introspection::Locatable;
 use crate::model::bibliography::Works;
@@ -108,8 +108,8 @@ pub struct CiteTexElem {
     pub region: Option<Region>,
 }
 
-impl Synthesize for Packed<CiteTexElem> {
-    fn synthesize(&mut self, _: &mut Engine, styles: StyleChain) -> SourceResult<()> {
+impl Synthesize for TexContentRefined<CiteTexElem> {
+    fn synthesize(&mut self, _: &mut TexEngine, styles: StyleChain) -> SourceResult<()> {
         let elem = self.as_mut();
         elem.push_lang(TextElem::lang_in(styles));
         elem.push_region(TextElem::region_in(styles));
@@ -146,12 +146,12 @@ pub enum CitationForm {
 pub struct TexCiteGroup {
     /// The citations.
     #[required]
-    pub children: Vec<Packed<CiteTexElem>>,
+    pub children: Vec<TexContentRefined<CiteTexElem>>,
 }
 
-impl Show for Packed<TexCiteGroup> {
+impl Show for TexContentRefined<TexCiteGroup> {
     #[husky_tex_macros::time(name = "cite", span = self.span())]
-    fn show(&self, engine: &mut Engine, _: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, engine: &mut TexEngine, _: StyleChain) -> SourceResult<TexContent> {
         let location = self.location().unwrap();
         let span = self.span();
         Works::generate(engine.world, engine.introspector)

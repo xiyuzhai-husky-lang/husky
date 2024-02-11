@@ -2,13 +2,13 @@ use std::num::NonZeroUsize;
 use std::str::FromStr;
 
 use crate::diag::{bail, At, SourceResult, StrResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, elem, scope, IsTexElem, Label, Packed, Show, ShowSet, Smart, StyleChain, Styles,
-    TexContent,
+    cast, elem, scope, IsTexElem, Label, Show, ShowSet, Smart, StyleChain, Styles, TexContent,
+    TexContentRefined,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable, Location};
-use crate::layout::{Abs, HElem, Length, LengthInEm, Ratio};
+use crate::layout::{HElem, Length, Ratio, TexAbsLength, TexEmLength};
 use crate::model::{Numbering, NumberingPattern, ParagraphTexElem, TexDestination};
 use crate::text::{SuperElem, TextElem, TextSize};
 use crate::util::NonZeroExt;
@@ -107,9 +107,9 @@ impl FootnoteTexElem {
     }
 }
 
-impl Packed<FootnoteTexElem> {
+impl TexContentRefined<FootnoteTexElem> {
     /// Returns the location of the definition of this footnote.
-    pub fn declaration_location(&self, engine: &Engine) -> StrResult<Location> {
+    pub fn declaration_location(&self, engine: &TexEngine) -> StrResult<Location> {
         match self.body() {
             FootnoteBody::Reference(label) => {
                 let element = engine.introspector.query_label(*label)?;
@@ -123,9 +123,9 @@ impl Packed<FootnoteTexElem> {
     }
 }
 
-impl Show for Packed<FootnoteTexElem> {
+impl Show for TexContentRefined<FootnoteTexElem> {
     #[husky_tex_macros::time(name = "footnote", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         let loc = self.declaration_location(engine).at(self.span())?;
         let numbering = self.numbering(styles);
         let counter = Counter::of(FootnoteTexElem::elem());
@@ -137,7 +137,7 @@ impl Show for Packed<FootnoteTexElem> {
     }
 }
 
-impl Count for Packed<FootnoteTexElem> {
+impl Count for TexContentRefined<FootnoteTexElem> {
     fn update(&self) -> Option<CounterUpdate> {
         (!self.is_ref()).then(|| CounterUpdate::Step(NonZeroUsize::ONE))
     }
@@ -197,7 +197,7 @@ pub struct FootnoteEntry {
     /// listing #footnote[World! 🌏]
     /// ```
     #[required]
-    pub note: Packed<FootnoteTexElem>,
+    pub note: TexContentRefined<FootnoteTexElem>,
 
     /// The separator between the document body and the footnote listing.
     ///
@@ -216,7 +216,7 @@ pub struct FootnoteEntry {
         LineElem::new()
             .with_length(Ratio::new(0.3).into())
             .with_stroke(TexStroke {
-                thickness: Smart::Custom(Abs::pt(0.5).into()),
+                thickness: Smart::Custom(TexAbsLength::pt(0.5).into()),
                 ..Default::default()
             })
             .pack()
@@ -233,7 +233,7 @@ pub struct FootnoteEntry {
     ///   ... some space to breathe.
     /// ]
     /// ```
-    #[default(LengthInEm::new(1.0).into())]
+    #[default(TexEmLength::new(1.0).into())]
     #[resolve]
     pub clearance: Length,
 
@@ -246,7 +246,7 @@ pub struct FootnoteEntry {
     /// #footnote[Spaced],
     /// #footnote[Apart]
     /// ```
-    #[default(LengthInEm::new(0.5).into())]
+    #[default(TexEmLength::new(0.5).into())]
     #[resolve]
     pub gap: Length,
 
@@ -259,15 +259,15 @@ pub struct FootnoteEntry {
     /// #footnote[No],
     /// #footnote[Indent]
     /// ```
-    #[default(LengthInEm::new(1.0).into())]
+    #[default(TexEmLength::new(1.0).into())]
     pub indent: Length,
 }
 
-impl Show for Packed<FootnoteEntry> {
+impl Show for TexContentRefined<FootnoteEntry> {
     #[husky_tex_macros::time(name = "footnote.entry", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         let note = self.note();
-        let number_gap = LengthInEm::new(0.05);
+        let number_gap = TexEmLength::new(0.05);
         let default = StyleChain::default();
         let numbering = note.numbering(default);
         let counter = Counter::of(FootnoteTexElem::elem());
@@ -293,10 +293,10 @@ impl Show for Packed<FootnoteEntry> {
     }
 }
 
-impl ShowSet for Packed<FootnoteEntry> {
+impl ShowSet for TexContentRefined<FootnoteEntry> {
     fn show_set(&self, _: StyleChain) -> Styles {
-        let text_size = LengthInEm::new(0.85);
-        let leading = LengthInEm::new(0.5);
+        let text_size = TexEmLength::new(0.85);
+        let leading = TexEmLength::new(0.5);
         let mut out = Styles::new();
         out.set(ParagraphTexElem::set_leading(leading.into()));
         out.set(TextElem::set_size(TextSize(text_size.into())));

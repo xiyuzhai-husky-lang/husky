@@ -1,11 +1,11 @@
 use ecow::EcoString;
 
 use crate::diag::SourceResult;
-use crate::engine::Engine;
-use crate::foundations::{elem, Packed, Show, StyleChain, TexContent};
-use crate::layout::{Length, LengthInEm};
+use crate::engine::TexEngine;
+use crate::foundations::{elem, Show, StyleChain, TexContent, TexContentRefined};
+use crate::layout::{Length, TexEmLength};
 use crate::text::{variant, SpaceElem, TextElem, TextSize};
-use crate::World;
+use crate::IsTexWorld;
 
 /// Renders text in subscript.
 ///
@@ -33,13 +33,13 @@ pub struct SubElem {
     /// The baseline shift for synthetic subscripts. Does not apply if
     /// `typographic` is true and the font has subscript codepoints for the
     /// given `body`.
-    #[default(LengthInEm::new(0.2).into())]
+    #[default(TexEmLength::new(0.2).into())]
     pub baseline: Length,
 
     /// The font size for synthetic subscripts. Does not apply if
     /// `typographic` is true and the font has subscript codepoints for the
     /// given `body`.
-    #[default(TextSize(LengthInEm::new(0.6).into()))]
+    #[default(TextSize(TexEmLength::new(0.6).into()))]
     pub size: TextSize,
 
     /// The text to display in subscript.
@@ -47,9 +47,9 @@ pub struct SubElem {
     pub body: TexContent,
 }
 
-impl Show for Packed<SubElem> {
+impl Show for TexContentRefined<SubElem> {
     #[husky_tex_macros::time(name = "sub", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         let body = self.body().clone();
         let mut transformed = None;
         if self.typographic(styles) {
@@ -93,13 +93,13 @@ pub struct SuperElem {
     /// The baseline shift for synthetic superscripts. Does not apply if
     /// `typographic` is true and the font has superscript codepoints for the
     /// given `body`.
-    #[default(LengthInEm::new(-0.5).into())]
+    #[default(TexEmLength::new(-0.5).into())]
     pub baseline: Length,
 
     /// The font size for synthetic superscripts. Does not apply if
     /// `typographic` is true and the font has superscript codepoints for the
     /// given `body`.
-    #[default(TextSize(LengthInEm::new(0.6).into()))]
+    #[default(TextSize(TexEmLength::new(0.6).into()))]
     pub size: TextSize,
 
     /// The text to display in superscript.
@@ -107,9 +107,9 @@ pub struct SuperElem {
     pub body: TexContent,
 }
 
-impl Show for Packed<SuperElem> {
+impl Show for TexContentRefined<SuperElem> {
     #[husky_tex_macros::time(name = "super", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         let body = self.body().clone();
         let mut transformed = None;
         if self.typographic(styles) {
@@ -150,7 +150,7 @@ fn search_text(content: &TexContent, sub: bool) -> Option<EcoString> {
 
 /// Checks whether the first retrievable family contains all code points of the
 /// given string.
-fn is_shapable(engine: &Engine, text: &str, styles: StyleChain) -> bool {
+fn is_shapable(engine: &TexEngine, text: &str, styles: StyleChain) -> bool {
     let world = engine.world;
     for family in TextElem::font_in(styles) {
         if let Some(font) = world

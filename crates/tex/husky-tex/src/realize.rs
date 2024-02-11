@@ -12,17 +12,18 @@ use smallvec::smallvec;
 use typed_arena::Arena;
 
 use crate::diag::{bail, SourceResult};
-use crate::engine::{Engine, Route};
+use crate::engine::{Route, TexEngine};
 use crate::foundations::{
-    Behave, Behaviour, IsTexElem, Packed, Recipe, RecipeIndex, Regex, Selector, Show, ShowSet,
-    Style, StyleChain, StyleVec, StyleVecBuilder, Styles, Synthesize, TexContent, Transformation,
+    Behave, Behaviour, IsTexElem, Recipe, RecipeIndex, Regex, Selector, Show, ShowSet, Style,
+    StyleChain, StyleVec, StyleVecBuilder, Styles, Synthesize, TexContent, TexContentRefined,
+    Transformation,
 };
-use crate::introspection::{Locatable, Meta, MetaElem};
+use crate::introspection::{Locatable, Meta, MetaTexElem};
 use crate::layout::{
-    AlignElem, BlockElem, BoxElem, ColbreakElem, FlowElem, HElem, LayoutMultiple, LayoutSingle,
+    AlignElem, BlockElem, BoxTexElem, ColbreakElem, FlowElem, HElem, LayoutMultiple, LayoutSingle,
     PageElem, PagebreakElem, Parity, PlaceElem, VElem,
 };
-use crate::math::{EquationElem, LayoutMath};
+use crate::math::{EquationTexElem, TexLayoutMath};
 use crate::model::{
     CiteTexElem, DocumentElem, EnumElem, EnumItem, ListElem, ListItem, ParagraphTexElem,
     ParbreakElem, TermItem, TermsElem, TexCiteGroup,
@@ -34,18 +35,18 @@ use crate::util::{hash128, BitSet};
 /// Realize into an element that is capable of root-level layout.
 #[husky_tex_macros::time(name = "realize root")]
 pub fn realize_root<'a>(
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     scratch: &'a Scratch<'a>,
     content: &'a TexContent,
     styles: StyleChain<'a>,
-) -> SourceResult<(Packed<DocumentElem>, StyleChain<'a>)> {
+) -> SourceResult<(TexContentRefined<DocumentElem>, StyleChain<'a>)> {
     let mut builder = Builder::new(engine, scratch, true);
     builder.accept(content, styles)?;
     builder.interrupt_page(Some(styles), true)?;
     let (pages, shared) = builder.doc.unwrap().pages.finish();
     let span = first_span(&pages);
     Ok((
-        Packed::new(DocumentElem::new(pages.to_vec())).spanned(span),
+        TexContentRefined::new(DocumentElem::new(pages.to_vec())).spanned(span),
         shared,
     ))
 }
@@ -53,7 +54,7 @@ pub fn realize_root<'a>(
 /// Realize into an element that is capable of block-level layout.
 #[husky_tex_macros::time(name = "realize block")]
 pub fn realize_block<'a>(
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     scratch: &'a Scratch<'a>,
     content: &'a TexContent,
     styles: StyleChain<'a>,
@@ -78,7 +79,7 @@ pub fn realize_block<'a>(
 
 /// Apply the show rules in the given style chain to a target element.
 pub fn realize(
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     target: &TexContent,
     styles: StyleChain,
 ) -> SourceResult<Option<TexContent>> {
@@ -145,7 +146,7 @@ enum ShowStep<'a> {
 /// Inspects a target element and the current styles and determines how to
 /// proceed with the styling.
 fn verdict<'a>(
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     target: &'a TexContent,
     styles: StyleChain<'a>,
 ) -> Option<Verdict<'a>> {
@@ -247,11 +248,11 @@ fn verdict<'a>(
 
 /// This is only executed the first time an element is visited.
 fn prepare(
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     target: &mut TexContent,
     map: &mut Styles,
     styles: StyleChain,
-) -> SourceResult<Option<Packed<MetaElem>>> {
+) -> SourceResult<Option<TexContentRefined<MetaTexElem>>> {
     // Generate a location for the element, which uniquely identifies it in
     // the document. This has some overhead, so we only do it for elements
     // that are explicitly marked as locatable and labelled elements.
@@ -286,12 +287,14 @@ fn prepare(
     if target.location().is_some() {
         // Add a style to the whole element's subtree identifying it as
         // belonging to the element.
-        map.set(MetaElem::set_data(smallvec![Meta::Elem(target.clone())]));
+        map.set(MetaTexElem::set_data(smallvec![Meta::Elem(target.clone())]));
 
         // Return an extra meta elem that will be attached so that the metadata
         // styles are not lost in case the element's show rule results in
         // nothing.
-        return Ok(Some(Packed::new(MetaElem::new()).spanned(target.span())));
+        return Ok(Some(
+            TexContentRefined::new(MetaTexElem::new()).spanned(target.span()),
+        ));
     }
 
     Ok(None)
@@ -299,7 +302,7 @@ fn prepare(
 
 /// Apply a step.
 fn show(
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     target: TexContent,
     step: ShowStep,
     styles: StyleChain,
@@ -326,8 +329,8 @@ fn show(
 
 /// Apply a regex show rule recipe to a target.
 fn show_regex(
-    engine: &mut Engine,
-    elem: &Packed<TextElem>,
+    engine: &mut TexEngine,
+    elem: &TexContentRefined<TextElem>,
     regex: &Regex,
     recipe: &Recipe,
     index: RecipeIndex,
@@ -376,7 +379,7 @@ fn show_regex(
 /// Builds a document or a flow element from content.
 struct Builder<'a, 'v, 't> {
     /// The engine.
-    engine: &'v mut Engine<'t>,
+    engine: &'v mut TexEngine<'t>,
     /// Scratch arenas for building.
     scratch: &'a Scratch<'a>,
     /// The current document building state.
@@ -401,7 +404,7 @@ pub struct Scratch<'a> {
 }
 
 impl<'a, 'v, 't> Builder<'a, 'v, 't> {
-    fn new(engine: &'v mut Engine<'t>, scratch: &'a Scratch<'a>, top: bool) -> Self {
+    fn new(engine: &'v mut TexEngine<'t>, scratch: &'a Scratch<'a>, top: bool) -> Self {
         Self {
             engine,
             scratch,
@@ -414,9 +417,9 @@ impl<'a, 'v, 't> Builder<'a, 'v, 't> {
     }
 
     fn accept(&mut self, mut content: &'a TexContent, styles: StyleChain<'a>) -> SourceResult<()> {
-        if content.can::<dyn LayoutMath>() && !content.is::<EquationElem>() {
+        if content.can::<dyn TexLayoutMath>() && !content.is::<EquationTexElem>() {
             content = self.scratch.content.alloc(
-                EquationElem::new(content.clone())
+                EquationTexElem::new(content.clone())
                     .pack()
                     .spanned(content.span()),
             );
@@ -675,7 +678,7 @@ impl<'a> FlowBuilder<'a> {
 
         if content.is::<VElem>()
             || content.is::<ColbreakElem>()
-            || content.is::<MetaElem>()
+            || content.is::<MetaTexElem>()
             || content.is::<PlaceElem>()
         {
             self.0.push(Cow::Borrowed(content), styles);
@@ -724,7 +727,7 @@ struct ParBuilder<'a>(BehavedBuilder<'a>);
 
 impl<'a> ParBuilder<'a> {
     fn accept(&mut self, content: &'a TexContent, styles: StyleChain<'a>) -> bool {
-        if content.is::<MetaElem>() {
+        if content.is::<MetaTexElem>() {
             if self.0.has_strong_elements(false) {
                 self.0.push(Cow::Borrowed(content), styles);
                 return true;
@@ -735,9 +738,9 @@ impl<'a> ParBuilder<'a> {
             || content.is::<LinebreakElem>()
             || content.is::<SmartQuoteElem>()
             || content
-                .to_packed::<EquationElem>()
+                .to_packed::<EquationTexElem>()
                 .map_or(false, |elem| !elem.block(styles))
-            || content.is::<BoxElem>()
+            || content.is::<BoxTexElem>()
         {
             self.0.push(Cow::Borrowed(content), styles);
             return true;
@@ -864,14 +867,14 @@ struct CiteGroupBuilder<'a> {
     /// The styles.
     styles: StyleChain<'a>,
     /// The citations.
-    items: Vec<Packed<CiteTexElem>>,
+    items: Vec<TexContentRefined<CiteTexElem>>,
     /// Trailing content for which it is unclear whether it is part of the list.
     staged: Vec<(&'a TexContent, StyleChain<'a>)>,
 }
 
 impl<'a> CiteGroupBuilder<'a> {
     fn accept(&mut self, content: &'a TexContent, styles: StyleChain<'a>) -> bool {
-        if !self.items.is_empty() && (content.is::<SpaceElem>() || content.is::<MetaElem>()) {
+        if !self.items.is_empty() && (content.is::<SpaceElem>() || content.is::<MetaTexElem>()) {
             self.staged.push((content, styles));
             return true;
         }

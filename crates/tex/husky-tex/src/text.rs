@@ -36,14 +36,14 @@ use smallvec::SmallVec;
 use ttf_parser::Rect;
 
 use crate::diag::{bail, SourceResult, StrResult};
-use crate::engine::Engine;
-use crate::foundations::Packed;
+use crate::engine::TexEngine;
+use crate::foundations::TexContentRefined;
 use crate::foundations::{
     cast, category, elem, Args, Array, Cast, Category, Construct, Fold, IsTexElem, Never,
     PlainText, Repr, Resolve, Scope, Set, Smart, StyleChain, TexContent, TexDict,
 };
-use crate::layout::LengthInEm;
-use crate::layout::{Abs, Axis, Length, Rel, TexLayoutDirection};
+use crate::layout::TexEmLength;
+use crate::layout::{Axis, Length, Rel, TexAbsLength, TexLayoutDirection};
 use crate::model::ParagraphTexElem;
 use crate::syntax::Spanned;
 use crate::visualize::{RelativeTo, TexColor, TexPaint, TexStroke};
@@ -216,7 +216,7 @@ pub struct TextElem {
     /// ```
     #[parse(args.named_or_find("size")?)]
     #[fold]
-    #[default(TextSize(Abs::pt(11.0).into()))]
+    #[default(TextSize(TexAbsLength::pt(11.0).into()))]
     #[resolve]
     #[ghost]
     pub size: TextSize,
@@ -673,7 +673,7 @@ impl Repr for TextElem {
 }
 
 impl Construct for TextElem {
-    fn construct(engine: &mut Engine, args: &mut Args) -> SourceResult<TexContent> {
+    fn construct(engine: &mut TexEngine, args: &mut Args) -> SourceResult<TexContent> {
         // The text constructor is special: It doesn't create a text element.
         // Instead, it leaves the passed argument structurally unchanged, but
         // styles all text in it.
@@ -683,7 +683,7 @@ impl Construct for TextElem {
     }
 }
 
-impl PlainText for Packed<TextElem> {
+impl PlainText for TexContentRefined<TextElem> {
     fn plain_text(&self, text: &mut EcoString) {
         text.push_str(self.text());
     }
@@ -794,14 +794,14 @@ impl Fold for TextSize {
     fn fold(self, outer: Self) -> Self {
         // Multiply the two linear functions.
         Self(Length {
-            em: LengthInEm::new(self.0.em.get() * outer.0.em.get()),
+            em: TexEmLength::new(self.0.em.get() * outer.0.em.get()),
             abs: self.0.em.get() * outer.0.abs + self.0.abs,
         })
     }
 }
 
 impl Resolve for TextSize {
-    type Output = Abs;
+    type Output = TexAbsLength;
 
     fn resolve(self, styles: StyleChain) -> Self::Output {
         self.0.resolve(styles)
@@ -830,7 +830,12 @@ impl TopEdge {
     }
 
     /// Resolve the value of the text edge given a font's metrics.
-    pub fn resolve(self, font_size: Abs, font: &TexFont, bbox: Option<Rect>) -> Abs {
+    pub fn resolve(
+        self,
+        font_size: TexAbsLength,
+        font: &TexFont,
+        bbox: Option<Rect>,
+    ) -> TexAbsLength {
         match self {
             TopEdge::Metric(metric) => {
                 if let Ok(metric) = metric.try_into() {
@@ -900,7 +905,12 @@ impl BottomEdge {
     }
 
     /// Resolve the value of the text edge given a font's metrics.
-    pub fn resolve(self, font_size: Abs, font: &TexFont, bbox: Option<Rect>) -> Abs {
+    pub fn resolve(
+        self,
+        font_size: TexAbsLength,
+        font: &TexFont,
+        bbox: Option<Rect>,
+    ) -> TexAbsLength {
         match self {
             BottomEdge::Metric(metric) => {
                 if let Ok(metric) = metric.try_into() {

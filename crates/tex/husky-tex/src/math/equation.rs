@@ -3,23 +3,24 @@ use std::num::NonZeroUsize;
 use unicode_math_class::MathClass;
 
 use crate::diag::{bail, SourceResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    elem, IsTexElem, Packed, Resolve, ShowSet, Smart, StyleChain, Styles, Synthesize, TexContent,
+    elem, IsTexElem, Resolve, ShowSet, Smart, StyleChain, Styles, Synthesize, TexContent,
+    TexContentRefined,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable};
 use crate::layout::{
-    Abs, AlignElem, Axes, FixedAlignment, Frame, LayoutMultiple, LayoutSingle, LengthInEm, Point,
-    Regions, Size, TexAlignment, TexLayoutDirection,
+    AlignElem, Axes, FixedAlignment, LayoutMultiple, LayoutSingle, Point, Regions, Size,
+    TexAbsLength, TexAlignment, TexEmLength, TexFrame, TexLayoutDirection,
 };
-use crate::math::{scaled_font_size, LayoutMath, MathContext, MathSize, MathVariant};
+use crate::math::{scaled_font_size, MathContext, MathSize, MathVariant, TexLayoutMath};
 use crate::model::{Numbering, Outlinable, ParagraphTexElem, Refable, Supplement};
 use crate::syntax::Span;
 use crate::text::{
     families, variant, FontFamily, FontList, FontWeight, Lang, LocalName, Region, TexFont, TextElem,
 };
 use crate::util::{option_eq, NonZeroExt, Numeric};
-use crate::World;
+use crate::IsTexWorld;
 
 /// A mathematical equation.
 ///
@@ -49,13 +50,13 @@ use crate::World;
     Synthesize,
     ShowSet,
     LayoutSingle,
-    LayoutMath,
+    TexLayoutMath,
     Count,
     LocalName,
     Refable,
     Outlinable
 )]
-pub struct EquationElem {
+pub struct EquationTexElem {
     /// Whether the equation is displayed as a separate block.
     #[default(false)]
     pub block: bool,
@@ -130,8 +131,8 @@ pub struct EquationElem {
     pub class: Option<MathClass>,
 }
 
-impl Synthesize for Packed<EquationElem> {
-    fn synthesize(&mut self, engine: &mut Engine, styles: StyleChain) -> SourceResult<()> {
+impl Synthesize for TexContentRefined<EquationTexElem> {
+    fn synthesize(&mut self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<()> {
         let supplement = match self.as_ref().supplement(styles) {
             Smart::Auto => TextElem::packed(Self::local_name_in(styles)),
             Smart::Custom(None) => TexContent::empty(),
@@ -143,12 +144,12 @@ impl Synthesize for Packed<EquationElem> {
     }
 }
 
-impl ShowSet for Packed<EquationElem> {
+impl ShowSet for TexContentRefined<EquationTexElem> {
     fn show_set(&self, styles: StyleChain) -> Styles {
         let mut out = Styles::new();
         if self.block(styles) {
             out.set(AlignElem::set_alignment(TexAlignment::CENTER));
-            out.set(EquationElem::set_size(MathSize::Display));
+            out.set(EquationTexElem::set_size(MathSize::Display));
         }
         out.set(TextElem::set_weight(FontWeight::from_number(450)));
         out.set(TextElem::set_font(FontList(vec![FontFamily::new(
@@ -161,8 +162,8 @@ impl ShowSet for Packed<EquationElem> {
 /// Layouted items suitable for placing in a paragraph.
 #[derive(Debug, Clone)]
 pub enum MathParItem {
-    Space(Abs),
-    Frame(Frame),
+    Space(TexAbsLength),
+    Frame(TexFrame),
 }
 
 impl MathParItem {
@@ -175,10 +176,10 @@ impl MathParItem {
     }
 }
 
-impl Packed<EquationElem> {
+impl TexContentRefined<EquationTexElem> {
     pub fn layout_inline(
         &self,
-        engine: &mut Engine<'_>,
+        engine: &mut TexEngine<'_>,
         styles: StyleChain,
         regions: Regions,
     ) -> SourceResult<Vec<MathParItem>> {
@@ -218,15 +219,15 @@ impl Packed<EquationElem> {
     }
 }
 
-impl LayoutSingle for Packed<EquationElem> {
+impl LayoutSingle for TexContentRefined<EquationTexElem> {
     #[husky_tex_macros::time(name = "math.equation", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Frame> {
-        const NUMBER_GUTTER: LengthInEm = LengthInEm::new(0.5);
+    ) -> SourceResult<TexFrame> {
+        const NUMBER_GUTTER: TexEmLength = TexEmLength::new(0.5);
 
         assert!(self.block(styles));
 
@@ -238,7 +239,7 @@ impl LayoutSingle for Packed<EquationElem> {
 
         if let Some(numbering) = (**self).numbering(styles) {
             let pod = Regions::one(regions.base(), Axes::splat(false));
-            let counter = Counter::of(EquationElem::elem())
+            let counter = Counter::of(EquationTexElem::elem())
                 .at(engine, self.location().unwrap())?
                 .display(engine, numbering)?
                 .spanned(self.span())
@@ -260,14 +261,14 @@ impl LayoutSingle for Packed<EquationElem> {
             let offset = match (align, dir) {
                 (FixedAlignment::Start, TexLayoutDirection::RightLeft) => full_counter_width,
                 (FixedAlignment::End, TexLayoutDirection::LeftRight) => -full_counter_width,
-                _ => Abs::zero(),
+                _ => TexAbsLength::zero(),
             };
             frame.translate(Point::with_x(offset));
 
             let x = if dir.is_positive() {
                 frame.width() - counter.width()
             } else {
-                Abs::zero()
+                TexAbsLength::zero()
             };
             let y = (frame.height() - counter.height()) / 2.0;
 
@@ -278,14 +279,14 @@ impl LayoutSingle for Packed<EquationElem> {
     }
 }
 
-impl Count for Packed<EquationElem> {
+impl Count for TexContentRefined<EquationTexElem> {
     fn update(&self) -> Option<CounterUpdate> {
         (self.block(StyleChain::default()) && self.numbering().is_some())
             .then(|| CounterUpdate::Step(NonZeroUsize::ONE))
     }
 }
 
-impl LocalName for Packed<EquationElem> {
+impl LocalName for TexContentRefined<EquationTexElem> {
     fn local_name(lang: Lang, region: Option<Region>) -> &'static str {
         match lang {
             Lang::ALBANIAN => "Ekuacion",
@@ -323,7 +324,7 @@ impl LocalName for Packed<EquationElem> {
     }
 }
 
-impl Refable for Packed<EquationElem> {
+impl Refable for TexContentRefined<EquationTexElem> {
     fn supplement(&self) -> TexContent {
         // After synthesis, this should always be custom content.
         match (**self).supplement(StyleChain::default()) {
@@ -333,7 +334,7 @@ impl Refable for Packed<EquationElem> {
     }
 
     fn counter(&self) -> Counter {
-        Counter::of(EquationElem::elem())
+        Counter::of(EquationTexElem::elem())
     }
 
     fn numbering(&self) -> Option<&Numbering> {
@@ -341,8 +342,8 @@ impl Refable for Packed<EquationElem> {
     }
 }
 
-impl Outlinable for Packed<EquationElem> {
-    fn outline(&self, engine: &mut Engine) -> SourceResult<Option<TexContent>> {
+impl Outlinable for TexContentRefined<EquationTexElem> {
+    fn outline(&self, engine: &mut TexEngine) -> SourceResult<Option<TexContent>> {
         if !self.block(StyleChain::default()) {
             return Ok(None);
         }
@@ -369,7 +370,7 @@ impl Outlinable for Packed<EquationElem> {
     }
 }
 
-impl LayoutMath for Packed<EquationElem> {
+impl TexLayoutMath for TexContentRefined<EquationTexElem> {
     #[husky_tex_macros::time(name = "math.equation", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         self.body().layout_math(ctx, styles)
@@ -377,7 +378,7 @@ impl LayoutMath for Packed<EquationElem> {
 }
 
 fn find_math_font(
-    engine: &mut Engine<'_>,
+    engine: &mut TexEngine<'_>,
     styles: StyleChain,
     span: Span,
 ) -> SourceResult<TexFont> {

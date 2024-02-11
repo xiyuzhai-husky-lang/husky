@@ -1,11 +1,12 @@
 use crate::diag::{bail, SourceResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, elem, scope, Array, Fold, Func, Packed, Smart, StyleChain, TexContent, TexValue,
+    cast, elem, scope, Array, Fold, Func, Smart, StyleChain, TexContent, TexContentRefined,
+    TexValue,
 };
 use crate::layout::{
-    Axes, BlockElem, Cell, CellGrid, Fragment, GridLayouter, HAlignment, LayoutMultiple, Length,
-    LengthInEm, Regions, Spacing, TexSizing, VAlignment,
+    Axes, BlockElem, Cell, CellGrid, GridLayouter, HAlignment, LayoutMultiple, Length, Regions,
+    Spacing, TexEmLength, TexLayoutFragment, TexSizing, VAlignment,
 };
 use crate::model::ParagraphTexElem;
 use crate::text::TextElem;
@@ -100,7 +101,7 @@ pub struct ListElem {
 
     /// The spacing between the marker and the body of each item.
     #[resolve]
-    #[default(LengthInEm::new(0.5).into())]
+    #[default(TexEmLength::new(0.5).into())]
     pub body_indent: Length,
 
     /// The spacing between the items of a wide (non-tight) list.
@@ -119,7 +120,7 @@ pub struct ListElem {
     /// ]
     /// ```
     #[variadic]
-    pub children: Vec<Packed<ListItem>>,
+    pub children: Vec<TexContentRefined<ListItem>>,
 
     /// The nesting depth.
     #[internal]
@@ -134,14 +135,14 @@ impl ListElem {
     type ListItem;
 }
 
-impl LayoutMultiple for Packed<ListElem> {
+impl LayoutMultiple for TexContentRefined<ListElem> {
     #[husky_tex_macros::time(name = "list", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         let indent = self.indent(styles);
         let body_indent = self.body_indent(styles);
         let gutter = if self.tight(styles) {
@@ -207,7 +208,7 @@ pub enum ListMarker {
 
 impl ListMarker {
     /// Resolve the marker for the given depth.
-    fn resolve(&self, engine: &mut Engine, depth: usize) -> SourceResult<TexContent> {
+    fn resolve(&self, engine: &mut TexEngine, depth: usize) -> SourceResult<TexContent> {
         Ok(match self {
             Self::Content(list) => list.get(depth % list.len()).cloned().unwrap_or_default(),
             Self::Func(func) => func.call(engine, [depth])?.display(),

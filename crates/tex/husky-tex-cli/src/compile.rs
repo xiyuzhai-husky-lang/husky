@@ -8,11 +8,11 @@ use ecow::{eco_format, EcoString};
 use husky_tex::diag::{bail, At, Severity, SourceDiagnostic, StrResult};
 use husky_tex::eval::Tracer;
 use husky_tex::foundations::Datetime;
-use husky_tex::layout::Frame;
+use husky_tex::layout::TexFrame;
 use husky_tex::model::TexDocument;
 use husky_tex::syntax::{FileId, Source, Span};
 use husky_tex::visualize::TexColor;
-use husky_tex::{World, WorldExt};
+use husky_tex::{IsTexWorld, WorldExt};
 use parking_lot::RwLock;
 use rayon::iter::{IndexedParallelIterator, IntoParallelRefIterator, ParallelIterator};
 
@@ -273,7 +273,7 @@ impl ExportCache {
 
     /// Returns true if the entry is cached and appends the new hash to the
     /// cache (for the next compilation).
-    pub fn is_cached(&self, i: usize, frame: &Frame) -> bool {
+    pub fn is_cached(&self, i: usize, frame: &TexFrame) -> bool {
         let hash = husky_tex::util::hash128(frame);
 
         let mut cache = self.cache.upgradable_read();
