@@ -360,6 +360,7 @@ husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
 husky-check-utils = { path = "crates/utils/husky-check-utils" }
 husky-decl-macro-utils = { path = "crates/utils/husky-decl-macro-utils" }
 husky-error-utils = { path = "crates/utils/husky-error-utils" }
+husky-git-utils = { path = "crates/utils/husky-git-utils" }
 husky-io-utils = { path = "crates/utils/husky-io-utils" }
 husky-iter-utils = { path = "crates/utils/husky-iter-utils" }
 husky-macro-utils = { path = "crates/utils/husky-macro-utils" }
