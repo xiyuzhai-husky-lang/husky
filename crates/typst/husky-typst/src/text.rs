@@ -6,11 +6,11 @@ mod font;
 mod item;
 mod lang;
 mod linebreak;
-#[path = "lorem.rs"]
+#[path = "text/lorem.rs"]
 mod lorem_;
 mod raw;
 mod shift;
-#[path = "smallcaps.rs"]
+#[path = "text/smallcaps.rs"]
 mod smallcaps_;
 mod smartquote;
 mod space;
