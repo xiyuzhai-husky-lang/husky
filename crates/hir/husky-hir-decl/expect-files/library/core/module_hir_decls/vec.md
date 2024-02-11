@@ -9,7 +9,7 @@
                             HirTemplateParameter {
                                 symbol: HirTemplateVar::Type(
                                     HirTypeSvar::Type {
-                                        attrs: HirTemplateVarAttrs {
+                                        attrs: HirTemplateSvarAttrs {
                                             class: Comptime,
                                         },
                                         variance: Some(
@@ -52,7 +52,7 @@
                                         data: Current,
                                         hir_comptime_symbol: HirTemplateVar::Type(
                                             HirTypeSvar::Type {
-                                                attrs: HirTemplateVarAttrs {
+                                                attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
                                                 },
                                                 variance: Some(
@@ -65,7 +65,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -97,7 +97,7 @@
                         HirTemplateParameter {
                             symbol: HirTemplateVar::Type(
                                 HirTypeSvar::Type {
-                                    attrs: HirTemplateVarAttrs {
+                                    attrs: HirTemplateSvarAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -118,7 +118,7 @@
                             HirTemplateArgument::Type(
                                 HirType::Svar(
                                     HirTypeSvar::Type {
-                                        attrs: HirTemplateVarAttrs {
+                                        attrs: HirTemplateSvarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -169,7 +169,7 @@
                                     data: Current,
                                     hir_comptime_symbol: HirTemplateVar::Type(
                                         HirTypeSvar::Type {
-                                            attrs: HirTemplateVarAttrs {
+                                            attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -180,7 +180,7 @@
                             ],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRvarRegionData {
+                    runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -245,7 +245,7 @@
                                         data: Inherited,
                                         hir_comptime_symbol: HirTemplateVar::Type(
                                             HirTypeSvar::Type {
-                                                attrs: HirTemplateVarAttrs {
+                                                attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
                                                 },
                                                 variance: None,
@@ -256,12 +256,12 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::SelfValue,
-                                        data: HirEagerRvarData::SelfValue,
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::SelfValue,
+                                        data: HirEagerRuntimeSvarData::SelfValue,
                                     },
                                 ],
                             },
@@ -299,7 +299,7 @@
                                 contract: Move,
                                 ty: HirType::Svar(
                                     HirTypeSvar::Type {
-                                        attrs: HirTemplateVarAttrs {
+                                        attrs: HirTemplateSvarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -350,7 +350,7 @@
                                         data: Inherited,
                                         hir_comptime_symbol: HirTemplateVar::Type(
                                             HirTypeSvar::Type {
-                                                attrs: HirTemplateVarAttrs {
+                                                attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
                                                 },
                                                 variance: None,
@@ -361,18 +361,18 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::SelfValue,
-                                        data: HirEagerRvarData::SelfValue,
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::SelfValue,
+                                        data: HirEagerRuntimeSvarData::SelfValue,
                                     },
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::Ident(
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::Ident(
                                             `e`,
                                         ),
-                                        data: HirEagerRvarData::ParenateParameter,
+                                        data: HirEagerRuntimeSvarData::ParenateParameter,
                                     },
                                 ],
                             },
@@ -423,7 +423,7 @@
                                                 HirTemplateArgument::Type(
                                                     HirType::Svar(
                                                         HirTypeSvar::Type {
-                                                            attrs: HirTemplateVarAttrs {
+                                                            attrs: HirTemplateSvarAttrs {
                                                                 class: Comptime,
                                                             },
                                                             variance: None,
@@ -467,7 +467,7 @@
                                         data: Inherited,
                                         hir_comptime_symbol: HirTemplateVar::Type(
                                             HirTypeSvar::Type {
-                                                attrs: HirTemplateVarAttrs {
+                                                attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
                                                 },
                                                 variance: None,
@@ -478,12 +478,12 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::SelfValue,
-                                        data: HirEagerRvarData::SelfValue,
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::SelfValue,
+                                        data: HirEagerRuntimeSvarData::SelfValue,
                                     },
                                 ],
                             },
@@ -534,7 +534,7 @@
                                                 HirTemplateArgument::Type(
                                                     HirType::Svar(
                                                         HirTypeSvar::Type {
-                                                            attrs: HirTemplateVarAttrs {
+                                                            attrs: HirTemplateSvarAttrs {
                                                                 class: Comptime,
                                                             },
                                                             variance: None,
@@ -578,7 +578,7 @@
                                         data: Inherited,
                                         hir_comptime_symbol: HirTemplateVar::Type(
                                             HirTypeSvar::Type {
-                                                attrs: HirTemplateVarAttrs {
+                                                attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
                                                 },
                                                 variance: None,
@@ -589,12 +589,12 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::SelfValue,
-                                        data: HirEagerRvarData::SelfValue,
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::SelfValue,
+                                        data: HirEagerRuntimeSvarData::SelfValue,
                                     },
                                 ],
                             },
@@ -635,7 +635,7 @@
                                 HirTemplateArgument::Type(
                                     HirType::Svar(
                                         HirTypeSvar::Type {
-                                            attrs: HirTemplateVarAttrs {
+                                            attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -674,7 +674,7 @@
                                         data: Inherited,
                                         hir_comptime_symbol: HirTemplateVar::Type(
                                             HirTypeSvar::Type {
-                                                attrs: HirTemplateVarAttrs {
+                                                attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
                                                 },
                                                 variance: None,
@@ -685,12 +685,12 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::SelfValue,
-                                        data: HirEagerRvarData::SelfValue,
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::SelfValue,
+                                        data: HirEagerRuntimeSvarData::SelfValue,
                                     },
                                 ],
                             },
@@ -736,7 +736,7 @@
                                                 HirTemplateArgument::Type(
                                                     HirType::Svar(
                                                         HirTypeSvar::Type {
-                                                            attrs: HirTemplateVarAttrs {
+                                                            attrs: HirTemplateSvarAttrs {
                                                                 class: Comptime,
                                                             },
                                                             variance: None,
@@ -780,7 +780,7 @@
                                         data: Inherited,
                                         hir_comptime_symbol: HirTemplateVar::Type(
                                             HirTypeSvar::Type {
-                                                attrs: HirTemplateVarAttrs {
+                                                attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
                                                 },
                                                 variance: None,
@@ -791,12 +791,12 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::SelfValue,
-                                        data: HirEagerRvarData::SelfValue,
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::SelfValue,
+                                        data: HirEagerRuntimeSvarData::SelfValue,
                                     },
                                 ],
                             },
@@ -865,7 +865,7 @@
                                                 HirTemplateArgument::Type(
                                                     HirType::Svar(
                                                         HirTypeSvar::Type {
-                                                            attrs: HirTemplateVarAttrs {
+                                                            attrs: HirTemplateSvarAttrs {
                                                                 class: Comptime,
                                                             },
                                                             variance: None,
@@ -918,7 +918,7 @@
                                         data: Inherited,
                                         hir_comptime_symbol: HirTemplateVar::Type(
                                             HirTypeSvar::Type {
-                                                attrs: HirTemplateVarAttrs {
+                                                attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
                                                 },
                                                 variance: None,
@@ -929,24 +929,24 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::SelfValue,
-                                        data: HirEagerRvarData::SelfValue,
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::SelfValue,
+                                        data: HirEagerRuntimeSvarData::SelfValue,
                                     },
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::Ident(
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::Ident(
                                             `start`,
                                         ),
-                                        data: HirEagerRvarData::ParenateParameter,
+                                        data: HirEagerRuntimeSvarData::ParenateParameter,
                                     },
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::Ident(
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::Ident(
                                             `end`,
                                         ),
-                                        data: HirEagerRvarData::ParenateParameter,
+                                        data: HirEagerRuntimeSvarData::ParenateParameter,
                                     },
                                 ],
                             },
@@ -992,7 +992,7 @@
                                                         contract: Pure,
                                                         ty: HirType::Svar(
                                                             HirTypeSvar::Type {
-                                                                attrs: HirTemplateVarAttrs {
+                                                                attrs: HirTemplateSvarAttrs {
                                                                     class: Comptime,
                                                                 },
                                                                 variance: None,
@@ -1032,7 +1032,7 @@
                                 HirTemplateArgument::Type(
                                     HirType::Svar(
                                         HirTypeSvar::Type {
-                                            attrs: HirTemplateVarAttrs {
+                                            attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -1076,7 +1076,7 @@
                                         data: Inherited,
                                         hir_comptime_symbol: HirTemplateVar::Type(
                                             HirTypeSvar::Type {
-                                                attrs: HirTemplateVarAttrs {
+                                                attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
                                                 },
                                                 variance: None,
@@ -1087,18 +1087,18 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::SelfValue,
-                                        data: HirEagerRvarData::SelfValue,
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::SelfValue,
+                                        data: HirEagerRuntimeSvarData::SelfValue,
                                     },
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::Ident(
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::Ident(
                                             `f`,
                                         ),
-                                        data: HirEagerRvarData::ParenateParameter,
+                                        data: HirEagerRuntimeSvarData::ParenateParameter,
                                     },
                                 ],
                             },

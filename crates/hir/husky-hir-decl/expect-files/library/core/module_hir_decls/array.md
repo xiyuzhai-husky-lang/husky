@@ -16,8 +16,8 @@
                                                 always_copyable: true,
                                             },
                                         ),
-                                        index: HirConstSymbolIndex::PathLeading {
-                                            attrs: HirTemplateVarAttrs {
+                                        index: HirConstSvarIndex::PathLeading {
+                                            attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
                                             },
                                             disambiguator: 0,
@@ -39,7 +39,7 @@
                             HirTemplateParameter {
                                 symbol: HirTemplateVar::Type(
                                     HirTypeSvar::Type {
-                                        attrs: HirTemplateVarAttrs {
+                                        attrs: HirTemplateSvarAttrs {
                                             class: Comptime,
                                         },
                                         variance: Some(
@@ -89,8 +89,8 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
-                                                index: HirConstSymbolIndex::PathLeading {
-                                                    attrs: HirTemplateVarAttrs {
+                                                index: HirConstSvarIndex::PathLeading {
+                                                    attrs: HirTemplateSvarAttrs {
                                                         class: Comptime,
                                                     },
                                                     disambiguator: 0,
@@ -106,7 +106,7 @@
                                         data: Current,
                                         hir_comptime_symbol: HirTemplateVar::Type(
                                             HirTypeSvar::Type {
-                                                attrs: HirTemplateVarAttrs {
+                                                attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
                                                 },
                                                 variance: Some(
@@ -119,7 +119,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [],
                             },
