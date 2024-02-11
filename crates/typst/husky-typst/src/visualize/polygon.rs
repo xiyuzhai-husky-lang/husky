@@ -3,16 +3,14 @@ use std::f64::consts::PI;
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    elem, func, scope, Packed, Resolve, Smart, StyleChain, TypstContent, TypstElement,
+    elem, func, scope, Packed, Resolve, Smart, StyleChain, TexContent, TexElement,
 };
 use crate::layout::{
     Axes, Frame, FrameItem, LayoutSingle, Length, LengthInEm, Point, Regions, Rel,
 };
 use crate::syntax::Span;
 use crate::util::Numeric;
-use crate::visualize::{
-    Path, TypstFixedStroke, TypstGeometry, TypstPaint, TypstShape, TypstStroke,
-};
+use crate::visualize::{Path, TexFixedStroke, TexGeometry, TexPaint, TexShape, TexStroke};
 
 /// A closed polygon.
 ///
@@ -38,7 +36,7 @@ pub struct PolygonElem {
     ///
     /// Currently all polygons are filled according to the
     /// [non-zero winding rule](https://en.wikipedia.org/wiki/Nonzero-rule).
-    pub fill: Option<TypstPaint>,
+    pub fill: Option<TexPaint>,
 
     /// How to [stroke]($stroke) the polygon. This can be:
     ///
@@ -46,7 +44,7 @@ pub struct PolygonElem {
     /// stroke of `{1pt}` black if and if only if no fill is given.
     #[resolve]
     #[fold]
-    pub stroke: Smart<Option<TypstStroke>>,
+    pub stroke: Smart<Option<TexStroke>>,
 
     /// The vertices of the polygon. Each point is specified as an array of two
     /// [relative lengths]($relative).
@@ -73,12 +71,12 @@ impl PolygonElem {
         /// How to fill the polygon. See the general
         /// [polygon's documentation]($polygon.fill) for more details.
         #[named]
-        fill: Option<Option<TypstPaint>>,
+        fill: Option<Option<TexPaint>>,
 
         /// How to stroke the polygon. See the general
         /// [polygon's documentation]($polygon.stroke) for more details.
         #[named]
-        stroke: Option<Smart<Option<TypstStroke>>>,
+        stroke: Option<Smart<Option<TexStroke>>>,
 
         /// The diameter of the [circumcircle](https://en.wikipedia.org/wiki/Circumcircle)
         /// of the regular polygon.
@@ -90,7 +88,7 @@ impl PolygonElem {
         #[named]
         #[default(3)]
         vertices: u64,
-    ) -> TypstContent {
+    ) -> TexContent {
         let radius = size / 2.0;
         let angle =
             |i: f64| 2.0 * PI * i / (vertices as f64) + PI * (1.0 / 2.0 - 1.0 / vertices as f64);
@@ -157,9 +155,9 @@ impl LayoutSingle for Packed<PolygonElem> {
         // Prepare fill and stroke.
         let fill = self.fill(styles);
         let stroke = match self.stroke(styles) {
-            Smart::Auto if fill.is_none() => Some(TypstFixedStroke::default()),
+            Smart::Auto if fill.is_none() => Some(TexFixedStroke::default()),
             Smart::Auto => None,
-            Smart::Custom(stroke) => stroke.map(TypstStroke::unwrap_or_default),
+            Smart::Custom(stroke) => stroke.map(TexStroke::unwrap_or_default),
         };
 
         // Construct a closed path given all points.
@@ -170,8 +168,8 @@ impl LayoutSingle for Packed<PolygonElem> {
         }
         path.close_path();
 
-        let shape = TypstShape {
-            geometry: TypstGeometry::Path(path),
+        let shape = TexShape {
+            geometry: TexGeometry::Path(path),
             stroke,
             fill,
         };

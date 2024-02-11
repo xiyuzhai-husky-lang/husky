@@ -2,17 +2,17 @@ use ecow::eco_format;
 
 use crate::diag::{bail, At, Hint, SourceResult, Trace, Tracepoint};
 use crate::eval::{Eval, Vm};
-use crate::foundations::{call_method_access, is_accessor_method, TypstDict, TypstValue};
+use crate::foundations::{call_method_access, is_accessor_method, TexDict, TexValue};
 use crate::syntax::ast::{self, AstNode};
 
 /// Access an expression mutably.
 pub(crate) trait Access {
     /// Access the value.
-    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TypstValue>;
+    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TexValue>;
 }
 
 impl Access for ast::Expr<'_> {
-    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TypstValue> {
+    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TexValue> {
         match self {
             Self::Ident(v) => v.access(vm),
             Self::Parenthesized(v) => v.access(vm),
@@ -27,7 +27,7 @@ impl Access for ast::Expr<'_> {
 }
 
 impl Access for ast::Ident<'_> {
-    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TypstValue> {
+    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TexValue> {
         let span = self.span();
         let value = vm.scopes.get_mut(&self).at(span)?;
         if vm.inspected == Some(span) {
@@ -38,13 +38,13 @@ impl Access for ast::Ident<'_> {
 }
 
 impl Access for ast::Parenthesized<'_> {
-    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TypstValue> {
+    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TexValue> {
         self.expr().access(vm)
     }
 }
 
 impl Access for ast::FieldAccess<'_> {
-    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TypstValue> {
+    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TexValue> {
         access_dict(vm, self)?
             .at_mut(self.field().get())
             .at(self.span())
@@ -52,7 +52,7 @@ impl Access for ast::FieldAccess<'_> {
 }
 
 impl Access for ast::FuncCall<'_> {
-    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TypstValue> {
+    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TexValue> {
         if let ast::Expr::FieldAccess(access) = self.callee() {
             let method = access.field();
             if is_accessor_method(&method) {
@@ -74,18 +74,18 @@ impl Access for ast::FuncCall<'_> {
 pub(crate) fn access_dict<'a>(
     vm: &'a mut Vm,
     access: ast::FieldAccess,
-) -> SourceResult<&'a mut TypstDict> {
+) -> SourceResult<&'a mut TexDict> {
     match access.target().access(vm)? {
-        TypstValue::Dict(dict) => Ok(dict),
+        TexValue::Dict(dict) => Ok(dict),
         value => {
             let ty = value.ty();
             let span = access.target().span();
             if matches!(
                 value, // those types have their own field getters
-                TypstValue::Symbol(_)
-                    | TypstValue::Content(_)
-                    | TypstValue::Module(_)
-                    | TypstValue::Func(_)
+                TexValue::Symbol(_)
+                    | TexValue::Content(_)
+                    | TexValue::Module(_)
+                    | TexValue::Func(_)
             ) {
                 bail!(span, "cannot mutate fields on {ty}");
             } else if crate::foundations::fields_on(ty).is_empty() {

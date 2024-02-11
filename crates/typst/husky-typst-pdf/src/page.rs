@@ -7,11 +7,10 @@ use husky_typst::layout::{
     Abs, Frame, FrameItem, GroupItem, LengthInEm, Page, Point, Ratio, Size, Transform,
 };
 use husky_typst::model::{Destination, Numbering};
-use husky_typst::text::{Case, TextItem, TypstFont};
+use husky_typst::text::{Case, TexFont, TextItem};
 use husky_typst::util::{Deferred, Numeric};
 use husky_typst::visualize::{
-    Image, LineCap, LineJoin, Path, PathItem, TypstFixedStroke, TypstGeometry, TypstPaint,
-    TypstShape,
+    Image, LineCap, LineJoin, Path, PathItem, TexFixedStroke, TexGeometry, TexPaint, TexShape,
 };
 use pdf_writer::types::{
     ActionType, AnnotationFlags, AnnotationType, ColorSpaceOperand, LineCapStyle, LineJoinStyle,
@@ -428,11 +427,11 @@ struct State {
     container_transform: Transform,
     /// The size of the first hard frame in the hierarchy.
     size: Size,
-    font: Option<(TypstFont, Abs)>,
-    fill: Option<TypstPaint>,
+    font: Option<(TexFont, Abs)>,
+    fill: Option<TexPaint>,
     fill_space: Option<Name<'static>>,
     external_graphics_state: Option<ExtGState>,
-    stroke: Option<TypstFixedStroke>,
+    stroke: Option<TexFixedStroke>,
     stroke_space: Option<Name<'static>>,
 }
 
@@ -504,12 +503,12 @@ impl PageContext<'_, '_> {
         }
     }
 
-    fn set_opacities(&mut self, stroke: Option<&TypstFixedStroke>, fill: Option<&TypstPaint>) {
+    fn set_opacities(&mut self, stroke: Option<&TexFixedStroke>, fill: Option<&TexPaint>) {
         let stroke_opacity = stroke
             .map(|stroke| {
                 let color = match &stroke.paint {
-                    TypstPaint::Solid(color) => *color,
-                    TypstPaint::Gradient(_) | TypstPaint::Pattern(_) => return 255,
+                    TexPaint::Solid(color) => *color,
+                    TexPaint::Gradient(_) | TexPaint::Pattern(_) => return 255,
                 };
 
                 color.alpha().map_or(255, |v| (v * 255.0).round() as u8)
@@ -518,8 +517,8 @@ impl PageContext<'_, '_> {
         let fill_opacity = fill
             .map(|paint| {
                 let color = match paint {
-                    TypstPaint::Solid(color) => *color,
-                    TypstPaint::Gradient(_) | TypstPaint::Pattern(_) => return 255,
+                    TexPaint::Solid(color) => *color,
+                    TexPaint::Gradient(_) | TexPaint::Pattern(_) => return 255,
                 };
 
                 color.alpha().map_or(255, |v| (v * 255.0).round() as u8)
@@ -558,7 +557,7 @@ impl PageContext<'_, '_> {
         self.state.container_transform = self.state.container_transform.pre_concat(transform);
     }
 
-    fn set_font(&mut self, font: &TypstFont, size: Abs) {
+    fn set_font(&mut self, font: &TexFont, size: Abs) {
         if self.state.font.as_ref().map(|(f, s)| (f, *s)) != Some((font, size)) {
             let index = self.parent.font_map.insert(font.clone());
             let name = eco_format!("F{index}");
@@ -573,9 +572,9 @@ impl PageContext<'_, '_> {
         self.state.size = size;
     }
 
-    fn set_fill(&mut self, fill: &TypstPaint, on_text: bool, transforms: Transforms) {
+    fn set_fill(&mut self, fill: &TexPaint, on_text: bool, transforms: Transforms) {
         if self.state.fill.as_ref() != Some(fill)
-            || matches!(self.state.fill, Some(TypstPaint::Gradient(_)))
+            || matches!(self.state.fill, Some(TexPaint::Gradient(_)))
         {
             fill.set_as_fill(self, on_text, transforms);
             self.state.fill = Some(fill.clone());
@@ -594,14 +593,14 @@ impl PageContext<'_, '_> {
         self.state.fill_space = None;
     }
 
-    fn set_stroke(&mut self, stroke: &TypstFixedStroke, on_text: bool, transforms: Transforms) {
+    fn set_stroke(&mut self, stroke: &TexFixedStroke, on_text: bool, transforms: Transforms) {
         if self.state.stroke.as_ref() != Some(stroke)
             || matches!(
                 self.state.stroke.as_ref().map(|s| &s.paint),
-                Some(TypstPaint::Gradient(_))
+                Some(TexPaint::Gradient(_))
             )
         {
-            let TypstFixedStroke {
+            let TexFixedStroke {
                 paint,
                 thickness,
                 cap,
@@ -761,7 +760,7 @@ fn write_text(ctx: &mut PageContext, pos: Point, text: &TextItem) {
 }
 
 /// Encode a geometrical shape into the content stream.
-fn write_shape(ctx: &mut PageContext, pos: Point, shape: &TypstShape) {
+fn write_shape(ctx: &mut PageContext, pos: Point, shape: &TexShape) {
     let x = pos.x.to_f32();
     let y = pos.y.to_f32();
 
@@ -796,20 +795,20 @@ fn write_shape(ctx: &mut PageContext, pos: Point, shape: &TypstShape) {
     ctx.set_opacities(stroke, shape.fill.as_ref());
 
     match shape.geometry {
-        TypstGeometry::Line(target) => {
+        TexGeometry::Line(target) => {
             let dx = target.x.to_f32();
             let dy = target.y.to_f32();
             ctx.content.move_to(x, y);
             ctx.content.line_to(x + dx, y + dy);
         }
-        TypstGeometry::Rect(size) => {
+        TexGeometry::Rect(size) => {
             let w = size.x.to_f32();
             let h = size.y.to_f32();
             if w > 0.0 && h > 0.0 {
                 ctx.content.rect(x, y, w, h);
             }
         }
-        TypstGeometry::Path(ref path) => {
+        TexGeometry::Path(ref path) => {
             write_path(ctx, x, y, path);
         }
     }

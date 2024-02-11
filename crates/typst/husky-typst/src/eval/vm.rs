@@ -2,14 +2,14 @@ use comemo::Tracked;
 
 use crate::engine::Engine;
 use crate::eval::FlowEvent;
-use crate::foundations::{IntoTypstValue, Scopes};
+use crate::foundations::{IntoTexValue, Scopes};
 use crate::syntax::ast::{self, AstNode};
 use crate::syntax::Span;
 use crate::World;
 
 /// A virtual machine.
 ///
-/// Holds the state needed to [evaluate](crate::eval::eval()) Typst sources. A
+/// Holds the state needed to [evaluate](crate::eval::eval()) Tex sources. A
 /// new virtual machine is created for each module evaluation and function call.
 pub struct Vm<'a> {
     /// The underlying virtual typesetter.
@@ -40,7 +40,7 @@ impl<'a> Vm<'a> {
     }
 
     /// Define a variable in the current scope.
-    pub fn define(&mut self, var: ast::Ident, value: impl IntoTypstValue) {
+    pub fn define(&mut self, var: ast::Ident, value: impl IntoTexValue) {
         let value = value.into_value();
         if self.inspected == Some(var.span()) {
             self.engine.tracer.value(value.clone());

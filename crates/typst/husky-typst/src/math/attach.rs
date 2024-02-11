@@ -1,7 +1,7 @@
 use unicode_math_class::MathClass;
 
 use crate::diag::SourceResult;
-use crate::foundations::{elem, Packed, StyleChain, TypstContent};
+use crate::foundations::{elem, Packed, StyleChain, TexContent};
 use crate::layout::{Abs, Frame, Point, Size};
 use crate::math::{
     style_for_subscript, style_for_superscript, EquationElem, FrameFragment, LayoutMath,
@@ -21,38 +21,38 @@ use crate::text::TextElem;
 pub struct AttachElem {
     /// The base to which things are attached.
     #[required]
-    pub base: TypstContent,
+    pub base: TexContent,
 
     /// The top attachment, smartly positioned at top-right or above the base.
     ///
     /// You can wrap the base in `{limits()}` or `{scripts()}` to override the
     /// smart positioning.
-    pub t: Option<TypstContent>,
+    pub t: Option<TexContent>,
 
     /// The bottom attachment, smartly positioned at the bottom-right or below
     /// the base.
     ///
     /// You can wrap the base in `{limits()}` or `{scripts()}` to override the
     /// smart positioning.
-    pub b: Option<TypstContent>,
+    pub b: Option<TexContent>,
 
     /// The top-left attachment (before the base).
-    pub tl: Option<TypstContent>,
+    pub tl: Option<TexContent>,
 
     /// The bottom-left attachment (before base).
-    pub bl: Option<TypstContent>,
+    pub bl: Option<TexContent>,
 
     /// The top-right attachment (after the base).
-    pub tr: Option<TypstContent>,
+    pub tr: Option<TexContent>,
 
     /// The bottom-right attachment (after the base).
-    pub br: Option<TypstContent>,
+    pub br: Option<TexContent>,
 }
 
 impl LayoutMath for Packed<AttachElem> {
     #[husky_typst_macros::time(name = "math.attach", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
-        type GetAttachment = fn(&AttachElem, styles: StyleChain) -> Option<TypstContent>;
+        type GetAttachment = fn(&AttachElem, styles: StyleChain) -> Option<TexContent>;
 
         let layout_attachment =
             |ctx: &mut MathContext, styles: StyleChain, getter: GetAttachment| {
@@ -151,7 +151,7 @@ impl LayoutMath for Packed<PrimesElem> {
 pub struct ScriptsElem {
     /// The base to attach the scripts to.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl LayoutMath for Packed<ScriptsElem> {
@@ -173,7 +173,7 @@ impl LayoutMath for Packed<ScriptsElem> {
 pub struct LimitsElem {
     /// The base to attach the limits to.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 
     /// Whether to also force limits in inline equations.
     ///

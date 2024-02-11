@@ -1,4 +1,4 @@
-use crate::foundations::{func, TypstContent};
+use crate::foundations::{func, TexContent};
 use crate::text::TextElem;
 
 /// Displays text in small capitals.
@@ -26,7 +26,7 @@ use crate::text::TextElem;
 #[func(title = "Small Capitals")]
 pub fn smallcaps(
     /// The text to display to small capitals.
-    body: TypstContent,
-) -> TypstContent {
+    body: TexContent,
+) -> TexContent {
     body.styled(TextElem::set_smallcaps(true))
 }

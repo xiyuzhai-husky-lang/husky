@@ -3,7 +3,7 @@ use std::collections::HashSet;
 use ecow::EcoVec;
 
 use crate::diag::SourceDiagnostic;
-use crate::foundations::TypstValue;
+use crate::foundations::TexValue;
 use crate::syntax::{FileId, Span};
 use crate::util::hash128;
 
@@ -14,7 +14,7 @@ pub struct Tracer {
     warnings: EcoVec<SourceDiagnostic>,
     warnings_set: HashSet<u128>,
     delayed: EcoVec<SourceDiagnostic>,
-    values: EcoVec<TypstValue>,
+    values: EcoVec<TexValue>,
 }
 
 impl Tracer {
@@ -43,7 +43,7 @@ impl Tracer {
     }
 
     /// Get the values for the inspected span.
-    pub fn values(self) -> EcoVec<TypstValue> {
+    pub fn values(self) -> EcoVec<TexValue> {
         self.values
     }
 }
@@ -74,7 +74,7 @@ impl Tracer {
     }
 
     /// Trace a value for the span.
-    pub fn value(&mut self, v: TypstValue) {
+    pub fn value(&mut self, v: TexValue) {
         if self.values.len() < Self::MAX_VALUES {
             self.values.push(v);
         }

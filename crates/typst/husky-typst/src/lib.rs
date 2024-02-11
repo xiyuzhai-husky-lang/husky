@@ -1,4 +1,4 @@
-//! The compiler for the _Typst_ markup language.
+//! The compiler for the _Tex_ markup language.
 //!
 //! # Steps
 //! - **Parsing:**
@@ -25,7 +25,7 @@
 //! [AST]: syntax::ast
 //! [evaluate]: eval::eval
 //! [module]: foundations::Module
-//! [content]: foundations::TypstContent
+//! [content]: foundations::TexContent
 //! [layouted]: layout::LayoutRoot
 //! [document]: model::Document
 //! [frame]: layout::Frame
@@ -60,14 +60,14 @@ use crate::diag::{warning, FileResult, SourceDiagnostic, SourceResult};
 use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
 use crate::foundations::{
-    Array, Bytes, Datetime, Module, Scope, StyleChain, Styles, TypstContent, TypstDict,
+    Array, Bytes, Datetime, Module, Scope, StyleChain, Styles, TexContent, TexDict,
 };
 use crate::introspection::{Introspector, Locator};
-use crate::layout::{Alignment, LayoutRoot, TypstLayoutDirection};
-use crate::model::TypstDocument;
+use crate::layout::{LayoutRoot, TexAlignment, TexLayoutDirection};
+use crate::model::TexDocument;
 use crate::syntax::{FileId, PackageSpec, Source, Span};
-use crate::text::{TypstFont, TypstFontBook};
-use crate::visualize::TypstColor;
+use crate::text::{TexFont, TexFontBook};
+use crate::visualize::TexColor;
 use comemo::{Prehashed, Track, Tracked, Validate};
 use ecow::{EcoString, EcoVec};
 use husky_typst_timing::{timed, TimingScope};
@@ -83,7 +83,7 @@ use std::ops::Range;
 /// `Tracer::new()`. Independently of whether compilation succeeded, calling
 /// `tracer.warnings()` after compilation will return all compiler warnings.
 #[husky_typst_macros::time(name = "compile")]
-pub fn compile(world: &dyn World, tracer: &mut Tracer) -> SourceResult<TypstDocument> {
+pub fn compile(world: &dyn World, tracer: &mut Tracer) -> SourceResult<TexDocument> {
     // Call `track` on the world just once to keep comemo's ID stable.
     let world = world.track();
 
@@ -106,8 +106,8 @@ pub fn compile(world: &dyn World, tracer: &mut Tracer) -> SourceResult<TypstDocu
 fn typeset(
     world: Tracked<dyn World + '_>,
     tracer: &mut Tracer,
-    content: &TypstContent,
-) -> SourceResult<TypstDocument> {
+    content: &TexContent,
+) -> SourceResult<TexDocument> {
     // The name of the iterations for timing scopes.
     const ITER_NAMES: &[&str] = &[
         "typeset (1)",
@@ -121,7 +121,7 @@ fn typeset(
     let styles = StyleChain::new(&library.styles);
 
     let mut iter = 0;
-    let mut document = TypstDocument::default();
+    let mut document = TexDocument::default();
 
     // Relayout until all introspections stabilize.
     // If that doesn't happen within five attempts, we give up.
@@ -204,7 +204,7 @@ pub trait World {
     fn library(&self) -> &Prehashed<Library>;
 
     /// Metadata about all known fonts.
-    fn book(&self) -> &Prehashed<TypstFontBook>;
+    fn book(&self) -> &Prehashed<TexFontBook>;
 
     /// Access the main source file.
     fn main(&self) -> Source;
@@ -216,14 +216,14 @@ pub trait World {
     fn file(&self, id: FileId) -> FileResult<Bytes>;
 
     /// Try to access the font with the given index in the font book.
-    fn font(&self, index: usize) -> Option<TypstFont>;
+    fn font(&self, index: usize) -> Option<TexFont>;
 
     /// Get the current date.
     ///
     /// If no offset is specified, the local date should be chosen. Otherwise,
     /// the UTC date should be chosen with the corresponding offset in hours.
     ///
-    /// If this function returns `None`, Typst's `datetime` function will
+    /// If this function returns `None`, Tex's `datetime` function will
     /// return an error.
     fn today(&self, offset: Option<i64>) -> Option<Datetime>;
 
@@ -252,7 +252,7 @@ impl<T: World> WorldExt for T {
     }
 }
 
-/// Definition of Typst's standard library.
+/// Definition of Tex's standard library.
 #[derive(Debug, Clone, Hash)]
 pub struct Library {
     /// The module that contains the definitions that are available everywhere.
@@ -283,12 +283,12 @@ impl Default for Library {
 /// This struct is created by [`Library::builder`].
 #[derive(Debug, Clone, Default)]
 pub struct LibraryBuilder {
-    inputs: Option<TypstDict>,
+    inputs: Option<TexDict>,
 }
 
 impl LibraryBuilder {
     /// Configure the inputs visible through `sys.inputs`.
-    pub fn with_inputs(mut self, inputs: TypstDict) -> Self {
+    pub fn with_inputs(mut self, inputs: TexDict) -> Self {
         self.inputs = Some(inputs);
         self
     }
@@ -307,7 +307,7 @@ impl LibraryBuilder {
 }
 
 /// Construct the module with global definitions.
-fn global(math: Module, inputs: TypstDict) -> Module {
+fn global(math: Module, inputs: TexDict) -> Module {
     let mut global = Scope::deduplicating();
     self::foundations::define(&mut global, inputs);
     self::model::define(&mut global);
@@ -326,40 +326,40 @@ fn global(math: Module, inputs: TypstDict) -> Module {
 /// Defines scoped values that are globally available, too.
 fn prelude(global: &mut Scope) {
     global.reset_category();
-    global.define("black", TypstColor::BLACK);
-    global.define("gray", TypstColor::GRAY);
-    global.define("silver", TypstColor::SILVER);
-    global.define("white", TypstColor::WHITE);
-    global.define("navy", TypstColor::NAVY);
-    global.define("blue", TypstColor::BLUE);
-    global.define("aqua", TypstColor::AQUA);
-    global.define("teal", TypstColor::TEAL);
-    global.define("eastern", TypstColor::EASTERN);
-    global.define("purple", TypstColor::PURPLE);
-    global.define("fuchsia", TypstColor::FUCHSIA);
-    global.define("maroon", TypstColor::MAROON);
-    global.define("red", TypstColor::RED);
-    global.define("orange", TypstColor::ORANGE);
-    global.define("yellow", TypstColor::YELLOW);
-    global.define("olive", TypstColor::OLIVE);
-    global.define("green", TypstColor::GREEN);
-    global.define("lime", TypstColor::LIME);
-    global.define("luma", TypstColor::luma_data());
-    global.define("oklab", TypstColor::oklab_data());
-    global.define("oklch", TypstColor::oklch_data());
-    global.define("rgb", TypstColor::rgb_data());
-    global.define("cmyk", TypstColor::cmyk_data());
+    global.define("black", TexColor::BLACK);
+    global.define("gray", TexColor::GRAY);
+    global.define("silver", TexColor::SILVER);
+    global.define("white", TexColor::WHITE);
+    global.define("navy", TexColor::NAVY);
+    global.define("blue", TexColor::BLUE);
+    global.define("aqua", TexColor::AQUA);
+    global.define("teal", TexColor::TEAL);
+    global.define("eastern", TexColor::EASTERN);
+    global.define("purple", TexColor::PURPLE);
+    global.define("fuchsia", TexColor::FUCHSIA);
+    global.define("maroon", TexColor::MAROON);
+    global.define("red", TexColor::RED);
+    global.define("orange", TexColor::ORANGE);
+    global.define("yellow", TexColor::YELLOW);
+    global.define("olive", TexColor::OLIVE);
+    global.define("green", TexColor::GREEN);
+    global.define("lime", TexColor::LIME);
+    global.define("luma", TexColor::luma_data());
+    global.define("oklab", TexColor::oklab_data());
+    global.define("oklch", TexColor::oklch_data());
+    global.define("rgb", TexColor::rgb_data());
+    global.define("cmyk", TexColor::cmyk_data());
     global.define("range", Array::range_data());
-    global.define("ltr", TypstLayoutDirection::LeftRight);
-    global.define("rtl", TypstLayoutDirection::RightLeft);
-    global.define("ttb", TypstLayoutDirection::TopDown);
-    global.define("btt", TypstLayoutDirection::BottomUp);
-    global.define("start", Alignment::START);
-    global.define("left", Alignment::LEFT);
-    global.define("center", Alignment::CENTER);
-    global.define("right", Alignment::RIGHT);
-    global.define("end", Alignment::END);
-    global.define("top", Alignment::TOP);
-    global.define("horizon", Alignment::HORIZON);
-    global.define("bottom", Alignment::BOTTOM);
+    global.define("ltr", TexLayoutDirection::LeftRight);
+    global.define("rtl", TexLayoutDirection::RightLeft);
+    global.define("ttb", TexLayoutDirection::TopDown);
+    global.define("btt", TexLayoutDirection::BottomUp);
+    global.define("start", TexAlignment::START);
+    global.define("left", TexAlignment::LEFT);
+    global.define("center", TexAlignment::CENTER);
+    global.define("right", TexAlignment::RIGHT);
+    global.define("end", TexAlignment::END);
+    global.define("top", TexAlignment::TOP);
+    global.define("horizon", TexAlignment::HORIZON);
+    global.define("bottom", TexAlignment::BOTTOM);
 }

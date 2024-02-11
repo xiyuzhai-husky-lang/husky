@@ -17,9 +17,9 @@ use std::sync::Arc;
 use base64::Engine;
 use ecow::{eco_format, EcoString};
 use husky_typst::foundations::Datetime;
-use husky_typst::layout::{Abs, LengthInEm, Transform, TypstLayoutDirection};
-use husky_typst::model::TypstDocument;
-use husky_typst::text::{Lang, TypstFont};
+use husky_typst::layout::{Abs, LengthInEm, TexLayoutDirection, Transform};
+use husky_typst::model::TexDocument;
+use husky_typst::text::{Lang, TexFont};
 use husky_typst::util::Deferred;
 use husky_typst::visualize::Image;
 use pdf_writer::types::Direction;
@@ -48,7 +48,7 @@ use crate::pattern::PdfPattern;
 /// document as a UTC datetime. It will only be used if `set document(date: ..)`
 /// is `auto`.
 #[husky_typst_macros::time(name = "pdf")]
-pub fn pdf(document: &TypstDocument, ident: Option<&str>, timestamp: Option<Datetime>) -> Vec<u8> {
+pub fn pdf(document: &TexDocument, ident: Option<&str>, timestamp: Option<Datetime>) -> Vec<u8> {
     let mut ctx = PdfContext::new(document);
     page::construct_pages(&mut ctx, &document.pages);
     font::write_fonts(&mut ctx);
@@ -64,7 +64,7 @@ pub fn pdf(document: &TypstDocument, ident: Option<&str>, timestamp: Option<Date
 /// Context for exporting a whole PDF document.
 struct PdfContext<'a> {
     /// The document that we're currently exporting.
-    document: &'a TypstDocument,
+    document: &'a TexDocument,
     /// The writer we are writing the PDF into.
     pdf: Pdf,
     /// Content of exported pages.
@@ -75,7 +75,7 @@ struct PdfContext<'a> {
     /// then we just save the first one. The resulting strings are used for the
     /// PDF's /ToUnicode map for glyphs that don't have an entry in the font's
     /// cmap. This is important for copy-paste and searching.
-    glyph_sets: HashMap<TypstFont, BTreeMap<u16, EcoString>>,
+    glyph_sets: HashMap<TexFont, BTreeMap<u16, EcoString>>,
     /// The number of glyphs for all referenced languages in the document.
     /// We keep track of this to determine the main document language.
     languages: HashMap<Lang, usize>,
@@ -100,7 +100,7 @@ struct PdfContext<'a> {
     colors: ColorSpaces,
 
     /// Deduplicates fonts used across the document.
-    font_map: Remapper<TypstFont>,
+    font_map: Remapper<TexFont>,
     /// Deduplicates images used across the document.
     image_map: Remapper<Image>,
     /// Handles to deferred image conversions.
@@ -114,7 +114,7 @@ struct PdfContext<'a> {
 }
 
 impl<'a> PdfContext<'a> {
-    fn new(document: &'a TypstDocument) -> Self {
+    fn new(document: &'a TexDocument) -> Self {
         let mut alloc = Ref::new(1);
         let page_tree_ref = alloc.bump();
         Self {
@@ -150,7 +150,7 @@ fn write_catalog(ctx: &mut PdfContext, ident: Option<&str>, timestamp: Option<Da
         .max_by_key(|(&lang, &count)| (count, lang))
         .map(|(&k, _)| k);
 
-    let dir = if lang.map(Lang::dir) == Some(TypstLayoutDirection::RightLeft) {
+    let dir = if lang.map(Lang::dir) == Some(TexLayoutDirection::RightLeft) {
         Direction::R2L
     } else {
         Direction::L2R
@@ -193,7 +193,7 @@ fn write_catalog(ctx: &mut PdfContext, ident: Option<&str>, timestamp: Option<Da
         xmp.creator([joined.as_str()]);
     }
 
-    let creator = eco_format!("Typst {}", env!("CARGO_PKG_VERSION"));
+    let creator = eco_format!("Tex {}", env!("CARGO_PKG_VERSION"));
     info.creator(TextStr(&creator));
     xmp.creator_tool(&creator);
 

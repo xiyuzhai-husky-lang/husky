@@ -22,7 +22,7 @@ pub struct LinebreakElem {
     /// Whether to justify the line before the break.
     ///
     /// This is useful if you found a better line break opportunity in your
-    /// justified text than Typst did.
+    /// justified text than Tex did.
     ///
     /// ```example
     /// #set par(justify: true)

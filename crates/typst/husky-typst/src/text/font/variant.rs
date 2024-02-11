@@ -3,7 +3,7 @@ use std::fmt::{self, Debug, Formatter};
 use ecow::EcoString;
 use serde::{Deserialize, Serialize};
 
-use crate::foundations::{cast, Cast, IntoTypstValue, Repr};
+use crate::foundations::{cast, Cast, IntoTexValue, Repr};
 use crate::layout::Ratio;
 
 /// Properties that distinguish a font from other fonts in the same family.
@@ -146,7 +146,7 @@ impl Debug for FontWeight {
 
 cast! {
     FontWeight,
-    self => IntoTypstValue::into_value(match self {
+    self => IntoTexValue::into_value(match self {
         FontWeight::THIN => "thin",
         FontWeight::EXTRALIGHT => "extralight",
         FontWeight::LIGHT => "light",

@@ -43,12 +43,12 @@ use self::spacing::*;
 use std::borrow::Cow;
 
 use crate::diag::SourceResult;
-use crate::foundations::{category, Category, Module, Resolve, Scope, StyleChain, TypstContent};
+use crate::foundations::{category, Category, Module, Resolve, Scope, StyleChain, TexContent};
 use crate::layout::{BoxElem, HElem, Spacing};
 use crate::realize::{realize, BehavedBuilder};
 use crate::text::{LinebreakElem, SpaceElem, TextElem};
 
-/// Typst has special [syntax]($syntax/#math) and library functions to typeset
+/// Tex has special [syntax]($syntax/#math) and library functions to typeset
 /// mathematical formulas. Math formulas can be displayed inline with text or as
 /// separate blocks. They will be typeset into their own block if they start and
 /// end with at least one space (e.g. `[$ x^2 $]`).
@@ -72,7 +72,7 @@ use crate::text::{LinebreakElem, SpaceElem, TextElem};
 /// Math mode makes a wide selection of [symbols]($category/symbols/sym) like
 /// `pi`, `dot`, or `RR` available. Many mathematical symbols are available in
 /// different variants. You can select between different variants by applying
-/// [modifiers]($symbol) to the symbol. Typst further recognizes a number of
+/// [modifiers]($symbol) to the symbol. Tex further recognizes a number of
 /// shorthand sequences like `=>` that approximate a symbol. When such a
 /// shorthand exists, the symbol's documentation lists it.
 ///
@@ -94,7 +94,7 @@ use crate::text::{LinebreakElem, SpaceElem, TextElem};
 /// Math mode supports special function calls without the hash prefix. In these
 /// "math calls", the argument list works a little differently than in code:
 ///
-/// - Within them, Typst is still in "math mode". Thus, you can write math
+/// - Within them, Tex is still in "math mode". Thus, you can write math
 ///   directly into them, but need to use hash syntax to pass code expressions
 ///   (except for strings, which are available in the math syntax).
 /// - They support positional and named arguments, but don't support trailing
@@ -217,7 +217,7 @@ pub trait LayoutMath {
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()>;
 }
 
-impl LayoutMath for TypstContent {
+impl LayoutMath for TexContent {
     #[husky_typst_macros::time(name = "math", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         // Directly layout the body of nested equations instead of handling it
@@ -236,7 +236,7 @@ impl LayoutMath for TypstContent {
 
         if self.is_sequence() {
             let mut bb = BehavedBuilder::new();
-            self.sequence_recursive_for_each(&mut |child: &TypstContent| {
+            self.sequence_recursive_for_each(&mut |child: &TexContent| {
                 bb.push(Cow::Owned(child.clone()), StyleChain::default())
             });
 

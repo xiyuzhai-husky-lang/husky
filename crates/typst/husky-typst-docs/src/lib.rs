@@ -1,4 +1,4 @@
-//! Documentation provider for Typst.
+//! Documentation provider for Tex.
 
 mod contribs;
 mod html;
@@ -16,16 +16,16 @@ use ecow::{eco_format, EcoString};
 use heck::ToTitleCase;
 use husky_typst::diag::{bail, StrResult};
 use husky_typst::foundations::{
-    CastInfo, Category, Func, Module, ParamInfo, Repr, Scope, Smart, Type, TypstValue, FOUNDATIONS,
+    CastInfo, Category, Func, Module, ParamInfo, Repr, Scope, Smart, TexValue, Type, FOUNDATIONS,
 };
 use husky_typst::introspection::INTROSPECTION;
 use husky_typst::layout::{Abs, Margin, PageElem, LAYOUT};
 use husky_typst::loading::DATA_LOADING;
 use husky_typst::math::MATH;
-use husky_typst::model::TypstDocument;
+use husky_typst::model::TexDocument;
 use husky_typst::model::MODEL;
 use husky_typst::symbols::SYMBOLS;
-use husky_typst::text::{TypstFont, TypstFontBook, TEXT};
+use husky_typst::text::{TexFont, TexFontBook, TEXT};
 use husky_typst::visualize::VISUALIZE;
 use husky_typst::Library;
 use include_dir::{include_dir, Dir};
@@ -46,7 +46,7 @@ static GROUPS: Lazy<Vec<GroupData>> = Lazy::new(|| {
                 .module()
                 .scope()
                 .iter()
-                .filter(|(_, v)| matches!(v, TypstValue::Func(_)))
+                .filter(|(_, v)| matches!(v, TexValue::Func(_)))
                 .map(|(k, _)| k.clone())
                 .collect();
         }
@@ -66,12 +66,12 @@ static LIBRARY: Lazy<Prehashed<Library>> = Lazy::new(|| {
     Prehashed::new(lib)
 });
 
-static FONTS: Lazy<(Prehashed<TypstFontBook>, Vec<TypstFont>)> = Lazy::new(|| {
+static FONTS: Lazy<(Prehashed<TexFontBook>, Vec<TexFont>)> = Lazy::new(|| {
     let fonts: Vec<_> = FONT_DIR
         .files()
-        .flat_map(|file| TypstFont::iter(file.contents().into()))
+        .flat_map(|file| TexFont::iter(file.contents().into()))
         .collect();
-    let book = TypstFontBook::from_fonts(&fonts);
+    let book = TexFontBook::from_fonts(&fonts);
     (Prehashed::new(book), fonts)
 });
 
@@ -98,7 +98,7 @@ pub trait Resolver {
     fn image(&self, filename: &str, data: &[u8]) -> String;
 
     /// Produce HTML for an example.
-    fn example(&self, hash: u128, source: Option<Html>, document: &TypstDocument) -> Html;
+    fn example(&self, hash: u128, source: Option<Html>, document: &TexDocument) -> Html;
 
     /// Determine the commits between two tags.
     fn commits(&self, from: &str, to: &str) -> Vec<Commit>;
@@ -176,7 +176,7 @@ fn packages_page(resolver: &dyn Resolver) -> PageModel {
     PageModel {
         route: "/docs/packages/".into(),
         title: "Packages".into(),
-        description: "Packages for Typst.".into(),
+        description: "Packages for Tex.".into(),
         part: None,
         outline: vec![],
         body: BodyModel::Packages(Html::markdown(resolver, md, Some(1))),
@@ -267,7 +267,7 @@ fn category_page(resolver: &dyn Resolver, category: Category) -> PageModel {
         }
 
         match value {
-            TypstValue::Func(func) => {
+            TexValue::Func(func) => {
                 let name = func.name().unwrap();
 
                 let subpage = func_page(resolver, &route, func, path);
@@ -279,7 +279,7 @@ fn category_page(resolver: &dyn Resolver, category: Category) -> PageModel {
                 });
                 children.push(subpage);
             }
-            TypstValue::Type(ty) => {
+            TexValue::Type(ty) => {
                 let subpage = type_page(resolver, &route, ty);
                 items.push(CategoryItem {
                     name: ty.short_name().into(),
@@ -310,7 +310,7 @@ fn category_page(resolver: &dyn Resolver, category: Category) -> PageModel {
     PageModel {
         route,
         title: name.into(),
-        description: eco_format!("Documentation for functions related to {name} in Typst."),
+        description: eco_format!("Documentation for functions related to {name} in Tex."),
         part: None,
         outline,
         body: BodyModel::Category(CategoryModel {
@@ -438,11 +438,11 @@ fn casts(
 ) {
     match info {
         CastInfo::Any => types.push("any"),
-        CastInfo::TypstValue(TypstValue::Str(string), docs) => strings.push(StrParam {
+        CastInfo::TexValue(TexValue::Str(string), docs) => strings.push(StrParam {
             string: string.clone().into(),
             details: Html::markdown(resolver, docs, None),
         }),
-        CastInfo::TypstValue(..) => {}
+        CastInfo::TexValue(..) => {}
         CastInfo::Type(ty) => types.push(ty.short_name()),
         CastInfo::Union(options) => {
             for option in options {
@@ -457,7 +457,7 @@ fn scope_models(resolver: &dyn Resolver, name: &str, scope: &Scope) -> Vec<FuncM
     scope
         .iter()
         .filter_map(|(_, value)| {
-            let TypstValue::Func(func) = value else {
+            let TexValue::Func(func) = value else {
                 return None;
             };
             Some(func_model(resolver, func, &[name], true))
@@ -541,7 +541,7 @@ fn group_page(
     let mut outline_items = vec![];
     for name in &group.filter {
         let value = group.module().scope().get(name).unwrap();
-        let TypstValue::Func(func) = value else {
+        let TexValue::Func(func) = value else {
             panic!("not a function")
         };
         let func = func_model(resolver, func, &path, true);
@@ -651,7 +651,7 @@ fn symbols_page(resolver: &dyn Resolver, parent: &str, group: &GroupData) -> Pag
 fn symbols_model(resolver: &dyn Resolver, group: &GroupData) -> SymbolsModel {
     let mut list = vec![];
     for (name, value) in group.module().scope().iter() {
-        let TypstValue::Symbol(symbol) = value else {
+        let TexValue::Symbol(symbol) = value else {
             continue;
         };
         let complete = |variant: &str| {
@@ -695,7 +695,7 @@ fn symbols_model(resolver: &dyn Resolver, group: &GroupData) -> SymbolsModel {
 #[track_caller]
 fn get_module<'a>(parent: &'a Module, name: &str) -> StrResult<&'a Module> {
     match parent.scope().get(name) {
-        Some(TypstValue::Module(module)) => Ok(module),
+        Some(TexValue::Module(module)) => Ok(module),
         _ => bail!("module doesn't contain module `{name}`"),
     }
 }
@@ -805,7 +805,7 @@ mod tests {
             None
         }
 
-        fn example(&self, _: u128, _: Option<Html>, _: &TypstDocument) -> Html {
+        fn example(&self, _: u128, _: Option<Html>, _: &TexDocument) -> Html {
             Html::new(String::new())
         }
 

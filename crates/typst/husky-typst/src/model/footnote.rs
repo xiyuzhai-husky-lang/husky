@@ -4,15 +4,15 @@ use std::str::FromStr;
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, Label, Packed, Show, ShowSet, Smart, StyleChain, Styles, TypstContent,
-    TypstElement,
+    cast, elem, scope, Label, Packed, Show, ShowSet, Smart, StyleChain, Styles, TexContent,
+    TexElement,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable, Location};
 use crate::layout::{Abs, HElem, Length, LengthInEm, Ratio};
 use crate::model::{Destination, Numbering, NumberingPattern, ParElem};
 use crate::text::{SuperElem, TextElem, TextSize};
 use crate::util::NonZeroExt;
-use crate::visualize::{LineElem, TypstStroke};
+use crate::visualize::{LineElem, TexStroke};
 
 /// A footnote.
 ///
@@ -40,9 +40,9 @@ use crate::visualize::{LineElem, TypstStroke};
 /// By giving a label to a footnote, you can have multiple references to it.
 ///
 /// ```example
-/// You can edit Typst documents online.
+/// You can edit Tex documents online.
 /// #footnote[https://typst.app/app] <fn>
-/// Checkout Typst's website. @fn
+/// Checkout Tex's website. @fn
 /// And the online app. #footnote(<fn>)
 /// ```
 ///
@@ -84,7 +84,7 @@ impl FootnoteElem {
 
 impl FootnoteElem {
     /// Creates a new footnote that the passed content as its body.
-    pub fn with_content(content: TypstContent) -> Self {
+    pub fn with_content(content: TexContent) -> Self {
         Self::new(FootnoteBody::Content(content))
     }
 
@@ -99,7 +99,7 @@ impl FootnoteElem {
     }
 
     /// Returns the content of the body of this footnote if it is not a ref.
-    pub fn body_content(&self) -> Option<&TypstContent> {
+    pub fn body_content(&self) -> Option<&TexContent> {
         match self.body() {
             FootnoteBody::Content(content) => Some(content),
             _ => None,
@@ -125,7 +125,7 @@ impl Packed<FootnoteElem> {
 
 impl Show for Packed<FootnoteElem> {
     #[husky_typst_macros::time(name = "footnote", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         let loc = self.declaration_location(engine).at(self.span())?;
         let numbering = self.numbering(styles);
         let counter = Counter::of(FootnoteElem::elem());
@@ -147,7 +147,7 @@ impl Count for Packed<FootnoteElem> {
 /// another footnote.
 #[derive(Debug, Clone, PartialEq, Hash)]
 pub enum FootnoteBody {
-    Content(TypstContent),
+    Content(TexContent),
     Reference(Label),
 }
 
@@ -157,7 +157,7 @@ cast! {
         Self::Content(v) => v.into_value(),
         Self::Reference(v) => v.into_value(),
     },
-    v: TypstContent => Self::Content(v),
+    v: TexContent => Self::Content(v),
     v: Label => Self::Reference(v),
 }
 
@@ -215,13 +215,13 @@ pub struct FootnoteEntry {
     #[default(
         LineElem::new()
             .with_length(Ratio::new(0.3).into())
-            .with_stroke(TypstStroke {
+            .with_stroke(TexStroke {
                 thickness: Smart::Custom(Abs::pt(0.5).into()),
                 ..Default::default()
             })
             .pack()
     )]
-    pub separator: TypstContent,
+    pub separator: TexContent,
 
     /// The amount of clearance between the document body and the separator.
     ///
@@ -265,7 +265,7 @@ pub struct FootnoteEntry {
 
 impl Show for Packed<FootnoteEntry> {
     #[husky_typst_macros::time(name = "footnote.entry", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         let note = self.note();
         let number_gap = LengthInEm::new(0.05);
         let default = StyleChain::default();
@@ -284,7 +284,7 @@ impl Show for Packed<FootnoteEntry> {
             .spanned(self.span())
             .linked(Destination::Location(loc))
             .backlinked(loc.variant(1));
-        Ok(TypstContent::sequence([
+        Ok(TexContent::sequence([
             HElem::new(self.indent(styles).into()).pack(),
             sup,
             HElem::new(number_gap.into()).with_weak(true).pack(),
@@ -306,5 +306,5 @@ impl ShowSet for Packed<FootnoteEntry> {
 
 cast! {
     FootnoteElem,
-    v: TypstContent => v.unpack::<Self>().unwrap_or_else(Self::with_content)
+    v: TexContent => v.unpack::<Self>().unwrap_or_else(Self::with_content)
 }

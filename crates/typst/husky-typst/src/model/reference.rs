@@ -3,8 +3,8 @@ use ecow::eco_format;
 use crate::diag::{bail, At, Hint, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, Func, IntoTypstValue, Label, Packed, Show, Smart, StyleChain, Synthesize,
-    TypstContent, TypstElement,
+    cast, elem, Func, IntoTexValue, Label, Packed, Show, Smart, StyleChain, Synthesize, TexContent,
+    TexElement,
 };
 use crate::introspection::{Counter, Locatable};
 use crate::math::EquationElem;
@@ -63,7 +63,7 @@ use crate::text::TextElem;
 /// # Customization
 /// If you write a show rule for references, you can access the referenced
 /// element through the `element` field of the reference. The `element` may
-/// be `{none}` even if it exists if Typst hasn't discovered it yet, so you
+/// be `{none}` even if it exists if Tex hasn't discovered it yet, so you
 /// always need to handle that case in your code.
 ///
 /// ```example
@@ -131,7 +131,7 @@ pub struct RefElem {
 
     /// The referenced element.
     #[synthesized]
-    pub element: Option<TypstContent>,
+    pub element: Option<TexContent>,
 }
 
 impl Synthesize for Packed<RefElem> {
@@ -156,7 +156,7 @@ impl Synthesize for Packed<RefElem> {
 
 impl Show for Packed<RefElem> {
     #[husky_typst_macros::time(name = "ref", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         let target = *self.target();
         let elem = engine.introspector.query_label(target);
         let span = self.span();
@@ -212,7 +212,7 @@ impl Show for Packed<RefElem> {
 
         let supplement = match self.supplement(styles).as_ref() {
             Smart::Auto => refable.supplement(),
-            Smart::Custom(None) => TypstContent::empty(),
+            Smart::Custom(None) => TexContent::empty(),
             Smart::Custom(Some(supplement)) => supplement.resolve(engine, [elem])?,
         };
 
@@ -250,17 +250,17 @@ fn to_citation(
 /// Additional content for a reference.
 #[derive(Debug, Clone, PartialEq, Hash)]
 pub enum Supplement {
-    Content(TypstContent),
+    Content(TexContent),
     Func(Func),
 }
 
 impl Supplement {
     /// Tries to resolve the supplement into its content.
-    pub fn resolve<T: IntoTypstValue>(
+    pub fn resolve<T: IntoTexValue>(
         &self,
         engine: &mut Engine,
         args: impl IntoIterator<Item = T>,
-    ) -> SourceResult<TypstContent> {
+    ) -> SourceResult<TexContent> {
         Ok(match self {
             Supplement::Content(content) => content.clone(),
             Supplement::Func(func) => func.call(engine, args)?.display(),
@@ -274,7 +274,7 @@ cast! {
         Self::Content(v) => v.into_value(),
         Self::Func(v) => v.into_value(),
     },
-    v: TypstContent => Self::Content(v),
+    v: TexContent => Self::Content(v),
     v: Func => Self::Func(v),
 }
 
@@ -282,7 +282,7 @@ cast! {
 /// the `@ref` element.
 pub trait Refable {
     /// The supplement, if not overridden by the reference.
-    fn supplement(&self) -> TypstContent;
+    fn supplement(&self) -> TexContent;
 
     /// Returns the counter of this element.
     fn counter(&self) -> Counter;

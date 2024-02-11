@@ -2,7 +2,7 @@
 
 use ecow::{eco_format, EcoString};
 
-use crate::foundations::{func, Str, TypstValue};
+use crate::foundations::{func, Str, TexValue};
 
 /// The Unicode minus sign.
 pub const MINUS_SIGN: &str = "\u{2212}";
@@ -26,12 +26,12 @@ pub const MINUS_SIGN: &str = "\u{2212}";
 #[func(title = "Representation")]
 pub fn repr(
     /// The value whose string representation to produce.
-    value: TypstValue,
+    value: TexValue,
 ) -> Str {
     value.repr().into()
 }
 
-/// A trait that defines the `repr` of a Typst value.
+/// A trait that defines the `repr` of a Tex value.
 pub trait Repr {
     /// Return the debug representation of the value.
     fn repr(&self) -> EcoString;

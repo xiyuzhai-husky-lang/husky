@@ -12,11 +12,11 @@ use self::shaping::{
 use crate::diag::{bail, SourceResult};
 use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
-use crate::foundations::{Packed, Resolve, Smart, StyleChain, TypstContent};
+use crate::foundations::{Packed, Resolve, Smart, StyleChain, TexContent};
 use crate::introspection::{Introspector, Locator, MetaElem};
 use crate::layout::{
     Abs, AlignElem, Axes, BoxElem, FixedAlignment, Fr, Fragment, Frame, HElem, LengthInEm, Point,
-    Regions, Size, Sizing, Spacing, TypstLayoutDirection,
+    Regions, Size, Sizing, Spacing, TexLayoutDirection,
 };
 use crate::math::{EquationElem, MathParItem};
 use crate::model::{Linebreaks, ParElem};
@@ -29,7 +29,7 @@ use crate::World;
 
 /// Layouts content inline.
 pub(crate) fn layout_inline(
-    children: &[Prehashed<TypstContent>],
+    children: &[Prehashed<TexContent>],
     engine: &mut Engine,
     styles: StyleChain,
     consecutive: bool,
@@ -39,7 +39,7 @@ pub(crate) fn layout_inline(
     #[comemo::memoize]
     #[allow(clippy::too_many_arguments)]
     fn cached(
-        children: &[Prehashed<TypstContent>],
+        children: &[Prehashed<TexContent>],
         world: Tracked<dyn World + '_>,
         introspector: Tracked<Introspector>,
         route: Tracked<Route>,
@@ -416,7 +416,7 @@ impl<'a> Line<'a> {
 /// also performs string-level preprocessing like case transformations.
 #[allow(clippy::type_complexity)]
 fn collect<'a>(
-    children: &'a [Prehashed<TypstContent>],
+    children: &'a [Prehashed<TexContent>],
     engine: &mut Engine<'_>,
     styles: &'a StyleChain<'a>,
     region: Size,
@@ -556,7 +556,7 @@ fn collect<'a>(
 /// Prepare paragraph layout by shaping the whole paragraph.
 fn prepare<'a>(
     engine: &mut Engine,
-    children: &'a [Prehashed<TypstContent>],
+    children: &'a [Prehashed<TexContent>],
     text: &'a str,
     segments: Vec<(Segment<'a>, StyleChain<'a>)>,
     spans: SpanMapper,
@@ -567,8 +567,8 @@ fn prepare<'a>(
     let bidi = BidiInfo::new(
         text,
         match dir {
-            TypstLayoutDirection::LeftRight => Some(BidiLevel::ltr()),
-            TypstLayoutDirection::RightLeft => Some(BidiLevel::rtl()),
+            TexLayoutDirection::LeftRight => Some(BidiLevel::ltr()),
+            TexLayoutDirection::RightLeft => Some(BidiLevel::rtl()),
             _ => None,
         },
     );
@@ -710,9 +710,9 @@ fn shape_range<'a>(
     let region = TextElem::region_in(styles);
     let mut process = |range: Range, level: BidiLevel| {
         let dir = if level.is_ltr() {
-            TypstLayoutDirection::LeftRight
+            TexLayoutDirection::LeftRight
         } else {
-            TypstLayoutDirection::RightLeft
+            TexLayoutDirection::RightLeft
         };
         let shaped = shape(
             engine,
@@ -777,7 +777,7 @@ fn is_compatible(a: Script, b: Script) -> bool {
 /// paragraph.
 fn shared_get<T: PartialEq>(
     styles: StyleChain<'_>,
-    children: &[Prehashed<TypstContent>],
+    children: &[Prehashed<TexContent>],
     getter: fn(StyleChain) -> T,
 ) -> Option<T> {
     let value = getter(styles);

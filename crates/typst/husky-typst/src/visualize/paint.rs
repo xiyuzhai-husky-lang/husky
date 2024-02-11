@@ -3,22 +3,22 @@ use std::fmt::{self, Debug, Formatter};
 use ecow::EcoString;
 
 use crate::foundations::{cast, Repr, Smart};
-use crate::visualize::{Gradient, Pattern, RelativeTo, TypstColor};
+use crate::visualize::{Gradient, Pattern, RelativeTo, TexColor};
 
 /// How a fill or stroke should be painted.
 #[derive(Clone, Eq, PartialEq, Hash)]
-pub enum TypstPaint {
+pub enum TexPaint {
     /// A solid color.
-    Solid(TypstColor),
+    Solid(TexColor),
     /// A gradient.
     Gradient(Gradient),
     /// A pattern.
     Pattern(Pattern),
 }
 
-impl TypstPaint {
+impl TexPaint {
     /// Unwraps a solid color used for text rendering.
-    pub fn unwrap_solid(&self) -> TypstColor {
+    pub fn unwrap_solid(&self) -> TexColor {
         match self {
             Self::Solid(color) => *color,
             Self::Gradient(_) | Self::Pattern(_) => panic!("expected solid color"),
@@ -51,7 +51,7 @@ impl TypstPaint {
     }
 }
 
-impl Debug for TypstPaint {
+impl Debug for TexPaint {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         match self {
             Self::Solid(v) => v.fmt(f),
@@ -61,13 +61,13 @@ impl Debug for TypstPaint {
     }
 }
 
-impl From<Pattern> for TypstPaint {
+impl From<Pattern> for TexPaint {
     fn from(pattern: Pattern) -> Self {
         Self::Pattern(pattern)
     }
 }
 
-impl Repr for TypstPaint {
+impl Repr for TexPaint {
     fn repr(&self) -> EcoString {
         match self {
             Self::Solid(color) => color.repr(),
@@ -77,26 +77,26 @@ impl Repr for TypstPaint {
     }
 }
 
-impl<T: Into<TypstColor>> From<T> for TypstPaint {
+impl<T: Into<TexColor>> From<T> for TexPaint {
     fn from(t: T) -> Self {
         Self::Solid(t.into())
     }
 }
 
-impl From<Gradient> for TypstPaint {
+impl From<Gradient> for TexPaint {
     fn from(gradient: Gradient) -> Self {
         Self::Gradient(gradient)
     }
 }
 
 cast! {
-    TypstPaint,
+    TexPaint,
     self => match self {
         Self::Solid(color) => color.into_value(),
         Self::Gradient(gradient) => gradient.into_value(),
         Self::Pattern(pattern) => pattern.into_value(),
     },
-    color: TypstColor => Self::Solid(color),
+    color: TexColor => Self::Solid(color),
     gradient: Gradient => Self::Gradient(gradient),
     pattern: Pattern => Self::Pattern(pattern),
 }

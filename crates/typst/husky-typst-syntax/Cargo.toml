@@ -1,6 +1,6 @@
 [package]
 name = "husky-typst-syntax"
-description = "Parser and syntax tree for Typst."
+description = "Parser and syntax tree for Tex."
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

@@ -1,11 +1,11 @@
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, Array, Packed, Smart, StyleChain, TypstContent, TypstElement,
+    cast, elem, scope, Array, Packed, Smart, StyleChain, TexContent, TexElement,
 };
 use crate::layout::{
     BlockElem, Fragment, HElem, LayoutMultiple, Length, LengthInEm, Regions, Sides, Spacing,
-    StackChild, StackElem, TypstLayoutDirection,
+    StackChild, StackElem, TexLayoutDirection,
 };
 use crate::model::ParElem;
 use crate::text::TextElem;
@@ -65,7 +65,7 @@ pub struct TermsElem {
     /// ```
     #[default(HElem::new(LengthInEm::new(0.6).into()).with_weak(true).pack())]
     #[borrowed]
-    pub separator: TypstContent,
+    pub separator: TexContent,
 
     /// The indentation of each item.
     pub indent: Length,
@@ -96,7 +96,7 @@ pub struct TermsElem {
     /// #for (year, product) in (
     ///   "1978": "TeX",
     ///   "1984": "LaTeX",
-    ///   "2019": "Typst",
+    ///   "2019": "Tex",
     /// ) [/ #product: Born in #year.]
     /// ```
     #[variadic]
@@ -138,11 +138,11 @@ impl LayoutMultiple for Packed<TermsElem> {
             seq.push(child.term().clone().strong());
             seq.push((*separator).clone());
             seq.push(child.description().clone());
-            children.push(StackChild::Block(TypstContent::sequence(seq)));
+            children.push(StackChild::Block(TexContent::sequence(seq)));
         }
 
         let mut padding = Sides::default();
-        if TextElem::dir_in(styles) == TypstLayoutDirection::LeftRight {
+        if TextElem::dir_in(styles) == TexLayoutDirection::LeftRight {
             padding.left = pad.into();
         } else {
             padding.right = pad.into();
@@ -161,11 +161,11 @@ impl LayoutMultiple for Packed<TermsElem> {
 pub struct TermItem {
     /// The term described by the list item.
     #[required]
-    pub term: TypstContent,
+    pub term: TexContent,
 
     /// The description of the term.
     #[required]
-    pub description: TypstContent,
+    pub description: TexContent,
 }
 
 cast! {
@@ -178,5 +178,5 @@ cast! {
         };
         Self::new(term, description)
     },
-    v: TypstContent => v.unpack::<Self>().map_err(|_| "expected term item or array")?,
+    v: TexContent => v.unpack::<Self>().map_err(|_| "expected term item or array")?,
 }

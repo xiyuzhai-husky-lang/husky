@@ -1,6 +1,6 @@
 [package]
 name = "husky-typst-ide"
-description = "IDE functionality for Typst."
+description = "IDE functionality for Tex."
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

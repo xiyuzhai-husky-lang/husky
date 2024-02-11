@@ -5,9 +5,9 @@ use ecow::{eco_format, EcoString};
 use crate::diag::{bail, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, func, scope, ty, Fold, Packed, Repr, Resolve, Show, StyleChain, TypstContent,
+    cast, elem, func, scope, ty, Fold, Packed, Repr, Resolve, Show, StyleChain, TexContent,
 };
-use crate::layout::{Abs, Axes, Axis, Side, TypstLayoutDirection};
+use crate::layout::{Abs, Axes, Axis, Side, TexLayoutDirection};
 use crate::text::TextElem;
 
 /// Aligns content horizontally and vertically.
@@ -38,16 +38,16 @@ pub struct AlignElem {
     #[positional]
     #[fold]
     #[default]
-    pub alignment: Alignment,
+    pub alignment: TexAlignment,
 
     /// The content to align.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl Show for Packed<AlignElem> {
     #[husky_typst_macros::time(name = "align", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         Ok(self
             .body()
             .clone()
@@ -98,13 +98,13 @@ impl Show for Packed<AlignElem> {
 /// ```
 #[ty(scope)]
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
-pub enum Alignment {
+pub enum TexAlignment {
     H(HAlignment),
     V(VAlignment),
     Both(HAlignment, VAlignment),
 }
 
-impl Alignment {
+impl TexAlignment {
     /// The horizontal component.
     pub const fn x(self) -> Option<HAlignment> {
         match self {
@@ -122,7 +122,7 @@ impl Alignment {
     }
 
     /// Normalize the alignment to a LTR-TTB space.
-    pub fn fix(self, text_dir: TypstLayoutDirection) -> Axes<FixedAlignment> {
+    pub fn fix(self, text_dir: TexLayoutDirection) -> Axes<FixedAlignment> {
         Axes::new(
             self.x().unwrap_or_default().fix(text_dir),
             self.y().unwrap_or_default().fix(),
@@ -131,15 +131,15 @@ impl Alignment {
 }
 
 #[scope]
-impl Alignment {
-    pub const START: Self = Alignment::H(HAlignment::Start);
-    pub const LEFT: Self = Alignment::H(HAlignment::Left);
-    pub const CENTER: Self = Alignment::H(HAlignment::Center);
-    pub const RIGHT: Self = Alignment::H(HAlignment::Right);
-    pub const END: Self = Alignment::H(HAlignment::End);
-    pub const TOP: Self = Alignment::V(VAlignment::Top);
-    pub const HORIZON: Self = Alignment::V(VAlignment::Horizon);
-    pub const BOTTOM: Self = Alignment::V(VAlignment::Bottom);
+impl TexAlignment {
+    pub const START: Self = TexAlignment::H(HAlignment::Start);
+    pub const LEFT: Self = TexAlignment::H(HAlignment::Left);
+    pub const CENTER: Self = TexAlignment::H(HAlignment::Center);
+    pub const RIGHT: Self = TexAlignment::H(HAlignment::Right);
+    pub const END: Self = TexAlignment::H(HAlignment::End);
+    pub const TOP: Self = TexAlignment::V(VAlignment::Top);
+    pub const HORIZON: Self = TexAlignment::V(VAlignment::Horizon);
+    pub const BOTTOM: Self = TexAlignment::V(VAlignment::Bottom);
 
     /// The axis this alignment belongs to.
     /// - `{"horizontal"}` for `start`, `left`, `center`, `right`, and `end`
@@ -168,7 +168,7 @@ impl Alignment {
     /// #(left + bottom).inv()
     /// ```
     #[func(title = "Inverse")]
-    pub const fn inv(self) -> Alignment {
+    pub const fn inv(self) -> TexAlignment {
         match self {
             Self::H(h) => Self::H(h.inv()),
             Self::V(v) => Self::V(v.inv()),
@@ -177,13 +177,13 @@ impl Alignment {
     }
 }
 
-impl Default for Alignment {
+impl Default for TexAlignment {
     fn default() -> Self {
         HAlignment::default() + VAlignment::default()
     }
 }
 
-impl Add for Alignment {
+impl Add for TexAlignment {
     type Output = StrResult<Self>;
 
     fn add(self, rhs: Self) -> Self::Output {
@@ -204,7 +204,7 @@ impl Add for Alignment {
     }
 }
 
-impl Repr for Alignment {
+impl Repr for TexAlignment {
     fn repr(&self) -> EcoString {
         match self {
             Self::H(x) => x.repr(),
@@ -214,7 +214,7 @@ impl Repr for Alignment {
     }
 }
 
-impl Fold for Alignment {
+impl Fold for TexAlignment {
     fn fold(self, outer: Self) -> Self {
         match (self, outer) {
             (Self::H(x), Self::V(y) | Self::Both(_, y)) => Self::Both(x, y),
@@ -224,7 +224,7 @@ impl Fold for Alignment {
     }
 }
 
-impl Resolve for Alignment {
+impl Resolve for TexAlignment {
     type Output = Axes<FixedAlignment>;
 
     fn resolve(self, styles: StyleChain) -> Self::Output {
@@ -232,7 +232,7 @@ impl Resolve for Alignment {
     }
 }
 
-impl From<Side> for Alignment {
+impl From<Side> for TexAlignment {
     fn from(side: Side) -> Self {
         match side {
             Side::Left => Self::LEFT,
@@ -267,7 +267,7 @@ impl HAlignment {
     }
 
     /// Resolve the axis alignment based on the horizontal direction.
-    pub const fn fix(self, dir: TypstLayoutDirection) -> FixedAlignment {
+    pub const fn fix(self, dir: TexLayoutDirection) -> FixedAlignment {
         match (self, dir.is_positive()) {
             (Self::Start, true) | (Self::End, false) => FixedAlignment::Start,
             (Self::Left, _) => FixedAlignment::Start,
@@ -291,14 +291,14 @@ impl Repr for HAlignment {
 }
 
 impl Add<VAlignment> for HAlignment {
-    type Output = Alignment;
+    type Output = TexAlignment;
 
     fn add(self, rhs: VAlignment) -> Self::Output {
-        Alignment::Both(self, rhs)
+        TexAlignment::Both(self, rhs)
     }
 }
 
-impl From<HAlignment> for Alignment {
+impl From<HAlignment> for TexAlignment {
     fn from(align: HAlignment) -> Self {
         Self::H(align)
     }
@@ -314,9 +314,9 @@ impl Resolve for HAlignment {
 
 cast! {
     HAlignment,
-    self => Alignment::H(self).into_value(),
-    align: Alignment => match align {
-        Alignment::H(v) => v,
+    self => TexAlignment::H(self).into_value(),
+    align: TexAlignment => match align {
+        TexAlignment::H(v) => v,
         v => bail!("expected `start`, `left`, `center`, `right`, or `end`, found {}", v.repr()),
     }
 }
@@ -361,14 +361,14 @@ impl Repr for VAlignment {
 }
 
 impl Add<HAlignment> for VAlignment {
-    type Output = Alignment;
+    type Output = TexAlignment;
 
     fn add(self, rhs: HAlignment) -> Self::Output {
-        Alignment::Both(rhs, self)
+        TexAlignment::Both(rhs, self)
     }
 }
 
-impl From<VAlignment> for Alignment {
+impl From<VAlignment> for TexAlignment {
     fn from(align: VAlignment) -> Self {
         Self::V(align)
     }
@@ -376,9 +376,9 @@ impl From<VAlignment> for Alignment {
 
 cast! {
     VAlignment,
-    self => Alignment::V(self).into_value(),
-    align: Alignment => match align {
-        Alignment::V(v) => v,
+    self => TexAlignment::V(self).into_value(),
+    align: TexAlignment => match align {
+        TexAlignment::V(v) => v,
         v => bail!("expected `top`, `horizon`, or `bottom`, found {}", v.repr()),
     }
 }

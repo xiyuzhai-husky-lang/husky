@@ -4,12 +4,12 @@ use ecow::{eco_format, EcoString};
 
 use crate::{
     diag::StrResult,
-    foundations::{cast, func, repr, scope, ty, Repr, Str, TypstValue},
+    foundations::{cast, func, repr, scope, ty, Repr, Str, TexValue},
 };
 
 /// A whole number.
 ///
-/// The number can be negative, zero, or positive. As Typst uses 64 bits to
+/// The number can be negative, zero, or positive. As Tex uses 64 bits to
 /// store integers, integers cannot be smaller than `{-9223372036854775808}` or
 /// larger than `{9223372036854775807}`.
 ///
@@ -254,7 +254,7 @@ macro_rules! signed_int {
     ($($ty:ty)*) => {
         $(cast! {
             $ty,
-            self => TypstValue::Int(self as _),
+            self => TexValue::Int(self as _),
             v: i64 => v.try_into().map_err(|_| "number too large")?,
         })*
     }
@@ -264,7 +264,7 @@ macro_rules! unsigned_int {
     ($($ty:ty)*) => {
         $(cast! {
             $ty,
-            self => TypstValue::Int(self as _),
+            self => TexValue::Int(self as _),
             v: i64 => v.try_into().map_err(|_| {
                 if v < 0 {
                     "number must be at least zero"
@@ -281,7 +281,7 @@ unsigned_int! { u8 u16 u32 u64 usize }
 
 cast! {
     NonZeroI64,
-    self => TypstValue::Int(self.get() as _),
+    self => TexValue::Int(self.get() as _),
     v: i64 => v.try_into()
         .map_err(|_| if v == 0 {
             "number must not be zero"
@@ -292,7 +292,7 @@ cast! {
 
 cast! {
     NonZeroIsize,
-    self => TypstValue::Int(self.get() as _),
+    self => TexValue::Int(self.get() as _),
     v: i64 => v
         .try_into()
         .and_then(|v: isize| v.try_into())
@@ -305,7 +305,7 @@ cast! {
 
 cast! {
     NonZeroU64,
-    self => TypstValue::Int(self.get() as _),
+    self => TexValue::Int(self.get() as _),
     v: i64 => v
         .try_into()
         .and_then(|v: u64| v.try_into())
@@ -318,7 +318,7 @@ cast! {
 
 cast! {
     NonZeroUsize,
-    self => TypstValue::Int(self.get() as _),
+    self => TexValue::Int(self.get() as _),
     v: i64 => v
         .try_into()
         .and_then(|v: usize| v.try_into())

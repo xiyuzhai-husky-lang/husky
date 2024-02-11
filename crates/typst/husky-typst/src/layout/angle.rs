@@ -10,7 +10,7 @@ use crate::util::{Numeric, Scalar};
 
 /// An angle describing a rotation.
 ///
-/// Typst supports the following angular units:
+/// Tex supports the following angular units:
 ///
 /// - Degrees: `{180deg}`
 /// - Radians: `{3.14rad}`

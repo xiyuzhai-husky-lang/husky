@@ -1,4 +1,4 @@
-//! Parser and syntax tree for Typst.
+//! Parser and syntax tree for Tex.
 
 pub mod ast;
 

@@ -20,7 +20,7 @@ use crate::layout::{Axis, Side};
 /// ```
 #[ty(scope, name = "direction")]
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
-pub enum TypstLayoutDirection {
+pub enum TexLayoutDirection {
     /// Left to right.
     LeftRight,
     /// Right to left.
@@ -31,7 +31,7 @@ pub enum TypstLayoutDirection {
     BottomUp,
 }
 
-impl TypstLayoutDirection {
+impl TexLayoutDirection {
     /// Whether this direction points into the positive coordinate direction.
     ///
     /// The positive directions are left-to-right and top-to-bottom.
@@ -44,7 +44,7 @@ impl TypstLayoutDirection {
 }
 
 #[scope]
-impl TypstLayoutDirection {
+impl TexLayoutDirection {
     pub const LEFT_RIGHT: Self = Self::LeftRight;
     pub const RIGHT_LEFT: Self = Self::RightLeft;
     pub const TOP_DOWN: Self = Self::TopDown;
@@ -110,7 +110,7 @@ impl TypstLayoutDirection {
     /// #btt.inv()
     /// ```
     #[func(title = "Inverse")]
-    pub const fn inv(self) -> TypstLayoutDirection {
+    pub const fn inv(self) -> TexLayoutDirection {
         match self {
             Self::LeftRight => Self::RightLeft,
             Self::RightLeft => Self::LeftRight,
@@ -120,7 +120,7 @@ impl TypstLayoutDirection {
     }
 }
 
-impl Repr for TypstLayoutDirection {
+impl Repr for TexLayoutDirection {
     fn repr(&self) -> EcoString {
         match self {
             Self::LeftRight => "ltr".into(),

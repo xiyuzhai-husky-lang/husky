@@ -2,10 +2,10 @@ use std::fmt::{self, Debug, Formatter};
 
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{cast, elem, Packed, Resolve, StyleChain, TypstContent};
+use crate::foundations::{cast, elem, Packed, Resolve, StyleChain, TexContent};
 use crate::layout::{
     Abs, AlignElem, Axes, Axis, FixedAlignment, Fr, Fragment, Frame, LayoutMultiple, Point,
-    Regions, Size, Spacing, TypstLayoutDirection,
+    Regions, Size, Spacing, TexLayoutDirection,
 };
 use crate::util::{Get, Numeric};
 
@@ -40,8 +40,8 @@ pub struct StackElem {
     ///
     /// For example, `{ttb.start()}` is `top`, `{ttb.end()}` is `bottom`,
     /// `{ttb.axis()}` is `{"vertical"}` and `{ttb.inv()}` is equal to `btt`.
-    #[default(TypstLayoutDirection::TopDown)]
-    pub dir: TypstLayoutDirection,
+    #[default(TexLayoutDirection::TopDown)]
+    pub dir: TexLayoutDirection,
 
     /// Spacing to insert between items where no explicit spacing was provided.
     pub spacing: Option<Spacing>,
@@ -92,7 +92,7 @@ pub enum StackChild {
     /// Spacing between other children.
     Spacing(Spacing),
     /// Arbitrary block-level content.
-    Block(TypstContent),
+    Block(TexContent),
 }
 
 impl Debug for StackChild {
@@ -111,13 +111,13 @@ cast! {
         Self::Block(content) => content.into_value(),
     },
     v: Spacing => Self::Spacing(v),
-    v: TypstContent => Self::Block(v),
+    v: TexContent => Self::Block(v),
 }
 
 /// Performs stack layout.
 struct StackLayouter<'a> {
     /// The stacking direction.
-    dir: TypstLayoutDirection,
+    dir: TexLayoutDirection,
     /// The axis of the stacking direction.
     axis: Axis,
     /// The regions to layout children into.
@@ -151,7 +151,7 @@ enum StackItem {
 
 impl<'a> StackLayouter<'a> {
     /// Create a new stack layouter.
-    fn new(dir: TypstLayoutDirection, mut regions: Regions<'a>, styles: StyleChain<'a>) -> Self {
+    fn new(dir: TexLayoutDirection, mut regions: Regions<'a>, styles: StyleChain<'a>) -> Self {
         let axis = dir.axis();
         let expand = regions.expand;
 
@@ -199,7 +199,7 @@ impl<'a> StackLayouter<'a> {
     fn layout_block(
         &mut self,
         engine: &mut Engine,
-        block: &TypstContent,
+        block: &TexContent,
         styles: StyleChain,
     ) -> SourceResult<()> {
         if self.regions.is_full() {

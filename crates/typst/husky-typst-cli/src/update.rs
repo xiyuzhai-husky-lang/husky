@@ -16,7 +16,7 @@ use crate::download::{download, download_with_progress};
 const TYPST_GITHUB_ORG: &str = "typst";
 const TYPST_REPO: &str = "typst";
 
-/// Self update the Typst CLI binary.
+/// Self update the Tex CLI binary.
 ///
 /// Fetches a target release or the latest release (if no version was specified)
 /// from GitHub, unpacks it and self replaces the current binary with the
@@ -81,7 +81,7 @@ pub fn update(command: &UpdateCommand) -> StrResult<()> {
 
 /// Assets belonging to a GitHub release.
 ///
-/// Primarily used to download pre-compiled Typst CLI binaries.
+/// Primarily used to download pre-compiled Tex CLI binaries.
 #[derive(Debug, Deserialize)]
 struct Asset {
     name: String,
@@ -97,7 +97,7 @@ struct Release {
 
 impl Release {
     /// Download the target release, or latest if version is `None`, from the
-    /// Typst repository.
+    /// Tex repository.
     pub fn from_tag(tag: Option<&Version>) -> StrResult<Release> {
         let url = match tag {
             Some(tag) => format!(
@@ -146,14 +146,14 @@ impl Release {
     }
 }
 
-/// Extract the Typst binary from a ZIP archive.
+/// Extract the Tex binary from a ZIP archive.
 fn extract_binary_from_zip(data: &[u8], asset_name: &str) -> StrResult<Vec<u8>> {
     let mut archive = ZipArchive::new(Cursor::new(data))
         .map_err(|err| eco_format!("failed to extract ZIP archive ({err})"))?;
 
     let mut file = archive
         .by_name(&format!("{asset_name}/typst.exe"))
-        .map_err(|err| eco_format!("failed to extract Typst binary from ZIP archive ({err})"))?;
+        .map_err(|err| eco_format!("failed to extract Tex binary from ZIP archive ({err})"))?;
 
     let mut buffer = vec![];
     file.read_to_end(&mut buffer)
@@ -162,7 +162,7 @@ fn extract_binary_from_zip(data: &[u8], asset_name: &str) -> StrResult<Vec<u8>> 
     Ok(buffer)
 }
 
-/// Extract the Typst binary from a `.tar.xz` archive.
+/// Extract the Tex binary from a `.tar.xz` archive.
 fn extract_binary_from_tar_xz(data: &[u8]) -> StrResult<Vec<u8>> {
     let mut archive = tar::Archive::new(XzDecoder::new(Cursor::new(data)));
 
@@ -171,7 +171,7 @@ fn extract_binary_from_tar_xz(data: &[u8]) -> StrResult<Vec<u8>> {
         .map_err(|err| eco_format!("failed to extract tar.xz archive ({err})"))?
         .filter_map(Result::ok)
         .find(|e| e.path().unwrap_or_default().ends_with("typst"))
-        .ok_or("tar.xz archive did not contain Typst binary")?;
+        .ok_or("tar.xz archive did not contain Tex binary")?;
 
     let mut buffer = vec![];
     file.read_to_end(&mut buffer)

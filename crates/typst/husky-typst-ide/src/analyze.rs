@@ -2,22 +2,22 @@ use comemo::Track;
 use ecow::{eco_vec, EcoString, EcoVec};
 use husky_typst::engine::{Engine, Route};
 use husky_typst::eval::{Tracer, Vm};
-use husky_typst::foundations::{Label, Scopes, TypstValue};
+use husky_typst::foundations::{Label, Scopes, TexValue};
 use husky_typst::introspection::{Introspector, Locator};
-use husky_typst::model::{BibliographyElem, TypstDocument};
+use husky_typst::model::{BibliographyElem, TexDocument};
 use husky_typst::syntax::{ast, LinkedNode, Span, SyntaxKind};
 use husky_typst::World;
 
 /// Try to determine a set of possible values for an expression.
-pub fn analyze_expr(world: &dyn World, node: &LinkedNode) -> EcoVec<TypstValue> {
+pub fn analyze_expr(world: &dyn World, node: &LinkedNode) -> EcoVec<TexValue> {
     match node.cast::<ast::Expr>() {
-        Some(ast::Expr::None(_)) => eco_vec![TypstValue::None],
-        Some(ast::Expr::Auto(_)) => eco_vec![TypstValue::Auto],
-        Some(ast::Expr::Bool(v)) => eco_vec![TypstValue::Bool(v.get())],
-        Some(ast::Expr::Int(v)) => eco_vec![TypstValue::Int(v.get())],
-        Some(ast::Expr::Float(v)) => eco_vec![TypstValue::Float(v.get())],
-        Some(ast::Expr::Numeric(v)) => eco_vec![TypstValue::numeric(v.get())],
-        Some(ast::Expr::Str(v)) => eco_vec![TypstValue::Str(v.get().into())],
+        Some(ast::Expr::None(_)) => eco_vec![TexValue::None],
+        Some(ast::Expr::Auto(_)) => eco_vec![TexValue::Auto],
+        Some(ast::Expr::Bool(v)) => eco_vec![TexValue::Bool(v.get())],
+        Some(ast::Expr::Int(v)) => eco_vec![TexValue::Int(v.get())],
+        Some(ast::Expr::Float(v)) => eco_vec![TexValue::Float(v.get())],
+        Some(ast::Expr::Numeric(v)) => eco_vec![TexValue::numeric(v.get())],
+        Some(ast::Expr::Str(v)) => eco_vec![TexValue::Str(v.get().into())],
 
         Some(ast::Expr::FieldAccess(access)) => {
             let Some(child) = node.children().next() else {
@@ -47,7 +47,7 @@ pub fn analyze_expr(world: &dyn World, node: &LinkedNode) -> EcoVec<TypstValue> 
 }
 
 /// Try to load a module from the current source file.
-pub fn analyze_import(world: &dyn World, source: &LinkedNode) -> Option<TypstValue> {
+pub fn analyze_import(world: &dyn World, source: &LinkedNode) -> Option<TexValue> {
     let source = analyze_expr(world, source).into_iter().next()?;
     if source.scope().is_some() {
         return Some(source);
@@ -67,7 +67,7 @@ pub fn analyze_import(world: &dyn World, source: &LinkedNode) -> Option<TypstVal
     let mut vm = Vm::new(engine, Scopes::new(Some(world.library())), Span::detached());
     husky_typst::eval::import(&mut vm, source, Span::detached(), true)
         .ok()
-        .map(TypstValue::Module)
+        .map(TexValue::Module)
 }
 
 /// Find all labels and details for them.
@@ -76,7 +76,7 @@ pub fn analyze_import(world: &dyn World, source: &LinkedNode) -> Option<TypstVal
 /// - All labels and descriptions for them, if available
 /// - A split offset: All labels before this offset belong to nodes, all after
 ///   belong to a bibliography.
-pub fn analyze_labels(document: &TypstDocument) -> (Vec<(Label, Option<EcoString>)>, usize) {
+pub fn analyze_labels(document: &TexDocument) -> (Vec<(Label, Option<EcoString>)>, usize) {
     let mut output = vec![];
 
     // Labels in the document.
@@ -86,7 +86,7 @@ pub fn analyze_labels(document: &TypstDocument) -> (Vec<(Label, Option<EcoString
             .get_by_name("caption")
             .or_else(|| elem.get_by_name("body"))
             .and_then(|field| match field {
-                TypstValue::Content(content) => Some(content),
+                TexValue::Content(content) => Some(content),
                 _ => None,
             })
             .as_ref()

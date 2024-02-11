@@ -60,7 +60,7 @@ pub fn derive_cast(item: DeriveInput) -> Result<TokenStream> {
     Ok(quote! {
         #foundations::cast! {
             #ty,
-            self => #foundations::IntoTypstValue::into_value(match self {
+            self => #foundations::IntoTexValue::into_value(match self {
                 #(#variants_to_strs),*
             }),
             #(#strs_to_variants),*
@@ -96,7 +96,7 @@ pub fn cast(stream: TokenStream) -> Result<TokenStream> {
                     #output_body
                 }
 
-                fn castable(value: &#foundations::TypstValue) -> bool {
+                fn castable(value: &#foundations::TexValue) -> bool {
                     #castable_body
                 }
             }
@@ -105,8 +105,8 @@ pub fn cast(stream: TokenStream) -> Result<TokenStream> {
 
     let into_value = (input.into_value.is_some() || input.dynamic).then(|| {
         quote! {
-            impl #foundations::IntoTypstValue for #ty {
-                fn into_value(self) -> #foundations::TypstValue {
+            impl #foundations::IntoTexValue for #ty {
+                fn into_value(self) -> #foundations::TexValue {
                     #into_value_body
                 }
             }
@@ -115,8 +115,8 @@ pub fn cast(stream: TokenStream) -> Result<TokenStream> {
 
     let from_value = (!input.from_value.is_empty() || input.dynamic).then(|| {
         quote! {
-            impl #foundations::FromTypstValue for #ty {
-                fn from_value(value: #foundations::TypstValue) -> ::husky_typst::diag::StrResult<Self> {
+            impl #foundations::FromTexValue for #ty {
+                fn from_value(value: #foundations::TexValue) -> ::husky_typst::diag::StrResult<Self> {
                     #from_value_body
                 }
             }
@@ -228,7 +228,7 @@ fn create_castable_body(input: &CastInput) -> TokenStream {
 
     let dynamic_check = input.dynamic.then(|| {
         quote! {
-            if let #foundations::TypstValue::Dyn(dynamic) = &value {
+            if let #foundations::TexValue::Dyn(dynamic) = &value {
                 if dynamic.is::<Self>() {
                     return true;
                 }
@@ -238,7 +238,7 @@ fn create_castable_body(input: &CastInput) -> TokenStream {
 
     let str_check = (!strings.is_empty()).then(|| {
         quote! {
-            if let #foundations::TypstValue::Str(string) = &value {
+            if let #foundations::TexValue::Str(string) = &value {
                 match string.as_str() {
                     #(#strings,)*
                     _ => {}
@@ -263,8 +263,8 @@ fn create_input_body(input: &CastInput) -> TokenStream {
         infos.push(match &cast.pattern {
             Pattern::Str(lit) => {
                 quote! {
-                    #foundations::CastInfo::TypstValue(
-                        #foundations::IntoTypstValue::into_value(#lit),
+                    #foundations::CastInfo::TexValue(
+                        #foundations::IntoTexValue::into_value(#lit),
                         #docs,
                     )
                 }
@@ -298,7 +298,7 @@ fn create_into_value_body(input: &CastInput) -> TokenStream {
     if let Some(expr) = &input.into_value {
         quote! { #expr }
     } else {
-        quote! { #foundations::TypstValue::dynamic(self) }
+        quote! { #foundations::TexValue::dynamic(self) }
     }
 }
 
@@ -315,7 +315,7 @@ fn create_from_value_body(input: &CastInput) -> TokenStream {
             Pattern::Ty(binding, ty) => {
                 cast_checks.push(quote! {
                     if <#ty as #foundations::Reflect>::castable(&value) {
-                        let #binding = <#ty as #foundations::FromTypstValue>::from_value(value)?;
+                        let #binding = <#ty as #foundations::FromTexValue>::from_value(value)?;
                         return Ok(#expr);
                     }
                 });
@@ -325,7 +325,7 @@ fn create_from_value_body(input: &CastInput) -> TokenStream {
 
     let dynamic_check = input.dynamic.then(|| {
         quote! {
-            if let #foundations::TypstValue::Dyn(dynamic) = &value {
+            if let #foundations::TexValue::Dyn(dynamic) = &value {
                 if let Some(concrete) = dynamic.downcast::<Self>() {
                     return Ok(concrete.clone());
                 }
@@ -335,7 +335,7 @@ fn create_from_value_body(input: &CastInput) -> TokenStream {
 
     let str_check = (!string_arms.is_empty()).then(|| {
         quote! {
-            if let #foundations::TypstValue::Str(string) = &value {
+            if let #foundations::TexValue::Str(string) = &value {
                 match string.as_str() {
                     #(#string_arms,)*
                     _ => {}

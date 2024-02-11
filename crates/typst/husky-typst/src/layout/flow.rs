@@ -4,7 +4,7 @@ use comemo::Prehashed;
 
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{elem, Packed, Resolve, Smart, StyleChain, TypstContent, TypstElement};
+use crate::foundations::{elem, Packed, Resolve, Smart, StyleChain, TexContent, TexElement};
 use crate::introspection::{Meta, MetaElem};
 use crate::layout::{
     Abs, AlignElem, Axes, BlockElem, ColbreakElem, ColumnsElem, FixedAlignment, Fr, Fragment,
@@ -22,7 +22,7 @@ use crate::util::Numeric;
 pub struct FlowElem {
     /// The children that will be arranges into a flow.
     #[variadic]
-    pub children: Vec<Prehashed<TypstContent>>,
+    pub children: Vec<Prehashed<TexContent>>,
 }
 
 impl LayoutMultiple for Packed<FlowElem> {
@@ -110,7 +110,7 @@ struct FlowLayouter<'a> {
 
 /// Cached footnote configuration.
 struct FootnoteConfig {
-    separator: TypstContent,
+    separator: TexContent,
     clearance: Abs,
     gap: Abs,
 }
@@ -343,7 +343,7 @@ impl<'a> FlowLayouter<'a> {
     fn layout_multiple(
         &mut self,
         engine: &mut Engine,
-        child: &TypstContent,
+        child: &TexContent,
         styles: StyleChain,
     ) -> SourceResult<()> {
         // Temporarily delegerate rootness to the columns.

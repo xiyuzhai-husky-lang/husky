@@ -3,7 +3,7 @@ use std::num::NonZeroUsize;
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    elem, Packed, Show, ShowSet, Smart, StyleChain, Styles, Synthesize, TypstContent, TypstElement,
+    elem, Packed, Show, ShowSet, Smart, StyleChain, Styles, Synthesize, TexContent, TexElement,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable};
 use crate::layout::{BlockElem, HElem, LengthInEm, VElem};
@@ -19,11 +19,11 @@ use crate::util::{option_eq, NonZeroExt};
 /// etc.)  A top-level heading indicates a top-level section of the document
 /// (not the document's title).
 ///
-/// Typst can automatically number your headings for you. To enable numbering,
+/// Tex can automatically number your headings for you. To enable numbering,
 /// specify how you want your headings to be numbered with a
 /// [numbering pattern or function]($numbering).
 ///
-/// Independently from the numbering, Typst can also automatically generate an
+/// Independently from the numbering, Tex can also automatically generate an
 /// [outline]($outline) of all headings for you. To exclude one or more headings
 /// from this outline, you can set the `outlined` parameter to `{false}`.
 ///
@@ -105,7 +105,7 @@ pub struct HeadingElem {
     ///
     /// The default value of `{auto}` indicates that the heading will only
     /// appear in the exported PDF's outline if its `outlined` property is set
-    /// to `{true}`, that is, if it would also be listed in Typst's
+    /// to `{true}`, that is, if it would also be listed in Tex's
     /// [outline]($outline). Setting this property to either `{true}` (bookmark)
     /// or `{false}` (don't bookmark) bypasses that behaviour.
     ///
@@ -124,14 +124,14 @@ pub struct HeadingElem {
 
     /// The heading's title.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl Synthesize for Packed<HeadingElem> {
     fn synthesize(&mut self, engine: &mut Engine, styles: StyleChain) -> SourceResult<()> {
         let supplement = match (**self).supplement(styles) {
             Smart::Auto => TextElem::packed(Self::local_name_in(styles)),
-            Smart::Custom(None) => TypstContent::empty(),
+            Smart::Custom(None) => TexContent::empty(),
             Smart::Custom(Some(supplement)) => supplement.resolve(engine, [self.clone().pack()])?,
         };
 
@@ -142,7 +142,7 @@ impl Synthesize for Packed<HeadingElem> {
 
 impl Show for Packed<HeadingElem> {
     #[husky_typst_macros::time(name = "heading", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         let mut realized = self.body().clone();
         if let Some(numbering) = (**self).numbering(styles).as_ref() {
             realized = Counter::of(HeadingElem::elem())
@@ -194,11 +194,11 @@ impl Count for Packed<HeadingElem> {
 }
 
 impl Refable for Packed<HeadingElem> {
-    fn supplement(&self) -> TypstContent {
+    fn supplement(&self) -> TexContent {
         // After synthesis, this should always be custom content.
         match (**self).supplement(StyleChain::default()) {
             Smart::Custom(Some(Supplement::Content(content))) => content,
-            _ => TypstContent::empty(),
+            _ => TexContent::empty(),
         }
     }
 
@@ -212,7 +212,7 @@ impl Refable for Packed<HeadingElem> {
 }
 
 impl Outlinable for Packed<HeadingElem> {
-    fn outline(&self, engine: &mut Engine) -> SourceResult<Option<TypstContent>> {
+    fn outline(&self, engine: &mut Engine) -> SourceResult<Option<TexContent>> {
         if !self.outlined(StyleChain::default()) {
             return Ok(None);
         }

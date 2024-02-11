@@ -23,9 +23,9 @@ use crate::diag::{bail, error, At, FileError, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::eval::{eval_string, EvalMode};
 use crate::foundations::{
-    cast, elem, ty, Args, Array, Bytes, CastInfo, FromTypstValue, IntoTypstValue, Label, Packed,
-    Reflect, Repr, Scope, Show, ShowSet, Smart, Str, StyleChain, Styles, Synthesize, Type,
-    TypstContent, TypstElement, TypstValue,
+    cast, elem, ty, Args, Array, Bytes, CastInfo, FromTexValue, IntoTexValue, Label, Packed,
+    Reflect, Repr, Scope, Show, ShowSet, Smart, Str, StyleChain, Styles, Synthesize, TexContent,
+    TexElement, TexValue, Type,
 };
 use crate::introspection::{Introspector, Locatable, Location};
 use crate::layout::{
@@ -46,7 +46,7 @@ use crate::World;
 /// to a bibliography file in either one of two formats:
 ///
 /// - A Hayagriva `.yml` file. Hayagriva is a new bibliography file format
-///   designed for use with Typst. Visit its
+///   designed for use with Tex. Visit its
 ///   [documentation](https://github.com/typst/hayagriva/blob/main/docs/file-format.md)
 ///   for more details.
 /// - A BibLaTeX `.bib` file.
@@ -57,7 +57,7 @@ use crate::World;
 /// show entries for works that were referenced in the document.
 ///
 /// # Styles
-/// Typst offers a wide selection of built-in
+/// Tex offers a wide selection of built-in
 /// [citation and bibliography styles]($bibliography.style). Beyond those, you
 /// can add and use custom [CSL](https://citationstyles.org/) (Citation Style
 /// Language) files. Wondering which style to use? Here are some good defaults
@@ -103,7 +103,7 @@ pub struct BibliographyElem {
     /// force it to be with a show-set rule:
     /// `{show bibliography: set heading(numbering: "1.")}`
     #[default(Some(Smart::Auto))]
-    pub title: Option<Smart<TypstContent>>,
+    pub title: Option<Smart<TexContent>>,
 
     /// Whether to include all works from the given bibliography files, even
     /// those that weren't cited in the document.
@@ -148,7 +148,7 @@ cast! {
     BibliographyPaths,
     self => self.0.into_value(),
     v: EcoString => Self(vec![v]),
-    v: Array => Self(v.into_iter().map(TypstValue::cast).collect::<StrResult<_>>()?),
+    v: Array => Self(v.into_iter().map(TexValue::cast).collect::<StrResult<_>>()?),
 }
 
 impl BibliographyElem {
@@ -203,7 +203,7 @@ impl Synthesize for Packed<BibliographyElem> {
 
 impl Show for Packed<BibliographyElem> {
     #[husky_typst_macros::time(name = "bibliography", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         const COLUMN_GUTTER: LengthInEm = LengthInEm::new(0.65);
         const INDENT: LengthInEm = LengthInEm::new(1.5);
 
@@ -255,7 +255,7 @@ impl Show for Packed<BibliographyElem> {
             }
         }
 
-        let mut content = TypstContent::sequence(seq);
+        let mut content = TexContent::sequence(seq);
         if works.hanging_indent {
             content = content.styled(ParElem::set_hanging_indent(INDENT.into()));
         }
@@ -509,7 +509,7 @@ impl CslStyle {
 }
 
 // This Reflect impl is technically a bit wrong because it doesn't say what
-// FromTypstValue and IntoTypstValue really do. Instead, it says what the `style` argument
+// FromTexValue and IntoTexValue really do. Instead, it says what the `style` argument
 // on `bibliography` and `cite` expect (through manual parsing).
 impl Reflect for CslStyle {
     #[comemo::memoize]
@@ -517,7 +517,7 @@ impl Reflect for CslStyle {
         let ty = std::iter::once(CastInfo::Type(Type::of::<Str>()));
         let options = hayagriva::archive::ArchivedStyle::all()
             .iter()
-            .map(|name| CastInfo::TypstValue(name.names()[0].into_value(), name.display_name()));
+            .map(|name| CastInfo::TexValue(name.names()[0].into_value(), name.display_name()));
         CastInfo::Union(ty.chain(options).collect())
     }
 
@@ -525,8 +525,8 @@ impl Reflect for CslStyle {
         EcoString::output()
     }
 
-    fn castable(value: &TypstValue) -> bool {
-        if let TypstValue::Dyn(dynamic) = &value {
+    fn castable(value: &TexValue) -> bool {
+        if let TexValue::Dyn(dynamic) = &value {
             if dynamic.is::<Self>() {
                 return true;
             }
@@ -536,9 +536,9 @@ impl Reflect for CslStyle {
     }
 }
 
-impl FromTypstValue for CslStyle {
-    fn from_value(value: TypstValue) -> StrResult<Self> {
-        if let TypstValue::Dyn(dynamic) = &value {
+impl FromTexValue for CslStyle {
+    fn from_value(value: TexValue) -> StrResult<Self> {
+        if let TexValue::Dyn(dynamic) = &value {
             if let Some(concrete) = dynamic.downcast::<Self>() {
                 return Ok(concrete.clone());
             }
@@ -548,9 +548,9 @@ impl FromTypstValue for CslStyle {
     }
 }
 
-impl IntoTypstValue for CslStyle {
-    fn into_value(self) -> TypstValue {
-        TypstValue::dynamic(self)
+impl IntoTexValue for CslStyle {
+    fn into_value(self) -> TexValue {
+        TexValue::dynamic(self)
     }
 }
 
@@ -569,10 +569,10 @@ impl Repr for CslStyle {
 /// citations to do it.
 pub(super) struct Works {
     /// Maps from the location of a citation group to its rendered content.
-    pub citations: HashMap<Location, SourceResult<TypstContent>>,
+    pub citations: HashMap<Location, SourceResult<TexContent>>,
     /// Lists all references in the bibliography, with optional prefix, or
     /// `None` if the citation style can't be used for bibliographies.
-    pub references: Option<Vec<(Option<TypstContent>, TypstContent)>>,
+    pub references: Option<Vec<(Option<TexContent>, TexContent)>>,
     /// Whether the bibliography should have hanging indent.
     pub hanging_indent: bool,
 }
@@ -598,12 +598,12 @@ struct Generator<'a> {
     /// The document's bibliography.
     bibliography: Packed<BibliographyElem>,
     /// The document's citation groups.
-    groups: EcoVec<Prehashed<TypstContent>>,
+    groups: EcoVec<Prehashed<TexContent>>,
     /// Details about each group that are accumulated while driving hayagriva's
     /// bibliography driver and needed when processing hayagriva's output.
     infos: Vec<GroupInfo>,
     /// Citations with unresolved keys.
-    failures: HashMap<Location, SourceResult<TypstContent>>,
+    failures: HashMap<Location, SourceResult<TexContent>>,
 }
 
 /// Details about a group of merged citations. All citations are put into groups
@@ -625,7 +625,7 @@ struct CiteInfo {
     /// The citation's key.
     key: Label,
     /// The citation's supplement.
-    supplement: Option<TypstContent>,
+    supplement: Option<TexContent>,
     /// Whether this citation was hidden.
     hidden: bool,
 }
@@ -795,7 +795,7 @@ impl<'a> Generator<'a> {
     fn display_citations(
         &mut self,
         rendered: &hayagriva::Rendered,
-    ) -> HashMap<Location, SourceResult<TypstContent>> {
+    ) -> HashMap<Location, SourceResult<TexContent>> {
         // Determine for each citation key where in the bibliography it is,
         // so that we can link there.
         let mut links = HashMap::new();
@@ -819,7 +819,7 @@ impl<'a> Generator<'a> {
             };
 
             let content = if info.subinfos.iter().all(|sub| sub.hidden) {
-                TypstContent::empty()
+                TexContent::empty()
             } else {
                 let mut content = renderer.display_elem_children(&citation.citation, &mut None);
 
@@ -840,7 +840,7 @@ impl<'a> Generator<'a> {
     fn display_references(
         &self,
         rendered: &hayagriva::Rendered,
-    ) -> Option<Vec<(Option<TypstContent>, TypstContent)>> {
+    ) -> Option<Vec<(Option<TexContent>, TexContent)>> {
         let rendered = rendered.bibliography.as_ref()?;
 
         // Determine for each citation key where it first occurred, so that we
@@ -899,7 +899,7 @@ struct ElemRenderer<'a> {
     /// The span that is attached to all of the resulting content.
     span: Span,
     /// Resolves the supplement of i-th citation in the request.
-    supplement: &'a dyn Fn(usize) -> Option<TypstContent>,
+    supplement: &'a dyn Fn(usize) -> Option<TexContent>,
     /// Resolves where the i-th citation in the request should link to.
     link: &'a dyn Fn(usize) -> Option<Location>,
 }
@@ -912,9 +912,9 @@ impl ElemRenderer<'_> {
     fn display_elem_children(
         &self,
         elems: &hayagriva::ElemChildren,
-        prefix: &mut Option<TypstContent>,
-    ) -> TypstContent {
-        TypstContent::sequence(
+        prefix: &mut Option<TexContent>,
+    ) -> TexContent {
+        TexContent::sequence(
             elems
                 .0
                 .iter()
@@ -926,8 +926,8 @@ impl ElemRenderer<'_> {
     fn display_elem_child(
         &self,
         elem: &hayagriva::ElemChild,
-        prefix: &mut Option<TypstContent>,
-    ) -> TypstContent {
+        prefix: &mut Option<TexContent>,
+    ) -> TexContent {
         match elem {
             hayagriva::ElemChild::Text(formatted) => self.display_formatted(formatted),
             hayagriva::ElemChild::Elem(elem) => self.display_elem(elem, prefix),
@@ -940,11 +940,7 @@ impl ElemRenderer<'_> {
     }
 
     /// Display a block-level element.
-    fn display_elem(
-        &self,
-        elem: &hayagriva::Elem,
-        prefix: &mut Option<TypstContent>,
-    ) -> TypstContent {
+    fn display_elem(&self, elem: &hayagriva::Elem, prefix: &mut Option<TexContent>) -> TexContent {
         use citationberg::Display;
 
         let block_level = matches!(elem.display, Some(Display::Block | Display::Indent));
@@ -979,7 +975,7 @@ impl ElemRenderer<'_> {
             }
             Some(Display::LeftMargin) => {
                 *prefix.get_or_insert_with(Default::default) += content;
-                return TypstContent::empty();
+                return TexContent::empty();
             }
             _ => {}
         }
@@ -995,14 +991,14 @@ impl ElemRenderer<'_> {
     }
 
     /// Display math.
-    fn display_math(&self, math: &str) -> TypstContent {
+    fn display_math(&self, math: &str) -> TexContent {
         eval_string(self.world, math, self.span, EvalMode::Math, Scope::new())
-            .map(TypstValue::display)
+            .map(TexValue::display)
             .unwrap_or_else(|_| TextElem::packed(math).spanned(self.span))
     }
 
     /// Display a link.
-    fn display_link(&self, text: &hayagriva::Formatted, url: &str) -> TypstContent {
+    fn display_link(&self, text: &hayagriva::Formatted, url: &str) -> TexContent {
         let dest = Destination::Url(url.into());
         LinkElem::new(dest.into(), self.display_formatted(text))
             .pack()
@@ -1010,20 +1006,20 @@ impl ElemRenderer<'_> {
     }
 
     /// Display transparent pass-through content.
-    fn display_transparent(&self, i: usize, format: &hayagriva::Formatting) -> TypstContent {
+    fn display_transparent(&self, i: usize, format: &hayagriva::Formatting) -> TexContent {
         let content = (self.supplement)(i).unwrap_or_default();
         apply_formatting(content, format)
     }
 
     /// Display formatted hayagriva text as content.
-    fn display_formatted(&self, formatted: &hayagriva::Formatted) -> TypstContent {
+    fn display_formatted(&self, formatted: &hayagriva::Formatted) -> TexContent {
         let content = TextElem::packed(formatted.text.as_str()).spanned(self.span);
         apply_formatting(content, &formatted.formatting)
     }
 }
 
 /// Applies formatting to content.
-fn apply_formatting(mut content: TypstContent, format: &hayagriva::Formatting) -> TypstContent {
+fn apply_formatting(mut content: TexContent, format: &hayagriva::Formatting) -> TexContent {
     match format.font_style {
         citationberg::FontStyle::Normal => {}
         citationberg::FontStyle::Italic => {

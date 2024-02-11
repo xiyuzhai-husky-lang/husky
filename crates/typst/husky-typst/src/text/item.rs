@@ -5,20 +5,20 @@ use ecow::EcoString;
 
 use crate::layout::{Abs, LengthInEm};
 use crate::syntax::Span;
-use crate::text::{Lang, TypstFont};
-use crate::visualize::{TypstFixedStroke, TypstPaint};
+use crate::text::{Lang, TexFont};
+use crate::visualize::{TexFixedStroke, TexPaint};
 
 /// A run of shaped text.
 #[derive(Clone, Eq, PartialEq, Hash)]
 pub struct TextItem {
     /// The font the glyphs are contained in.
-    pub font: TypstFont,
+    pub font: TexFont,
     /// The font size.
     pub size: Abs,
     /// Glyph color.
-    pub fill: TypstPaint,
+    pub fill: TexPaint,
     /// Glyph stroke.
-    pub stroke: Option<TypstFixedStroke>,
+    pub stroke: Option<TexFixedStroke>,
     /// The natural language of the text.
     pub lang: Lang,
     /// The item's plain text.

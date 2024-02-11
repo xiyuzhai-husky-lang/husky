@@ -5,7 +5,7 @@ use ecow::{eco_format, EcoString, EcoVec};
 
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{cast, func, Func, Str, TypstValue};
+use crate::foundations::{cast, func, Func, Str, TexValue};
 use crate::text::Case;
 
 /// Applies a numbering to a sequence of numbers.
@@ -65,7 +65,7 @@ pub fn numbering(
     /// given, the last counting symbol with its prefix is repeated.
     #[variadic]
     numbers: Vec<usize>,
-) -> SourceResult<TypstValue> {
+) -> SourceResult<TexValue> {
     numbering.apply(engine, &numbers)
 }
 
@@ -80,9 +80,9 @@ pub enum Numbering {
 
 impl Numbering {
     /// Apply the pattern to the given numbers.
-    pub fn apply(&self, engine: &mut Engine, numbers: &[usize]) -> SourceResult<TypstValue> {
+    pub fn apply(&self, engine: &mut Engine, numbers: &[usize]) -> SourceResult<TexValue> {
         Ok(match self {
-            Self::Pattern(pattern) => TypstValue::Str(pattern.apply(numbers).into()),
+            Self::Pattern(pattern) => TexValue::Str(pattern.apply(numbers).into()),
             Self::Func(func) => func.call(engine, numbers.iter().copied())?,
         })
     }

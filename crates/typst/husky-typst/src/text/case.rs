@@ -1,4 +1,4 @@
-use crate::foundations::{cast, func, Cast, Str, TypstContent};
+use crate::foundations::{cast, func, Cast, Str, TexContent};
 use crate::text::TextElem;
 
 /// Converts a string or content to lowercase.
@@ -44,7 +44,7 @@ fn case(text: Caseable, case: Case) -> Caseable {
 /// A value whose case can be changed.
 pub enum Caseable {
     Str(Str),
-    Content(TypstContent),
+    Content(TexContent),
 }
 
 cast! {
@@ -54,7 +54,7 @@ cast! {
         Self::Content(v) => v.into_value(),
     },
     v: Str => Self::Str(v),
-    v: TypstContent => Self::Content(v),
+    v: TexContent => Self::Content(v),
 }
 
 /// A case transformation on text.

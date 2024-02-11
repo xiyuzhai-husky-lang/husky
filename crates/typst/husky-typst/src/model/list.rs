@@ -1,7 +1,7 @@
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, Array, Fold, Func, Packed, Smart, StyleChain, TypstContent, TypstValue,
+    cast, elem, scope, Array, Fold, Func, Packed, Smart, StyleChain, TexContent, TexValue,
 };
 use crate::layout::{
     Axes, BlockElem, Cell, CellGrid, Fragment, GridLayouter, HAlignment, LayoutMultiple, Length,
@@ -160,9 +160,9 @@ impl LayoutMultiple for Packed<ListElem> {
 
         let mut cells = vec![];
         for item in self.children() {
-            cells.push(Cell::from(TypstContent::empty()));
+            cells.push(Cell::from(TexContent::empty()));
             cells.push(Cell::from(marker.clone()));
-            cells.push(Cell::from(TypstContent::empty()));
+            cells.push(Cell::from(TexContent::empty()));
             cells.push(Cell::from(
                 item.body().clone().styled(ListElem::set_depth(Depth(1))),
             ));
@@ -190,24 +190,24 @@ impl LayoutMultiple for Packed<ListElem> {
 pub struct ListItem {
     /// The item's body.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 cast! {
     ListItem,
-    v: TypstContent => v.unpack::<Self>().unwrap_or_else(Self::new)
+    v: TexContent => v.unpack::<Self>().unwrap_or_else(Self::new)
 }
 
 /// A list's marker.
 #[derive(Debug, Clone, PartialEq, Hash)]
 pub enum ListMarker {
-    Content(Vec<TypstContent>),
+    Content(Vec<TexContent>),
     Func(Func),
 }
 
 impl ListMarker {
     /// Resolve the marker for the given depth.
-    fn resolve(&self, engine: &mut Engine, depth: usize) -> SourceResult<TypstContent> {
+    fn resolve(&self, engine: &mut Engine, depth: usize) -> SourceResult<TexContent> {
         Ok(match self {
             Self::Content(list) => list.get(depth % list.len()).cloned().unwrap_or_default(),
             Self::Func(func) => func.call(engine, [depth])?.display(),
@@ -225,12 +225,12 @@ cast! {
         },
         Self::Func(func) => func.into_value(),
     },
-    v: TypstContent => Self::Content(vec![v]),
+    v: TexContent => Self::Content(vec![v]),
     array: Array => {
         if array.is_empty() {
             bail!("array must contain at least one marker");
         }
-        Self::Content(array.into_iter().map(TypstValue::display).collect())
+        Self::Content(array.into_iter().map(TexValue::display).collect())
     },
     v: Func => Self::Func(v),
 }

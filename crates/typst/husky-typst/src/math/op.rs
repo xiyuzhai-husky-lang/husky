@@ -2,7 +2,7 @@ use ecow::EcoString;
 use unicode_math_class::MathClass;
 
 use crate::diag::SourceResult;
-use crate::foundations::{elem, Packed, Scope, StyleChain, TypstContent, TypstElement};
+use crate::foundations::{elem, Packed, Scope, StyleChain, TexContent, TexElement};
 use crate::layout::HElem;
 use crate::math::{upright, FrameFragment, LayoutMath, Limits, MathContext, THIN};
 use crate::text::TextElem;
@@ -17,7 +17,7 @@ use crate::text::TextElem;
 /// ```
 ///
 /// # Predefined Operators { #predefined }
-/// Typst predefines the operators `arccos`, `arcsin`, `arctan`, `arg`, `cos`,
+/// Tex predefines the operators `arccos`, `arcsin`, `arctan`, `arg`, `cos`,
 /// `cosh`, `cot`, `coth`, `csc`, `csch`, `ctg`, `deg`, `det`, `dim`, `exp`,
 /// `gcd`, `hom`, `id`, `im`, `inf`, `ker`, `lg`, `lim`, `liminf`, `limsup`,
 /// `ln`, `log`, `max`, `min`, `mod`, `Pr`, `sec`, `sech`, `sin`, `sinc`,
@@ -26,7 +26,7 @@ use crate::text::TextElem;
 pub struct OpElem {
     /// The operator's text.
     #[required]
-    pub text: TypstContent,
+    pub text: TexContent,
 
     /// Whether the operator should show attachments as limits in display mode.
     #[default(false)]

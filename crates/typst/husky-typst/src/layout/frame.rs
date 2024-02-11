@@ -4,7 +4,7 @@ use std::fmt::{self, Debug, Formatter};
 use std::num::NonZeroUsize;
 use std::sync::Arc;
 
-use crate::foundations::{cast, dict, StyleChain, TypstDict, TypstValue};
+use crate::foundations::{cast, dict, StyleChain, TexDict, TexValue};
 use crate::introspection::{Meta, MetaElem};
 use crate::layout::{
     Abs, Axes, Corners, FixedAlignment, Length, Point, Rel, Sides, Size, Transform,
@@ -13,8 +13,7 @@ use crate::syntax::Span;
 use crate::text::TextItem;
 use crate::util::Numeric;
 use crate::visualize::{
-    ellipse, styled_rect, Image, Path, TypstColor, TypstFixedStroke, TypstGeometry, TypstPaint,
-    TypstShape,
+    ellipse, styled_rect, Image, Path, TexColor, TexFixedStroke, TexGeometry, TexPaint, TexShape,
 };
 
 /// A finished layout with items at fixed positions.
@@ -315,11 +314,11 @@ impl Frame {
     }
 
     /// Add a background fill.
-    pub fn fill(&mut self, fill: TypstPaint) {
+    pub fn fill(&mut self, fill: TexPaint) {
         self.prepend(
             Point::zero(),
             FrameItem::Shape(
-                TypstGeometry::Rect(self.size()).filled(fill),
+                TexGeometry::Rect(self.size()).filled(fill),
                 Span::detached(),
             ),
         );
@@ -328,8 +327,8 @@ impl Frame {
     /// Add a fill and stroke with optional radius and outset to the frame.
     pub fn fill_and_stroke(
         &mut self,
-        fill: Option<TypstPaint>,
-        stroke: Sides<Option<TypstFixedStroke>>,
+        fill: Option<TexPaint>,
+        stroke: Sides<Option<TexFixedStroke>>,
         outset: Sides<Rel<Abs>>,
         radius: Corners<Rel<Abs>>,
         span: Span,
@@ -390,7 +389,7 @@ impl Frame {
             0,
             Point::zero(),
             FrameItem::Shape(
-                TypstGeometry::Rect(self.size).filled(TypstColor::TEAL.with_alpha(0.5).into()),
+                TexGeometry::Rect(self.size).filled(TexColor::TEAL.with_alpha(0.5).into()),
                 Span::detached(),
             ),
         );
@@ -398,8 +397,8 @@ impl Frame {
             1,
             Point::with_y(self.baseline()),
             FrameItem::Shape(
-                TypstGeometry::Line(Point::with_x(self.size.x))
-                    .stroked(TypstFixedStroke::from_pair(TypstColor::RED, Abs::pt(1.0))),
+                TexGeometry::Line(Point::with_x(self.size.x))
+                    .stroked(TexFixedStroke::from_pair(TexColor::RED, Abs::pt(1.0))),
                 Span::detached(),
             ),
         );
@@ -413,7 +412,7 @@ impl Frame {
             FrameItem::Shape(
                 ellipse(
                     Size::splat(2.0 * radius),
-                    Some(TypstColor::GREEN.into()),
+                    Some(TexColor::GREEN.into()),
                     None,
                 ),
                 Span::detached(),
@@ -426,8 +425,8 @@ impl Frame {
         self.push(
             Point::with_y(y),
             FrameItem::Shape(
-                TypstGeometry::Line(Point::with_x(self.size.x))
-                    .stroked(TypstFixedStroke::from_pair(TypstColor::GREEN, Abs::pt(1.0))),
+                TexGeometry::Line(Point::with_x(self.size.x))
+                    .stroked(TexFixedStroke::from_pair(TexColor::GREEN, Abs::pt(1.0))),
                 Span::detached(),
             ),
         );
@@ -480,7 +479,7 @@ pub enum FrameItem {
     /// A run of shaped text.
     Text(TextItem),
     /// A geometric shape with optional fill and stroke.
-    Shape(TypstShape, Span),
+    Shape(TexShape, Span),
     /// An image and its size.
     Image(Image, Size, Span),
     /// Meta information and the region it applies to.
@@ -539,8 +538,8 @@ pub struct Position {
 
 cast! {
     Position,
-    self => TypstValue::Dict(self.into()),
-    mut dict: TypstDict => {
+    self => TexValue::Dict(self.into()),
+    mut dict: TexDict => {
         let page = dict.take("page")?.cast()?;
         let x: Length = dict.take("x")?.cast()?;
         let y: Length = dict.take("y")?.cast()?;
@@ -549,7 +548,7 @@ cast! {
     },
 }
 
-impl From<Position> for TypstDict {
+impl From<Position> for TexDict {
     fn from(pos: Position) -> Self {
         dict! {
             "page" => pos.page,

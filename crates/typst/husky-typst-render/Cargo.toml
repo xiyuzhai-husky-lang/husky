@@ -1,6 +1,6 @@
 [package]
 name = "husky-typst-render"
-description = "Raster image exporter for Typst."
+description = "Raster image exporter for Tex."
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

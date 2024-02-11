@@ -10,14 +10,14 @@ use smallvec::{smallvec, SmallVec};
 use crate::diag::{SourceResult, StrResult, Trace, Tracepoint};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, Array, Fold, Packed, Show, Smart, StyleChain, TypstContent, TypstValue,
+    cast, elem, scope, Array, Fold, Packed, Show, Smart, StyleChain, TexContent, TexValue,
 };
 use crate::layout::{
-    AlignElem, Alignment, Axes, Fragment, LayoutMultiple, Length, Regions, Rel, Sides, Sizing,
+    AlignElem, Axes, Fragment, LayoutMultiple, Length, Regions, Rel, Sides, Sizing, TexAlignment,
 };
 use crate::syntax::Span;
 use crate::util::NonZeroExt;
-use crate::visualize::{TypstPaint, TypstStroke};
+use crate::visualize::{TexPaint, TexStroke};
 
 /// Arranges content in a grid.
 ///
@@ -209,7 +209,7 @@ pub struct GridElem {
     /// )
     /// ```
     #[borrowed]
-    pub fill: Celled<Option<TypstPaint>>,
+    pub fill: Celled<Option<TexPaint>>,
 
     /// How to align the cells' content.
     ///
@@ -227,7 +227,7 @@ pub struct GridElem {
     /// )
     /// ```
     #[borrowed]
-    pub align: Celled<Smart<Alignment>>,
+    pub align: Celled<Smart<TexAlignment>>,
 
     /// How to [stroke]($stroke) the cells.
     ///
@@ -239,7 +239,7 @@ pub struct GridElem {
     /// third-party [tablex library](https://github.com/PgBiel/typst-tablex/).
     #[resolve]
     #[fold]
-    pub stroke: Option<TypstStroke>,
+    pub stroke: Option<TexStroke>,
 
     /// How much to pad the cells' content.
     ///
@@ -293,7 +293,7 @@ impl LayoutMultiple for Packed<GridElem> {
         let column_gutter = self.column_gutter(styles);
         let row_gutter = self.row_gutter(styles);
         let fill = self.fill(styles);
-        let stroke = self.stroke(styles).map(TypstStroke::unwrap_or_default);
+        let stroke = self.stroke(styles).map(TexStroke::unwrap_or_default);
 
         let tracks = Axes::new(columns.0.as_slice(), rows.0.as_slice());
         let gutter = Axes::new(column_gutter.0.as_slice(), row_gutter.0.as_slice());
@@ -328,7 +328,7 @@ cast! {
     self => self.0.into_value(),
     sizing: Sizing => Self(smallvec![sizing]),
     count: NonZeroUsize => Self(smallvec![Sizing::Auto; count.get()]),
-    values: Array => Self(values.into_iter().map(TypstValue::cast).collect::<StrResult<_>>()?),
+    values: Array => Self(values.into_iter().map(TexValue::cast).collect::<StrResult<_>>()?),
 }
 
 /// A cell in the grid. Use this to either override grid properties for a
@@ -382,7 +382,7 @@ cast! {
 pub struct GridCell {
     /// The cell's body.
     #[required]
-    body: TypstContent,
+    body: TexContent,
 
     /// The cell's column (zero-indexed).
     /// This field may be used in show rules to style a cell depending on its
@@ -433,10 +433,10 @@ pub struct GridCell {
     colspan: NonZeroUsize,
 
     /// The cell's fill override.
-    fill: Smart<Option<TypstPaint>>,
+    fill: Smart<Option<TexPaint>>,
 
     /// The cell's alignment override.
-    align: Smart<Alignment>,
+    align: Smart<TexAlignment>,
 
     /// The cell's inset override.
     inset: Smart<Sides<Option<Rel<Length>>>>,
@@ -444,12 +444,12 @@ pub struct GridCell {
 
 cast! {
     GridCell,
-    v: TypstContent => v.into(),
+    v: TexContent => v.into(),
 }
 
 impl Default for Packed<GridCell> {
     fn default() -> Self {
-        Packed::new(GridCell::new(TypstContent::default()))
+        Packed::new(GridCell::new(TexContent::default()))
     }
 }
 
@@ -458,8 +458,8 @@ impl ResolvableCell for Packed<GridCell> {
         mut self,
         x: usize,
         y: usize,
-        fill: &Option<TypstPaint>,
-        align: Smart<Alignment>,
+        fill: &Option<TexPaint>,
+        align: Smart<TexAlignment>,
         inset: Sides<Option<Rel<Length>>>,
         styles: StyleChain,
     ) -> Cell {
@@ -506,13 +506,13 @@ impl ResolvableCell for Packed<GridCell> {
 }
 
 impl Show for Packed<GridCell> {
-    fn show(&self, _engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, _engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         show_grid_cell(self.body().clone(), self.inset(styles), self.align(styles))
     }
 }
 
-impl From<TypstContent> for GridCell {
-    fn from(value: TypstContent) -> Self {
+impl From<TexContent> for GridCell {
+    fn from(value: TexContent) -> Self {
         #[allow(clippy::unwrap_or_default)]
         value.unpack::<Self>().unwrap_or_else(Self::new)
     }
@@ -520,10 +520,10 @@ impl From<TypstContent> for GridCell {
 
 /// Function with common code to display a grid cell or table cell.
 pub fn show_grid_cell(
-    mut body: TypstContent,
+    mut body: TexContent,
     inset: Smart<Sides<Option<Rel<Length>>>>,
-    align: Smart<Alignment>,
-) -> SourceResult<TypstContent> {
+    align: Smart<TexAlignment>,
+) -> SourceResult<TexContent> {
     let inset = inset.unwrap_or_default().map(Option::unwrap_or_default);
 
     if inset != Sides::default() {

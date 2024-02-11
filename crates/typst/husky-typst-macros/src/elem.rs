@@ -639,7 +639,7 @@ fn create_style_chain_access(field: &Field, borrowed: bool, inherent: TokenStrea
 
     quote! {
         styles.#getter::<#ty>(
-            <Self as #foundations::TypstElement>::elem(),
+            <Self as #foundations::TexElement>::elem(),
             Fields::#enum_ident as u8,
             #inherent,
             #default,
@@ -647,7 +647,7 @@ fn create_style_chain_access(field: &Field, borrowed: bool, inherent: TokenStrea
     }
 }
 
-/// Creates the element's `TypstElement` implementation.
+/// Creates the element's `TexElement` implementation.
 fn create_native_elem_impl(element: &Elem) -> TokenStream {
     let Elem {
         name,
@@ -691,7 +691,7 @@ fn create_native_elem_impl(element: &Elem) -> TokenStream {
     };
 
     quote! {
-        impl #foundations::TypstElement for #ident {
+        impl #foundations::TexElement for #ident {
             fn data() -> &'static #foundations::ElementSchema {
                 static DATA: #foundations::ElementSchema = #data;
                 &DATA
@@ -721,7 +721,7 @@ fn create_param_info(field: &Field) -> TokenStream {
             .clone()
             .unwrap_or_else(|| parse_quote! { ::std::default::Default::default() });
         quote! {
-            Some(|| <#ty as #foundations::IntoTypstValue>::into_value(#default))
+            Some(|| <#ty as #foundations::IntoTexValue>::into_value(#default))
         }
     } else {
         quote! { None }
@@ -794,9 +794,9 @@ fn create_construct_impl(element: &Elem) -> TokenStream {
             fn construct(
                 engine: &mut ::husky_typst::engine::Engine,
                 args: &mut #foundations::Args,
-            ) -> ::husky_typst::diag::SourceResult<#foundations::TypstContent> {
+            ) -> ::husky_typst::diag::SourceResult<#foundations::TexContent> {
                 #(#setup)*
-                Ok(#foundations::TypstContent::new(Self { #(#fields),* }))
+                Ok(#foundations::TexContent::new(Self { #(#fields),* }))
             }
         }
     }
@@ -894,7 +894,7 @@ fn create_capable_impl(element: &Elem) -> TokenStream {
 
 /// Creates the element's `Fields` implementation.
 fn create_fields_impl(element: &Elem) -> TokenStream {
-    let into_value = quote! { #foundations::IntoTypstValue::into_value };
+    let into_value = quote! { #foundations::IntoTexValue::into_value };
     let visible_non_ghost = || element.visible_fields().filter(|field| !field.ghost);
 
     // Fields that can be checked using the `has` method.
@@ -1015,7 +1015,7 @@ fn create_fields_impl(element: &Elem) -> TokenStream {
                 }
             }
 
-            fn field(&self, id: u8) -> Option<#foundations::TypstValue> {
+            fn field(&self, id: u8) -> Option<#foundations::TexValue> {
                 let id = Fields::try_from(id).ok()?;
                 match id {
                     #(#field_arms,)*
@@ -1023,7 +1023,7 @@ fn create_fields_impl(element: &Elem) -> TokenStream {
                 }
             }
 
-            fn field_with_styles(&self, id: u8, styles: #foundations::StyleChain) -> Option<#foundations::TypstValue> {
+            fn field_with_styles(&self, id: u8, styles: #foundations::StyleChain) -> Option<#foundations::TexValue> {
                 let id = Fields::try_from(id).ok()?;
                 match id {
                     #(#field_with_styles_arms,)*
@@ -1035,8 +1035,8 @@ fn create_fields_impl(element: &Elem) -> TokenStream {
                #(#materializes)*
             }
 
-            fn fields(&self) -> #foundations::TypstDict {
-                let mut fields = #foundations::TypstDict::new();
+            fn fields(&self) -> #foundations::TexDict {
+                let mut fields = #foundations::TexDict::new();
                 #(#field_inserts)*
                 fields
             }
@@ -1070,13 +1070,13 @@ fn create_locatable_impl(element: &Elem) -> TokenStream {
     quote! { impl ::husky_typst::introspection::Locatable for #foundations::Packed<#ident> {} }
 }
 
-/// Creates the element's `IntoTypstValue` implementation.
+/// Creates the element's `IntoTexValue` implementation.
 fn create_into_value_impl(element: &Elem) -> TokenStream {
     let Elem { ident, .. } = element;
     quote! {
-        impl #foundations::IntoTypstValue for #ident {
-            fn into_value(self) -> #foundations::TypstValue {
-                #foundations::TypstValue::Content(#foundations::TypstContent::new(self))
+        impl #foundations::IntoTexValue for #ident {
+            fn into_value(self) -> #foundations::TexValue {
+                #foundations::TexValue::Content(#foundations::TexContent::new(self))
             }
         }
     }

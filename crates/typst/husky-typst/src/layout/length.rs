@@ -12,7 +12,7 @@ use crate::util::Numeric;
 
 /// A size or distance, possibly expressed with contextual units.
 ///
-/// Typst supports the following length units:
+/// Tex supports the following length units:
 ///
 /// - Points: `{72pt}`
 /// - Millimeters: `{254mm}`

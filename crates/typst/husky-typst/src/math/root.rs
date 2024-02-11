@@ -1,5 +1,5 @@
 use crate::diag::SourceResult;
-use crate::foundations::{elem, func, Packed, StyleChain, TypstContent, TypstElement};
+use crate::foundations::{elem, func, Packed, StyleChain, TexContent, TexElement};
 use crate::layout::{Abs, Frame, FrameItem, Point, Size};
 use crate::math::{
     style_cramped, EquationElem, FrameFragment, GlyphFragment, LayoutMath, MathContext, MathSize,
@@ -7,7 +7,7 @@ use crate::math::{
 };
 use crate::syntax::Span;
 use crate::text::TextElem;
-use crate::visualize::{TypstFixedStroke, TypstGeometry};
+use crate::visualize::{TexFixedStroke, TexGeometry};
 
 /// A square root.
 ///
@@ -19,8 +19,8 @@ pub fn sqrt(
     /// The call span of this function.
     span: Span,
     /// The expression to take the square root of.
-    radicand: TypstContent,
-) -> TypstContent {
+    radicand: TexContent,
+) -> TexContent {
     RootElem::new(radicand).pack().spanned(span)
 }
 
@@ -33,11 +33,11 @@ pub fn sqrt(
 pub struct RootElem {
     /// Which root of the radicand to take.
     #[positional]
-    pub index: Option<TypstContent>,
+    pub index: Option<TexContent>,
 
     /// The expression to take the root of.
     #[required]
-    pub radicand: TypstContent,
+    pub radicand: TexContent,
 }
 
 impl LayoutMath for Packed<RootElem> {
@@ -60,8 +60,8 @@ impl LayoutMath for Packed<RootElem> {
 fn layout(
     ctx: &mut MathContext,
     styles: StyleChain,
-    index: Option<&TypstContent>,
-    radicand: &TypstContent,
+    index: Option<&TexContent>,
+    radicand: &TexContent,
     span: Span,
 ) -> SourceResult<()> {
     let gap = scaled!(
@@ -139,9 +139,10 @@ fn layout(
     frame.push(
         line_pos,
         FrameItem::Shape(
-            TypstGeometry::Line(Point::with_x(radicand.width())).stroked(
-                TypstFixedStroke::from_pair(TextElem::fill_in(styles).as_decoration(), thickness),
-            ),
+            TexGeometry::Line(Point::with_x(radicand.width())).stroked(TexFixedStroke::from_pair(
+                TextElem::fill_in(styles).as_decoration(),
+                thickness,
+            )),
             span,
         ),
     );

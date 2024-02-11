@@ -6,7 +6,7 @@ use crate::foundations::{array, cast, elem, Array, Packed, Reflect, Resolve, Sma
 use crate::layout::{
     Abs, Axes, Fragment, Frame, FrameItem, LayoutMultiple, Length, Point, Regions, Rel, Size,
 };
-use crate::visualize::{TypstFixedStroke, TypstGeometry, TypstPaint, TypstShape, TypstStroke};
+use crate::visualize::{TexFixedStroke, TexGeometry, TexPaint, TexShape, TexStroke};
 
 use PathVertex::{AllControlPoints, MirroredControlPoint, Vertex};
 
@@ -32,7 +32,7 @@ pub struct PathElem {
     ///
     /// Currently all paths are filled according to the [non-zero winding
     /// rule](https://en.wikipedia.org/wiki/Nonzero-rule).
-    pub fill: Option<TypstPaint>,
+    pub fill: Option<TexPaint>,
 
     /// How to [stroke]($stroke) the path. This can be:
     ///
@@ -40,7 +40,7 @@ pub struct PathElem {
     /// stroke of `{1pt}` black if and if only if no fill is given.
     #[resolve]
     #[fold]
-    pub stroke: Smart<Option<TypstStroke>>,
+    pub stroke: Smart<Option<TexStroke>>,
 
     /// Whether to close this path with one last bezier curve. This curve will
     /// takes into account the adjacent control points. If you want to close
@@ -134,14 +134,14 @@ impl LayoutMultiple for Packed<PathElem> {
         // Prepare fill and stroke.
         let fill = self.fill(styles);
         let stroke = match self.stroke(styles) {
-            Smart::Auto if fill.is_none() => Some(TypstFixedStroke::default()),
+            Smart::Auto if fill.is_none() => Some(TexFixedStroke::default()),
             Smart::Auto => None,
-            Smart::Custom(stroke) => stroke.map(TypstStroke::unwrap_or_default),
+            Smart::Custom(stroke) => stroke.map(TexStroke::unwrap_or_default),
         };
 
         let mut frame = Frame::soft(size);
-        let shape = TypstShape {
-            geometry: TypstGeometry::Path(path),
+        let shape = TexShape {
+            geometry: TexGeometry::Path(path),
             stroke,
             fill,
         };

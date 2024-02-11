@@ -2,8 +2,7 @@ use std::fmt::{self, Debug, Formatter};
 
 use crate::diag::StrResult;
 use crate::foundations::{
-    CastInfo, Fold, FromTypstValue, IntoTypstValue, Reflect, Resolve, StyleChain, TypstDict,
-    TypstValue,
+    CastInfo, Fold, FromTexValue, IntoTexValue, Reflect, Resolve, StyleChain, TexDict, TexValue,
 };
 use crate::layout::Side;
 use crate::util::Get;
@@ -142,30 +141,30 @@ impl<T: Debug + PartialEq> Debug for Corners<T> {
 
 impl<T: Reflect> Reflect for Corners<Option<T>> {
     fn input() -> CastInfo {
-        T::input() + TypstDict::input()
+        T::input() + TexDict::input()
     }
 
     fn output() -> CastInfo {
-        T::output() + TypstDict::output()
+        T::output() + TexDict::output()
     }
 
-    fn castable(value: &TypstValue) -> bool {
-        TypstDict::castable(value) || T::castable(value)
+    fn castable(value: &TexValue) -> bool {
+        TexDict::castable(value) || T::castable(value)
     }
 }
 
-impl<T> IntoTypstValue for Corners<Option<T>>
+impl<T> IntoTexValue for Corners<Option<T>>
 where
-    T: PartialEq + IntoTypstValue,
+    T: PartialEq + IntoTexValue,
 {
-    fn into_value(self) -> TypstValue {
+    fn into_value(self) -> TexValue {
         if self.is_uniform() {
             if let Some(top_left) = self.top_left {
                 return top_left.into_value();
             }
         }
 
-        let mut dict = TypstDict::new();
+        let mut dict = TexDict::new();
         let mut handle = |key: &str, component: Option<T>| {
             if let Some(c) = component {
                 dict.insert(key.into(), c.into_value());
@@ -177,15 +176,15 @@ where
         handle("bottom-right", self.bottom_right);
         handle("bottom-left", self.bottom_left);
 
-        TypstValue::Dict(dict)
+        TexValue::Dict(dict)
     }
 }
 
-impl<T> FromTypstValue for Corners<Option<T>>
+impl<T> FromTexValue for Corners<Option<T>>
 where
-    T: FromTypstValue + Clone,
+    T: FromTexValue + Clone,
 {
-    fn from_value(mut value: TypstValue) -> StrResult<Self> {
+    fn from_value(mut value: TexValue) -> StrResult<Self> {
         let expected_keys = [
             "top-left",
             "top-right",
@@ -198,7 +197,7 @@ where
             "rest",
         ];
 
-        if let TypstValue::Dict(dict) = &mut value {
+        if let TexValue::Dict(dict) = &mut value {
             if dict.is_empty() {
                 return Ok(Self::splat(None));
             } else if dict
@@ -233,11 +232,11 @@ where
 
         if T::castable(&value) {
             Ok(Self::splat(Some(T::from_value(value)?)))
-        } else if let TypstValue::Dict(dict) = &value {
+        } else if let TexValue::Dict(dict) = &value {
             let keys = dict.iter().map(|kv| kv.0.as_str()).collect();
             // Do not hint at expected_keys, because T may be castable from Dict
             // objects with other sets of expected keys.
-            Err(TypstDict::unexpected_keys(keys, None))
+            Err(TexDict::unexpected_keys(keys, None))
         } else {
             Err(Self::error(&value))
         }

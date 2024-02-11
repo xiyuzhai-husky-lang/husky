@@ -1,6 +1,6 @@
 [package]
 name = "husky-typst-pdf"
-description = "PDF exporter for Typst."
+description = "PDF exporter for Tex."
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

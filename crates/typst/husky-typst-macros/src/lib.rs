@@ -1,4 +1,4 @@
-//! Procedural macros for Typst.
+//! Procedural macros for Tex.
 
 extern crate proc_macro;
 
@@ -16,7 +16,7 @@ mod ty;
 use proc_macro::TokenStream as BoundaryStream;
 use syn::DeriveInput;
 
-/// Makes a native Rust function usable as a Typst function.
+/// Makes a native Rust function usable as a Tex function.
 ///
 /// This implements `NativeFunction` for a freshly generated type with the same
 /// name as a function. (In Rust, functions and types live in separate
@@ -52,7 +52,7 @@ use syn::DeriveInput;
 /// - `#[named]`: Makes the argument named and optional. The argument type must
 ///   either be `Option<_>` _or_ the `#[default]` attribute must be used. (If
 ///   it's both `Option<_>` and `#[default]`, then the argument can be specified
-///   as `none` in Typst).
+///   as `none` in Tex).
 /// - `#[default]`: Specifies the default value of the argument as
 ///   `Default::default()`.
 /// - `#[default(..)]`: Specifies the default value of the argument as `..`.
@@ -67,7 +67,7 @@ use syn::DeriveInput;
 /// positional arguments (except through argument sinks).
 ///
 /// In the example below, we define a `min` function that could be called as
-/// `min(1, 2, 3, default: 0)` in Typst.
+/// `min(1, 2, 3, default: 0)` in Tex.
 ///
 /// ```ignore
 /// /// Determines the minimum of a sequence of values.
@@ -97,7 +97,7 @@ pub fn func(stream: BoundaryStream, item: BoundaryStream) -> BoundaryStream {
         .into()
 }
 
-/// Makes a native Rust type usable as a Typst type.
+/// Makes a native Rust type usable as a Tex type.
 ///
 /// This implements `NativeType` for the given type.
 ///
@@ -130,9 +130,9 @@ pub fn ty(stream: BoundaryStream, item: BoundaryStream) -> BoundaryStream {
         .into()
 }
 
-/// Makes a native Rust type usable as a Typst element.
+/// Makes a native Rust type usable as a Tex element.
 ///
-/// This implements `TypstElement` for the given type.
+/// This implements `TexElement` for the given type.
 ///
 /// ```
 /// /// A section heading.
@@ -258,12 +258,12 @@ pub fn category(stream: BoundaryStream, item: BoundaryStream) -> BoundaryStream 
         .into()
 }
 
-/// Implements `Reflect`, `FromTypstValue`, and `IntoTypstValue` for a type.
+/// Implements `Reflect`, `FromTexValue`, and `IntoTexValue` for a type.
 ///
-/// - `Reflect` makes Typst's runtime aware of the type's characteristics.
+/// - `Reflect` makes Tex's runtime aware of the type's characteristics.
 ///   It's important for autocompletion, error messages, etc.
-/// - `FromTypstValue` defines how to cast from a value into this type.
-/// - `IntoTypstValue` defines how to cast fromthis type into a value.
+/// - `FromTexValue` defines how to cast from a value into this type.
+/// - `IntoTexValue` defines how to cast fromthis type into a value.
 ///
 /// ```ignore
 /// /// An integer between 0 and 13.
@@ -293,7 +293,7 @@ pub fn cast(stream: BoundaryStream) -> BoundaryStream {
         .into()
 }
 
-/// Implements `Reflect`, `FromTypstValue`, and `IntoTypstValue` for an enum.
+/// Implements `Reflect`, `FromTexValue`, and `IntoTexValue` for an enum.
 ///
 /// The enum will become castable from kebab-case strings. The doc-comments will
 /// become user-facing documentation for each variant. The `#[string]` attribute

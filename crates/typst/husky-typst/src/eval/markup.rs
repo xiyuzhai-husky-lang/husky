@@ -1,6 +1,6 @@
 use crate::diag::{warning, SourceResult};
 use crate::eval::{Eval, Vm};
-use crate::foundations::{Label, Smart, TypstContent, TypstElement, TypstValue, Unlabellable};
+use crate::foundations::{Label, Smart, TexContent, TexElement, TexValue, Unlabellable};
 use crate::math::EquationElem;
 use crate::model::{
     EmphElem, EnumItem, HeadingElem, LinkElem, ListItem, ParbreakElem, RefElem, StrongElem,
@@ -11,7 +11,7 @@ use crate::syntax::ast::{self, AstNode};
 use crate::text::{LinebreakElem, RawElem, SmartQuoteElem, SpaceElem, TextElem};
 
 impl Eval for ast::Markup<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         eval_markup(vm, &mut self.exprs())
@@ -22,7 +22,7 @@ impl Eval for ast::Markup<'_> {
 fn eval_markup<'a>(
     vm: &mut Vm,
     exprs: &mut impl Iterator<Item = ast::Expr<'a>>,
-) -> SourceResult<TypstContent> {
+) -> SourceResult<TexContent> {
     let flow = vm.flow.take();
     let mut seq = Vec::with_capacity(exprs.size_hint().1.unwrap_or_default());
 
@@ -46,7 +46,7 @@ fn eval_markup<'a>(
                 seq.push(tail.styled_with_recipe(&mut vm.engine, recipe)?)
             }
             expr => match expr.eval(vm)? {
-                TypstValue::Label(label) => {
+                TexValue::Label(label) => {
                     if let Some(elem) = seq
                         .iter_mut()
                         .rev()
@@ -68,11 +68,11 @@ fn eval_markup<'a>(
         vm.flow = flow;
     }
 
-    Ok(TypstContent::sequence(seq))
+    Ok(TexContent::sequence(seq))
 }
 
 impl Eval for ast::Text<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
         Ok(TextElem::packed(self.get().clone()))
@@ -80,7 +80,7 @@ impl Eval for ast::Text<'_> {
 }
 
 impl Eval for ast::Space<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
         Ok(SpaceElem::new().pack())
@@ -88,7 +88,7 @@ impl Eval for ast::Space<'_> {
 }
 
 impl Eval for ast::Linebreak<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
         Ok(LinebreakElem::new().pack())
@@ -96,7 +96,7 @@ impl Eval for ast::Linebreak<'_> {
 }
 
 impl Eval for ast::Parbreak<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
         Ok(ParbreakElem::new().pack())
@@ -104,23 +104,23 @@ impl Eval for ast::Parbreak<'_> {
 }
 
 impl Eval for ast::Escape<'_> {
-    type Output = TypstValue;
+    type Output = TexValue;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
-        Ok(TypstValue::Symbol(Symbol::single(self.get())))
+        Ok(TexValue::Symbol(Symbol::single(self.get())))
     }
 }
 
 impl Eval for ast::Shorthand<'_> {
-    type Output = TypstValue;
+    type Output = TexValue;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
-        Ok(TypstValue::Symbol(Symbol::single(self.get())))
+        Ok(TexValue::Symbol(Symbol::single(self.get())))
     }
 }
 
 impl Eval for ast::SmartQuote<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
         Ok(SmartQuoteElem::new().with_double(self.double()).pack())
@@ -128,7 +128,7 @@ impl Eval for ast::SmartQuote<'_> {
 }
 
 impl Eval for ast::Strong<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let body = self.body();
@@ -144,7 +144,7 @@ impl Eval for ast::Strong<'_> {
 }
 
 impl Eval for ast::Emph<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let body = self.body();
@@ -160,7 +160,7 @@ impl Eval for ast::Emph<'_> {
 }
 
 impl Eval for ast::Raw<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
         let mut elem = RawElem::new(self.text()).with_block(self.block());
@@ -172,7 +172,7 @@ impl Eval for ast::Raw<'_> {
 }
 
 impl Eval for ast::Link<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
         Ok(LinkElem::from_url(self.get().clone()).pack())
@@ -180,15 +180,15 @@ impl Eval for ast::Link<'_> {
 }
 
 impl Eval for ast::Label<'_> {
-    type Output = TypstValue;
+    type Output = TexValue;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
-        Ok(TypstValue::Label(Label::new(self.get())))
+        Ok(TexValue::Label(Label::new(self.get())))
     }
 }
 
 impl Eval for ast::Ref<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let target = Label::new(self.target());
@@ -203,7 +203,7 @@ impl Eval for ast::Ref<'_> {
 }
 
 impl Eval for ast::Heading<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let level = self.level();
@@ -213,7 +213,7 @@ impl Eval for ast::Heading<'_> {
 }
 
 impl Eval for ast::ListItem<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         Ok(ListItem::new(self.body().eval(vm)?).pack())
@@ -221,7 +221,7 @@ impl Eval for ast::ListItem<'_> {
 }
 
 impl Eval for ast::EnumItem<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let body = self.body().eval(vm)?;
@@ -234,7 +234,7 @@ impl Eval for ast::EnumItem<'_> {
 }
 
 impl Eval for ast::TermItem<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let term = self.term().eval(vm)?;
@@ -244,7 +244,7 @@ impl Eval for ast::TermItem<'_> {
 }
 
 impl Eval for ast::Equation<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let body = self.body().eval(vm)?;

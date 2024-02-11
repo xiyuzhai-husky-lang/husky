@@ -1,6 +1,6 @@
 [package]
 name = "husky-typst-svg"
-description = "SVG exporter for Typst."
+description = "SVG exporter for Tex."
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

@@ -2,8 +2,8 @@ use comemo::Track;
 use ecow::{eco_format, EcoString};
 use husky_typst::diag::{bail, StrResult};
 use husky_typst::eval::{eval_string, EvalMode, Tracer};
-use husky_typst::foundations::{IntoTypstValue, LocatableSelector, Scope, TypstContent};
-use husky_typst::model::TypstDocument;
+use husky_typst::foundations::{IntoTexValue, LocatableSelector, Scope, TexContent};
+use husky_typst::model::TexDocument;
 use husky_typst::syntax::Span;
 use husky_typst::World;
 use serde::Serialize;
@@ -49,8 +49,8 @@ pub fn query(command: &QueryCommand) -> StrResult<()> {
 fn retrieve(
     world: &dyn World,
     command: &QueryCommand,
-    document: &TypstDocument,
-) -> StrResult<Vec<TypstContent>> {
+    document: &TexDocument,
+) -> StrResult<Vec<TexContent>> {
     let selector = eval_string(
         world.track(),
         &command.selector,
@@ -77,7 +77,7 @@ fn retrieve(
 }
 
 /// Format the query result in the output format.
-fn format(elements: Vec<TypstContent>, command: &QueryCommand) -> StrResult<String> {
+fn format(elements: Vec<TexContent>, command: &QueryCommand) -> StrResult<String> {
     if command.one && elements.len() != 1 {
         bail!("expected exactly one element, found {}", elements.len());
     }

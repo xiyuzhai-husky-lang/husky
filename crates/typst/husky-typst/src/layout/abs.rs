@@ -4,7 +4,7 @@ use std::ops::{Add, Div, Mul, Neg, Rem};
 
 use ecow::EcoString;
 
-use crate::foundations::{cast, repr, Repr, TypstValue};
+use crate::foundations::{cast, repr, Repr, TexValue};
 use crate::util::{Numeric, Scalar};
 
 /// An absolute length.
@@ -229,7 +229,7 @@ impl<'a> Sum<&'a Self> for Abs {
 
 cast! {
     Abs,
-    self => TypstValue::Length(self.into()),
+    self => TexValue::Length(self.into()),
 }
 
 /// Different units of absolute measurement.

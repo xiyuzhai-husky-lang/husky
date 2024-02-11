@@ -11,8 +11,8 @@ use smallvec::SmallVec;
 use crate::diag::{SourceResult, Trace, Tracepoint};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, func, ty, ElementSchemaRef, Func, Packed, Repr, Selector, Show, TypstContent,
-    TypstElement,
+    cast, elem, func, ty, ElementSchemaRef, Func, Packed, Repr, Selector, Show, TexContent,
+    TexElement,
 };
 use crate::syntax::Span;
 use crate::text::{FontFamily, FontList, TextElem};
@@ -44,7 +44,7 @@ pub fn style(
     /// `style` appears in the document. That makes it possible to generate
     /// content that depends on the style context it appears in.
     func: Func,
-) -> TypstContent {
+) -> TexContent {
     StyleElem::new(func).pack().spanned(span)
 }
 
@@ -58,7 +58,7 @@ struct StyleElem {
 
 impl Show for Packed<StyleElem> {
     #[husky_typst_macros::time(name = "style", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         Ok(self.func().call(engine, [styles.to_map()])?.display())
     }
 }
@@ -128,7 +128,7 @@ impl Styles {
 
     /// Returns `Some(_)` with an optional span if this list contains
     /// styles for the given element.
-    pub fn interruption<T: TypstElement>(&self) -> Option<Option<Span>> {
+    pub fn interruption<T: TexElement>(&self) -> Option<Option<Span>> {
         let elem = T::elem();
         self.0.iter().find_map(|entry| match &**entry {
             Style::Property(property) => property.is_of(elem).then_some(property.span),
@@ -241,7 +241,7 @@ impl Property {
     /// Create a new property from a key-value pair.
     pub fn new<E, T>(id: u8, value: T) -> Self
     where
-        E: TypstElement,
+        E: TexElement,
         T: Debug + Clone + Hash + Send + Sync + 'static,
     {
         Self {
@@ -379,14 +379,14 @@ impl Recipe {
     }
 
     /// Whether the recipe is applicable to the target.
-    pub fn applicable(&self, target: &TypstContent, styles: StyleChain) -> bool {
+    pub fn applicable(&self, target: &TexContent, styles: StyleChain) -> bool {
         self.selector
             .as_ref()
             .map_or(false, |selector| selector.matches(target, Some(styles)))
     }
 
     /// Apply the recipe to the given content.
-    pub fn apply(&self, engine: &mut Engine, content: TypstContent) -> SourceResult<TypstContent> {
+    pub fn apply(&self, engine: &mut Engine, content: TexContent) -> SourceResult<TexContent> {
         let mut content = match &self.transform {
             Transformation::Content(content) => content.clone(),
             Transformation::Func(func) => {
@@ -425,7 +425,7 @@ pub struct RecipeIndex(pub usize);
 #[derive(Clone, PartialEq, Hash)]
 pub enum Transformation {
     /// Replacement content.
-    Content(TypstContent),
+    Content(TexContent),
     /// A function to apply to the match.
     Func(Func),
     /// Apply styles to the content.
@@ -444,7 +444,7 @@ impl Debug for Transformation {
 
 cast! {
     Transformation,
-    content: TypstContent => Self::Content(content),
+    content: TexContent => Self::Content(content),
     func: Func => Self::Func(func),
 }
 
@@ -759,8 +759,8 @@ impl<T> StyleVec<T> {
     }
 }
 
-impl<'a> StyleVec<Cow<'a, TypstContent>> {
-    pub fn to_vec<F: From<TypstContent>>(self) -> Vec<F> {
+impl<'a> StyleVec<Cow<'a, TexContent>> {
+    pub fn to_vec<F: From<TexContent>>(self) -> Vec<F> {
         self.items
             .into_iter()
             .zip(

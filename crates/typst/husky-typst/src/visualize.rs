@@ -35,10 +35,10 @@ pub static VISUALIZE: Category;
 /// Hook up all visualize definitions.
 pub(super) fn define(global: &mut Scope) {
     global.category(VISUALIZE);
-    global.define_type::<TypstColor>();
+    global.define_type::<TexColor>();
     global.define_type::<Gradient>();
     global.define_type::<Pattern>();
-    global.define_type::<TypstStroke>();
+    global.define_type::<TexStroke>();
     global.define_elem::<ImageElem>();
     global.define_elem::<LineElem>();
     global.define_elem::<RectElem>();

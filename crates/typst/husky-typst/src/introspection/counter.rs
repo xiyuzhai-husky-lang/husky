@@ -9,9 +9,9 @@ use crate::diag::{At, SourceResult, StrResult};
 use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
 use crate::foundations::{
-    cast, elem, func, scope, select_where, ty, Array, ElementSchemaRef, Func, IntoTypstValue,
-    Label, LocatableSelector, Packed, Repr, Selector, Show, Str, StyleChain, TypstContent,
-    TypstElement, TypstValue,
+    cast, elem, func, scope, select_where, ty, Array, ElementSchemaRef, Func, IntoTexValue, Label,
+    LocatableSelector, Packed, Repr, Selector, Show, Str, StyleChain, TexContent, TexElement,
+    TexValue,
 };
 use crate::introspection::{Introspector, Locatable, Location, Locator, Meta};
 use crate::layout::{Frame, FrameItem, PageElem};
@@ -170,7 +170,7 @@ use crate::World;
 ///   )
 ///   let final-val = mine.final(loc)
 ///   [Starts as: #start-val \
-///    TypstValue at intro is: #intro-val \
+///    TexValue at intro is: #intro-val \
 ///    Final value is: #final-val \ ]
 /// })
 ///
@@ -206,7 +206,7 @@ use crate::World;
 ///
 /// # Other kinds of state { #other-state }
 /// The `counter` type is closely related to [state]($state) type. Read its
-/// documentation for more details on state management in Typst and why it
+/// documentation for more details on state management in Tex and why it
 /// doesn't just use normal variables for counters.
 #[ty(scope)]
 #[derive(Debug, Clone, PartialEq, Hash)]
@@ -373,7 +373,7 @@ impl Counter {
         #[named]
         #[default(false)]
         both: bool,
-    ) -> TypstContent {
+    ) -> TexContent {
         DisplayElem::new(self, numbering, both).pack().spanned(span)
     }
 
@@ -383,7 +383,7 @@ impl Counter {
     /// is inserted into the document. If you don't put the output into the
     /// document, nothing happens! This would be the case, for example, if you
     /// write `{let _ = counter(page).step()}`. Counter updates are always
-    /// applied in layout order and in that case, Typst wouldn't know when to
+    /// applied in layout order and in that case, Tex wouldn't know when to
     /// step the counter.
     #[func]
     pub fn step(
@@ -394,7 +394,7 @@ impl Counter {
         #[named]
         #[default(NonZeroUsize::ONE)]
         level: NonZeroUsize,
-    ) -> TypstContent {
+    ) -> TexContent {
         self.update(span, CounterUpdate::Step(level))
     }
 
@@ -412,7 +412,7 @@ impl Counter {
         /// counter value (with each number as a separate argument) and has to
         /// return the new value (integer or array).
         update: CounterUpdate,
-    ) -> TypstContent {
+    ) -> TexContent {
         UpdateElem::new(self.0, update).pack().spanned(span)
     }
 
@@ -454,7 +454,7 @@ impl Counter {
         /// The engine.
         engine: &mut Engine,
         /// Can be an arbitrary location, as its value is irrelevant for the
-        /// method's return value. Why is it required then? Typst has to
+        /// method's return value. Why is it required then? Tex has to
         /// evaluate parts of your code multiple times to determine all counter
         /// values. By only allowing this method within [`locate`]($locate)
         /// calls, the amount of code that can depend on the method's result is
@@ -600,22 +600,18 @@ impl CounterState {
     }
 
     /// Display the counter state with a numbering.
-    pub fn display(
-        &self,
-        engine: &mut Engine,
-        numbering: &Numbering,
-    ) -> SourceResult<TypstContent> {
+    pub fn display(&self, engine: &mut Engine, numbering: &Numbering) -> SourceResult<TexContent> {
         Ok(numbering.apply(engine, &self.0)?.display())
     }
 }
 
 cast! {
     CounterState,
-    self => TypstValue::Array(self.0.into_iter().map(IntoTypstValue::into_value).collect()),
+    self => TexValue::Array(self.0.into_iter().map(IntoTexValue::into_value).collect()),
     num: usize => Self(smallvec![num]),
     array: Array => Self(array
         .into_iter()
-        .map(TypstValue::cast)
+        .map(TexValue::cast)
         .collect::<StrResult<_>>()?),
 }
 
@@ -637,7 +633,7 @@ struct DisplayElem {
 
 impl Show for Packed<DisplayElem> {
     #[husky_typst_macros::time(name = "counter.display", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         let location = self.location().unwrap();
         let counter = self.counter();
         let numbering = self
@@ -683,8 +679,8 @@ struct UpdateElem {
 }
 
 impl Show for Packed<UpdateElem> {
-    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<TypstContent> {
-        Ok(TypstContent::empty())
+    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<TexContent> {
+        Ok(TexContent::empty())
     }
 }
 

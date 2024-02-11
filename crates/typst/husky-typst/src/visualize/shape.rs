@@ -2,14 +2,14 @@ use std::f64::consts::SQRT_2;
 
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{elem, Packed, Resolve, Smart, StyleChain, TypstContent};
+use crate::foundations::{elem, Packed, Resolve, Smart, StyleChain, TexContent};
 use crate::layout::{
     Abs, Axes, Corner, Corners, Frame, FrameItem, LayoutMultiple, LayoutSingle, Length, Point,
     Ratio, Regions, Rel, Sides, Size,
 };
 use crate::syntax::Span;
 use crate::util::Get;
-use crate::visualize::{Path, TypstFixedStroke, TypstPaint, TypstStroke};
+use crate::visualize::{Path, TexFixedStroke, TexPaint, TexStroke};
 
 /// A rectangle with optional content.
 ///
@@ -40,7 +40,7 @@ pub struct RectElem {
     /// ```example
     /// #rect(fill: blue)
     /// ```
-    pub fill: Option<TypstPaint>,
+    pub fill: Option<TexPaint>,
 
     /// How to stroke the rectangle. This can be:
     ///
@@ -70,7 +70,7 @@ pub struct RectElem {
     /// ```
     #[resolve]
     #[fold]
-    pub stroke: Smart<Sides<Option<Option<TypstStroke>>>>,
+    pub stroke: Smart<Sides<Option<Option<TexStroke>>>>,
 
     /// How much to round the rectangle's corners, relative to the minimum of
     /// the width and height divided by two. This can be:
@@ -128,7 +128,7 @@ pub struct RectElem {
     /// When this is omitted, the rectangle takes on a default size of at most
     /// `{45pt}` by `{30pt}`.
     #[positional]
-    pub body: Option<TypstContent>,
+    pub body: Option<TexContent>,
 }
 
 impl LayoutSingle for Packed<RectElem> {
@@ -201,13 +201,13 @@ pub struct SquareElem {
 
     /// How to fill the square. See the [rectangle's documentation]($rect.fill)
     /// for more details.
-    pub fill: Option<TypstPaint>,
+    pub fill: Option<TexPaint>,
 
     /// How to stroke the square. See the
     /// [rectangle's documentation]($rect.stroke) for more details.
     #[resolve]
     #[fold]
-    pub stroke: Smart<Sides<Option<Option<TypstStroke>>>>,
+    pub stroke: Smart<Sides<Option<Option<TexStroke>>>>,
 
     /// How much to round the square's corners. See the
     /// [rectangle's documentation]($rect.radius) for more details.
@@ -234,7 +234,7 @@ pub struct SquareElem {
     /// When this is omitted, the square takes on a default size of at most
     /// `{30pt}`.
     #[positional]
-    pub body: Option<TypstContent>,
+    pub body: Option<TexContent>,
 }
 
 impl LayoutSingle for Packed<SquareElem> {
@@ -286,13 +286,13 @@ pub struct EllipseElem {
 
     /// How to fill the ellipse. See the [rectangle's documentation]($rect.fill)
     /// for more details.
-    pub fill: Option<TypstPaint>,
+    pub fill: Option<TexPaint>,
 
     /// How to stroke the ellipse. See the
     /// [rectangle's documentation]($rect.stroke) for more details.
     #[resolve]
     #[fold]
-    pub stroke: Smart<Option<TypstStroke>>,
+    pub stroke: Smart<Option<TexStroke>>,
 
     /// How much to pad the ellipse's content. See the
     /// [box's documentation]($box.inset) for more details.
@@ -312,7 +312,7 @@ pub struct EllipseElem {
     /// When this is omitted, the ellipse takes on a default size of at most
     /// `{45pt}` by `{30pt}`.
     #[positional]
-    pub body: Option<TypstContent>,
+    pub body: Option<TexContent>,
 }
 
 impl LayoutSingle for Packed<EllipseElem> {
@@ -390,14 +390,14 @@ pub struct CircleElem {
 
     /// How to fill the circle. See the [rectangle's documentation]($rect.fill)
     /// for more details.
-    pub fill: Option<TypstPaint>,
+    pub fill: Option<TexPaint>,
 
     /// How to stroke the circle. See the
     /// [rectangle's documentation]($rect.stroke) for more details.
     #[resolve]
     #[fold]
     #[default(Smart::Auto)]
-    pub stroke: Smart<Option<TypstStroke>>,
+    pub stroke: Smart<Option<TexStroke>>,
 
     /// How much to pad the circle's content. See the
     /// [box's documentation]($box.inset) for more details.
@@ -415,7 +415,7 @@ pub struct CircleElem {
     /// The content to place into the circle. The circle expands to fit this
     /// content, keeping the 1-1 aspect ratio.
     #[positional]
-    pub body: Option<TypstContent>,
+    pub body: Option<TexContent>,
 }
 
 impl LayoutSingle for Packed<CircleElem> {
@@ -450,10 +450,10 @@ fn layout(
     styles: StyleChain,
     regions: Regions,
     kind: ShapeKind,
-    body: &Option<TypstContent>,
+    body: &Option<TexContent>,
     sizing: Axes<Smart<Rel<Length>>>,
-    fill: Option<TypstPaint>,
-    stroke: Smart<Sides<Option<Option<TypstStroke<Abs>>>>>,
+    fill: Option<TexPaint>,
+    stroke: Smart<Sides<Option<Option<TexStroke<Abs>>>>>,
     inset: Sides<Option<Rel<Abs>>>,
     outset: Sides<Option<Rel<Abs>>>,
     radius: Corners<Option<Rel<Abs>>>,
@@ -511,11 +511,11 @@ fn layout(
 
     // Prepare stroke.
     let stroke = match stroke {
-        Smart::Auto if fill.is_none() => Sides::splat(Some(TypstFixedStroke::default())),
+        Smart::Auto if fill.is_none() => Sides::splat(Some(TexFixedStroke::default())),
         Smart::Auto => Sides::splat(None),
         Smart::Custom(strokes) => strokes
             .unwrap_or_default()
-            .map(|s| s.map(TypstStroke::unwrap_or_default)),
+            .map(|s| s.map(TexStroke::unwrap_or_default)),
     };
 
     // Add fill and/or stroke.
@@ -567,18 +567,18 @@ impl ShapeKind {
 
 /// A geometric shape with optional fill and stroke.
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
-pub struct TypstShape {
+pub struct TexShape {
     /// The shape's geometry.
-    pub geometry: TypstGeometry,
+    pub geometry: TexGeometry,
     /// The shape's background fill.
-    pub fill: Option<TypstPaint>,
+    pub fill: Option<TexPaint>,
     /// The shape's border stroke.
-    pub stroke: Option<TypstFixedStroke>,
+    pub stroke: Option<TexFixedStroke>,
 }
 
 /// A shape's geometry.
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
-pub enum TypstGeometry {
+pub enum TexGeometry {
     /// A line to a point (relative to its position).
     Line(Point),
     /// A rectangle with its origin in the topleft corner.
@@ -587,10 +587,10 @@ pub enum TypstGeometry {
     Path(Path),
 }
 
-impl TypstGeometry {
+impl TexGeometry {
     /// Fill the geometry without a stroke.
-    pub fn filled(self, fill: TypstPaint) -> TypstShape {
-        TypstShape {
+    pub fn filled(self, fill: TexPaint) -> TexShape {
+        TexShape {
             geometry: self,
             fill: Some(fill),
             stroke: None,
@@ -598,8 +598,8 @@ impl TypstGeometry {
     }
 
     /// Stroke the geometry without a fill.
-    pub fn stroked(self, stroke: TypstFixedStroke) -> TypstShape {
-        TypstShape {
+    pub fn stroked(self, stroke: TexFixedStroke) -> TexShape {
+        TexShape {
             geometry: self,
             fill: None,
             stroke: Some(stroke),
@@ -619,9 +619,9 @@ impl TypstGeometry {
 /// Produce a shape that approximates an axis-aligned ellipse.
 pub(crate) fn ellipse(
     size: Size,
-    fill: Option<TypstPaint>,
-    stroke: Option<TypstFixedStroke>,
-) -> TypstShape {
+    fill: Option<TexPaint>,
+    stroke: Option<TexFixedStroke>,
+) -> TexShape {
     // https://stackoverflow.com/a/2007782
     let z = Abs::zero();
     let rx = size.x / 2.0;
@@ -638,8 +638,8 @@ pub(crate) fn ellipse(
     path.cubic_to(point(rx, my), point(mx, ry), point(z, ry));
     path.cubic_to(point(-mx, ry), point(-rx, my), point(-rx, z));
 
-    TypstShape {
-        geometry: TypstGeometry::Path(path),
+    TexShape {
+        geometry: TexGeometry::Path(path),
         stroke,
         fill,
     }
@@ -649,7 +649,7 @@ pub(crate) fn ellipse(
 pub(crate) fn clip_rect(
     size: Size,
     radius: Corners<Rel<Abs>>,
-    stroke: &Sides<Option<TypstFixedStroke>>,
+    stroke: &Sides<Option<TexFixedStroke>>,
 ) -> Path {
     let stroke_widths = stroke
         .as_ref()
@@ -698,9 +698,9 @@ pub(crate) fn clip_rect(
 pub(crate) fn styled_rect(
     size: Size,
     radius: Corners<Rel<Abs>>,
-    fill: Option<TypstPaint>,
-    stroke: Sides<Option<TypstFixedStroke>>,
-) -> Vec<TypstShape> {
+    fill: Option<TexPaint>,
+    stroke: Sides<Option<TexFixedStroke>>,
+) -> Vec<TexShape> {
     if stroke.is_uniform() && radius.iter().cloned().all(Rel::is_zero) {
         simple_rect(size, fill, stroke.top)
     } else {
@@ -711,11 +711,11 @@ pub(crate) fn styled_rect(
 /// Use rect primitive for the rectangle
 fn simple_rect(
     size: Size,
-    fill: Option<TypstPaint>,
-    stroke: Option<TypstFixedStroke>,
-) -> Vec<TypstShape> {
-    vec![TypstShape {
-        geometry: TypstGeometry::Rect(size),
+    fill: Option<TexPaint>,
+    stroke: Option<TexFixedStroke>,
+) -> Vec<TexShape> {
+    vec![TexShape {
+        geometry: TexGeometry::Rect(size),
         fill,
         stroke,
     }]
@@ -724,7 +724,7 @@ fn simple_rect(
 fn corners_control_points(
     size: Size,
     radius: Corners<Abs>,
-    strokes: &Sides<Option<TypstFixedStroke>>,
+    strokes: &Sides<Option<TexFixedStroke>>,
     stroke_widths: Sides<Abs>,
 ) -> Corners<ControlPoints> {
     Corners {
@@ -754,9 +754,9 @@ fn corners_control_points(
 fn segmented_rect(
     size: Size,
     radius: Corners<Rel<Abs>>,
-    fill: Option<TypstPaint>,
-    strokes: Sides<Option<TypstFixedStroke>>,
-) -> Vec<TypstShape> {
+    fill: Option<TexPaint>,
+    strokes: Sides<Option<TexFixedStroke>>,
+) -> Vec<TexShape> {
     let mut res = vec![];
     let stroke_widths = strokes
         .as_ref()
@@ -791,8 +791,8 @@ fn segmented_rect(
             }
         }
         path.close_path();
-        res.push(TypstShape {
-            geometry: TypstGeometry::Path(path),
+        res.push(TexShape {
+            geometry: TexGeometry::Path(path),
             fill: Some(fill),
             stroke: None,
         });
@@ -870,8 +870,8 @@ fn segment(
     start: Corner,
     end: Corner,
     corners: &Corners<ControlPoints>,
-    stroke: TypstFixedStroke,
-) -> (TypstShape, bool) {
+    stroke: TexFixedStroke,
+) -> (TexShape, bool) {
     fn fill_corner(corner: &ControlPoints) -> bool {
         corner.stroke_before != corner.stroke_after || corner.radius() < corner.stroke_before
     }
@@ -914,14 +914,14 @@ fn stroke_segment(
     start: Corner,
     end: Corner,
     corners: &Corners<ControlPoints>,
-    stroke: TypstFixedStroke,
-) -> TypstShape {
+    stroke: TexFixedStroke,
+) -> TexShape {
     // create start corner
     let mut path = Path::new();
     path_segment(start, end, corners, &mut path);
 
-    TypstShape {
-        geometry: TypstGeometry::Path(path),
+    TexShape {
+        geometry: TexGeometry::Path(path),
         stroke: Some(stroke),
         fill: None,
     }
@@ -932,8 +932,8 @@ fn fill_segment(
     start: Corner,
     end: Corner,
     corners: &Corners<ControlPoints>,
-    stroke: TypstFixedStroke,
-) -> TypstShape {
+    stroke: TexFixedStroke,
+) -> TexShape {
     let mut path = Path::new();
 
     // create the start corner
@@ -1018,8 +1018,8 @@ fn fill_segment(
 
     path.close_path();
 
-    TypstShape {
-        geometry: TypstGeometry::Path(path),
+    TexShape {
+        geometry: TexGeometry::Path(path),
         stroke: None,
         fill: Some(stroke.paint),
     }

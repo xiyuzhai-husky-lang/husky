@@ -2,9 +2,9 @@ use std::fmt::Write;
 
 use ecow::{eco_format, EcoString};
 use husky_typst::eval::{CapturesVisitor, Tracer};
-use husky_typst::foundations::{repr, CastInfo, Repr, TypstValue};
+use husky_typst::foundations::{repr, CastInfo, Repr, TexValue};
 use husky_typst::layout::Length;
-use husky_typst::model::TypstDocument;
+use husky_typst::model::TexDocument;
 use husky_typst::syntax::{ast, LinkedNode, Source, SyntaxKind};
 use husky_typst::util::{round_2, Numeric};
 use husky_typst::World;
@@ -20,7 +20,7 @@ use crate::{plain_docs_sentence, summarize_font_family};
 /// when the document is available.
 pub fn tooltip(
     world: &dyn World,
-    document: Option<&TypstDocument>,
+    document: Option<&TexDocument>,
     source: &Source,
     cursor: usize,
 ) -> Option<Tooltip> {
@@ -41,7 +41,7 @@ pub fn tooltip(
 pub enum Tooltip {
     /// A string of text.
     Text(EcoString),
-    /// A string of Typst code.
+    /// A string of Tex code.
     Code(EcoString),
 }
 
@@ -64,7 +64,7 @@ fn expr_tooltip(world: &dyn World, leaf: &LinkedNode) -> Option<Tooltip> {
             return Some(Tooltip::Text(plain_docs_sentence(docs)));
         }
 
-        if let &TypstValue::Length(length) = value {
+        if let &TexValue::Length(length) = value {
             if let Some(tooltip) = length_tooltip(length) {
                 return Some(tooltip);
             }
@@ -154,7 +154,7 @@ fn length_tooltip(length: Length) -> Option<Tooltip> {
 }
 
 /// Tooltip for a hovered reference or label.
-fn label_tooltip(document: &TypstDocument, leaf: &LinkedNode) -> Option<Tooltip> {
+fn label_tooltip(document: &TexDocument, leaf: &LinkedNode) -> Option<Tooltip> {
     let target = match leaf.kind() {
         SyntaxKind::RefMarker => leaf.text().trim_start_matches('@'),
         SyntaxKind::Label => leaf.text().trim_start_matches('<').trim_end_matches('>'),
@@ -188,7 +188,7 @@ fn named_param_tooltip(world: &dyn World, leaf: &LinkedNode) -> Option<Tooltip> 
         };
 
         // Find metadata about the function.
-        if let Some(TypstValue::Func(func)) = world.library().global.scope().get(&callee);
+        if let Some(TexValue::Func(func)) = world.library().global.scope().get(&callee);
         then { (func, named) }
         else { return None; }
     };
@@ -219,7 +219,7 @@ fn named_param_tooltip(world: &dyn World, leaf: &LinkedNode) -> Option<Tooltip> 
 /// Find documentation for a castable string.
 fn find_string_doc(info: &CastInfo, string: &str) -> Option<&'static str> {
     match info {
-        CastInfo::TypstValue(TypstValue::Str(s), docs) if s.as_str() == string => Some(docs),
+        CastInfo::TexValue(TexValue::Str(s), docs) if s.as_str() == string => Some(docs),
         CastInfo::Union(options) => options
             .iter()
             .find_map(|option| find_string_doc(option, string)),

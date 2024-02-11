@@ -1,9 +1,9 @@
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{elem, Packed, Resolve, StyleChain, TypstContent};
+use crate::foundations::{elem, Packed, Resolve, StyleChain, TexContent};
 use crate::layout::{
-    Abs, Alignment, Angle, Axes, FixedAlignment, Frame, HAlignment, LayoutMultiple, LayoutSingle,
-    Length, Point, Ratio, Regions, Rel, Size, VAlignment,
+    Abs, Angle, Axes, FixedAlignment, Frame, HAlignment, LayoutMultiple, LayoutSingle, Length,
+    Point, Ratio, Regions, Rel, Size, TexAlignment, VAlignment,
 };
 
 /// Moves content without affecting layout.
@@ -34,7 +34,7 @@ pub struct MoveElem {
 
     /// The content to move.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl LayoutSingle for Packed<MoveElem> {
@@ -96,7 +96,7 @@ pub struct RotateElem {
     /// ```
     #[fold]
     #[default(HAlignment::Center + VAlignment::Horizon)]
-    pub origin: Alignment,
+    pub origin: TexAlignment,
 
     /// Whether the rotation impacts the layout.
     ///
@@ -112,7 +112,7 @@ pub struct RotateElem {
 
     /// The content to rotate.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl LayoutSingle for Packed<RotateElem> {
@@ -184,7 +184,7 @@ pub struct ScaleElem {
     /// ```
     #[fold]
     #[default(HAlignment::Center + VAlignment::Horizon)]
-    pub origin: Alignment,
+    pub origin: TexAlignment,
 
     /// Whether the scaling impacts the layout.
     ///
@@ -200,7 +200,7 @@ pub struct ScaleElem {
 
     /// The content to scale.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl LayoutSingle for Packed<ScaleElem> {
@@ -372,7 +372,7 @@ fn measure_and_layout(
     base_size: Size,
     size: Size,
     styles: StyleChain,
-    body: &TypstContent,
+    body: &TexContent,
     transform: Transform,
     align: Axes<FixedAlignment>,
     reflow: bool,

@@ -3,8 +3,7 @@ use ecow::EcoString;
 use crate::diag::{bail, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, Args, Array, Construct, Datetime, Packed, Smart, StyleChain, TypstContent,
-    TypstValue,
+    cast, elem, Args, Array, Construct, Datetime, Packed, Smart, StyleChain, TexContent, TexValue,
 };
 use crate::introspection::{Introspector, ManualPageCounter};
 use crate::layout::{LayoutRoot, Page, PageElem};
@@ -33,7 +32,7 @@ pub struct DocumentElem {
     /// While this can be arbitrary content, PDF viewers only support plain text
     /// titles, so the conversion might be lossy.
     #[ghost]
-    pub title: Option<TypstContent>,
+    pub title: Option<TexContent>,
 
     /// The document's authors.
     #[ghost]
@@ -45,8 +44,8 @@ pub struct DocumentElem {
 
     /// The document's creation date.
     ///
-    /// If this is `{auto}` (default), Typst uses the current date and time.
-    /// Setting it to `{none}` prevents Typst from embedding any creation date
+    /// If this is `{auto}` (default), Tex uses the current date and time.
+    /// Setting it to `{none}` prevents Tex from embedding any creation date
     /// into the PDF metadata.
     ///
     /// The year component must be at least zero in order to be embedded into a
@@ -57,18 +56,18 @@ pub struct DocumentElem {
     /// The page runs.
     #[internal]
     #[variadic]
-    pub children: Vec<TypstContent>,
+    pub children: Vec<TexContent>,
 }
 
 impl Construct for DocumentElem {
-    fn construct(_: &mut Engine, args: &mut Args) -> SourceResult<TypstContent> {
+    fn construct(_: &mut Engine, args: &mut Args) -> SourceResult<TexContent> {
         bail!(args.span, "can only be used in set rules")
     }
 }
 
 impl LayoutRoot for Packed<DocumentElem> {
     #[husky_typst_macros::time(name = "document", span = self.span())]
-    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstDocument> {
+    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexDocument> {
         let mut pages = Vec::with_capacity(self.children().len());
         let mut page_counter = ManualPageCounter::new();
 
@@ -98,7 +97,7 @@ impl LayoutRoot for Packed<DocumentElem> {
             }
         }
 
-        Ok(TypstDocument {
+        Ok(TexDocument {
             pages,
             title: DocumentElem::title_in(styles).map(|content| content.plain_text()),
             author: DocumentElem::author_in(styles).0,
@@ -117,7 +116,7 @@ cast! {
     Author,
     self => self.0.into_value(),
     v: EcoString => Self(vec![v]),
-    v: Array => Self(v.into_iter().map(TypstValue::cast).collect::<StrResult<_>>()?),
+    v: Array => Self(v.into_iter().map(TexValue::cast).collect::<StrResult<_>>()?),
 }
 
 /// A list of keywords.
@@ -128,12 +127,12 @@ cast! {
     Keywords,
     self => self.0.into_value(),
     v: EcoString => Self(vec![v]),
-    v: Array => Self(v.into_iter().map(TypstValue::cast).collect::<StrResult<_>>()?),
+    v: Array => Self(v.into_iter().map(TexValue::cast).collect::<StrResult<_>>()?),
 }
 
 /// A finished document with metadata and page frames.
 #[derive(Debug, Default, Clone)]
-pub struct TypstDocument {
+pub struct TexDocument {
     /// The document's finished pages.
     pub pages: Vec<Page>,
     /// The document's title.
@@ -155,6 +154,6 @@ mod tests {
     #[test]
     fn test_document_is_send_and_sync() {
         fn ensure_send_and_sync<T: Send + Sync>() {}
-        ensure_send_and_sync::<TypstDocument>();
+        ensure_send_and_sync::<TexDocument>();
     }
 }

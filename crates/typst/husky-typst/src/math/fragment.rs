@@ -12,8 +12,8 @@ use crate::math::{
     scaled_font_size, styled_char, EquationElem, Limits, MathContext, MathSize, Scaled,
 };
 use crate::syntax::Span;
-use crate::text::{Glyph, Lang, TextElem, TextItem, TypstFont};
-use crate::visualize::TypstPaint;
+use crate::text::{Glyph, Lang, TexFont, TextElem, TextItem};
+use crate::visualize::TexPaint;
 
 #[derive(Debug, Clone)]
 pub enum MathFragment {
@@ -200,9 +200,9 @@ impl From<SpacingFragment> for MathFragment {
 pub struct GlyphFragment {
     pub id: GlyphId,
     pub c: char,
-    pub font: TypstFont,
+    pub font: TexFont,
     pub lang: Lang,
-    pub fill: TypstPaint,
+    pub fill: TexPaint,
     pub shift: Abs,
     pub width: Abs,
     pub ascent: Abs,

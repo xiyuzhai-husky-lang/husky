@@ -75,7 +75,7 @@
   details: |
     Subscript, superscripts, and limits.
 
-    Attachments can be displayed either as sub/superscripts, or limits. Typst
+    Attachments can be displayed either as sub/superscripts, or limits. Tex
     automatically decides which is more suitable depending on the base, but you
     can also control this manually with the `scripts` and `limits` functions.
 
@@ -100,7 +100,7 @@
     The `lr` function allows you to match two delimiters and scale them with the
     content they contain. While this also happens automatically for delimiters
     that match syntactically, `lr` allows you to match two arbitrary delimiters
-    and control their size exactly. Apart from the `lr` function, Typst provides
+    and control their size exactly. Apart from the `lr` function, Tex provides
     a few more functions that create delimiter pairings for absolute, ceiled,
     and floored values as well as norms.
 
@@ -132,7 +132,7 @@
     This module defines the following items:
 
     - The `sys.version` constant (of type [`version`]($version)) that specifies
-      the currently active Typst compiler version.
+      the currently active Tex compiler version.
 
     - The `sys.inputs` [dictionary]($dictionary), which makes external inputs
       available to the project. An input specified in the command line as

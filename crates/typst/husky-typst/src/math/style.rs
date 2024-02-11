@@ -1,6 +1,6 @@
 use comemo::Prehashed;
 
-use crate::foundations::{func, Cast, Smart, Style, StyleChain, TypstContent};
+use crate::foundations::{func, Cast, Smart, Style, StyleChain, TexContent};
 use crate::layout::Abs;
 use crate::math::{EquationElem, MathContext};
 use crate::text::TextElem;
@@ -13,8 +13,8 @@ use crate::text::TextElem;
 #[func]
 pub fn bold(
     /// The content to style.
-    body: TypstContent,
-) -> TypstContent {
+    body: TexContent,
+) -> TexContent {
     body.styled(EquationElem::set_bold(true))
 }
 
@@ -26,8 +26,8 @@ pub fn bold(
 #[func]
 pub fn upright(
     /// The content to style.
-    body: TypstContent,
-) -> TypstContent {
+    body: TexContent,
+) -> TexContent {
     body.styled(EquationElem::set_italic(Smart::Custom(false)))
 }
 
@@ -37,8 +37,8 @@ pub fn upright(
 #[func]
 pub fn italic(
     /// The content to style.
-    body: TypstContent,
-) -> TypstContent {
+    body: TexContent,
+) -> TexContent {
     body.styled(EquationElem::set_italic(Smart::Custom(true)))
 }
 
@@ -48,8 +48,8 @@ pub fn italic(
 #[func]
 pub fn serif(
     /// The content to style.
-    body: TypstContent,
-) -> TypstContent {
+    body: TexContent,
+) -> TexContent {
     body.styled(EquationElem::set_variant(MathVariant::Serif))
 }
 
@@ -61,8 +61,8 @@ pub fn serif(
 #[func(title = "Sans Serif")]
 pub fn sans(
     /// The content to style.
-    body: TypstContent,
-) -> TypstContent {
+    body: TexContent,
+) -> TexContent {
     body.styled(EquationElem::set_variant(MathVariant::Sans))
 }
 
@@ -74,8 +74,8 @@ pub fn sans(
 #[func(title = "Calligraphic")]
 pub fn cal(
     /// The content to style.
-    body: TypstContent,
-) -> TypstContent {
+    body: TexContent,
+) -> TexContent {
     body.styled(EquationElem::set_variant(MathVariant::Cal))
 }
 
@@ -87,8 +87,8 @@ pub fn cal(
 #[func(title = "Fraktur")]
 pub fn frak(
     /// The content to style.
-    body: TypstContent,
-) -> TypstContent {
+    body: TexContent,
+) -> TexContent {
     body.styled(EquationElem::set_variant(MathVariant::Frak))
 }
 
@@ -100,8 +100,8 @@ pub fn frak(
 #[func(title = "Monospace")]
 pub fn mono(
     /// The content to style.
-    body: TypstContent,
-) -> TypstContent {
+    body: TexContent,
+) -> TexContent {
     body.styled(EquationElem::set_variant(MathVariant::Mono))
 }
 
@@ -118,8 +118,8 @@ pub fn mono(
 #[func(title = "Blackboard Bold")]
 pub fn bb(
     /// The content to style.
-    body: TypstContent,
-) -> TypstContent {
+    body: TexContent,
+) -> TexContent {
     body.styled(EquationElem::set_variant(MathVariant::Bb))
 }
 
@@ -133,13 +133,13 @@ pub fn bb(
 #[func(title = "Display Size")]
 pub fn display(
     /// The content to size.
-    body: TypstContent,
+    body: TexContent,
     /// Whether to impose a height restriction for exponents, like regular sub-
     /// and superscripts do.
     #[named]
     #[default(false)]
     cramped: bool,
-) -> TypstContent {
+) -> TexContent {
     body.styled(EquationElem::set_size(MathSize::Display))
         .styled(EquationElem::set_cramped(cramped))
 }
@@ -155,13 +155,13 @@ pub fn display(
 #[func(title = "Inline Size")]
 pub fn inline(
     /// The content to size.
-    body: TypstContent,
+    body: TexContent,
     /// Whether to impose a height restriction for exponents, like regular sub-
     /// and superscripts do.
     #[named]
     #[default(false)]
     cramped: bool,
-) -> TypstContent {
+) -> TexContent {
     body.styled(EquationElem::set_size(MathSize::Text))
         .styled(EquationElem::set_cramped(cramped))
 }
@@ -176,13 +176,13 @@ pub fn inline(
 #[func(title = "Script Size")]
 pub fn script(
     /// The content to size.
-    body: TypstContent,
+    body: TexContent,
     /// Whether to impose a height restriction for exponents, like regular sub-
     /// and superscripts do.
     #[named]
     #[default(true)]
     cramped: bool,
-) -> TypstContent {
+) -> TexContent {
     body.styled(EquationElem::set_size(MathSize::Script))
         .styled(EquationElem::set_cramped(cramped))
 }
@@ -198,13 +198,13 @@ pub fn script(
 #[func(title = "Script-Script Size")]
 pub fn sscript(
     /// The content to size.
-    body: TypstContent,
+    body: TexContent,
     /// Whether to impose a height restriction for exponents, like regular sub-
     /// and superscripts do.
     #[named]
     #[default(true)]
     cramped: bool,
-) -> TypstContent {
+) -> TexContent {
     body.styled(EquationElem::set_size(MathSize::ScriptScript))
         .styled(EquationElem::set_cramped(cramped))
 }

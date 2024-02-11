@@ -8,9 +8,9 @@ use chrono::{DateTime, Datelike, Local};
 use comemo::Prehashed;
 use ecow::eco_format;
 use husky_typst::diag::{FileError, FileResult, StrResult};
-use husky_typst::foundations::{Bytes, Datetime, IntoTypstValue, TypstDict};
+use husky_typst::foundations::{Bytes, Datetime, IntoTexValue, TexDict};
 use husky_typst::syntax::{FileId, Source, VirtualPath};
-use husky_typst::text::{TypstFont, TypstFontBook};
+use husky_typst::text::{TexFont, TexFontBook};
 use husky_typst::{Library, World};
 use husky_typst_timing::{timed, TimingScope};
 use once_cell::sync::Lazy;
@@ -35,10 +35,10 @@ pub struct SystemWorld {
     root: PathBuf,
     /// The input path.
     main: FileId,
-    /// Typst's standard library.
+    /// Tex's standard library.
     library: Prehashed<Library>,
     /// Metadata about discovered fonts.
-    book: Prehashed<TypstFontBook>,
+    book: Prehashed<TexFontBook>,
     /// Locations of and storage for lazily loaded fonts.
     fonts: Vec<FontSlot>,
     /// Maps file ids to source files and buffers.
@@ -89,7 +89,7 @@ impl SystemWorld {
 
         let library = {
             // Convert the input pairs to a dictionary.
-            let inputs: TypstDict = command
+            let inputs: TexDict = command
                 .inputs
                 .iter()
                 .map(|(k, v)| (k.as_str().into(), v.as_str().into_value()))
@@ -167,7 +167,7 @@ impl World for SystemWorld {
         &self.library
     }
 
-    fn book(&self) -> &Prehashed<TypstFontBook> {
+    fn book(&self) -> &Prehashed<TexFontBook> {
         &self.book
     }
 
@@ -183,7 +183,7 @@ impl World for SystemWorld {
         self.slot(id, |slot| slot.file(&self.root))
     }
 
-    fn font(&self, index: usize) -> Option<TypstFont> {
+    fn font(&self, index: usize) -> Option<TexFont> {
         self.fonts[index].get()
     }
 

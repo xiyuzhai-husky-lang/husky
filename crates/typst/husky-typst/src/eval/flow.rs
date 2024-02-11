@@ -2,7 +2,7 @@ use unicode_segmentation::UnicodeSegmentation;
 
 use crate::diag::{bail, error, At, SourceDiagnostic, SourceResult};
 use crate::eval::{destructure, ops, Eval, Vm};
-use crate::foundations::{IntoTypstValue, TypstValue};
+use crate::foundations::{IntoTexValue, TexValue};
 use crate::syntax::ast::{self, AstNode};
 use crate::syntax::{Span, SyntaxKind, SyntaxNode};
 
@@ -18,7 +18,7 @@ pub(crate) enum FlowEvent {
     Continue(Span),
     /// Stop execution of a function early, optionally returning an explicit
     /// value.
-    Return(Span, Option<TypstValue>),
+    Return(Span, Option<TexValue>),
 }
 
 impl FlowEvent {
@@ -39,7 +39,7 @@ impl FlowEvent {
 }
 
 impl Eval for ast::Conditional<'_> {
-    type Output = TypstValue;
+    type Output = TexValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let condition = self.condition();
@@ -48,18 +48,18 @@ impl Eval for ast::Conditional<'_> {
         } else if let Some(else_body) = self.else_body() {
             else_body.eval(vm)
         } else {
-            Ok(TypstValue::None)
+            Ok(TexValue::None)
         }
     }
 }
 
 impl Eval for ast::WhileLoop<'_> {
-    type Output = TypstValue;
+    type Output = TexValue;
 
     #[husky_typst_macros::time(name = "while loop", span = self.span())]
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let flow = vm.flow.take();
-        let mut output = TypstValue::None;
+        let mut output = TexValue::None;
         let mut i = 0;
 
         let condition = self.condition();
@@ -97,12 +97,12 @@ impl Eval for ast::WhileLoop<'_> {
 }
 
 impl Eval for ast::ForLoop<'_> {
-    type Output = TypstValue;
+    type Output = TexValue;
 
     #[husky_typst_macros::time(name = "for loop", span = self.span())]
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let flow = vm.flow.take();
-        let mut output = TypstValue::None;
+        let mut output = TexValue::None;
 
         macro_rules! iter {
             (for $pat:ident in $iterable:expr) => {{
@@ -137,23 +137,23 @@ impl Eval for ast::ForLoop<'_> {
 
         use ast::Pattern;
         match (pattern, iterable) {
-            (_, TypstValue::Array(array)) => {
+            (_, TexValue::Array(array)) => {
                 // Iterate over values of array.
                 iter!(for pattern in array);
             }
-            (_, TypstValue::Dict(dict)) => {
+            (_, TexValue::Dict(dict)) => {
                 // Iterate over key-value pairs of dict.
                 iter!(for pattern in dict.iter());
             }
-            (Pattern::Normal(_) | Pattern::Placeholder(_), TypstValue::Str(str)) => {
+            (Pattern::Normal(_) | Pattern::Placeholder(_), TexValue::Str(str)) => {
                 // Iterate over graphemes of string.
                 iter!(for pattern in str.as_str().graphemes(true));
             }
-            (Pattern::Normal(_) | Pattern::Placeholder(_), TypstValue::Bytes(bytes)) => {
+            (Pattern::Normal(_) | Pattern::Placeholder(_), TexValue::Bytes(bytes)) => {
                 // Iterate over the integers of bytes.
                 iter!(for pattern in bytes.as_slice());
             }
-            (Pattern::Destructuring(_), TypstValue::Str(_) | TypstValue::Bytes(_)) => {
+            (Pattern::Destructuring(_), TexValue::Str(_) | TexValue::Bytes(_)) => {
                 bail!(
                     pattern.span(),
                     "cannot destructure values of {}",
@@ -174,36 +174,36 @@ impl Eval for ast::ForLoop<'_> {
 }
 
 impl Eval for ast::LoopBreak<'_> {
-    type Output = TypstValue;
+    type Output = TexValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         if vm.flow.is_none() {
             vm.flow = Some(FlowEvent::Break(self.span()));
         }
-        Ok(TypstValue::None)
+        Ok(TexValue::None)
     }
 }
 
 impl Eval for ast::LoopContinue<'_> {
-    type Output = TypstValue;
+    type Output = TexValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         if vm.flow.is_none() {
             vm.flow = Some(FlowEvent::Continue(self.span()));
         }
-        Ok(TypstValue::None)
+        Ok(TexValue::None)
     }
 }
 
 impl Eval for ast::FuncReturn<'_> {
-    type Output = TypstValue;
+    type Output = TexValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let value = self.body().map(|body| body.eval(vm)).transpose()?;
         if vm.flow.is_none() {
             vm.flow = Some(FlowEvent::Return(self.span(), value));
         }
-        Ok(TypstValue::None)
+        Ok(TexValue::None)
     }
 }
 

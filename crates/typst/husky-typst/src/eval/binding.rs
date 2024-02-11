@@ -2,19 +2,19 @@ use std::collections::HashSet;
 
 use crate::diag::{bail, At, SourceResult};
 use crate::eval::{Access, Eval, Vm};
-use crate::foundations::{Array, TypstDict, TypstValue};
+use crate::foundations::{Array, TexDict, TexValue};
 use crate::syntax::ast::{self, AstNode};
 
 impl Eval for ast::LetBinding<'_> {
-    type Output = TypstValue;
+    type Output = TexValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let value = match self.init() {
             Some(expr) => expr.eval(vm)?,
-            None => TypstValue::None,
+            None => TexValue::None,
         };
         if vm.flow.is_some() {
-            return Ok(TypstValue::None);
+            return Ok(TexValue::None);
         }
 
         match self.kind() {
@@ -22,12 +22,12 @@ impl Eval for ast::LetBinding<'_> {
             ast::LetBindingKind::Closure(ident) => vm.define(ident, value),
         }
 
-        Ok(TypstValue::None)
+        Ok(TexValue::None)
     }
 }
 
 impl Eval for ast::DestructAssignment<'_> {
-    type Output = TypstValue;
+    type Output = TexValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let value = self.value().eval(vm)?;
@@ -36,16 +36,12 @@ impl Eval for ast::DestructAssignment<'_> {
             *location = value;
             Ok(())
         })?;
-        Ok(TypstValue::None)
+        Ok(TexValue::None)
     }
 }
 
 /// Destructures a value into a pattern.
-pub(crate) fn destructure(
-    vm: &mut Vm,
-    pattern: ast::Pattern,
-    value: TypstValue,
-) -> SourceResult<()> {
+pub(crate) fn destructure(vm: &mut Vm, pattern: ast::Pattern, value: TexValue) -> SourceResult<()> {
     destructure_impl(vm, pattern, value, |vm, expr, value| match expr {
         ast::Expr::Ident(ident) => {
             vm.define(ident, value);
@@ -59,11 +55,11 @@ pub(crate) fn destructure(
 fn destructure_impl<T>(
     vm: &mut Vm,
     pattern: ast::Pattern,
-    value: TypstValue,
+    value: TexValue,
     f: T,
 ) -> SourceResult<()>
 where
-    T: Fn(&mut Vm, ast::Expr, TypstValue) -> SourceResult<()>,
+    T: Fn(&mut Vm, ast::Expr, TexValue) -> SourceResult<()>,
 {
     match pattern {
         ast::Pattern::Normal(expr) => {
@@ -71,8 +67,8 @@ where
         }
         ast::Pattern::Placeholder(_) => {}
         ast::Pattern::Destructuring(destruct) => match value {
-            TypstValue::Array(value) => destructure_array(vm, pattern, value, f, destruct)?,
-            TypstValue::Dict(value) => destructure_dict(vm, value, f, destruct)?,
+            TexValue::Array(value) => destructure_array(vm, pattern, value, f, destruct)?,
+            TexValue::Dict(value) => destructure_dict(vm, value, f, destruct)?,
             _ => bail!(pattern.span(), "cannot destructure {}", value.ty()),
         },
     }
@@ -87,7 +83,7 @@ fn destructure_array<F>(
     destruct: ast::Destructuring,
 ) -> SourceResult<()>
 where
-    F: Fn(&mut Vm, ast::Expr, TypstValue) -> SourceResult<()>,
+    F: Fn(&mut Vm, ast::Expr, TexValue) -> SourceResult<()>,
 {
     let mut i = 0;
     let len = value.as_slice().len();
@@ -105,7 +101,7 @@ where
                 let sink = sink_size.and_then(|s| value.as_slice().get(i..i + s));
                 if let (Some(sink_size), Some(sink)) = (sink_size, sink) {
                     if let Some(expr) = spread.expr() {
-                        f(vm, expr, TypstValue::Array(sink.into()))?;
+                        f(vm, expr, TexValue::Array(sink.into()))?;
                     }
                     i += sink_size;
                 } else {
@@ -136,12 +132,12 @@ where
 
 fn destructure_dict<F>(
     vm: &mut Vm,
-    dict: TypstDict,
+    dict: TexDict,
     f: F,
     destruct: ast::Destructuring,
 ) -> SourceResult<()>
 where
-    F: Fn(&mut Vm, ast::Expr, TypstValue) -> SourceResult<()>,
+    F: Fn(&mut Vm, ast::Expr, TexValue) -> SourceResult<()>,
 {
     let mut sink = None;
     let mut used = HashSet::new();
@@ -167,13 +163,13 @@ where
     }
 
     if let Some(expr) = sink {
-        let mut sink = TypstDict::new();
+        let mut sink = TexDict::new();
         for (key, value) in dict {
             if !used.contains(key.as_str()) {
                 sink.insert(key, value);
             }
         }
-        f(vm, expr, TypstValue::Dict(sink))?;
+        f(vm, expr, TexValue::Dict(sink))?;
     }
 
     Ok(())

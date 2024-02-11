@@ -1,4 +1,4 @@
-//! Performance timing for Typst.
+//! Performance timing for Tex.
 
 use std::hash::Hash;
 use std::io::Write;

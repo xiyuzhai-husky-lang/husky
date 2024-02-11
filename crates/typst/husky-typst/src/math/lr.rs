@@ -1,9 +1,7 @@
 use unicode_math_class::MathClass;
 
 use crate::diag::SourceResult;
-use crate::foundations::{
-    elem, func, Packed, Resolve, Smart, StyleChain, TypstContent, TypstElement,
-};
+use crate::foundations::{elem, func, Packed, Resolve, Smart, StyleChain, TexContent, TexElement};
 use crate::layout::{Abs, Length, LengthInEm, Rel};
 use crate::math::{GlyphFragment, LayoutMath, MathContext, MathFragment, Scaled, SpacingFragment};
 use crate::text::TextElem;
@@ -23,8 +21,8 @@ pub struct LrElem {
     /// The delimited content, including the delimiters.
     #[required]
     #[parse(
-        let mut body = TypstContent::empty();
-        for (i, arg) in args.all::<TypstContent>()?.into_iter().enumerate() {
+        let mut body = TexContent::empty();
+        for (i, arg) in args.all::<TexContent>()?.into_iter().enumerate() {
             if i > 0 {
                 body += TextElem::packed(',');
             }
@@ -32,7 +30,7 @@ pub struct LrElem {
         }
         body
     )]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl LayoutMath for Packed<LrElem> {
@@ -107,7 +105,7 @@ impl LayoutMath for Packed<LrElem> {
 pub struct MidElem {
     /// The content to be scaled.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl LayoutMath for Packed<MidElem> {
@@ -176,8 +174,8 @@ pub fn floor(
     #[named]
     size: Option<Smart<Rel<Length>>>,
     /// The expression to floor.
-    body: TypstContent,
-) -> TypstContent {
+    body: TexContent,
+) -> TexContent {
     delimited(body, '⌊', '⌋', size)
 }
 
@@ -192,8 +190,8 @@ pub fn ceil(
     #[named]
     size: Option<Smart<Rel<Length>>>,
     /// The expression to ceil.
-    body: TypstContent,
-) -> TypstContent {
+    body: TexContent,
+) -> TexContent {
     delimited(body, '⌈', '⌉', size)
 }
 
@@ -208,8 +206,8 @@ pub fn round(
     #[named]
     size: Option<Smart<Rel<Length>>>,
     /// The expression to round.
-    body: TypstContent,
-) -> TypstContent {
+    body: TexContent,
+) -> TexContent {
     delimited(body, '⌊', '⌉', size)
 }
 
@@ -224,8 +222,8 @@ pub fn abs(
     #[named]
     size: Option<Smart<Rel<Length>>>,
     /// The expression to take the absolute value of.
-    body: TypstContent,
-) -> TypstContent {
+    body: TexContent,
+) -> TexContent {
     delimited(body, '|', '|', size)
 }
 
@@ -240,19 +238,19 @@ pub fn norm(
     #[named]
     size: Option<Smart<Rel<Length>>>,
     /// The expression to take the norm of.
-    body: TypstContent,
-) -> TypstContent {
+    body: TexContent,
+) -> TexContent {
     delimited(body, '‖', '‖', size)
 }
 
 fn delimited(
-    body: TypstContent,
+    body: TexContent,
     left: char,
     right: char,
     size: Option<Smart<Rel<Length>>>,
-) -> TypstContent {
+) -> TexContent {
     let span = body.span();
-    let mut elem = LrElem::new(TypstContent::sequence([
+    let mut elem = LrElem::new(TexContent::sequence([
         TextElem::packed(left),
         body,
         TextElem::packed(right),

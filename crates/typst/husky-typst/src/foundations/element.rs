@@ -11,8 +11,8 @@ use smallvec::SmallVec;
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, Args, Func, ParamInfo, Repr, Scope, Selector, StyleChain, Styles, TypstContent,
-    TypstDict, TypstValue,
+    cast, Args, Func, ParamInfo, Repr, Scope, Selector, StyleChain, Styles, TexContent, TexDict,
+    TexValue,
 };
 use crate::text::{Lang, Region};
 use crate::util::Static;
@@ -26,7 +26,7 @@ pub struct ElementSchemaRef(Static<ElementSchema>);
 
 impl ElementSchemaRef {
     /// Get the element for `T`.
-    pub fn of<T: TypstElement>() -> Self {
+    pub fn of<T: TexElement>() -> Self {
         T::elem()
     }
 
@@ -68,7 +68,7 @@ impl ElementSchemaRef {
     }
 
     /// Construct an instance of this element.
-    pub fn construct(self, engine: &mut Engine, args: &mut Args) -> SourceResult<TypstContent> {
+    pub fn construct(self, engine: &mut Engine, args: &mut Args) -> SourceResult<TexContent> {
         (self.0.construct)(engine, args)
     }
 
@@ -104,8 +104,8 @@ impl ElementSchemaRef {
     }
 
     /// Create a selector for this element, filtering for those that
-    /// [fields](crate::foundations::TypstContent::field) match the given argument.
-    pub fn where_(self, fields: SmallVec<[(u8, TypstValue); 1]>) -> Selector {
+    /// [fields](crate::foundations::TexContent::field) match the given argument.
+    pub fn where_(self, fields: SmallVec<[(u8, TexValue); 1]>) -> Selector {
         Selector::Elem(self, Some(fields))
     }
 
@@ -151,12 +151,12 @@ impl PartialOrd for ElementSchemaRef {
 
 cast! {
     ElementSchemaRef,
-    self => TypstValue::Func(self.into()),
+    self => TexValue::Func(self.into()),
     v: Func => v.element().ok_or("expected element")?,
 }
 
-/// A Typst element that is defined by a native Rust type.
-pub trait TypstElement:
+/// A Tex element that is defined by a native Rust type.
+pub trait TexElement:
     Debug + Clone + PartialEq + Hash + Construct + Set + Capable + Fields + Repr + Send + Sync + 'static
 {
     /// Get the element for the native Rust element.
@@ -168,11 +168,11 @@ pub trait TypstElement:
     }
 
     /// Pack the element into type-erased content.
-    fn pack(self) -> TypstContent
+    fn pack(self) -> TexContent
     where
         Self: Sized,
     {
-        TypstContent::new(self)
+        TexContent::new(self)
     }
 
     /// Get the element data for the native Rust element.
@@ -203,16 +203,16 @@ pub trait Fields {
     fn has(&self, id: u8) -> bool;
 
     /// Get the field with the given field ID.
-    fn field(&self, id: u8) -> Option<TypstValue>;
+    fn field(&self, id: u8) -> Option<TexValue>;
 
     /// Get the field with the given ID in the presence of styles.
-    fn field_with_styles(&self, id: u8, styles: StyleChain) -> Option<TypstValue>;
+    fn field_with_styles(&self, id: u8, styles: StyleChain) -> Option<TexValue>;
 
     /// Resolve all fields with the styles and save them in-place.
     fn materialize(&mut self, styles: StyleChain);
 
     /// Get the fields of the element.
-    fn fields(&self) -> TypstDict;
+    fn fields(&self) -> TexDict;
 }
 
 /// An element's constructor function.
@@ -221,7 +221,7 @@ pub trait Construct {
     ///
     /// This is passed only the arguments that remain after execution of the
     /// element's set rule.
-    fn construct(engine: &mut Engine, args: &mut Args) -> SourceResult<TypstContent>
+    fn construct(engine: &mut Engine, args: &mut Args) -> SourceResult<TexContent>
     where
         Self: Sized;
 }
@@ -241,7 +241,7 @@ pub struct ElementSchema {
     pub title: &'static str,
     pub docs: &'static str,
     pub keywords: &'static [&'static str],
-    pub construct: fn(&mut Engine, &mut Args) -> SourceResult<TypstContent>,
+    pub construct: fn(&mut Engine, &mut Args) -> SourceResult<TexContent>,
     pub set: fn(&mut Engine, &mut Args) -> SourceResult<Styles>,
     pub vtable: fn(capability: TypeId) -> Option<*const ()>,
     pub field_id: fn(name: &str) -> Option<u8>,
@@ -272,7 +272,7 @@ pub trait Synthesize {
 /// Defines a built-in show rule for an element.
 pub trait Show {
     /// Execute the base recipe for this element.
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent>;
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent>;
 }
 
 /// Defines built-in show set rules for an element.
@@ -293,11 +293,7 @@ pub trait Behave {
     /// Whether this weak element is larger than a previous one and thus picked
     /// as the maximum when the levels are the same.
     #[allow(unused_variables)]
-    fn larger(
-        &self,
-        prev: &(Cow<TypstContent>, Behaviour, StyleChain),
-        styles: StyleChain,
-    ) -> bool {
+    fn larger(&self, prev: &(Cow<TexContent>, Behaviour, StyleChain), styles: StyleChain) -> bool {
         false
     }
 }

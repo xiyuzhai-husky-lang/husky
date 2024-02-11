@@ -1,8 +1,6 @@
 use std::borrow::Cow;
 
-use crate::foundations::{
-    cast, elem, Behave, Behaviour, Packed, Resolve, StyleChain, TypstContent,
-};
+use crate::foundations::{cast, elem, Behave, Behaviour, Packed, Resolve, StyleChain, TexContent};
 use crate::layout::{Abs, Fr, Length, LengthInEm, Ratio, Rel};
 use crate::util::Numeric;
 
@@ -75,11 +73,7 @@ impl Behave for Packed<HElem> {
         }
     }
 
-    fn larger(
-        &self,
-        prev: &(Cow<TypstContent>, Behaviour, StyleChain),
-        styles: StyleChain,
-    ) -> bool {
+    fn larger(&self, prev: &(Cow<TexContent>, Behaviour, StyleChain), styles: StyleChain) -> bool {
         let Some(other) = prev.0.to_packed::<HElem>() else {
             return false;
         };
@@ -179,11 +173,7 @@ impl Behave for Packed<VElem> {
         }
     }
 
-    fn larger(
-        &self,
-        prev: &(Cow<TypstContent>, Behaviour, StyleChain),
-        styles: StyleChain,
-    ) -> bool {
+    fn larger(&self, prev: &(Cow<TexContent>, Behaviour, StyleChain), styles: StyleChain) -> bool {
         let Some(other) = prev.0.to_packed::<VElem>() else {
             return false;
         };
@@ -199,7 +189,7 @@ impl Behave for Packed<VElem> {
 
 cast! {
     VElem,
-    v: TypstContent => v.unpack::<Self>().map_err(|_| "expected `v` element")?,
+    v: TexContent => v.unpack::<Self>().map_err(|_| "expected `v` element")?,
 }
 
 /// Kinds of spacing.

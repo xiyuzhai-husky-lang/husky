@@ -8,21 +8,21 @@ use husky_typst::{
 };
 use husky_typst::{foundations::Datetime, Library};
 use husky_typst::{
-    text::{TypstFont, TypstFontBook},
+    text::{TexFont, TexFontBook},
     World,
 };
 
 pub struct Sandbox {
     library: Prehashed<Library>,
-    book: Prehashed<TypstFontBook>,
-    fonts: Vec<TypstFont>,
+    book: Prehashed<TexFontBook>,
+    fonts: Vec<TexFont>,
 }
 
 fn make_source(source: String) -> Source {
     Source::new(FileId::new_fake(VirtualPath::new("input.typ")), source)
 }
 
-fn fonts() -> Vec<TypstFont> {
+fn fonts() -> Vec<TexFont> {
     use husky_path_utils::rust::husky_cargo_workspace_manifest_dir;
 
     use husky_print_utils::p;
@@ -33,7 +33,7 @@ fn fonts() -> Vec<TypstFont> {
         .flat_map(|entry| {
             let bytes = std::fs::read(entry.path()).unwrap();
             let buffer = Bytes::from(bytes);
-            TypstFont::iter(buffer)
+            TexFont::iter(buffer)
         })
         .collect()
 }
@@ -49,7 +49,7 @@ impl Sandbox {
 
         Self {
             library: Prehashed::new(LibraryBuilder::default().build()),
-            book: Prehashed::new(TypstFontBook::from_fonts(&fonts)),
+            book: Prehashed::new(TexFontBook::from_fonts(&fonts)),
             fonts,
         }
     }
@@ -82,11 +82,11 @@ impl World for WithSource {
         Ok(self.source.clone())
     }
 
-    fn book(&self) -> &Prehashed<TypstFontBook> {
+    fn book(&self) -> &Prehashed<TexFontBook> {
         &self.sandbox.book
     }
 
-    fn font(&self, id: usize) -> Option<TypstFont> {
+    fn font(&self, id: usize) -> Option<TexFont> {
         self.sandbox.fonts.get(id).cloned()
     }
 
@@ -115,7 +115,7 @@ $ x + x $
     .to_string();
     expect![[r#"
         Ok(
-            TypstDocument {
+            TexDocument {
                 pages: [
                     Page {
                         frame: Frame [

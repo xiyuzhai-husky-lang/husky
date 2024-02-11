@@ -372,7 +372,7 @@ fn create_param_info(param: &Param) -> TokenStream {
         quote! {
             || {
                 let typed: #ty = #default;
-                #foundations::IntoTypstValue::into_value(typed)
+                #foundations::IntoTexValue::into_value(typed)
             }
         }
     }));

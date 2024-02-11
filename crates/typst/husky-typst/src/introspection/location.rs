@@ -3,7 +3,7 @@ use std::num::NonZeroUsize;
 use ecow::EcoString;
 
 use crate::engine::Engine;
-use crate::foundations::{func, scope, ty, Repr, TypstDict};
+use crate::foundations::{func, scope, ty, Repr, TexDict};
 use crate::model::Numbering;
 
 /// Identifies an element in the document.
@@ -54,9 +54,9 @@ impl Location {
     /// from the top-left of the page.
     ///
     /// If you only need the page number, use `page()` instead as it allows
-    /// Typst to skip unnecessary work.
+    /// Tex to skip unnecessary work.
     #[func]
-    pub fn position(self, engine: &mut Engine) -> TypstDict {
+    pub fn position(self, engine: &mut Engine) -> TexDict {
         engine.introspector.position(self).into()
     }
 

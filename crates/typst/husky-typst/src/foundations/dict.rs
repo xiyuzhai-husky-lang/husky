@@ -8,7 +8,7 @@ use indexmap::IndexMap;
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
 
 use crate::diag::StrResult;
-use crate::foundations::{array, func, repr, scope, ty, Array, Repr, Str, TypstValue};
+use crate::foundations::{array, func, repr, scope, ty, Array, Repr, Str, TexValue};
 use crate::syntax::is_ident;
 use crate::util::ArcExt;
 
@@ -19,8 +19,8 @@ macro_rules! __typst_dict {
     ($($key:expr => $value:expr),* $(,)?) => {{
         #[allow(unused_mut)]
         let mut map = $crate::foundations::IndexMap::new();
-        $(map.insert($key.into(), $crate::foundations::IntoTypstValue::into_value($value));)*
-        $crate::foundations::TypstDict::from(map)
+        $(map.insert($key.into(), $crate::foundations::IntoTexValue::into_value($value));)*
+        $crate::foundations::TexDict::from(map)
     }};
 }
 
@@ -49,7 +49,7 @@ pub use crate::__typst_dict as dict;
 /// # Example
 /// ```example
 /// #let dict = (
-///   name: "Typst",
+///   name: "Tex",
 ///   born: 2019,
 /// )
 ///
@@ -64,9 +64,9 @@ pub use crate::__typst_dict as dict;
 /// ```
 #[ty(scope, cast, name = "dictionary")]
 #[derive(Default, Clone, PartialEq)]
-pub struct TypstDict(Arc<IndexMap<Str, TypstValue>>);
+pub struct TexDict(Arc<IndexMap<Str, TexValue>>);
 
-impl TypstDict {
+impl TexDict {
     /// Create a new, empty dictionary.
     pub fn new() -> Self {
         Self::default()
@@ -78,19 +78,19 @@ impl TypstDict {
     }
 
     /// Borrow the value at the given key.
-    pub fn get(&self, key: &str) -> StrResult<&TypstValue> {
+    pub fn get(&self, key: &str) -> StrResult<&TexValue> {
         self.0.get(key).ok_or_else(|| missing_key(key))
     }
 
     /// Mutably borrow the value the given `key` maps to.
-    pub fn at_mut(&mut self, key: &str) -> StrResult<&mut TypstValue> {
+    pub fn at_mut(&mut self, key: &str) -> StrResult<&mut TexValue> {
         Arc::make_mut(&mut self.0)
             .get_mut(key)
             .ok_or_else(|| missing_key_no_default(key))
     }
 
     /// Remove the value if the dictionary contains the given key.
-    pub fn take(&mut self, key: &str) -> StrResult<TypstValue> {
+    pub fn take(&mut self, key: &str) -> StrResult<TexValue> {
         Arc::make_mut(&mut self.0)
             .swap_remove(key)
             .ok_or_else(|| missing_key(key))
@@ -111,7 +111,7 @@ impl TypstDict {
     }
 
     /// Iterate over pairs of references to the contained keys and values.
-    pub fn iter(&self) -> indexmap::map::Iter<Str, TypstValue> {
+    pub fn iter(&self) -> indexmap::map::Iter<Str, TexValue> {
         self.0.iter()
     }
 
@@ -155,7 +155,7 @@ impl TypstDict {
 }
 
 #[scope]
-impl TypstDict {
+impl TexDict {
     /// The number of pairs in the dictionary.
     #[func(title = "Length")]
     pub fn len(&self) -> usize {
@@ -174,8 +174,8 @@ impl TypstDict {
         key: Str,
         /// A default value to return if the key is not part of the dictionary.
         #[named]
-        default: Option<TypstValue>,
-    ) -> StrResult<TypstValue> {
+        default: Option<TexValue>,
+    ) -> StrResult<TexValue> {
         self.0
             .get(&key)
             .cloned()
@@ -191,7 +191,7 @@ impl TypstDict {
         /// The key of the pair that should be inserted.
         key: Str,
         /// The value of the pair that should be inserted.
-        value: TypstValue,
+        value: TexValue,
     ) {
         Arc::make_mut(&mut self.0).insert(key, value);
     }
@@ -204,8 +204,8 @@ impl TypstDict {
         key: Str,
         /// A default value to return if the key does not exist.
         #[named]
-        default: Option<TypstValue>,
-    ) -> StrResult<TypstValue> {
+        default: Option<TexValue>,
+    ) -> StrResult<TexValue> {
         Arc::make_mut(&mut self.0)
             .shift_remove(&key)
             .or(default)
@@ -215,7 +215,7 @@ impl TypstDict {
     /// Returns the keys of the dictionary as an array in insertion order.
     #[func]
     pub fn keys(&self) -> Array {
-        self.0.keys().cloned().map(TypstValue::Str).collect()
+        self.0.keys().cloned().map(TexValue::Str).collect()
     }
 
     /// Returns the values of the dictionary as an array in insertion order.
@@ -230,18 +230,18 @@ impl TypstDict {
     pub fn pairs(&self) -> Array {
         self.0
             .iter()
-            .map(|(k, v)| TypstValue::Array(array![k.clone(), v.clone()]))
+            .map(|(k, v)| TexValue::Array(array![k.clone(), v.clone()]))
             .collect()
     }
 }
 
-impl Debug for TypstDict {
+impl Debug for TexDict {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         f.debug_map().entries(self.0.iter()).finish()
     }
 }
 
-impl Repr for TypstDict {
+impl Repr for TexDict {
     fn repr(&self) -> EcoString {
         if self.is_empty() {
             return "(:)".into();
@@ -268,17 +268,17 @@ impl Repr for TypstDict {
     }
 }
 
-impl Add for TypstDict {
+impl Add for TexDict {
     type Output = Self;
 
-    fn add(mut self, rhs: TypstDict) -> Self::Output {
+    fn add(mut self, rhs: TexDict) -> Self::Output {
         self += rhs;
         self
     }
 }
 
-impl AddAssign for TypstDict {
-    fn add_assign(&mut self, rhs: TypstDict) {
+impl AddAssign for TexDict {
+    fn add_assign(&mut self, rhs: TexDict) {
         match Arc::try_unwrap(rhs.0) {
             Ok(map) => self.extend(map),
             Err(rc) => self.extend(rc.iter().map(|(k, v)| (k.clone(), v.clone()))),
@@ -286,7 +286,7 @@ impl AddAssign for TypstDict {
     }
 }
 
-impl Hash for TypstDict {
+impl Hash for TexDict {
     fn hash<H: Hasher>(&self, state: &mut H) {
         state.write_usize(self.0.len());
         for item in self {
@@ -295,7 +295,7 @@ impl Hash for TypstDict {
     }
 }
 
-impl Serialize for TypstDict {
+impl Serialize for TexDict {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
@@ -304,47 +304,47 @@ impl Serialize for TypstDict {
     }
 }
 
-impl<'de> Deserialize<'de> for TypstDict {
+impl<'de> Deserialize<'de> for TexDict {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: Deserializer<'de>,
     {
-        Ok(IndexMap::<Str, TypstValue>::deserialize(deserializer)?.into())
+        Ok(IndexMap::<Str, TexValue>::deserialize(deserializer)?.into())
     }
 }
 
-impl Extend<(Str, TypstValue)> for TypstDict {
-    fn extend<T: IntoIterator<Item = (Str, TypstValue)>>(&mut self, iter: T) {
+impl Extend<(Str, TexValue)> for TexDict {
+    fn extend<T: IntoIterator<Item = (Str, TexValue)>>(&mut self, iter: T) {
         Arc::make_mut(&mut self.0).extend(iter);
     }
 }
 
-impl FromIterator<(Str, TypstValue)> for TypstDict {
-    fn from_iter<T: IntoIterator<Item = (Str, TypstValue)>>(iter: T) -> Self {
+impl FromIterator<(Str, TexValue)> for TexDict {
+    fn from_iter<T: IntoIterator<Item = (Str, TexValue)>>(iter: T) -> Self {
         Self(Arc::new(iter.into_iter().collect()))
     }
 }
 
-impl IntoIterator for TypstDict {
-    type Item = (Str, TypstValue);
-    type IntoIter = indexmap::map::IntoIter<Str, TypstValue>;
+impl IntoIterator for TexDict {
+    type Item = (Str, TexValue);
+    type IntoIter = indexmap::map::IntoIter<Str, TexValue>;
 
     fn into_iter(self) -> Self::IntoIter {
         Arc::take(self.0).into_iter()
     }
 }
 
-impl<'a> IntoIterator for &'a TypstDict {
-    type Item = (&'a Str, &'a TypstValue);
-    type IntoIter = indexmap::map::Iter<'a, Str, TypstValue>;
+impl<'a> IntoIterator for &'a TexDict {
+    type Item = (&'a Str, &'a TexValue);
+    type IntoIter = indexmap::map::Iter<'a, Str, TexValue>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.iter()
     }
 }
 
-impl From<IndexMap<Str, TypstValue>> for TypstDict {
-    fn from(map: IndexMap<Str, TypstValue>) -> Self {
+impl From<IndexMap<Str, TexValue>> for TexDict {
+    fn from(map: IndexMap<Str, TexValue>) -> Self {
         Self(Arc::new(map))
     }
 }

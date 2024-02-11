@@ -1,6 +1,6 @@
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{dict, elem, func, Func, Packed, StyleChain, TypstContent, TypstElement};
+use crate::foundations::{dict, elem, func, Func, Packed, StyleChain, TexContent, TexElement};
 use crate::layout::{Fragment, LayoutMultiple, Regions, Size};
 use crate::syntax::Span;
 
@@ -56,7 +56,7 @@ pub fn layout(
     /// `layout` appears in the document. That makes it possible to generate
     /// content that depends on the size of the container it is inside of.
     func: Func,
-) -> TypstContent {
+) -> TexContent {
     LayoutElem::new(func).pack().spanned(span)
 }
 

@@ -7,11 +7,11 @@ use husky_typst::introspection::Meta;
 use husky_typst::layout::{
     Abs, Axes, Frame, FrameItem, FrameKind, GroupItem, Point, Ratio, Size, Transform,
 };
-use husky_typst::model::TypstDocument;
-use husky_typst::text::{TextItem, TypstFont};
+use husky_typst::model::TexDocument;
+use husky_typst::text::{TexFont, TextItem};
 use husky_typst::visualize::{
     DashPattern, Gradient, Image, ImageKind, LineCap, LineJoin, Path, PathItem, Pattern,
-    RasterFormat, RelativeTo, TypstColor, TypstFixedStroke, TypstGeometry, TypstPaint, TypstShape,
+    RasterFormat, RelativeTo, TexColor, TexFixedStroke, TexGeometry, TexPaint, TexShape,
 };
 use image::imageops::FilterType;
 use image::{GenericImageView, Rgba};
@@ -26,7 +26,7 @@ use usvg::TreeParsing;
 /// This renders the frame at the given number of pixels per point and returns
 /// the resulting `tiny-skia` pixel buffer.
 #[husky_typst_macros::time(name = "render")]
-pub fn render(frame: &Frame, pixel_per_pt: f32, fill: TypstColor) -> sk::Pixmap {
+pub fn render(frame: &Frame, pixel_per_pt: f32, fill: TexColor) -> sk::Pixmap {
     let size = frame.size();
     let pxw = (pixel_per_pt * size.x.to_f32()).round().max(1.0) as u32;
     let pxh = (pixel_per_pt * size.y.to_f32()).round().max(1.0) as u32;
@@ -44,11 +44,11 @@ pub fn render(frame: &Frame, pixel_per_pt: f32, fill: TypstColor) -> sk::Pixmap 
 ///
 /// The padding will be added around and between the individual frames.
 pub fn render_merged(
-    document: &TypstDocument,
+    document: &TexDocument,
     pixel_per_pt: f32,
-    frame_fill: TypstColor,
+    frame_fill: TexColor,
     padding: Abs,
-    padding_fill: TypstColor,
+    padding_fill: TexColor,
 ) -> sk::Pixmap {
     let pixmaps: Vec<_> = document
         .pages
@@ -410,7 +410,7 @@ fn render_outline_glyph(
         );
         canvas.fill_path(&path, &paint, rule, ts, state.mask);
 
-        if let Some(TypstFixedStroke {
+        if let Some(TexFixedStroke {
             paint,
             thickness,
             cap,
@@ -440,7 +440,7 @@ fn render_outline_glyph(
 
     // Rasterize the glyph with `pixglyph`.
     #[comemo::memoize]
-    fn rasterize(font: &TypstFont, id: GlyphId, x: u32, y: u32, size: u32) -> Option<Arc<Bitmap>> {
+    fn rasterize(font: &TexFont, id: GlyphId, x: u32, y: u32, size: u32) -> Option<Arc<Bitmap>> {
         let glyph = pixglyph::Glyph::load(font.ttf(), id)?;
         Some(Arc::new(glyph.rasterize(
             f32::from_bits(x),
@@ -459,11 +459,11 @@ fn render_outline_glyph(
         ppem.to_bits(),
     )?;
     match &text.fill {
-        TypstPaint::Gradient(gradient) => {
+        TexPaint::Gradient(gradient) => {
             let sampler = GradientSampler::new(gradient, &state, Size::zero(), true);
             write_bitmap(canvas, &bitmap, &state, sampler)?;
         }
-        TypstPaint::Solid(color) => {
+        TexPaint::Solid(color) => {
             write_bitmap(
                 canvas,
                 &bitmap,
@@ -471,7 +471,7 @@ fn render_outline_glyph(
                 to_sk_color_u8_without_alpha(*color).premultiply(),
             )?;
         }
-        TypstPaint::Pattern(pattern) => {
+        TexPaint::Pattern(pattern) => {
             let pixmap = render_pattern_frame(&state, pattern);
             let sampler = PatternSampler::new(pattern, &pixmap, &state, true);
             write_bitmap(canvas, &bitmap, &state, sampler)?;
@@ -557,21 +557,21 @@ fn write_bitmap<S: PaintSampler>(
 }
 
 /// Render a geometrical shape into the canvas.
-fn render_shape(canvas: &mut sk::Pixmap, state: State, shape: &TypstShape) -> Option<()> {
+fn render_shape(canvas: &mut sk::Pixmap, state: State, shape: &TexShape) -> Option<()> {
     let ts = state.transform;
     let path = match shape.geometry {
-        TypstGeometry::Line(target) => {
+        TexGeometry::Line(target) => {
             let mut builder = sk::PathBuilder::new();
             builder.line_to(target.x.to_f32(), target.y.to_f32());
             builder.finish()?
         }
-        TypstGeometry::Rect(size) => {
+        TexGeometry::Rect(size) => {
             let w = size.x.to_f32();
             let h = size.y.to_f32();
             let rect = sk::Rect::from_xywh(0.0, 0.0, w, h)?;
             sk::PathBuilder::from_rect(rect)
         }
-        TypstGeometry::Path(ref path) => convert_path(path)?,
+        TexGeometry::Path(ref path) => convert_path(path)?,
     };
 
     if let Some(fill) = &shape.fill {
@@ -586,7 +586,7 @@ fn render_shape(canvas: &mut sk::Pixmap, state: State, shape: &TypstShape) -> Op
             None,
         );
 
-        if matches!(shape.geometry, TypstGeometry::Rect(_)) {
+        if matches!(shape.geometry, TexGeometry::Rect(_)) {
             paint.anti_alias = false;
         }
 
@@ -594,7 +594,7 @@ fn render_shape(canvas: &mut sk::Pixmap, state: State, shape: &TypstShape) -> Op
         canvas.fill_path(&path, &paint, rule, ts, state.mask);
     }
 
-    if let Some(TypstFixedStroke {
+    if let Some(TexFixedStroke {
         paint,
         thickness,
         cap,
@@ -610,14 +610,14 @@ fn render_shape(canvas: &mut sk::Pixmap, state: State, shape: &TypstShape) -> Op
             let dash = dash.as_ref().and_then(to_sk_dash_pattern);
 
             let bbox = shape.geometry.bbox_size();
-            let offset_bbox = (!matches!(shape.geometry, TypstGeometry::Line(..)))
+            let offset_bbox = (!matches!(shape.geometry, TexGeometry::Line(..)))
                 .then(|| offset_bounding_box(bbox, *thickness))
                 .unwrap_or(bbox);
 
-            let fill_transform = (!matches!(shape.geometry, TypstGeometry::Line(..)))
+            let fill_transform = (!matches!(shape.geometry, TexGeometry::Line(..)))
                 .then(|| sk::Transform::from_translate(-thickness.to_f32(), -thickness.to_f32()));
 
-            let gradient_map = (!matches!(shape.geometry, TypstGeometry::Line(..))).then(|| {
+            let gradient_map = (!matches!(shape.geometry, TexGeometry::Line(..))).then(|| {
                 (
                     Point::new(
                         -*thickness * state.pixel_per_pt as f64,
@@ -654,7 +654,7 @@ fn render_shape(canvas: &mut sk::Pixmap, state: State, shape: &TypstShape) -> Op
     Some(())
 }
 
-/// Convert a Typst path into a tiny-skia path.
+/// Convert a Tex path into a tiny-skia path.
 fn convert_path(path: &Path) -> Option<sk::Path> {
     let mut builder = sk::PathBuilder::new();
     for elem in &path.0 {
@@ -896,7 +896,7 @@ impl PaintSampler for PatternSampler<'_> {
 /// `gradient_map` is used to scale and move the gradient being sampled,
 /// this is used to line up the stroke and the fill of a shape.
 fn to_sk_paint<'a>(
-    paint: &TypstPaint,
+    paint: &TexPaint,
     state: State,
     item_size: Size,
     on_text: bool,
@@ -935,11 +935,11 @@ fn to_sk_paint<'a>(
 
     let mut sk_paint: sk::Paint<'_> = sk::Paint::default();
     match paint {
-        TypstPaint::Solid(color) => {
+        TexPaint::Solid(color) => {
             sk_paint.set_color(to_sk_color(*color));
             sk_paint.anti_alias = true;
         }
-        TypstPaint::Gradient(gradient) => {
+        TexPaint::Gradient(gradient) => {
             let relative = gradient.unwrap_relative(on_text);
             let container_size = match relative {
                 RelativeTo::Self_ => item_size,
@@ -974,7 +974,7 @@ fn to_sk_paint<'a>(
 
             sk_paint.anti_alias = gradient.anti_alias();
         }
-        TypstPaint::Pattern(pattern) => {
+        TexPaint::Pattern(pattern) => {
             let relative = pattern.unwrap_relative(on_text);
 
             let fill_transform = match relative {
@@ -1016,12 +1016,12 @@ fn render_pattern_frame(state: &State, pattern: &Pattern) -> sk::Pixmap {
     canvas
 }
 
-fn to_sk_color(color: TypstColor) -> sk::Color {
+fn to_sk_color(color: TexColor) -> sk::Color {
     let [r, g, b, a] = color.to_rgba().to_vec4_u8();
     sk::Color::from_rgba8(r, g, b, a)
 }
 
-fn to_sk_color_u8_without_alpha(color: TypstColor) -> sk::ColorU8 {
+fn to_sk_color_u8_without_alpha(color: TexColor) -> sk::ColorU8 {
     let [r, g, b, _] = color.to_rgba().to_vec4_u8();
     sk::ColorU8::from_rgba(r, g, b, 255)
 }

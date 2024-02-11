@@ -7,7 +7,7 @@ use crate::layout::Ratio;
 
 /// A floating-point number.
 ///
-/// A limited-precision representation of a real number. Typst uses 64 bits to
+/// A limited-precision representation of a real number. Tex uses 64 bits to
 /// store floats. Wherever a float is expected, you can also pass an
 /// [integer]($int).
 ///
