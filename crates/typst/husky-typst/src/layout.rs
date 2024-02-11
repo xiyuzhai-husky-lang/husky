@@ -16,10 +16,10 @@ mod frame;
 mod grid;
 mod hide;
 mod inline;
-#[path = "layout.rs"]
+#[path = "layout/layout.rs"]
 mod layout_;
 mod length;
-#[path = "measure.rs"]
+#[path = "layout/measure.rs"]
 mod measure_;
 mod pad;
 mod page;
