@@ -1,8 +1,8 @@
-pub mod cargo;
 pub mod dev_paths;
 mod error;
 mod module_tree;
 mod rel;
+pub mod rust;
 #[cfg(test)]
 mod tests;
 
@@ -101,30 +101,6 @@ pub fn collect_package_dirs_deprecated(dir: &Path) -> Vec<PathBuf> {
             }
         }
         pack_paths
-    }
-}
-
-pub fn collect_rust_package_dirs(dir: impl AsRef<Path>) -> Vec<PathBuf> {
-    let dir = dir.as_ref();
-    should_satisfy!(&dir, |dir: &Path| dir.is_dir());
-    let mut pack_paths = vec![];
-    collect_rust_package_dirs_aux(dir, &mut pack_paths);
-    pack_paths.sort();
-    pack_paths
-}
-
-fn collect_rust_package_dirs_aux(dir: impl AsRef<Path>, pack_paths: &mut Vec<PathBuf>) {
-    let dir = dir.as_ref();
-    let manifest_path = dir.join("Cargo.toml");
-    for entry in std::fs::read_dir(&dir).unwrap() {
-        let entry = entry.unwrap();
-        let subpath = entry.path();
-        if subpath.is_dir() {
-            collect_rust_package_dirs_aux(&subpath, pack_paths)
-        }
-    }
-    if manifest_path.exists() {
-        pack_paths.push(dir.to_owned())
     }
 }
 

@@ -23,23 +23,19 @@ fn make_source(source: String) -> Source {
 }
 
 fn fonts() -> Vec<TypstFont> {
-    use husky_path_utils::cargo::husky_cargo_workspace_manifest_dir;
+    use husky_path_utils::rust::husky_cargo_workspace_manifest_dir;
 
     use husky_print_utils::p;
     p!(husky_cargo_workspace_manifest_dir());
-    std::fs::read_dir(
-        husky_cargo_workspace_manifest_dir()
-            .unwrap()
-            .join("assets/fonts"),
-    )
-    .unwrap()
-    .map(Result::unwrap)
-    .flat_map(|entry| {
-        let bytes = std::fs::read(entry.path()).unwrap();
-        let buffer = Bytes::from(bytes);
-        TypstFont::iter(buffer)
-    })
-    .collect()
+    std::fs::read_dir(husky_cargo_workspace_manifest_dir().join("assets/fonts"))
+        .unwrap()
+        .map(Result::unwrap)
+        .flat_map(|entry| {
+            let bytes = std::fs::read(entry.path()).unwrap();
+            let buffer = Bytes::from(bytes);
+            TypstFont::iter(buffer)
+        })
+        .collect()
 }
 
 pub struct WithSource {

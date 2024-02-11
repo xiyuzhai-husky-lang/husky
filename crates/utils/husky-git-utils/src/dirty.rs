@@ -1,5 +1,5 @@
 use git2::{Repository, StatusOptions, StatusShow};
-use husky_path_utils::cargo::husky_cargo_workspace_manifest_dir;
+use husky_path_utils::rust::husky_cargo_workspace_manifest_dir;
 use std::path::Path;
 
 pub fn is_git_dir_dirty<P: AsRef<Path>>(path: P) -> Result<bool, git2::Error> {
@@ -21,13 +21,13 @@ pub fn is_git_dir_dirty<P: AsRef<Path>>(path: P) -> Result<bool, git2::Error> {
 }
 
 pub fn is_husky_git_dir_dirty() -> Result<bool, git2::Error> {
-    is_git_dir_dirty(husky_cargo_workspace_manifest_dir().unwrap())
+    is_git_dir_dirty(husky_cargo_workspace_manifest_dir())
 }
 
 #[track_caller]
 pub fn assert_husky_git_dir_clean() {
     assert!(
-        !is_git_dir_dirty(husky_cargo_workspace_manifest_dir().unwrap()).unwrap(),
+        !is_git_dir_dirty(husky_cargo_workspace_manifest_dir()).unwrap(),
         "expect husky dir to be clean"
     )
 }

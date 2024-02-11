@@ -1,5 +1,5 @@
 use husky_path_utils::{
-    clear_directory, collect_rust_package_dirs, find_dirs_ending_with, find_paths, Path,
+    clear_directory, find_dirs_ending_with, find_paths, rust::collect_cargo_manifest_dirs, Path,
 };
 use husky_print_utils::p;
 use std::path::PathBuf;
@@ -26,7 +26,7 @@ pub fn clean_target_rs() {
 }
 
 pub fn clean_expect_files() {
-    for dir in collect_rust_package_dirs(".") {
+    for dir in collect_cargo_manifest_dirs(".") {
         assert!(dir.join("Cargo.toml").exists());
         let expect_files_dir = dir.join("expect-files");
         if expect_files_dir.exists() {
@@ -37,7 +37,7 @@ pub fn clean_expect_files() {
 }
 
 pub fn clean_library_adversarials() {
-    for dir in collect_rust_package_dirs(".") {
+    for dir in collect_cargo_manifest_dirs(".") {
         assert!(dir.join("Cargo.toml").exists());
         let library_adversarials_dir = dir.join("adversarials/library");
         if library_adversarials_dir.exists() {
