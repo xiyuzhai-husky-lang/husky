@@ -6698,6 +6698,8 @@ dependencies = [
  "comemo",
  "eframe",
  "egui",
+ "expect-test",
+ "husky-path-utils",
  "husky-print-utils",
  "husky-typst",
 ]

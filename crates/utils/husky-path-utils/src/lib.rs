@@ -1,3 +1,4 @@
+pub mod cargo;
 pub mod dev_paths;
 mod error;
 mod module_tree;
@@ -175,7 +176,8 @@ fn collect_package_relative_dirs_aux(
             )
         }
     }
-    if let Some(_name) = read_package_name_string_from_manifest(&manifest_path.to_logical_path(base))
+    if let Some(_name) =
+        read_package_name_string_from_manifest(&manifest_path.to_logical_path(base))
     {
         pack_paths.push(dir.to_owned())
     }
@@ -260,10 +262,6 @@ pub fn collect_all_source_files(dir: PathBuf) -> Vec<PathBuf> {
         }
     }
     source_files
-}
-
-pub fn cargo_manifest_dir() -> Result<PathBuf, std::env::VarError> {
-    std::env::var("CARGO_MANIFEST_DIR").map(|s| s.into())
 }
 
 #[inline(always)]

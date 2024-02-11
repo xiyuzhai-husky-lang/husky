@@ -58,13 +58,13 @@ fn execute() {
     // Right now, it panics with a string.
     let err_b = thread_b.join().unwrap_err();
     if let Some(c) = err_b.downcast_ref::<salsa::Cycle>() {
-        let expected = expect![[r#"
+        expect![[r#"
             [
                 "a(0)",
                 "b(0)",
             ]
-        "#]];
-        expected.assert_debug_eq(&c.all_participants(&db));
+        "#]]
+        .assert_debug_eq(&c.all_participants(&db));
     } else {
         panic!("b failed in an unexpected way: {:?}", err_b);
     }
