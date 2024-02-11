@@ -6,10 +6,10 @@ use ttf_parser::{GlyphId, Rect};
 use unicode_math_class::MathClass;
 
 use crate::foundations::StyleChain;
-use crate::introspection::{Meta, MetaElem};
-use crate::layout::{Abs, Corner, Frame, FrameItem, LengthInEm, Point, Size};
+use crate::introspection::{Meta, MetaTexElem};
+use crate::layout::{Corner, FrameItem, Point, Size, TexAbsLength, TexEmLength, TexFrame};
 use crate::math::{
-    scaled_font_size, styled_char, EquationElem, Limits, MathContext, MathSize, Scaled,
+    scaled_font_size, styled_char, EquationTexElem, Limits, MathContext, MathSize, Scaled,
 };
 use crate::syntax::Span;
 use crate::text::{Glyph, Lang, TexFont, TextElem, TextItem};
@@ -21,7 +21,7 @@ pub enum MathFragment {
     Variant(VariantFragment),
     Frame(FrameFragment),
     Spacing(SpacingFragment),
-    Space(Abs),
+    Space(TexAbsLength),
     Linebreak,
     Align,
 }
@@ -31,41 +31,41 @@ impl MathFragment {
         Size::new(self.width(), self.height())
     }
 
-    pub fn width(&self) -> Abs {
+    pub fn width(&self) -> TexAbsLength {
         match self {
             Self::Glyph(glyph) => glyph.width,
             Self::Variant(variant) => variant.frame.width(),
             Self::Frame(fragment) => fragment.frame.width(),
             Self::Spacing(spacing) => spacing.width,
             Self::Space(amount) => *amount,
-            _ => Abs::zero(),
+            _ => TexAbsLength::zero(),
         }
     }
 
-    pub fn height(&self) -> Abs {
+    pub fn height(&self) -> TexAbsLength {
         match self {
             Self::Glyph(glyph) => glyph.height(),
             Self::Variant(variant) => variant.frame.height(),
             Self::Frame(fragment) => fragment.frame.height(),
-            _ => Abs::zero(),
+            _ => TexAbsLength::zero(),
         }
     }
 
-    pub fn ascent(&self) -> Abs {
+    pub fn ascent(&self) -> TexAbsLength {
         match self {
             Self::Glyph(glyph) => glyph.ascent,
             Self::Variant(variant) => variant.frame.ascent(),
             Self::Frame(fragment) => fragment.frame.baseline(),
-            _ => Abs::zero(),
+            _ => TexAbsLength::zero(),
         }
     }
 
-    pub fn descent(&self) -> Abs {
+    pub fn descent(&self) -> TexAbsLength {
         match self {
             Self::Glyph(glyph) => glyph.descent,
             Self::Variant(variant) => variant.frame.descent(),
             Self::Frame(fragment) => fragment.frame.descent(),
-            _ => Abs::zero(),
+            _ => TexAbsLength::zero(),
         }
     }
 
@@ -90,7 +90,7 @@ impl MathFragment {
         }
     }
 
-    pub fn font_size(&self) -> Option<Abs> {
+    pub fn font_size(&self) -> Option<TexAbsLength> {
         match self {
             Self::Glyph(glyph) => Some(glyph.font_size),
             Self::Variant(variant) => Some(variant.font_size),
@@ -135,16 +135,16 @@ impl MathFragment {
         }
     }
 
-    pub fn italics_correction(&self) -> Abs {
+    pub fn italics_correction(&self) -> TexAbsLength {
         match self {
             Self::Glyph(glyph) => glyph.italics_correction,
             Self::Variant(variant) => variant.italics_correction,
             Self::Frame(fragment) => fragment.italics_correction,
-            _ => Abs::zero(),
+            _ => TexAbsLength::zero(),
         }
     }
 
-    pub fn accent_attach(&self) -> Abs {
+    pub fn accent_attach(&self) -> TexAbsLength {
         match self {
             Self::Glyph(glyph) => glyph.accent_attach,
             Self::Variant(variant) => variant.accent_attach,
@@ -153,12 +153,12 @@ impl MathFragment {
         }
     }
 
-    pub fn into_frame(self) -> Frame {
+    pub fn into_frame(self) -> TexFrame {
         match self {
             Self::Glyph(glyph) => glyph.into_frame(),
             Self::Variant(variant) => variant.frame,
             Self::Frame(fragment) => fragment.frame,
-            _ => Frame::soft(self.size()),
+            _ => TexFrame::soft(self.size()),
         }
     }
 
@@ -203,13 +203,13 @@ pub struct GlyphFragment {
     pub font: TexFont,
     pub lang: Lang,
     pub fill: TexPaint,
-    pub shift: Abs,
-    pub width: Abs,
-    pub ascent: Abs,
-    pub descent: Abs,
-    pub italics_correction: Abs,
-    pub accent_attach: Abs,
-    pub font_size: Abs,
+    pub shift: TexAbsLength,
+    pub width: TexAbsLength,
+    pub ascent: TexAbsLength,
+    pub descent: TexAbsLength,
+    pub italics_correction: TexAbsLength,
+    pub accent_attach: TexAbsLength,
+    pub font_size: TexAbsLength,
     pub class: MathClass,
     pub math_size: MathSize,
     pub span: Span,
@@ -238,7 +238,7 @@ impl GlyphFragment {
         id: GlyphId,
         span: Span,
     ) -> Self {
-        let class = EquationElem::class_in(styles)
+        let class = EquationTexElem::class_in(styles)
             .or_else(|| match c {
                 ':' => Some(MathClass::Relation),
                 '.' | '/' | '⋯' | '⋱' | '⋰' | '⋮' => Some(MathClass::Normal),
@@ -254,16 +254,16 @@ impl GlyphFragment {
             fill: TextElem::fill_in(styles).as_decoration(),
             shift: TextElem::baseline_in(styles),
             font_size: scaled_font_size(ctx, styles),
-            math_size: EquationElem::size_in(styles),
-            width: Abs::zero(),
-            ascent: Abs::zero(),
-            descent: Abs::zero(),
+            math_size: EquationTexElem::size_in(styles),
+            width: TexAbsLength::zero(),
+            ascent: TexAbsLength::zero(),
+            descent: TexAbsLength::zero(),
             limits: Limits::for_char(c),
-            italics_correction: Abs::zero(),
-            accent_attach: Abs::zero(),
+            italics_correction: TexAbsLength::zero(),
+            accent_attach: TexAbsLength::zero(),
             class,
             span,
-            meta: MetaElem::data_in(styles),
+            meta: MetaTexElem::data_in(styles),
         };
         fragment.set_id(ctx, id);
         fragment
@@ -308,7 +308,7 @@ impl GlyphFragment {
         self.accent_attach = accent_attach;
     }
 
-    pub fn height(&self) -> Abs {
+    pub fn height(&self) -> TexAbsLength {
         self.ascent + self.descent
     }
 
@@ -328,7 +328,7 @@ impl GlyphFragment {
         }
     }
 
-    pub fn into_frame(self) -> Frame {
+    pub fn into_frame(self) -> TexFrame {
         let item = TextItem {
             font: self.font.clone(),
             size: self.font_size,
@@ -338,14 +338,14 @@ impl GlyphFragment {
             stroke: None,
             glyphs: vec![Glyph {
                 id: self.id.0,
-                x_advance: LengthInEm::from_length(self.width, self.font_size),
-                x_offset: LengthInEm::zero(),
+                x_advance: TexEmLength::from_length(self.width, self.font_size),
+                x_offset: TexEmLength::zero(),
                 range: 0..self.c.len_utf8() as u16,
                 span: (self.span, 0),
             }],
         };
         let size = Size::new(self.width, self.ascent + self.descent);
-        let mut frame = Frame::soft(size);
+        let mut frame = TexFrame::soft(size);
         frame.set_baseline(self.ascent);
         frame.push(
             Point::with_y(self.ascent + self.shift),
@@ -384,10 +384,10 @@ impl Debug for GlyphFragment {
 pub struct VariantFragment {
     pub c: char,
     pub id: Option<GlyphId>,
-    pub italics_correction: Abs,
-    pub accent_attach: Abs,
-    pub frame: Frame,
-    pub font_size: Abs,
+    pub italics_correction: TexAbsLength,
+    pub accent_attach: TexAbsLength,
+    pub frame: TexFrame,
+    pub font_size: TexAbsLength,
     pub class: MathClass,
     pub math_size: MathSize,
     pub span: Span,
@@ -413,32 +413,32 @@ impl Debug for VariantFragment {
 
 #[derive(Debug, Clone)]
 pub struct FrameFragment {
-    pub frame: Frame,
-    pub font_size: Abs,
+    pub frame: TexFrame,
+    pub font_size: TexAbsLength,
     pub class: MathClass,
     pub math_size: MathSize,
     pub limits: Limits,
     pub spaced: bool,
-    pub base_ascent: Abs,
-    pub italics_correction: Abs,
-    pub accent_attach: Abs,
+    pub base_ascent: TexAbsLength,
+    pub italics_correction: TexAbsLength,
+    pub accent_attach: TexAbsLength,
     pub text_like: bool,
 }
 
 impl FrameFragment {
-    pub fn new(ctx: &MathContext, styles: StyleChain, mut frame: Frame) -> Self {
+    pub fn new(ctx: &MathContext, styles: StyleChain, mut frame: TexFrame) -> Self {
         let base_ascent = frame.ascent();
         let accent_attach = frame.width() / 2.0;
         frame.meta(styles, false);
         Self {
             frame,
             font_size: scaled_font_size(ctx, styles),
-            class: EquationElem::class_in(styles).unwrap_or(MathClass::Normal),
-            math_size: EquationElem::size_in(styles),
+            class: EquationTexElem::class_in(styles).unwrap_or(MathClass::Normal),
+            math_size: EquationTexElem::size_in(styles),
             limits: Limits::Never,
             spaced: false,
             base_ascent,
-            italics_correction: Abs::zero(),
+            italics_correction: TexAbsLength::zero(),
             accent_attach,
             text_like: false,
         }
@@ -456,21 +456,21 @@ impl FrameFragment {
         Self { spaced, ..self }
     }
 
-    pub fn with_base_ascent(self, base_ascent: Abs) -> Self {
+    pub fn with_base_ascent(self, base_ascent: TexAbsLength) -> Self {
         Self {
             base_ascent,
             ..self
         }
     }
 
-    pub fn with_italics_correction(self, italics_correction: Abs) -> Self {
+    pub fn with_italics_correction(self, italics_correction: TexAbsLength) -> Self {
         Self {
             italics_correction,
             ..self
         }
     }
 
-    pub fn with_accent_attach(self, accent_attach: Abs) -> Self {
+    pub fn with_accent_attach(self, accent_attach: TexAbsLength) -> Self {
         Self {
             accent_attach,
             ..self
@@ -484,12 +484,16 @@ impl FrameFragment {
 
 #[derive(Debug, Clone)]
 pub struct SpacingFragment {
-    pub width: Abs,
+    pub width: TexAbsLength,
     pub weak: bool,
 }
 
 /// Look up the italics correction for a glyph.
-fn italics_correction(ctx: &MathContext, id: GlyphId, font_size: Abs) -> Option<Abs> {
+fn italics_correction(
+    ctx: &MathContext,
+    id: GlyphId,
+    font_size: TexAbsLength,
+) -> Option<TexAbsLength> {
     Some(
         ctx.table
             .glyph_info?
@@ -500,7 +504,7 @@ fn italics_correction(ctx: &MathContext, id: GlyphId, font_size: Abs) -> Option<
 }
 
 /// Loop up the top accent attachment position for a glyph.
-fn accent_attach(ctx: &MathContext, id: GlyphId, font_size: Abs) -> Option<Abs> {
+fn accent_attach(ctx: &MathContext, id: GlyphId, font_size: TexAbsLength) -> Option<TexAbsLength> {
     Some(
         ctx.table
             .glyph_info?
@@ -535,11 +539,11 @@ fn is_extended_shape(ctx: &MathContext, id: GlyphId) -> bool {
 #[allow(unused)]
 fn kern_at_height(
     ctx: &MathContext,
-    font_size: Abs,
+    font_size: TexAbsLength,
     id: GlyphId,
     corner: Corner,
-    height: Abs,
-) -> Option<Abs> {
+    height: TexAbsLength,
+) -> Option<TexAbsLength> {
     let kerns = ctx.table.glyph_info?.kern_infos?.get(id)?;
     let kern = match corner {
         Corner::TopLeft => kerns.top_left,

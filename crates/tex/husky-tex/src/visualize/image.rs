@@ -14,12 +14,14 @@ use comemo::{Prehashed, Tracked};
 use ecow::EcoString;
 
 use crate::diag::{bail, At, SourceResult, StrResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, elem, func, scope, Bytes, Cast, IsTexElem, Packed, Resolve, Smart, StyleChain, TexContent,
+    cast, elem, func, scope, Bytes, Cast, IsTexElem, Resolve, Smart, StyleChain, TexContent,
+    TexContentRefined,
 };
 use crate::layout::{
-    Abs, Axes, FixedAlignment, Frame, FrameItem, LayoutSingle, Length, Point, Regions, Rel, Size,
+    Axes, FixedAlignment, FrameItem, LayoutSingle, Length, Point, Regions, Rel, Size, TexAbsLength,
+    TexFrame,
 };
 use crate::loading::Readable;
 use crate::model::Figurable;
@@ -27,7 +29,7 @@ use crate::syntax::{Span, Spanned};
 use crate::text::{families, Lang, LocalName, Region};
 use crate::util::{option_eq, Numeric};
 use crate::visualize::Path;
-use crate::World;
+use crate::IsTexWorld;
 
 /// A raster or vector graphic.
 ///
@@ -142,14 +144,14 @@ impl ImageElem {
     }
 }
 
-impl LayoutSingle for Packed<ImageElem> {
+impl LayoutSingle for TexContentRefined<ImageElem> {
     #[husky_tex_macros::time(name = "image", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Frame> {
+    ) -> SourceResult<TexFrame> {
         // Take the format that was explicitly defined, or parse the extension,
         // or try to detect the format.
         let data = self.data();
@@ -211,7 +213,7 @@ impl LayoutSingle for Packed<ImageElem> {
         } else if region.y.is_finite() {
             Size::new(region.x.min(region.y * px_ratio), region.y)
         } else {
-            Size::new(Abs::pt(pxw), Abs::pt(pxh))
+            Size::new(TexAbsLength::pt(pxw), TexAbsLength::pt(pxh))
         };
 
         // Compute the actual size of the fitted image.
@@ -230,7 +232,7 @@ impl LayoutSingle for Packed<ImageElem> {
         // First, place the image in a frame of exactly its size and then resize
         // the frame to the target size, center aligning the image in the
         // process.
-        let mut frame = Frame::soft(fitted);
+        let mut frame = TexFrame::soft(fitted);
         frame.push(Point::zero(), FrameItem::Image(image, fitted, self.span()));
         frame.resize(target, Axes::splat(FixedAlignment::Center));
 
@@ -243,7 +245,7 @@ impl LayoutSingle for Packed<ImageElem> {
     }
 }
 
-impl LocalName for Packed<ImageElem> {
+impl LocalName for TexContentRefined<ImageElem> {
     fn local_name(lang: Lang, region: Option<Region>) -> &'static str {
         match lang {
             Lang::ALBANIAN => "Figurë",
@@ -281,7 +283,7 @@ impl LocalName for Packed<ImageElem> {
     }
 }
 
-impl Figurable for Packed<ImageElem> {}
+impl Figurable for TexContentRefined<ImageElem> {}
 
 /// How an image should adjust itself to a given area.
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash, Cast)]
@@ -339,7 +341,7 @@ impl Image {
         data: Bytes,
         format: ImageFormat,
         alt: Option<EcoString>,
-        world: Tracked<dyn World + '_>,
+        world: Tracked<dyn IsTexWorld + '_>,
         families: &[String],
     ) -> StrResult<Image> {
         let kind = match format {

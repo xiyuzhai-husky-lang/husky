@@ -1,14 +1,16 @@
 use crate::diag::{bail, SourceResult};
-use crate::foundations::{cast, elem, Packed, Resolve, Smart, StyleChain, TexContent, TexValue};
-use crate::layout::{Frame, Length, LengthInEm, Point, Rel, Size};
+use crate::foundations::{
+    cast, elem, Resolve, Smart, StyleChain, TexContent, TexContentRefined, TexValue,
+};
+use crate::layout::{Length, Point, Rel, Size, TexEmLength, TexFrame};
 use crate::math::{
-    style_cramped, FrameFragment, GlyphFragment, LayoutMath, MathContext, MathFragment, Scaled,
+    style_cramped, FrameFragment, GlyphFragment, MathContext, MathFragment, Scaled, TexLayoutMath,
 };
 use crate::symbols::Symbol;
 use crate::text::TextElem;
 
 /// How much the accent can be shorter than the base.
-const ACCENT_SHORT_FALL: LengthInEm = LengthInEm::new(0.5);
+const ACCENT_SHORT_FALL: TexEmLength = TexEmLength::new(0.5);
 
 /// Attaches an accent to a base.
 ///
@@ -18,7 +20,7 @@ const ACCENT_SHORT_FALL: LengthInEm = LengthInEm::new(0.5);
 /// $arrow(a) = accent(a, arrow)$ \
 /// $tilde(a) = accent(a, \u{0303})$
 /// ```
-#[elem(LayoutMath)]
+#[elem(TexLayoutMath)]
 pub struct AccentElem {
     /// The base to which the accent is applied.
     /// May consist of multiple letters.
@@ -60,7 +62,7 @@ pub struct AccentElem {
     pub size: Smart<Rel<Length>>,
 }
 
-impl LayoutMath for Packed<AccentElem> {
+impl TexLayoutMath for TexContentRefined<AccentElem> {
     #[husky_tex_macros::time(name = "math.accent", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         let cramped = style_cramped();
@@ -103,7 +105,7 @@ impl LayoutMath for Packed<AccentElem> {
             _ => base.ascent(),
         };
 
-        let mut frame = Frame::soft(size);
+        let mut frame = TexFrame::soft(size);
         frame.set_baseline(baseline);
         frame.push_frame(accent_pos, accent);
         frame.push_frame(base_pos, base.into_frame());

@@ -5,9 +5,9 @@ use std::num::NonZeroUsize;
 use std::sync::Arc;
 
 use crate::foundations::{cast, dict, StyleChain, TexDict, TexValue};
-use crate::introspection::{Meta, MetaElem};
+use crate::introspection::{Meta, MetaTexElem};
 use crate::layout::{
-    Abs, Axes, Corners, FixedAlignment, Length, Point, Rel, Sides, Size, Transform,
+    Axes, Corners, FixedAlignment, Length, Point, Rel, Sides, Size, TexAbsLength, Transform,
 };
 use crate::syntax::Span;
 use crate::text::TextItem;
@@ -18,12 +18,12 @@ use crate::visualize::{
 
 /// A finished layout with items at fixed positions.
 #[derive(Default, Clone, Hash)]
-pub struct Frame {
+pub struct TexFrame {
     /// The size of the frame.
     size: Size,
     /// The baseline of the frame measured from the top. If this is `None`, the
     /// frame's implicit baseline is at the bottom.
-    baseline: Option<Abs>,
+    baseline: Option<TexAbsLength>,
     /// The items composing this layout.
     items: Arc<Vec<(Point, FrameItem)>>,
     /// The hardness of this frame.
@@ -31,7 +31,7 @@ pub struct Frame {
 }
 
 /// Constructor, accessors and setters.
-impl Frame {
+impl TexFrame {
     /// Create a new, empty frame.
     ///
     /// Panics the size is not finite.
@@ -93,17 +93,17 @@ impl Frame {
     }
 
     /// The width of the frame.
-    pub fn width(&self) -> Abs {
+    pub fn width(&self) -> TexAbsLength {
         self.size.x
     }
 
     /// The height of the frame.
-    pub fn height(&self) -> Abs {
+    pub fn height(&self) -> TexAbsLength {
         self.size.y
     }
 
     /// The vertical position of the frame's baseline.
-    pub fn baseline(&self) -> Abs {
+    pub fn baseline(&self) -> TexAbsLength {
         self.baseline.unwrap_or(self.size.y)
     }
 
@@ -113,7 +113,7 @@ impl Frame {
     }
 
     /// Set the frame's baseline from the top.
-    pub fn set_baseline(&mut self, baseline: Abs) {
+    pub fn set_baseline(&mut self, baseline: TexAbsLength) {
         self.baseline = Some(baseline);
     }
 
@@ -121,12 +121,12 @@ impl Frame {
     ///
     /// This is the same as `baseline()`, but more in line with the terminology
     /// used in math layout.
-    pub fn ascent(&self) -> Abs {
+    pub fn ascent(&self) -> TexAbsLength {
         self.baseline()
     }
 
     /// The distance from the baseline to the bottom of the frame.
-    pub fn descent(&self) -> Abs {
+    pub fn descent(&self) -> TexAbsLength {
         self.size.y - self.baseline()
     }
 
@@ -138,7 +138,7 @@ impl Frame {
 }
 
 /// Insert items and subframes.
-impl Frame {
+impl TexFrame {
     /// The layer the next item will be added on. This corresponds to the number
     /// of items in the frame.
     pub fn layer(&self) -> usize {
@@ -154,7 +154,7 @@ impl Frame {
     ///
     /// Automatically decides whether to inline the frame or to include it as a
     /// group based on the number of items in it.
-    pub fn push_frame(&mut self, pos: Point, frame: Frame) {
+    pub fn push_frame(&mut self, pos: Point, frame: TexFrame) {
         if self.should_inline(&frame) {
             self.inline(self.layer(), pos, frame);
         } else {
@@ -192,7 +192,7 @@ impl Frame {
     }
 
     /// Add a frame at a position in the background.
-    pub fn prepend_frame(&mut self, pos: Point, frame: Frame) {
+    pub fn prepend_frame(&mut self, pos: Point, frame: TexFrame) {
         if self.should_inline(&frame) {
             self.inline(0, pos, frame);
         } else {
@@ -201,13 +201,13 @@ impl Frame {
     }
 
     /// Whether the given frame should be inlined.
-    fn should_inline(&self, frame: &Frame) -> bool {
+    fn should_inline(&self, frame: &TexFrame) -> bool {
         // We do not inline big frames and hard frames.
         frame.kind().is_soft() && (self.items.is_empty() || frame.items.len() <= 5)
     }
 
     /// Inline a frame at the given layer.
-    fn inline(&mut self, layer: usize, pos: Point, frame: Frame) {
+    fn inline(&mut self, layer: usize, pos: Point, frame: TexFrame) {
         // Try to just reuse the items.
         if pos.is_zero() && self.items.is_empty() {
             self.items = frame.items;
@@ -245,7 +245,7 @@ impl Frame {
 }
 
 /// Modify the frame.
-impl Frame {
+impl TexFrame {
     /// Remove all items from the frame.
     pub fn clear(&mut self) {
         if Arc::strong_count(&self.items) == 1 {
@@ -280,7 +280,7 @@ impl Frame {
     /// Attach the metadata from this style chain to the frame.
     pub fn meta(&mut self, styles: StyleChain, force: bool) {
         if force || !self.is_empty() {
-            self.meta_iter(MetaElem::data_in(styles));
+            self.meta_iter(MetaTexElem::data_in(styles));
         }
     }
 
@@ -329,8 +329,8 @@ impl Frame {
         &mut self,
         fill: Option<TexPaint>,
         stroke: Sides<Option<TexFixedStroke>>,
-        outset: Sides<Rel<Abs>>,
-        radius: Corners<Rel<Abs>>,
+        outset: Sides<Rel<TexAbsLength>>,
+        radius: Corners<Rel<TexAbsLength>>,
         span: Span,
     ) {
         let outset = outset.relative_to(self.size());
@@ -366,7 +366,7 @@ impl Frame {
     where
         F: FnOnce(&mut GroupItem),
     {
-        let mut wrapper = Frame::soft(self.size);
+        let mut wrapper = TexFrame::soft(self.size);
         wrapper.baseline = self.baseline;
         let mut group = GroupItem::new(std::mem::take(self));
         f(&mut group);
@@ -376,7 +376,7 @@ impl Frame {
 }
 
 /// Tools for debugging.
-impl Frame {
+impl TexFrame {
     /// Add a full size aqua background and a red baseline for debugging.
     pub fn mark_box(mut self) -> Self {
         self.mark_box_in_place();
@@ -397,8 +397,10 @@ impl Frame {
             1,
             Point::with_y(self.baseline()),
             FrameItem::Shape(
-                TexGeometry::Line(Point::with_x(self.size.x))
-                    .stroked(TexFixedStroke::from_pair(TexColor::RED, Abs::pt(1.0))),
+                TexGeometry::Line(Point::with_x(self.size.x)).stroked(TexFixedStroke::from_pair(
+                    TexColor::RED,
+                    TexAbsLength::pt(1.0),
+                )),
                 Span::detached(),
             ),
         );
@@ -406,7 +408,7 @@ impl Frame {
 
     /// Add a green marker at a position for debugging.
     pub fn mark_point(&mut self, pos: Point) {
-        let radius = Abs::pt(2.0);
+        let radius = TexAbsLength::pt(2.0);
         self.push(
             pos - Point::splat(radius),
             FrameItem::Shape(
@@ -421,19 +423,21 @@ impl Frame {
     }
 
     /// Add a green marker line at a position for debugging.
-    pub fn mark_line(&mut self, y: Abs) {
+    pub fn mark_line(&mut self, y: TexAbsLength) {
         self.push(
             Point::with_y(y),
             FrameItem::Shape(
-                TexGeometry::Line(Point::with_x(self.size.x))
-                    .stroked(TexFixedStroke::from_pair(TexColor::GREEN, Abs::pt(1.0))),
+                TexGeometry::Line(Point::with_x(self.size.x)).stroked(TexFixedStroke::from_pair(
+                    TexColor::GREEN,
+                    TexAbsLength::pt(1.0),
+                )),
                 Span::detached(),
             ),
         );
     }
 }
 
-impl Debug for Frame {
+impl Debug for TexFrame {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         f.write_str("Frame ")?;
         f.debug_list()
@@ -502,7 +506,7 @@ impl Debug for FrameItem {
 #[derive(Clone, Hash)]
 pub struct GroupItem {
     /// The group's frame.
-    pub frame: Frame,
+    pub frame: TexFrame,
     /// A transformation to apply to the group.
     pub transform: Transform,
     /// Whether the frame should be a clipping boundary.
@@ -511,7 +515,7 @@ pub struct GroupItem {
 
 impl GroupItem {
     /// Create a new group with default settings.
-    pub fn new(frame: Frame) -> Self {
+    pub fn new(frame: TexFrame) -> Self {
         Self {
             frame,
             transform: Transform::identity(),

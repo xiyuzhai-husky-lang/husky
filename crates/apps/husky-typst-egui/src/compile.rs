@@ -1,11 +1,11 @@
 use husky_tex::eval::Tracer;
-use husky_tex::layout::Frame;
+use husky_tex::layout::TexFrame;
 use std::sync::mpsc::{Receiver, SyncSender};
 use std::sync::Arc;
 
 pub fn spawn_compilation_thread(
     egui_ctx: egui::Context,
-) -> (SyncSender<String>, Receiver<Result<Frame, String>>) {
+) -> (SyncSender<String>, Receiver<Result<TexFrame, String>>) {
     let sandbox = Arc::new(crate::sandbox::Sandbox::new());
 
     let (in_send, in_recv) = std::sync::mpsc::sync_channel(4);

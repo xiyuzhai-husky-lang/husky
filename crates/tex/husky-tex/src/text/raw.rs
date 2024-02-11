@@ -10,12 +10,12 @@ use syntect::parsing::{SyntaxDefinition, SyntaxSet, SyntaxSetBuilder};
 use unicode_segmentation::UnicodeSegmentation;
 
 use crate::diag::{At, FileError, SourceResult, StrResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, elem, scope, Args, Array, Bytes, Fold, IsTexElem, Packed, PlainText, Show, ShowSet,
-    Smart, StyleChain, Styles, Synthesize, TexContent, TexValue,
+    cast, elem, scope, Args, Array, Bytes, Fold, IsTexElem, PlainText, Show, ShowSet, Smart,
+    StyleChain, Styles, Synthesize, TexContent, TexContentRefined, TexValue,
 };
-use crate::layout::{BlockElem, HAlignment, LengthInEm};
+use crate::layout::{BlockElem, HAlignment, TexEmLength};
 use crate::model::Figurable;
 use crate::syntax::{split_newlines, LinkedNode, Spanned};
 use crate::text::{
@@ -24,7 +24,7 @@ use crate::text::{
 };
 use crate::util::option_eq;
 use crate::visualize::TexColor;
-use crate::{syntax, World};
+use crate::{syntax, IsTexWorld};
 
 // Shorthand for highlighter closures.
 type StyleFn<'a> = &'a mut dyn FnMut(&LinkedNode, Range<usize>, synt::Style) -> TexContent;
@@ -261,7 +261,7 @@ pub struct RawElem {
     /// Made accessible for the [`raw.line` element]($raw.line).
     /// Allows more styling control in `show` rules.
     #[synthesized]
-    pub lines: Vec<Packed<RawLine>>,
+    pub lines: Vec<TexContentRefined<RawLine>>,
 }
 
 #[scope]
@@ -287,17 +287,17 @@ impl RawElem {
     }
 }
 
-impl Synthesize for Packed<RawElem> {
-    fn synthesize(&mut self, _: &mut Engine, styles: StyleChain) -> SourceResult<()> {
+impl Synthesize for TexContentRefined<RawElem> {
+    fn synthesize(&mut self, _: &mut TexEngine, styles: StyleChain) -> SourceResult<()> {
         let seq = self.highlight(styles);
         self.push_lines(seq);
         Ok(())
     }
 }
 
-impl Packed<RawElem> {
+impl TexContentRefined<RawElem> {
     #[comemo::memoize]
-    fn highlight(&self, styles: StyleChain) -> Vec<Packed<RawLine>> {
+    fn highlight(&self, styles: StyleChain) -> Vec<TexContentRefined<RawLine>> {
         let elem = self.as_ref();
         let span = self.span();
 
@@ -346,7 +346,7 @@ impl Packed<RawElem> {
                 &mut |_, range, style| styled(&text[range], foreground, style),
                 &mut |i, range, line| {
                     seq.push(
-                        Packed::new(RawLine::new(
+                        TexContentRefined::new(RawLine::new(
                             i + 1,
                             count,
                             EcoString::from(&text[range]),
@@ -379,7 +379,7 @@ impl Packed<RawElem> {
                 }
 
                 seq.push(
-                    Packed::new(RawLine::new(
+                    TexContentRefined::new(RawLine::new(
                         i as i64 + 1,
                         count,
                         EcoString::from(line),
@@ -390,7 +390,7 @@ impl Packed<RawElem> {
             }
         } else {
             seq.extend(lines.into_iter().enumerate().map(|(i, line)| {
-                Packed::new(RawLine::new(
+                TexContentRefined::new(RawLine::new(
                     i as i64 + 1,
                     count,
                     EcoString::from(line),
@@ -404,9 +404,9 @@ impl Packed<RawElem> {
     }
 }
 
-impl Show for Packed<RawElem> {
+impl Show for TexContentRefined<RawElem> {
     #[husky_tex_macros::time(name = "raw", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, _: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         let lines = self.lines().map(|v| v.as_slice()).unwrap_or_default();
 
         let mut seq = EcoVec::with_capacity((2 * lines.len()).saturating_sub(1));
@@ -432,12 +432,12 @@ impl Show for Packed<RawElem> {
     }
 }
 
-impl ShowSet for Packed<RawElem> {
+impl ShowSet for TexContentRefined<RawElem> {
     fn show_set(&self, _: StyleChain) -> Styles {
         let mut out = Styles::new();
         out.set(TextElem::set_overhang(false));
         out.set(TextElem::set_hyphenate(Hyphenate(Smart::Custom(false))));
-        out.set(TextElem::set_size(TextSize(LengthInEm::new(0.8).into())));
+        out.set(TextElem::set_size(TextSize(TexEmLength::new(0.8).into())));
         out.set(TextElem::set_font(FontList(vec![FontFamily::new(
             "DejaVu Sans Mono",
         )])));
@@ -446,7 +446,7 @@ impl ShowSet for Packed<RawElem> {
     }
 }
 
-impl LocalName for Packed<RawElem> {
+impl LocalName for TexContentRefined<RawElem> {
     fn local_name(lang: Lang, region: Option<Region>) -> &'static str {
         match lang {
             Lang::ALBANIAN => "List",
@@ -482,9 +482,9 @@ impl LocalName for Packed<RawElem> {
     }
 }
 
-impl Figurable for Packed<RawElem> {}
+impl Figurable for TexContentRefined<RawElem> {}
 
-impl PlainText for Packed<RawElem> {
+impl PlainText for TexContentRefined<RawElem> {
     fn plain_text(&self, text: &mut EcoString) {
         text.push_str(self.text());
     }
@@ -516,14 +516,14 @@ pub struct RawLine {
     pub body: TexContent,
 }
 
-impl Show for Packed<RawLine> {
+impl Show for TexContentRefined<RawLine> {
     #[husky_tex_macros::time(name = "raw.line", span = self.span())]
-    fn show(&self, _: &mut Engine, _styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, _: &mut TexEngine, _styles: StyleChain) -> SourceResult<TexContent> {
         Ok(self.body().clone())
     }
 }
 
-impl PlainText for Packed<RawLine> {
+impl PlainText for TexContentRefined<RawLine> {
     fn plain_text(&self, text: &mut EcoString) {
         text.push_str(self.text());
     }
@@ -698,7 +698,7 @@ fn load_syntaxes(paths: &SyntaxPaths, bytes: &[Bytes]) -> StrResult<Arc<SyntaxSe
 /// Function to parse the syntaxes argument.
 /// Much nicer than having it be part of the `element` macro.
 fn parse_syntaxes(
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     args: &mut Args,
 ) -> SourceResult<(Option<SyntaxPaths>, Option<Vec<Bytes>>)> {
     let Some(Spanned { v: paths, span }) = args.named::<Spanned<SyntaxPaths>>("syntaxes")? else {
@@ -734,7 +734,7 @@ fn load_theme(path: &str, bytes: &Bytes) -> StrResult<Arc<synt::Theme>> {
 /// Function to parse the theme argument.
 /// Much nicer than having it be part of the `element` macro.
 fn parse_theme(
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     args: &mut Args,
 ) -> SourceResult<(Option<EcoString>, Option<Bytes>)> {
     let Some(Spanned { v: path, span }) = args.named::<Spanned<EcoString>>("theme")? else {

@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 use smallvec::SmallVec;
 
 use crate::diag::{At, SourceResult, StrResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::eval::ops;
 use crate::foundations::{
     cast, func, repr, scope, ty, Args, Bytes, CastInfo, FromTexValue, Func, IntoTexValue, Reflect,
@@ -304,7 +304,7 @@ impl Array {
     pub fn find(
         &self,
         /// The engine.
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// The function to apply to each item. Must return a boolean.
         searcher: Func,
     ) -> SourceResult<Option<TexValue>> {
@@ -326,7 +326,7 @@ impl Array {
     pub fn position(
         &self,
         /// The engine.
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// The function to apply to each item. Must return a boolean.
         searcher: Func,
     ) -> SourceResult<Option<i64>> {
@@ -401,7 +401,7 @@ impl Array {
     pub fn filter(
         &self,
         /// The engine.
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// The function to apply to each item. Must return a boolean.
         test: Func,
     ) -> SourceResult<Array> {
@@ -424,7 +424,7 @@ impl Array {
     pub fn map(
         self,
         /// The engine.
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// The function to apply to each item.
         mapper: Func,
     ) -> SourceResult<Array> {
@@ -534,7 +534,7 @@ impl Array {
     pub fn fold(
         self,
         /// The engine.
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// The initial value to start with.
         init: TexValue,
         /// The folding function. Must have two parameters: One for the
@@ -594,7 +594,7 @@ impl Array {
     pub fn any(
         self,
         /// The engine.
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// The function to apply to each item. Must return a boolean.
         test: Func,
     ) -> SourceResult<bool> {
@@ -612,7 +612,7 @@ impl Array {
     pub fn all(
         self,
         /// The engine.
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// The function to apply to each item. Must return a boolean.
         test: Func,
     ) -> SourceResult<bool> {
@@ -727,7 +727,7 @@ impl Array {
     pub fn sorted(
         self,
         /// The engine.
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// The callsite span.
         span: Span,
         /// If given, applies this function to the elements in the array to
@@ -775,7 +775,7 @@ impl Array {
     pub fn dedup(
         self,
         /// The engine.
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// If given, applies this function to the elements in the array to
         /// determine the keys to deduplicate by.
         #[named]

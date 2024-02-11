@@ -1,9 +1,9 @@
 use crate::diag::SourceResult;
-use crate::foundations::{elem, func, IsTexElem, Packed, StyleChain, TexContent};
-use crate::layout::{Abs, Frame, FrameItem, Point, Size};
+use crate::foundations::{elem, func, IsTexElem, StyleChain, TexContent, TexContentRefined};
+use crate::layout::{FrameItem, Point, Size, TexAbsLength, TexFrame};
 use crate::math::{
-    style_cramped, EquationElem, FrameFragment, GlyphFragment, LayoutMath, MathContext, MathSize,
-    Scaled,
+    style_cramped, EquationTexElem, FrameFragment, GlyphFragment, MathContext, MathSize, Scaled,
+    TexLayoutMath,
 };
 use crate::syntax::Span;
 use crate::text::TextElem;
@@ -29,7 +29,7 @@ pub fn sqrt(
 /// ```example
 /// $ root(3, x) $
 /// ```
-#[elem(LayoutMath)]
+#[elem(TexLayoutMath)]
 pub struct RootElem {
     /// Which root of the radicand to take.
     #[positional]
@@ -40,7 +40,7 @@ pub struct RootElem {
     pub radicand: TexContent,
 }
 
-impl LayoutMath for Packed<RootElem> {
+impl TexLayoutMath for TexContentRefined<RootElem> {
     #[husky_tex_macros::time(name = "math.root", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         layout(
@@ -82,11 +82,11 @@ fn layout(
     // Layout root symbol.
     let target = radicand.height() + thickness + gap;
     let sqrt = GlyphFragment::new(ctx, styles, '√', span)
-        .stretch_vertical(ctx, target, Abs::zero())
+        .stretch_vertical(ctx, target, TexAbsLength::zero())
         .frame;
 
     // Layout the index.
-    let sscript = EquationElem::set_size(MathSize::ScriptScript).wrap();
+    let sscript = EquationTexElem::set_size(MathSize::ScriptScript).wrap();
     let index = index
         .map(|elem| ctx.layout_frame(elem, styles.chain(&sscript)))
         .transpose()?;
@@ -100,8 +100,8 @@ fn layout(
     let descent = sqrt.height() - sqrt_ascent;
     let inner_ascent = sqrt_ascent + extra_ascender;
 
-    let mut sqrt_offset = Abs::zero();
-    let mut shift_up = Abs::zero();
+    let mut sqrt_offset = TexAbsLength::zero();
+    let mut shift_up = TexAbsLength::zero();
     let mut ascent = inner_ascent;
 
     if let Some(index) = &index {
@@ -127,7 +127,7 @@ fn layout(
     let line_pos = Point::new(radicand_x, radicand_y - gap - (thickness / 2.0));
     let radicand_pos = Point::new(radicand_x, radicand_y);
 
-    let mut frame = Frame::soft(size);
+    let mut frame = TexFrame::soft(size);
     frame.set_baseline(ascent);
 
     if let Some(index) = index {

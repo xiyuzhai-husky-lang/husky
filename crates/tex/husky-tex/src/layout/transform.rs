@@ -1,9 +1,9 @@
 use crate::diag::SourceResult;
-use crate::engine::Engine;
-use crate::foundations::{elem, Packed, Resolve, StyleChain, TexContent};
+use crate::engine::TexEngine;
+use crate::foundations::{elem, Resolve, StyleChain, TexContent, TexContentRefined};
 use crate::layout::{
-    Abs, Angle, Axes, FixedAlignment, Frame, HAlignment, LayoutMultiple, LayoutSingle, Length,
-    Point, Ratio, Regions, Rel, Size, TexAlignment, VAlignment,
+    Angle, Axes, FixedAlignment, HAlignment, LayoutMultiple, LayoutSingle, Length, Point, Ratio,
+    Regions, Rel, Size, TexAbsLength, TexAlignment, TexFrame, VAlignment,
 };
 
 /// Moves content without affecting layout.
@@ -37,14 +37,14 @@ pub struct MoveElem {
     pub body: TexContent,
 }
 
-impl LayoutSingle for Packed<MoveElem> {
+impl LayoutSingle for TexContentRefined<MoveElem> {
     #[husky_tex_macros::time(name = "move", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Frame> {
+    ) -> SourceResult<TexFrame> {
         let pod = Regions::one(regions.base(), Axes::splat(false));
         let mut frame = self.body().layout(engine, styles, pod)?.into_frame();
         let delta = Axes::new(self.dx(styles), self.dy(styles)).resolve(styles);
@@ -115,14 +115,14 @@ pub struct RotateElem {
     pub body: TexContent,
 }
 
-impl LayoutSingle for Packed<RotateElem> {
+impl LayoutSingle for TexContentRefined<RotateElem> {
     #[husky_tex_macros::time(name = "rotate", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Frame> {
+    ) -> SourceResult<TexFrame> {
         let angle = self.angle(styles);
         let align = self.origin(styles).resolve(styles);
 
@@ -131,7 +131,7 @@ impl LayoutSingle for Packed<RotateElem> {
             .base()
             .to_point()
             .transform_inf(Transform::rotate(angle))
-            .map(Abs::abs)
+            .map(TexAbsLength::abs)
             .to_size();
 
         measure_and_layout(
@@ -203,14 +203,14 @@ pub struct ScaleElem {
     pub body: TexContent,
 }
 
-impl LayoutSingle for Packed<ScaleElem> {
+impl LayoutSingle for TexContentRefined<ScaleElem> {
     #[husky_tex_macros::time(name = "scale", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Frame> {
+    ) -> SourceResult<TexFrame> {
         let sx = self.x(styles);
         let sy = self.y(styles);
         let align = self.origin(styles).resolve(styles);
@@ -219,7 +219,7 @@ impl LayoutSingle for Packed<ScaleElem> {
         let size = regions
             .base()
             .zip_map(Axes::new(sx, sy), |r, s| s.of(r))
-            .map(Abs::abs);
+            .map(TexAbsLength::abs);
 
         measure_and_layout(
             engine,
@@ -241,8 +241,8 @@ pub struct Transform {
     pub ky: Ratio,
     pub kx: Ratio,
     pub sy: Ratio,
-    pub tx: Abs,
-    pub ty: Abs,
+    pub tx: TexAbsLength,
+    pub ty: TexAbsLength,
 }
 
 impl Transform {
@@ -253,13 +253,13 @@ impl Transform {
             ky: Ratio::zero(),
             kx: Ratio::zero(),
             sy: Ratio::one(),
-            tx: Abs::zero(),
-            ty: Abs::zero(),
+            tx: TexAbsLength::zero(),
+            ty: TexAbsLength::zero(),
         }
     }
 
     /// A translate transform.
-    pub const fn translate(tx: Abs, ty: Abs) -> Self {
+    pub const fn translate(tx: TexAbsLength, ty: TexAbsLength) -> Self {
         Self {
             tx,
             ty,
@@ -349,10 +349,10 @@ impl Transform {
             ky: (-self.ky * inv_det),
             kx: (-self.kx * inv_det),
             sy: (self.sx * inv_det),
-            tx: Abs::pt(
+            tx: TexAbsLength::pt(
                 (self.kx.get() * self.ty.to_pt() - self.sy.get() * self.tx.to_pt()) * inv_det,
             ),
-            ty: Abs::pt(
+            ty: TexAbsLength::pt(
                 (self.ky.get() * self.tx.to_pt() - self.sx.get() * self.ty.to_pt()) * inv_det,
             ),
         })
@@ -368,7 +368,7 @@ impl Default for Transform {
 /// Applies a transformation to a frame, reflowing the layout if necessary.
 #[allow(clippy::too_many_arguments)]
 fn measure_and_layout(
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     base_size: Size,
     size: Size,
     styles: StyleChain,
@@ -376,7 +376,7 @@ fn measure_and_layout(
     transform: Transform,
     align: Axes<FixedAlignment>,
     reflow: bool,
-) -> SourceResult<Frame> {
+) -> SourceResult<TexFrame> {
     if !reflow {
         // Layout the body.
         let pod = Regions::one(base_size, Axes::splat(false));
@@ -415,10 +415,10 @@ fn measure_and_layout(
 }
 
 /// Computes the bounding box and offset of a transformed frame.
-fn compute_bounding_box(frame: &Frame, ts: Transform) -> (Point, Size) {
+fn compute_bounding_box(frame: &TexFrame, ts: Transform) -> (Point, Size) {
     let top_left = Point::zero().transform_inf(ts);
-    let top_right = Point::new(frame.width(), Abs::zero()).transform_inf(ts);
-    let bottom_left = Point::new(Abs::zero(), frame.height()).transform_inf(ts);
+    let top_right = Point::new(frame.width(), TexAbsLength::zero()).transform_inf(ts);
+    let bottom_left = Point::new(TexAbsLength::zero(), frame.height()).transform_inf(ts);
     let bottom_right = Point::new(frame.width(), frame.height()).transform_inf(ts);
 
     // We first compute the new bounding box of the rotated frame.

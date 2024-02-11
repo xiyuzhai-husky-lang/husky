@@ -1,7 +1,9 @@
 use crate::diag::SourceResult;
-use crate::engine::Engine;
-use crate::foundations::{dict, elem, func, Func, IsTexElem, Packed, StyleChain, TexContent};
-use crate::layout::{Fragment, LayoutMultiple, Regions, Size};
+use crate::engine::TexEngine;
+use crate::foundations::{
+    dict, elem, func, Func, IsTexElem, StyleChain, TexContent, TexContentRefined,
+};
+use crate::layout::{LayoutMultiple, Regions, Size, TexLayoutFragment};
 use crate::syntax::Span;
 
 /// Provides access to the current outer container's (or page's, if none) size
@@ -68,14 +70,14 @@ struct LayoutElem {
     func: Func,
 }
 
-impl LayoutMultiple for Packed<LayoutElem> {
+impl LayoutMultiple for TexContentRefined<LayoutElem> {
     #[husky_tex_macros::time(name = "layout", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         // Gets the current region's base size, which will be the size of the
         // outer container, or of the page if there is no such container.
         let Size { x, y } = regions.base();

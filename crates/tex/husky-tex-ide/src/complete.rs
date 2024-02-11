@@ -4,7 +4,7 @@ use std::collections::{BTreeSet, HashSet};
 use ecow::{eco_format, EcoString};
 use husky_tex::foundations::{
     fields_on, format_str, mutable_methods_on, repr, AutoTexValue, CastInfo, Func, Label,
-    NoneValue, Repr, Scope, TexValue, Type,
+    NoneTexValue, Repr, Scope, TexValue, Type,
 };
 use husky_tex::model::TexDocument;
 use husky_tex::syntax::{
@@ -12,7 +12,7 @@ use husky_tex::syntax::{
 };
 use husky_tex::text::RawElem;
 use husky_tex::visualize::TexColor;
-use husky_tex::World;
+use husky_tex::IsTexWorld;
 use if_chain::if_chain;
 use serde::{Deserialize, Serialize};
 use unscanny::Scanner;
@@ -32,7 +32,7 @@ use crate::{plain_docs_sentence, summarize_font_family};
 /// the autocompletions. Label completions, for instance, are only generated
 /// when the document is available.
 pub fn autocomplete(
-    world: &dyn World,
+    world: &dyn IsTexWorld,
     document: Option<&TexDocument>,
     source: &Source,
     cursor: usize,
@@ -993,7 +993,7 @@ fn code_completions(ctx: &mut CompletionContext, hash: bool) {
 
 /// Context for autocompletion.
 struct CompletionContext<'a> {
-    world: &'a (dyn World + 'a),
+    world: &'a (dyn IsTexWorld + 'a),
     document: Option<&'a TexDocument>,
     global: &'a Scope,
     math: &'a Scope,
@@ -1011,7 +1011,7 @@ struct CompletionContext<'a> {
 impl<'a> CompletionContext<'a> {
     /// Create a new autocompletion context.
     fn new(
-        world: &'a (dyn World + 'a),
+        world: &'a (dyn IsTexWorld + 'a),
         document: Option<&'a TexDocument>,
         source: &'a Source,
         cursor: usize,
@@ -1225,7 +1225,7 @@ impl<'a> CompletionContext<'a> {
                 self.value_completion(None, value, true, Some(docs));
             }
             CastInfo::Type(ty) => {
-                if *ty == Type::of::<NoneValue>() {
+                if *ty == Type::of::<NoneTexValue>() {
                     self.snippet_completion("none", "none", "Nothing.")
                 } else if *ty == Type::of::<AutoTexValue>() {
                     self.snippet_completion("auto", "auto", "A smart default.");

@@ -4,7 +4,7 @@ use std::path::{Path, PathBuf};
 
 use husky_tex::diag::{bail, StrResult};
 use husky_tex::syntax::Span;
-use husky_tex::World;
+use husky_tex::IsTexWorld;
 
 use crate::args::{CliArguments, Command};
 use crate::world::SystemWorld;

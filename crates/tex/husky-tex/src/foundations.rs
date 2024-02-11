@@ -71,7 +71,7 @@ pub use {
 use ecow::EcoString;
 
 use crate::diag::{bail, SourceResult, StrResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::eval::EvalMode;
 use crate::syntax::Spanned;
 
@@ -161,7 +161,7 @@ pub fn assert(
     /// The error message when the assertion fails.
     #[named]
     message: Option<EcoString>,
-) -> StrResult<NoneValue> {
+) -> StrResult<NoneTexValue> {
     if !condition {
         if let Some(message) = message {
             bail!("assertion failed: {message}");
@@ -169,7 +169,7 @@ pub fn assert(
             bail!("assertion failed");
         }
     }
-    Ok(NoneValue)
+    Ok(NoneTexValue)
 }
 
 #[scope]
@@ -192,7 +192,7 @@ impl assert {
         /// of the compared values.
         #[named]
         message: Option<EcoString>,
-    ) -> StrResult<NoneValue> {
+    ) -> StrResult<NoneTexValue> {
         if left != right {
             if let Some(message) = message {
                 bail!("equality assertion failed: {message}");
@@ -204,7 +204,7 @@ impl assert {
                 );
             }
         }
-        Ok(NoneValue)
+        Ok(NoneTexValue)
     }
 
     /// Ensures that two values are not equal.
@@ -225,7 +225,7 @@ impl assert {
         /// of the compared values.
         #[named]
         message: Option<EcoString>,
-    ) -> StrResult<NoneValue> {
+    ) -> StrResult<NoneTexValue> {
         if left == right {
             if let Some(message) = message {
                 bail!("inequality assertion failed: {message}");
@@ -237,7 +237,7 @@ impl assert {
                 );
             }
         }
-        Ok(NoneValue)
+        Ok(NoneTexValue)
     }
 }
 
@@ -254,7 +254,7 @@ impl assert {
 #[func(title = "Evaluate")]
 pub fn eval(
     /// The engine.
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     /// A string of Tex code to evaluate.
     source: Spanned<String>,
     /// The syntactical mode in which the string is parsed.

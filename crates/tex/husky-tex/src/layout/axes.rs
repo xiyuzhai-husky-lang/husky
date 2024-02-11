@@ -4,7 +4,7 @@ use std::ops::{BitAnd, BitAndAssign, BitOr, BitOrAssign, Deref, Not};
 
 use crate::diag::bail;
 use crate::foundations::{array, cast, Array, Resolve, Smart, StyleChain};
-use crate::layout::{Abs, Length, Ratio, Rel, TexLayoutDirection};
+use crate::layout::{Length, Ratio, Rel, TexAbsLength, TexLayoutDirection};
 use crate::util::Get;
 
 /// A container with a horizontal and vertical component.
@@ -167,7 +167,7 @@ where
     T: Debug + 'static,
 {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
-        if (&self.x as &dyn Any).is::<Abs>() {
+        if (&self.x as &dyn Any).is::<TexAbsLength>() {
             write!(f, "Size({:?}, {:?})", self.x, self.y)
         } else {
             write!(f, "Axes({:?}, {:?})", self.x, self.y)

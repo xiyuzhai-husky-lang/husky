@@ -9,9 +9,9 @@ use crate::util::{Numeric, Scalar};
 
 /// An absolute length.
 #[derive(Default, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
-pub struct Abs(Scalar);
+pub struct TexAbsLength(Scalar);
 
-impl Abs {
+impl TexAbsLength {
     /// The zero length.
     pub const fn zero() -> Self {
         Self(Scalar::ZERO)
@@ -130,7 +130,7 @@ impl Abs {
     }
 }
 
-impl Numeric for Abs {
+impl Numeric for TexAbsLength {
     fn zero() -> Self {
         Self::zero()
     }
@@ -140,19 +140,19 @@ impl Numeric for Abs {
     }
 }
 
-impl Debug for Abs {
+impl Debug for TexAbsLength {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         write!(f, "{:?}pt", self.to_pt())
     }
 }
 
-impl Repr for Abs {
+impl Repr for TexAbsLength {
     fn repr(&self) -> EcoString {
         repr::format_float_with_unit(self.to_pt(), "pt")
     }
 }
 
-impl Neg for Abs {
+impl Neg for TexAbsLength {
     type Output = Self;
 
     fn neg(self) -> Self {
@@ -160,7 +160,7 @@ impl Neg for Abs {
     }
 }
 
-impl Add for Abs {
+impl Add for TexAbsLength {
     type Output = Self;
 
     fn add(self, other: Self) -> Self {
@@ -168,9 +168,9 @@ impl Add for Abs {
     }
 }
 
-sub_impl!(Abs - Abs -> Abs);
+sub_impl!(TexAbsLength - TexAbsLength -> TexAbsLength);
 
-impl Mul<f64> for Abs {
+impl Mul<f64> for TexAbsLength {
     type Output = Self;
 
     fn mul(self, other: f64) -> Self {
@@ -178,15 +178,15 @@ impl Mul<f64> for Abs {
     }
 }
 
-impl Mul<Abs> for f64 {
-    type Output = Abs;
+impl Mul<TexAbsLength> for f64 {
+    type Output = TexAbsLength;
 
-    fn mul(self, other: Abs) -> Abs {
+    fn mul(self, other: TexAbsLength) -> TexAbsLength {
         other * self
     }
 }
 
-impl Div<f64> for Abs {
+impl Div<f64> for TexAbsLength {
     type Output = Self;
 
     fn div(self, other: f64) -> Self {
@@ -194,7 +194,7 @@ impl Div<f64> for Abs {
     }
 }
 
-impl Div for Abs {
+impl Div for TexAbsLength {
     type Output = f64;
 
     fn div(self, other: Self) -> f64 {
@@ -202,12 +202,12 @@ impl Div for Abs {
     }
 }
 
-assign_impl!(Abs += Abs);
-assign_impl!(Abs -= Abs);
-assign_impl!(Abs *= f64);
-assign_impl!(Abs /= f64);
+assign_impl!(TexAbsLength += TexAbsLength);
+assign_impl!(TexAbsLength -= TexAbsLength);
+assign_impl!(TexAbsLength *= f64);
+assign_impl!(TexAbsLength /= f64);
 
-impl Rem for Abs {
+impl Rem for TexAbsLength {
     type Output = Self;
 
     fn rem(self, other: Self) -> Self::Output {
@@ -215,20 +215,20 @@ impl Rem for Abs {
     }
 }
 
-impl Sum for Abs {
+impl Sum for TexAbsLength {
     fn sum<I: Iterator<Item = Self>>(iter: I) -> Self {
         Self(iter.map(|s| s.0).sum())
     }
 }
 
-impl<'a> Sum<&'a Self> for Abs {
+impl<'a> Sum<&'a Self> for TexAbsLength {
     fn sum<I: Iterator<Item = &'a Self>>(iter: I) -> Self {
         Self(iter.map(|s| s.0).sum())
     }
 }
 
 cast! {
-    Abs,
+    TexAbsLength,
     self => TexValue::Length(self.into()),
 }
 
@@ -263,6 +263,6 @@ mod tests {
 
     #[test]
     fn test_length_unit_conversion() {
-        assert!((Abs::mm(150.0).to_cm() - 15.0) < 1e-4);
+        assert!((TexAbsLength::mm(150.0).to_cm() - 15.0) < 1e-4);
     }
 }

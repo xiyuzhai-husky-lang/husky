@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 use unicode_segmentation::UnicodeSegmentation;
 
 use crate::diag::{bail, At, SourceResult, StrResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
     cast, dict, func, repr, scope, ty, Array, Bytes, Func, IntoTexValue, Label, Repr, TexDict,
     TexValue, Type, Version,
@@ -430,7 +430,7 @@ impl Str {
     pub fn replace(
         &self,
         /// The engine.
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// The pattern to search for.
         pattern: StrPattern,
         /// The string to replace the matches with or a function that gets a

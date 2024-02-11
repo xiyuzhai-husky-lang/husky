@@ -1,11 +1,11 @@
 use ecow::EcoString;
 
 use crate::diag::{At, SourceResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{func, Cast};
 use crate::loading::Readable;
 use crate::syntax::Spanned;
-use crate::World;
+use crate::IsTexWorld;
 
 /// Reads plain text or data from a file.
 ///
@@ -25,7 +25,7 @@ use crate::World;
 #[func]
 pub fn read(
     /// The engine.
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     /// Path to a file.
     path: Spanned<EcoString>,
     /// The encoding to read the file with.

@@ -1,16 +1,16 @@
 use crate::diag::SourceResult;
-use crate::foundations::{elem, Packed, StyleChain, TexContent};
-use crate::layout::{Abs, FixedAlignment, Frame, FrameItem, LengthInEm, Point, Size};
+use crate::foundations::{elem, StyleChain, TexContent, TexContentRefined};
+use crate::layout::{FixedAlignment, FrameItem, Point, Size, TexAbsLength, TexEmLength, TexFrame};
 use crate::math::{
-    alignments, scaled_font_size, style_cramped, style_for_subscript, AlignmentResult,
-    FrameFragment, GlyphFragment, LayoutMath, MathContext, MathRow, Scaled,
+    alignments, scaled_font_size, style_cramped, style_for_subscript, FrameFragment, GlyphFragment,
+    MathContext, MathRow, Scaled, TexAlignmentResult, TexLayoutMath,
 };
 use crate::syntax::Span;
 use crate::text::TextElem;
 use crate::visualize::{TexFixedStroke, TexGeometry};
 
-const BRACE_GAP: LengthInEm = LengthInEm::new(0.25);
-const BRACKET_GAP: LengthInEm = LengthInEm::new(0.25);
+const BRACE_GAP: TexEmLength = TexEmLength::new(0.25);
+const BRACKET_GAP: TexEmLength = TexEmLength::new(0.25);
 
 /// A marker to distinguish under- vs. overlines.
 enum LineKind {
@@ -23,14 +23,14 @@ enum LineKind {
 /// ```example
 /// $ underline(1 + 2 + ... + 5) $
 /// ```
-#[elem(LayoutMath)]
+#[elem(TexLayoutMath)]
 pub struct UnderlineElem {
     /// The content above the line.
     #[required]
     pub body: TexContent,
 }
 
-impl LayoutMath for Packed<UnderlineElem> {
+impl TexLayoutMath for TexContentRefined<UnderlineElem> {
     #[husky_tex_macros::time(name = "math.underline", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         layout_underoverline(ctx, styles, self.body(), self.span(), LineKind::Under)
@@ -42,14 +42,14 @@ impl LayoutMath for Packed<UnderlineElem> {
 /// ```example
 /// $ overline(1 + 2 + ... + 5) $
 /// ```
-#[elem(LayoutMath)]
+#[elem(TexLayoutMath)]
 pub struct OverlineElem {
     /// The content below the line.
     #[required]
     pub body: TexContent,
 }
 
-impl LayoutMath for Packed<OverlineElem> {
+impl TexLayoutMath for TexContentRefined<OverlineElem> {
     #[husky_tex_macros::time(name = "math.overline", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         layout_underoverline(ctx, styles, self.body(), self.span(), LineKind::Over)
@@ -98,7 +98,7 @@ fn layout_underoverline(
     let size = Size::new(width, height);
 
     let content_class = content.class();
-    let mut frame = Frame::soft(size);
+    let mut frame = TexFrame::soft(size);
     frame.set_baseline(baseline);
     frame.push_frame(content_pos, content.into_frame());
     frame.push(
@@ -123,7 +123,7 @@ fn layout_underoverline(
 /// ```example
 /// $ underbrace(1 + 2 + ... + 5, "numbers") $
 /// ```
-#[elem(LayoutMath)]
+#[elem(TexLayoutMath)]
 pub struct UnderbraceElem {
     /// The content above the brace.
     #[required]
@@ -134,7 +134,7 @@ pub struct UnderbraceElem {
     pub annotation: Option<TexContent>,
 }
 
-impl LayoutMath for Packed<UnderbraceElem> {
+impl TexLayoutMath for TexContentRefined<UnderbraceElem> {
     #[husky_tex_macros::time(name = "math.underbrace", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         layout_underoverspreader(
@@ -155,7 +155,7 @@ impl LayoutMath for Packed<UnderbraceElem> {
 /// ```example
 /// $ overbrace(1 + 2 + ... + 5, "numbers") $
 /// ```
-#[elem(LayoutMath)]
+#[elem(TexLayoutMath)]
 pub struct OverbraceElem {
     /// The content below the brace.
     #[required]
@@ -166,7 +166,7 @@ pub struct OverbraceElem {
     pub annotation: Option<TexContent>,
 }
 
-impl LayoutMath for Packed<OverbraceElem> {
+impl TexLayoutMath for TexContentRefined<OverbraceElem> {
     #[husky_tex_macros::time(name = "math.overbrace", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         layout_underoverspreader(
@@ -187,7 +187,7 @@ impl LayoutMath for Packed<OverbraceElem> {
 /// ```example
 /// $ underbracket(1 + 2 + ... + 5, "numbers") $
 /// ```
-#[elem(LayoutMath)]
+#[elem(TexLayoutMath)]
 pub struct UnderbracketElem {
     /// The content above the bracket.
     #[required]
@@ -198,7 +198,7 @@ pub struct UnderbracketElem {
     pub annotation: Option<TexContent>,
 }
 
-impl LayoutMath for Packed<UnderbracketElem> {
+impl TexLayoutMath for TexContentRefined<UnderbracketElem> {
     #[husky_tex_macros::time(name = "math.underbrace", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         layout_underoverspreader(
@@ -219,7 +219,7 @@ impl LayoutMath for Packed<UnderbracketElem> {
 /// ```example
 /// $ overbracket(1 + 2 + ... + 5, "numbers") $
 /// ```
-#[elem(LayoutMath)]
+#[elem(TexLayoutMath)]
 pub struct OverbracketElem {
     /// The content below the bracket.
     #[required]
@@ -230,7 +230,7 @@ pub struct OverbracketElem {
     pub annotation: Option<TexContent>,
 }
 
-impl LayoutMath for Packed<OverbracketElem> {
+impl TexLayoutMath for TexContentRefined<OverbracketElem> {
     #[husky_tex_macros::time(name = "math.overbracket", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         layout_underoverspreader(
@@ -254,7 +254,7 @@ fn layout_underoverspreader(
     body: &TexContent,
     annotation: &Option<TexContent>,
     c: char,
-    gap: LengthInEm,
+    gap: TexEmLength,
     reverse: bool,
     span: Span,
 ) -> SourceResult<()> {
@@ -264,7 +264,7 @@ fn layout_underoverspreader(
     let body_class = body.class();
     let body = body.into_fragment(ctx, styles);
     let glyph = GlyphFragment::new(ctx, styles, c, span);
-    let stretched = glyph.stretch_horizontal(ctx, body.width(), Abs::zero());
+    let stretched = glyph.stretch_horizontal(ctx, body.width(), TexAbsLength::zero());
 
     let mut rows = vec![MathRow::new(vec![body]), stretched.into()];
 
@@ -305,20 +305,20 @@ pub(super) fn stack(
     styles: StyleChain,
     rows: Vec<MathRow>,
     align: FixedAlignment,
-    gap: Abs,
+    gap: TexAbsLength,
     baseline: usize,
-) -> Frame {
+) -> TexFrame {
     let rows: Vec<_> = rows.into_iter().flat_map(|r| r.rows()).collect();
-    let AlignmentResult { points, width } = alignments(&rows);
+    let TexAlignmentResult { points, width } = alignments(&rows);
     let rows: Vec<_> = rows
         .into_iter()
         .map(|row| row.into_aligned_frame(ctx, styles, &points, align))
         .collect();
 
-    let mut y = Abs::zero();
-    let mut frame = Frame::soft(Size::new(
+    let mut y = TexAbsLength::zero();
+    let mut frame = TexFrame::soft(Size::new(
         width,
-        rows.iter().map(|row| row.height()).sum::<Abs>()
+        rows.iter().map(|row| row.height()).sum::<TexAbsLength>()
             + rows.len().saturating_sub(1) as f64 * gap,
     ));
 

@@ -7,10 +7,10 @@ use heck::{ToKebabCase, ToTitleCase};
 use husky_tex::diag::{FileResult, StrResult};
 use husky_tex::eval::Tracer;
 use husky_tex::foundations::{Bytes, Datetime};
-use husky_tex::layout::{Abs, Point, Size};
+use husky_tex::layout::{Point, Size, TexAbsLength};
 use husky_tex::syntax::{FileId, Source, VirtualPath};
 use husky_tex::text::{TexFont, TexFontBook};
-use husky_tex::{Library, World};
+use husky_tex::{IsTexWorld, Library};
 use pulldown_cmark as md;
 use serde::{Deserialize, Serialize};
 use typed_arena::Arena;
@@ -342,7 +342,7 @@ fn code_block(resolver: &dyn Resolver, lang: &str, text: &str) -> Html {
     let mut parts = lang.split(':');
     let lang = parts.next().unwrap_or(lang);
 
-    let mut zoom: Option<[Abs; 4]> = None;
+    let mut zoom: Option<[TexAbsLength; 4]> = None;
     let mut single = false;
     if let Some(args) = parts.next() {
         single = true;
@@ -350,7 +350,7 @@ fn code_block(resolver: &dyn Resolver, lang: &str, text: &str) -> Html {
             zoom = args
                 .split(',')
                 .take(4)
-                .map(|s| Abs::pt(s.parse().unwrap()))
+                .map(|s| TexAbsLength::pt(s.parse().unwrap()))
                 .collect::<Vec<_>>()
                 .try_into()
                 .ok();
@@ -434,7 +434,7 @@ fn nest_heading(level: &mut md::HeadingLevel, nesting: usize) {
 /// A world for example compilations.
 struct DocWorld(Source);
 
-impl World for DocWorld {
+impl IsTexWorld for DocWorld {
     fn library(&self) -> &Prehashed<Library> {
         &LIBRARY
     }

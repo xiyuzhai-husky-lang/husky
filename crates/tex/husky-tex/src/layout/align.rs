@@ -3,11 +3,12 @@ use std::ops::Add;
 use ecow::{eco_format, EcoString};
 
 use crate::diag::{bail, SourceResult, StrResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, elem, func, scope, ty, Fold, Packed, Repr, Resolve, Show, StyleChain, TexContent,
+    cast, elem, func, scope, ty, Fold, Repr, Resolve, Show, StyleChain, TexContent,
+    TexContentRefined,
 };
-use crate::layout::{Abs, Axes, Axis, Side, TexLayoutDirection};
+use crate::layout::{Axes, Axis, Side, TexAbsLength, TexLayoutDirection};
 use crate::text::TextElem;
 
 /// Aligns content horizontally and vertically.
@@ -45,9 +46,9 @@ pub struct AlignElem {
     pub body: TexContent,
 }
 
-impl Show for Packed<AlignElem> {
+impl Show for TexContentRefined<AlignElem> {
     #[husky_tex_macros::time(name = "align", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, _: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         Ok(self
             .body()
             .clone()
@@ -397,9 +398,9 @@ pub enum FixedAlignment {
 impl FixedAlignment {
     /// Returns the position of this alignment in a container with the given
     /// extent.
-    pub fn position(self, extent: Abs) -> Abs {
+    pub fn position(self, extent: TexAbsLength) -> TexAbsLength {
         match self {
-            Self::Start => Abs::zero(),
+            Self::Start => TexAbsLength::zero(),
             Self::Center => extent / 2.0,
             Self::End => extent,
         }

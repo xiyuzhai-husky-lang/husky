@@ -1,6 +1,6 @@
 use crate::*;
 
-pub(super) fn render(painter: &egui::Painter, frame: &Frame) {
+pub(super) fn render(painter: &egui::Painter, frame: &TexFrame) {
     let origin = painter.clip_rect().left_top();
     let items = frame.items();
     render_inner(painter, origin, items);

@@ -1,19 +1,19 @@
 use std::fmt::{self, Debug, Formatter};
 
-use crate::layout::Frame;
+use crate::layout::TexFrame;
 
 /// A partial layout result.
 #[derive(Clone)]
-pub struct Fragment(Vec<Frame>);
+pub struct TexLayoutFragment(Vec<TexFrame>);
 
-impl Fragment {
+impl TexLayoutFragment {
     /// Create a fragment from a single frame.
-    pub fn frame(frame: Frame) -> Self {
+    pub fn frame(frame: TexFrame) -> Self {
         Self(vec![frame])
     }
 
     /// Create a fragment from multiple frames.
-    pub fn frames(frames: Vec<Frame>) -> Self {
+    pub fn frames(frames: Vec<TexFrame>) -> Self {
         Self(frames)
     }
 
@@ -31,28 +31,28 @@ impl Fragment {
     ///
     /// Panics if there are multiple frames.
     #[track_caller]
-    pub fn into_frame(self) -> Frame {
+    pub fn into_frame(self) -> TexFrame {
         assert_eq!(self.0.len(), 1, "expected exactly one frame");
         self.0.into_iter().next().unwrap()
     }
 
     /// Extract the frames.
-    pub fn into_frames(self) -> Vec<Frame> {
+    pub fn into_frames(self) -> Vec<TexFrame> {
         self.0
     }
 
     /// Iterate over the contained frames.
-    pub fn iter(&self) -> std::slice::Iter<Frame> {
+    pub fn iter(&self) -> std::slice::Iter<TexFrame> {
         self.0.iter()
     }
 
     /// Iterate over the contained frames.
-    pub fn iter_mut(&mut self) -> std::slice::IterMut<Frame> {
+    pub fn iter_mut(&mut self) -> std::slice::IterMut<TexFrame> {
         self.0.iter_mut()
     }
 }
 
-impl Debug for Fragment {
+impl Debug for TexLayoutFragment {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         match self.0.as_slice() {
             [frame] => frame.fmt(f),
@@ -61,27 +61,27 @@ impl Debug for Fragment {
     }
 }
 
-impl IntoIterator for Fragment {
-    type Item = Frame;
-    type IntoIter = std::vec::IntoIter<Frame>;
+impl IntoIterator for TexLayoutFragment {
+    type Item = TexFrame;
+    type IntoIter = std::vec::IntoIter<TexFrame>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.0.into_iter()
     }
 }
 
-impl<'a> IntoIterator for &'a Fragment {
-    type Item = &'a Frame;
-    type IntoIter = std::slice::Iter<'a, Frame>;
+impl<'a> IntoIterator for &'a TexLayoutFragment {
+    type Item = &'a TexFrame;
+    type IntoIter = std::slice::Iter<'a, TexFrame>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.0.iter()
     }
 }
 
-impl<'a> IntoIterator for &'a mut Fragment {
-    type Item = &'a mut Frame;
-    type IntoIter = std::slice::IterMut<'a, Frame>;
+impl<'a> IntoIterator for &'a mut TexLayoutFragment {
+    type Item = &'a mut TexFrame;
+    type IntoIter = std::slice::IterMut<'a, TexFrame>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.0.iter_mut()

@@ -1,4 +1,4 @@
-use crate::foundations::{elem, Behave, Behaviour, Packed};
+use crate::foundations::{elem, Behave, Behaviour, TexContentRefined};
 
 /// Inserts a line break.
 ///
@@ -36,7 +36,7 @@ pub struct LinebreakElem {
     pub justify: bool,
 }
 
-impl Behave for Packed<LinebreakElem> {
+impl Behave for TexContentRefined<LinebreakElem> {
     fn behaviour(&self) -> Behaviour {
         Behaviour::Destructive
     }

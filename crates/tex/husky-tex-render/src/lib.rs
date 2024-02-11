@@ -5,7 +5,7 @@ use std::sync::Arc;
 
 use husky_tex::introspection::Meta;
 use husky_tex::layout::{
-    Abs, Axes, Frame, FrameItem, FrameKind, GroupItem, Point, Ratio, Size, Transform,
+    Axes, FrameItem, FrameKind, GroupItem, Point, Ratio, Size, TexAbsLength, TexFrame, Transform,
 };
 use husky_tex::model::TexDocument;
 use husky_tex::text::{TexFont, TextItem};
@@ -26,7 +26,7 @@ use usvg::TreeParsing;
 /// This renders the frame at the given number of pixels per point and returns
 /// the resulting `tiny-skia` pixel buffer.
 #[husky_tex_macros::time(name = "render")]
-pub fn render(frame: &Frame, pixel_per_pt: f32, fill: TexColor) -> sk::Pixmap {
+pub fn render(frame: &TexFrame, pixel_per_pt: f32, fill: TexColor) -> sk::Pixmap {
     let size = frame.size();
     let pxw = (pixel_per_pt * size.x.to_f32()).round().max(1.0) as u32;
     let pxh = (pixel_per_pt * size.y.to_f32()).round().max(1.0) as u32;
@@ -47,7 +47,7 @@ pub fn render_merged(
     document: &TexDocument,
     pixel_per_pt: f32,
     frame_fill: TexColor,
-    padding: Abs,
+    padding: TexAbsLength,
     padding_fill: TexColor,
 ) -> sk::Pixmap {
     let pixmaps: Vec<_> = document
@@ -156,7 +156,7 @@ impl<'a> State<'a> {
 }
 
 /// Render a frame into the canvas.
-fn render_frame(canvas: &mut sk::Pixmap, state: State, frame: &Frame) {
+fn render_frame(canvas: &mut sk::Pixmap, state: State, frame: &TexFrame) {
     for (pos, item) in frame.items() {
         match item {
             FrameItem::Group(group) => {
@@ -243,7 +243,10 @@ fn render_text(canvas: &mut sk::Pixmap, state: State, text: &TextItem) {
     for glyph in &text.glyphs {
         let id = GlyphId(glyph.id);
         let offset = x + glyph.x_offset.at(text.size).to_f32();
-        let state = state.pre_translate(Point::new(Abs::raw(offset as _), Abs::raw(0.0)));
+        let state = state.pre_translate(Point::new(
+            TexAbsLength::raw(offset as _),
+            TexAbsLength::raw(0.0),
+        ));
 
         render_svg_glyph(canvas, state, text, id)
             .or_else(|| render_bitmap_glyph(canvas, state, text, id))
@@ -363,7 +366,10 @@ fn render_bitmap_glyph(
     let dy = (raster.y as f32) / (image.height() as f32) * size;
     render_image(
         canvas,
-        state.pre_translate(Point::new(Abs::raw(dx as _), Abs::raw((-size - dy) as _))),
+        state.pre_translate(Point::new(
+            TexAbsLength::raw(dx as _),
+            TexAbsLength::raw((-size - dy) as _),
+        )),
         &image,
         Size::new(w, h),
     )
@@ -1061,7 +1067,7 @@ fn to_sk_transform(transform: &Transform) -> sk::Transform {
     )
 }
 
-fn to_sk_dash_pattern(pattern: &DashPattern<Abs, Abs>) -> Option<sk::StrokeDash> {
+fn to_sk_dash_pattern(pattern: &DashPattern<TexAbsLength, TexAbsLength>) -> Option<sk::StrokeDash> {
     // tiny-skia only allows dash patterns with an even number of elements,
     // while pdf allows any number.
     let pattern_len = pattern.array.len();
@@ -1111,7 +1117,7 @@ trait AbsExt {
     fn to_f32(self) -> f32;
 }
 
-impl AbsExt for Abs {
+impl AbsExt for TexAbsLength {
     fn to_f32(self) -> f32 {
         self.to_pt() as f32
     }
@@ -1134,6 +1140,6 @@ fn alpha_mul(color: u32, scale: u32) -> u32 {
     (rb & mask) | (ag & !mask)
 }
 
-fn offset_bounding_box(bbox: Size, stroke_width: Abs) -> Size {
+fn offset_bounding_box(bbox: Size, stroke_width: TexAbsLength) -> Size {
     Size::new(bbox.x + stroke_width * 2.0, bbox.y + stroke_width * 2.0)
 }

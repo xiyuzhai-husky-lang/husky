@@ -1,9 +1,10 @@
 use ecow::EcoString;
 
 use crate::diag::{bail, SourceResult, StrResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, elem, Args, Array, Construct, Datetime, Packed, Smart, StyleChain, TexContent, TexValue,
+    cast, elem, Args, Array, Construct, Datetime, Smart, StyleChain, TexContent, TexContentRefined,
+    TexValue,
 };
 use crate::introspection::{Introspector, ManualPageCounter};
 use crate::layout::{LayoutRoot, Page, PageElem};
@@ -60,14 +61,14 @@ pub struct DocumentElem {
 }
 
 impl Construct for DocumentElem {
-    fn construct(_: &mut Engine, args: &mut Args) -> SourceResult<TexContent> {
+    fn construct(_: &mut TexEngine, args: &mut Args) -> SourceResult<TexContent> {
         bail!(args.span, "can only be used in set rules")
     }
 }
 
-impl LayoutRoot for Packed<DocumentElem> {
+impl LayoutRoot for TexContentRefined<DocumentElem> {
     #[husky_tex_macros::time(name = "document", span = self.span())]
-    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexDocument> {
+    fn layout_root(&self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexDocument> {
         let mut pages = Vec::with_capacity(self.children().len());
         let mut page_counter = ManualPageCounter::new();
 

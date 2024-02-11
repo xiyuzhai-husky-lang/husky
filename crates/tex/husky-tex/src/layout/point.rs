@@ -1,62 +1,80 @@
 use std::fmt::{self, Debug, Formatter};
 use std::ops::{Add, Div, Mul, Neg};
 
-use crate::layout::{Abs, Axis, Size, Transform};
+use crate::layout::{Axis, Size, TexAbsLength, Transform};
 use crate::util::{Get, Numeric};
 
 /// A point in 2D.
 #[derive(Default, Copy, Clone, Eq, PartialEq, Hash)]
 pub struct Point {
     /// The x coordinate.
-    pub x: Abs,
+    pub x: TexAbsLength,
     /// The y coordinate.
-    pub y: Abs,
+    pub y: TexAbsLength,
 }
 
 impl Point {
     /// The origin point.
     pub const fn zero() -> Self {
-        Self { x: Abs::zero(), y: Abs::zero() }
+        Self {
+            x: TexAbsLength::zero(),
+            y: TexAbsLength::zero(),
+        }
     }
 
     /// Create a new point from x and y coordinates.
-    pub const fn new(x: Abs, y: Abs) -> Self {
+    pub const fn new(x: TexAbsLength, y: TexAbsLength) -> Self {
         Self { x, y }
     }
 
     /// Create an instance with two equal components.
-    pub const fn splat(value: Abs) -> Self {
+    pub const fn splat(value: TexAbsLength) -> Self {
         Self { x: value, y: value }
     }
 
     /// Create a new point with y set to zero.
-    pub const fn with_x(x: Abs) -> Self {
-        Self { x, y: Abs::zero() }
+    pub const fn with_x(x: TexAbsLength) -> Self {
+        Self {
+            x,
+            y: TexAbsLength::zero(),
+        }
     }
 
     /// Create a new point with x set to zero.
-    pub const fn with_y(y: Abs) -> Self {
-        Self { x: Abs::zero(), y }
+    pub const fn with_y(y: TexAbsLength) -> Self {
+        Self {
+            x: TexAbsLength::zero(),
+            y,
+        }
     }
 
     /// The component-wise minimum of this and another point.
     pub fn min(self, other: Self) -> Self {
-        Self { x: self.x.min(other.x), y: self.y.min(other.y) }
+        Self {
+            x: self.x.min(other.x),
+            y: self.y.min(other.y),
+        }
     }
 
     /// The component-wise minimum of this and another point.
     pub fn max(self, other: Self) -> Self {
-        Self { x: self.x.max(other.x), y: self.y.max(other.y) }
+        Self {
+            x: self.x.max(other.x),
+            y: self.y.max(other.y),
+        }
     }
 
     /// Maps the point with the given function.
-    pub fn map(self, f: impl Fn(Abs) -> Abs) -> Self {
-        Self { x: f(self.x), y: f(self.y) }
+    pub fn map(self, f: impl Fn(TexAbsLength) -> TexAbsLength) -> Self {
+        Self {
+            x: f(self.x),
+            y: f(self.y),
+        }
     }
 
     /// The distance between this point and the origin.
-    pub fn hypot(self) -> Abs {
-        Abs::raw(self.x.to_raw().hypot(self.y.to_raw()))
+    pub fn hypot(self) -> TexAbsLength {
+        TexAbsLength::raw(self.x.to_raw().hypot(self.y.to_raw()))
     }
 
     /// Transform the point with the given transformation.
@@ -96,16 +114,16 @@ impl Numeric for Point {
 }
 
 impl Get<Axis> for Point {
-    type Component = Abs;
+    type Component = TexAbsLength;
 
-    fn get_ref(&self, axis: Axis) -> &Abs {
+    fn get_ref(&self, axis: Axis) -> &TexAbsLength {
         match axis {
             Axis::X => &self.x,
             Axis::Y => &self.y,
         }
     }
 
-    fn get_mut(&mut self, axis: Axis) -> &mut Abs {
+    fn get_mut(&mut self, axis: Axis) -> &mut TexAbsLength {
         match axis {
             Axis::X => &mut self.x,
             Axis::Y => &mut self.y,
@@ -123,7 +141,10 @@ impl Neg for Point {
     type Output = Self;
 
     fn neg(self) -> Self {
-        Self { x: -self.x, y: -self.y }
+        Self {
+            x: -self.x,
+            y: -self.y,
+        }
     }
 }
 
@@ -131,7 +152,10 @@ impl Add for Point {
     type Output = Self;
 
     fn add(self, other: Self) -> Self {
-        Self { x: self.x + other.x, y: self.y + other.y }
+        Self {
+            x: self.x + other.x,
+            y: self.y + other.y,
+        }
     }
 }
 
@@ -141,7 +165,10 @@ impl Mul<f64> for Point {
     type Output = Self;
 
     fn mul(self, other: f64) -> Self {
-        Self { x: self.x * other, y: self.y * other }
+        Self {
+            x: self.x * other,
+            y: self.y * other,
+        }
     }
 }
 
@@ -157,7 +184,10 @@ impl Div<f64> for Point {
     type Output = Self;
 
     fn div(self, other: f64) -> Self {
-        Self { x: self.x / other, y: self.y / other }
+        Self {
+            x: self.x / other,
+            y: self.y / other,
+        }
     }
 }
 

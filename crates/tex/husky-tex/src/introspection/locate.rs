@@ -1,6 +1,8 @@
 use crate::diag::SourceResult;
-use crate::engine::Engine;
-use crate::foundations::{elem, func, Func, IsTexElem, Packed, Show, StyleChain, TexContent};
+use crate::engine::TexEngine;
+use crate::foundations::{
+    elem, func, Func, IsTexElem, Show, StyleChain, TexContent, TexContentRefined,
+};
 use crate::introspection::Locatable;
 use crate::syntax::Span;
 
@@ -39,9 +41,9 @@ struct LocateElem {
     func: Func,
 }
 
-impl Show for Packed<LocateElem> {
+impl Show for TexContentRefined<LocateElem> {
     #[husky_tex_macros::time(name = "locate", span = self.span())]
-    fn show(&self, engine: &mut Engine, _: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, engine: &mut TexEngine, _: StyleChain) -> SourceResult<TexContent> {
         let location = self.location().unwrap();
         Ok(self.func().call(engine, [location])?.display())
     }

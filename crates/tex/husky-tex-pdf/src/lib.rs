@@ -17,7 +17,7 @@ use std::sync::Arc;
 use base64::Engine;
 use ecow::{eco_format, EcoString};
 use husky_tex::foundations::Datetime;
-use husky_tex::layout::{Abs, LengthInEm, TexLayoutDirection, Transform};
+use husky_tex::layout::{TexAbsLength, TexEmLength, TexLayoutDirection, Transform};
 use husky_tex::model::TexDocument;
 use husky_tex::text::{Lang, TexFont};
 use husky_tex::util::Deferred;
@@ -386,7 +386,7 @@ trait AbsExt {
     fn to_f32(self) -> f32;
 }
 
-impl AbsExt for Abs {
+impl AbsExt for TexAbsLength {
     fn to_f32(self) -> f32 {
         self.to_pt() as f32
     }
@@ -398,7 +398,7 @@ trait EmExt {
     fn to_font_units(self) -> f32;
 }
 
-impl EmExt for LengthInEm {
+impl EmExt for TexEmLength {
     fn to_font_units(self) -> f32 {
         1000.0 * self.get() as f32
     }

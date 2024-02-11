@@ -9,7 +9,7 @@ use once_cell::sync::Lazy;
 use smallvec::SmallVec;
 
 use crate::diag::SourceResult;
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
     cast, Args, Func, ParamInfo, Repr, Scope, Selector, StyleChain, Styles, TexContent, TexDict,
     TexValue,
@@ -68,12 +68,12 @@ impl ElementSchemaRef {
     }
 
     /// Construct an instance of this element.
-    pub fn construct(self, engine: &mut Engine, args: &mut Args) -> SourceResult<TexContent> {
+    pub fn construct(self, engine: &mut TexEngine, args: &mut Args) -> SourceResult<TexContent> {
         (self.0.construct)(engine, args)
     }
 
     /// Execute the set rule for the element and return the resulting style map.
-    pub fn set(self, engine: &mut Engine, mut args: Args) -> SourceResult<Styles> {
+    pub fn set(self, engine: &mut TexEngine, mut args: Args) -> SourceResult<Styles> {
         let styles = (self.0.set)(engine, &mut args)?;
         args.finish()?;
         Ok(styles)
@@ -185,7 +185,7 @@ pub trait IsTexElem:
 ///
 /// # Safety
 /// If the `vtable` function returns `Some(p)`, then `p` must be a valid pointer
-/// to a vtable of `Packed<Self>` w.r.t to the trait `C` where `capability` is
+/// to a vtable of `TexContentRefined<Self>` w.r.t to the trait `C` where `capability` is
 /// `TypeId::of::<dyn C>()`.
 pub unsafe trait Capable {
     /// Get the pointer to the vtable for the given capability / trait.
@@ -221,7 +221,7 @@ pub trait Construct {
     ///
     /// This is passed only the arguments that remain after execution of the
     /// element's set rule.
-    fn construct(engine: &mut Engine, args: &mut Args) -> SourceResult<TexContent>
+    fn construct(engine: &mut TexEngine, args: &mut Args) -> SourceResult<TexContent>
     where
         Self: Sized;
 }
@@ -229,7 +229,7 @@ pub trait Construct {
 /// An element's set rule.
 pub trait Set {
     /// Parse relevant arguments into style properties for this element.
-    fn set(engine: &mut Engine, args: &mut Args) -> SourceResult<Styles>
+    fn set(engine: &mut TexEngine, args: &mut Args) -> SourceResult<Styles>
     where
         Self: Sized;
 }
@@ -241,8 +241,8 @@ pub struct ElementSchema {
     pub title: &'static str,
     pub docs: &'static str,
     pub keywords: &'static [&'static str],
-    pub construct: fn(&mut Engine, &mut Args) -> SourceResult<TexContent>,
-    pub set: fn(&mut Engine, &mut Args) -> SourceResult<Styles>,
+    pub construct: fn(&mut TexEngine, &mut Args) -> SourceResult<TexContent>,
+    pub set: fn(&mut TexEngine, &mut Args) -> SourceResult<Styles>,
     pub vtable: fn(capability: TypeId) -> Option<*const ()>,
     pub field_id: fn(name: &str) -> Option<u8>,
     pub field_name: fn(u8) -> Option<&'static str>,
@@ -266,13 +266,13 @@ cast! {
 /// rule.
 pub trait Synthesize {
     /// Prepare the element for show rule application.
-    fn synthesize(&mut self, engine: &mut Engine, styles: StyleChain) -> SourceResult<()>;
+    fn synthesize(&mut self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<()>;
 }
 
 /// Defines a built-in show rule for an element.
 pub trait Show {
     /// Execute the base recipe for this element.
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent>;
+    fn show(&self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent>;
 }
 
 /// Defines built-in show set rules for an element.

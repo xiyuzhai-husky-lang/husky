@@ -22,9 +22,9 @@ use crate::foundations::{
 /// ```
 #[ty(cast, name = "none")]
 #[derive(Default, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
-pub struct NoneValue;
+pub struct NoneTexValue;
 
-impl Reflect for NoneValue {
+impl Reflect for NoneTexValue {
     fn input() -> CastInfo {
         CastInfo::Type(Type::of::<Self>())
     }
@@ -38,13 +38,13 @@ impl Reflect for NoneValue {
     }
 }
 
-impl IntoTexValue for NoneValue {
+impl IntoTexValue for NoneTexValue {
     fn into_value(self) -> TexValue {
         TexValue::None
     }
 }
 
-impl FromTexValue for NoneValue {
+impl FromTexValue for NoneTexValue {
     fn from_value(value: TexValue) -> StrResult<Self> {
         match value {
             TexValue::None => Ok(Self),
@@ -53,19 +53,19 @@ impl FromTexValue for NoneValue {
     }
 }
 
-impl Debug for NoneValue {
+impl Debug for NoneTexValue {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         f.pad("None")
     }
 }
 
-impl Repr for NoneValue {
+impl Repr for NoneTexValue {
     fn repr(&self) -> EcoString {
         "none".into()
     }
 }
 
-impl Serialize for NoneValue {
+impl Serialize for NoneTexValue {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
@@ -77,20 +77,20 @@ impl Serialize for NoneValue {
 cast! {
     (),
     self => TexValue::None,
-    _: NoneValue => (),
+    _: NoneTexValue => (),
 }
 
 impl<T: Reflect> Reflect for Option<T> {
     fn input() -> CastInfo {
-        T::input() + NoneValue::input()
+        T::input() + NoneTexValue::input()
     }
 
     fn output() -> CastInfo {
-        T::output() + NoneValue::output()
+        T::output() + NoneTexValue::output()
     }
 
     fn castable(value: &TexValue) -> bool {
-        NoneValue::castable(value) || T::castable(value)
+        NoneTexValue::castable(value) || T::castable(value)
     }
 }
 

@@ -57,7 +57,7 @@ pub mod visualize;
 pub use husky_tex_syntax as syntax;
 
 use crate::diag::{warning, FileResult, SourceDiagnostic, SourceResult};
-use crate::engine::{Engine, Route};
+use crate::engine::{Route, TexEngine};
 use crate::eval::Tracer;
 use crate::foundations::{
     Array, Bytes, Datetime, Module, Scope, StyleChain, Styles, TexContent, TexDict,
@@ -83,7 +83,7 @@ use std::ops::Range;
 /// `Tracer::new()`. Independently of whether compilation succeeded, calling
 /// `tracer.warnings()` after compilation will return all compiler warnings.
 #[husky_tex_macros::time(name = "compile")]
-pub fn compile(world: &dyn World, tracer: &mut Tracer) -> SourceResult<TexDocument> {
+pub fn compile(world: &dyn IsTexWorld, tracer: &mut Tracer) -> SourceResult<TexDocument> {
     // Call `track` on the world just once to keep comemo's ID stable.
     let world = world.track();
 
@@ -104,7 +104,7 @@ pub fn compile(world: &dyn World, tracer: &mut Tracer) -> SourceResult<TexDocume
 
 /// Relayout until introspection converges.
 fn typeset(
-    world: Tracked<dyn World + '_>,
+    world: Tracked<dyn IsTexWorld + '_>,
     tracer: &mut Tracer,
     content: &TexContent,
 ) -> SourceResult<TexDocument> {
@@ -133,7 +133,7 @@ fn typeset(
 
         let constraint = <Introspector as Validate>::Constraint::new();
         let mut locator = Locator::new();
-        let mut engine = Engine {
+        let mut engine = TexEngine {
             world,
             route: Route::default(),
             tracer: tracer.track_mut(),
@@ -197,7 +197,7 @@ fn deduplicate(mut diags: EcoVec<SourceDiagnostic>) -> EcoVec<SourceDiagnostic> 
 /// [edit](Source::edit) them in-place to benefit from better incremental
 /// performance.
 #[comemo::track]
-pub trait World {
+pub trait IsTexWorld {
     /// The standard library.
     ///
     /// Can be created through `Library::build()`.
@@ -246,7 +246,7 @@ pub trait WorldExt {
     fn range(&self, span: Span) -> Option<Range<usize>>;
 }
 
-impl<T: World> WorldExt for T {
+impl<T: IsTexWorld> WorldExt for T {
     fn range(&self, span: Span) -> Option<Range<usize>> {
         self.source(span.id()?).ok()?.range(span)
     }

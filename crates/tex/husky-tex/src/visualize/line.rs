@@ -1,7 +1,9 @@
 use crate::diag::{bail, SourceResult};
-use crate::engine::Engine;
-use crate::foundations::{elem, Packed, StyleChain};
-use crate::layout::{Abs, Angle, Axes, Frame, FrameItem, LayoutSingle, Length, Regions, Rel, Size};
+use crate::engine::TexEngine;
+use crate::foundations::{elem, StyleChain, TexContentRefined};
+use crate::layout::{
+    Angle, Axes, FrameItem, LayoutSingle, Length, Regions, Rel, Size, TexAbsLength, TexFrame,
+};
 use crate::util::Numeric;
 use crate::visualize::{TexGeometry, TexStroke};
 
@@ -32,7 +34,7 @@ pub struct LineElem {
 
     /// The line's length. This is only respected if `end` is `none`.
     #[resolve]
-    #[default(Abs::pt(30.0).into())]
+    #[default(TexAbsLength::pt(30.0).into())]
     pub length: Rel<Length>,
 
     /// The angle at which the line points away from the origin. This is only
@@ -56,10 +58,16 @@ pub struct LineElem {
     pub stroke: TexStroke,
 }
 
-impl LayoutSingle for Packed<LineElem> {
+impl LayoutSingle for TexContentRefined<LineElem> {
     #[husky_tex_macros::time(name = "line", span = self.span())]
-    fn layout(&self, _: &mut Engine, styles: StyleChain, regions: Regions) -> SourceResult<Frame> {
-        let resolve = |axes: Axes<Rel<Abs>>| axes.zip_map(regions.base(), Rel::relative_to);
+    fn layout(
+        &self,
+        _: &mut TexEngine,
+        styles: StyleChain,
+        regions: Regions,
+    ) -> SourceResult<TexFrame> {
+        let resolve =
+            |axes: Axes<Rel<TexAbsLength>>| axes.zip_map(regions.base(), Rel::relative_to);
         let start = resolve(self.start(styles));
         let delta = self
             .end(styles)
@@ -80,7 +88,7 @@ impl LayoutSingle for Packed<LineElem> {
             bail!(self.span(), "cannot create line with infinite length");
         }
 
-        let mut frame = Frame::soft(target);
+        let mut frame = TexFrame::soft(target);
         let shape = TexGeometry::Line(delta.to_point()).stroked(stroke);
         frame.push(start.to_point(), FrameItem::Shape(shape, self.span()));
         Ok(frame)

@@ -4,7 +4,7 @@ use std::num::NonZeroUsize;
 use ecow::{eco_format, EcoString};
 use husky_tex::introspection::Meta;
 use husky_tex::layout::{
-    Abs, Frame, FrameItem, GroupItem, LengthInEm, Page, Point, Ratio, Size, Transform,
+    FrameItem, GroupItem, Page, Point, Ratio, Size, TexAbsLength, TexEmLength, TexFrame, Transform,
 };
 use husky_tex::model::{Numbering, TexDestination};
 use husky_tex::text::{Case, TexFont, TextItem};
@@ -40,7 +40,7 @@ pub(crate) fn construct_pages(ctx: &mut PdfContext, pages: &[Page]) {
 
 /// Construct a page object.
 #[husky_tex_macros::time(name = "construct page")]
-pub(crate) fn construct_page(ctx: &mut PdfContext, frame: &Frame) -> (Ref, EncodedPage) {
+pub(crate) fn construct_page(ctx: &mut PdfContext, frame: &TexFrame) -> (Ref, EncodedPage) {
     let page_ref = ctx.alloc.bump();
 
     let size = frame.size();
@@ -63,7 +63,7 @@ pub(crate) fn construct_page(ctx: &mut PdfContext, frame: &Frame) -> (Ref, Encod
         ky: Ratio::zero(),
         kx: Ratio::zero(),
         sy: Ratio::new(-1.0),
-        tx: Abs::zero(),
+        tx: TexAbsLength::zero(),
         ty: size.y,
     });
 
@@ -185,7 +185,7 @@ fn write_page(ctx: &mut PdfContext, i: usize) {
         };
 
         let index = pos.page.get() - 1;
-        let y = (pos.point.y - Abs::pt(10.0)).max(Abs::zero());
+        let y = (pos.point.y - TexAbsLength::pt(10.0)).max(TexAbsLength::zero());
         if let Some(page) = ctx.pages.get(index) {
             annotation
                 .action()
@@ -427,7 +427,7 @@ struct State {
     container_transform: Transform,
     /// The size of the first hard frame in the hierarchy.
     size: Size,
-    font: Option<(TexFont, Abs)>,
+    font: Option<(TexFont, TexAbsLength)>,
     fill: Option<TexPaint>,
     fill_space: Option<Name<'static>>,
     external_graphics_state: Option<ExtGState>,
@@ -557,7 +557,7 @@ impl PageContext<'_, '_> {
         self.state.container_transform = self.state.container_transform.pre_concat(transform);
     }
 
-    fn set_font(&mut self, font: &TexFont, size: Abs) {
+    fn set_font(&mut self, font: &TexFont, size: TexAbsLength) {
         if self.state.font.as_ref().map(|(f, s)| (f, *s)) != Some((font, size)) {
             let index = self.parent.font_map.insert(font.clone());
             let name = eco_format!("F{index}");
@@ -648,7 +648,7 @@ impl PageContext<'_, '_> {
 }
 
 /// Encode a frame into the content stream.
-fn write_frame(ctx: &mut PageContext, frame: &Frame) {
+fn write_frame(ctx: &mut PageContext, frame: &TexFrame) {
     for &(pos, ref item) in frame.items() {
         let x = pos.x.to_f32();
         let y = pos.y.to_f32();
@@ -722,7 +722,7 @@ fn write_text(ctx: &mut PageContext, pos: Point, text: &TextItem) {
 
     let mut positioned = ctx.content.show_positioned();
     let mut items = positioned.items();
-    let mut adjustment = LengthInEm::zero();
+    let mut adjustment = TexEmLength::zero();
     let mut encoded = vec![];
 
     // Write the glyphs with kerning adjustments.
@@ -736,7 +736,7 @@ fn write_text(ctx: &mut PageContext, pos: Point, text: &TextItem) {
             }
 
             items.adjust(-adjustment.to_font_units());
-            adjustment = LengthInEm::zero();
+            adjustment = TexEmLength::zero();
         }
 
         let cid = crate::font::glyph_cid(&text.font, glyph.id);
@@ -878,10 +878,10 @@ fn write_image(ctx: &mut PageContext, x: f32, y: f32, image: &Image, size: Size)
 
 /// Save a link for later writing in the annotations dictionary.
 fn write_link(ctx: &mut PageContext, pos: Point, dest: &TexDestination, size: Size) {
-    let mut min_x = Abs::inf();
-    let mut min_y = Abs::inf();
-    let mut max_x = -Abs::inf();
-    let mut max_y = -Abs::inf();
+    let mut min_x = TexAbsLength::inf();
+    let mut min_y = TexAbsLength::inf();
+    let mut max_x = -TexAbsLength::inf();
+    let mut max_y = -TexAbsLength::inf();
 
     // Compute the bounding box of the transformed link.
     for point in [

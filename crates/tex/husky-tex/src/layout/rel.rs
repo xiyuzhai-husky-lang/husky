@@ -5,7 +5,7 @@ use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Sub, SubAssi
 use ecow::{eco_format, EcoString};
 
 use crate::foundations::{cast, ty, Fold, Repr, Resolve, StyleChain};
-use crate::layout::{Abs, Length, LengthInEm, Ratio};
+use crate::layout::{Length, Ratio, TexAbsLength, TexEmLength};
 use crate::util::Numeric;
 
 /// A length in relation to some known length.
@@ -117,14 +117,14 @@ impl<T: Numeric + Repr> Repr for Rel<T> {
     }
 }
 
-impl From<Abs> for Rel<Length> {
-    fn from(abs: Abs) -> Self {
+impl From<TexAbsLength> for Rel<Length> {
+    fn from(abs: TexAbsLength) -> Self {
         Rel::from(Length::from(abs))
     }
 }
 
-impl From<LengthInEm> for Rel<Length> {
-    fn from(em: LengthInEm) -> Self {
+impl From<TexEmLength> for Rel<Length> {
+    fn from(em: TexEmLength) -> Self {
         Rel::from(Length::from(em))
     }
 }
@@ -296,6 +296,6 @@ where
 }
 
 cast! {
-    Rel<Abs>,
+    Rel<TexAbsLength>,
     self => self.map(Length::from).into_value(),
 }

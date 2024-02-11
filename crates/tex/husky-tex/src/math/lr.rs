@@ -1,19 +1,23 @@
 use unicode_math_class::MathClass;
 
 use crate::diag::SourceResult;
-use crate::foundations::{elem, func, IsTexElem, Packed, Resolve, Smart, StyleChain, TexContent};
-use crate::layout::{Abs, Length, LengthInEm, Rel};
-use crate::math::{GlyphFragment, LayoutMath, MathContext, MathFragment, Scaled, SpacingFragment};
+use crate::foundations::{
+    elem, func, IsTexElem, Resolve, Smart, StyleChain, TexContent, TexContentRefined,
+};
+use crate::layout::{Length, Rel, TexAbsLength, TexEmLength};
+use crate::math::{
+    GlyphFragment, MathContext, MathFragment, Scaled, SpacingFragment, TexLayoutMath,
+};
 use crate::text::TextElem;
 
 /// How much less high scaled delimiters can be than what they wrap.
-pub(super) const DELIM_SHORT_FALL: LengthInEm = LengthInEm::new(0.1);
+pub(super) const DELIM_SHORT_FALL: TexEmLength = TexEmLength::new(0.1);
 
 /// Scales delimiters.
 ///
 /// While matched delimiters scale by default, this can be used to scale
 /// unmatched delimiters and to control the delimiter scaling more precisely.
-#[elem(title = "Left/Right", LayoutMath)]
+#[elem(title = "Left/Right", TexLayoutMath)]
 pub struct LrElem {
     /// The size of the brackets, relative to the height of the wrapped content.
     pub size: Smart<Rel<Length>>,
@@ -33,7 +37,7 @@ pub struct LrElem {
     pub body: TexContent,
 }
 
-impl LayoutMath for Packed<LrElem> {
+impl TexLayoutMath for TexContentRefined<LrElem> {
     #[husky_tex_macros::time(name = "math.lr", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         let mut body = self.body();
@@ -101,14 +105,14 @@ impl LayoutMath for Packed<LrElem> {
 /// ```example
 /// $ { x mid(|) sum_(i=1)^n w_i|f_i (x)| < 1 } $
 /// ```
-#[elem(LayoutMath)]
+#[elem(TexLayoutMath)]
 pub struct MidElem {
     /// The content to be scaled.
     #[required]
     pub body: TexContent,
 }
 
-impl LayoutMath for Packed<MidElem> {
+impl TexLayoutMath for TexContentRefined<MidElem> {
     #[husky_tex_macros::time(name = "math.mid", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         let mut fragments = ctx.layout_fragments(self.body(), styles)?;
@@ -137,7 +141,7 @@ fn scale(
     ctx: &mut MathContext,
     styles: StyleChain,
     fragment: &mut MathFragment,
-    height: Abs,
+    height: TexAbsLength,
     apply: Option<MathClass>,
 ) {
     if matches!(

@@ -4,7 +4,7 @@ use chinese_number::{ChineseCase, ChineseCountMethod, ChineseVariant, NumberToCh
 use ecow::{eco_format, EcoString, EcoVec};
 
 use crate::diag::SourceResult;
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{cast, func, Func, Str, TexValue};
 use crate::text::Case;
 
@@ -34,7 +34,7 @@ use crate::text::Case;
 #[func]
 pub fn numbering(
     /// The engine.
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     /// Defines how the numbering works.
     ///
     /// **Counting symbols** are `1`, `a`, `A`, `i`, `I`, `一`, `壹`, `あ`, `い`, `ア`, `イ`, `א`, `가`,
@@ -80,7 +80,7 @@ pub enum Numbering {
 
 impl Numbering {
     /// Apply the pattern to the given numbers.
-    pub fn apply(&self, engine: &mut Engine, numbers: &[usize]) -> SourceResult<TexValue> {
+    pub fn apply(&self, engine: &mut TexEngine, numbers: &[usize]) -> SourceResult<TexValue> {
         Ok(match self {
             Self::Pattern(pattern) => TexValue::Str(pattern.apply(numbers).into()),
             Self::Func(func) => func.call(engine, numbers.iter().copied())?,

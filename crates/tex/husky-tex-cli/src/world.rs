@@ -11,7 +11,7 @@ use husky_tex::diag::{FileError, FileResult, StrResult};
 use husky_tex::foundations::{Bytes, Datetime, IntoTexValue, TexDict};
 use husky_tex::syntax::{FileId, Source, VirtualPath};
 use husky_tex::text::{TexFont, TexFontBook};
-use husky_tex::{Library, World};
+use husky_tex::{IsTexWorld, Library};
 use husky_tex_timing::{timed, TimingScope};
 use once_cell::sync::Lazy;
 use parking_lot::Mutex;
@@ -162,7 +162,7 @@ impl SystemWorld {
     }
 }
 
-impl World for SystemWorld {
+impl IsTexWorld for SystemWorld {
     fn library(&self) -> &Prehashed<Library> {
         &self.library
     }

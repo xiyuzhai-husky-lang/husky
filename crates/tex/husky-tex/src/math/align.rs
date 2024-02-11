@@ -1,31 +1,31 @@
 use crate::diag::SourceResult;
-use crate::foundations::{elem, Packed, StyleChain};
-use crate::layout::Abs;
-use crate::math::{LayoutMath, MathContext, MathFragment, MathRow};
+use crate::foundations::{elem, StyleChain, TexContentRefined};
+use crate::layout::TexAbsLength;
+use crate::math::{MathContext, MathFragment, MathRow, TexLayoutMath};
 
 /// A math alignment point: `&`, `&&`.
-#[elem(title = "Alignment Point", LayoutMath)]
-pub struct AlignPointElem {}
+#[elem(title = "Alignment Point", TexLayoutMath)]
+pub struct TexAlignPointElem {}
 
-impl LayoutMath for Packed<AlignPointElem> {
+impl TexLayoutMath for TexContentRefined<TexAlignPointElem> {
     fn layout_math(&self, ctx: &mut MathContext, _: StyleChain) -> SourceResult<()> {
         ctx.push(MathFragment::Align);
         Ok(())
     }
 }
 
-pub(super) struct AlignmentResult {
-    pub points: Vec<Abs>,
-    pub width: Abs,
+pub(super) struct TexAlignmentResult {
+    pub points: Vec<TexAbsLength>,
+    pub width: TexAbsLength,
 }
 
 /// Determine the position of the alignment points.
-pub(super) fn alignments(rows: &[MathRow]) -> AlignmentResult {
-    let mut widths = Vec::<Abs>::new();
+pub(super) fn alignments(rows: &[MathRow]) -> TexAlignmentResult {
+    let mut widths = Vec::<TexAbsLength>::new();
 
-    let mut pending_width = Abs::zero();
+    let mut pending_width = TexAbsLength::zero();
     for row in rows {
-        let mut width = Abs::zero();
+        let mut width = TexAbsLength::zero();
         let mut alignment_index = 0;
 
         for fragment in row.iter() {
@@ -35,7 +35,7 @@ pub(super) fn alignments(rows: &[MathRow]) -> AlignmentResult {
                 } else {
                     widths.push(width.max(pending_width));
                 }
-                width = Abs::zero();
+                width = TexAbsLength::zero();
                 alignment_index += 1;
             } else {
                 width += fragment.width();
@@ -55,7 +55,7 @@ pub(super) fn alignments(rows: &[MathRow]) -> AlignmentResult {
         let prev = points[i - 1];
         points[i] += prev;
     }
-    AlignmentResult {
+    TexAlignmentResult {
         width: points.last().copied().unwrap_or(pending_width),
         points,
     }

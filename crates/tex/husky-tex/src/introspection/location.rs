@@ -2,7 +2,7 @@ use std::num::NonZeroUsize;
 
 use ecow::EcoString;
 
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{func, scope, ty, Repr, TexDict};
 use crate::model::Numbering;
 
@@ -45,7 +45,7 @@ impl Location {
     /// If you want to know the value of the page counter, use
     /// `{counter(page).at(loc)}` instead.
     #[func]
-    pub fn page(self, engine: &mut Engine) -> NonZeroUsize {
+    pub fn page(self, engine: &mut TexEngine) -> NonZeroUsize {
         engine.introspector.page(self)
     }
 
@@ -56,7 +56,7 @@ impl Location {
     /// If you only need the page number, use `page()` instead as it allows
     /// Tex to skip unnecessary work.
     #[func]
-    pub fn position(self, engine: &mut Engine) -> TexDict {
+    pub fn position(self, engine: &mut TexEngine) -> TexDict {
         engine.introspector.position(self).into()
     }
 
@@ -68,7 +68,7 @@ impl Location {
     /// If the page numbering is set to `none` at that location, this function
     /// returns `none`.
     #[func]
-    pub fn page_numbering(self, engine: &mut Engine) -> Option<Numbering> {
+    pub fn page_numbering(self, engine: &mut TexEngine) -> Option<Numbering> {
         engine.introspector.page_numbering(self).cloned()
     }
 }

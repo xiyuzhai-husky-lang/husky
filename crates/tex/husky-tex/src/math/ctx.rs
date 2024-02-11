@@ -11,12 +11,14 @@ use unicode_math_class::MathClass;
 use unicode_segmentation::UnicodeSegmentation;
 
 use crate::diag::SourceResult;
-use crate::engine::Engine;
-use crate::foundations::{Packed, Smart, StyleChain, TexContent};
-use crate::layout::{Abs, Axes, BoxElem, Frame, LayoutMultiple, LengthInEm, Regions, Size};
+use crate::engine::TexEngine;
+use crate::foundations::{Smart, StyleChain, TexContent, TexContentRefined};
+use crate::layout::{
+    Axes, BoxTexElem, LayoutMultiple, Regions, Size, TexAbsLength, TexEmLength, TexFrame,
+};
 use crate::math::{
-    scaled_font_size, styled_char, EquationElem, FrameFragment, GlyphFragment, LayoutMath,
-    MathFragment, MathRow, MathSize, THICK,
+    scaled_font_size, styled_char, EquationTexElem, FrameFragment, GlyphFragment, MathFragment,
+    MathRow, MathSize, TexLayoutMath, THICK,
 };
 use crate::model::ParagraphTexElem;
 use crate::syntax::{is_newline, Span};
@@ -26,7 +28,7 @@ use crate::text::{
 
 macro_rules! scaled {
     ($ctx:expr, $styles:expr, text: $text:ident, display: $display:ident $(,)?) => {
-        match $crate::math::EquationElem::size_in($styles) {
+        match $crate::math::EquationTexElem::size_in($styles) {
             $crate::math::MathSize::Display => scaled!($ctx, $styles, $display),
             _ => scaled!($ctx, $styles, $text),
         }
@@ -47,7 +49,7 @@ macro_rules! percent {
 /// The context for math layout.
 pub struct MathContext<'a, 'b, 'v> {
     // External.
-    pub engine: &'v mut Engine<'b>,
+    pub engine: &'v mut TexEngine<'b>,
     pub regions: Regions<'static>,
     // Font-related.
     pub font: &'a TexFont,
@@ -56,14 +58,14 @@ pub struct MathContext<'a, 'b, 'v> {
     pub constants: ttf_parser::math::Constants<'a>,
     pub ssty_table: Option<ttf_parser::gsub::AlternateSubstitution<'a>>,
     pub glyphwise_tables: Option<Vec<GlyphwiseSubsts<'a>>>,
-    pub space_width: LengthInEm,
+    pub space_width: TexEmLength,
     // Mutable.
     pub fragments: Vec<MathFragment>,
 }
 
 impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
     pub fn new(
-        engine: &'v mut Engine<'b>,
+        engine: &'v mut TexEngine<'b>,
         styles: StyleChain<'a>,
         regions: Regions,
         font: &'a TexFont,
@@ -124,7 +126,7 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
 
     pub fn layout_root(
         &mut self,
-        elem: &dyn LayoutMath,
+        elem: &dyn TexLayoutMath,
         styles: StyleChain,
     ) -> SourceResult<MathRow> {
         let row = self.layout_fragments(elem, styles)?;
@@ -133,7 +135,7 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
 
     pub fn layout_fragment(
         &mut self,
-        elem: &dyn LayoutMath,
+        elem: &dyn TexLayoutMath,
         styles: StyleChain,
     ) -> SourceResult<MathFragment> {
         let row = self.layout_fragments(elem, styles)?;
@@ -142,7 +144,7 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
 
     pub fn layout_fragments(
         &mut self,
-        elem: &dyn LayoutMath,
+        elem: &dyn TexLayoutMath,
         styles: StyleChain,
     ) -> SourceResult<Vec<MathFragment>> {
         let prev = std::mem::take(&mut self.fragments);
@@ -152,7 +154,7 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
 
     pub fn layout_row(
         &mut self,
-        elem: &dyn LayoutMath,
+        elem: &dyn TexLayoutMath,
         styles: StyleChain,
     ) -> SourceResult<MathRow> {
         let fragments = self.layout_fragments(elem, styles)?;
@@ -161,17 +163,17 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
 
     pub fn layout_frame(
         &mut self,
-        elem: &dyn LayoutMath,
+        elem: &dyn TexLayoutMath,
         styles: StyleChain,
-    ) -> SourceResult<Frame> {
+    ) -> SourceResult<TexFrame> {
         Ok(self.layout_fragment(elem, styles)?.into_frame())
     }
 
     pub fn layout_box(
         &mut self,
-        boxed: &Packed<BoxElem>,
+        boxed: &TexContentRefined<BoxTexElem>,
         styles: StyleChain,
-    ) -> SourceResult<Frame> {
+    ) -> SourceResult<TexFrame> {
         let local = TextElem::set_size(TextSize(scaled_font_size(self, styles).into())).wrap();
         boxed.layout(self.engine, styles.chain(&local), self.regions)
     }
@@ -180,7 +182,7 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
         &mut self,
         content: &TexContent,
         styles: StyleChain,
-    ) -> SourceResult<Frame> {
+    ) -> SourceResult<TexFrame> {
         let local = TextElem::set_size(TextSize(scaled_font_size(self, styles).into())).wrap();
         Ok(content
             .layout(self.engine, styles.chain(&local), self.regions)?
@@ -189,13 +191,13 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
 
     pub fn layout_text(
         &mut self,
-        elem: &Packed<TextElem>,
+        elem: &TexContentRefined<TextElem>,
         styles: StyleChain,
     ) -> SourceResult<MathFragment> {
         let text = elem.text();
         let span = elem.span();
         let mut chars = text.chars();
-        let math_size = EquationElem::size_in(styles);
+        let math_size = EquationTexElem::size_in(styles);
         let fragment = if let Some(mut glyph) = chars
             .next()
             .filter(|_| chars.next().is_none())
@@ -217,7 +219,7 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
                 let mut variant = if math_size == MathSize::Display {
                     let height = scaled!(self, styles, display_operator_min_height)
                         .max(SQRT_2 * glyph.height());
-                    glyph.stretch_vertical(self, height, Abs::zero())
+                    glyph.stretch_vertical(self, height, TexAbsLength::zero())
                 } else {
                     glyph.into_variant()
                 };
@@ -243,7 +245,7 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
                 TextElem::set_top_edge(TopEdge::Metric(TopEdgeMetric::Bounds)),
                 TextElem::set_bottom_edge(BottomEdge::Metric(BottomEdgeMetric::Bounds)),
                 TextElem::set_size(TextSize(scaled_font_size(self, styles).into())),
-                EquationElem::set_italic(Smart::Custom(false)),
+                EquationTexElem::set_italic(Smart::Custom(false)),
             ]
             .map(|p| p.wrap());
 
@@ -284,9 +286,15 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
         let spaced = text.graphemes(true).nth(1).is_some();
         let text = TextElem::packed(text).spanned(span);
         let par = ParagraphTexElem::new(vec![Prehashed::new(text)]);
-        let frame = Packed::new(par)
+        let frame = TexContentRefined::new(par)
             .spanned(span)
-            .layout(self.engine, styles, false, Size::splat(Abs::inf()), false)?
+            .layout(
+                self.engine,
+                styles,
+                false,
+                Size::splat(TexAbsLength::inf()),
+                false,
+            )?
             .into_frame();
 
         Ok(FrameFragment::new(self, styles, frame)
@@ -297,23 +305,23 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
 }
 
 pub(super) trait Scaled {
-    fn scaled(self, ctx: &MathContext, font_size: Abs) -> Abs;
+    fn scaled(self, ctx: &MathContext, font_size: TexAbsLength) -> TexAbsLength;
 }
 
 impl Scaled for i16 {
-    fn scaled(self, ctx: &MathContext, font_size: Abs) -> Abs {
+    fn scaled(self, ctx: &MathContext, font_size: TexAbsLength) -> TexAbsLength {
         ctx.font.to_em(self).at(font_size)
     }
 }
 
 impl Scaled for u16 {
-    fn scaled(self, ctx: &MathContext, font_size: Abs) -> Abs {
+    fn scaled(self, ctx: &MathContext, font_size: TexAbsLength) -> TexAbsLength {
         ctx.font.to_em(self).at(font_size)
     }
 }
 
 impl Scaled for MathValue<'_> {
-    fn scaled(self, ctx: &MathContext, font_size: Abs) -> Abs {
+    fn scaled(self, ctx: &MathContext, font_size: TexAbsLength) -> TexAbsLength {
         self.value.scaled(ctx, font_size)
     }
 }

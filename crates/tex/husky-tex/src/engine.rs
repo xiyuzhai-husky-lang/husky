@@ -8,12 +8,12 @@ use crate::diag::SourceResult;
 use crate::eval::Tracer;
 use crate::introspection::{Introspector, Locator};
 use crate::syntax::FileId;
-use crate::World;
+use crate::IsTexWorld;
 
 /// Holds all data needed during compilation.
-pub struct Engine<'a> {
+pub struct TexEngine<'a> {
     /// The compilation environment.
-    pub world: Tracked<'a, dyn World + 'a>,
+    pub world: Tracked<'a, dyn IsTexWorld + 'a>,
     /// Provides access to information about the document.
     pub introspector: Tracked<'a, Introspector>,
     /// The route the engine took during compilation. This is used to detect
@@ -25,7 +25,7 @@ pub struct Engine<'a> {
     pub tracer: TrackedMut<'a, Tracer>,
 }
 
-impl Engine<'_> {
+impl TexEngine<'_> {
     /// Performs a fallible operation that does not immediately terminate further
     /// execution. Instead it produces a delayed error that is only promoted to
     /// a fatal one if it remains at the end of the introspection loop.
@@ -105,7 +105,10 @@ impl<'a> Route<'a> {
 
     /// Attach a file id to the route segment.
     pub fn with_id(self, id: FileId) -> Self {
-        Self { id: Some(id), ..self }
+        Self {
+            id: Some(id),
+            ..self
+        }
     }
 
     /// Set the length of the route segment to zero.
@@ -158,7 +161,9 @@ impl<'a> Route<'a> {
                 if within && depth < upper {
                     // We don't want to accidentally increase the upper bound,
                     // hence the compare-exchange.
-                    self.upper.compare_exchange(upper, depth, Relaxed, Relaxed).ok();
+                    self.upper
+                        .compare_exchange(upper, depth, Relaxed, Relaxed)
+                        .ok();
                 }
                 within
             }

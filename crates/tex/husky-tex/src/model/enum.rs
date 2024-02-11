@@ -3,11 +3,13 @@ use std::str::FromStr;
 use smallvec::{smallvec, SmallVec};
 
 use crate::diag::{bail, SourceResult};
-use crate::engine::Engine;
-use crate::foundations::{cast, elem, scope, Array, Packed, Smart, StyleChain, TexContent};
+use crate::engine::TexEngine;
+use crate::foundations::{
+    cast, elem, scope, Array, Smart, StyleChain, TexContent, TexContentRefined,
+};
 use crate::layout::{
-    Axes, BlockElem, Cell, CellGrid, Fragment, GridLayouter, HAlignment, LayoutMultiple, Length,
-    LengthInEm, Regions, Spacing, TexAlignment, TexSizing, VAlignment,
+    Axes, BlockElem, Cell, CellGrid, GridLayouter, HAlignment, LayoutMultiple, Length, Regions,
+    Spacing, TexAlignment, TexEmLength, TexLayoutFragment, TexSizing, VAlignment,
 };
 use crate::model::{Numbering, NumberingPattern, ParagraphTexElem};
 use crate::text::TextElem;
@@ -147,7 +149,7 @@ pub struct EnumElem {
 
     /// The space between the numbering and the body of each item.
     #[resolve]
-    #[default(LengthInEm::new(0.5).into())]
+    #[default(TexEmLength::new(0.5).into())]
     pub body_indent: Length,
 
     /// The spacing between the items of a wide (non-tight) enumeration.
@@ -194,7 +196,7 @@ pub struct EnumElem {
     /// ) [+ #phase]
     /// ```
     #[variadic]
-    pub children: Vec<Packed<EnumItem>>,
+    pub children: Vec<TexContentRefined<EnumItem>>,
 
     /// The numbers of parent items.
     #[internal]
@@ -209,14 +211,14 @@ impl EnumElem {
     type EnumItem;
 }
 
-impl LayoutMultiple for Packed<EnumElem> {
+impl LayoutMultiple for TexContentRefined<EnumElem> {
     #[husky_tex_macros::time(name = "enum", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         let numbering = self.numbering(styles);
         let indent = self.indent(styles);
         let body_indent = self.body_indent(styles);

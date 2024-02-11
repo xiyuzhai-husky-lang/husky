@@ -4,7 +4,7 @@ use std::collections::HashMap;
 use comemo::{Track, Tracked, Validate};
 
 use crate::introspection::{Location, Meta};
-use crate::layout::{Frame, FrameItem};
+use crate::layout::{FrameItem, TexFrame};
 
 /// Provides locations for elements in the document.
 ///
@@ -46,7 +46,10 @@ impl<'a> Locator<'a> {
 
     /// Create a new chained locator.
     pub fn chained(outer: Tracked<'a, Self>) -> Self {
-        Self { outer: Some(outer), ..Default::default() }
+        Self {
+            outer: Some(outer),
+            ..Default::default()
+        }
     }
 
     /// Start tracking this locator.
@@ -69,11 +72,15 @@ impl<'a> Locator<'a> {
         self.hashes.get_mut().insert(hash, disambiguator + 1);
 
         // Create the location in its default variant.
-        Location { hash, disambiguator, variant: 0 }
+        Location {
+            hash,
+            disambiguator,
+            variant: 0,
+        }
     }
 
     /// Advance past a frame.
-    pub fn visit_frame(&mut self, frame: &Frame) {
+    pub fn visit_frame(&mut self, frame: &TexFrame) {
         for (_, item) in frame.items() {
             match item {
                 FrameItem::Group(group) => self.visit_frame(&group.frame),
@@ -92,7 +99,7 @@ impl<'a> Locator<'a> {
     }
 
     /// Advance past a number of frames.
-    pub fn visit_frames<'b>(&mut self, frames: impl IntoIterator<Item = &'b Frame>) {
+    pub fn visit_frames<'b>(&mut self, frames: impl IntoIterator<Item = &'b TexFrame>) {
         for frame in frames {
             self.visit_frame(frame);
         }

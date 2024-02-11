@@ -1,11 +1,11 @@
 use unicode_math_class::MathClass;
 
 use crate::diag::SourceResult;
-use crate::foundations::{elem, Packed, StyleChain, TexContent};
-use crate::layout::{Abs, Frame, Point, Size};
+use crate::foundations::{elem, StyleChain, TexContent, TexContentRefined};
+use crate::layout::{Point, Size, TexAbsLength, TexFrame};
 use crate::math::{
-    style_for_subscript, style_for_superscript, EquationElem, FrameFragment, LayoutMath,
-    MathContext, MathFragment, MathSize, Scaled,
+    style_for_subscript, style_for_superscript, EquationTexElem, FrameFragment, MathContext,
+    MathFragment, MathSize, Scaled, TexLayoutMath,
 };
 use crate::text::TextElem;
 
@@ -17,8 +17,8 @@ use crate::text::TextElem;
 ///   tl: 1, tr: 2+3, bl: 4+5, br: 6,
 /// ) $
 /// ```
-#[elem(LayoutMath)]
-pub struct AttachElem {
+#[elem(TexLayoutMath)]
+pub struct AttachTexElem {
     /// The base to which things are attached.
     #[required]
     pub base: TexContent,
@@ -49,10 +49,10 @@ pub struct AttachElem {
     pub br: Option<TexContent>,
 }
 
-impl LayoutMath for Packed<AttachElem> {
+impl TexLayoutMath for TexContentRefined<AttachTexElem> {
     #[husky_tex_macros::time(name = "math.attach", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
-        type GetAttachment = fn(&AttachElem, styles: StyleChain) -> Option<TexContent>;
+        type GetAttachment = fn(&AttachTexElem, styles: StyleChain) -> Option<TexContent>;
 
         let layout_attachment =
             |ctx: &mut MathContext, styles: StyleChain, getter: GetAttachment| {
@@ -64,14 +64,14 @@ impl LayoutMath for Packed<AttachElem> {
         let base = ctx.layout_fragment(self.base(), styles)?;
 
         let sup_style = style_for_superscript(styles);
-        let tl = layout_attachment(ctx, styles.chain(&sup_style), AttachElem::tl)?;
-        let tr = layout_attachment(ctx, styles.chain(&sup_style), AttachElem::tr)?;
-        let t = layout_attachment(ctx, styles.chain(&sup_style), AttachElem::t)?;
+        let tl = layout_attachment(ctx, styles.chain(&sup_style), AttachTexElem::tl)?;
+        let tr = layout_attachment(ctx, styles.chain(&sup_style), AttachTexElem::tr)?;
+        let t = layout_attachment(ctx, styles.chain(&sup_style), AttachTexElem::t)?;
 
         let sub_style = style_for_subscript(styles);
-        let bl = layout_attachment(ctx, styles.chain(&sub_style), AttachElem::bl)?;
-        let br = layout_attachment(ctx, styles.chain(&sub_style), AttachElem::br)?;
-        let b = layout_attachment(ctx, styles.chain(&sub_style), AttachElem::b)?;
+        let bl = layout_attachment(ctx, styles.chain(&sub_style), AttachTexElem::bl)?;
+        let br = layout_attachment(ctx, styles.chain(&sub_style), AttachTexElem::br)?;
+        let b = layout_attachment(ctx, styles.chain(&sub_style), AttachTexElem::b)?;
 
         let limits = base.limits().active(styles);
         let (t, tr) = if limits || tr.is_some() {
@@ -98,14 +98,14 @@ impl LayoutMath for Packed<AttachElem> {
 /// This function has dedicated syntax: use apostrophes instead of primes. They
 /// will automatically attach to the previous element, moving superscripts to
 /// the next level.
-#[elem(LayoutMath)]
+#[elem(TexLayoutMath)]
 pub struct PrimesElem {
     /// The number of grouped primes.
     #[required]
     pub count: usize,
 }
 
-impl LayoutMath for Packed<PrimesElem> {
+impl TexLayoutMath for TexContentRefined<PrimesElem> {
     #[husky_tex_macros::time(name = "math.primes", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         match *self.count() {
@@ -126,12 +126,12 @@ impl LayoutMath for Packed<PrimesElem> {
                     .layout_fragment(&TextElem::packed('′'), styles)?
                     .into_frame();
                 let width = prime.width() * (count + 1) as f64 / 2.0;
-                let mut frame = Frame::soft(Size::new(width, prime.height()));
+                let mut frame = TexFrame::soft(Size::new(width, prime.height()));
                 frame.set_baseline(prime.ascent());
 
                 for i in 0..count {
                     frame.push_frame(
-                        Point::new(prime.width() * (i as f64 / 2.0), Abs::zero()),
+                        Point::new(prime.width() * (i as f64 / 2.0), TexAbsLength::zero()),
                         prime.clone(),
                     )
                 }
@@ -147,14 +147,14 @@ impl LayoutMath for Packed<PrimesElem> {
 /// ```example
 /// $ scripts(sum)_1^2 != sum_1^2 $
 /// ```
-#[elem(LayoutMath)]
+#[elem(TexLayoutMath)]
 pub struct ScriptsElem {
     /// The base to attach the scripts to.
     #[required]
     pub body: TexContent,
 }
 
-impl LayoutMath for Packed<ScriptsElem> {
+impl TexLayoutMath for TexContentRefined<ScriptsElem> {
     #[husky_tex_macros::time(name = "math.scripts", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         let mut fragment = ctx.layout_fragment(self.body(), styles)?;
@@ -169,7 +169,7 @@ impl LayoutMath for Packed<ScriptsElem> {
 /// ```example
 /// $ limits(A)_1^2 != A_1^2 $
 /// ```
-#[elem(LayoutMath)]
+#[elem(TexLayoutMath)]
 pub struct LimitsElem {
     /// The base to attach the limits to.
     #[required]
@@ -183,7 +183,7 @@ pub struct LimitsElem {
     pub inline: bool,
 }
 
-impl LayoutMath for Packed<LimitsElem> {
+impl TexLayoutMath for TexContentRefined<LimitsElem> {
     #[husky_tex_macros::time(name = "math.limits", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         let limits = if self.inline(styles) {
@@ -238,7 +238,7 @@ impl Limits {
     pub fn active(&self, styles: StyleChain) -> bool {
         match self {
             Self::Always => true,
-            Self::Display => EquationElem::size_in(styles) == MathSize::Display,
+            Self::Display => EquationTexElem::size_in(styles) == MathSize::Display,
             Self::Never => false,
         }
     }
@@ -260,7 +260,7 @@ fn layout_attachments(
     let (shift_up, shift_down) =
         compute_shifts_up_and_down(ctx, styles, &base, [&tl, &tr, &bl, &br]);
 
-    let sup_delta = Abs::zero();
+    let sup_delta = TexAbsLength::zero();
     let sub_delta = -base.italics_correction();
     let (base_width, base_ascent, base_descent) = (base.width(), base.ascent(), base.descent());
     let base_class = base.class();
@@ -290,7 +290,7 @@ fn layout_attachments(
     ascent.set_max(center_frame.ascent());
     descent.set_max(center_frame.descent());
 
-    let mut frame = Frame::soft(Size::new(
+    let mut frame = TexFrame::soft(Size::new(
         pre_width_max + base_width + post_width_max + scaled!(ctx, styles, space_after_script),
         ascent + descent,
     ));
@@ -305,7 +305,7 @@ fn layout_attachments(
 
     if let Some(tl) = tl {
         let pos = Point::new(
-            -pre_width_dif.min(Abs::zero()),
+            -pre_width_dif.min(TexAbsLength::zero()),
             ascent - shift_up - tl.ascent(),
         );
         frame.push_frame(pos, tl.into_frame());
@@ -313,7 +313,7 @@ fn layout_attachments(
 
     if let Some(bl) = bl {
         let pos = Point::new(
-            pre_width_dif.max(Abs::zero()),
+            pre_width_dif.max(TexAbsLength::zero()),
             ascent + shift_down - bl.ascent(),
         );
         frame.push_frame(pos, bl.into_frame());
@@ -346,13 +346,13 @@ fn attach_top_and_bottom(
     base: MathFragment,
     t: Option<MathFragment>,
     b: Option<MathFragment>,
-) -> (Frame, Abs) {
+) -> (TexFrame, TexAbsLength) {
     let upper_gap_min = scaled!(ctx, styles, upper_limit_gap_min);
     let upper_rise_min = scaled!(ctx, styles, upper_limit_baseline_rise_min);
     let lower_gap_min = scaled!(ctx, styles, lower_limit_gap_min);
     let lower_drop_min = scaled!(ctx, styles, lower_limit_baseline_drop_min);
 
-    let mut base_offset = Abs::zero();
+    let mut base_offset = TexAbsLength::zero();
     let mut width = base.width();
     let mut height = base.height();
 
@@ -372,7 +372,7 @@ fn attach_top_and_bottom(
     let base_pos = Point::new((width - base.width()) / 2.0, base_offset);
     let delta = base.italics_correction() / 2.0;
 
-    let mut frame = Frame::soft(Size::new(width, height));
+    let mut frame = TexFrame::soft(Size::new(width, height));
     frame.set_baseline(base_pos.y + base.ascent());
     frame.push_frame(base_pos, base.into_frame());
 
@@ -394,8 +394,8 @@ fn compute_shifts_up_and_down(
     styles: StyleChain,
     base: &MathFragment,
     [tl, tr, bl, br]: [&Option<MathFragment>; 4],
-) -> (Abs, Abs) {
-    let sup_shift_up = if EquationElem::cramped_in(styles) {
+) -> (TexAbsLength, TexAbsLength) {
+    let sup_shift_up = if EquationTexElem::cramped_in(styles) {
         scaled!(ctx, styles, superscript_shift_up_cramped)
     } else {
         scaled!(ctx, styles, superscript_shift_up)
@@ -409,8 +409,8 @@ fn compute_shifts_up_and_down(
     let sub_top_max = scaled!(ctx, styles, subscript_top_max);
     let sub_drop_min = scaled!(ctx, styles, subscript_baseline_drop_min);
 
-    let mut shift_up = Abs::zero();
-    let mut shift_down = Abs::zero();
+    let mut shift_up = TexAbsLength::zero();
+    let mut shift_down = TexAbsLength::zero();
     let is_text_like = base.is_text_like();
 
     if tl.is_some() || tr.is_some() {
@@ -421,7 +421,7 @@ fn compute_shifts_up_and_down(
         shift_up = shift_up
             .max(sup_shift_up)
             .max(if is_text_like {
-                Abs::zero()
+                TexAbsLength::zero()
             } else {
                 ascent - sup_drop_max
             })
@@ -433,7 +433,7 @@ fn compute_shifts_up_and_down(
         shift_down = shift_down
             .max(sub_shift_down)
             .max(if is_text_like {
-                Abs::zero()
+                TexAbsLength::zero()
             } else {
                 base.descent() + sub_drop_min
             })
@@ -451,7 +451,8 @@ fn compute_shifts_up_and_down(
             }
 
             let increase = gap_min - gap;
-            let sup_only = (sup_bottom_max_with_sub - sup_bottom).clamp(Abs::zero(), increase);
+            let sup_only =
+                (sup_bottom_max_with_sub - sup_bottom).clamp(TexAbsLength::zero(), increase);
             let rest = (increase - sup_only) / 2.0;
             shift_up += sup_only + rest;
             shift_down += rest;

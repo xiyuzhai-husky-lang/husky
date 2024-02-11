@@ -4,15 +4,15 @@ use std::ptr;
 use std::str::FromStr;
 
 use crate::diag::{bail, SourceResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, elem, AutoTexValue, Cast, Fold, Func, IsTexElem, Packed, Resolve, Smart, StyleChain,
-    TexContent, TexDict, TexValue,
+    cast, elem, AutoTexValue, Cast, Fold, Func, IsTexElem, Resolve, Smart, StyleChain, TexContent,
+    TexContentRefined, TexDict, TexValue,
 };
 use crate::introspection::{Counter, CounterKey, ManualPageCounter};
 use crate::layout::{
-    Abs, AlignElem, Axes, ColumnsElem, Frame, HAlignment, LayoutMultiple, Length, Point, Ratio,
-    Regions, Rel, Sides, Size, TexAlignment, TexLayoutDirection, VAlignment,
+    AlignElem, Axes, ColumnsElem, HAlignment, LayoutMultiple, Length, Point, Ratio, Regions, Rel,
+    Sides, Size, TexAbsLength, TexAlignment, TexFrame, TexLayoutDirection, VAlignment,
 };
 
 use crate::model::Numbering;
@@ -334,7 +334,7 @@ pub struct PageElem {
     pub clear_to: Option<Parity>,
 }
 
-impl Packed<PageElem> {
+impl TexContentRefined<PageElem> {
     /// A document can consist of multiple `PageElem`s, one per run of pages
     /// with equal properties (not one per actual output page!). The `number` is
     /// the physical page number of the first page of this run. It is mutated
@@ -344,15 +344,15 @@ impl Packed<PageElem> {
     #[husky_tex_macros::time(name = "page", span = self.span())]
     pub fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         page_counter: &mut ManualPageCounter,
         extend_to: Option<Parity>,
     ) -> SourceResult<Vec<Page>> {
         // When one of the lengths is infinite the page fits its content along
         // that axis.
-        let width = self.width(styles).unwrap_or(Abs::inf());
-        let height = self.height(styles).unwrap_or(Abs::inf());
+        let width = self.width(styles).unwrap_or(TexAbsLength::inf());
+        let height = self.height(styles).unwrap_or(TexAbsLength::inf());
         let mut size = Size::new(width, height);
         if self.flipped(styles) {
             std::mem::swap(&mut size.x, &mut size.y);
@@ -392,7 +392,7 @@ impl Packed<PageElem> {
         }
 
         let area = size - margin.sum_by_axis();
-        let mut regions = Regions::repeat(area, area.map(Abs::is_finite));
+        let mut regions = Regions::repeat(area, area.map(TexAbsLength::is_finite));
         regions.root = true;
 
         // Layout the child.
@@ -402,8 +402,8 @@ impl Packed<PageElem> {
         // Check for page count after adding the pending frames
         if extend_to.is_some_and(|p| !p.matches(page_counter.physical().get() + frames.len())) {
             // Insert empty page after the current pages.
-            let size = area.map(Abs::is_finite).select(area, Size::zero());
-            frames.push(Frame::hard(size));
+            let size = area.map(TexAbsLength::is_finite).select(area, Size::zero());
+            frames.push(TexFrame::hard(size));
         }
 
         let fill = self.fill(styles);
@@ -527,7 +527,7 @@ impl Packed<PageElem> {
 #[derive(Debug, Default, Clone)]
 pub struct Page {
     /// The frame that defines the page.
-    pub frame: Frame,
+    pub frame: TexFrame,
     /// The page's numbering.
     pub numbering: Option<Numbering>,
     /// The logical page number (controlled by `counter(page)` and may thus not
@@ -680,7 +680,11 @@ pub enum Marginal {
 
 impl Marginal {
     /// Resolve the marginal based on the page number.
-    pub fn resolve(&self, engine: &mut Engine, page: usize) -> SourceResult<Cow<'_, TexContent>> {
+    pub fn resolve(
+        &self,
+        engine: &mut TexEngine,
+        page: usize,
+    ) -> SourceResult<Cow<'_, TexContent>> {
         Ok(match self {
             Self::Content(content) => Cow::Borrowed(content),
             Self::Func(func) => Cow::Owned(func.call(engine, [page])?.display()),
@@ -763,13 +767,13 @@ pub struct Paper {
 
 impl Paper {
     /// The width of the paper.
-    pub fn width(self) -> Abs {
-        Abs::mm(self.width.get())
+    pub fn width(self) -> TexAbsLength {
+        TexAbsLength::mm(self.width.get())
     }
 
     /// The height of the paper.
-    pub fn height(self) -> Abs {
-        Abs::mm(self.height.get())
+    pub fn height(self) -> TexAbsLength {
+        TexAbsLength::mm(self.height.get())
     }
 }
 

@@ -1,6 +1,8 @@
 use crate::diag::SourceResult;
-use crate::engine::Engine;
-use crate::foundations::{elem, Behave, Behaviour, Packed, Show, StyleChain, TexContent, TexValue};
+use crate::engine::TexEngine;
+use crate::foundations::{
+    elem, Behave, Behaviour, Show, StyleChain, TexContent, TexContentRefined, TexValue,
+};
 use crate::introspection::Locatable;
 
 /// Exposes a value to the query system without producing visible content.
@@ -30,13 +32,13 @@ pub struct MetadataElem {
     pub value: TexValue,
 }
 
-impl Show for Packed<MetadataElem> {
-    fn show(&self, _: &mut Engine, _styles: StyleChain) -> SourceResult<TexContent> {
+impl Show for TexContentRefined<MetadataElem> {
+    fn show(&self, _: &mut TexEngine, _styles: StyleChain) -> SourceResult<TexContent> {
         Ok(TexContent::empty())
     }
 }
 
-impl Behave for Packed<MetadataElem> {
+impl Behave for TexContentRefined<MetadataElem> {
     fn behaviour(&self) -> Behaviour {
         Behaviour::Invisible
     }

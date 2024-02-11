@@ -12,7 +12,7 @@ use smallvec::SmallVec;
 use crate::diag::{bail, StrResult};
 use crate::foundations::{Label, Repr, Selector, TexContent};
 use crate::introspection::{Location, Meta};
-use crate::layout::{Frame, FrameItem, Page, Point, Position, Transform};
+use crate::layout::{FrameItem, Page, Point, Position, TexFrame, Transform};
 use crate::model::Numbering;
 use crate::util::NonZeroExt;
 
@@ -53,7 +53,7 @@ impl Introspector {
     }
 
     /// Extract metadata from a frame.
-    fn extract(&mut self, frame: &Frame, page: NonZeroUsize, ts: Transform) {
+    fn extract(&mut self, frame: &TexFrame, page: NonZeroUsize, ts: Transform) {
         for (pos, item) in frame.items() {
             match item {
                 FrameItem::Group(group) => {

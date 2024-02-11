@@ -3,14 +3,14 @@ use std::num::NonZeroUsize;
 use ecow::eco_format;
 
 use crate::diag::{bail, At, Hint, HintedStrResult, HintedString, SourceResult, StrResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
     Array, CastInfo, FromTexValue, Func, IntoTexValue, Reflect, Resolve, Smart, StyleChain,
     TexContent, TexValue,
 };
 use crate::layout::{
-    Abs, Axes, Fr, Fragment, Frame, FrameItem, LayoutMultiple, Length, Point, Regions, Rel, Sides,
-    Size, TexAlignment, TexLayoutDirection, TexSizing,
+    Axes, FrameItem, LayoutMultiple, Length, Point, Regions, Rel, Sides, Size, TexAbsLength,
+    TexAlignment, TexFraction, TexFrame, TexLayoutDirection, TexLayoutFragment, TexSizing,
 };
 use crate::syntax::Span;
 use crate::text::TextElem;
@@ -30,7 +30,7 @@ pub enum Celled<T> {
 
 impl<T: Default + Clone + FromTexValue> Celled<T> {
     /// Resolve the value based on the cell position.
-    pub fn resolve(&self, engine: &mut Engine, x: usize, y: usize) -> SourceResult<T> {
+    pub fn resolve(&self, engine: &mut TexEngine, x: usize, y: usize) -> SourceResult<T> {
         Ok(match self {
             Self::Value(value) => value.clone(),
             Self::Func(func) => func.call(engine, [x, y])?.cast().at(func.span())?,
@@ -114,10 +114,10 @@ impl From<TexContent> for Cell {
 impl LayoutMultiple for Cell {
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         self.body.layout(engine, styles, regions)
     }
 }
@@ -210,7 +210,7 @@ impl CellGrid {
         fill: &Celled<Option<TexPaint>>,
         align: &Celled<Smart<TexAlignment>>,
         inset: Sides<Option<Rel<Length>>>,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         span: Span,
     ) -> SourceResult<Self> {
@@ -590,9 +590,9 @@ pub struct GridLayouter<'a> {
     /// The inherited styles.
     styles: StyleChain<'a>,
     /// Resolved column sizes.
-    rcols: Vec<Abs>,
+    rcols: Vec<TexAbsLength>,
     /// The sum of `rcols`.
-    width: Abs,
+    width: TexAbsLength,
     /// Resolve row sizes, by region.
     rrows: Vec<Vec<RowPiece>>,
     /// Rows in the current region.
@@ -600,7 +600,7 @@ pub struct GridLayouter<'a> {
     /// The initial size of the current region before we started subtracting.
     initial: Size,
     /// Frames for finished regions.
-    finished: Vec<Frame>,
+    finished: Vec<TexFrame>,
     /// Whether this is an RTL grid.
     is_rtl: bool,
     /// The span of the grid element.
@@ -611,7 +611,7 @@ pub struct GridLayouter<'a> {
 #[derive(Debug)]
 pub struct RowPiece {
     /// The height of the segment.
-    pub height: Abs,
+    pub height: TexAbsLength,
     /// The index of the row.
     pub y: usize,
 }
@@ -620,9 +620,9 @@ pub struct RowPiece {
 /// fractional rows not yet.
 enum Row {
     /// Finished row frame of auto or relative row with y index.
-    Frame(Frame, usize),
+    Frame(TexFrame, usize),
     /// Fractional row with y index.
-    Fr(Fr, usize),
+    Fr(TexFraction, usize),
 }
 
 impl<'a> GridLayouter<'a> {
@@ -647,8 +647,8 @@ impl<'a> GridLayouter<'a> {
             stroke,
             regions,
             styles,
-            rcols: vec![Abs::zero(); grid.cols.len()],
-            width: Abs::zero(),
+            rcols: vec![TexAbsLength::zero(); grid.cols.len()],
+            width: TexAbsLength::zero(),
             rrows: vec![],
             lrows: vec![],
             initial: regions.size,
@@ -659,7 +659,7 @@ impl<'a> GridLayouter<'a> {
     }
 
     /// Determines the columns sizes and then layouts the grid row-by-row.
-    pub fn layout(mut self, engine: &mut Engine) -> SourceResult<Fragment> {
+    pub fn layout(mut self, engine: &mut TexEngine) -> SourceResult<TexLayoutFragment> {
         self.measure_columns(engine)?;
 
         for y in 0..self.grid.rows.len() {
@@ -682,7 +682,7 @@ impl<'a> GridLayouter<'a> {
     }
 
     /// Add lines and backgrounds.
-    fn render_fills_strokes(mut self) -> SourceResult<Fragment> {
+    fn render_fills_strokes(mut self) -> SourceResult<TexLayoutFragment> {
         let mut finished = std::mem::take(&mut self.finished);
         for (frame, rows) in finished.iter_mut().zip(&self.rrows) {
             if self.rcols.is_empty() || rows.is_empty() {
@@ -724,9 +724,9 @@ impl<'a> GridLayouter<'a> {
 
             // Render cell backgrounds.
             // Reverse with RTL so that later columns start first.
-            let mut dx = Abs::zero();
+            let mut dx = TexAbsLength::zero();
             for (x, &col) in self.rcols.iter().enumerate().rev_if(self.is_rtl) {
-                let mut dy = Abs::zero();
+                let mut dy = TexAbsLength::zero();
                 for row in rows {
                     if let Some(cell) = self.grid.cell(x, row.y) {
                         let fill = cell.fill.clone();
@@ -744,7 +744,7 @@ impl<'a> GridLayouter<'a> {
                             let offset = if self.is_rtl {
                                 -width + col
                             } else {
-                                Abs::zero()
+                                TexAbsLength::zero()
                             };
                             let pos = Point::new(dx + offset, dy);
                             let size = Size::new(width, row.height);
@@ -758,16 +758,16 @@ impl<'a> GridLayouter<'a> {
             }
         }
 
-        Ok(Fragment::frames(finished))
+        Ok(TexLayoutFragment::frames(finished))
     }
 
     /// Determine all column sizes.
-    fn measure_columns(&mut self, engine: &mut Engine) -> SourceResult<()> {
+    fn measure_columns(&mut self, engine: &mut TexEngine) -> SourceResult<()> {
         // Sum of sizes of resolved relative tracks.
-        let mut rel = Abs::zero();
+        let mut rel = TexAbsLength::zero();
 
         // Sum of fractions of all fractional tracks.
-        let mut fr = Fr::zero();
+        let mut fr = TexFraction::zero();
 
         // Resolve the size of all relative columns and compute the sum of all
         // fractional tracks.
@@ -785,14 +785,14 @@ impl<'a> GridLayouter<'a> {
 
         // Size that is not used by fixed-size columns.
         let available = self.regions.size.x - rel;
-        if available >= Abs::zero() {
+        if available >= TexAbsLength::zero() {
             // Determine size of auto columns.
             let (auto, count) = self.measure_auto_columns(engine, available)?;
 
             // If there is remaining space, distribute it to fractional columns,
             // otherwise shrink auto columns.
             let remaining = available - auto;
-            if remaining >= Abs::zero() {
+            if remaining >= TexAbsLength::zero() {
                 self.grow_fractional_columns(remaining, fr);
             } else {
                 self.shrink_auto_columns(available, count);
@@ -807,7 +807,7 @@ impl<'a> GridLayouter<'a> {
 
     /// Total width spanned by the cell (among resolved columns).
     /// Includes spanned gutter columns.
-    fn cell_spanned_width(&self, x: usize, colspan: usize) -> Abs {
+    fn cell_spanned_width(&self, x: usize, colspan: usize) -> TexAbsLength {
         self.rcols
             .iter()
             .skip(x)
@@ -822,10 +822,10 @@ impl<'a> GridLayouter<'a> {
     /// Measure the size that is available to auto columns.
     fn measure_auto_columns(
         &mut self,
-        engine: &mut Engine,
-        available: Abs,
-    ) -> SourceResult<(Abs, usize)> {
-        let mut auto = Abs::zero();
+        engine: &mut TexEngine,
+        available: TexAbsLength,
+    ) -> SourceResult<(TexAbsLength, usize)> {
+        let mut auto = TexAbsLength::zero();
         let mut count = 0;
         let all_frac_cols = self
             .grid
@@ -843,7 +843,7 @@ impl<'a> GridLayouter<'a> {
                 continue;
             }
 
-            let mut resolved = Abs::zero();
+            let mut resolved = TexAbsLength::zero();
             for y in 0..self.grid.rows.len() {
                 // We get the parent cell in case this is a merged position.
                 let Some(Axes {
@@ -932,7 +932,7 @@ impl<'a> GridLayouter<'a> {
     }
 
     /// Distribute remaining space to fractional columns.
-    fn grow_fractional_columns(&mut self, remaining: Abs, fr: Fr) {
+    fn grow_fractional_columns(&mut self, remaining: TexAbsLength, fr: TexFraction) {
         if fr.is_zero() {
             return;
         }
@@ -945,9 +945,9 @@ impl<'a> GridLayouter<'a> {
     }
 
     /// Redistribute space to auto columns so that each gets a fair share.
-    fn shrink_auto_columns(&mut self, available: Abs, count: usize) {
+    fn shrink_auto_columns(&mut self, available: TexAbsLength, count: usize) {
         let mut last;
-        let mut fair = -Abs::inf();
+        let mut fair = -TexAbsLength::inf();
         let mut redistribute = available;
         let mut overlarge = count;
         let mut changed = true;
@@ -979,7 +979,7 @@ impl<'a> GridLayouter<'a> {
 
     /// Layout a row with automatic height. Such a row may break across multiple
     /// regions.
-    fn layout_auto_row(&mut self, engine: &mut Engine, y: usize) -> SourceResult<()> {
+    fn layout_auto_row(&mut self, engine: &mut TexEngine, y: usize) -> SourceResult<()> {
         // Determine the size for each region of the row. If the first region
         // ends up empty for some column, skip the region and remeasure.
         let mut resolved = match self.measure_auto_row(engine, y, true)? {
@@ -1031,11 +1031,11 @@ impl<'a> GridLayouter<'a> {
     /// if `can_skip` is false.
     fn measure_auto_row(
         &mut self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         y: usize,
         can_skip: bool,
-    ) -> SourceResult<Option<Vec<Abs>>> {
-        let mut resolved: Vec<Abs> = vec![];
+    ) -> SourceResult<Option<Vec<TexAbsLength>>> {
+        let mut resolved: Vec<TexAbsLength> = vec![];
 
         for x in 0..self.rcols.len() {
             if let Some(cell) = self.grid.cell(x, y) {
@@ -1070,7 +1070,7 @@ impl<'a> GridLayouter<'a> {
     /// multiple regions, but it may force a region break.
     fn layout_relative_row(
         &mut self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         v: Rel<Length>,
         y: usize,
     ) -> SourceResult<()> {
@@ -1096,15 +1096,15 @@ impl<'a> GridLayouter<'a> {
     /// Layout a row with fixed height and return its frame.
     fn layout_single_row(
         &mut self,
-        engine: &mut Engine,
-        height: Abs,
+        engine: &mut TexEngine,
+        height: TexAbsLength,
         y: usize,
-    ) -> SourceResult<Frame> {
+    ) -> SourceResult<TexFrame> {
         if !height.is_finite() {
             bail!(self.span, "cannot create grid with infinite height");
         }
 
-        let mut output = Frame::soft(Size::new(self.width, height));
+        let mut output = TexFrame::soft(Size::new(self.width, height));
         let mut pos = Point::zero();
 
         // Reverse the column order when using RTL.
@@ -1142,14 +1142,14 @@ impl<'a> GridLayouter<'a> {
     /// Layout a row spanning multiple regions.
     fn layout_multi_row(
         &mut self,
-        engine: &mut Engine,
-        heights: &[Abs],
+        engine: &mut TexEngine,
+        heights: &[TexAbsLength],
         y: usize,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         // Prepare frames.
         let mut outputs: Vec<_> = heights
             .iter()
-            .map(|&h| Frame::soft(Size::new(self.width, h)))
+            .map(|&h| TexFrame::soft(Size::new(self.width, h)))
             .collect();
 
         // Prepare regions.
@@ -1179,20 +1179,20 @@ impl<'a> GridLayouter<'a> {
             pos.x += rcol;
         }
 
-        Ok(Fragment::frames(outputs))
+        Ok(TexLayoutFragment::frames(outputs))
     }
 
     /// Push a row frame into the current region.
-    fn push_row(&mut self, frame: Frame, y: usize) {
+    fn push_row(&mut self, frame: TexFrame, y: usize) {
         self.regions.size.y -= frame.height();
         self.lrows.push(Row::Frame(frame, y));
     }
 
     /// Finish rows for one region.
-    fn finish_region(&mut self, engine: &mut Engine) -> SourceResult<()> {
+    fn finish_region(&mut self, engine: &mut TexEngine) -> SourceResult<()> {
         // Determine the height of existing rows in the region.
-        let mut used = Abs::zero();
-        let mut fr = Fr::zero();
+        let mut used = TexAbsLength::zero();
+        let mut fr = TexFraction::zero();
         for row in &self.lrows {
             match row {
                 Row::Frame(frame, _) => used += frame.height(),
@@ -1208,7 +1208,7 @@ impl<'a> GridLayouter<'a> {
         }
 
         // The frame for the region.
-        let mut output = Frame::soft(size);
+        let mut output = TexFrame::soft(size);
         let mut pos = Point::zero();
         let mut rrows = vec![];
 
@@ -1240,9 +1240,9 @@ impl<'a> GridLayouter<'a> {
 
 /// Turn an iterator of extents into an iterator of offsets before, in between,
 /// and after the extents, e.g. [10mm, 5mm] -> [0mm, 10mm, 15mm].
-fn points(extents: impl IntoIterator<Item = Abs>) -> impl Iterator<Item = Abs> {
-    let mut offset = Abs::zero();
-    std::iter::once(Abs::zero())
+fn points(extents: impl IntoIterator<Item = TexAbsLength>) -> impl Iterator<Item = TexAbsLength> {
+    let mut offset = TexAbsLength::zero();
+    std::iter::once(TexAbsLength::zero())
         .chain(extents)
         .map(move |extent| {
             offset += extent;
@@ -1266,7 +1266,7 @@ fn split_vline(
     x: usize,
     start: usize,
     end: usize,
-) -> impl IntoIterator<Item = (Abs, Abs)> {
+) -> impl IntoIterator<Item = (TexAbsLength, TexAbsLength)> {
     // Each segment of this vline that should be drawn.
     // The last element in the vector below is the currently drawn segment.
     // That is, the last segment will be expanded until interrupted.
@@ -1277,7 +1277,7 @@ fn split_vline(
     let mut interrupted = true;
     // How far down from the first row have we gone so far.
     // Used to determine the positions at which to draw each segment.
-    let mut offset = Abs::zero();
+    let mut offset = TexAbsLength::zero();
 
     // We start drawing at the first suitable row, and keep going down
     // (increasing y) expanding the last segment until we hit a row on top of
@@ -1418,42 +1418,54 @@ mod test {
         let grid = sample_grid(false);
         let rows = &[
             RowPiece {
-                height: Abs::pt(1.0),
+                height: TexAbsLength::pt(1.0),
                 y: 0,
             },
             RowPiece {
-                height: Abs::pt(2.0),
+                height: TexAbsLength::pt(2.0),
                 y: 1,
             },
             RowPiece {
-                height: Abs::pt(4.0),
+                height: TexAbsLength::pt(4.0),
                 y: 2,
             },
             RowPiece {
-                height: Abs::pt(8.0),
+                height: TexAbsLength::pt(8.0),
                 y: 3,
             },
             RowPiece {
-                height: Abs::pt(16.0),
+                height: TexAbsLength::pt(16.0),
                 y: 4,
             },
             RowPiece {
-                height: Abs::pt(32.0),
+                height: TexAbsLength::pt(32.0),
                 y: 5,
             },
         ];
         let expected_vline_splits = &[
-            vec![(Abs::pt(0.), Abs::pt(1. + 2. + 4. + 8. + 16. + 32.))],
-            vec![(Abs::pt(0.), Abs::pt(1. + 2. + 4. + 8. + 16. + 32.))],
+            vec![(
+                TexAbsLength::pt(0.),
+                TexAbsLength::pt(1. + 2. + 4. + 8. + 16. + 32.),
+            )],
+            vec![(
+                TexAbsLength::pt(0.),
+                TexAbsLength::pt(1. + 2. + 4. + 8. + 16. + 32.),
+            )],
             // interrupted a few times by colspans
             vec![
-                (Abs::pt(0.), Abs::pt(1.)),
-                (Abs::pt(1. + 2.), Abs::pt(4.)),
-                (Abs::pt(1. + 2. + 4. + 8. + 16.), Abs::pt(32.)),
+                (TexAbsLength::pt(0.), TexAbsLength::pt(1.)),
+                (TexAbsLength::pt(1. + 2.), TexAbsLength::pt(4.)),
+                (
+                    TexAbsLength::pt(1. + 2. + 4. + 8. + 16.),
+                    TexAbsLength::pt(32.),
+                ),
             ],
             // interrupted every time by colspans
             vec![],
-            vec![(Abs::pt(0.), Abs::pt(1. + 2. + 4. + 8. + 16. + 32.))],
+            vec![(
+                TexAbsLength::pt(0.),
+                TexAbsLength::pt(1. + 2. + 4. + 8. + 16. + 32.),
+            )],
         ];
         for (x, expected_splits) in expected_vline_splits.iter().enumerate() {
             assert_eq!(
@@ -1470,81 +1482,87 @@ mod test {
         let grid = sample_grid(true);
         let rows = &[
             RowPiece {
-                height: Abs::pt(1.0),
+                height: TexAbsLength::pt(1.0),
                 y: 0,
             },
             RowPiece {
-                height: Abs::pt(2.0),
+                height: TexAbsLength::pt(2.0),
                 y: 1,
             },
             RowPiece {
-                height: Abs::pt(4.0),
+                height: TexAbsLength::pt(4.0),
                 y: 2,
             },
             RowPiece {
-                height: Abs::pt(8.0),
+                height: TexAbsLength::pt(8.0),
                 y: 3,
             },
             RowPiece {
-                height: Abs::pt(16.0),
+                height: TexAbsLength::pt(16.0),
                 y: 4,
             },
             RowPiece {
-                height: Abs::pt(32.0),
+                height: TexAbsLength::pt(32.0),
                 y: 5,
             },
             RowPiece {
-                height: Abs::pt(64.0),
+                height: TexAbsLength::pt(64.0),
                 y: 6,
             },
             RowPiece {
-                height: Abs::pt(128.0),
+                height: TexAbsLength::pt(128.0),
                 y: 7,
             },
             RowPiece {
-                height: Abs::pt(256.0),
+                height: TexAbsLength::pt(256.0),
                 y: 8,
             },
             RowPiece {
-                height: Abs::pt(512.0),
+                height: TexAbsLength::pt(512.0),
                 y: 9,
             },
             RowPiece {
-                height: Abs::pt(1024.0),
+                height: TexAbsLength::pt(1024.0),
                 y: 10,
             },
         ];
         let expected_vline_splits = &[
             // left border
             vec![(
-                Abs::pt(0.),
-                Abs::pt(1. + 2. + 4. + 8. + 16. + 32. + 64. + 128. + 256. + 512. + 1024.),
+                TexAbsLength::pt(0.),
+                TexAbsLength::pt(1. + 2. + 4. + 8. + 16. + 32. + 64. + 128. + 256. + 512. + 1024.),
             )],
             // gutter line below
             vec![(
-                Abs::pt(0.),
-                Abs::pt(1. + 2. + 4. + 8. + 16. + 32. + 64. + 128. + 256. + 512. + 1024.),
+                TexAbsLength::pt(0.),
+                TexAbsLength::pt(1. + 2. + 4. + 8. + 16. + 32. + 64. + 128. + 256. + 512. + 1024.),
             )],
             vec![(
-                Abs::pt(0.),
-                Abs::pt(1. + 2. + 4. + 8. + 16. + 32. + 64. + 128. + 256. + 512. + 1024.),
+                TexAbsLength::pt(0.),
+                TexAbsLength::pt(1. + 2. + 4. + 8. + 16. + 32. + 64. + 128. + 256. + 512. + 1024.),
             )],
             // gutter line below
             // the two lines below are interrupted multiple times by colspans
             vec![
-                (Abs::pt(0.), Abs::pt(1. + 2.)),
-                (Abs::pt(1. + 2. + 4.), Abs::pt(8. + 16. + 32.)),
+                (TexAbsLength::pt(0.), TexAbsLength::pt(1. + 2.)),
                 (
-                    Abs::pt(1. + 2. + 4. + 8. + 16. + 32. + 64. + 128. + 256.),
-                    Abs::pt(512. + 1024.),
+                    TexAbsLength::pt(1. + 2. + 4.),
+                    TexAbsLength::pt(8. + 16. + 32.),
+                ),
+                (
+                    TexAbsLength::pt(1. + 2. + 4. + 8. + 16. + 32. + 64. + 128. + 256.),
+                    TexAbsLength::pt(512. + 1024.),
                 ),
             ],
             vec![
-                (Abs::pt(0.), Abs::pt(1. + 2.)),
-                (Abs::pt(1. + 2. + 4.), Abs::pt(8. + 16. + 32.)),
+                (TexAbsLength::pt(0.), TexAbsLength::pt(1. + 2.)),
                 (
-                    Abs::pt(1. + 2. + 4. + 8. + 16. + 32. + 64. + 128. + 256.),
-                    Abs::pt(512. + 1024.),
+                    TexAbsLength::pt(1. + 2. + 4.),
+                    TexAbsLength::pt(8. + 16. + 32.),
+                ),
+                (
+                    TexAbsLength::pt(1. + 2. + 4. + 8. + 16. + 32. + 64. + 128. + 256.),
+                    TexAbsLength::pt(512. + 1024.),
                 ),
             ],
             // gutter line below
@@ -1552,27 +1570,33 @@ mod test {
             // all non-gutter cells in the following column are merged with
             // cells from the previous column.
             vec![
-                (Abs::pt(1.), Abs::pt(2.)),
-                (Abs::pt(1. + 2. + 4.), Abs::pt(8.)),
-                (Abs::pt(1. + 2. + 4. + 8. + 16.), Abs::pt(32.)),
+                (TexAbsLength::pt(1.), TexAbsLength::pt(2.)),
+                (TexAbsLength::pt(1. + 2. + 4.), TexAbsLength::pt(8.)),
                 (
-                    Abs::pt(1. + 2. + 4. + 8. + 16. + 32. + 64. + 128. + 256.),
-                    Abs::pt(512.),
+                    TexAbsLength::pt(1. + 2. + 4. + 8. + 16.),
+                    TexAbsLength::pt(32.),
+                ),
+                (
+                    TexAbsLength::pt(1. + 2. + 4. + 8. + 16. + 32. + 64. + 128. + 256.),
+                    TexAbsLength::pt(512.),
                 ),
             ],
             vec![
-                (Abs::pt(1.), Abs::pt(2.)),
-                (Abs::pt(1. + 2. + 4.), Abs::pt(8.)),
-                (Abs::pt(1. + 2. + 4. + 8. + 16.), Abs::pt(32.)),
+                (TexAbsLength::pt(1.), TexAbsLength::pt(2.)),
+                (TexAbsLength::pt(1. + 2. + 4.), TexAbsLength::pt(8.)),
                 (
-                    Abs::pt(1. + 2. + 4. + 8. + 16. + 32. + 64. + 128. + 256.),
-                    Abs::pt(512.),
+                    TexAbsLength::pt(1. + 2. + 4. + 8. + 16.),
+                    TexAbsLength::pt(32.),
+                ),
+                (
+                    TexAbsLength::pt(1. + 2. + 4. + 8. + 16. + 32. + 64. + 128. + 256.),
+                    TexAbsLength::pt(512.),
                 ),
             ],
             // right border
             vec![(
-                Abs::pt(0.),
-                Abs::pt(1. + 2. + 4. + 8. + 16. + 32. + 64. + 128. + 256. + 512. + 1024.),
+                TexAbsLength::pt(0.),
+                TexAbsLength::pt(1. + 2. + 4. + 8. + 16. + 32. + 64. + 128. + 256. + 512. + 1024.),
             )],
         ];
         for (x, expected_splits) in expected_vline_splits.iter().enumerate() {

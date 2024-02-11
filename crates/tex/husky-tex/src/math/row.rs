@@ -3,16 +3,18 @@ use std::iter::once;
 use unicode_math_class::MathClass;
 
 use crate::foundations::{Resolve, StyleChain};
-use crate::layout::{Abs, AlignElem, FixedAlignment, Frame, FrameKind, LengthInEm, Point, Size};
+use crate::layout::{
+    AlignElem, FixedAlignment, FrameKind, Point, Size, TexAbsLength, TexEmLength, TexFrame,
+};
 use crate::math::{
-    alignments, scaled_font_size, spacing, AlignmentResult, EquationElem, FrameFragment,
-    MathContext, MathFragment, MathParItem, MathSize,
+    alignments, scaled_font_size, spacing, EquationTexElem, FrameFragment, MathContext,
+    MathFragment, MathParItem, MathSize, TexAlignmentResult,
 };
 use crate::model::ParagraphTexElem;
 
 use super::fragment::SpacingFragment;
 
-pub const TIGHT_LEADING: LengthInEm = LengthInEm::new(0.25);
+pub const TIGHT_LEADING: TexEmLength = TexEmLength::new(0.25);
 
 #[derive(Debug, Default, Clone)]
 pub struct MathRow(Vec<MathFragment>);
@@ -121,14 +123,14 @@ impl MathRow {
         count
     }
 
-    pub fn ascent(&self) -> Abs {
+    pub fn ascent(&self) -> TexAbsLength {
         self.iter()
             .map(MathFragment::ascent)
             .max()
             .unwrap_or_default()
     }
 
-    pub fn descent(&self) -> Abs {
+    pub fn descent(&self) -> TexAbsLength {
         self.iter()
             .map(MathFragment::descent)
             .max()
@@ -149,7 +151,7 @@ impl MathRow {
         }
     }
 
-    pub fn into_frame(self, ctx: &MathContext, styles: StyleChain) -> Frame {
+    pub fn into_frame(self, ctx: &MathContext, styles: StyleChain) -> TexFrame {
         let align = AlignElem::alignment_in(styles).resolve(styles).x;
         self.into_aligned_frame(ctx, styles, &[], align)
     }
@@ -166,9 +168,9 @@ impl MathRow {
         self,
         ctx: &MathContext,
         styles: StyleChain,
-        points: &[Abs],
+        points: &[TexAbsLength],
         align: FixedAlignment,
-    ) -> Frame {
+    ) -> TexFrame {
         if !self
             .iter()
             .any(|frag| matches!(frag, MathFragment::Linebreak))
@@ -176,7 +178,7 @@ impl MathRow {
             return self.into_line_frame(points, align);
         }
 
-        let leading = if EquationElem::size_in(styles) >= MathSize::Text {
+        let leading = if EquationTexElem::size_in(styles) >= MathSize::Text {
             ParagraphTexElem::leading_in(styles)
         } else {
             let font_size = scaled_font_size(ctx, styles);
@@ -189,8 +191,8 @@ impl MathRow {
             rows.pop();
         }
 
-        let AlignmentResult { points, width } = alignments(&rows);
-        let mut frame = Frame::soft(Size::zero());
+        let TexAlignmentResult { points, width } = alignments(&rows);
+        let mut frame = TexFrame::soft(Size::zero());
 
         for (i, row) in rows.into_iter().enumerate() {
             let sub = row.into_line_frame(&points, align);
@@ -211,19 +213,19 @@ impl MathRow {
         frame
     }
 
-    fn into_line_frame(self, points: &[Abs], align: FixedAlignment) -> Frame {
+    fn into_line_frame(self, points: &[TexAbsLength], align: FixedAlignment) -> TexFrame {
         let ascent = self.ascent();
-        let mut frame = Frame::soft(Size::new(Abs::zero(), ascent + self.descent()));
+        let mut frame = TexFrame::soft(Size::new(TexAbsLength::zero(), ascent + self.descent()));
         frame.set_baseline(ascent);
 
         let mut next_x = {
             let mut widths = Vec::new();
             if !points.is_empty() && align != FixedAlignment::Start {
-                let mut width = Abs::zero();
+                let mut width = TexAbsLength::zero();
                 for fragment in self.iter() {
                     if matches!(fragment, MathFragment::Align) {
                         widths.push(width);
-                        width = Abs::zero();
+                        width = TexAbsLength::zero();
                     } else {
                         width += fragment.width();
                     }
@@ -232,7 +234,7 @@ impl MathRow {
             }
             let widths = widths;
 
-            let mut prev_points = once(Abs::zero()).chain(points.iter().copied());
+            let mut prev_points = once(TexAbsLength::zero()).chain(points.iter().copied());
             let mut point_widths = points.iter().copied().zip(widths);
             let mut alternator = LeftRightAlternator::Right;
             move || match align {
@@ -271,15 +273,15 @@ impl MathRow {
     pub fn into_par_items(self) -> Vec<MathParItem> {
         let mut items = vec![];
 
-        let mut x = Abs::zero();
-        let mut ascent = Abs::zero();
-        let mut descent = Abs::zero();
-        let mut frame = Frame::new(Size::zero(), FrameKind::Soft);
+        let mut x = TexAbsLength::zero();
+        let mut ascent = TexAbsLength::zero();
+        let mut descent = TexAbsLength::zero();
+        let mut frame = TexFrame::new(Size::zero(), FrameKind::Soft);
         let mut empty = true;
 
-        let finalize_frame = |frame: &mut Frame, x, ascent, descent| {
+        let finalize_frame = |frame: &mut TexFrame, x, ascent, descent| {
             frame.set_size(Size::new(x, ascent + descent));
-            frame.set_baseline(Abs::zero());
+            frame.set_baseline(TexAbsLength::zero());
             frame.translate(Point::with_y(ascent));
         };
 
@@ -318,20 +320,20 @@ impl MathRow {
                     && !iter.peek().map(is_relation).unwrap_or_default())
             {
                 let mut frame_prev =
-                    std::mem::replace(&mut frame, Frame::new(Size::zero(), FrameKind::Soft));
+                    std::mem::replace(&mut frame, TexFrame::new(Size::zero(), FrameKind::Soft));
 
                 finalize_frame(&mut frame_prev, x, ascent, descent);
                 items.push(MathParItem::Frame(frame_prev));
                 empty = true;
 
-                x = Abs::zero();
-                ascent = Abs::zero();
-                descent = Abs::zero();
+                x = TexAbsLength::zero();
+                ascent = TexAbsLength::zero();
+                descent = TexAbsLength::zero();
 
                 space_is_visible = true;
                 if let Some(f_next) = iter.peek() {
                     if !is_space(f_next) {
-                        items.push(MathParItem::Space(Abs::zero()));
+                        items.push(MathParItem::Space(TexAbsLength::zero()));
                     }
                 }
             } else {

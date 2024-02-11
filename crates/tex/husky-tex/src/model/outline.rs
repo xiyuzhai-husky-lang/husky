@@ -2,13 +2,13 @@ use std::num::NonZeroUsize;
 use std::str::FromStr;
 
 use crate::diag::{bail, At, SourceResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, elem, scope, select_where, Func, IsTexElem, LocatableSelector, Packed, Show, ShowSet,
-    Smart, StyleChain, Styles, TexContent,
+    cast, elem, scope, select_where, Func, IsTexElem, LocatableSelector, Show, ShowSet, Smart,
+    StyleChain, Styles, TexContent, TexContentRefined,
 };
 use crate::introspection::{Counter, CounterKey, Locatable};
-use crate::layout::{BoxElem, Fr, HElem, HideElem, Length, Rel, RepeatElem, Spacing};
+use crate::layout::{BoxTexElem, HElem, HideElem, Length, Rel, RepeatElem, Spacing, TexFraction};
 use crate::model::{HeadingTexElem, NumberingPattern, ParbreakElem, Refable, TexDestination};
 use crate::syntax::Span;
 use crate::text::{Lang, LinebreakElem, LocalName, Region, SpaceElem, TextElem};
@@ -185,9 +185,9 @@ impl OutlineElem {
     type OutlineEntry;
 }
 
-impl Show for Packed<OutlineElem> {
+impl Show for TexContentRefined<OutlineElem> {
     #[husky_tex_macros::time(name = "outline", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         let mut seq = vec![ParbreakElem::new().pack()];
         // Build the outline title.
         if let Some(title) = self.title(styles) {
@@ -252,7 +252,7 @@ impl Show for Packed<OutlineElem> {
     }
 }
 
-impl ShowSet for Packed<OutlineElem> {
+impl ShowSet for TexContentRefined<OutlineElem> {
     fn show_set(&self, _: StyleChain) -> Styles {
         let mut out = Styles::new();
         out.set(HeadingTexElem::set_outlined(false));
@@ -261,7 +261,7 @@ impl ShowSet for Packed<OutlineElem> {
     }
 }
 
-impl LocalName for Packed<OutlineElem> {
+impl LocalName for TexContentRefined<OutlineElem> {
     fn local_name(lang: Lang, region: Option<Region>) -> &'static str {
         match lang {
             Lang::ALBANIAN => "Përmbajtja",
@@ -304,7 +304,7 @@ impl LocalName for Packed<OutlineElem> {
 /// `#outline()` element.
 pub trait Outlinable: Refable {
     /// Produce an outline item for this element.
-    fn outline(&self, engine: &mut Engine) -> SourceResult<Option<TexContent>>;
+    fn outline(&self, engine: &mut TexEngine) -> SourceResult<Option<TexContent>>;
 
     /// Returns the nesting level of this element.
     fn level(&self) -> NonZeroUsize {
@@ -323,7 +323,7 @@ pub enum OutlineIndent {
 impl OutlineIndent {
     fn apply(
         indent: &Option<Smart<Self>>,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         ancestors: &Vec<&TexContent>,
         seq: &mut Vec<TexContent>,
         span: Span,
@@ -468,7 +468,7 @@ impl OutlineEntry {
     /// be outlined (e.g. heading with 'outlined: false'), does not generate an
     /// entry instance (returns `Ok(None)`).
     fn from_outlinable(
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         span: Span,
         elem: TexContent,
         fill: Option<TexContent>,
@@ -496,9 +496,9 @@ impl OutlineEntry {
     }
 }
 
-impl Show for Packed<OutlineEntry> {
+impl Show for TexContentRefined<OutlineEntry> {
     #[husky_tex_macros::time(name = "outline.entry", span = self.span())]
-    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, _: &mut TexEngine, _: StyleChain) -> SourceResult<TexContent> {
         let mut seq = vec![];
         let elem = self.element();
 
@@ -525,15 +525,15 @@ impl Show for Packed<OutlineEntry> {
         if let Some(filler) = self.fill() {
             seq.push(SpaceElem::new().pack());
             seq.push(
-                BoxElem::new()
+                BoxTexElem::new()
                     .with_body(Some(filler.clone()))
-                    .with_width(Fr::one().into())
+                    .with_width(TexFraction::one().into())
                     .pack()
                     .spanned(self.span()),
             );
             seq.push(SpaceElem::new().pack());
         } else {
-            seq.push(HElem::new(Fr::one().into()).pack());
+            seq.push(HElem::new(TexFraction::one().into()).pack());
         }
 
         // Add the page number.

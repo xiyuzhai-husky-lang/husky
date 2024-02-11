@@ -1,11 +1,11 @@
 use ecow::EcoString;
 
 use crate::diag::{format_xml_like_error, At, FileError, SourceResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{dict, func, scope, Array, IntoTexValue, Str, TexDict, TexValue};
 use crate::loading::Readable;
 use crate::syntax::Spanned;
-use crate::World;
+use crate::IsTexWorld;
 
 /// Reads structured data from an XML file.
 ///
@@ -58,7 +58,7 @@ use crate::World;
 #[func(scope, title = "XML")]
 pub fn xml(
     /// The engine.
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     /// Path to an XML file.
     path: Spanned<EcoString>,
 ) -> SourceResult<TexValue> {

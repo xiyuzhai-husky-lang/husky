@@ -1,11 +1,11 @@
 use std::num::NonZeroUsize;
 
 use crate::diag::SourceResult;
-use crate::engine::Engine;
-use crate::foundations::{elem, Behave, Behaviour, Packed, StyleChain, TexContent};
+use crate::engine::TexEngine;
+use crate::foundations::{elem, Behave, Behaviour, StyleChain, TexContent, TexContentRefined};
 use crate::layout::{
-    Abs, Axes, Fragment, Frame, LayoutMultiple, Length, Point, Ratio, Regions, Rel, Size,
-    TexLayoutDirection,
+    Axes, LayoutMultiple, Length, Point, Ratio, Regions, Rel, Size, TexAbsLength, TexFrame,
+    TexLayoutDirection, TexLayoutFragment,
 };
 use crate::text::TextElem;
 use crate::util::Numeric;
@@ -58,14 +58,14 @@ pub struct ColumnsElem {
     pub body: TexContent,
 }
 
-impl LayoutMultiple for Packed<ColumnsElem> {
+impl LayoutMultiple for TexContentRefined<ColumnsElem> {
     #[husky_tex_macros::time(name = "columns", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         let body = self.body();
 
         // Separating the infinite space into infinite columns does not make
@@ -111,10 +111,10 @@ impl LayoutMultiple for Packed<ColumnsElem> {
             let height = if regions.expand.y {
                 region.y
             } else {
-                Abs::zero()
+                TexAbsLength::zero()
             };
-            let mut output = Frame::hard(Size::new(regions.size.x, height));
-            let mut cursor = Abs::zero();
+            let mut output = TexFrame::hard(Size::new(regions.size.x, height));
+            let mut cursor = TexAbsLength::zero();
 
             for _ in 0..columns {
                 let Some(frame) = frames.next() else { break };
@@ -136,7 +136,7 @@ impl LayoutMultiple for Packed<ColumnsElem> {
             finished.push(output);
         }
 
-        Ok(Fragment::frames(finished))
+        Ok(TexLayoutFragment::frames(finished))
     }
 }
 
@@ -171,7 +171,7 @@ pub struct ColbreakElem {
     pub weak: bool,
 }
 
-impl Behave for Packed<ColbreakElem> {
+impl Behave for TexContentRefined<ColbreakElem> {
     fn behaviour(&self) -> Behaviour {
         if self.weak(StyleChain::default()) {
             Behaviour::Weak(1)

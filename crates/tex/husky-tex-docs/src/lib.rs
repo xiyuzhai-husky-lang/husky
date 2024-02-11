@@ -19,7 +19,7 @@ use husky_tex::foundations::{
     CastInfo, Category, Func, Module, ParamInfo, Repr, Scope, Smart, TexValue, Type, FOUNDATIONS,
 };
 use husky_tex::introspection::INTROSPECTION;
-use husky_tex::layout::{Abs, Margin, PageElem, LAYOUT};
+use husky_tex::layout::{Margin, PageElem, TexAbsLength, LAYOUT};
 use husky_tex::loading::DATA_LOADING;
 use husky_tex::math::MATH;
 use husky_tex::model::TexDocument;
@@ -56,12 +56,13 @@ static GROUPS: Lazy<Vec<GroupData>> = Lazy::new(|| {
 
 static LIBRARY: Lazy<Prehashed<Library>> = Lazy::new(|| {
     let mut lib = Library::default();
-    lib.styles
-        .set(PageElem::set_width(Smart::Custom(Abs::pt(240.0).into())));
+    lib.styles.set(PageElem::set_width(Smart::Custom(
+        TexAbsLength::pt(240.0).into(),
+    )));
     lib.styles.set(PageElem::set_height(Smart::Auto));
     lib.styles
         .set(PageElem::set_margin(Margin::splat(Some(Smart::Custom(
-            Abs::pt(15.0).into(),
+            TexAbsLength::pt(15.0).into(),
         )))));
     Prehashed::new(lib)
 });

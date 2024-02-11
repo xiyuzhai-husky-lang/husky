@@ -1,13 +1,13 @@
 use ecow::eco_format;
 
 use crate::diag::{bail, At, Hint, SourceResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, elem, Func, IntoTexValue, IsTexElem, Label, Packed, Show, Smart, StyleChain, Synthesize,
-    TexContent,
+    cast, elem, Func, IntoTexValue, IsTexElem, Label, Show, Smart, StyleChain, Synthesize,
+    TexContent, TexContentRefined,
 };
 use crate::introspection::{Counter, Locatable};
-use crate::math::EquationElem;
+use crate::math::EquationTexElem;
 use crate::model::{
     BibliographyElem, CiteTexElem, Figurable, FootnoteTexElem, Numbering, TexDestination,
 };
@@ -129,15 +129,15 @@ pub struct RefElem {
 
     /// A synthesized citation.
     #[synthesized]
-    pub citation: Option<Packed<CiteTexElem>>,
+    pub citation: Option<TexContentRefined<CiteTexElem>>,
 
     /// The referenced element.
     #[synthesized]
     pub element: Option<TexContent>,
 }
 
-impl Synthesize for Packed<RefElem> {
-    fn synthesize(&mut self, engine: &mut Engine, styles: StyleChain) -> SourceResult<()> {
+impl Synthesize for TexContentRefined<RefElem> {
+    fn synthesize(&mut self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<()> {
         let citation = to_citation(self, engine, styles)?;
 
         let elem = self.as_mut();
@@ -156,9 +156,9 @@ impl Synthesize for Packed<RefElem> {
     }
 }
 
-impl Show for Packed<RefElem> {
+impl Show for TexContentRefined<RefElem> {
     #[husky_tex_macros::time(name = "ref", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         let target = *self.target();
         let elem = engine.introspector.query_label(target);
         let span = self.span();
@@ -198,7 +198,7 @@ impl Show for Packed<RefElem> {
             .hint(eco_format!(
                 "you can enable {} numbering with `#set {}(numbering: \"1.\")`",
                 elem.func().name(),
-                if elem.func() == EquationElem::elem() {
+                if elem.func() == EquationTexElem::elem() {
                     "math.equation"
                 } else {
                     elem.func().name()
@@ -229,11 +229,11 @@ impl Show for Packed<RefElem> {
 
 /// Turn a reference into a citation.
 fn to_citation(
-    reference: &Packed<RefElem>,
-    engine: &mut Engine,
+    reference: &TexContentRefined<RefElem>,
+    engine: &mut TexEngine,
     styles: StyleChain,
-) -> SourceResult<Packed<CiteTexElem>> {
-    let mut elem = Packed::new(CiteTexElem::new(*reference.target()).with_supplement(
+) -> SourceResult<TexContentRefined<CiteTexElem>> {
+    let mut elem = TexContentRefined::new(CiteTexElem::new(*reference.target()).with_supplement(
         match reference.supplement(styles).clone() {
             Smart::Custom(Some(Supplement::Content(content))) => Some(content),
             _ => None,
@@ -260,7 +260,7 @@ impl Supplement {
     /// Tries to resolve the supplement into its content.
     pub fn resolve<T: IntoTexValue>(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         args: impl IntoIterator<Item = T>,
     ) -> SourceResult<TexContent> {
         Ok(match self {

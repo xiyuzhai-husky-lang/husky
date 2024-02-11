@@ -1,10 +1,10 @@
 use ecow::{eco_format, EcoString};
 
 use crate::diag::{At, SourceResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{func, scope, Bytes, TexValue};
 use crate::syntax::Spanned;
-use crate::World;
+use crate::IsTexWorld;
 
 /// Reads structured data from a CBOR file.
 ///
@@ -17,7 +17,7 @@ use crate::World;
 #[func(scope, title = "CBOR")]
 pub fn cbor(
     /// The engine.
-    engine: &mut Engine,
+    engine: &mut TexEngine,
     /// Path to a CBOR file.
     path: Spanned<EcoString>,
 ) -> SourceResult<TexValue> {

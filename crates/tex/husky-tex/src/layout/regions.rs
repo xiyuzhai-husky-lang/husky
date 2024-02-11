@@ -1,6 +1,6 @@
 use std::fmt::{self, Debug, Formatter};
 
-use crate::layout::{Abs, Axes, Size};
+use crate::layout::{Axes, Size, TexAbsLength};
 
 /// A sequence of regions to layout into.
 #[derive(Copy, Clone, Hash)]
@@ -8,12 +8,12 @@ pub struct Regions<'a> {
     /// The remaining size of the first region.
     pub size: Size,
     /// The full height of the region for relative sizing.
-    pub full: Abs,
+    pub full: TexAbsLength,
     /// The height of followup regions. The width is the same for all regions.
-    pub backlog: &'a [Abs],
+    pub backlog: &'a [TexAbsLength],
     /// The height of the final region that is repeated once the backlog is
     /// drained. The width is the same for all regions.
-    pub last: Option<Abs>,
+    pub last: Option<TexAbsLength>,
     /// Whether elements should expand to fill the regions instead of shrinking
     /// to fit the content.
     pub expand: Axes<bool>,
@@ -61,7 +61,7 @@ impl Regions<'_> {
     ///
     /// Note that since all regions must have the same width, the width returned
     /// by `f` is ignored for the backlog and the final region.
-    pub fn map<'v, F>(&self, backlog: &'v mut Vec<Abs>, mut f: F) -> Regions<'v>
+    pub fn map<'v, F>(&self, backlog: &'v mut Vec<TexAbsLength>, mut f: F) -> Regions<'v>
     where
         F: FnMut(Size) -> Size,
     {
@@ -80,7 +80,7 @@ impl Regions<'_> {
 
     /// Whether the first region is full and a region break is called for.
     pub fn is_full(&self) -> bool {
-        Abs::zero().fits(self.size.y) && !self.in_last()
+        TexAbsLength::zero().fits(self.size.y) && !self.in_last()
     }
 
     /// Whether the first region is the last usable region.

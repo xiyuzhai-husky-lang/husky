@@ -3,7 +3,7 @@ use ecow::eco_format;
 use crate::diag::{At, SourceResult};
 use crate::eval::{Eval, Vm};
 use crate::foundations::{IsTexElem, TexContent, TexValue};
-use crate::math::{AlignPointElem, AttachElem, FracElem, LrElem, PrimesElem, RootElem};
+use crate::math::{AttachTexElem, FracElem, LrElem, PrimesElem, RootElem, TexAlignPointElem};
 use crate::syntax::ast::{self, TexAstNode};
 use crate::text::TextElem;
 
@@ -30,7 +30,7 @@ impl Eval for ast::MathAlignPoint<'_> {
     type Output = TexContent;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
-        Ok(AlignPointElem::new().pack())
+        Ok(TexAlignPointElem::new().pack())
     }
 }
 
@@ -50,7 +50,7 @@ impl Eval for ast::MathAttach<'_> {
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let base = self.base().eval_display(vm)?;
-        let mut elem = AttachElem::new(base);
+        let mut elem = AttachTexElem::new(base);
 
         if let Some(expr) = self.top() {
             elem.push_t(Some(expr.eval_display(vm)?));

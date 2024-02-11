@@ -2,15 +2,15 @@ use comemo::{Tracked, TrackedMut};
 use ecow::{eco_format, eco_vec, EcoString, EcoVec};
 
 use crate::diag::SourceResult;
-use crate::engine::{Engine, Route};
+use crate::engine::{Route, TexEngine};
 use crate::eval::Tracer;
 use crate::foundations::{
-    cast, elem, func, scope, select_where, ty, Func, IsTexElem, Packed, Repr, Selector, Show, Str,
-    StyleChain, TexContent, TexValue,
+    cast, elem, func, scope, select_where, ty, Func, IsTexElem, Repr, Selector, Show, Str,
+    StyleChain, TexContent, TexContentRefined, TexValue,
 };
 use crate::introspection::{Introspector, Locatable, Location, Locator};
 use crate::syntax::Span;
-use crate::World;
+use crate::IsTexWorld;
 
 /// Manages stateful parts of your document.
 ///
@@ -205,7 +205,7 @@ impl State {
     ///
     /// This has to happen just once for all states, cutting down the number
     /// of state updates from quadratic to linear.
-    fn sequence(&self, engine: &mut Engine) -> SourceResult<EcoVec<TexValue>> {
+    fn sequence(&self, engine: &mut TexEngine) -> SourceResult<EcoVec<TexValue>> {
         self.sequence_impl(
             engine.world,
             engine.introspector,
@@ -219,14 +219,14 @@ impl State {
     #[comemo::memoize]
     fn sequence_impl(
         &self,
-        world: Tracked<dyn World + '_>,
+        world: Tracked<dyn IsTexWorld + '_>,
         introspector: Tracked<Introspector>,
         route: Tracked<Route>,
         locator: Tracked<Locator>,
         tracer: TrackedMut<Tracer>,
     ) -> SourceResult<EcoVec<TexValue>> {
         let mut locator = Locator::chained(locator);
-        let mut engine = Engine {
+        let mut engine = TexEngine {
             world,
             introspector,
             route: Route::extend(route).unnested(),
@@ -309,7 +309,7 @@ impl State {
     pub fn at(
         &self,
         /// The engine.
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// The location at which the state's value should be retrieved. A
         /// suitable location can be retrieved from [`locate`]($locate) or
         /// [`query`]($query).
@@ -328,7 +328,7 @@ impl State {
     pub fn final_(
         &self,
         /// The engine.
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         /// Can be an arbitrary location, as its value is irrelevant for the
         /// method's return value. Why is it required then? As noted before,
         /// Tex has to evaluate parts of your code multiple times to determine
@@ -385,9 +385,9 @@ struct DisplayElem {
     func: Option<Func>,
 }
 
-impl Show for Packed<DisplayElem> {
+impl Show for TexContentRefined<DisplayElem> {
     #[husky_tex_macros::time(name = "state.display", span = self.span())]
-    fn show(&self, engine: &mut Engine, _: StyleChain) -> SourceResult<TexContent> {
+    fn show(&self, engine: &mut TexEngine, _: StyleChain) -> SourceResult<TexContent> {
         let location = self.location().unwrap();
         let value = self.state().at(engine, location)?;
         Ok(match self.func() {
@@ -409,8 +409,8 @@ struct UpdateElem {
     update: StateUpdate,
 }
 
-impl Show for Packed<UpdateElem> {
-    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<TexContent> {
+impl Show for TexContentRefined<UpdateElem> {
+    fn show(&self, _: &mut TexEngine, _: StyleChain) -> SourceResult<TexContent> {
         Ok(TexContent::empty())
     }
 }

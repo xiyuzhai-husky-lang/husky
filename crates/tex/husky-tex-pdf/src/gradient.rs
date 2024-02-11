@@ -2,7 +2,7 @@ use std::f32::consts::{PI, TAU};
 use std::sync::Arc;
 
 use ecow::eco_format;
-use husky_tex::layout::{Abs, Angle, Point, Quadrant, Ratio, Transform};
+use husky_tex::layout::{Angle, Point, Quadrant, Ratio, TexAbsLength, Transform};
 use husky_tex::util::Numeric;
 use husky_tex::visualize::{
     ColorSpace, Gradient, RatioOrAngle, RelativeTo, TexColor, WeightedColor,
@@ -255,11 +255,11 @@ fn register_gradient(
 ) -> usize {
     // Edge cases for strokes.
     if transforms.size.x.is_zero() {
-        transforms.size.x = Abs::pt(1.0);
+        transforms.size.x = TexAbsLength::pt(1.0);
     }
 
     if transforms.size.y.is_zero() {
-        transforms.size.y = Abs::pt(1.0);
+        transforms.size.y = TexAbsLength::pt(1.0);
     }
     let size = match gradient.unwrap_relative(on_text) {
         RelativeTo::Self_ => transforms.size,
@@ -271,7 +271,7 @@ fn register_gradient(
             -size.x * (1.0 - conic.center.x.get() / 2.0) / 2.0,
             -size.y * (1.0 - conic.center.y.get() / 2.0) / 2.0,
         ),
-        _ => (Abs::zero(), Abs::zero()),
+        _ => (TexAbsLength::zero(), TexAbsLength::zero()),
     };
 
     let rotation = gradient.angle().unwrap_or_else(Angle::zero);
@@ -315,7 +315,12 @@ fn write_patch(target: &mut Vec<u8>, t: f32, t1: f32, c0: [u16; 3], c1: [u16; 3]
     let theta = -TAU * t + angle.to_rad() as f32 + PI;
     let theta1 = -TAU * t1 + angle.to_rad() as f32 + PI;
 
-    let (cp1, cp2) = control_point(Point::new(Abs::pt(0.5), Abs::pt(0.5)), 0.5, theta, theta1);
+    let (cp1, cp2) = control_point(
+        Point::new(TexAbsLength::pt(0.5), TexAbsLength::pt(0.5)),
+        0.5,
+        theta,
+        theta1,
+    );
 
     // Push the flag
     target.push(0);
@@ -366,13 +371,13 @@ fn control_point(c: Point, r: f32, angle_start: f32, angle_end: f32) -> (Point, 
     let f = ((angle_end - angle_start) / n).tan() * 4.0 / 3.0;
 
     let p1 = c + Point::new(
-        Abs::pt((r * angle_start.cos() - f * r * angle_start.sin()) as f64),
-        Abs::pt((r * angle_start.sin() + f * r * angle_start.cos()) as f64),
+        TexAbsLength::pt((r * angle_start.cos() - f * r * angle_start.sin()) as f64),
+        TexAbsLength::pt((r * angle_start.sin() + f * r * angle_start.cos()) as f64),
     );
 
     let p2 = c + Point::new(
-        Abs::pt((r * angle_end.cos() + f * r * angle_end.sin()) as f64),
-        Abs::pt((r * angle_end.sin() - f * r * angle_end.cos()) as f64),
+        TexAbsLength::pt((r * angle_end.cos() + f * r * angle_end.sin()) as f64),
+        TexAbsLength::pt((r * angle_end.sin() - f * r * angle_end.cos()) as f64),
     );
 
     (p1, p2)

@@ -11,7 +11,7 @@ use crate::diag::{format_xml_like_error, StrResult};
 use crate::foundations::Bytes;
 use crate::layout::Axes;
 use crate::text::{FontVariant, FontWeight};
-use crate::World;
+use crate::IsTexWorld;
 
 /// A decoded SVG.
 #[derive(Clone, Hash)]
@@ -44,7 +44,7 @@ impl SvgImage {
     #[comemo::memoize]
     pub fn with_fonts(
         data: Bytes,
-        world: Tracked<dyn World + '_>,
+        world: Tracked<dyn IsTexWorld + '_>,
         families: &[String],
     ) -> StrResult<SvgImage> {
         // Disable usvg's default to "Times New Roman". Instead, we default to
@@ -52,7 +52,10 @@ impl SvgImage {
         // empty and non-existing family names and replace them with the true
         // fallback family. This way, we can memoize SVG decoding with and without
         // fonts if the SVG does not contain text.
-        let opts = usvg::Options { font_family: String::new(), ..Default::default() };
+        let opts = usvg::Options {
+            font_family: String::new(),
+            ..Default::default()
+        };
         let mut tree = usvg::Tree::from_data(&data, &opts).map_err(format_usvg_error)?;
         let mut font_hash = 0;
         if tree.has_text_nodes() {
@@ -128,7 +131,7 @@ impl Hash for Repr {
 
 /// Discover and load the fonts referenced by an SVG.
 fn load_svg_fonts(
-    world: Tracked<dyn World + '_>,
+    world: Tracked<dyn IsTexWorld + '_>,
     tree: &mut usvg::Tree,
     families: &[String],
 ) -> (fontdb::Database, u128) {
@@ -143,9 +146,7 @@ fn load_svg_fonts(
             .entry(id)
             .or_insert_with(|| {
                 let font = world.font(id)?;
-                fontdb.load_font_source(fontdb::Source::Binary(Arc::new(
-                    font.data().clone(),
-                )));
+                fontdb.load_font_source(fontdb::Source::Binary(Arc::new(font.data().clone())));
                 font.data().hash(&mut hasher);
                 font.find_name(ttf_parser::name_id::TYPOGRAPHIC_FAMILY)
                     .or_else(|| font.find_name(ttf_parser::name_id::FAMILY))
@@ -156,7 +157,9 @@ fn load_svg_fonts(
     // Determine the best font for each text node.
     for child in &mut tree.root.children {
         traverse_svg(child, &mut |node| {
-            let usvg::Node::Text(ref mut text) = node else { return };
+            let usvg::Node::Text(ref mut text) = node else {
+                return;
+            };
             for chunk in &mut text.chunks {
                 'spans: for span in &mut chunk.spans {
                     let Some(text) = chunk.text.get(span.start..span.end) else {
@@ -172,8 +175,7 @@ fn load_svg_fonts(
                     // and the current document font families.
                     let mut like = None;
                     for family in span.font.families.iter().chain(families) {
-                        let Some(id) = book.select(&family.to_lowercase(), variant)
-                        else {
+                        let Some(id) = book.select(&family.to_lowercase(), variant) else {
                             continue;
                         };
                         let Some(info) = book.info(id) else { continue };
@@ -223,7 +225,10 @@ where
 
 /// The ceiled pixel size of an SVG.
 fn tree_size(tree: &usvg::Tree) -> Axes<u32> {
-    Axes::new(tree.size.width().ceil() as u32, tree.size.height().ceil() as u32)
+    Axes::new(
+        tree.size.width().ceil() as u32,
+        tree.size.height().ceil() as u32,
+    )
 }
 
 /// Format the user-facing SVG decoding error message.

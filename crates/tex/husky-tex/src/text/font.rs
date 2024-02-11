@@ -15,7 +15,7 @@ use ttf_parser::GlyphId;
 
 use self::book::find_name;
 use crate::foundations::{Bytes, Cast};
-use crate::layout::LengthInEm;
+use crate::layout::TexEmLength;
 
 /// An OpenType font.
 ///
@@ -99,12 +99,12 @@ impl TexFont {
     }
 
     /// Convert from font units to an em length.
-    pub fn to_em(&self, units: impl Into<f64>) -> LengthInEm {
-        LengthInEm::from_units(units, self.units_per_em())
+    pub fn to_em(&self, units: impl Into<f64>) -> TexEmLength {
+        TexEmLength::from_units(units, self.units_per_em())
     }
 
     /// Look up the horizontal advance width of a glyph.
-    pub fn advance(&self, glyph: u16) -> Option<LengthInEm> {
+    pub fn advance(&self, glyph: u16) -> Option<TexEmLength> {
         self.0
             .ttf
             .glyph_hor_advance(GlyphId(glyph))
@@ -158,13 +158,13 @@ pub struct FontMetrics {
     /// How many font units represent one em unit.
     pub units_per_em: f64,
     /// The distance from the baseline to the typographic ascender.
-    pub ascender: LengthInEm,
+    pub ascender: TexEmLength,
     /// The approximate height of uppercase letters.
-    pub cap_height: LengthInEm,
+    pub cap_height: TexEmLength,
     /// The approximate height of non-ascending lowercase letters.
-    pub x_height: LengthInEm,
+    pub x_height: TexEmLength,
     /// The distance from the baseline to the typographic descender.
-    pub descender: LengthInEm,
+    pub descender: TexEmLength,
     /// Recommended metrics for a strikethrough line.
     pub strikethrough: LineMetrics,
     /// Recommended metrics for an underline.
@@ -177,7 +177,7 @@ impl FontMetrics {
     /// Extract the font's metrics.
     pub fn from_ttf(ttf: &ttf_parser::Face) -> Self {
         let units_per_em = f64::from(ttf.units_per_em());
-        let to_em = |units| LengthInEm::from_units(units, units_per_em);
+        let to_em = |units| TexEmLength::from_units(units, units_per_em);
 
         let ascender = to_em(ttf.typographic_ascender().unwrap_or(ttf.ascender()));
         let cap_height = ttf
@@ -190,21 +190,21 @@ impl FontMetrics {
         let underline = ttf.underline_metrics();
 
         let strikethrough = LineMetrics {
-            position: strikeout.map_or(LengthInEm::new(0.25), |s| to_em(s.position)),
+            position: strikeout.map_or(TexEmLength::new(0.25), |s| to_em(s.position)),
             thickness: strikeout
                 .or(underline)
-                .map_or(LengthInEm::new(0.06), |s| to_em(s.thickness)),
+                .map_or(TexEmLength::new(0.06), |s| to_em(s.thickness)),
         };
 
         let underline = LineMetrics {
-            position: underline.map_or(LengthInEm::new(-0.2), |s| to_em(s.position)),
+            position: underline.map_or(TexEmLength::new(-0.2), |s| to_em(s.position)),
             thickness: underline
                 .or(strikeout)
-                .map_or(LengthInEm::new(0.06), |s| to_em(s.thickness)),
+                .map_or(TexEmLength::new(0.06), |s| to_em(s.thickness)),
         };
 
         let overline = LineMetrics {
-            position: cap_height + LengthInEm::new(0.1),
+            position: cap_height + TexEmLength::new(0.1),
             thickness: underline.thickness,
         };
 
@@ -221,12 +221,12 @@ impl FontMetrics {
     }
 
     /// Look up a vertical metric.
-    pub fn vertical(&self, metric: VerticalFontMetric) -> LengthInEm {
+    pub fn vertical(&self, metric: VerticalFontMetric) -> TexEmLength {
         match metric {
             VerticalFontMetric::Ascender => self.ascender,
             VerticalFontMetric::CapHeight => self.cap_height,
             VerticalFontMetric::XHeight => self.x_height,
-            VerticalFontMetric::Baseline => LengthInEm::zero(),
+            VerticalFontMetric::Baseline => TexEmLength::zero(),
             VerticalFontMetric::Descender => self.descender,
         }
     }
@@ -237,9 +237,9 @@ impl FontMetrics {
 pub struct LineMetrics {
     /// The vertical offset of the line from the baseline. Positive goes
     /// upwards, negative downwards.
-    pub position: LengthInEm,
+    pub position: TexEmLength,
     /// The thickness of the line.
-    pub thickness: LengthInEm,
+    pub thickness: TexEmLength,
 }
 
 /// Identifies a vertical metric of a font.

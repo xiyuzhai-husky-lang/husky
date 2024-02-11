@@ -1,12 +1,12 @@
 use std::f64::consts::PI;
 
 use crate::diag::{bail, SourceResult};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    elem, func, scope, IsTexElem, Packed, Resolve, Smart, StyleChain, TexContent,
+    elem, func, scope, IsTexElem, Resolve, Smart, StyleChain, TexContent, TexContentRefined,
 };
 use crate::layout::{
-    Axes, Frame, FrameItem, LayoutSingle, Length, LengthInEm, Point, Regions, Rel,
+    Axes, FrameItem, LayoutSingle, Length, Point, Regions, Rel, TexEmLength, TexFrame,
 };
 use crate::syntax::Span;
 use crate::util::Numeric;
@@ -81,7 +81,7 @@ impl PolygonElem {
         /// The diameter of the [circumcircle](https://en.wikipedia.org/wiki/Circumcircle)
         /// of the regular polygon.
         #[named]
-        #[default(LengthInEm::one().into())]
+        #[default(TexEmLength::one().into())]
         size: Length,
 
         /// The number of vertices in the polygon.
@@ -124,9 +124,14 @@ impl PolygonElem {
     }
 }
 
-impl LayoutSingle for Packed<PolygonElem> {
+impl LayoutSingle for TexContentRefined<PolygonElem> {
     #[husky_tex_macros::time(name = "polygon", span = self.span())]
-    fn layout(&self, _: &mut Engine, styles: StyleChain, regions: Regions) -> SourceResult<Frame> {
+    fn layout(
+        &self,
+        _: &mut TexEngine,
+        styles: StyleChain,
+        regions: Regions,
+    ) -> SourceResult<TexFrame> {
         let points: Vec<Point> = self
             .vertices()
             .iter()
@@ -145,7 +150,7 @@ impl LayoutSingle for Packed<PolygonElem> {
             bail!(self.span(), "cannot create polygon with infinite size");
         }
 
-        let mut frame = Frame::hard(size);
+        let mut frame = TexFrame::hard(size);
 
         // Only create a path if there are more than zero points.
         if points.is_empty() {

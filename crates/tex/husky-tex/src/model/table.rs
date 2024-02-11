@@ -3,11 +3,13 @@ use std::num::NonZeroUsize;
 use ecow::eco_format;
 
 use crate::diag::{SourceResult, Trace, Tracepoint};
-use crate::engine::Engine;
-use crate::foundations::{cast, elem, scope, Fold, Packed, Show, Smart, StyleChain, TexContent};
+use crate::engine::TexEngine;
+use crate::foundations::{
+    cast, elem, scope, Fold, Show, Smart, StyleChain, TexContent, TexContentRefined,
+};
 use crate::layout::{
-    show_grid_cell, Abs, Axes, Cell, CellGrid, Celled, Fragment, GridLayouter, LayoutMultiple,
-    Length, Regions, Rel, ResolvableCell, Sides, TexAlignment, TrackSizings,
+    show_grid_cell, Axes, Cell, CellGrid, Celled, GridLayouter, LayoutMultiple, Length, Regions,
+    Rel, ResolvableCell, Sides, TexAbsLength, TexAlignment, TexLayoutFragment, TrackSizings,
 };
 use crate::model::Figurable;
 use crate::syntax::Span;
@@ -192,12 +194,12 @@ pub struct TableElem {
     /// )
     /// ```
     #[fold]
-    #[default(Sides::splat(Some(Abs::pt(5.0).into())))]
+    #[default(Sides::splat(Some(TexAbsLength::pt(5.0).into())))]
     pub inset: Sides<Option<Rel<Length>>>,
 
     /// The contents of the table cells.
     #[variadic]
-    pub children: Vec<Packed<TableCell>>,
+    pub children: Vec<TexContentRefined<TableCell>>,
 }
 
 #[scope]
@@ -206,14 +208,14 @@ impl TableElem {
     type TableCell;
 }
 
-impl LayoutMultiple for Packed<TableElem> {
+impl LayoutMultiple for TexContentRefined<TableElem> {
     #[husky_tex_macros::time(name = "table", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         let inset = self.inset(styles);
         let align = self.align(styles);
         let columns = self.columns(styles);
@@ -245,7 +247,7 @@ impl LayoutMultiple for Packed<TableElem> {
     }
 }
 
-impl LocalName for Packed<TableElem> {
+impl LocalName for TexContentRefined<TableElem> {
     fn local_name(lang: Lang, _: Option<Region>) -> &'static str {
         match lang {
             Lang::ALBANIAN => "Tabel",
@@ -282,7 +284,7 @@ impl LocalName for Packed<TableElem> {
     }
 }
 
-impl Figurable for Packed<TableElem> {}
+impl Figurable for TexContentRefined<TableElem> {}
 
 /// A cell in the table. Use this to either override table properties for a
 /// particular cell, or in show rules to apply certain styles to multiple cells
@@ -363,13 +365,13 @@ cast! {
     v: TexContent => v.into(),
 }
 
-impl Default for Packed<TableCell> {
+impl Default for TexContentRefined<TableCell> {
     fn default() -> Self {
-        Packed::new(TableCell::new(TexContent::default()))
+        TexContentRefined::new(TableCell::new(TexContent::default()))
     }
 }
 
-impl ResolvableCell for Packed<TableCell> {
+impl ResolvableCell for TexContentRefined<TableCell> {
     fn resolve_cell(
         mut self,
         x: usize,
@@ -417,12 +419,12 @@ impl ResolvableCell for Packed<TableCell> {
     }
 
     fn span(&self) -> Span {
-        Packed::span(self)
+        TexContentRefined::span(self)
     }
 }
 
-impl Show for Packed<TableCell> {
-    fn show(&self, _engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+impl Show for TexContentRefined<TableCell> {
+    fn show(&self, _engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         show_grid_cell(self.body().clone(), self.inset(styles), self.align(styles))
     }
 }

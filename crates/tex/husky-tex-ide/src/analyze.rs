@@ -1,15 +1,15 @@
 use comemo::Track;
 use ecow::{eco_vec, EcoString, EcoVec};
-use husky_tex::engine::{Engine, Route};
+use husky_tex::engine::{Route, TexEngine};
 use husky_tex::eval::{Tracer, Vm};
 use husky_tex::foundations::{Label, Scopes, TexValue};
 use husky_tex::introspection::{Introspector, Locator};
 use husky_tex::model::{BibliographyElem, TexDocument};
 use husky_tex::syntax::{ast, LinkedNode, Span, TexSyntaxKind};
-use husky_tex::World;
+use husky_tex::IsTexWorld;
 
 /// Try to determine a set of possible values for an expression.
-pub fn analyze_expr(world: &dyn World, node: &LinkedNode) -> EcoVec<TexValue> {
+pub fn analyze_expr(world: &dyn IsTexWorld, node: &LinkedNode) -> EcoVec<TexValue> {
     match node.cast::<ast::Expr>() {
         Some(ast::Expr::None(_)) => eco_vec![TexValue::None],
         Some(ast::Expr::Auto(_)) => eco_vec![TexValue::Auto],
@@ -47,7 +47,7 @@ pub fn analyze_expr(world: &dyn World, node: &LinkedNode) -> EcoVec<TexValue> {
 }
 
 /// Try to load a module from the current source file.
-pub fn analyze_import(world: &dyn World, source: &LinkedNode) -> Option<TexValue> {
+pub fn analyze_import(world: &dyn IsTexWorld, source: &LinkedNode) -> Option<TexValue> {
     let source = analyze_expr(world, source).into_iter().next()?;
     if source.scope().is_some() {
         return Some(source);
@@ -56,7 +56,7 @@ pub fn analyze_import(world: &dyn World, source: &LinkedNode) -> Option<TexValue
     let mut locator = Locator::default();
     let introspector = Introspector::default();
     let mut tracer = Tracer::new();
-    let engine = Engine {
+    let engine = TexEngine {
         world: world.track(),
         route: Route::default(),
         introspector: introspector.track(),

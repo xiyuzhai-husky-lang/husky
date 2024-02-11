@@ -3,7 +3,7 @@ use std::ops::Range;
 
 use ecow::EcoString;
 
-use crate::layout::{Abs, LengthInEm};
+use crate::layout::{TexAbsLength, TexEmLength};
 use crate::syntax::Span;
 use crate::text::{Lang, TexFont};
 use crate::visualize::{TexFixedStroke, TexPaint};
@@ -14,7 +14,7 @@ pub struct TextItem {
     /// The font the glyphs are contained in.
     pub font: TexFont,
     /// The font size.
-    pub size: Abs,
+    pub size: TexAbsLength,
     /// Glyph color.
     pub fill: TexPaint,
     /// Glyph stroke.
@@ -30,11 +30,11 @@ pub struct TextItem {
 
 impl TextItem {
     /// The width of the text run.
-    pub fn width(&self) -> Abs {
+    pub fn width(&self) -> TexAbsLength {
         self.glyphs
             .iter()
             .map(|g| g.x_advance)
-            .sum::<LengthInEm>()
+            .sum::<TexEmLength>()
             .at(self.size)
     }
 }
@@ -53,9 +53,9 @@ pub struct Glyph {
     /// The glyph's index in the font.
     pub id: u16,
     /// The advance width of the glyph.
-    pub x_advance: LengthInEm,
+    pub x_advance: TexEmLength,
     /// The horizontal offset of the glyph.
-    pub x_offset: LengthInEm,
+    pub x_offset: TexEmLength,
     /// The range of the glyph in its item's text. The range's length may
     /// be more than one due to multi-byte UTF-8 encoding or ligatures.
     pub range: Range<u16>,

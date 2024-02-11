@@ -8,12 +8,14 @@ use ecow::eco_format;
 use smallvec::{smallvec, SmallVec};
 
 use crate::diag::{SourceResult, StrResult, Trace, Tracepoint};
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, elem, scope, Array, Fold, Packed, Show, Smart, StyleChain, TexContent, TexValue,
+    cast, elem, scope, Array, Fold, Show, Smart, StyleChain, TexContent, TexContentRefined,
+    TexValue,
 };
 use crate::layout::{
-    AlignElem, Axes, Fragment, LayoutMultiple, Length, Regions, Rel, Sides, TexAlignment, TexSizing,
+    AlignElem, Axes, LayoutMultiple, Length, Regions, Rel, Sides, TexAlignment, TexLayoutFragment,
+    TexSizing,
 };
 use crate::syntax::Span;
 use crate::util::NonZeroExt;
@@ -269,7 +271,7 @@ pub struct GridElem {
     ///
     /// The cells are populated in row-major order.
     #[variadic]
-    pub children: Vec<Packed<GridCell>>,
+    pub children: Vec<TexContentRefined<GridCell>>,
 }
 
 #[scope]
@@ -278,14 +280,14 @@ impl GridElem {
     type GridCell;
 }
 
-impl LayoutMultiple for Packed<GridElem> {
+impl LayoutMultiple for TexContentRefined<GridElem> {
     #[husky_tex_macros::time(name = "grid", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         let inset = self.inset(styles);
         let align = self.align(styles);
         let columns = self.columns(styles);
@@ -447,13 +449,13 @@ cast! {
     v: TexContent => v.into(),
 }
 
-impl Default for Packed<GridCell> {
+impl Default for TexContentRefined<GridCell> {
     fn default() -> Self {
-        Packed::new(GridCell::new(TexContent::default()))
+        TexContentRefined::new(GridCell::new(TexContent::default()))
     }
 }
 
-impl ResolvableCell for Packed<GridCell> {
+impl ResolvableCell for TexContentRefined<GridCell> {
     fn resolve_cell(
         mut self,
         x: usize,
@@ -501,12 +503,12 @@ impl ResolvableCell for Packed<GridCell> {
     }
 
     fn span(&self) -> Span {
-        Packed::span(self)
+        TexContentRefined::span(self)
     }
 }
 
-impl Show for Packed<GridCell> {
-    fn show(&self, _engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
+impl Show for TexContentRefined<GridCell> {
+    fn show(&self, _engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexContent> {
         show_grid_cell(self.body().clone(), self.inset(styles), self.align(styles))
     }
 }

@@ -1,11 +1,11 @@
 use crate::diag::SourceResult;
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::{
-    cast, elem, AutoTexValue, Packed, Resolve, Smart, StyleChain, TexContent, TexValue,
+    cast, elem, AutoTexValue, Resolve, Smart, StyleChain, TexContent, TexContentRefined, TexValue,
 };
 use crate::layout::{
-    Abs, Axes, Corners, Fr, Fragment, Frame, FrameKind, LayoutMultiple, Length, LengthInEm, Ratio,
-    Regions, Rel, Sides, Size, Spacing, VElem,
+    Axes, Corners, FrameKind, LayoutMultiple, Length, Ratio, Regions, Rel, Sides, Size, Spacing,
+    TexAbsLength, TexEmLength, TexFraction, TexFrame, TexLayoutFragment, VElem,
 };
 use crate::util::Numeric;
 use crate::visualize::{clip_rect, TexPaint, TexStroke};
@@ -27,7 +27,7 @@ use crate::visualize::{clip_rect, TexPaint, TexStroke};
 /// for more information.
 /// ```
 #[elem]
-pub struct BoxElem {
+pub struct BoxTexElem {
     /// The width of the box.
     ///
     /// Boxes can have [fractional]($fraction) widths, as the example below
@@ -109,14 +109,14 @@ pub struct BoxElem {
     pub body: Option<TexContent>,
 }
 
-impl Packed<BoxElem> {
+impl TexContentRefined<BoxTexElem> {
     #[husky_tex_macros::time(name = "box", span = self.span())]
     pub fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Frame> {
+    ) -> SourceResult<TexFrame> {
         let width = match self.width(styles) {
             TexSizing::Auto => Smart::Auto,
             TexSizing::Rel(rel) => Smart::Custom(rel),
@@ -297,14 +297,14 @@ pub struct BlockElem {
     /// A second paragraph.
     /// ```
     #[external]
-    #[default(LengthInEm::new(1.2).into())]
+    #[default(TexEmLength::new(1.2).into())]
     pub spacing: Spacing,
 
     /// The spacing between this block and its predecessor. Takes precedence
     /// over `spacing`. Can be used in combination with a show rule to adjust
     /// the spacing around arbitrary block-level elements.
     #[external]
-    #[default(LengthInEm::new(1.2).into())]
+    #[default(TexEmLength::new(1.2).into())]
     pub above: Spacing,
     #[internal]
     #[parse(
@@ -313,13 +313,13 @@ pub struct BlockElem {
             .map(VElem::block_around)
             .or_else(|| spacing.map(VElem::block_spacing))
     )]
-    #[default(VElem::block_spacing(LengthInEm::new(1.2).into()))]
+    #[default(VElem::block_spacing(TexEmLength::new(1.2).into()))]
     pub above: VElem,
 
     /// The spacing between this block and its successor. Takes precedence
     /// over `spacing`.
     #[external]
-    #[default(LengthInEm::new(1.2).into())]
+    #[default(TexEmLength::new(1.2).into())]
     pub below: Spacing,
     #[internal]
     #[parse(
@@ -327,7 +327,7 @@ pub struct BlockElem {
             .map(VElem::block_around)
             .or_else(|| spacing.map(VElem::block_spacing))
     )]
-    #[default(VElem::block_spacing(LengthInEm::new(1.2).into()))]
+    #[default(VElem::block_spacing(TexEmLength::new(1.2).into()))]
     pub below: VElem,
 
     /// Whether to clip the content inside the block.
@@ -347,14 +347,14 @@ pub struct BlockElem {
     pub sticky: bool,
 }
 
-impl LayoutMultiple for Packed<BlockElem> {
+impl LayoutMultiple for TexContentRefined<BlockElem> {
     #[husky_tex_macros::time(name = "block", span = self.span())]
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         // Apply inset.
         let mut body = self.body(styles).unwrap_or_default();
         let inset = self.inset(styles).unwrap_or_default();
@@ -398,7 +398,7 @@ impl LayoutMultiple for Packed<BlockElem> {
                     let limited = region.y.min(remaining);
                     heights.push(limited);
                     remaining -= limited;
-                    if Abs::zero().fits(remaining) {
+                    if TexAbsLength::zero().fits(remaining) {
                         break;
                     }
                 }
@@ -463,7 +463,7 @@ impl LayoutMultiple for Packed<BlockElem> {
             frame.set_kind(FrameKind::Hard);
         }
 
-        Ok(Fragment::frames(frames))
+        Ok(TexLayoutFragment::frames(frames))
     }
 }
 
@@ -477,7 +477,7 @@ pub enum TexSizing {
     Rel(Rel<Length>),
     /// A track size specified as a fraction of the remaining free space in the
     /// parent.
-    Fr(Fr),
+    Fr(TexFraction),
 }
 
 impl TexSizing {
@@ -511,5 +511,5 @@ cast! {
     },
     _: AutoTexValue => Self::Auto,
     v: Rel<Length> => Self::Rel(v),
-    v: Fr => Self::Fr(v),
+    v: TexFraction => Self::Fr(v),
 }

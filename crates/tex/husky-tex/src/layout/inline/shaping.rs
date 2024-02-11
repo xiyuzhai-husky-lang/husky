@@ -10,16 +10,18 @@ use rustybuzz::{ShapePlan, Tag, UnicodeBuffer};
 use unicode_script::{Script, UnicodeScript};
 
 use super::SpanMapper;
-use crate::engine::Engine;
+use crate::engine::TexEngine;
 use crate::foundations::StyleChain;
-use crate::layout::{Abs, Frame, FrameItem, LengthInEm, Point, Size, TexLayoutDirection};
+use crate::layout::{
+    FrameItem, Point, Size, TexAbsLength, TexEmLength, TexFrame, TexLayoutDirection,
+};
 use crate::syntax::Span;
 use crate::text::{
     decorate, families, features, variant, FontVariant, Glyph, Lang, Region, TexFont, TextElem,
     TextItem,
 };
 use crate::util::SliceExt;
-use crate::World;
+use crate::IsTexWorld;
 
 /// The result of shaping text.
 ///
@@ -42,9 +44,9 @@ pub(super) struct ShapedText<'a> {
     /// The font variant.
     pub variant: FontVariant,
     /// The font size.
-    pub size: Abs,
+    pub size: TexAbsLength,
     /// The width of the text's bounding box.
-    pub width: Abs,
+    pub width: TexAbsLength,
     /// The shaped glyphs.
     pub glyphs: Cow<'a, [ShapedGlyph]>,
 }
@@ -57,11 +59,11 @@ pub(super) struct ShapedGlyph {
     /// The glyph's index in the font.
     pub glyph_id: u16,
     /// The advance width of the glyph.
-    pub x_advance: LengthInEm,
+    pub x_advance: TexEmLength,
     /// The horizontal offset of the glyph.
-    pub x_offset: LengthInEm,
+    pub x_offset: TexEmLength,
     /// The vertical offset of the glyph.
-    pub y_offset: LengthInEm,
+    pub y_offset: TexEmLength,
     /// The adjustability of the glyph.
     pub adjustability: Adjustability,
     /// The byte range of this glyph's cluster in the full paragraph. A cluster
@@ -91,9 +93,9 @@ pub(super) struct ShapedGlyph {
 #[derive(Debug, Clone, Default)]
 pub(super) struct Adjustability {
     /// The left and right strechability
-    pub stretchability: (LengthInEm, LengthInEm),
+    pub stretchability: (TexEmLength, TexEmLength),
     /// The left and right shrinkability
-    pub shrinkability: (LengthInEm, LengthInEm),
+    pub shrinkability: (TexEmLength, TexEmLength),
 }
 
 impl ShapedGlyph {
@@ -148,22 +150,22 @@ impl ShapedGlyph {
         if self.is_space() {
             Adjustability {
                 // The number for spaces is from Knuth-Plass' paper
-                stretchability: (LengthInEm::zero(), width / 2.0),
-                shrinkability: (LengthInEm::zero(), width / 3.0),
+                stretchability: (TexEmLength::zero(), width / 2.0),
+                shrinkability: (TexEmLength::zero(), width / 3.0),
             }
         } else if self.is_cjk_left_aligned_punctuation(gb_style) {
             Adjustability {
-                stretchability: (LengthInEm::zero(), LengthInEm::zero()),
-                shrinkability: (LengthInEm::zero(), width / 2.0),
+                stretchability: (TexEmLength::zero(), TexEmLength::zero()),
+                shrinkability: (TexEmLength::zero(), width / 2.0),
             }
         } else if self.is_cjk_right_aligned_punctuation() {
             Adjustability {
-                stretchability: (LengthInEm::zero(), LengthInEm::zero()),
-                shrinkability: (width / 2.0, LengthInEm::zero()),
+                stretchability: (TexEmLength::zero(), TexEmLength::zero()),
+                shrinkability: (width / 2.0, TexEmLength::zero()),
             }
         } else if self.is_cjk_center_aligned_punctuation(gb_style) {
             Adjustability {
-                stretchability: (LengthInEm::zero(), LengthInEm::zero()),
+                stretchability: (TexEmLength::zero(), TexEmLength::zero()),
                 shrinkability: (width / 4.0, width / 4.0),
             }
         } else {
@@ -172,17 +174,17 @@ impl ShapedGlyph {
     }
 
     /// The stretchability of the character.
-    pub fn stretchability(&self) -> (LengthInEm, LengthInEm) {
+    pub fn stretchability(&self) -> (TexEmLength, TexEmLength) {
         self.adjustability.stretchability
     }
 
     /// The shrinkability of the character.
-    pub fn shrinkability(&self) -> (LengthInEm, LengthInEm) {
+    pub fn shrinkability(&self) -> (TexEmLength, TexEmLength) {
         self.adjustability.shrinkability
     }
 
     /// Shrink the width of glyph on the left side.
-    pub fn shrink_left(&mut self, amount: LengthInEm) {
+    pub fn shrink_left(&mut self, amount: TexEmLength) {
         self.x_offset -= amount;
         self.x_advance -= amount;
         self.adjustability.shrinkability.0 -= amount;
@@ -190,7 +192,7 @@ impl ShapedGlyph {
     }
 
     /// Shrink the width of glyph on the right side.
-    pub fn shrink_right(&mut self, amount: LengthInEm) {
+    pub fn shrink_right(&mut self, amount: TexEmLength) {
         self.x_advance -= amount;
         self.adjustability.shrinkability.1 -= amount;
         self.adjustability.stretchability.1 += amount;
@@ -212,15 +214,15 @@ impl<'a> ShapedText<'a> {
     /// [justifiable glyph](ShapedGlyph::is_justifiable) will get.
     pub fn build(
         &self,
-        engine: &Engine,
+        engine: &TexEngine,
         justification_ratio: f64,
-        extra_justification: Abs,
-    ) -> Frame {
+        extra_justification: TexAbsLength,
+    ) -> TexFrame {
         let (top, bottom) = self.measure(engine);
         let size = Size::new(self.width, top + bottom);
 
-        let mut offset = Abs::zero();
-        let mut frame = Frame::soft(size);
+        let mut offset = TexAbsLength::zero();
+        let mut frame = TexFrame::soft(size);
         frame.set_baseline(top);
 
         let shift = TextElem::baseline_in(self.styles);
@@ -259,7 +261,7 @@ impl<'a> ShapedText<'a> {
                     let mut justification_right = adjustability_right * justification_ratio;
                     if shaped.is_justifiable() {
                         justification_right +=
-                            LengthInEm::from_length(extra_justification, self.size)
+                            TexEmLength::from_length(extra_justification, self.size)
                     }
 
                     frame.size_mut().x +=
@@ -322,9 +324,9 @@ impl<'a> ShapedText<'a> {
     }
 
     /// Measure the top and bottom extent of this text.
-    fn measure(&self, engine: &Engine) -> (Abs, Abs) {
-        let mut top = Abs::zero();
-        let mut bottom = Abs::zero();
+    fn measure(&self, engine: &TexEngine) -> (TexAbsLength, TexAbsLength) {
+        let mut top = TexAbsLength::zero();
+        let mut bottom = TexAbsLength::zero();
 
         let top_edge = TextElem::top_edge_in(self.styles);
         let bottom_edge = TextElem::bottom_edge_in(self.styles);
@@ -381,20 +383,20 @@ impl<'a> ShapedText<'a> {
     }
 
     /// The stretchability of the text.
-    pub fn stretchability(&self) -> Abs {
+    pub fn stretchability(&self) -> TexAbsLength {
         self.glyphs
             .iter()
             .map(|g| g.stretchability().0 + g.stretchability().1)
-            .sum::<LengthInEm>()
+            .sum::<TexEmLength>()
             .at(self.size)
     }
 
     /// The shrinkability of the text
-    pub fn shrinkability(&self) -> Abs {
+    pub fn shrinkability(&self) -> TexAbsLength {
         self.glyphs
             .iter()
             .map(|g| g.shrinkability().0 + g.shrinkability().1)
-            .sum::<LengthInEm>()
+            .sum::<TexEmLength>()
             .at(self.size)
     }
 
@@ -404,7 +406,7 @@ impl<'a> ShapedText<'a> {
     /// The text `range` is relative to the whole paragraph.
     pub fn reshape(
         &'a self,
-        engine: &Engine,
+        engine: &TexEngine,
         spans: &SpanMapper,
         text_range: Range<usize>,
     ) -> ShapedText<'a> {
@@ -424,7 +426,7 @@ impl<'a> ShapedText<'a> {
                 width: glyphs
                     .iter()
                     .map(|g| g.x_advance)
-                    .sum::<LengthInEm>()
+                    .sum::<TexEmLength>()
                     .at(self.size),
                 glyphs: Cow::Borrowed(glyphs),
             }
@@ -443,7 +445,7 @@ impl<'a> ShapedText<'a> {
     }
 
     /// Push a hyphen to end of the text.
-    pub fn push_hyphen(&mut self, engine: &Engine, fallback: bool) {
+    pub fn push_hyphen(&mut self, engine: &TexEngine, fallback: bool) {
         let world = engine.world;
         let book = world.book();
         let fallback_func = if fallback {
@@ -475,8 +477,8 @@ impl<'a> ShapedText<'a> {
                 font,
                 glyph_id: glyph_id.0,
                 x_advance,
-                x_offset: LengthInEm::zero(),
-                y_offset: LengthInEm::zero(),
+                x_offset: TexEmLength::zero(),
+                y_offset: TexEmLength::zero(),
                 adjustability: Adjustability::default(),
                 range,
                 safe_to_break: true,
@@ -580,12 +582,12 @@ impl Debug for ShapedText<'_> {
 
 /// Holds shaping results and metadata common to all shaped segments.
 struct ShapingContext<'a, 'v> {
-    engine: &'a Engine<'v>,
+    engine: &'a TexEngine<'v>,
     spans: &'a SpanMapper,
     glyphs: Vec<ShapedGlyph>,
     used: Vec<TexFont>,
     styles: StyleChain<'a>,
-    size: Abs,
+    size: TexAbsLength,
     variant: FontVariant,
     features: Vec<rustybuzz::Feature>,
     fallback: bool,
@@ -595,7 +597,7 @@ struct ShapingContext<'a, 'v> {
 /// Shape text into [`ShapedText`].
 #[allow(clippy::too_many_arguments)]
 pub(super) fn shape<'a>(
-    engine: &Engine,
+    engine: &TexEngine,
     base: usize,
     text: &'a str,
     spans: &SpanMapper,
@@ -643,7 +645,7 @@ pub(super) fn shape<'a>(
             .glyphs
             .iter()
             .map(|g| g.x_advance)
-            .sum::<LengthInEm>()
+            .sum::<TexEmLength>()
             .at(size),
         glyphs: Cow::Owned(ctx.glyphs),
     }
@@ -850,8 +852,8 @@ fn shape_tofus(ctx: &mut ShapingContext, base: usize, text: &str, font: TexFont)
             font: font.clone(),
             glyph_id: 0,
             x_advance,
-            x_offset: LengthInEm::zero(),
-            y_offset: LengthInEm::zero(),
+            x_offset: TexEmLength::zero(),
+            y_offset: TexEmLength::zero(),
             adjustability: Adjustability::default(),
             range: start..end,
             safe_to_break: true,
@@ -875,9 +877,9 @@ fn shape_tofus(ctx: &mut ShapingContext, base: usize, text: &str, font: TexFont)
 
 /// Apply tracking and spacing to the shaped glyphs.
 fn track_and_space(ctx: &mut ShapingContext) {
-    let tracking = LengthInEm::from_length(TextElem::tracking_in(ctx.styles), ctx.size);
+    let tracking = TexEmLength::from_length(TextElem::tracking_in(ctx.styles), ctx.size);
     let spacing =
-        TextElem::spacing_in(ctx.styles).map(|abs| LengthInEm::from_length(abs, ctx.size));
+        TextElem::spacing_in(ctx.styles).map(|abs| TexEmLength::from_length(abs, ctx.size));
 
     let mut glyphs = ctx.glyphs.iter_mut().peekable();
     while let Some(glyph) = glyphs.next() {
@@ -935,7 +937,7 @@ fn calculate_adjustability(ctx: &mut ShapingContext, lang: Lang, region: Option<
 }
 
 /// Difference between non-breaking and normal space.
-fn nbsp_delta(font: &TexFont) -> Option<LengthInEm> {
+fn nbsp_delta(font: &TexFont) -> Option<TexEmLength> {
     let space = font.ttf().glyph_index(' ')?.0;
     let nbsp = font.ttf().glyph_index('\u{00A0}')?.0;
     Some(font.advance(nbsp)? - font.advance(space)?)
@@ -1034,13 +1036,13 @@ fn is_cj_script(c: char, script: Script) -> bool {
 /// See <https://www.w3.org/TR/clreq/#punctuation_width_adjustment>
 fn is_cjk_left_aligned_punctuation(
     c: char,
-    x_advance: LengthInEm,
-    stretchability: (LengthInEm, LengthInEm),
+    x_advance: TexEmLength,
+    stretchability: (TexEmLength, TexEmLength),
     gb_style: bool,
 ) -> bool {
     // CJK quotation marks shares codepoints with latin quotation marks.
     // But only the CJK ones have full width.
-    if matches!(c, '”' | '’') && x_advance + stretchability.1 == LengthInEm::one() {
+    if matches!(c, '”' | '’') && x_advance + stretchability.1 == TexEmLength::one() {
         return true;
     }
 
@@ -1060,12 +1062,12 @@ fn is_cjk_left_aligned_punctuation(
 /// See <https://www.w3.org/TR/clreq/#punctuation_width_adjustment>
 fn is_cjk_right_aligned_punctuation(
     c: char,
-    x_advance: LengthInEm,
-    stretchability: (LengthInEm, LengthInEm),
+    x_advance: TexEmLength,
+    stretchability: (TexEmLength, TexEmLength),
 ) -> bool {
     // CJK quotation marks shares codepoints with latin quotation marks.
     // But only the CJK ones have full width.
-    if matches!(c, '“' | '‘') && x_advance + stretchability.0 == LengthInEm::one() {
+    if matches!(c, '“' | '‘') && x_advance + stretchability.0 == TexEmLength::one() {
         return true;
     }
     // See appendix A.3 https://www.w3.org/TR/clreq/#tables_of_chinese_punctuation_marks
@@ -1095,8 +1097,8 @@ fn is_cjk_center_aligned_punctuation(c: char, gb_style: bool) -> bool {
 fn is_justifiable(
     c: char,
     script: Script,
-    x_advance: LengthInEm,
-    stretchability: (LengthInEm, LengthInEm),
+    x_advance: TexEmLength,
+    stretchability: (TexEmLength, TexEmLength),
 ) -> bool {
     // GB style is not relevant here.
     is_space(c)

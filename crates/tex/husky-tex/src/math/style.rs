@@ -1,8 +1,8 @@
 use comemo::Prehashed;
 
 use crate::foundations::{func, Cast, Smart, Style, StyleChain, TexContent};
-use crate::layout::Abs;
-use crate::math::{EquationElem, MathContext};
+use crate::layout::TexAbsLength;
+use crate::math::{EquationTexElem, MathContext};
 use crate::text::TextElem;
 
 /// Bold font style in math.
@@ -15,7 +15,7 @@ pub fn bold(
     /// The content to style.
     body: TexContent,
 ) -> TexContent {
-    body.styled(EquationElem::set_bold(true))
+    body.styled(EquationTexElem::set_bold(true))
 }
 
 /// Upright (non-italic) font style in math.
@@ -28,7 +28,7 @@ pub fn upright(
     /// The content to style.
     body: TexContent,
 ) -> TexContent {
-    body.styled(EquationElem::set_italic(Smart::Custom(false)))
+    body.styled(EquationTexElem::set_italic(Smart::Custom(false)))
 }
 
 /// Italic font style in math.
@@ -39,7 +39,7 @@ pub fn italic(
     /// The content to style.
     body: TexContent,
 ) -> TexContent {
-    body.styled(EquationElem::set_italic(Smart::Custom(true)))
+    body.styled(EquationTexElem::set_italic(Smart::Custom(true)))
 }
 
 /// Serif (roman) font style in math.
@@ -50,7 +50,7 @@ pub fn serif(
     /// The content to style.
     body: TexContent,
 ) -> TexContent {
-    body.styled(EquationElem::set_variant(MathVariant::Serif))
+    body.styled(EquationTexElem::set_variant(MathVariant::Serif))
 }
 
 /// Sans-serif font style in math.
@@ -63,7 +63,7 @@ pub fn sans(
     /// The content to style.
     body: TexContent,
 ) -> TexContent {
-    body.styled(EquationElem::set_variant(MathVariant::Sans))
+    body.styled(EquationTexElem::set_variant(MathVariant::Sans))
 }
 
 /// Calligraphic font style in math.
@@ -76,7 +76,7 @@ pub fn cal(
     /// The content to style.
     body: TexContent,
 ) -> TexContent {
-    body.styled(EquationElem::set_variant(MathVariant::Cal))
+    body.styled(EquationTexElem::set_variant(MathVariant::Cal))
 }
 
 /// Fraktur font style in math.
@@ -89,7 +89,7 @@ pub fn frak(
     /// The content to style.
     body: TexContent,
 ) -> TexContent {
-    body.styled(EquationElem::set_variant(MathVariant::Frak))
+    body.styled(EquationTexElem::set_variant(MathVariant::Frak))
 }
 
 /// Monospace font style in math.
@@ -102,7 +102,7 @@ pub fn mono(
     /// The content to style.
     body: TexContent,
 ) -> TexContent {
-    body.styled(EquationElem::set_variant(MathVariant::Mono))
+    body.styled(EquationTexElem::set_variant(MathVariant::Mono))
 }
 
 /// Blackboard bold (double-struck) font style in math.
@@ -120,7 +120,7 @@ pub fn bb(
     /// The content to style.
     body: TexContent,
 ) -> TexContent {
-    body.styled(EquationElem::set_variant(MathVariant::Bb))
+    body.styled(EquationTexElem::set_variant(MathVariant::Bb))
 }
 
 /// Forced display style in math.
@@ -140,8 +140,8 @@ pub fn display(
     #[default(false)]
     cramped: bool,
 ) -> TexContent {
-    body.styled(EquationElem::set_size(MathSize::Display))
-        .styled(EquationElem::set_cramped(cramped))
+    body.styled(EquationTexElem::set_size(MathSize::Display))
+        .styled(EquationTexElem::set_cramped(cramped))
 }
 
 /// Forced inline (text) style in math.
@@ -162,8 +162,8 @@ pub fn inline(
     #[default(false)]
     cramped: bool,
 ) -> TexContent {
-    body.styled(EquationElem::set_size(MathSize::Text))
-        .styled(EquationElem::set_cramped(cramped))
+    body.styled(EquationTexElem::set_size(MathSize::Text))
+        .styled(EquationTexElem::set_cramped(cramped))
 }
 
 /// Forced script style in math.
@@ -183,8 +183,8 @@ pub fn script(
     #[default(true)]
     cramped: bool,
 ) -> TexContent {
-    body.styled(EquationElem::set_size(MathSize::Script))
-        .styled(EquationElem::set_cramped(cramped))
+    body.styled(EquationTexElem::set_size(MathSize::Script))
+        .styled(EquationTexElem::set_cramped(cramped))
 }
 
 /// Forced second script style in math.
@@ -205,8 +205,8 @@ pub fn sscript(
     #[default(true)]
     cramped: bool,
 ) -> TexContent {
-    body.styled(EquationElem::set_size(MathSize::ScriptScript))
-        .styled(EquationElem::set_cramped(cramped))
+    body.styled(EquationTexElem::set_size(MathSize::ScriptScript))
+        .styled(EquationTexElem::set_cramped(cramped))
 }
 
 /// The size of elements in an equation.
@@ -248,26 +248,26 @@ pub enum MathVariant {
 }
 
 /// Get the font size scaled with the `MathSize`.
-pub fn scaled_font_size(ctx: &MathContext, styles: StyleChain) -> Abs {
-    EquationElem::size_in(styles).factor(ctx) * TextElem::size_in(styles)
+pub fn scaled_font_size(ctx: &MathContext, styles: StyleChain) -> TexAbsLength {
+    EquationTexElem::size_in(styles).factor(ctx) * TextElem::size_in(styles)
 }
 
 /// Styles something as cramped.
 pub fn style_cramped() -> Prehashed<Style> {
-    EquationElem::set_cramped(true).wrap()
+    EquationTexElem::set_cramped(true).wrap()
 }
 
 /// The style for subscripts in the current style.
 pub fn style_for_subscript(styles: StyleChain) -> [Prehashed<Style>; 2] {
     [
         style_for_superscript(styles),
-        EquationElem::set_cramped(true).wrap(),
+        EquationTexElem::set_cramped(true).wrap(),
     ]
 }
 
 /// The style for superscripts in the current style.
 pub fn style_for_superscript(styles: StyleChain) -> Prehashed<Style> {
-    EquationElem::set_size(match EquationElem::size_in(styles) {
+    EquationTexElem::set_size(match EquationTexElem::size_in(styles) {
         MathSize::Display | MathSize::Text => MathSize::Script,
         MathSize::Script | MathSize::ScriptScript => MathSize::ScriptScript,
     })
@@ -276,7 +276,7 @@ pub fn style_for_superscript(styles: StyleChain) -> Prehashed<Style> {
 
 /// The style for numerators in the current style.
 pub fn style_for_numerator(styles: StyleChain) -> Prehashed<Style> {
-    EquationElem::set_size(match EquationElem::size_in(styles) {
+    EquationTexElem::set_size(match EquationTexElem::size_in(styles) {
         MathSize::Display => MathSize::Text,
         MathSize::Text => MathSize::Script,
         MathSize::Script | MathSize::ScriptScript => MathSize::ScriptScript,
@@ -288,7 +288,7 @@ pub fn style_for_numerator(styles: StyleChain) -> Prehashed<Style> {
 pub fn style_for_denominator(styles: StyleChain) -> [Prehashed<Style>; 2] {
     [
         style_for_numerator(styles),
-        EquationElem::set_cramped(true).wrap(),
+        EquationTexElem::set_cramped(true).wrap(),
     ]
 }
 
@@ -299,9 +299,9 @@ pub fn style_for_denominator(styles: StyleChain) -> [Prehashed<Style>; 2] {
 pub fn styled_char(styles: StyleChain, c: char) -> char {
     use MathVariant::*;
 
-    let variant = EquationElem::variant_in(styles);
-    let bold = EquationElem::bold_in(styles);
-    let italic = EquationElem::italic_in(styles).unwrap_or(matches!(
+    let variant = EquationTexElem::variant_in(styles);
+    let bold = EquationTexElem::bold_in(styles);
+    let italic = EquationTexElem::italic_in(styles).unwrap_or(matches!(
         c,
         'a'..='z' | 'ı' | 'ȷ' | 'A'..='Z' | 'α'..='ω' |
         '∂' | 'ϵ' | 'ϑ' | 'ϰ' | 'ϕ' | 'ϱ' | 'ϖ'

@@ -25,7 +25,7 @@ use std::fmt::{self, Debug, Formatter};
 use ecow::{eco_format, EcoString};
 use smallvec::SmallVec;
 
-use crate::foundations::Packed;
+use crate::foundations::TexContentRefined;
 use crate::foundations::{
     category, elem, ty, Behave, Behaviour, Category, Repr, Scope, TexContent, Unlabellable,
 };
@@ -54,7 +54,7 @@ pub fn define(global: &mut Scope) {
 
 /// Hosts metadata and ensures metadata is produced even for empty elements.
 #[elem(Behave, Unlabellable)]
-pub struct MetaElem {
+pub struct MetaTexElem {
     /// Metadata that should be attached to all elements affected by this style
     /// property.
     ///
@@ -70,9 +70,9 @@ pub struct MetaElem {
     pub data: SmallVec<[Meta; 1]>,
 }
 
-impl Unlabellable for Packed<MetaElem> {}
+impl Unlabellable for TexContentRefined<MetaTexElem> {}
 
-impl Behave for Packed<MetaElem> {
+impl Behave for TexContentRefined<MetaTexElem> {
     fn behaviour(&self) -> Behaviour {
         Behaviour::Invisible
     }

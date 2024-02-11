@@ -44,7 +44,7 @@ use std::borrow::Cow;
 
 use crate::diag::SourceResult;
 use crate::foundations::{category, Category, Module, Resolve, Scope, StyleChain, TexContent};
-use crate::layout::{BoxElem, HElem, Spacing};
+use crate::layout::{BoxTexElem, HElem, Spacing};
 use crate::realize::{realize, BehavedBuilder};
 use crate::text::{LinebreakElem, SpaceElem, TextElem};
 
@@ -157,11 +157,11 @@ pub static MATH: Category;
 pub fn module() -> Module {
     let mut math = Scope::deduplicating();
     math.category(MATH);
-    math.define_elem::<EquationElem>();
+    math.define_elem::<EquationTexElem>();
     math.define_elem::<TextElem>();
     math.define_elem::<LrElem>();
     math.define_elem::<MidElem>();
-    math.define_elem::<AttachElem>();
+    math.define_elem::<AttachTexElem>();
     math.define_elem::<ScriptsElem>();
     math.define_elem::<LimitsElem>();
     math.define_elem::<AccentElem>();
@@ -171,14 +171,14 @@ pub fn module() -> Module {
     math.define_elem::<OverbraceElem>();
     math.define_elem::<UnderbracketElem>();
     math.define_elem::<OverbracketElem>();
-    math.define_elem::<CancelElem>();
+    math.define_elem::<CancelLineTexElem>();
     math.define_elem::<FracElem>();
     math.define_elem::<BinomElem>();
     math.define_elem::<VecElem>();
     math.define_elem::<MatElem>();
     math.define_elem::<CasesElem>();
     math.define_elem::<RootElem>();
-    math.define_elem::<ClassElem>();
+    math.define_elem::<ClassTexElem>();
     math.define_elem::<OpElem>();
     math.define_elem::<PrimesElem>();
     math.define_func::<abs>();
@@ -212,12 +212,12 @@ pub fn module() -> Module {
 }
 
 /// Layout for math elements.
-pub trait LayoutMath {
+pub trait TexLayoutMath {
     /// Layout the element, producing fragment in the context.
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()>;
 }
 
-impl LayoutMath for TexContent {
+impl TexLayoutMath for TexContent {
     #[husky_tex_macros::time(name = "math", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         // Directly layout the body of nested equations instead of handling it
@@ -226,7 +226,7 @@ impl LayoutMath for TexContent {
         // #let my = $pi$
         // $ my r^2 $
         // ```
-        if let Some(elem) = self.to_packed::<EquationElem>() {
+        if let Some(elem) = self.to_packed::<EquationTexElem>() {
             return elem.layout_math(ctx, styles);
         }
 
@@ -289,13 +289,13 @@ impl LayoutMath for TexContent {
             return Ok(());
         }
 
-        if let Some(boxed) = self.to_packed::<BoxElem>() {
+        if let Some(boxed) = self.to_packed::<BoxTexElem>() {
             let frame = ctx.layout_box(boxed, styles)?;
             ctx.push(FrameFragment::new(ctx, styles, frame).with_spaced(true));
             return Ok(());
         }
 
-        if let Some(elem) = self.with::<dyn LayoutMath>() {
+        if let Some(elem) = self.with::<dyn TexLayoutMath>() {
             return elem.layout_math(ctx, styles);
         }
 

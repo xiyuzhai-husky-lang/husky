@@ -1,5 +1,5 @@
 use crate::foundations::{
-    elem, Behave, Behaviour, Packed, PlainText, Repr, Unlabellable,
+    elem, Behave, Behaviour, PlainText, Repr, TexContentRefined, Unlabellable,
 };
 use ecow::EcoString;
 
@@ -13,15 +13,15 @@ impl Repr for SpaceElem {
     }
 }
 
-impl Behave for Packed<SpaceElem> {
+impl Behave for TexContentRefined<SpaceElem> {
     fn behaviour(&self) -> Behaviour {
         Behaviour::Weak(2)
     }
 }
 
-impl Unlabellable for Packed<SpaceElem> {}
+impl Unlabellable for TexContentRefined<SpaceElem> {}
 
-impl PlainText for Packed<SpaceElem> {
+impl PlainText for TexContentRefined<SpaceElem> {
     fn plain_text(&self, text: &mut EcoString) {
         text.push(' ');
     }

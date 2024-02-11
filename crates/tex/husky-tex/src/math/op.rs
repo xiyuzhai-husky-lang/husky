@@ -2,9 +2,9 @@ use ecow::EcoString;
 use unicode_math_class::MathClass;
 
 use crate::diag::SourceResult;
-use crate::foundations::{elem, IsTexElem, Packed, Scope, StyleChain, TexContent};
+use crate::foundations::{elem, IsTexElem, Scope, StyleChain, TexContent, TexContentRefined};
 use crate::layout::HElem;
-use crate::math::{upright, FrameFragment, LayoutMath, Limits, MathContext, THIN};
+use crate::math::{upright, FrameFragment, Limits, MathContext, TexLayoutMath, THIN};
 use crate::text::TextElem;
 
 /// A text operator in an equation.
@@ -22,7 +22,7 @@ use crate::text::TextElem;
 /// `gcd`, `hom`, `id`, `im`, `inf`, `ker`, `lg`, `lim`, `liminf`, `limsup`,
 /// `ln`, `log`, `max`, `min`, `mod`, `Pr`, `sec`, `sech`, `sin`, `sinc`,
 /// `sinh`, `sup`, `tan`, `tanh`, `tg` and `tr`.
-#[elem(title = "Text Operator", LayoutMath)]
+#[elem(title = "Text Operator", TexLayoutMath)]
 pub struct OpElem {
     /// The operator's text.
     #[required]
@@ -33,7 +33,7 @@ pub struct OpElem {
     pub limits: bool,
 }
 
-impl LayoutMath for Packed<OpElem> {
+impl TexLayoutMath for TexContentRefined<OpElem> {
     #[husky_tex_macros::time(name = "math.op", span = self.span())]
     fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
         let fragment = ctx.layout_fragment(self.text(), styles)?;

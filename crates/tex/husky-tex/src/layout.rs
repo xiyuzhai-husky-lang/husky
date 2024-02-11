@@ -10,7 +10,7 @@ mod corners;
 mod direction;
 mod em;
 mod flow;
-mod fr;
+mod fraction;
 mod fragment;
 mod frame;
 mod grid;
@@ -45,7 +45,7 @@ pub use self::corners::*;
 pub use self::direction::*;
 pub use self::em::*;
 pub use self::flow::*;
-pub use self::fr::*;
+pub use self::fraction::*;
 pub use self::fragment::*;
 pub use self::frame::*;
 pub use self::grid::*;
@@ -72,13 +72,13 @@ pub(crate) use self::inline::*;
 use comemo::{Tracked, TrackedMut};
 
 use crate::diag::{bail, SourceResult};
-use crate::engine::{Engine, Route};
+use crate::engine::{Route, TexEngine};
 use crate::eval::Tracer;
 use crate::foundations::{category, Category, Scope, StyleChain, TexContent};
 use crate::introspection::{Introspector, Locator};
 use crate::model::TexDocument;
 use crate::realize::{realize_block, realize_root, Scratch};
-use crate::World;
+use crate::IsTexWorld;
 
 /// Arranging elements on the page in different ways.
 ///
@@ -93,14 +93,14 @@ pub fn define(global: &mut Scope) {
     global.define_type::<Angle>();
     global.define_type::<Ratio>();
     global.define_type::<Rel<Length>>();
-    global.define_type::<Fr>();
+    global.define_type::<TexFraction>();
     global.define_type::<TexLayoutDirection>();
     global.define_type::<TexAlignment>();
     global.define_elem::<PageElem>();
     global.define_elem::<PagebreakElem>();
     global.define_elem::<VElem>();
     global.define_elem::<HElem>();
-    global.define_elem::<BoxElem>();
+    global.define_elem::<BoxTexElem>();
     global.define_elem::<BlockElem>();
     global.define_elem::<StackElem>();
     global.define_elem::<GridElem>();
@@ -121,7 +121,7 @@ pub fn define(global: &mut Scope) {
 /// Root-level layout.
 pub trait LayoutRoot {
     /// Layout into a document with one frame per page.
-    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexDocument>;
+    fn layout_root(&self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexDocument>;
 }
 
 /// Layout into multiple regions.
@@ -129,10 +129,10 @@ pub trait LayoutMultiple {
     /// Layout into one frame per region.
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment>;
+    ) -> SourceResult<TexLayoutFragment>;
 
     /// Layout without side effects.
     ///
@@ -140,12 +140,12 @@ pub trait LayoutMultiple {
     /// be valid.
     fn measure(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         let mut locator = Locator::chained(engine.locator.track());
-        let mut engine = Engine {
+        let mut engine = TexEngine {
             world: engine.world,
             route: engine.route.clone(),
             introspector: engine.introspector,
@@ -161,18 +161,18 @@ pub trait LayoutSingle {
     /// Layout into one frame per region.
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Frame>;
+    ) -> SourceResult<TexFrame>;
 }
 
 impl LayoutRoot for TexContent {
-    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexDocument> {
+    fn layout_root(&self, engine: &mut TexEngine, styles: StyleChain) -> SourceResult<TexDocument> {
         #[comemo::memoize]
         fn cached(
             content: &TexContent,
-            world: Tracked<dyn World + '_>,
+            world: Tracked<dyn IsTexWorld + '_>,
             introspector: Tracked<Introspector>,
             route: Tracked<Route>,
             locator: Tracked<Locator>,
@@ -180,7 +180,7 @@ impl LayoutRoot for TexContent {
             styles: StyleChain,
         ) -> SourceResult<TexDocument> {
             let mut locator = Locator::chained(locator);
-            let mut engine = Engine {
+            let mut engine = TexEngine {
                 world,
                 introspector,
                 route: Route::extend(route).unnested(),
@@ -207,24 +207,24 @@ impl LayoutRoot for TexContent {
 impl LayoutMultiple for TexContent {
     fn layout(
         &self,
-        engine: &mut Engine,
+        engine: &mut TexEngine,
         styles: StyleChain,
         regions: Regions,
-    ) -> SourceResult<Fragment> {
+    ) -> SourceResult<TexLayoutFragment> {
         #[allow(clippy::too_many_arguments)]
         #[comemo::memoize]
         fn cached(
             content: &TexContent,
-            world: Tracked<dyn World + '_>,
+            world: Tracked<dyn IsTexWorld + '_>,
             introspector: Tracked<Introspector>,
             route: Tracked<Route>,
             locator: Tracked<Locator>,
             tracer: TrackedMut<Tracer>,
             styles: StyleChain,
             regions: Regions,
-        ) -> SourceResult<Fragment> {
+        ) -> SourceResult<TexLayoutFragment> {
             let mut locator = Locator::chained(locator);
-            let mut engine = Engine {
+            let mut engine = TexEngine {
                 world,
                 introspector,
                 route: Route::extend(route),

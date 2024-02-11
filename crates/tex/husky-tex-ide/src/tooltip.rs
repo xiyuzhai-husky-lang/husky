@@ -7,7 +7,7 @@ use husky_tex::layout::Length;
 use husky_tex::model::TexDocument;
 use husky_tex::syntax::{ast, LinkedNode, Source, TexSyntaxKind};
 use husky_tex::util::{round_2, Numeric};
-use husky_tex::World;
+use husky_tex::IsTexWorld;
 use if_chain::if_chain;
 
 use crate::analyze::{analyze_expr, analyze_labels};
@@ -19,7 +19,7 @@ use crate::{plain_docs_sentence, summarize_font_family};
 /// the autocompletions. Label completions, for instance, are only generated
 /// when the document is available.
 pub fn tooltip(
-    world: &dyn World,
+    world: &dyn IsTexWorld,
     document: Option<&TexDocument>,
     source: &Source,
     cursor: usize,
@@ -46,7 +46,7 @@ pub enum Tooltip {
 }
 
 /// Tooltip for a hovered expression.
-fn expr_tooltip(world: &dyn World, leaf: &LinkedNode) -> Option<Tooltip> {
+fn expr_tooltip(world: &dyn IsTexWorld, leaf: &LinkedNode) -> Option<Tooltip> {
     let mut ancestor = leaf;
     while !ancestor.is::<ast::Expr>() {
         ancestor = ancestor.parent()?;
@@ -171,7 +171,7 @@ fn label_tooltip(document: &TexDocument, leaf: &LinkedNode) -> Option<Tooltip> {
 }
 
 /// Tooltips for components of a named parameter.
-fn named_param_tooltip(world: &dyn World, leaf: &LinkedNode) -> Option<Tooltip> {
+fn named_param_tooltip(world: &dyn IsTexWorld, leaf: &LinkedNode) -> Option<Tooltip> {
     let (func, named) = if_chain! {
         // Ensure that we are in a named pair in the arguments to a function
         // call or set rule.
@@ -228,7 +228,7 @@ fn find_string_doc(info: &CastInfo, string: &str) -> Option<&'static str> {
 }
 
 /// Tooltip for font.
-fn font_tooltip(world: &dyn World, leaf: &LinkedNode) -> Option<Tooltip> {
+fn font_tooltip(world: &dyn IsTexWorld, leaf: &LinkedNode) -> Option<Tooltip> {
     if_chain! {
         // Ensure that we are on top of a string.
         if let Some(string) = leaf.cast::<ast::Str>();

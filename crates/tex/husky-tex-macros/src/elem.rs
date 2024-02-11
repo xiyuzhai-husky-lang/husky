@@ -660,7 +660,7 @@ fn create_native_elem_impl(element: &Elem) -> TokenStream {
     } = element;
 
     let local_name = if element.can("LocalName") {
-        quote! { Some(<#foundations::Packed<#ident> as ::husky_tex::text::LocalName>::local_name) }
+        quote! { Some(<#foundations::TexContentRefined<#ident> as ::husky_tex::text::LocalName>::local_name) }
     } else {
         quote! { None }
     };
@@ -792,7 +792,7 @@ fn create_construct_impl(element: &Elem) -> TokenStream {
     quote! {
         impl #foundations::Construct for #ident {
             fn construct(
-                engine: &mut ::husky_tex::engine::Engine,
+                engine: &mut ::husky_tex::engine::TexEngine,
                 args: &mut #foundations::Args,
             ) -> ::husky_tex::diag::SourceResult<#foundations::TexContent> {
                 #(#setup)*
@@ -819,7 +819,7 @@ fn create_set_impl(element: &Elem) -> TokenStream {
     quote! {
         impl #foundations::Set for #ident {
             fn set(
-                engine: &mut ::husky_tex::engine::Engine,
+                engine: &mut ::husky_tex::engine::TexEngine,
                 args: &mut #foundations::Args,
             ) -> ::husky_tex::diag::SourceResult<#foundations::Styles> {
                 let mut styles = #foundations::Styles::new();
@@ -884,7 +884,7 @@ fn create_capable_impl(element: &Elem) -> TokenStream {
     quote! {
         unsafe impl #foundations::Capable for #ident {
             fn vtable(capability: ::std::any::TypeId) -> ::std::option::Option<*const ()> {
-                let dangling = ::std::ptr::NonNull::<#foundations::Packed<#ident>>::dangling().as_ptr();
+                let dangling = ::std::ptr::NonNull::<#foundations::TexContentRefined<#ident>>::dangling().as_ptr();
                 #(#checks)*
                 None
             }
@@ -1067,7 +1067,7 @@ fn create_repr_impl(element: &Elem) -> TokenStream {
 /// Creates the element's `Locatable` implementation.
 fn create_locatable_impl(element: &Elem) -> TokenStream {
     let ident = &element.ident;
-    quote! { impl ::husky_tex::introspection::Locatable for #foundations::Packed<#ident> {} }
+    quote! { impl ::husky_tex::introspection::Locatable for #foundations::TexContentRefined<#ident> {} }
 }
 
 /// Creates the element's `IntoTexValue` implementation.

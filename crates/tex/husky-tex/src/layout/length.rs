@@ -6,7 +6,7 @@ use ecow::{eco_format, EcoString};
 
 use crate::diag::{At, Hint, SourceResult};
 use crate::foundations::{func, scope, ty, Fold, Repr, Resolve, StyleChain, Styles};
-use crate::layout::{Abs, LengthInEm};
+use crate::layout::{TexAbsLength, TexEmLength};
 use crate::syntax::Span;
 use crate::util::Numeric;
 
@@ -42,17 +42,17 @@ use crate::util::Numeric;
 #[derive(Default, Copy, Clone, Eq, PartialEq, Hash)]
 pub struct Length {
     /// The absolute part.
-    pub abs: Abs,
+    pub abs: TexAbsLength,
     /// The font-relative part.
-    pub em: LengthInEm,
+    pub em: TexEmLength,
 }
 
 impl Length {
     /// The zero length.
     pub const fn zero() -> Self {
         Self {
-            abs: Abs::zero(),
-            em: LengthInEm::zero(),
+            abs: TexAbsLength::zero(),
+            em: TexEmLength::zero(),
         }
     }
 
@@ -76,13 +76,13 @@ impl Length {
     }
 
     /// Convert to an absolute length at the given font size.
-    pub fn at(self, font_size: Abs) -> Abs {
+    pub fn at(self, font_size: TexAbsLength) -> TexAbsLength {
         self.abs + self.em.at(font_size)
     }
 
     /// Fails with an error if the length has a non-zero font-relative part.
     fn ensure_that_em_is_zero(&self, span: Span, unit: &str) -> SourceResult<()> {
-        if self.em == LengthInEm::zero() {
+        if self.em == TexEmLength::zero() {
             return Ok(());
         }
         Err(eco_format!(
@@ -215,19 +215,19 @@ impl PartialOrd for Length {
     }
 }
 
-impl From<Abs> for Length {
-    fn from(abs: Abs) -> Self {
+impl From<TexAbsLength> for Length {
+    fn from(abs: TexAbsLength) -> Self {
         Self {
             abs,
-            em: LengthInEm::zero(),
+            em: TexEmLength::zero(),
         }
     }
 }
 
-impl From<LengthInEm> for Length {
-    fn from(em: LengthInEm) -> Self {
+impl From<TexEmLength> for Length {
+    fn from(em: TexEmLength) -> Self {
         Self {
-            abs: Abs::zero(),
+            abs: TexAbsLength::zero(),
             em,
         }
     }
@@ -293,7 +293,7 @@ assign_impl!(Length *= f64);
 assign_impl!(Length /= f64);
 
 impl Resolve for Length {
-    type Output = Abs;
+    type Output = TexAbsLength;
 
     fn resolve(self, styles: StyleChain) -> Self::Output {
         self.abs + self.em.resolve(styles)

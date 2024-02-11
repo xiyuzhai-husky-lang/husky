@@ -2,10 +2,10 @@ use ecow::EcoString;
 
 use crate::diag::{SourceResult, StrResult};
 use crate::foundations::{
-    cast, dict, func, scope, ty, Args, Cast, Fold, FromTexValue, NoneValue, Repr, Resolve, Smart,
-    StyleChain, TexDict, TexValue,
+    cast, dict, func, scope, ty, Args, Cast, Fold, FromTexValue, NoneTexValue, Repr, Resolve,
+    Smart, StyleChain, TexDict, TexValue,
 };
-use crate::layout::{Abs, Length};
+use crate::layout::{Length, TexAbsLength};
 use crate::util::{Numeric, Scalar};
 use crate::visualize::{Gradient, Pattern, TexColor, TexPaint};
 
@@ -238,7 +238,7 @@ impl<T: Numeric> TexStroke<T> {
     }
 }
 
-impl TexStroke<Abs> {
+impl TexStroke<TexAbsLength> {
     /// Unpack the stroke, filling missing fields from the `default`.
     pub fn unwrap_or(self, default: TexFixedStroke) -> TexFixedStroke {
         let thickness = self.thickness.unwrap_or(default.thickness);
@@ -329,7 +329,7 @@ impl<T: Numeric + Repr> Repr for TexStroke<T> {
                 if let Some(dash) = dash {
                     r.push_str(&dash.repr());
                 } else {
-                    r.push_str(&NoneValue.repr());
+                    r.push_str(&NoneTexValue.repr());
                 }
                 sep = ", ";
             }
@@ -358,7 +358,7 @@ impl<T: Numeric + Fold> Fold for TexStroke<T> {
 }
 
 impl Resolve for TexStroke {
-    type Output = TexStroke<Abs>;
+    type Output = TexStroke<TexAbsLength>;
 
     fn resolve(self, styles: StyleChain) -> Self::Output {
         TexStroke {
@@ -417,7 +417,7 @@ cast! {
 }
 
 cast! {
-    TexStroke<Abs>,
+    TexStroke<TexAbsLength>,
     self => self.map(Length::from).into_value(),
 }
 
@@ -500,7 +500,7 @@ impl<T: Numeric + Default> From<Vec<DashLength<T>>> for DashPattern<T> {
 }
 
 impl Resolve for DashPattern {
-    type Output = DashPattern<Abs>;
+    type Output = DashPattern<TexAbsLength>;
 
     fn resolve(self, styles: StyleChain) -> Self::Output {
         DashPattern {
@@ -517,15 +517,15 @@ cast! {
     self => dict! { "array" => self.array, "phase" => self.phase }.into_value(),
 
     "solid" => Vec::new().into(),
-    "dotted" => vec![DashLength::LineWidth, Abs::pt(2.0).into()].into(),
-    "densely-dotted" => vec![DashLength::LineWidth, Abs::pt(1.0).into()].into(),
-    "loosely-dotted" => vec![DashLength::LineWidth, Abs::pt(4.0).into()].into(),
-    "dashed" => vec![Abs::pt(3.0).into(), Abs::pt(3.0).into()].into(),
-    "densely-dashed" => vec![Abs::pt(3.0).into(), Abs::pt(2.0).into()].into(),
-    "loosely-dashed" => vec![Abs::pt(3.0).into(), Abs::pt(6.0).into()].into(),
-    "dash-dotted" => vec![Abs::pt(3.0).into(), Abs::pt(2.0).into(), DashLength::LineWidth, Abs::pt(2.0).into()].into(),
-    "densely-dash-dotted" => vec![Abs::pt(3.0).into(), Abs::pt(1.0).into(), DashLength::LineWidth, Abs::pt(1.0).into()].into(),
-    "loosely-dash-dotted" => vec![Abs::pt(3.0).into(), Abs::pt(4.0).into(), DashLength::LineWidth, Abs::pt(4.0).into()].into(),
+    "dotted" => vec![DashLength::LineWidth, TexAbsLength::pt(2.0).into()].into(),
+    "densely-dotted" => vec![DashLength::LineWidth, TexAbsLength::pt(1.0).into()].into(),
+    "loosely-dotted" => vec![DashLength::LineWidth, TexAbsLength::pt(4.0).into()].into(),
+    "dashed" => vec![TexAbsLength::pt(3.0).into(), TexAbsLength::pt(3.0).into()].into(),
+    "densely-dashed" => vec![TexAbsLength::pt(3.0).into(), TexAbsLength::pt(2.0).into()].into(),
+    "loosely-dashed" => vec![TexAbsLength::pt(3.0).into(), TexAbsLength::pt(6.0).into()].into(),
+    "dash-dotted" => vec![TexAbsLength::pt(3.0).into(), TexAbsLength::pt(2.0).into(), DashLength::LineWidth, TexAbsLength::pt(2.0).into()].into(),
+    "densely-dash-dotted" => vec![TexAbsLength::pt(3.0).into(), TexAbsLength::pt(1.0).into(), DashLength::LineWidth, TexAbsLength::pt(1.0).into()].into(),
+    "loosely-dash-dotted" => vec![TexAbsLength::pt(3.0).into(), TexAbsLength::pt(4.0).into(), DashLength::LineWidth, TexAbsLength::pt(4.0).into()].into(),
 
     array: Vec<DashLength> => Self { array, phase: Length::zero() },
     mut dict: TexDict => {
@@ -566,7 +566,7 @@ impl<T: Numeric + Repr> Repr for DashLength<T> {
 }
 
 impl Resolve for DashLength {
-    type Output = DashLength<Abs>;
+    type Output = DashLength<TexAbsLength>;
 
     fn resolve(self, styles: StyleChain) -> Self::Output {
         match self {
@@ -576,8 +576,8 @@ impl Resolve for DashLength {
     }
 }
 
-impl From<Abs> for DashLength {
-    fn from(l: Abs) -> Self {
+impl From<TexAbsLength> for DashLength {
+    fn from(l: TexAbsLength) -> Self {
         DashLength::Length(l.into())
     }
 }
@@ -598,20 +598,20 @@ pub struct TexFixedStroke {
     /// The stroke's paint.
     pub paint: TexPaint,
     /// The stroke's thickness.
-    pub thickness: Abs,
+    pub thickness: TexAbsLength,
     /// The stroke's line cap.
     pub cap: LineCap,
     /// The stroke's line join.
     pub join: LineJoin,
     /// The stroke's line dash pattern.
-    pub dash: Option<DashPattern<Abs, Abs>>,
+    pub dash: Option<DashPattern<TexAbsLength, TexAbsLength>>,
     /// The miter limit. Defaults to 4.0, same as `tiny-skia`.
     pub miter_limit: Scalar,
 }
 
 impl TexFixedStroke {
     /// Create a stroke from a paint and a thickness.
-    pub fn from_pair(paint: impl Into<TexPaint>, thickness: Abs) -> Self {
+    pub fn from_pair(paint: impl Into<TexPaint>, thickness: TexAbsLength) -> Self {
         Self {
             paint: paint.into(),
             thickness,
@@ -624,7 +624,7 @@ impl Default for TexFixedStroke {
     fn default() -> Self {
         Self {
             paint: TexPaint::Solid(TexColor::BLACK),
-            thickness: Abs::pt(1.0),
+            thickness: TexAbsLength::pt(1.0),
             cap: LineCap::Butt,
             join: LineJoin::Miter,
             dash: None,
