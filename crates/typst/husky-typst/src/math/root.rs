@@ -7,7 +7,7 @@ use crate::math::{
 };
 use crate::syntax::Span;
 use crate::text::TextElem;
-use crate::visualize::{FixedStroke, Geometry};
+use crate::visualize::{TypstFixedStroke, TypstGeometry};
 
 /// A square root.
 ///
@@ -139,10 +139,9 @@ fn layout(
     frame.push(
         line_pos,
         FrameItem::Shape(
-            Geometry::Line(Point::with_x(radicand.width())).stroked(FixedStroke::from_pair(
-                TextElem::fill_in(styles).as_decoration(),
-                thickness,
-            )),
+            TypstGeometry::Line(Point::with_x(radicand.width())).stroked(
+                TypstFixedStroke::from_pair(TextElem::fill_in(styles).as_decoration(), thickness),
+            ),
             span,
         ),
     );

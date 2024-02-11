@@ -4,7 +4,7 @@ use crate::layout::{Abs, Angle, Frame, FrameItem, Length, Point, Ratio, Rel, Siz
 use crate::math::{FrameFragment, LayoutMath, MathContext};
 use crate::syntax::Span;
 use crate::text::TextElem;
-use crate::visualize::{FixedStroke, Geometry, Stroke};
+use crate::visualize::{TypstFixedStroke, TypstGeometry, TypstStroke};
 
 /// Displays a diagonal line over a part of an equation.
 ///
@@ -93,12 +93,12 @@ pub struct CancelElem {
     /// ```
     #[resolve]
     #[fold]
-    #[default(Stroke {
+    #[default(TypstStroke {
         // Default stroke has 0.5pt for better visuals.
         thickness: Smart::Custom(Abs::pt(0.5).into()),
         ..Default::default()
     })]
-    pub stroke: Stroke,
+    pub stroke: TypstStroke,
 }
 
 impl LayoutMath for Packed<CancelElem> {
@@ -116,7 +116,7 @@ impl LayoutMath for Packed<CancelElem> {
         let span = self.span();
         let length = self.length(styles).resolve(styles);
 
-        let stroke = self.stroke(styles).unwrap_or(FixedStroke {
+        let stroke = self.stroke(styles).unwrap_or(TypstFixedStroke {
             paint: TextElem::fill_in(styles).as_decoration(),
             ..Default::default()
         });
@@ -180,7 +180,7 @@ cast! {
 fn draw_cancel_line(
     ctx: &mut MathContext,
     length_scale: Rel<Abs>,
-    stroke: FixedStroke,
+    stroke: TypstFixedStroke,
     invert: bool,
     angle: &Smart<CancelAngle>,
     body_size: Size,
@@ -214,7 +214,7 @@ fn draw_cancel_line(
     let mut frame = Frame::soft(body_size);
     frame.push(
         start,
-        FrameItem::Shape(Geometry::Line(delta).stroked(stroke), span),
+        FrameItem::Shape(TypstGeometry::Line(delta).stroked(stroke), span),
     );
 
     // Having the middle of the line at the origin is convenient here.

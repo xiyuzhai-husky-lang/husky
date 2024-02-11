@@ -7,7 +7,7 @@ use crate::math::{
 };
 use crate::syntax::Span;
 use crate::text::TextElem;
-use crate::visualize::{FixedStroke, Geometry};
+use crate::visualize::{TypstFixedStroke, TypstGeometry};
 
 const BRACE_GAP: LengthInEm = LengthInEm::new(0.25);
 const BRACKET_GAP: LengthInEm = LengthInEm::new(0.25);
@@ -104,10 +104,10 @@ fn layout_underoverline(
     frame.push(
         line_pos,
         FrameItem::Shape(
-            Geometry::Line(Point::with_x(width)).stroked(FixedStroke {
+            TypstGeometry::Line(Point::with_x(width)).stroked(TypstFixedStroke {
                 paint: TextElem::fill_in(styles).as_decoration(),
                 thickness: bar_height,
-                ..FixedStroke::default()
+                ..TypstFixedStroke::default()
             }),
             span,
         ),

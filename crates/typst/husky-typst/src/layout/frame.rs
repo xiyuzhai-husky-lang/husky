@@ -13,7 +13,8 @@ use crate::syntax::Span;
 use crate::text::TextItem;
 use crate::util::Numeric;
 use crate::visualize::{
-    ellipse, styled_rect, FixedStroke, Geometry, Image, Paint, Path, Shape, TypstColor,
+    ellipse, styled_rect, Image, Path, TypstColor, TypstFixedStroke, TypstGeometry, TypstPaint,
+    TypstShape,
 };
 
 /// A finished layout with items at fixed positions.
@@ -314,18 +315,21 @@ impl Frame {
     }
 
     /// Add a background fill.
-    pub fn fill(&mut self, fill: Paint) {
+    pub fn fill(&mut self, fill: TypstPaint) {
         self.prepend(
             Point::zero(),
-            FrameItem::Shape(Geometry::Rect(self.size()).filled(fill), Span::detached()),
+            FrameItem::Shape(
+                TypstGeometry::Rect(self.size()).filled(fill),
+                Span::detached(),
+            ),
         );
     }
 
     /// Add a fill and stroke with optional radius and outset to the frame.
     pub fn fill_and_stroke(
         &mut self,
-        fill: Option<Paint>,
-        stroke: Sides<Option<FixedStroke>>,
+        fill: Option<TypstPaint>,
+        stroke: Sides<Option<TypstFixedStroke>>,
         outset: Sides<Rel<Abs>>,
         radius: Corners<Rel<Abs>>,
         span: Span,
@@ -386,7 +390,7 @@ impl Frame {
             0,
             Point::zero(),
             FrameItem::Shape(
-                Geometry::Rect(self.size).filled(TypstColor::TEAL.with_alpha(0.5).into()),
+                TypstGeometry::Rect(self.size).filled(TypstColor::TEAL.with_alpha(0.5).into()),
                 Span::detached(),
             ),
         );
@@ -394,8 +398,8 @@ impl Frame {
             1,
             Point::with_y(self.baseline()),
             FrameItem::Shape(
-                Geometry::Line(Point::with_x(self.size.x))
-                    .stroked(FixedStroke::from_pair(TypstColor::RED, Abs::pt(1.0))),
+                TypstGeometry::Line(Point::with_x(self.size.x))
+                    .stroked(TypstFixedStroke::from_pair(TypstColor::RED, Abs::pt(1.0))),
                 Span::detached(),
             ),
         );
@@ -422,8 +426,8 @@ impl Frame {
         self.push(
             Point::with_y(y),
             FrameItem::Shape(
-                Geometry::Line(Point::with_x(self.size.x))
-                    .stroked(FixedStroke::from_pair(TypstColor::GREEN, Abs::pt(1.0))),
+                TypstGeometry::Line(Point::with_x(self.size.x))
+                    .stroked(TypstFixedStroke::from_pair(TypstColor::GREEN, Abs::pt(1.0))),
                 Span::detached(),
             ),
         );
@@ -476,7 +480,7 @@ pub enum FrameItem {
     /// A run of shaped text.
     Text(TextItem),
     /// A geometric shape with optional fill and stroke.
-    Shape(Shape, Span),
+    Shape(TypstShape, Span),
     /// An image and its size.
     Image(Image, Size, Span),
     /// Meta information and the region it applies to.

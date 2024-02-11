@@ -952,7 +952,10 @@ impl<T> Fold for Vec<T> {
     }
 }
 
-impl<T, const N: usize> Fold for SmallVec<[T; N]> {
+impl<T, const N: usize> Fold for SmallVec<[T; N]>
+where
+    [T; N]: smallvec::Array<Item = T>,
+{
     fn fold(mut self, outer: Self) -> Self {
         self.extend(outer);
         self

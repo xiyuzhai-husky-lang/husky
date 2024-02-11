@@ -114,3 +114,6 @@ clean-mnist:
 
 mnist-game:
 	cargo run -p husky-mnist-game
+
+make typst-egui:
+	cargo run -p husky-typst-egui

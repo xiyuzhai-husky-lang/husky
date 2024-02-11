@@ -7,7 +7,7 @@ use crate::math::{
 };
 use crate::syntax::{Span, Spanned};
 use crate::text::TextElem;
-use crate::visualize::{FixedStroke, Geometry};
+use crate::visualize::{TypstFixedStroke, TypstGeometry};
 
 const FRAC_AROUND: LengthInEm = LengthInEm::new(0.1);
 
@@ -167,10 +167,12 @@ fn layout(
         frame.push(
             line_pos,
             FrameItem::Shape(
-                Geometry::Line(Point::with_x(line_width)).stroked(FixedStroke::from_pair(
-                    TextElem::fill_in(styles).as_decoration(),
-                    thickness,
-                )),
+                TypstGeometry::Line(Point::with_x(line_width)).stroked(
+                    TypstFixedStroke::from_pair(
+                        TextElem::fill_in(styles).as_decoration(),
+                        thickness,
+                    ),
+                ),
                 span,
             ),
         );

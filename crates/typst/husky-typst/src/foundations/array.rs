@@ -914,7 +914,10 @@ impl<T> Reflect for Vec<T> {
     }
 }
 
-impl<T: Reflect, const N: usize> Reflect for SmallVec<[T; N]> {
+impl<T: Reflect, const N: usize> Reflect for SmallVec<[T; N]>
+where
+    [T; N]: smallvec::Array<Item = T>,
+{
     fn input() -> CastInfo {
         Array::input()
     }
@@ -934,7 +937,10 @@ impl<T: IntoTypstValue> IntoTypstValue for Vec<T> {
     }
 }
 
-impl<T: IntoTypstValue, const N: usize> IntoTypstValue for SmallVec<[T; N]> {
+impl<T: IntoTypstValue, const N: usize> IntoTypstValue for SmallVec<[T; N]>
+where
+    [T; N]: smallvec::Array<Item = T>,
+{
     fn into_value(self) -> TypstValue {
         TypstValue::Array(self.into_iter().map(IntoTypstValue::into_value).collect())
     }
@@ -950,7 +956,10 @@ impl<T: FromTypstValue> FromTypstValue for Vec<T> {
     }
 }
 
-impl<T: FromTypstValue, const N: usize> FromTypstValue for SmallVec<[T; N]> {
+impl<T: FromTypstValue, const N: usize> FromTypstValue for SmallVec<[T; N]>
+where
+    [T; N]: smallvec::Array<Item = T>,
+{
     fn from_value(value: TypstValue) -> StrResult<Self> {
         value
             .cast::<Array>()?

@@ -14,8 +14,9 @@ use husky_typst::model::TypstDocument;
 use husky_typst::text::{TextItem, TypstFont};
 use husky_typst::util::hash128;
 use husky_typst::visualize::{
-    FixedStroke, Geometry, Gradient, Image, ImageFormat, LineCap, LineJoin, Paint, Path, PathItem,
-    Pattern, RasterFormat, RatioOrAngle, RelativeTo, Shape, TypstColor, VectorFormat,
+    Gradient, Image, ImageFormat, LineCap, LineJoin, Path, PathItem, Pattern, RasterFormat,
+    RatioOrAngle, RelativeTo, TypstColor, TypstFixedStroke, TypstGeometry, TypstPaint, TypstShape,
+    VectorFormat,
 };
 use ttf_parser::{GlyphId, OutlineBuilder};
 use xmlwriter::XmlWriter;
@@ -478,10 +479,10 @@ impl SVGRenderer {
         Some(())
     }
 
-    fn text_paint_transform(&self, state: State, paint: &Paint) -> Transform {
+    fn text_paint_transform(&self, state: State, paint: &TypstPaint) -> Transform {
         match paint {
-            Paint::Solid(_) => Transform::identity(),
-            Paint::Gradient(gradient) => match gradient.unwrap_relative(true) {
+            TypstPaint::Solid(_) => Transform::identity(),
+            TypstPaint::Gradient(gradient) => match gradient.unwrap_relative(true) {
                 RelativeTo::Self_ => Transform::identity(),
                 RelativeTo::Parent => Transform::scale(
                     Ratio::new(state.size.x.to_pt()),
@@ -489,7 +490,7 @@ impl SVGRenderer {
                 )
                 .post_concat(state.transform.invert().unwrap()),
             },
-            Paint::Pattern(pattern) => match pattern.unwrap_relative(true) {
+            TypstPaint::Pattern(pattern) => match pattern.unwrap_relative(true) {
                 RelativeTo::Self_ => Transform::identity(),
                 RelativeTo::Parent => state.transform.invert().unwrap(),
             },
@@ -497,7 +498,7 @@ impl SVGRenderer {
     }
 
     /// Render a shape element.
-    fn render_shape(&mut self, state: State, shape: &Shape) {
+    fn render_shape(&mut self, state: State, shape: &TypstShape) {
         self.xml.start_element("path");
         self.xml.write_attribute("class", "typst-shape");
 
@@ -525,7 +526,12 @@ impl SVGRenderer {
     }
 
     /// Calculate the transform of the shape's fill or stroke.
-    fn shape_paint_transform(&self, state: State, paint: &Paint, shape: &Shape) -> Transform {
+    fn shape_paint_transform(
+        &self,
+        state: State,
+        paint: &TypstPaint,
+        shape: &TypstShape,
+    ) -> Transform {
         let mut shape_size = shape.geometry.bbox_size();
         // Edge cases for strokes.
         if shape_size.x.to_pt() == 0.0 {
@@ -536,7 +542,7 @@ impl SVGRenderer {
             shape_size.y = Abs::pt(1.0);
         }
 
-        if let Paint::Gradient(gradient) = paint {
+        if let TypstPaint::Gradient(gradient) = paint {
             match gradient.unwrap_relative(false) {
                 RelativeTo::Self_ => Transform::scale(
                     Ratio::new(shape_size.x.to_pt()),
@@ -548,7 +554,7 @@ impl SVGRenderer {
                 )
                 .post_concat(state.transform.invert().unwrap()),
             }
-        } else if let Paint::Pattern(pattern) = paint {
+        } else if let TypstPaint::Pattern(pattern) = paint {
             match pattern.unwrap_relative(false) {
                 RelativeTo::Self_ => Transform::identity(),
                 RelativeTo::Parent => state.transform.invert().unwrap(),
@@ -559,7 +565,7 @@ impl SVGRenderer {
     }
 
     /// Calculate the size of the shape's fill.
-    fn shape_fill_size(&self, state: State, paint: &Paint, shape: &Shape) -> Size {
+    fn shape_fill_size(&self, state: State, paint: &TypstPaint, shape: &TypstShape) -> Size {
         let mut shape_size = shape.geometry.bbox_size();
         // Edge cases for strokes.
         if shape_size.x.to_pt() == 0.0 {
@@ -570,7 +576,7 @@ impl SVGRenderer {
             shape_size.y = Abs::pt(1.0);
         }
 
-        if let Paint::Gradient(gradient) = paint {
+        if let TypstPaint::Gradient(gradient) = paint {
             match gradient.unwrap_relative(false) {
                 RelativeTo::Self_ => shape_size,
                 RelativeTo::Parent => state.size,
@@ -581,15 +587,15 @@ impl SVGRenderer {
     }
 
     /// Write a fill attribute.
-    fn write_fill(&mut self, fill: &Paint, size: Size, ts: Transform) {
+    fn write_fill(&mut self, fill: &TypstPaint, size: Size, ts: Transform) {
         match fill {
-            Paint::Solid(color) => self.xml.write_attribute("fill", &color.encode()),
-            Paint::Gradient(gradient) => {
+            TypstPaint::Solid(color) => self.xml.write_attribute("fill", &color.encode()),
+            TypstPaint::Gradient(gradient) => {
                 let id = self.push_gradient(gradient, size, ts);
                 self.xml
                     .write_attribute_fmt("fill", format_args!("url(#{id})"));
             }
-            Paint::Pattern(pattern) => {
+            TypstPaint::Pattern(pattern) => {
                 let id = self.push_pattern(pattern, size, ts);
                 self.xml
                     .write_attribute_fmt("fill", format_args!("url(#{id})"));
@@ -649,15 +655,15 @@ impl SVGRenderer {
     }
 
     /// Write a stroke attribute.
-    fn write_stroke(&mut self, stroke: &FixedStroke, size: Size, fill_transform: Transform) {
+    fn write_stroke(&mut self, stroke: &TypstFixedStroke, size: Size, fill_transform: Transform) {
         match &stroke.paint {
-            Paint::Solid(color) => self.xml.write_attribute("stroke", &color.encode()),
-            Paint::Gradient(gradient) => {
+            TypstPaint::Solid(color) => self.xml.write_attribute("stroke", &color.encode()),
+            TypstPaint::Gradient(gradient) => {
                 let id = self.push_gradient(gradient, size, fill_transform);
                 self.xml
                     .write_attribute_fmt("stroke", format_args!("url(#{id})"));
             }
-            Paint::Pattern(pattern) => {
+            TypstPaint::Pattern(pattern) => {
                 let id = self.push_pattern(pattern, size, fill_transform);
                 self.xml
                     .write_attribute_fmt("stroke", format_args!("url(#{id})"));
@@ -1179,19 +1185,19 @@ fn convert_svg_glyph_to_base64_url(font: &TypstFont, id: GlyphId) -> Option<EcoS
 
 /// Convert a geometry to an SVG path.
 #[comemo::memoize]
-fn convert_geometry_to_path(geometry: &Geometry) -> EcoString {
+fn convert_geometry_to_path(geometry: &TypstGeometry) -> EcoString {
     let mut builder = SvgPathBuilder::default();
     match geometry {
-        Geometry::Line(t) => {
+        TypstGeometry::Line(t) => {
             builder.move_to(0.0, 0.0);
             builder.line_to(t.x.to_pt() as f32, t.y.to_pt() as f32);
         }
-        Geometry::Rect(rect) => {
+        TypstGeometry::Rect(rect) => {
             let x = rect.x.to_pt() as f32;
             let y = rect.y.to_pt() as f32;
             builder.rect(x, y);
         }
-        Geometry::Path(p) => return convert_path(p),
+        TypstGeometry::Path(p) => return convert_path(p),
     };
     builder.0
 }
@@ -1420,7 +1426,7 @@ trait ColorEncode {
 impl ColorEncode for TypstColor {
     fn encode(&self) -> EcoString {
         match *self {
-            c @ TypstColor::Rgb(_)
+            c @ TypstColor::Rgba(_)
             | c @ TypstColor::Luma(_)
             | c @ TypstColor::Cmyk(_)
             | c @ TypstColor::Hsv(_) => c.to_hex(),

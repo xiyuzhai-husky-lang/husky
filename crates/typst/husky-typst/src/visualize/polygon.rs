@@ -10,7 +10,9 @@ use crate::layout::{
 };
 use crate::syntax::Span;
 use crate::util::Numeric;
-use crate::visualize::{FixedStroke, Geometry, Paint, Path, Shape, Stroke};
+use crate::visualize::{
+    Path, TypstFixedStroke, TypstGeometry, TypstPaint, TypstShape, TypstStroke,
+};
 
 /// A closed polygon.
 ///
@@ -36,7 +38,7 @@ pub struct PolygonElem {
     ///
     /// Currently all polygons are filled according to the
     /// [non-zero winding rule](https://en.wikipedia.org/wiki/Nonzero-rule).
-    pub fill: Option<Paint>,
+    pub fill: Option<TypstPaint>,
 
     /// How to [stroke]($stroke) the polygon. This can be:
     ///
@@ -44,7 +46,7 @@ pub struct PolygonElem {
     /// stroke of `{1pt}` black if and if only if no fill is given.
     #[resolve]
     #[fold]
-    pub stroke: Smart<Option<Stroke>>,
+    pub stroke: Smart<Option<TypstStroke>>,
 
     /// The vertices of the polygon. Each point is specified as an array of two
     /// [relative lengths]($relative).
@@ -71,12 +73,12 @@ impl PolygonElem {
         /// How to fill the polygon. See the general
         /// [polygon's documentation]($polygon.fill) for more details.
         #[named]
-        fill: Option<Option<Paint>>,
+        fill: Option<Option<TypstPaint>>,
 
         /// How to stroke the polygon. See the general
         /// [polygon's documentation]($polygon.stroke) for more details.
         #[named]
-        stroke: Option<Smart<Option<Stroke>>>,
+        stroke: Option<Smart<Option<TypstStroke>>>,
 
         /// The diameter of the [circumcircle](https://en.wikipedia.org/wiki/Circumcircle)
         /// of the regular polygon.
@@ -155,9 +157,9 @@ impl LayoutSingle for Packed<PolygonElem> {
         // Prepare fill and stroke.
         let fill = self.fill(styles);
         let stroke = match self.stroke(styles) {
-            Smart::Auto if fill.is_none() => Some(FixedStroke::default()),
+            Smart::Auto if fill.is_none() => Some(TypstFixedStroke::default()),
             Smart::Auto => None,
-            Smart::Custom(stroke) => stroke.map(Stroke::unwrap_or_default),
+            Smart::Custom(stroke) => stroke.map(TypstStroke::unwrap_or_default),
         };
 
         // Construct a closed path given all points.
@@ -168,8 +170,8 @@ impl LayoutSingle for Packed<PolygonElem> {
         }
         path.close_path();
 
-        let shape = Shape {
-            geometry: Geometry::Path(path),
+        let shape = TypstShape {
+            geometry: TypstGeometry::Path(path),
             stroke,
             fill,
         };

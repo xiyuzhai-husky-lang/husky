@@ -46,7 +46,7 @@ use crate::layout::LengthInEm;
 use crate::layout::{Abs, Axis, Length, Rel, TypstLayoutDirection};
 use crate::model::ParElem;
 use crate::syntax::Spanned;
-use crate::visualize::{Paint, RelativeTo, Stroke, TypstColor};
+use crate::visualize::{RelativeTo, TypstColor, TypstPaint, TypstStroke};
 
 /// Text styling.
 ///
@@ -228,7 +228,7 @@ pub struct TextElem {
     /// This text is red.
     /// ```
     #[parse({
-        let paint: Option<Spanned<Paint>> = args.named_or_find("fill")?;
+        let paint: Option<Spanned<TypstPaint>> = args.named_or_find("fill")?;
         if let Some(paint) = &paint {
             if paint.v.relative() == Smart::Custom(RelativeTo::Self_) {
                 bail!(
@@ -242,7 +242,7 @@ pub struct TextElem {
     })]
     #[default(TypstColor::BLACK.into())]
     #[ghost]
-    pub fill: Paint,
+    pub fill: TypstPaint,
 
     /// How to stroke the text.
     ///
@@ -251,7 +251,7 @@ pub struct TextElem {
     /// ```
     #[resolve]
     #[ghost]
-    pub stroke: Option<Stroke>,
+    pub stroke: Option<TypstStroke>,
 
     /// The amount of space that should be added between characters.
     ///

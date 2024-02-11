@@ -12,7 +12,7 @@ use crate::layout::{Abs, HElem, Length, LengthInEm, Ratio};
 use crate::model::{Destination, Numbering, NumberingPattern, ParElem};
 use crate::text::{SuperElem, TextElem, TextSize};
 use crate::util::NonZeroExt;
-use crate::visualize::{LineElem, Stroke};
+use crate::visualize::{LineElem, TypstStroke};
 
 /// A footnote.
 ///
@@ -215,7 +215,7 @@ pub struct FootnoteEntry {
     #[default(
         LineElem::new()
             .with_length(Ratio::new(0.3).into())
-            .with_stroke(Stroke {
+            .with_stroke(TypstStroke {
                 thickness: Smart::Custom(Abs::pt(0.5).into()),
                 ..Default::default()
             })

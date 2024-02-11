@@ -15,7 +15,7 @@ use crate::layout::{
 use crate::syntax::Span;
 use crate::text::TextElem;
 use crate::util::{MaybeReverseIter, NonZeroExt, Numeric};
-use crate::visualize::{FixedStroke, Geometry, Paint};
+use crate::visualize::{TypstFixedStroke, TypstGeometry, TypstPaint};
 
 /// A value that can be configured per cell.
 #[derive(Debug, Clone, PartialEq, Hash)]
@@ -95,7 +95,7 @@ pub struct Cell {
     /// The cell's body.
     pub body: TypstContent,
     /// The cell's fill.
-    pub fill: Option<Paint>,
+    pub fill: Option<TypstPaint>,
     /// The amount of columns spanned by the cell.
     pub colspan: NonZeroUsize,
 }
@@ -154,7 +154,7 @@ pub trait ResolvableCell {
         self,
         x: usize,
         y: usize,
-        fill: &Option<Paint>,
+        fill: &Option<TypstPaint>,
         align: Smart<Alignment>,
         inset: Sides<Option<Rel<Length>>>,
         styles: StyleChain,
@@ -207,7 +207,7 @@ impl CellGrid {
         tracks: Axes<&[Sizing]>,
         gutter: Axes<&[Sizing]>,
         cells: &[T],
-        fill: &Celled<Option<Paint>>,
+        fill: &Celled<Option<TypstPaint>>,
         align: &Celled<Smart<Alignment>>,
         inset: Sides<Option<Rel<Length>>>,
         engine: &mut Engine,
@@ -580,7 +580,7 @@ pub struct GridLayouter<'a> {
     /// The grid of cells.
     grid: &'a CellGrid,
     // How to stroke the cells.
-    stroke: &'a Option<FixedStroke>,
+    stroke: &'a Option<TypstFixedStroke>,
     /// The regions to layout children into.
     regions: Regions<'a>,
     /// The inherited styles.
@@ -628,7 +628,7 @@ impl<'a> GridLayouter<'a> {
     #[allow(clippy::too_many_arguments)]
     pub fn new(
         grid: &'a CellGrid,
-        stroke: &'a Option<FixedStroke>,
+        stroke: &'a Option<TypstFixedStroke>,
         regions: Regions<'a>,
         styles: StyleChain<'a>,
         span: Span,
@@ -693,7 +693,7 @@ impl<'a> GridLayouter<'a> {
                 // Render horizontal lines.
                 for offset in points(rows.iter().map(|piece| piece.height)) {
                     let target = Point::with_x(frame.width() + thickness);
-                    let hline = Geometry::Line(target).stroked(stroke.clone());
+                    let hline = TypstGeometry::Line(target).stroked(stroke.clone());
                     frame.prepend(
                         Point::new(-half, offset),
                         FrameItem::Shape(hline, self.span),
@@ -709,7 +709,7 @@ impl<'a> GridLayouter<'a> {
                     // is not drawn above colspans.
                     for (dy, length) in split_vline(self.grid, rows, x, 0, self.grid.rows.len()) {
                         let target = Point::with_y(length + thickness);
-                        let vline = Geometry::Line(target).stroked(stroke.clone());
+                        let vline = TypstGeometry::Line(target).stroked(stroke.clone());
                         frame.prepend(
                             Point::new(dx, dy - half),
                             FrameItem::Shape(vline, self.span),
@@ -744,7 +744,7 @@ impl<'a> GridLayouter<'a> {
                             };
                             let pos = Point::new(dx + offset, dy);
                             let size = Size::new(width, row.height);
-                            let rect = Geometry::Rect(size).filled(fill);
+                            let rect = TypstGeometry::Rect(size).filled(fill);
                             frame.prepend(pos, FrameItem::Shape(rect, self.span));
                         }
                     }

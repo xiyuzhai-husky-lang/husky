@@ -9,7 +9,7 @@ use crate::layout::{
 };
 use crate::syntax::Span;
 use crate::util::Get;
-use crate::visualize::{FixedStroke, Paint, Path, Stroke};
+use crate::visualize::{Path, TypstFixedStroke, TypstPaint, TypstStroke};
 
 /// A rectangle with optional content.
 ///
@@ -40,7 +40,7 @@ pub struct RectElem {
     /// ```example
     /// #rect(fill: blue)
     /// ```
-    pub fill: Option<Paint>,
+    pub fill: Option<TypstPaint>,
 
     /// How to stroke the rectangle. This can be:
     ///
@@ -70,7 +70,7 @@ pub struct RectElem {
     /// ```
     #[resolve]
     #[fold]
-    pub stroke: Smart<Sides<Option<Option<Stroke>>>>,
+    pub stroke: Smart<Sides<Option<Option<TypstStroke>>>>,
 
     /// How much to round the rectangle's corners, relative to the minimum of
     /// the width and height divided by two. This can be:
@@ -201,13 +201,13 @@ pub struct SquareElem {
 
     /// How to fill the square. See the [rectangle's documentation]($rect.fill)
     /// for more details.
-    pub fill: Option<Paint>,
+    pub fill: Option<TypstPaint>,
 
     /// How to stroke the square. See the
     /// [rectangle's documentation]($rect.stroke) for more details.
     #[resolve]
     #[fold]
-    pub stroke: Smart<Sides<Option<Option<Stroke>>>>,
+    pub stroke: Smart<Sides<Option<Option<TypstStroke>>>>,
 
     /// How much to round the square's corners. See the
     /// [rectangle's documentation]($rect.radius) for more details.
@@ -286,13 +286,13 @@ pub struct EllipseElem {
 
     /// How to fill the ellipse. See the [rectangle's documentation]($rect.fill)
     /// for more details.
-    pub fill: Option<Paint>,
+    pub fill: Option<TypstPaint>,
 
     /// How to stroke the ellipse. See the
     /// [rectangle's documentation]($rect.stroke) for more details.
     #[resolve]
     #[fold]
-    pub stroke: Smart<Option<Stroke>>,
+    pub stroke: Smart<Option<TypstStroke>>,
 
     /// How much to pad the ellipse's content. See the
     /// [box's documentation]($box.inset) for more details.
@@ -390,14 +390,14 @@ pub struct CircleElem {
 
     /// How to fill the circle. See the [rectangle's documentation]($rect.fill)
     /// for more details.
-    pub fill: Option<Paint>,
+    pub fill: Option<TypstPaint>,
 
     /// How to stroke the circle. See the
     /// [rectangle's documentation]($rect.stroke) for more details.
     #[resolve]
     #[fold]
     #[default(Smart::Auto)]
-    pub stroke: Smart<Option<Stroke>>,
+    pub stroke: Smart<Option<TypstStroke>>,
 
     /// How much to pad the circle's content. See the
     /// [box's documentation]($box.inset) for more details.
@@ -452,8 +452,8 @@ fn layout(
     kind: ShapeKind,
     body: &Option<TypstContent>,
     sizing: Axes<Smart<Rel<Length>>>,
-    fill: Option<Paint>,
-    stroke: Smart<Sides<Option<Option<Stroke<Abs>>>>>,
+    fill: Option<TypstPaint>,
+    stroke: Smart<Sides<Option<Option<TypstStroke<Abs>>>>>,
     inset: Sides<Option<Rel<Abs>>>,
     outset: Sides<Option<Rel<Abs>>>,
     radius: Corners<Option<Rel<Abs>>>,
@@ -511,11 +511,11 @@ fn layout(
 
     // Prepare stroke.
     let stroke = match stroke {
-        Smart::Auto if fill.is_none() => Sides::splat(Some(FixedStroke::default())),
+        Smart::Auto if fill.is_none() => Sides::splat(Some(TypstFixedStroke::default())),
         Smart::Auto => Sides::splat(None),
         Smart::Custom(strokes) => strokes
             .unwrap_or_default()
-            .map(|s| s.map(Stroke::unwrap_or_default)),
+            .map(|s| s.map(TypstStroke::unwrap_or_default)),
     };
 
     // Add fill and/or stroke.
@@ -567,18 +567,18 @@ impl ShapeKind {
 
 /// A geometric shape with optional fill and stroke.
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
-pub struct Shape {
+pub struct TypstShape {
     /// The shape's geometry.
-    pub geometry: Geometry,
+    pub geometry: TypstGeometry,
     /// The shape's background fill.
-    pub fill: Option<Paint>,
+    pub fill: Option<TypstPaint>,
     /// The shape's border stroke.
-    pub stroke: Option<FixedStroke>,
+    pub stroke: Option<TypstFixedStroke>,
 }
 
 /// A shape's geometry.
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
-pub enum Geometry {
+pub enum TypstGeometry {
     /// A line to a point (relative to its position).
     Line(Point),
     /// A rectangle with its origin in the topleft corner.
@@ -587,10 +587,10 @@ pub enum Geometry {
     Path(Path),
 }
 
-impl Geometry {
+impl TypstGeometry {
     /// Fill the geometry without a stroke.
-    pub fn filled(self, fill: Paint) -> Shape {
-        Shape {
+    pub fn filled(self, fill: TypstPaint) -> TypstShape {
+        TypstShape {
             geometry: self,
             fill: Some(fill),
             stroke: None,
@@ -598,8 +598,8 @@ impl Geometry {
     }
 
     /// Stroke the geometry without a fill.
-    pub fn stroked(self, stroke: FixedStroke) -> Shape {
-        Shape {
+    pub fn stroked(self, stroke: TypstFixedStroke) -> TypstShape {
+        TypstShape {
             geometry: self,
             fill: None,
             stroke: Some(stroke),
@@ -617,7 +617,11 @@ impl Geometry {
 }
 
 /// Produce a shape that approximates an axis-aligned ellipse.
-pub(crate) fn ellipse(size: Size, fill: Option<Paint>, stroke: Option<FixedStroke>) -> Shape {
+pub(crate) fn ellipse(
+    size: Size,
+    fill: Option<TypstPaint>,
+    stroke: Option<TypstFixedStroke>,
+) -> TypstShape {
     // https://stackoverflow.com/a/2007782
     let z = Abs::zero();
     let rx = size.x / 2.0;
@@ -634,8 +638,8 @@ pub(crate) fn ellipse(size: Size, fill: Option<Paint>, stroke: Option<FixedStrok
     path.cubic_to(point(rx, my), point(mx, ry), point(z, ry));
     path.cubic_to(point(-mx, ry), point(-rx, my), point(-rx, z));
 
-    Shape {
-        geometry: Geometry::Path(path),
+    TypstShape {
+        geometry: TypstGeometry::Path(path),
         stroke,
         fill,
     }
@@ -645,7 +649,7 @@ pub(crate) fn ellipse(size: Size, fill: Option<Paint>, stroke: Option<FixedStrok
 pub(crate) fn clip_rect(
     size: Size,
     radius: Corners<Rel<Abs>>,
-    stroke: &Sides<Option<FixedStroke>>,
+    stroke: &Sides<Option<TypstFixedStroke>>,
 ) -> Path {
     let stroke_widths = stroke
         .as_ref()
@@ -694,9 +698,9 @@ pub(crate) fn clip_rect(
 pub(crate) fn styled_rect(
     size: Size,
     radius: Corners<Rel<Abs>>,
-    fill: Option<Paint>,
-    stroke: Sides<Option<FixedStroke>>,
-) -> Vec<Shape> {
+    fill: Option<TypstPaint>,
+    stroke: Sides<Option<TypstFixedStroke>>,
+) -> Vec<TypstShape> {
     if stroke.is_uniform() && radius.iter().cloned().all(Rel::is_zero) {
         simple_rect(size, fill, stroke.top)
     } else {
@@ -705,9 +709,13 @@ pub(crate) fn styled_rect(
 }
 
 /// Use rect primitive for the rectangle
-fn simple_rect(size: Size, fill: Option<Paint>, stroke: Option<FixedStroke>) -> Vec<Shape> {
-    vec![Shape {
-        geometry: Geometry::Rect(size),
+fn simple_rect(
+    size: Size,
+    fill: Option<TypstPaint>,
+    stroke: Option<TypstFixedStroke>,
+) -> Vec<TypstShape> {
+    vec![TypstShape {
+        geometry: TypstGeometry::Rect(size),
         fill,
         stroke,
     }]
@@ -716,7 +724,7 @@ fn simple_rect(size: Size, fill: Option<Paint>, stroke: Option<FixedStroke>) -> 
 fn corners_control_points(
     size: Size,
     radius: Corners<Abs>,
-    strokes: &Sides<Option<FixedStroke>>,
+    strokes: &Sides<Option<TypstFixedStroke>>,
     stroke_widths: Sides<Abs>,
 ) -> Corners<ControlPoints> {
     Corners {
@@ -746,9 +754,9 @@ fn corners_control_points(
 fn segmented_rect(
     size: Size,
     radius: Corners<Rel<Abs>>,
-    fill: Option<Paint>,
-    strokes: Sides<Option<FixedStroke>>,
-) -> Vec<Shape> {
+    fill: Option<TypstPaint>,
+    strokes: Sides<Option<TypstFixedStroke>>,
+) -> Vec<TypstShape> {
     let mut res = vec![];
     let stroke_widths = strokes
         .as_ref()
@@ -783,8 +791,8 @@ fn segmented_rect(
             }
         }
         path.close_path();
-        res.push(Shape {
-            geometry: Geometry::Path(path),
+        res.push(TypstShape {
+            geometry: TypstGeometry::Path(path),
             fill: Some(fill),
             stroke: None,
         });
@@ -862,8 +870,8 @@ fn segment(
     start: Corner,
     end: Corner,
     corners: &Corners<ControlPoints>,
-    stroke: FixedStroke,
-) -> (Shape, bool) {
+    stroke: TypstFixedStroke,
+) -> (TypstShape, bool) {
     fn fill_corner(corner: &ControlPoints) -> bool {
         corner.stroke_before != corner.stroke_after || corner.radius() < corner.stroke_before
     }
@@ -906,14 +914,14 @@ fn stroke_segment(
     start: Corner,
     end: Corner,
     corners: &Corners<ControlPoints>,
-    stroke: FixedStroke,
-) -> Shape {
+    stroke: TypstFixedStroke,
+) -> TypstShape {
     // create start corner
     let mut path = Path::new();
     path_segment(start, end, corners, &mut path);
 
-    Shape {
-        geometry: Geometry::Path(path),
+    TypstShape {
+        geometry: TypstGeometry::Path(path),
         stroke: Some(stroke),
         fill: None,
     }
@@ -924,8 +932,8 @@ fn fill_segment(
     start: Corner,
     end: Corner,
     corners: &Corners<ControlPoints>,
-    stroke: FixedStroke,
-) -> Shape {
+    stroke: TypstFixedStroke,
+) -> TypstShape {
     let mut path = Path::new();
 
     // create the start corner
@@ -1010,8 +1018,8 @@ fn fill_segment(
 
     path.close_path();
 
-    Shape {
-        geometry: Geometry::Path(path),
+    TypstShape {
+        geometry: TypstGeometry::Path(path),
         stroke: None,
         fill: Some(stroke.paint),
     }

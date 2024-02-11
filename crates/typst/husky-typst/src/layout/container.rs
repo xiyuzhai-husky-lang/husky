@@ -8,7 +8,7 @@ use crate::layout::{
     Regions, Rel, Sides, Size, Spacing, VElem,
 };
 use crate::util::Numeric;
-use crate::visualize::{clip_rect, Paint, Stroke};
+use crate::visualize::{clip_rect, TypstPaint, TypstStroke};
 
 /// An inline-level container that sizes content.
 ///
@@ -55,13 +55,13 @@ pub struct BoxElem {
 
     /// The box's background color. See the
     /// [rectangle's documentation]($rect.fill) for more details.
-    pub fill: Option<Paint>,
+    pub fill: Option<TypstPaint>,
 
     /// The box's border color. See the
     /// [rectangle's documentation]($rect.stroke) for more details.
     #[resolve]
     #[fold]
-    pub stroke: Sides<Option<Option<Stroke>>>,
+    pub stroke: Sides<Option<Option<TypstStroke>>>,
 
     /// How much to round the box's corners. See the
     /// [rectangle's documentation]($rect.radius) for more details.
@@ -157,7 +157,7 @@ impl Packed<BoxElem> {
         let stroke = self
             .stroke(styles)
             .unwrap_or_default()
-            .map(|s| s.map(Stroke::unwrap_or_default));
+            .map(|s| s.map(TypstStroke::unwrap_or_default));
 
         // Clip the contents
         if self.clip(styles) {
@@ -259,13 +259,13 @@ pub struct BlockElem {
 
     /// The block's background color. See the
     /// [rectangle's documentation]($rect.fill) for more details.
-    pub fill: Option<Paint>,
+    pub fill: Option<TypstPaint>,
 
     /// The block's border color. See the
     /// [rectangle's documentation]($rect.stroke) for more details.
     #[resolve]
     #[fold]
-    pub stroke: Sides<Option<Option<Stroke>>>,
+    pub stroke: Sides<Option<Option<TypstStroke>>>,
 
     /// How much to round the block's corners. See the
     /// [rectangle's documentation]($rect.radius) for more details.
@@ -429,7 +429,7 @@ impl LayoutMultiple for Packed<BlockElem> {
         let stroke = self
             .stroke(styles)
             .unwrap_or_default()
-            .map(|s| s.map(Stroke::unwrap_or_default));
+            .map(|s| s.map(TypstStroke::unwrap_or_default));
 
         // Clip the contents
         if self.clip(styles) {

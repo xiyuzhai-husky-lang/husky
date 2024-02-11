@@ -11,7 +11,7 @@ use crate::layout::{Alignment, Length, Rel};
 use crate::syntax::ast::{self, AstNode};
 use crate::text::TextElem;
 use crate::util::Numeric;
-use crate::visualize::Stroke;
+use crate::visualize::TypstStroke;
 
 impl Eval for ast::Unary<'_> {
     type Output = TypstValue;
@@ -218,13 +218,13 @@ pub fn add(lhs: TypstValue, rhs: TypstValue) -> StrResult<TypstValue> {
         (Dict(a), Dict(b)) => Dict(a + b),
 
         (Color(color), Length(thickness)) | (Length(thickness), Color(color)) => {
-            Stroke::from_pair(color, thickness).into_value()
+            TypstStroke::from_pair(color, thickness).into_value()
         }
         (Gradient(gradient), Length(thickness)) | (Length(thickness), Gradient(gradient)) => {
-            Stroke::from_pair(gradient, thickness).into_value()
+            TypstStroke::from_pair(gradient, thickness).into_value()
         }
         (Pattern(pattern), Length(thickness)) | (Length(thickness), Pattern(pattern)) => {
-            Stroke::from_pair(pattern, thickness).into_value()
+            TypstStroke::from_pair(pattern, thickness).into_value()
         }
 
         (Duration(a), Duration(b)) => Duration(a + b),

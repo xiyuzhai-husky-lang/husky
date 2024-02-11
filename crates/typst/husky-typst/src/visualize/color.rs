@@ -22,7 +22,8 @@ use crate::syntax::{Span, Spanned};
 pub type Oklab = palette::oklab::Oklaba<f32>;
 pub type Oklch = palette::oklch::Oklcha<f32>;
 pub type LinearRgb = palette::rgb::Rgba<Linear<encoding::Srgb>, f32>;
-pub type Rgb = palette::rgb::Rgba<encoding::Srgb, f32>;
+pub type TypstRgb = palette::rgb::Rgb<encoding::Srgb, f32>;
+pub type TypstRgba = palette::rgb::Rgba<encoding::Srgb, f32>;
 pub type Hsl = palette::hsl::Hsla<encoding::Srgb, f32>;
 pub type Hsv = palette::hsv::Hsva<encoding::Srgb, f32>;
 pub type Luma = palette::luma::Luma<encoding::Srgb, f32>;
@@ -173,7 +174,7 @@ pub enum TypstColor {
     /// A 32-bit LCh color in the Oklab color space.
     Oklch(Oklch),
     /// A 32-bit RGB color.
-    Rgb(Rgb),
+    Rgba(TypstRgba),
     /// A 32-bit linear RGB color.
     LinearRgb(LinearRgb),
     /// A 32-bit CMYK color.
@@ -197,20 +198,20 @@ impl TypstColor {
     pub const GRAY: Self = Self::Luma(Luma::new(0.6666666));
     pub const WHITE: Self = Self::Luma(Luma::new(1.0));
     pub const SILVER: Self = Self::Luma(Luma::new(0.8666667));
-    pub const NAVY: Self = Self::Rgb(Rgb::new(0.0, 0.121569, 0.247059, 1.0));
-    pub const BLUE: Self = Self::Rgb(Rgb::new(0.0, 0.454902, 0.85098, 1.0));
-    pub const AQUA: Self = Self::Rgb(Rgb::new(0.4980392, 0.858823, 1.0, 1.0));
-    pub const TEAL: Self = Self::Rgb(Rgb::new(0.223529, 0.8, 0.8, 1.0));
-    pub const EASTERN: Self = Self::Rgb(Rgb::new(0.13725, 0.615686, 0.678431, 1.0));
-    pub const PURPLE: Self = Self::Rgb(Rgb::new(0.694118, 0.050980, 0.788235, 1.0));
-    pub const FUCHSIA: Self = Self::Rgb(Rgb::new(0.941177, 0.070588, 0.745098, 1.0));
-    pub const MAROON: Self = Self::Rgb(Rgb::new(0.521569, 0.078431, 0.294118, 1.0));
-    pub const RED: Self = Self::Rgb(Rgb::new(1.0, 0.254902, 0.211765, 1.0));
-    pub const ORANGE: Self = Self::Rgb(Rgb::new(1.0, 0.521569, 0.105882, 1.0));
-    pub const YELLOW: Self = Self::Rgb(Rgb::new(1.0, 0.8627451, 0.0, 1.0));
-    pub const OLIVE: Self = Self::Rgb(Rgb::new(0.239216, 0.6, 0.4392157, 1.0));
-    pub const GREEN: Self = Self::Rgb(Rgb::new(0.1803922, 0.8, 0.2509804, 1.0));
-    pub const LIME: Self = Self::Rgb(Rgb::new(0.0039216, 1.0, 0.4392157, 1.0));
+    pub const NAVY: Self = Self::Rgba(TypstRgba::new(0.0, 0.121569, 0.247059, 1.0));
+    pub const BLUE: Self = Self::Rgba(TypstRgba::new(0.0, 0.454902, 0.85098, 1.0));
+    pub const AQUA: Self = Self::Rgba(TypstRgba::new(0.4980392, 0.858823, 1.0, 1.0));
+    pub const TEAL: Self = Self::Rgba(TypstRgba::new(0.223529, 0.8, 0.8, 1.0));
+    pub const EASTERN: Self = Self::Rgba(TypstRgba::new(0.13725, 0.615686, 0.678431, 1.0));
+    pub const PURPLE: Self = Self::Rgba(TypstRgba::new(0.694118, 0.050980, 0.788235, 1.0));
+    pub const FUCHSIA: Self = Self::Rgba(TypstRgba::new(0.941177, 0.070588, 0.745098, 1.0));
+    pub const MAROON: Self = Self::Rgba(TypstRgba::new(0.521569, 0.078431, 0.294118, 1.0));
+    pub const RED: Self = Self::Rgba(TypstRgba::new(1.0, 0.254902, 0.211765, 1.0));
+    pub const ORANGE: Self = Self::Rgba(TypstRgba::new(1.0, 0.521569, 0.105882, 1.0));
+    pub const YELLOW: Self = Self::Rgba(TypstRgba::new(1.0, 0.8627451, 0.0, 1.0));
+    pub const OLIVE: Self = Self::Rgba(TypstRgba::new(0.239216, 0.6, 0.4392157, 1.0));
+    pub const GREEN: Self = Self::Rgba(TypstRgba::new(0.1803922, 0.8, 0.2509804, 1.0));
+    pub const LIME: Self = Self::Rgba(TypstRgba::new(0.0039216, 1.0, 0.4392157, 1.0));
 
     /// Create a grayscale color.
     ///
@@ -488,13 +489,13 @@ impl TypstColor {
         Ok(if let Some(string) = args.find::<Spanned<Str>>()? {
             Self::from_str(&string.v).at(string.span)?
         } else if let Some(color) = args.find::<TypstColor>()? {
-            color.to_rgb()
+            color.to_rgba()
         } else {
             let Component(r) = args.expect("red component")?;
             let Component(g) = args.expect("green component")?;
             let Component(b) = args.expect("blue component")?;
             let Component(a) = args.eat()?.unwrap_or(Component(Ratio::one()));
-            Self::Rgb(Rgb::new(
+            Self::Rgba(TypstRgba::new(
                 r.get() as f32,
                 g.get() as f32,
                 b.get() as f32,
@@ -765,7 +766,7 @@ impl TypstColor {
                     ]
                 }
             }
-            Self::Rgb(c) => {
+            Self::Rgba(c) => {
                 if alpha {
                     array![
                         Ratio::new(c.red as _),
@@ -843,7 +844,7 @@ impl TypstColor {
             Self::Oklab(_) => ColorSpace::Oklab,
             Self::Oklch(_) => ColorSpace::Oklch,
             Self::LinearRgb(_) => ColorSpace::LinearRgb,
-            Self::Rgb(_) => ColorSpace::Srgb,
+            Self::Rgba(_) => ColorSpace::Srgb,
             Self::Cmyk(_) => ColorSpace::Cmyk,
             Self::Hsl(_) => ColorSpace::Hsl,
             Self::Hsv(_) => ColorSpace::Hsv,
@@ -855,7 +856,7 @@ impl TypstColor {
     /// omitted if it is equal to `ff` (255 / 100%).
     #[func]
     pub fn to_hex(self) -> EcoString {
-        let [r, g, b, a] = self.to_rgb().to_vec4_u8();
+        let [r, g, b, a] = self.to_rgba().to_vec4_u8();
         if a != 255 {
             eco_format!("#{:02x}{:02x}{:02x}{:02x}", r, g, b, a)
         } else {
@@ -876,7 +877,7 @@ impl TypstColor {
             Self::Oklab(c) => Self::Oklab(c.lighten(factor)),
             Self::Oklch(c) => Self::Oklch(c.lighten(factor)),
             Self::LinearRgb(c) => Self::LinearRgb(c.lighten(factor)),
-            Self::Rgb(c) => Self::Rgb(c.lighten(factor)),
+            Self::Rgba(c) => Self::Rgba(c.lighten(factor)),
             Self::Cmyk(c) => Self::Cmyk(c.lighten(factor)),
             Self::Hsl(c) => Self::Hsl(c.lighten(factor)),
             Self::Hsv(c) => Self::Hsv(c.lighten(factor)),
@@ -896,7 +897,7 @@ impl TypstColor {
             Self::Oklab(c) => Self::Oklab(c.darken(factor)),
             Self::Oklch(c) => Self::Oklch(c.darken(factor)),
             Self::LinearRgb(c) => Self::LinearRgb(c.darken(factor)),
-            Self::Rgb(c) => Self::Rgb(c.darken(factor)),
+            Self::Rgba(c) => Self::Rgba(c.darken(factor)),
             Self::Cmyk(c) => Self::Cmyk(c.darken(factor)),
             Self::Hsl(c) => Self::Hsl(c.darken(factor)),
             Self::Hsv(c) => Self::Hsv(c.darken(factor)),
@@ -922,7 +923,7 @@ impl TypstColor {
             Self::Oklab(_) => self.to_hsv().saturate(span, factor)?.to_oklab(),
             Self::Oklch(_) => self.to_hsv().saturate(span, factor)?.to_oklch(),
             Self::LinearRgb(_) => self.to_hsv().saturate(span, factor)?.to_linear_rgb(),
-            Self::Rgb(_) => self.to_hsv().saturate(span, factor)?.to_rgb(),
+            Self::Rgba(_) => self.to_hsv().saturate(span, factor)?.to_rgba(),
             Self::Cmyk(_) => self.to_hsv().saturate(span, factor)?.to_cmyk(),
             Self::Hsl(c) => Self::Hsl(c.saturate(factor.get() as f32)),
             Self::Hsv(c) => Self::Hsv(c.saturate(factor.get() as f32)),
@@ -948,7 +949,7 @@ impl TypstColor {
             Self::Oklab(_) => self.to_hsv().desaturate(span, factor)?.to_oklab(),
             Self::Oklch(_) => self.to_hsv().desaturate(span, factor)?.to_oklch(),
             Self::LinearRgb(_) => self.to_hsv().desaturate(span, factor)?.to_linear_rgb(),
-            Self::Rgb(_) => self.to_hsv().desaturate(span, factor)?.to_rgb(),
+            Self::Rgba(_) => self.to_hsv().desaturate(span, factor)?.to_rgba(),
             Self::Cmyk(_) => self.to_hsv().desaturate(span, factor)?.to_cmyk(),
             Self::Hsl(c) => Self::Hsl(c.desaturate(factor.get() as f32)),
             Self::Hsv(c) => Self::Hsv(c.desaturate(factor.get() as f32)),
@@ -973,7 +974,12 @@ impl TypstColor {
                 1.0 - c.blue,
                 c.alpha,
             )),
-            Self::Rgb(c) => Self::Rgb(Rgb::new(1.0 - c.red, 1.0 - c.green, 1.0 - c.blue, c.alpha)),
+            Self::Rgba(c) => Self::Rgba(TypstRgba::new(
+                1.0 - c.red,
+                1.0 - c.green,
+                1.0 - c.blue,
+                c.alpha,
+            )),
             Self::Cmyk(c) => Self::Cmyk(Cmyk::new(1.0 - c.c, 1.0 - c.m, 1.0 - c.y, c.k)),
             Self::Hsl(c) => Self::Hsl(Hsl::new(
                 RgbHue::from_degrees(360.0 - c.hue.into_degrees()),
@@ -1138,7 +1144,7 @@ impl TypstColor {
         Ok(match space {
             ColorSpace::Oklab => TypstColor::Oklab(Oklab::new(m[0], m[1], m[2], m[3])),
             ColorSpace::Oklch => TypstColor::Oklch(Oklch::new(m[0], m[1], m[2], m[3])),
-            ColorSpace::Srgb => TypstColor::Rgb(Rgb::new(m[0], m[1], m[2], m[3])),
+            ColorSpace::Srgb => TypstColor::Rgba(TypstRgba::new(m[0], m[1], m[2], m[3])),
             ColorSpace::LinearRgb => TypstColor::LinearRgb(LinearRgb::new(m[0], m[1], m[2], m[3])),
             ColorSpace::Hsl => {
                 TypstColor::Hsl(Hsl::new(RgbHue::from_degrees(m[0]), m[1], m[2], m[3]))
@@ -1153,7 +1159,7 @@ impl TypstColor {
 
     /// Construct a new RGBA color from 8-bit values.
     pub fn from_u8(r: u8, g: u8, b: u8, a: u8) -> Self {
-        Self::Rgb(Rgb::new(
+        Self::Rgba(TypstRgba::new(
             r as f32 / 255.0,
             g as f32 / 255.0,
             b as f32 / 255.0,
@@ -1177,7 +1183,7 @@ impl TypstColor {
             TypstColor::Luma(_) | TypstColor::Cmyk(_) => None,
             TypstColor::Oklab(c) => Some(c.alpha),
             TypstColor::Oklch(c) => Some(c.alpha),
-            TypstColor::Rgb(c) => Some(c.alpha),
+            TypstColor::Rgba(c) => Some(c.alpha),
             TypstColor::LinearRgb(c) => Some(c.alpha),
             TypstColor::Hsl(c) => Some(c.alpha),
             TypstColor::Hsv(c) => Some(c.alpha),
@@ -1190,7 +1196,7 @@ impl TypstColor {
             TypstColor::Luma(_) | TypstColor::Cmyk(_) => {}
             TypstColor::Oklab(c) => c.alpha = alpha,
             TypstColor::Oklch(c) => c.alpha = alpha,
-            TypstColor::Rgb(c) => c.alpha = alpha,
+            TypstColor::Rgba(c) => c.alpha = alpha,
             TypstColor::LinearRgb(c) => c.alpha = alpha,
             TypstColor::Hsl(c) => c.alpha = alpha,
             TypstColor::Hsv(c) => c.alpha = alpha,
@@ -1210,7 +1216,7 @@ impl TypstColor {
                 c.hue.into_degrees().rem_euclid(360.0 + ANGLE_EPSILON),
                 c.alpha,
             ],
-            TypstColor::Rgb(c) => [c.red, c.green, c.blue, c.alpha],
+            TypstColor::Rgba(c) => [c.red, c.green, c.blue, c.alpha],
             TypstColor::LinearRgb(c) => [c.red, c.green, c.blue, c.alpha],
             TypstColor::Cmyk(c) => [c.c, c.m, c.y, c.k],
             TypstColor::Hsl(c) => [
@@ -1230,14 +1236,14 @@ impl TypstColor {
 
     /// Returns the color's RGB(A) representation as an array of 8-bit values.
     pub fn to_vec4_u8(&self) -> [u8; 4] {
-        self.to_rgb().to_vec4().map(|x| (x * 255.0).round() as u8)
+        self.to_rgba().to_vec4().map(|x| (x * 255.0).round() as u8)
     }
 
     pub fn to_space(self, space: ColorSpace) -> Self {
         match space {
             ColorSpace::Oklab => self.to_oklab(),
             ColorSpace::Oklch => self.to_oklch(),
-            ColorSpace::Srgb => self.to_rgb(),
+            ColorSpace::Srgb => self.to_rgba(),
             ColorSpace::LinearRgb => self.to_linear_rgb(),
             ColorSpace::Hsl => self.to_hsl(),
             ColorSpace::Hsv => self.to_hsv(),
@@ -1254,7 +1260,7 @@ impl TypstColor {
             Self::Oklab(c) => Luma::from_color_unclamped(Okhsva::from_color(c)),
             Self::Oklch(c) => Luma::from_color_unclamped(Okhsva::from_color(c)),
             // No clamping necessary because these color spaces are all within sRGB, same as [`Luma`].
-            Self::Rgb(c) => Luma::from_color_unclamped(c),
+            Self::Rgba(c) => Luma::from_color_unclamped(c),
             Self::LinearRgb(c) => Luma::from_color_unclamped(c),
             Self::Cmyk(c) => Luma::from_color_unclamped(c.to_rgba()),
             Self::Hsl(c) => Luma::from_color_unclamped(c),
@@ -1269,7 +1275,7 @@ impl TypstColor {
             // No clamping is necessary for this conversion because the
             // lightness property is the same for both Oklab and Oklch.
             Self::Oklch(c) => Oklab::from_color_unclamped(c),
-            Self::Rgb(c) => Oklab::from_color(c),
+            Self::Rgba(c) => Oklab::from_color(c),
             Self::LinearRgb(c) => Oklab::from_color(c),
             Self::Cmyk(c) => Oklab::from_color(c.to_rgba()),
             Self::Hsl(c) => Oklab::from_color(c),
@@ -1284,7 +1290,7 @@ impl TypstColor {
             // lightness property is the same for both Oklab and Oklch.
             Self::Oklab(c) => Oklch::from_color_unclamped(c),
             Self::Oklch(c) => c,
-            Self::Rgb(c) => Oklch::from_color(c),
+            Self::Rgba(c) => Oklch::from_color(c),
             Self::LinearRgb(c) => Oklch::from_color(c),
             Self::Cmyk(c) => Oklch::from_color(c.to_rgba()),
             Self::Hsl(c) => Oklch::from_color(c),
@@ -1292,20 +1298,20 @@ impl TypstColor {
         })
     }
 
-    pub fn to_rgb(self) -> Self {
-        Self::Rgb(match self {
+    pub fn to_rgba(self) -> Self {
+        Self::Rgba(match self {
             // No clamping necessary because Luma is within sRGB, same as [`Rgb`].
-            Self::Luma(c) => Rgb::from_color_unclamped(c),
+            Self::Luma(c) => TypstRgba::from_color_unclamped(c),
             // Perform sRGB gamut mapping by converting to Okhsv first.
             // This yields better results than clamping.
-            Self::Oklab(c) => Rgb::from_color_unclamped(Okhsva::from_color(c)),
-            Self::Oklch(c) => Rgb::from_color_unclamped(Okhsva::from_color(c)),
+            Self::Oklab(c) => TypstRgba::from_color_unclamped(Okhsva::from_color(c)),
+            Self::Oklch(c) => TypstRgba::from_color_unclamped(Okhsva::from_color(c)),
             // No clamping necessary because these color spaces are all within sRGB, same as [`Rgb`].
-            Self::Rgb(c) => c,
-            Self::LinearRgb(c) => Rgb::from_linear(c),
-            Self::Cmyk(c) => Rgb::from_color_unclamped(c.to_rgba()),
-            Self::Hsl(c) => Rgb::from_color_unclamped(c),
-            Self::Hsv(c) => Rgb::from_color_unclamped(c),
+            Self::Rgba(c) => c,
+            Self::LinearRgb(c) => TypstRgba::from_linear(c),
+            Self::Cmyk(c) => TypstRgba::from_color_unclamped(c.to_rgba()),
+            Self::Hsl(c) => TypstRgba::from_color_unclamped(c),
+            Self::Hsv(c) => TypstRgba::from_color_unclamped(c),
         })
     }
 
@@ -1318,11 +1324,11 @@ impl TypstColor {
             Self::Oklab(c) => LinearRgb::from_color_unclamped(Okhsva::from_color(c)),
             Self::Oklch(c) => LinearRgb::from_color_unclamped(Okhsva::from_color(c)),
             // No clamping necessary because these color spaces are all within sRGB, same as $to.
-            Self::Rgb(c) => LinearRgb::from_color_unclamped(c),
+            Self::Rgba(c) => LinearRgb::from_color_unclamped(c),
             Self::LinearRgb(c) => c,
             Self::Cmyk(c) => LinearRgb::from_color_unclamped(c.to_rgba()),
-            Self::Hsl(c) => Rgb::from_color_unclamped(c).into_linear(),
-            Self::Hsv(c) => Rgb::from_color_unclamped(c).into_linear(),
+            Self::Hsl(c) => TypstRgba::from_color_unclamped(c).into_linear(),
+            Self::Hsv(c) => TypstRgba::from_color_unclamped(c).into_linear(),
         })
     }
 
@@ -1331,14 +1337,18 @@ impl TypstColor {
             Self::Luma(c) => Cmyk::from_luma(c),
             // Perform sRGB gamut mapping by converting to Okhsv first.
             // This yields better results than clamping.
-            Self::Oklab(c) => Cmyk::from_rgba(Rgb::from_color_unclamped(Okhsva::from_color(c))),
-            Self::Oklch(c) => Cmyk::from_rgba(Rgb::from_color_unclamped(Okhsva::from_color(c))),
-            Self::Rgb(c) => Cmyk::from_rgba(c),
-            Self::LinearRgb(c) => Cmyk::from_rgba(Rgb::from_linear(c)),
+            Self::Oklab(c) => {
+                Cmyk::from_rgba(TypstRgba::from_color_unclamped(Okhsva::from_color(c)))
+            }
+            Self::Oklch(c) => {
+                Cmyk::from_rgba(TypstRgba::from_color_unclamped(Okhsva::from_color(c)))
+            }
+            Self::Rgba(c) => Cmyk::from_rgba(c),
+            Self::LinearRgb(c) => Cmyk::from_rgba(TypstRgba::from_linear(c)),
             Self::Cmyk(c) => c,
             // No clamping necessary because these color spaces are all within sRGB, same as [`Cmyk`].
-            Self::Hsl(c) => Cmyk::from_rgba(Rgb::from_color_unclamped(c)),
-            Self::Hsv(c) => Cmyk::from_rgba(Rgb::from_color_unclamped(c)),
+            Self::Hsl(c) => Cmyk::from_rgba(TypstRgba::from_color_unclamped(c)),
+            Self::Hsv(c) => Cmyk::from_rgba(TypstRgba::from_color_unclamped(c)),
         })
     }
 
@@ -1351,8 +1361,8 @@ impl TypstColor {
             Self::Oklab(c) => Hsl::from_color_unclamped(Okhsva::from_color(c)),
             Self::Oklch(c) => Hsl::from_color_unclamped(Okhsva::from_color(c)),
             // No clamping necessary because these color spaces are all within sRGB, same as [`Hsl`].
-            Self::Rgb(c) => Hsl::from_color_unclamped(c),
-            Self::LinearRgb(c) => Hsl::from_color_unclamped(Rgb::from_linear(c)),
+            Self::Rgba(c) => Hsl::from_color_unclamped(c),
+            Self::LinearRgb(c) => Hsl::from_color_unclamped(TypstRgba::from_linear(c)),
             Self::Cmyk(c) => Hsl::from_color_unclamped(c.to_rgba()),
             Self::Hsl(c) => c,
             Self::Hsv(c) => Hsl::from_color_unclamped(c),
@@ -1368,8 +1378,8 @@ impl TypstColor {
             Self::Oklab(c) => Hsv::from_color_unclamped(Okhsva::from_color(c)),
             Self::Oklch(c) => Hsv::from_color_unclamped(Okhsva::from_color(c)),
             // No clamping necessary because these color spaces are all within sRGB, same as [`Hsv`].
-            Self::Rgb(c) => Hsv::from_color_unclamped(c),
-            Self::LinearRgb(c) => Hsv::from_color_unclamped(Rgb::from_linear(c)),
+            Self::Rgba(c) => Hsv::from_color_unclamped(c),
+            Self::LinearRgb(c) => Hsv::from_color_unclamped(TypstRgba::from_linear(c)),
             Self::Cmyk(c) => Hsv::from_color_unclamped(c.to_rgba()),
             Self::Hsl(c) => Hsv::from_color_unclamped(c),
             Self::Hsv(c) => c,
@@ -1392,7 +1402,7 @@ impl Debug for TypstColor {
                     v.alpha
                 )
             }
-            Self::Rgb(v) => {
+            Self::Rgba(v) => {
                 write!(f, "Rgb({}, {}, {}, {})", v.red, v.green, v.blue, v.alpha)
             }
             Self::LinearRgb(v) => {
@@ -1427,7 +1437,7 @@ impl Repr for TypstColor {
     fn repr(&self) -> EcoString {
         match self {
             Self::Luma(c) => eco_format!("luma({})", Ratio::new(c.luma as _).repr()),
-            Self::Rgb(_) => eco_format!("rgb({})", self.to_hex().repr()),
+            Self::Rgba(_) => eco_format!("rgb({})", self.to_hex().repr()),
             Self::LinearRgb(c) => {
                 if c.alpha == 1.0 {
                     eco_format!(
@@ -1540,7 +1550,7 @@ impl PartialEq for TypstColor {
         match (self, other) {
             // Lower precision for comparison to avoid rounding errors.
             // Keeps backward compatibility with previous versions of Typst.
-            (Self::Rgb(_), Self::Rgb(_)) => self.to_vec4_u8() == other.to_vec4_u8(),
+            (Self::Rgba(_), Self::Rgba(_)) => self.to_vec4_u8() == other.to_vec4_u8(),
             (Self::Luma(a), Self::Luma(b)) => {
                 (a.luma * 255.0).round() as u8 == (b.luma * 255.0).round() as u8
             }
@@ -1627,9 +1637,9 @@ impl From<Oklch> for TypstColor {
     }
 }
 
-impl From<Rgb> for TypstColor {
-    fn from(c: Rgb) -> Self {
-        Self::Rgb(c)
+impl From<TypstRgba> for TypstColor {
+    fn from(c: TypstRgba) -> Self {
+        Self::Rgba(c)
     }
 }
 
@@ -1680,7 +1690,7 @@ impl Cmyk {
         Cmyk::new(l * 0.75, l * 0.68, l * 0.67, l * 0.90)
     }
 
-    fn from_rgba(rgba: Rgb) -> Self {
+    fn from_rgba(rgba: TypstRgba) -> Self {
         let r = rgba.red;
         let g = rgba.green;
         let b = rgba.blue;
@@ -1697,12 +1707,12 @@ impl Cmyk {
         Cmyk::new(c, m, y, k)
     }
 
-    fn to_rgba(self) -> Rgb {
+    fn to_rgba(self) -> TypstRgba {
         let r = (1.0 - self.c) * (1.0 - self.k);
         let g = (1.0 - self.m) * (1.0 - self.k);
         let b = (1.0 - self.y) * (1.0 - self.k);
 
-        Rgb::new(r, g, b, 1.0)
+        TypstRgba::new(r, g, b, 1.0)
     }
 
     fn lighten(self, factor: f32) -> Self {

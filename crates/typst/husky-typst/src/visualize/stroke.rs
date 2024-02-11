@@ -7,7 +7,7 @@ use crate::foundations::{
 };
 use crate::layout::{Abs, Length};
 use crate::util::{Numeric, Scalar};
-use crate::visualize::{Gradient, Paint, Pattern, TypstColor};
+use crate::visualize::{Gradient, Pattern, TypstColor, TypstPaint};
 
 /// Defines how to draw a line.
 ///
@@ -51,9 +51,9 @@ use crate::visualize::{Gradient, Paint, Pattern, TypstColor};
 /// set to `{auto}` are inherited.
 #[ty(scope, cast)]
 #[derive(Debug, Default, Clone, Eq, PartialEq, Hash)]
-pub struct Stroke<T: Numeric = Length> {
+pub struct TypstStroke<T: Numeric = Length> {
     /// The stroke's paint.
-    pub paint: Smart<Paint>,
+    pub paint: Smart<TypstPaint>,
     /// The stroke's thickness.
     pub thickness: Smart<T>,
     /// The stroke's line cap.
@@ -66,9 +66,9 @@ pub struct Stroke<T: Numeric = Length> {
     pub miter_limit: Smart<Scalar>,
 }
 
-impl Stroke {
+impl TypstStroke {
     /// Create a stroke from a paint and a thickness.
-    pub fn from_pair(paint: impl Into<Paint>, thickness: Length) -> Self {
+    pub fn from_pair(paint: impl Into<TypstPaint>, thickness: Length) -> Self {
         Self {
             paint: Smart::Custom(paint.into()),
             thickness: Smart::Custom(thickness),
@@ -78,7 +78,7 @@ impl Stroke {
 }
 
 #[scope]
-impl Stroke {
+impl TypstStroke {
     /// Converts a value to a stroke or constructs a stroke with the given
     /// parameters.
     ///
@@ -106,7 +106,7 @@ impl Stroke {
         ///
         /// If set to `{auto}`, the value is inherited, defaulting to `{black}`.
         #[external]
-        paint: Smart<Paint>,
+        paint: Smart<TypstPaint>,
 
         /// The stroke's thickness.
         ///
@@ -182,8 +182,8 @@ impl Stroke {
         /// ```
         #[external]
         miter_limit: Smart<f64>,
-    ) -> SourceResult<Stroke> {
-        if let Some(stroke) = args.eat::<Stroke>()? {
+    ) -> SourceResult<TypstStroke> {
+        if let Some(stroke) = args.eat::<TypstStroke>()? {
             return Ok(stroke);
         }
 
@@ -191,7 +191,7 @@ impl Stroke {
             Ok(args.named::<Smart<T>>(arg)?.unwrap_or(Smart::Auto))
         }
 
-        let paint = take::<Paint>(args, "paint")?;
+        let paint = take::<TypstPaint>(args, "paint")?;
         let thickness = take::<Length>(args, "thickness")?;
         let cap = take::<LineCap>(args, "cap")?;
         let join = take::<LineJoin>(args, "join")?;
@@ -209,13 +209,13 @@ impl Stroke {
     }
 }
 
-impl<T: Numeric> Stroke<T> {
+impl<T: Numeric> TypstStroke<T> {
     /// Map the contained lengths with `f`.
-    pub fn map<F, U: Numeric>(self, f: F) -> Stroke<U>
+    pub fn map<F, U: Numeric>(self, f: F) -> TypstStroke<U>
     where
         F: Fn(T) -> U,
     {
-        Stroke {
+        TypstStroke {
             paint: self.paint,
             thickness: self.thickness.map(&f),
             cap: self.cap,
@@ -238,9 +238,9 @@ impl<T: Numeric> Stroke<T> {
     }
 }
 
-impl Stroke<Abs> {
+impl TypstStroke<Abs> {
     /// Unpack the stroke, filling missing fields from the `default`.
-    pub fn unwrap_or(self, default: FixedStroke) -> FixedStroke {
+    pub fn unwrap_or(self, default: TypstFixedStroke) -> TypstFixedStroke {
         let thickness = self.thickness.unwrap_or(default.thickness);
         let dash = self
             .dash
@@ -256,7 +256,7 @@ impl Stroke<Abs> {
             })
             .unwrap_or(default.dash);
 
-        FixedStroke {
+        TypstFixedStroke {
             paint: self.paint.unwrap_or(default.paint),
             thickness,
             cap: self.cap.unwrap_or(default.cap),
@@ -267,14 +267,14 @@ impl Stroke<Abs> {
     }
 
     /// Unpack the stroke, filling missing fields with the default values.
-    pub fn unwrap_or_default(self) -> FixedStroke {
+    pub fn unwrap_or_default(self) -> TypstFixedStroke {
         // we want to do this; the Clippy lint is not type-aware
         #[allow(clippy::unwrap_or_default)]
-        self.unwrap_or(FixedStroke::default())
+        self.unwrap_or(TypstFixedStroke::default())
     }
 }
 
-impl<T: Numeric + Repr> Repr for Stroke<T> {
+impl<T: Numeric + Repr> Repr for TypstStroke<T> {
     fn repr(&self) -> EcoString {
         let mut r = EcoString::new();
         let Self {
@@ -344,7 +344,7 @@ impl<T: Numeric + Repr> Repr for Stroke<T> {
     }
 }
 
-impl<T: Numeric + Fold> Fold for Stroke<T> {
+impl<T: Numeric + Fold> Fold for TypstStroke<T> {
     fn fold(self, outer: Self) -> Self {
         Self {
             paint: self.paint.or(outer.paint),
@@ -357,11 +357,11 @@ impl<T: Numeric + Fold> Fold for Stroke<T> {
     }
 }
 
-impl Resolve for Stroke {
-    type Output = Stroke<Abs>;
+impl Resolve for TypstStroke {
+    type Output = TypstStroke<Abs>;
 
     fn resolve(self, styles: StyleChain) -> Self::Output {
-        Stroke {
+        TypstStroke {
             paint: self.paint,
             thickness: self.thickness.resolve(styles),
             cap: self.cap,
@@ -373,7 +373,7 @@ impl Resolve for Stroke {
 }
 
 cast! {
-    type Stroke,
+    type TypstStroke,
     thickness: Length => Self {
         thickness: Smart::Custom(thickness),
         ..Default::default()
@@ -397,7 +397,7 @@ cast! {
                 .transpose()?.unwrap_or(Smart::Auto))
         }
 
-        let paint = take::<Paint>(&mut dict, "paint")?;
+        let paint = take::<TypstPaint>(&mut dict, "paint")?;
         let thickness = take::<Length>(&mut dict, "thickness")?;
         let cap = take::<LineCap>(&mut dict, "cap")?;
         let join = take::<LineJoin>(&mut dict, "join")?;
@@ -417,7 +417,7 @@ cast! {
 }
 
 cast! {
-    Stroke<Abs>,
+    TypstStroke<Abs>,
     self => self.map(Length::from).into_value(),
 }
 
@@ -594,9 +594,9 @@ cast! {
 
 /// A fully specified stroke of a geometric shape.
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
-pub struct FixedStroke {
+pub struct TypstFixedStroke {
     /// The stroke's paint.
-    pub paint: Paint,
+    pub paint: TypstPaint,
     /// The stroke's thickness.
     pub thickness: Abs,
     /// The stroke's line cap.
@@ -609,9 +609,9 @@ pub struct FixedStroke {
     pub miter_limit: Scalar,
 }
 
-impl FixedStroke {
+impl TypstFixedStroke {
     /// Create a stroke from a paint and a thickness.
-    pub fn from_pair(paint: impl Into<Paint>, thickness: Abs) -> Self {
+    pub fn from_pair(paint: impl Into<TypstPaint>, thickness: Abs) -> Self {
         Self {
             paint: paint.into(),
             thickness,
@@ -620,10 +620,10 @@ impl FixedStroke {
     }
 }
 
-impl Default for FixedStroke {
+impl Default for TypstFixedStroke {
     fn default() -> Self {
         Self {
-            paint: Paint::Solid(TypstColor::BLACK),
+            paint: TypstPaint::Solid(TypstColor::BLACK),
             thickness: Abs::pt(1.0),
             cap: LineCap::Butt,
             join: LineJoin::Miter,
