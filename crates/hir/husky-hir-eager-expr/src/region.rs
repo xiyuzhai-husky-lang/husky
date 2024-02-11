@@ -1,7 +1,7 @@
 use husky_entity_path::region::RegionPath;
 
 use crate::{
-    var::{cvar::HirEagerComptimeSvarRegionData, rvar::HirEagerRvarRegionData},
+    var::{cvar::HirEagerComptimeSvarRegionData, rvar::HirEagerRuntimeSvarRegionData},
     *,
 };
 
@@ -18,5 +18,5 @@ pub struct HirEagerExprRegion {
     #[return_ref]
     pub comptime_symbol_region_data: HirEagerComptimeSvarRegionData,
     #[return_ref]
-    pub runtime_symbol_region_data: HirEagerRvarRegionData,
+    pub runtime_symbol_region_data: HirEagerRuntimeSvarRegionData,
 }

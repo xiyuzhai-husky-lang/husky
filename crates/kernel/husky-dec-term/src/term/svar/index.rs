@@ -1,16 +1,16 @@
 use super::*;
 use husky_entity_path::TypePath;
-use husky_term_prelude::template_var_class::TemplateVarClass;
+use husky_term_prelude::template_var_class::TemplateSvarClass;
 
 // todo: use bitmap?
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Default)]
 pub struct DeclarativeTemplateSymbolAttrs {
-    pub class: TemplateVarClass,
+    pub class: TemplateSvarClass,
 }
 
 impl DeclarativeTemplateSymbolAttrs {
     /// only use this in husky-eth-term
-    pub unsafe fn new(class: TemplateVarClass) -> Self {
+    pub unsafe fn new(class: TemplateSvarClass) -> Self {
         Self { class }
     }
 
@@ -20,16 +20,16 @@ impl DeclarativeTemplateSymbolAttrs {
             match attr {
                 DeclarativeTemplateSymbolAttr::Phantom => {
                     slf.class = match slf.class {
-                        TemplateVarClass::Phantom => todo!("err"),
-                        TemplateVarClass::Runtime => todo!("err"),
-                        TemplateVarClass::Comptime => TemplateVarClass::Phantom,
+                        TemplateSvarClass::Phantom => todo!("err"),
+                        TemplateSvarClass::Runtime => todo!("err"),
+                        TemplateSvarClass::Comptime => TemplateSvarClass::Phantom,
                     }
                 }
                 DeclarativeTemplateSymbolAttr::Runtime => {
                     slf.class = match slf.class {
-                        TemplateVarClass::Phantom => todo!("err"),
-                        TemplateVarClass::Runtime => todo!("err"),
-                        TemplateVarClass::Comptime => TemplateVarClass::Runtime,
+                        TemplateSvarClass::Phantom => todo!("err"),
+                        TemplateSvarClass::Runtime => todo!("err"),
+                        TemplateSvarClass::Comptime => TemplateSvarClass::Runtime,
                     }
                 }
             }

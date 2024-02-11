@@ -19,7 +19,7 @@ use husky_hir_eager_expr::{
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
     instantiation::HirTermSvarResolution, place::HirPlace, ritchie::HirEagerContract,
-    HirTemplateVar, HirTemplateVarClass,
+    HirTemplateSvarClass, HirTemplateVar,
 };
 use husky_opr::BinaryClosedOpr;
 use smallvec::SmallVec;
@@ -262,7 +262,7 @@ impl HirEagerExprSite {
                         .iter()
                         .filter_map(|&(symbol, resolution)| match symbol {
                             HirTemplateVar::Const(symbol) => (symbol.index(db).class()
-                                == HirTemplateVarClass::Runtime)
+                                == HirTemplateSvarClass::Runtime)
                                 .then_some(resolution),
                             _ => None,
                         })

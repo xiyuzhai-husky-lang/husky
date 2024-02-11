@@ -6,7 +6,7 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirTypeSvar {
     Type {
-        attrs: HirTemplateVarAttrs,
+        attrs: HirTemplateSvarAttrs,
         variance: Option<Variance>,
         disambiguator: u8,
     },
@@ -33,7 +33,7 @@ impl HirTypeSvar {
                 variance,
                 disambiguator,
             } => HirTypeSvar::Type {
-                attrs: HirTemplateVarAttrs::from_eth(attrs)?,
+                attrs: HirTemplateSvarAttrs::from_eth(attrs)?,
                 variance,
                 disambiguator,
             },

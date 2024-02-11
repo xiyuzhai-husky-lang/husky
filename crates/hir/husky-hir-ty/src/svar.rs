@@ -10,7 +10,7 @@ pub use self::ty::*;
 
 use crate::*;
 use husky_eth_term::term::svar::{EthSvar, EthTemplateSymbolAttrs, EthTermSymbolIndexImpl};
-use husky_term_prelude::template_var_class::TemplateVarClass;
+use husky_term_prelude::template_var_class::TemplateSvarClass;
 
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
@@ -23,30 +23,30 @@ pub enum HirTemplateVar {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct HirTemplateVarAttrs {
-    class: HirTemplateVarClass,
+pub struct HirTemplateSvarAttrs {
+    class: HirTemplateSvarClass,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum HirTemplateVarClass {
+pub enum HirTemplateSvarClass {
     Comptime,
     Runtime,
 }
 
-impl HirTemplateVarClass {
-    fn from_term(class: TemplateVarClass) -> Option<Self> {
+impl HirTemplateSvarClass {
+    fn from_term(class: TemplateSvarClass) -> Option<Self> {
         match class {
-            TemplateVarClass::Phantom => None,
-            TemplateVarClass::Runtime => Some(HirTemplateVarClass::Runtime),
-            TemplateVarClass::Comptime => Some(HirTemplateVarClass::Comptime),
+            TemplateSvarClass::Phantom => None,
+            TemplateSvarClass::Runtime => Some(HirTemplateSvarClass::Runtime),
+            TemplateSvarClass::Comptime => Some(HirTemplateSvarClass::Comptime),
         }
     }
 }
 
-impl HirTemplateVarAttrs {
+impl HirTemplateSvarAttrs {
     pub(crate) fn from_eth(attrs: EthTemplateSymbolAttrs) -> Option<Self> {
         Some(Self {
-            class: HirTemplateVarClass::from_term(attrs.class)?,
+            class: HirTemplateSvarClass::from_term(attrs.class)?,
         })
     }
 }
@@ -66,7 +66,7 @@ fn hir_template_symbol_from_eth(db: &::salsa::Db, symbol: EthSvar) -> Option<Hir
             disambiguator,
         } => Some(
             HirLifetimeSvar {
-                attrs: HirTemplateVarAttrs::from_eth(attrs)?,
+                attrs: HirTemplateSvarAttrs::from_eth(attrs)?,
                 variance,
                 disambiguator,
             }
@@ -78,7 +78,7 @@ fn hir_template_symbol_from_eth(db: &::salsa::Db, symbol: EthSvar) -> Option<Hir
             disambiguator,
         } => Some(
             HirPlaceSvar {
-                attrs: HirTemplateVarAttrs::from_eth(attrs)?,
+                attrs: HirTemplateSvarAttrs::from_eth(attrs)?,
                 variance,
                 disambiguator,
             }
@@ -90,7 +90,7 @@ fn hir_template_symbol_from_eth(db: &::salsa::Db, symbol: EthSvar) -> Option<Hir
             disambiguator,
         } => Some(
             HirTypeSvar::Type {
-                attrs: HirTemplateVarAttrs::from_eth(attrs)?,
+                attrs: HirTemplateSvarAttrs::from_eth(attrs)?,
                 variance,
                 disambiguator,
             }
@@ -105,8 +105,8 @@ fn hir_template_symbol_from_eth(db: &::salsa::Db, symbol: EthSvar) -> Option<Hir
             HirConstSvar::new(
                 db,
                 HirType::from_eth(symbol.ty(db), db)?,
-                HirConstSymbolIndex::PathLeading {
-                    attrs: HirTemplateVarAttrs::from_eth(attrs)?,
+                HirConstSvarIndex::PathLeading {
+                    attrs: HirTemplateSvarAttrs::from_eth(attrs)?,
                     disambiguator,
                     ty_path,
                 },
@@ -120,8 +120,8 @@ fn hir_template_symbol_from_eth(db: &::salsa::Db, symbol: EthSvar) -> Option<Hir
             HirConstSvar::new(
                 db,
                 HirType::from_eth(symbol.ty(db), db)?,
-                HirConstSymbolIndex::Other {
-                    attrs: HirTemplateVarAttrs::from_eth(attrs)?,
+                HirConstSvarIndex::Other {
+                    attrs: HirTemplateSvarAttrs::from_eth(attrs)?,
                     disambiguator,
                 },
             )
