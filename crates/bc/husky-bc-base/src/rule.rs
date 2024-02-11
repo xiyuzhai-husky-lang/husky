@@ -6,3 +6,5 @@ pub struct BcRuleData {
 }
 
 pub struct BcRuleId {}
+
+pub struct RuleExprId();
