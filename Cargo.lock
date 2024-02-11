@@ -7353,6 +7353,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "idx"
+version = "0.1.0"
+
+[[package]]
 name = "idx-arena"
 version = "0.0.0"
 dependencies = [
@@ -7960,10 +7964,6 @@ name = "litrs"
 version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b4ce301924b7887e9d637144fdade93f9dfff9b60981d4ac161db09720d39aa5"
-
-[[package]]
-name = "local-stack"
-version = "0.1.0"
 
 [[package]]
 name = "lock_api"
