@@ -105,20 +105,20 @@
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerRvarEntry {
-                                            name: HirEagerRvarName::Ident(
+                                        HirEagerRuntimeSvarEntry {
+                                            name: HirEagerRuntimeSvarName::Ident(
                                                 `matches`,
                                             ),
-                                            data: HirEagerRvarData::FieldVariable,
+                                            data: HirEagerRuntimeSvarData::FieldVariable,
                                         },
-                                        HirEagerRvarEntry {
-                                            name: HirEagerRvarName::Ident(
+                                        HirEagerRuntimeSvarEntry {
+                                            name: HirEagerRuntimeSvarName::Ident(
                                                 `others`,
                                             ),
-                                            data: HirEagerRvarData::FieldVariable,
+                                            data: HirEagerRuntimeSvarData::FieldVariable,
                                         },
                                     ],
                                 },
@@ -275,20 +275,20 @@
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerRvarEntry {
-                                            name: HirEagerRvarName::Ident(
+                                        HirEagerRuntimeSvarEntry {
+                                            name: HirEagerRuntimeSvarName::Ident(
                                                 `concave_components`,
                                             ),
-                                            data: HirEagerRvarData::ParenateParameter,
+                                            data: HirEagerRuntimeSvarData::ParenateParameter,
                                         },
-                                        HirEagerRvarEntry {
-                                            name: HirEagerRvarName::Ident(
+                                        HirEagerRuntimeSvarEntry {
+                                            name: HirEagerRuntimeSvarName::Ident(
                                                 `templates`,
                                             ),
-                                            data: HirEagerRvarData::ParenateParameter,
+                                            data: HirEagerRuntimeSvarData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -335,7 +335,7 @@
                                                         (
                                                             HirTemplateVar::Type(
                                                                 HirTypeSvar::Type {
-                                                                    attrs: HirTemplateVarAttrs {
+                                                                    attrs: HirTemplateSvarAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
@@ -424,7 +424,7 @@
                                                         (
                                                             HirTemplateVar::Type(
                                                                 HirTypeSvar::Type {
-                                                                    attrs: HirTemplateVarAttrs {
+                                                                    attrs: HirTemplateSvarAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
@@ -588,7 +588,7 @@
                                                         (
                                                             HirTemplateVar::Type(
                                                                 HirTypeSvar::Type {
-                                                                    attrs: HirTemplateVarAttrs {
+                                                                    attrs: HirTemplateSvarAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
@@ -671,7 +671,7 @@
                                                         (
                                                             HirTemplateVar::Type(
                                                                 HirTypeSvar::Type {
-                                                                    attrs: HirTemplateVarAttrs {
+                                                                    attrs: HirTemplateSvarAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
@@ -961,44 +961,44 @@
                                         data: [],
                                     },
                                 },
-                                runtime_symbol_region_data: HirEagerRvarRegionData {
+                                runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                     arena: Arena {
                                         data: [
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `concave_components`,
                                                 ),
-                                                data: HirEagerRvarData::ParenateParameter,
+                                                data: HirEagerRuntimeSvarData::ParenateParameter,
                                             },
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `templates`,
                                                 ),
-                                                data: HirEagerRvarData::ParenateParameter,
+                                                data: HirEagerRuntimeSvarData::ParenateParameter,
                                             },
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `others`,
                                                 ),
-                                                data: HirEagerRvarData::LetVariable,
+                                                data: HirEagerRuntimeSvarData::LetVariable,
                                             },
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `matches`,
                                                 ),
-                                                data: HirEagerRvarData::LetVariable,
+                                                data: HirEagerRuntimeSvarData::LetVariable,
                                             },
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `i`,
                                                 ),
-                                                data: HirEagerRvarData::LoopVariable,
+                                                data: HirEagerRuntimeSvarData::LoopVariable,
                                             },
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `template`,
                                                 ),
-                                                data: HirEagerRvarData::LetVariable,
+                                                data: HirEagerRuntimeSvarData::LetVariable,
                                             },
                                         ],
                                     },
@@ -1072,7 +1072,7 @@
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -1119,12 +1119,12 @@
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerRvarEntry {
-                                            name: HirEagerRvarName::SelfValue,
-                                            data: HirEagerRvarData::SelfValue,
+                                        HirEagerRuntimeSvarEntry {
+                                            name: HirEagerRuntimeSvarName::SelfValue,
+                                            data: HirEagerRuntimeSvarData::SelfValue,
                                         },
                                     ],
                                 },
@@ -1216,7 +1216,7 @@
                                                         (
                                                             HirTemplateVar::Type(
                                                                 HirTypeSvar::Type {
-                                                                    attrs: HirTemplateVarAttrs {
+                                                                    attrs: HirTemplateSvarAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
@@ -1524,24 +1524,24 @@
                                         data: [],
                                     },
                                 },
-                                runtime_symbol_region_data: HirEagerRvarRegionData {
+                                runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                     arena: Arena {
                                         data: [
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::SelfValue,
-                                                data: HirEagerRvarData::SelfValue,
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::SelfValue,
+                                                data: HirEagerRuntimeSvarData::SelfValue,
                                             },
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `norm`,
                                                 ),
-                                                data: HirEagerRvarData::LetVariable,
+                                                data: HirEagerRuntimeSvarData::LetVariable,
                                             },
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `i`,
                                                 ),
-                                                data: HirEagerRvarData::LoopVariable,
+                                                data: HirEagerRuntimeSvarData::LoopVariable,
                                             },
                                         ],
                                     },
@@ -1592,12 +1592,12 @@
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerRvarEntry {
-                                            name: HirEagerRvarName::SelfValue,
-                                            data: HirEagerRvarData::SelfValue,
+                                        HirEagerRuntimeSvarEntry {
+                                            name: HirEagerRuntimeSvarName::SelfValue,
+                                            data: HirEagerRuntimeSvarData::SelfValue,
                                         },
                                     ],
                                 },
@@ -1689,7 +1689,7 @@
                                                         (
                                                             HirTemplateVar::Type(
                                                                 HirTypeSvar::Type {
-                                                                    attrs: HirTemplateVarAttrs {
+                                                                    attrs: HirTemplateSvarAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
@@ -1997,24 +1997,24 @@
                                         data: [],
                                     },
                                 },
-                                runtime_symbol_region_data: HirEagerRvarRegionData {
+                                runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                     arena: Arena {
                                         data: [
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::SelfValue,
-                                                data: HirEagerRvarData::SelfValue,
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::SelfValue,
+                                                data: HirEagerRuntimeSvarData::SelfValue,
                                             },
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `norm`,
                                                 ),
-                                                data: HirEagerRvarData::LetVariable,
+                                                data: HirEagerRuntimeSvarData::LetVariable,
                                             },
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `i`,
                                                 ),
-                                                data: HirEagerRvarData::LoopVariable,
+                                                data: HirEagerRuntimeSvarData::LoopVariable,
                                             },
                                         ],
                                     },
@@ -2065,12 +2065,12 @@
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerRvarEntry {
-                                            name: HirEagerRvarName::SelfValue,
-                                            data: HirEagerRvarData::SelfValue,
+                                        HirEagerRuntimeSvarEntry {
+                                            name: HirEagerRuntimeSvarName::SelfValue,
+                                            data: HirEagerRuntimeSvarData::SelfValue,
                                         },
                                     ],
                                 },
@@ -2162,7 +2162,7 @@
                                                         (
                                                             HirTemplateVar::Type(
                                                                 HirTypeSvar::Type {
-                                                                    attrs: HirTemplateVarAttrs {
+                                                                    attrs: HirTemplateSvarAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
@@ -2489,24 +2489,24 @@
                                         data: [],
                                     },
                                 },
-                                runtime_symbol_region_data: HirEagerRvarRegionData {
+                                runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                     arena: Arena {
                                         data: [
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::SelfValue,
-                                                data: HirEagerRvarData::SelfValue,
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::SelfValue,
+                                                data: HirEagerRuntimeSvarData::SelfValue,
                                             },
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `norm`,
                                                 ),
-                                                data: HirEagerRvarData::LetVariable,
+                                                data: HirEagerRuntimeSvarData::LetVariable,
                                             },
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `i`,
                                                 ),
-                                                data: HirEagerRvarData::LoopVariable,
+                                                data: HirEagerRuntimeSvarData::LoopVariable,
                                             },
                                         ],
                                     },

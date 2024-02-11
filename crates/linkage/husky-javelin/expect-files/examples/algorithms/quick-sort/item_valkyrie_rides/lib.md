@@ -13,7 +13,7 @@
                             HirTemplateParameter {
                                 symbol: HirTemplateVar::Type(
                                     HirTypeSvar::Type {
-                                        attrs: HirTemplateVarAttrs {
+                                        attrs: HirTemplateSvarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -43,7 +43,7 @@
                                 (
                                     HirTemplateVar::Type(
                                         HirTypeSvar::Type {
-                                            attrs: HirTemplateVarAttrs {
+                                            attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -54,7 +54,7 @@
                                         HirTemplateArgument::Type(
                                             HirType::Svar(
                                                 HirTypeSvar::Type {
-                                                    attrs: HirTemplateVarAttrs {
+                                                    attrs: HirTemplateSvarAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
@@ -79,7 +79,7 @@
                                 (
                                     HirTemplateVar::Type(
                                         HirTypeSvar::Type {
-                                            attrs: HirTemplateVarAttrs {
+                                            attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -90,7 +90,7 @@
                                         HirTemplateArgument::Type(
                                             HirType::Svar(
                                                 HirTypeSvar::Type {
-                                                    attrs: HirTemplateVarAttrs {
+                                                    attrs: HirTemplateSvarAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
@@ -122,7 +122,7 @@
                             HirTemplateParameter {
                                 symbol: HirTemplateVar::Type(
                                     HirTypeSvar::Type {
-                                        attrs: HirTemplateVarAttrs {
+                                        attrs: HirTemplateSvarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -152,7 +152,7 @@
                                 (
                                     HirTemplateVar::Type(
                                         HirTypeSvar::Type {
-                                            attrs: HirTemplateVarAttrs {
+                                            attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -163,7 +163,7 @@
                                         HirTemplateArgument::Type(
                                             HirType::Svar(
                                                 HirTypeSvar::Type {
-                                                    attrs: HirTemplateVarAttrs {
+                                                    attrs: HirTemplateSvarAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
@@ -186,7 +186,7 @@
                                 (
                                     HirTemplateVar::Type(
                                         HirTypeSvar::Type {
-                                            attrs: HirTemplateVarAttrs {
+                                            attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -197,7 +197,7 @@
                                         HirTemplateArgument::Type(
                                             HirType::Svar(
                                                 HirTypeSvar::Type {
-                                                    attrs: HirTemplateVarAttrs {
+                                                    attrs: HirTemplateSvarAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
@@ -229,7 +229,7 @@
                             HirTemplateParameter {
                                 symbol: HirTemplateVar::Type(
                                     HirTypeSvar::Type {
-                                        attrs: HirTemplateVarAttrs {
+                                        attrs: HirTemplateSvarAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -259,7 +259,7 @@
                                 (
                                     HirTemplateVar::Type(
                                         HirTypeSvar::Type {
-                                            attrs: HirTemplateVarAttrs {
+                                            attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -270,7 +270,7 @@
                                         HirTemplateArgument::Type(
                                             HirType::Svar(
                                                 HirTypeSvar::Type {
-                                                    attrs: HirTemplateVarAttrs {
+                                                    attrs: HirTemplateSvarAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,

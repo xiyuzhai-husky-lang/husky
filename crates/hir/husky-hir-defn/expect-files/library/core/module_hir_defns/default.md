@@ -30,7 +30,7 @@
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [],
                             },

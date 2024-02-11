@@ -71,20 +71,20 @@
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::Ident(
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::Ident(
                                             `line_segment_sketch`,
                                         ),
-                                        data: HirEagerRvarData::ParenateParameter,
+                                        data: HirEagerRuntimeSvarData::ParenateParameter,
                                     },
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::Ident(
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::Ident(
                                             `index`,
                                         ),
-                                        data: HirEagerRvarData::ParenateParameter,
+                                        data: HirEagerRuntimeSvarData::ParenateParameter,
                                     },
                                 ],
                             },

@@ -29,7 +29,7 @@
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -100,7 +100,7 @@
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRvarRegionData {
+                    runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -177,18 +177,18 @@
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::SelfValue,
-                                        data: HirEagerRvarData::SelfValue,
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::SelfValue,
+                                        data: HirEagerRuntimeSvarData::SelfValue,
                                     },
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::Ident(
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::Ident(
                                             `k`,
                                         ),
-                                        data: HirEagerRvarData::ParenateParameter,
+                                        data: HirEagerRuntimeSvarData::ParenateParameter,
                                     },
                                 ],
                             },
@@ -251,12 +251,12 @@
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::SelfValue,
-                                        data: HirEagerRvarData::SelfValue,
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::SelfValue,
+                                        data: HirEagerRuntimeSvarData::SelfValue,
                                     },
                                 ],
                             },
@@ -319,12 +319,12 @@
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::SelfValue,
-                                        data: HirEagerRvarData::SelfValue,
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::SelfValue,
+                                        data: HirEagerRuntimeSvarData::SelfValue,
                                     },
                                 ],
                             },
@@ -387,12 +387,12 @@
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::SelfValue,
-                                        data: HirEagerRvarData::SelfValue,
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::SelfValue,
+                                        data: HirEagerRuntimeSvarData::SelfValue,
                                     },
                                 ],
                             },
@@ -455,12 +455,12 @@
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRvarEntry {
-                                        name: HirEagerRvarName::SelfValue,
-                                        data: HirEagerRvarData::SelfValue,
+                                    HirEagerRuntimeSvarEntry {
+                                        name: HirEagerRuntimeSvarName::SelfValue,
+                                        data: HirEagerRuntimeSvarData::SelfValue,
                                     },
                                 ],
                             },

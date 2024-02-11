@@ -35,7 +35,7 @@
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
@@ -140,14 +140,14 @@
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerRvarEntry {
-                                            name: HirEagerRvarName::Ident(
+                                        HirEagerRuntimeSvarEntry {
+                                            name: HirEagerRuntimeSvarName::Ident(
                                                 `cc`,
                                             ),
-                                            data: HirEagerRvarData::ParenateParameter,
+                                            data: HirEagerRuntimeSvarData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -349,20 +349,20 @@
                                         data: [],
                                     },
                                 },
-                                runtime_symbol_region_data: HirEagerRvarRegionData {
+                                runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                     arena: Arena {
                                         data: [
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `cc`,
                                                 ),
-                                                data: HirEagerRvarData::ParenateParameter,
+                                                data: HirEagerRuntimeSvarData::ParenateParameter,
                                             },
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `dp`,
                                                 ),
-                                                data: HirEagerRvarData::LetVariable,
+                                                data: HirEagerRuntimeSvarData::LetVariable,
                                             },
                                         ],
                                     },
@@ -454,14 +454,14 @@
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerRvarEntry {
-                                            name: HirEagerRvarName::Ident(
+                                        HirEagerRuntimeSvarEntry {
+                                            name: HirEagerRuntimeSvarName::Ident(
                                                 `cc`,
                                             ),
-                                            data: HirEagerRvarData::ParenateParameter,
+                                            data: HirEagerRuntimeSvarData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -663,20 +663,20 @@
                                         data: [],
                                     },
                                 },
-                                runtime_symbol_region_data: HirEagerRvarRegionData {
+                                runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                     arena: Arena {
                                         data: [
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `cc`,
                                                 ),
-                                                data: HirEagerRvarData::ParenateParameter,
+                                                data: HirEagerRuntimeSvarData::ParenateParameter,
                                             },
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `dp`,
                                                 ),
-                                                data: HirEagerRvarData::LetVariable,
+                                                data: HirEagerRuntimeSvarData::LetVariable,
                                             },
                                         ],
                                     },
@@ -768,14 +768,14 @@
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerRvarEntry {
-                                            name: HirEagerRvarName::Ident(
+                                        HirEagerRuntimeSvarEntry {
+                                            name: HirEagerRuntimeSvarName::Ident(
                                                 `cc`,
                                             ),
-                                            data: HirEagerRvarData::ParenateParameter,
+                                            data: HirEagerRuntimeSvarData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -977,20 +977,20 @@
                                         data: [],
                                     },
                                 },
-                                runtime_symbol_region_data: HirEagerRvarRegionData {
+                                runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                     arena: Arena {
                                         data: [
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `cc`,
                                                 ),
-                                                data: HirEagerRvarData::ParenateParameter,
+                                                data: HirEagerRuntimeSvarData::ParenateParameter,
                                             },
-                                            HirEagerRvarEntry {
-                                                name: HirEagerRvarName::Ident(
+                                            HirEagerRuntimeSvarEntry {
+                                                name: HirEagerRuntimeSvarName::Ident(
                                                     `dp`,
                                                 ),
-                                                data: HirEagerRvarData::LetVariable,
+                                                data: HirEagerRuntimeSvarData::LetVariable,
                                             },
                                         ],
                                     },
@@ -1039,7 +1039,7 @@
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
                                 arena: Arena {
                                     data: [],
                                 },

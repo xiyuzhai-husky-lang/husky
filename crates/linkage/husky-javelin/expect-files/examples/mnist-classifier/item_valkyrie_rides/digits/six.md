@@ -146,7 +146,7 @@
                                 (
                                     HirTemplateVar::Type(
                                         HirTypeSvar::Type {
-                                            attrs: HirTemplateVarAttrs {
+                                            attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -170,15 +170,15 @@
                                         HirConstSvar {
                                             ty: HirType::Svar(
                                                 HirTypeSvar::Type {
-                                                    attrs: HirTemplateVarAttrs {
+                                                    attrs: HirTemplateSvarAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
                                                     disambiguator: 0,
                                                 },
                                             ),
-                                            index: HirConstSymbolIndex::Other {
-                                                attrs: HirTemplateVarAttrs {
+                                            index: HirConstSvarIndex::Other {
+                                                attrs: HirTemplateSvarAttrs {
                                                     class: Runtime,
                                                 },
                                                 disambiguator: 0,
