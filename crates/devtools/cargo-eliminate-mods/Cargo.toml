@@ -14,6 +14,8 @@ keywords.workspace = true
 [dependencies]
 # utils
 husky-git-utils.workspace = true
+husky-path-utils.workspace = true
+husky-print-utils.workspace = true
 
 [lints]
 workspace = true

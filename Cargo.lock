@@ -1093,6 +1093,8 @@ name = "cargo-eliminate-mods"
 version = "0.1.0"
 dependencies = [
  "husky-git-utils",
+ "husky-path-utils",
+ "husky-print-utils",
 ]
 
 [[package]]
