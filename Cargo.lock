@@ -1089,6 +1089,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "cargo-eliminate-mods"
+version = "0.1.0"
+
+[[package]]
 name = "cargo-husky-prebuild"
 version = "0.1.0"
 dependencies = [
@@ -5122,6 +5126,14 @@ dependencies = [
 [[package]]
 name = "husky-fuzzy-search-utils"
 version = "0.1.0"
+
+[[package]]
+name = "husky-git-utils"
+version = "0.1.0"
+dependencies = [
+ "git2",
+ "husky-path-utils",
+]
 
 [[package]]
 name = "husky-graphics2d-visual-protocol"
