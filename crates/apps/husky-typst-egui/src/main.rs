@@ -1,11 +1,11 @@
 use eframe::egui;
 use egui::{vec2, Align2, Color32, Pos2, Rect, Rounding, Sense, Stroke, TextStyle};
-use husky_typst::{
+use husky_tex::{
     eval::Tracer,
     layout::Abs,
     visualize::{TexColor, TexFixedStroke, TexGeometry, TexPaint, TexRgb, TexRgba},
 };
-use husky_typst::{
+use husky_tex::{
     layout::{Frame, FrameItem, GroupItem, Point, Size},
     visualize::TexShape,
 };
@@ -39,7 +39,7 @@ impl App {
     fn new(cc: &eframe::CreationContext<'_>) -> Self {
         let sandbox = Arc::new(crate::sandbox::Sandbox::new());
         let mut tracer = Tracer::new();
-        let compiled = husky_typst::compile(
+        let compiled = husky_tex::compile(
             &Arc::clone(&sandbox).with_source("x + 1".to_string()),
             &mut tracer,
         )

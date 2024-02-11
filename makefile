@@ -115,8 +115,8 @@ clean-mnist:
 mnist-game:
 	cargo run -p husky-mnist-game
 
-make typst-egui:
-	cargo run -p husky-typst-egui
+make tex-egui:
+	cargo run -p husky-tex-egui
 
 make eliminate-mods:
 	cargo run -p cargo-eliminate-mods

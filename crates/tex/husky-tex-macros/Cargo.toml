@@ -1,0 +1,27 @@
+[package]
+name = "husky-tex-macros"
+description = "Proc-macros for Tex."
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[lib]
+proc-macro = true
+test = false
+doctest = false
+bench = false
+
+[dependencies]
+heck.workspace = true
+proc-macro2.workspace = true
+quote.workspace = true
+syn.workspace = true
+
+[lints]
+workspace = true

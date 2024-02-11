@@ -1,0 +1,3 @@
+# tex
+
+Adapted from typst

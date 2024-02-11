@@ -1,5 +1,5 @@
-use husky_typst::eval::Tracer;
-use husky_typst::layout::Frame;
+use husky_tex::eval::Tracer;
+use husky_tex::layout::Frame;
 use std::sync::mpsc::{Receiver, SyncSender};
 use std::sync::Arc;
 
@@ -15,7 +15,7 @@ pub fn spawn_compilation_thread(
         while let Ok(input) = in_recv.recv() {
             let mut tracer = Tracer::new();
             let compiled =
-                husky_typst::compile(&Arc::clone(&sandbox).with_source(input), &mut tracer)
+                husky_tex::compile(&Arc::clone(&sandbox).with_source(input), &mut tracer)
                     .map_err(|errors| format!("{errors:#?}"))
                     .and_then(|doc| {
                         doc.pages

@@ -1,13 +1,13 @@
 use std::sync::Arc;
 
 use comemo::Prehashed;
-use husky_typst::{diag::FileResult, syntax::VirtualPath, LibraryBuilder};
-use husky_typst::{
+use husky_tex::{diag::FileResult, syntax::VirtualPath, LibraryBuilder};
+use husky_tex::{
     foundations::Bytes,
     syntax::{FileId, Source},
 };
-use husky_typst::{foundations::Datetime, Library};
-use husky_typst::{
+use husky_tex::{foundations::Datetime, Library};
+use husky_tex::{
     text::{TexFont, TexFontBook},
     World,
 };
@@ -103,8 +103,8 @@ impl World for WithSource {
 #[test]
 fn sandbox_works() {
     use expect_test::expect;
-    use husky_typst::compile;
-    use husky_typst::eval::Tracer;
+    use husky_tex::compile;
+    use husky_tex::eval::Tracer;
 
     let sandbox = Sandbox::new();
     let mut tracer = Tracer::new();

@@ -1,5 +1,5 @@
 [package]
-name = "husky-typst-egui"
+name = "husky-tex-egui"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -16,8 +16,8 @@ comemo.workspace = true
 eframe.workspace = true
 egui.workspace = true
 expect-test.workspace = true
-# typst
-husky-typst.workspace = true
+# tex
+husky-tex.workspace = true
 # utils
 husky-path-utils.workspace = true
 husky-print-utils.workspace = true
