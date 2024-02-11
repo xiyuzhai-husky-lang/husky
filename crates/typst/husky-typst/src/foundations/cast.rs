@@ -410,7 +410,10 @@ impl<T> Container for Vec<T> {
     type Inner = T;
 }
 
-impl<T, const N: usize> Container for SmallVec<[T; N]> {
+impl<T, const N: usize> Container for SmallVec<[T; N]>
+where
+    [T; N]: smallvec::Array,
+{
     type Inner = T;
 }
 

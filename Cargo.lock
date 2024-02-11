@@ -6586,6 +6586,7 @@ dependencies = [
  "ecow",
  "fontdb",
  "hayagriva",
+ "husky-print-utils",
  "husky-typst-macros",
  "husky-typst-syntax",
  "husky-typst-timing",
@@ -6688,6 +6689,17 @@ dependencies = [
  "unicode_names2",
  "unscanny",
  "yaml-front-matter",
+]
+
+[[package]]
+name = "husky-typst-egui"
+version = "0.1.0"
+dependencies = [
+ "comemo",
+ "eframe",
+ "egui",
+ "husky-print-utils",
+ "husky-typst",
 ]
 
 [[package]]

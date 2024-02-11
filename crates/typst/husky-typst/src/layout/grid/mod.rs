@@ -17,7 +17,7 @@ use crate::layout::{
 };
 use crate::syntax::Span;
 use crate::util::NonZeroExt;
-use crate::visualize::{Paint, Stroke};
+use crate::visualize::{TypstPaint, TypstStroke};
 
 /// Arranges content in a grid.
 ///
@@ -209,7 +209,7 @@ pub struct GridElem {
     /// )
     /// ```
     #[borrowed]
-    pub fill: Celled<Option<Paint>>,
+    pub fill: Celled<Option<TypstPaint>>,
 
     /// How to align the cells' content.
     ///
@@ -239,7 +239,7 @@ pub struct GridElem {
     /// third-party [tablex library](https://github.com/PgBiel/typst-tablex/).
     #[resolve]
     #[fold]
-    pub stroke: Option<Stroke>,
+    pub stroke: Option<TypstStroke>,
 
     /// How much to pad the cells' content.
     ///
@@ -293,7 +293,7 @@ impl LayoutMultiple for Packed<GridElem> {
         let column_gutter = self.column_gutter(styles);
         let row_gutter = self.row_gutter(styles);
         let fill = self.fill(styles);
-        let stroke = self.stroke(styles).map(Stroke::unwrap_or_default);
+        let stroke = self.stroke(styles).map(TypstStroke::unwrap_or_default);
 
         let tracks = Axes::new(columns.0.as_slice(), rows.0.as_slice());
         let gutter = Axes::new(column_gutter.0.as_slice(), row_gutter.0.as_slice());
@@ -433,7 +433,7 @@ pub struct GridCell {
     colspan: NonZeroUsize,
 
     /// The cell's fill override.
-    fill: Smart<Option<Paint>>,
+    fill: Smart<Option<TypstPaint>>,
 
     /// The cell's alignment override.
     align: Smart<Alignment>,
@@ -458,7 +458,7 @@ impl ResolvableCell for Packed<GridCell> {
         mut self,
         x: usize,
         y: usize,
-        fill: &Option<Paint>,
+        fill: &Option<TypstPaint>,
         align: Smart<Alignment>,
         inset: Sides<Option<Rel<Length>>>,
         styles: StyleChain,

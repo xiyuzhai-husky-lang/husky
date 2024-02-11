@@ -48,7 +48,7 @@ impl TypstLayoutDirection {
     pub const LEFT_RIGHT: Self = Self::LeftRight;
     pub const RIGHT_LEFT: Self = Self::RightLeft;
     pub const TOP_DOWN: Self = Self::TopDown;
-    pub const BottomUp: Self = Self::BottomUp;
+    pub const BOTTOM_UP: Self = Self::BottomUp;
 
     /// The axis this direction belongs to, either `{"horizontal"}` or
     /// `{"vertical"}`.

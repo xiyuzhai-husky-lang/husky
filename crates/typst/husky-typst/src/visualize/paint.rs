@@ -7,7 +7,7 @@ use crate::visualize::{Gradient, Pattern, RelativeTo, TypstColor};
 
 /// How a fill or stroke should be painted.
 #[derive(Clone, Eq, PartialEq, Hash)]
-pub enum Paint {
+pub enum TypstPaint {
     /// A solid color.
     Solid(TypstColor),
     /// A gradient.
@@ -16,7 +16,7 @@ pub enum Paint {
     Pattern(Pattern),
 }
 
-impl Paint {
+impl TypstPaint {
     /// Unwraps a solid color used for text rendering.
     pub fn unwrap_solid(&self) -> TypstColor {
         match self {
@@ -51,7 +51,7 @@ impl Paint {
     }
 }
 
-impl Debug for Paint {
+impl Debug for TypstPaint {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         match self {
             Self::Solid(v) => v.fmt(f),
@@ -61,13 +61,13 @@ impl Debug for Paint {
     }
 }
 
-impl From<Pattern> for Paint {
+impl From<Pattern> for TypstPaint {
     fn from(pattern: Pattern) -> Self {
         Self::Pattern(pattern)
     }
 }
 
-impl Repr for Paint {
+impl Repr for TypstPaint {
     fn repr(&self) -> EcoString {
         match self {
             Self::Solid(color) => color.repr(),
@@ -77,20 +77,20 @@ impl Repr for Paint {
     }
 }
 
-impl<T: Into<TypstColor>> From<T> for Paint {
+impl<T: Into<TypstColor>> From<T> for TypstPaint {
     fn from(t: T) -> Self {
         Self::Solid(t.into())
     }
 }
 
-impl From<Gradient> for Paint {
+impl From<Gradient> for TypstPaint {
     fn from(gradient: Gradient) -> Self {
         Self::Gradient(gradient)
     }
 }
 
 cast! {
-    Paint,
+    TypstPaint,
     self => match self {
         Self::Solid(color) => color.into_value(),
         Self::Gradient(gradient) => gradient.into_value(),

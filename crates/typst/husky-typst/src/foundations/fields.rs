@@ -5,7 +5,7 @@ use ecow::{eco_format, EcoString};
 use crate::diag::StrResult;
 use crate::foundations::{IntoTypstValue, Type, TypstValue, Version};
 use crate::layout::{Alignment, Length, Rel};
-use crate::visualize::Stroke;
+use crate::visualize::TypstStroke;
 
 /// Try to access a field on a value.
 ///
@@ -33,7 +33,7 @@ pub(crate) fn field(value: &TypstValue, field: &str) -> StrResult<TypstValue> {
             _ => return missing(),
         },
         TypstValue::Dyn(dynamic) => {
-            if let Some(stroke) = dynamic.downcast::<Stroke>() {
+            if let Some(stroke) = dynamic.downcast::<TypstStroke>() {
                 match field {
                     "paint" => stroke.paint.clone().into_value(),
                     "thickness" => stroke.thickness.into_value(),
@@ -79,7 +79,7 @@ pub fn fields_on(ty: Type) -> &'static [&'static str] {
         &["em", "abs"]
     } else if ty == Type::of::<Rel>() {
         &["ratio", "length"]
-    } else if ty == Type::of::<Stroke>() {
+    } else if ty == Type::of::<TypstStroke>() {
         &["paint", "thickness", "cap", "join", "dash", "miter-limit"]
     } else if ty == Type::of::<Alignment>() {
         &["x", "y"]

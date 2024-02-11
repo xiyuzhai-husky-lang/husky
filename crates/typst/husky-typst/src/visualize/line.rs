@@ -3,7 +3,7 @@ use crate::engine::Engine;
 use crate::foundations::{elem, Packed, StyleChain};
 use crate::layout::{Abs, Angle, Axes, Frame, FrameItem, LayoutSingle, Length, Regions, Rel, Size};
 use crate::util::Numeric;
-use crate::visualize::{Geometry, Stroke};
+use crate::visualize::{TypstGeometry, TypstStroke};
 
 /// A line from one point to another.
 ///
@@ -53,7 +53,7 @@ pub struct LineElem {
     /// ```
     #[resolve]
     #[fold]
-    pub stroke: Stroke,
+    pub stroke: TypstStroke,
 }
 
 impl LayoutSingle for Packed<LineElem> {
@@ -81,7 +81,7 @@ impl LayoutSingle for Packed<LineElem> {
         }
 
         let mut frame = Frame::soft(target);
-        let shape = Geometry::Line(delta.to_point()).stroked(stroke);
+        let shape = TypstGeometry::Line(delta.to_point()).stroked(stroke);
         frame.push(start.to_point(), FrameItem::Shape(shape, self.span()));
         Ok(frame)
     }

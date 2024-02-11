@@ -1,4 +1,4 @@
-use husky_typst::visualize::{ColorSpace, Paint, TypstColor};
+use husky_typst::visualize::{ColorSpace, TypstColor, TypstPaint};
 use once_cell::sync::Lazy;
 use pdf_writer::types::DeviceNSubtype;
 use pdf_writer::{writers, Chunk, Dict, Filter, Name, Ref};
@@ -204,7 +204,7 @@ pub(super) trait PaintEncode {
     fn set_as_stroke(&self, ctx: &mut PageContext, on_text: bool, transforms: Transforms);
 }
 
-impl PaintEncode for Paint {
+impl PaintEncode for TypstPaint {
     fn set_as_fill(&self, ctx: &mut PageContext, on_text: bool, transforms: Transforms) {
         match self {
             Self::Solid(c) => c.set_as_fill(ctx, on_text, transforms),
@@ -250,7 +250,7 @@ impl PaintEncode for TypstColor {
                 let [r, g, b, _] = ColorSpace::LinearRgb.encode(*self);
                 ctx.content.set_fill_color([r, g, b]);
             }
-            TypstColor::Rgb(_) => {
+            TypstColor::Rgba(_) => {
                 ctx.parent.colors.srgb(&mut ctx.parent.alloc);
                 ctx.set_fill_color_space(SRGB);
 
@@ -293,7 +293,7 @@ impl PaintEncode for TypstColor {
                 let [r, g, b, _] = ColorSpace::LinearRgb.encode(*self);
                 ctx.content.set_stroke_color([r, g, b]);
             }
-            TypstColor::Rgb(_) => {
+            TypstColor::Rgba(_) => {
                 ctx.parent.colors.srgb(&mut ctx.parent.alloc);
                 ctx.set_stroke_color_space(SRGB);
 

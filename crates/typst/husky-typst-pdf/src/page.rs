@@ -10,7 +10,8 @@ use husky_typst::model::{Destination, Numbering};
 use husky_typst::text::{Case, TextItem, TypstFont};
 use husky_typst::util::{Deferred, Numeric};
 use husky_typst::visualize::{
-    FixedStroke, Geometry, Image, LineCap, LineJoin, Paint, Path, PathItem, Shape,
+    Image, LineCap, LineJoin, Path, PathItem, TypstFixedStroke, TypstGeometry, TypstPaint,
+    TypstShape,
 };
 use pdf_writer::types::{
     ActionType, AnnotationFlags, AnnotationType, ColorSpaceOperand, LineCapStyle, LineJoinStyle,
@@ -428,10 +429,10 @@ struct State {
     /// The size of the first hard frame in the hierarchy.
     size: Size,
     font: Option<(TypstFont, Abs)>,
-    fill: Option<Paint>,
+    fill: Option<TypstPaint>,
     fill_space: Option<Name<'static>>,
     external_graphics_state: Option<ExtGState>,
-    stroke: Option<FixedStroke>,
+    stroke: Option<TypstFixedStroke>,
     stroke_space: Option<Name<'static>>,
 }
 
@@ -503,12 +504,12 @@ impl PageContext<'_, '_> {
         }
     }
 
-    fn set_opacities(&mut self, stroke: Option<&FixedStroke>, fill: Option<&Paint>) {
+    fn set_opacities(&mut self, stroke: Option<&TypstFixedStroke>, fill: Option<&TypstPaint>) {
         let stroke_opacity = stroke
             .map(|stroke| {
                 let color = match &stroke.paint {
-                    Paint::Solid(color) => *color,
-                    Paint::Gradient(_) | Paint::Pattern(_) => return 255,
+                    TypstPaint::Solid(color) => *color,
+                    TypstPaint::Gradient(_) | TypstPaint::Pattern(_) => return 255,
                 };
 
                 color.alpha().map_or(255, |v| (v * 255.0).round() as u8)
@@ -517,8 +518,8 @@ impl PageContext<'_, '_> {
         let fill_opacity = fill
             .map(|paint| {
                 let color = match paint {
-                    Paint::Solid(color) => *color,
-                    Paint::Gradient(_) | Paint::Pattern(_) => return 255,
+                    TypstPaint::Solid(color) => *color,
+                    TypstPaint::Gradient(_) | TypstPaint::Pattern(_) => return 255,
                 };
 
                 color.alpha().map_or(255, |v| (v * 255.0).round() as u8)
@@ -572,9 +573,9 @@ impl PageContext<'_, '_> {
         self.state.size = size;
     }
 
-    fn set_fill(&mut self, fill: &Paint, on_text: bool, transforms: Transforms) {
+    fn set_fill(&mut self, fill: &TypstPaint, on_text: bool, transforms: Transforms) {
         if self.state.fill.as_ref() != Some(fill)
-            || matches!(self.state.fill, Some(Paint::Gradient(_)))
+            || matches!(self.state.fill, Some(TypstPaint::Gradient(_)))
         {
             fill.set_as_fill(self, on_text, transforms);
             self.state.fill = Some(fill.clone());
@@ -593,14 +594,14 @@ impl PageContext<'_, '_> {
         self.state.fill_space = None;
     }
 
-    fn set_stroke(&mut self, stroke: &FixedStroke, on_text: bool, transforms: Transforms) {
+    fn set_stroke(&mut self, stroke: &TypstFixedStroke, on_text: bool, transforms: Transforms) {
         if self.state.stroke.as_ref() != Some(stroke)
             || matches!(
                 self.state.stroke.as_ref().map(|s| &s.paint),
-                Some(Paint::Gradient(_))
+                Some(TypstPaint::Gradient(_))
             )
         {
-            let FixedStroke {
+            let TypstFixedStroke {
                 paint,
                 thickness,
                 cap,
@@ -760,7 +761,7 @@ fn write_text(ctx: &mut PageContext, pos: Point, text: &TextItem) {
 }
 
 /// Encode a geometrical shape into the content stream.
-fn write_shape(ctx: &mut PageContext, pos: Point, shape: &Shape) {
+fn write_shape(ctx: &mut PageContext, pos: Point, shape: &TypstShape) {
     let x = pos.x.to_f32();
     let y = pos.y.to_f32();
 
@@ -795,20 +796,20 @@ fn write_shape(ctx: &mut PageContext, pos: Point, shape: &Shape) {
     ctx.set_opacities(stroke, shape.fill.as_ref());
 
     match shape.geometry {
-        Geometry::Line(target) => {
+        TypstGeometry::Line(target) => {
             let dx = target.x.to_f32();
             let dy = target.y.to_f32();
             ctx.content.move_to(x, y);
             ctx.content.line_to(x + dx, y + dy);
         }
-        Geometry::Rect(size) => {
+        TypstGeometry::Rect(size) => {
             let w = size.x.to_f32();
             let h = size.y.to_f32();
             if w > 0.0 && h > 0.0 {
                 ctx.content.rect(x, y, w, h);
             }
         }
-        Geometry::Path(ref path) => {
+        TypstGeometry::Path(ref path) => {
             write_path(ctx, x, y, path);
         }
     }

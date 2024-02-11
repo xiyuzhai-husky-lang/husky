@@ -72,6 +72,9 @@ pub fn eval(
 
     // Evaluate the module.
     let markup = root.cast::<ast::Markup>().unwrap();
+    use husky_print_utils::p;
+    p!(markup);
+    // todo!();
     let output = markup.eval(&mut vm)?;
 
     // Handle control flow.

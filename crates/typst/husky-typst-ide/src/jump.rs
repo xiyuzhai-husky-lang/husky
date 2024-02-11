@@ -5,7 +5,7 @@ use husky_typst::introspection::Meta;
 use husky_typst::layout::{Frame, FrameItem, Point, Position, Size};
 use husky_typst::model::{Destination, TypstDocument};
 use husky_typst::syntax::{FileId, LinkedNode, Source, Span, SyntaxKind};
-use husky_typst::visualize::Geometry;
+use husky_typst::visualize::TypstGeometry;
 use husky_typst::World;
 
 /// Where to [jump](jump_from_click) to.
@@ -90,7 +90,7 @@ pub fn jump_from_click(
             }
 
             FrameItem::Shape(shape, span) => {
-                let Geometry::Rect(size) = shape.geometry else {
+                let TypstGeometry::Rect(size) = shape.geometry else {
                     continue;
                 };
                 if is_in_rect(pos, size, click) {

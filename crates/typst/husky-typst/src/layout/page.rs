@@ -19,7 +19,7 @@ use crate::model::Numbering;
 use crate::syntax::Spanned;
 use crate::text::TextElem;
 use crate::util::{NonZeroExt, Numeric, Scalar};
-use crate::visualize::Paint;
+use crate::visualize::TypstPaint;
 
 /// Layouts its child onto one or multiple pages.
 ///
@@ -186,7 +186,7 @@ pub struct PageElem {
     /// *Dark mode enabled.*
     /// ```
     #[borrowed]
-    pub fill: Option<Paint>,
+    pub fill: Option<TypstPaint>,
 
     /// How to [number]($numbering) the pages.
     ///

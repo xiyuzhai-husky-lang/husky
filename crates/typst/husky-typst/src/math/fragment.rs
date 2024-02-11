@@ -13,7 +13,7 @@ use crate::math::{
 };
 use crate::syntax::Span;
 use crate::text::{Glyph, Lang, TextElem, TextItem, TypstFont};
-use crate::visualize::Paint;
+use crate::visualize::TypstPaint;
 
 #[derive(Debug, Clone)]
 pub enum MathFragment {
@@ -202,7 +202,7 @@ pub struct GlyphFragment {
     pub c: char,
     pub font: TypstFont,
     pub lang: Lang,
-    pub fill: Paint,
+    pub fill: TypstPaint,
     pub shift: Abs,
     pub width: Abs,
     pub ascent: Abs,

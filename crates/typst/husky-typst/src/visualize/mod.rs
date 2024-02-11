@@ -38,7 +38,7 @@ pub(super) fn define(global: &mut Scope) {
     global.define_type::<TypstColor>();
     global.define_type::<Gradient>();
     global.define_type::<Pattern>();
-    global.define_type::<Stroke>();
+    global.define_type::<TypstStroke>();
     global.define_elem::<ImageElem>();
     global.define_elem::<LineElem>();
     global.define_elem::<RectElem>();

@@ -95,6 +95,8 @@ pub fn compile(world: &dyn World, tracer: &mut Tracer) -> SourceResult<TypstDocu
         &world.main(),
     )
     .map_err(deduplicate)?;
+    use husky_print_utils::p;
+    p!(module);
 
     // Typeset the module's content, relayouting until convergence.
     typeset(world, tracer, &module.content()).map_err(deduplicate)

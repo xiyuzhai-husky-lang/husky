@@ -15,7 +15,7 @@ use crate::math::{
 use crate::syntax::{Span, Spanned};
 use crate::text::TextElem;
 use crate::util::Numeric;
-use crate::visualize::{FixedStroke, Geometry, LineCap, Shape, Stroke};
+use crate::visualize::{LineCap, TypstFixedStroke, TypstGeometry, TypstShape, TypstStroke};
 
 const DEFAULT_ROW_GAP: LengthInEm = LengthInEm::new(0.5);
 const DEFAULT_COL_GAP: LengthInEm = LengthInEm::new(0.5);
@@ -425,7 +425,7 @@ fn layout_mat_body(
     // The line cap is also set to square because it looks more "correct".
     let font_size = scaled_font_size(ctx, styles);
     let default_stroke_thickness = DEFAULT_STROKE_THICKNESS.at(font_size);
-    let default_stroke = FixedStroke {
+    let default_stroke = TypstFixedStroke {
         thickness: default_stroke_thickness,
         paint: TextElem::fill_in(styles).as_decoration(),
         cap: LineCap::Square,
@@ -555,15 +555,15 @@ fn layout_mat_body(
     Ok(frame)
 }
 
-fn line_item(length: Abs, vertical: bool, stroke: FixedStroke, span: Span) -> FrameItem {
+fn line_item(length: Abs, vertical: bool, stroke: TypstFixedStroke, span: Span) -> FrameItem {
     let line_geom = if vertical {
-        Geometry::Line(Point::with_y(length))
+        TypstGeometry::Line(Point::with_y(length))
     } else {
-        Geometry::Line(Point::with_x(length))
+        TypstGeometry::Line(Point::with_x(length))
     };
 
     FrameItem::Shape(
-        Shape {
+        TypstShape {
             geometry: line_geom,
             fill: None,
             stroke: Some(stroke),
@@ -613,7 +613,7 @@ fn layout_delimiters(
 pub struct Augment<T: Numeric = Length> {
     pub hline: AugmentOffsets,
     pub vline: AugmentOffsets,
-    pub stroke: Smart<Stroke<T>>,
+    pub stroke: Smart<TypstStroke<T>>,
 }
 
 impl<T: Numeric + Fold> Fold for Augment<T> {
@@ -668,7 +668,7 @@ cast! {
         let vline = take("vline")?.unwrap_or_default();
         let stroke = dict.take("stroke")
             .ok()
-            .map(Stroke::from_value)
+            .map(TypstStroke::from_value)
             .transpose()?
             .map(Smart::Custom)
             .unwrap_or(Smart::Auto);

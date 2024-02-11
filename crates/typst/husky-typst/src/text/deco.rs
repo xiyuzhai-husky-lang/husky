@@ -8,7 +8,7 @@ use crate::foundations::{elem, Packed, Show, Smart, StyleChain, TypstContent};
 use crate::layout::{Abs, Frame, FrameItem, Length, LengthInEm, Point, Size};
 use crate::syntax::Span;
 use crate::text::{BottomEdge, BottomEdgeMetric, TextElem, TextItem, TopEdge, TopEdgeMetric};
-use crate::visualize::{FixedStroke, Geometry, Paint, Stroke, TypstColor};
+use crate::visualize::{TypstColor, TypstFixedStroke, TypstGeometry, TypstPaint, TypstStroke};
 
 /// Underlines text.
 ///
@@ -32,7 +32,7 @@ pub struct UnderlineElem {
     /// ```
     #[resolve]
     #[fold]
-    pub stroke: Smart<Stroke>,
+    pub stroke: Smart<TypstStroke>,
 
     /// The position of the line relative to the baseline, read from the font
     /// tables if `{auto}`.
@@ -122,7 +122,7 @@ pub struct OverlineElem {
     /// ```
     #[resolve]
     #[fold]
-    pub stroke: Smart<Stroke>,
+    pub stroke: Smart<TypstStroke>,
 
     /// The position of the line relative to the baseline. Read from the font
     /// tables if `{auto}`.
@@ -216,7 +216,7 @@ pub struct StrikeElem {
     /// ```
     #[resolve]
     #[fold]
-    pub stroke: Smart<Stroke>,
+    pub stroke: Smart<TypstStroke>,
 
     /// The position of the line relative to the baseline. Read from the font
     /// tables if `{auto}`.
@@ -289,7 +289,7 @@ pub struct HighlightElem {
     /// This is #highlight(fill: blue)[with blue].
     /// ```
     #[default(TypstColor::from_u8(0xFF, 0xFF, 0x5F, 0xFF).into())]
-    pub fill: Paint,
+    pub fill: TypstPaint,
 
     /// The top end of the background rectangle.
     ///
@@ -360,24 +360,24 @@ pub struct Decoration {
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
 enum DecoLine {
     Underline {
-        stroke: Stroke<Abs>,
+        stroke: TypstStroke<Abs>,
         offset: Smart<Abs>,
         evade: bool,
         background: bool,
     },
     Strikethrough {
-        stroke: Stroke<Abs>,
+        stroke: TypstStroke<Abs>,
         offset: Smart<Abs>,
         background: bool,
     },
     Overline {
-        stroke: Stroke<Abs>,
+        stroke: TypstStroke<Abs>,
         offset: Smart<Abs>,
         evade: bool,
         background: bool,
     },
     Highlight {
-        fill: Paint,
+        fill: TypstPaint,
         top_edge: TopEdge,
         bottom_edge: BottomEdge,
     },
@@ -401,8 +401,8 @@ pub(crate) fn decorate(
     } = &deco.line
     {
         let (top, bottom) = determine_edges(text, *top_edge, *bottom_edge);
-        let rect =
-            Geometry::Rect(Size::new(width + 2.0 * deco.extent, top - bottom)).filled(fill.clone());
+        let rect = TypstGeometry::Rect(Size::new(width + 2.0 * deco.extent, top - bottom))
+            .filled(fill.clone());
         let origin = Point::new(pos.x - deco.extent, pos.y - top - shift);
         frame.prepend(origin, FrameItem::Shape(rect, Span::detached()));
         return;
@@ -436,7 +436,7 @@ pub(crate) fn decorate(
     };
 
     let offset = offset.unwrap_or(-metrics.position.at(text.size)) - shift;
-    let stroke = stroke.clone().unwrap_or(FixedStroke::from_pair(
+    let stroke = stroke.clone().unwrap_or(TypstFixedStroke::from_pair(
         text.fill.as_decoration(),
         metrics.thickness.at(text.size),
     ));
@@ -452,7 +452,7 @@ pub(crate) fn decorate(
         let target = Point::new(to - from, Abs::zero());
 
         if target.x >= min_width || !evade {
-            let shape = Geometry::Line(target).stroked(stroke.clone());
+            let shape = TypstGeometry::Line(target).stroked(stroke.clone());
 
             if prepend {
                 frame.prepend(origin, FrameItem::Shape(shape, Span::detached()));
