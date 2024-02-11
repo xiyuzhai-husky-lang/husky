@@ -2,7 +2,7 @@ use comemo::Track;
 use ecow::{eco_vec, EcoString, EcoVec};
 use husky_tex::engine::{Route, TexEngine};
 use husky_tex::eval::{Tracer, Vm};
-use husky_tex::foundations::{Label, Scopes, TexValue};
+use husky_tex::foundations::{Label, TexValue, TexValueAssignmentGroups};
 use husky_tex::introspection::{Introspector, Locator};
 use husky_tex::model::{BibliographyElem, TexDocument};
 use husky_tex::syntax::{ast, LinkedNode, Span, TexSyntaxKind};
@@ -64,7 +64,11 @@ pub fn analyze_import(world: &dyn IsTexWorld, source: &LinkedNode) -> Option<Tex
         tracer: tracer.track_mut(),
     };
 
-    let mut vm = Vm::new(engine, Scopes::new(Some(world.library())), Span::detached());
+    let mut vm = Vm::new(
+        engine,
+        TexValueAssignmentGroups::new(Some(world.library())),
+        Span::detached(),
+    );
     husky_tex::eval::import(&mut vm, source, Span::detached(), true)
         .ok()
         .map(TexValue::Module)

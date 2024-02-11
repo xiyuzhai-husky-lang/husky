@@ -63,12 +63,27 @@ fn parse(meta: Meta, ident: Ident, attrs: &[Attribute]) -> Result<Type> {
     let (name, title) =
         determine_name_and_title(meta.name.clone(), meta.title.clone(), &ident, None)?;
     let long = title.to_lowercase();
-    Ok(Type { meta, ident, name, long, title, docs })
+    Ok(Type {
+        meta,
+        ident,
+        name,
+        long,
+        title,
+        docs,
+    })
 }
 
 /// Produce the output of the macro.
 fn create(ty: &Type, item: Option<&syn::Item>) -> TokenStream {
-    let Type { ident, name, long, title, docs, meta, .. } = ty;
+    let Type {
+        ident,
+        name,
+        long,
+        title,
+        docs,
+        meta,
+        ..
+    } = ty;
     let Meta { keywords, .. } = meta;
 
     let constructor = if meta.scope {
@@ -80,7 +95,7 @@ fn create(ty: &Type, item: Option<&syn::Item>) -> TokenStream {
     let scope = if meta.scope {
         quote! { <#ident as #foundations::NativeScope>::scope() }
     } else {
-        quote! { #foundations::Scope::new() }
+        quote! { #foundations::TexValueAssignmentGroup::new() }
     };
 
     let cast = (!meta.cast).then(|| {

@@ -27,7 +27,8 @@ use smallvec::SmallVec;
 
 use crate::foundations::TexContentRefined;
 use crate::foundations::{
-    category, elem, ty, Behave, Behaviour, Category, Repr, Scope, TexContent, Unlabellable,
+    category, elem, ty, Behave, Behaviour, Repr, TexContent, TexDefnKind, TexValueAssignmentGroup,
+    Unlabellable,
 };
 use crate::model::TexDestination;
 
@@ -39,10 +40,10 @@ use crate::model::TexDestination;
 /// lets you search for elements in the document to construct things like a list
 /// of figures or headers which show the current chapter title.
 #[category]
-pub static INTROSPECTION: Category;
+pub static INTROSPECTION: TexDefnKind;
 
 /// Hook up all `introspection` definitions.
-pub fn define(global: &mut Scope) {
+pub fn define(global: &mut TexValueAssignmentGroup) {
     global.category(INTROSPECTION);
     global.define_type::<Location>();
     global.define_type::<Counter>();

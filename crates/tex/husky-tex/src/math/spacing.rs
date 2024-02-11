@@ -1,6 +1,6 @@
 use unicode_math_class::MathClass;
 
-use crate::foundations::{IsTexElem, Scope};
+use crate::foundations::{IsTexElem, TexValueAssignmentGroup};
 use crate::layout::{HElem, TexAbsLength, TexEmLength};
 use crate::math::{MathFragment, MathSize, SpacingFragment};
 
@@ -11,7 +11,7 @@ pub(super) const QUAD: TexEmLength = TexEmLength::new(1.0);
 pub(super) const WIDE: TexEmLength = TexEmLength::new(2.0);
 
 /// Hook up all spacings.
-pub(super) fn define(math: &mut Scope) {
+pub(super) fn define(math: &mut TexValueAssignmentGroup) {
     math.define("thin", HElem::new(THIN.into()).pack());
     math.define("med", HElem::new(MEDIUM.into()).pack());
     math.define("thick", HElem::new(THICK.into()).pack());

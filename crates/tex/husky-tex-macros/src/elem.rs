@@ -668,7 +668,7 @@ fn create_native_elem_impl(element: &Elem) -> TokenStream {
     let scope = if *scope {
         quote! { <#ident as #foundations::NativeScope>::scope() }
     } else {
-        quote! { #foundations::Scope::new() }
+        quote! { #foundations::TexValueAssignmentGroup::new() }
     };
 
     let params = element.doc_fields().map(create_param_info);

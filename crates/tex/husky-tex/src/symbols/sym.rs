@@ -1,13 +1,13 @@
-use crate::foundations::{Module, Scope};
+use crate::foundations::{TexModuleEvaluation, TexValueAssignmentGroup};
 use crate::symbols::{symbols, Symbol};
 
 /// A module with all general symbols.
-pub fn sym() -> Module {
-    let mut scope = Scope::new();
+pub fn sym() -> TexModuleEvaluation {
+    let mut scope = TexValueAssignmentGroup::new();
     for (name, symbol) in SYM {
         scope.define(*name, symbol.clone());
     }
-    Module::new("sym", scope)
+    TexModuleEvaluation::new("sym", scope)
 }
 
 /// The list of general symbols.

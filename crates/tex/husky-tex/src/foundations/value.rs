@@ -13,8 +13,8 @@ use crate::diag::StrResult;
 use crate::eval::ops;
 use crate::foundations::{
     fields, repr, Args, Array, AutoTexValue, Bytes, CastInfo, Datetime, Duration, FromTexValue,
-    Func, IntoTexValue, IsTexElem, Label, Module, NativeType, NoneTexValue, Plugin, Reflect, Repr,
-    Scope, Str, Styles, TexContent, TexDict, Type, Version,
+    Func, IntoTexValue, IsTexElem, Label, NativeType, NoneTexValue, Plugin, Reflect, Repr, Str,
+    Styles, TexContent, TexDict, TexModuleEvaluation, TexValueAssignmentGroup, Type, Version,
 };
 use crate::layout::{Angle, Length, Ratio, Rel, TexAbsLength, TexEmLength, TexFraction};
 use crate::symbols::Symbol;
@@ -81,7 +81,7 @@ pub enum TexValue {
     /// A type.
     Type(Type),
     /// A module.
-    Module(Module),
+    Module(TexModuleEvaluation),
     /// A WebAssembly plugin.
     Plugin(Plugin),
     /// A dynamic value.
@@ -143,8 +143,8 @@ impl TexValue {
             Self::Func(_) => Type::of::<Func>(),
             Self::Args(_) => Type::of::<Args>(),
             Self::Type(_) => Type::of::<Type>(),
-            Self::Module(_) => Type::of::<Module>(),
-            Self::Plugin(_) => Type::of::<Module>(),
+            Self::Module(_) => Type::of::<TexModuleEvaluation>(),
+            Self::Plugin(_) => Type::of::<TexModuleEvaluation>(),
             Self::Dyn(v) => v.ty(),
         }
     }
@@ -169,7 +169,7 @@ impl TexValue {
     }
 
     /// The associated scope, if this is a function, type, or module.
-    pub fn scope(&self) -> Option<&Scope> {
+    pub fn scope(&self) -> Option<&TexValueAssignmentGroup> {
         match self {
             Self::Func(func) => func.scope(),
             Self::Type(ty) => Some(ty.scope()),
@@ -664,7 +664,7 @@ primitive! {
 }
 primitive! { Args: "arguments", Args }
 primitive! { Type: "type", Type }
-primitive! { Module: "module", Module }
+primitive! { TexModuleEvaluation: "module", Module }
 primitive! { Plugin: "plugin", Plugin }
 
 #[cfg(test)]

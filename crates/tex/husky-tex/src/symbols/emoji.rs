@@ -1,13 +1,13 @@
-use crate::foundations::{Module, Scope};
+use crate::foundations::{TexModuleEvaluation, TexValueAssignmentGroup};
 use crate::symbols::{symbols, Symbol};
 
 /// A module with all emoji.
-pub fn emoji() -> Module {
-    let mut scope = Scope::new();
+pub fn emoji() -> TexModuleEvaluation {
+    let mut scope = TexValueAssignmentGroup::new();
     for (name, symbol) in EMOJI {
         scope.define(*name, symbol.clone());
     }
-    Module::new("emoji", scope)
+    TexModuleEvaluation::new("emoji", scope)
 }
 
 /// A list of named emoji.

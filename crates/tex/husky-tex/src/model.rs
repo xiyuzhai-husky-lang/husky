@@ -40,7 +40,7 @@ pub use self::strong::*;
 pub use self::table::*;
 pub use self::terms::*;
 
-use crate::foundations::{category, Category, Scope};
+use crate::foundations::{category, TexDefnKind, TexValueAssignmentGroup};
 
 /// Document structuring.
 ///
@@ -48,10 +48,10 @@ use crate::foundations::{category, Category, Scope};
 /// that structure. This includes section headings, figures, bibliography
 /// management, cross-referencing and more.
 #[category]
-pub static MODEL: Category;
+pub static MODEL: TexDefnKind;
 
 /// Hook up all `model` definitions.
-pub fn define(global: &mut Scope) {
+pub fn define(global: &mut TexValueAssignmentGroup) {
     global.category(MODEL);
     global.define_elem::<DocumentElem>();
     global.define_elem::<RefElem>();

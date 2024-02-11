@@ -2,7 +2,7 @@ use comemo::Tracked;
 
 use crate::engine::TexEngine;
 use crate::eval::FlowEvent;
-use crate::foundations::{IntoTexValue, Scopes};
+use crate::foundations::{IntoTexValue, TexValueAssignmentGroups};
 use crate::syntax::ast::{self, TexAstNode};
 use crate::syntax::Span;
 use crate::IsTexWorld;
@@ -17,14 +17,14 @@ pub struct Vm<'a> {
     /// A control flow event that is currently happening.
     pub(crate) flow: Option<FlowEvent>,
     /// The stack of scopes.
-    pub(crate) scopes: Scopes<'a>,
+    pub(crate) scopes: TexValueAssignmentGroups<'a>,
     /// A span that is currently under inspection.
     pub(crate) inspected: Option<Span>,
 }
 
 impl<'a> Vm<'a> {
     /// Create a new virtual machine.
-    pub fn new(engine: TexEngine<'a>, scopes: Scopes<'a>, target: Span) -> Self {
+    pub fn new(engine: TexEngine<'a>, scopes: TexValueAssignmentGroups<'a>, target: Span) -> Self {
         let inspected = target.id().and_then(|id| engine.tracer.inspected(id));
         Self {
             engine,

@@ -12,8 +12,8 @@ use palette::{
 
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::foundations::{
-    array, cast, func, repr, scope, ty, Args, Array, IntoTexValue, Module, Repr, Scope, Str,
-    TexValue,
+    array, cast, func, repr, scope, ty, Args, Array, IntoTexValue, Repr, Str, TexModuleEvaluation,
+    TexValue, TexValueAssignmentGroup,
 };
 use crate::layout::{Angle, Ratio};
 use crate::syntax::{Span, Spanned};
@@ -188,9 +188,9 @@ pub enum TexColor {
 #[scope]
 impl TexColor {
     /// The module of preset color maps.
-    pub const MAP: fn() -> Module = || {
+    pub const MAP: fn() -> TexModuleEvaluation = || {
         // Lazy to avoid re-allocating.
-        static MODULE: Lazy<Module> = Lazy::new(map);
+        static MODULE: Lazy<TexModuleEvaluation> = Lazy::new(map);
         MODULE.clone()
     };
 
@@ -1889,8 +1889,8 @@ cast! {
 }
 
 /// A module with all preset color maps.
-fn map() -> Module {
-    let mut scope = Scope::new();
+fn map() -> TexModuleEvaluation {
+    let mut scope = TexValueAssignmentGroup::new();
     scope.define("turbo", turbo());
     scope.define("cividis", cividis());
     scope.define("rainbow", rainbow());
@@ -1905,7 +1905,7 @@ fn map() -> Module {
     scope.define("icefire", icefire());
     scope.define("flare", flare());
     scope.define("crest", crest());
-    Module::new("map", scope)
+    TexModuleEvaluation::new("map", scope)
 }
 
 /// Defines a tradient preset as a series of colors expressed as u32s.

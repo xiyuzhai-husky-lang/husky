@@ -6,7 +6,7 @@ use crate::engine::TexEngine;
 use crate::eval::{Access, Eval, FlowEvent, Route, Tracer, Vm};
 use crate::foundations::{
     call_method_mut, is_mutating_method, Arg, Args, Bytes, Closure, Func, IntoTexValue, IsTexElem,
-    Scope, Scopes, TexContent, TexValue,
+    TexContent, TexValue, TexValueAssignmentGroup, TexValueAssignmentGroups,
 };
 use crate::introspection::{Introspector, Locator};
 use crate::math::{Accent, AccentElem, LrElem};
@@ -279,7 +279,7 @@ pub(crate) fn call_closure(
 
     // Don't leak the scopes from the call site. Instead, we use the scope
     // of captured variables we collected earlier.
-    let mut scopes = Scopes::new(None);
+    let mut scopes = TexValueAssignmentGroups::new(None);
     scopes.top = closure.captured.clone();
 
     // Prepare the engine.
@@ -381,23 +381,23 @@ fn in_math(expr: ast::Expr) -> bool {
 
 /// A visitor that determines which variables to capture for a closure.
 pub struct CapturesVisitor<'a> {
-    external: Option<&'a Scopes<'a>>,
-    internal: Scopes<'a>,
-    captures: Scope,
+    external: Option<&'a TexValueAssignmentGroups<'a>>,
+    internal: TexValueAssignmentGroups<'a>,
+    captures: TexValueAssignmentGroup,
 }
 
 impl<'a> CapturesVisitor<'a> {
     /// Create a new visitor for the given external scopes.
-    pub fn new(external: Option<&'a Scopes<'a>>) -> Self {
+    pub fn new(external: Option<&'a TexValueAssignmentGroups<'a>>) -> Self {
         Self {
             external,
-            internal: Scopes::new(None),
-            captures: Scope::new(),
+            internal: TexValueAssignmentGroups::new(None),
+            captures: TexValueAssignmentGroup::new(),
         }
     }
 
     /// Return the scope of captured variables.
-    pub fn finish(self) -> Scope {
+    pub fn finish(self) -> TexValueAssignmentGroup {
         self.captures
     }
 
@@ -408,8 +408,10 @@ impl<'a> CapturesVisitor<'a> {
             // Identifiers that shouldn't count as captures because they
             // actually bind a new name are handled below (individually through
             // the expressions that contain them).
-            Some(ast::Expr::Ident(ident)) => self.capture(&ident, Scopes::get),
-            Some(ast::Expr::MathIdent(ident)) => self.capture(&ident, Scopes::get_in_math),
+            Some(ast::Expr::Ident(ident)) => self.capture(&ident, TexValueAssignmentGroups::get),
+            Some(ast::Expr::MathIdent(ident)) => {
+                self.capture(&ident, TexValueAssignmentGroups::get_in_math)
+            }
 
             // Code and content blocks create a scope.
             Some(ast::Expr::Code(_) | ast::Expr::Content(_)) => {
@@ -521,7 +523,7 @@ impl<'a> CapturesVisitor<'a> {
     fn capture(
         &mut self,
         ident: &str,
-        getter: impl FnOnce(&'a Scopes<'a>, &str) -> HintedStrResult<&'a TexValue>,
+        getter: impl FnOnce(&'a TexValueAssignmentGroups<'a>, &str) -> HintedStrResult<&'a TexValue>,
     ) {
         if self.internal.get(ident).is_err() {
             let Some(value) = self
@@ -544,7 +546,7 @@ mod tests {
 
     #[track_caller]
     fn test(text: &str, result: &[&str]) {
-        let mut scopes = Scopes::new(None);
+        let mut scopes = TexValueAssignmentGroups::new(None);
         scopes.top.define("f", 0);
         scopes.top.define("x", 0);
         scopes.top.define("y", 0);

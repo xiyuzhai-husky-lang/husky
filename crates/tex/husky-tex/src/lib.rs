@@ -60,7 +60,8 @@ use crate::diag::{warning, FileResult, SourceDiagnostic, SourceResult};
 use crate::engine::{Route, TexEngine};
 use crate::eval::Tracer;
 use crate::foundations::{
-    Array, Bytes, Datetime, Module, Scope, StyleChain, Styles, TexContent, TexDict,
+    Array, Bytes, Datetime, StyleChain, Styles, TexContent, TexDict, TexModuleEvaluation,
+    TexValueAssignmentGroup,
 };
 use crate::introspection::{Introspector, Locator};
 use crate::layout::{LayoutRoot, TexAlignment, TexLayoutDirection};
@@ -256,9 +257,9 @@ impl<T: IsTexWorld> WorldExt for T {
 #[derive(Debug, Clone, Hash)]
 pub struct Library {
     /// The module that contains the definitions that are available everywhere.
-    pub global: Module,
+    pub global: TexModuleEvaluation,
     /// The module that contains the definitions available in math mode.
-    pub math: Module,
+    pub math: TexModuleEvaluation,
     /// The default style properties (for page size, font selection, and
     /// everything else configurable via set and show rules).
     pub styles: Styles,
@@ -307,12 +308,12 @@ impl LibraryBuilder {
 }
 
 /// Construct the module with global definitions.
-fn global(math: Module, inputs: TexDict) -> Module {
-    let mut global = Scope::deduplicating();
+fn global(math: TexModuleEvaluation, inputs: TexDict) -> TexModuleEvaluation {
+    let mut global = TexValueAssignmentGroup::deduplicating();
     self::foundations::define(&mut global, inputs);
     self::model::define(&mut global);
     self::text::define(&mut global);
-    global.reset_category();
+    global.reset_group();
     global.define_module(math);
     self::layout::define(&mut global);
     self::visualize::define(&mut global);
@@ -320,12 +321,12 @@ fn global(math: Module, inputs: TexDict) -> Module {
     self::loading::define(&mut global);
     self::symbols::define(&mut global);
     prelude(&mut global);
-    Module::new("global", global)
+    TexModuleEvaluation::new("global", global)
 }
 
 /// Defines scoped values that are globally available, too.
-fn prelude(global: &mut Scope) {
-    global.reset_category();
+fn prelude(global: &mut TexValueAssignmentGroup) {
+    global.reset_group();
     global.define("black", TexColor::BLACK);
     global.define("gray", TexColor::GRAY);
     global.define("silver", TexColor::SILVER);

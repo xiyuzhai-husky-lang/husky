@@ -8,7 +8,7 @@ pub use self::emoji::*;
 pub use self::sym::*;
 pub use self::symbol::*;
 
-use crate::foundations::{category, Category, Scope};
+use crate::foundations::{category, TexDefnKind, TexValueAssignmentGroup};
 
 /// These two modules give names to symbols and emoji to make them easy to
 /// insert with a normal keyboard. Alternatively, you can also always directly
@@ -16,10 +16,10 @@ use crate::foundations::{category, Category, Scope};
 /// symbols listed below, math mode defines `dif` and `Dif`. These are not
 /// normal symbol values because they also affect spacing and font style.
 #[category]
-pub static SYMBOLS: Category;
+pub static SYMBOLS: TexDefnKind;
 
 /// Hook up all `symbol` definitions.
-pub(super) fn define(global: &mut Scope) {
+pub(super) fn define(global: &mut TexValueAssignmentGroup) {
     global.category(SYMBOLS);
     global.define_type::<Symbol>();
     global.define_module(sym());

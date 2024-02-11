@@ -22,7 +22,7 @@ pub use self::polygon::*;
 pub use self::shape::*;
 pub use self::stroke::*;
 
-use crate::foundations::{category, Category, Scope};
+use crate::foundations::{category, TexDefnKind, TexValueAssignmentGroup};
 
 /// Drawing and data visualization.
 ///
@@ -30,10 +30,10 @@ use crate::foundations::{category, Category, Scope};
 /// the [CetZ](https://github.com/johannes-wolf/cetz) package as well as more
 /// specialized [packages]($packages) for your use case.
 #[category]
-pub static VISUALIZE: Category;
+pub static VISUALIZE: TexDefnKind;
 
 /// Hook up all visualize definitions.
-pub(super) fn define(global: &mut Scope) {
+pub(super) fn define(global: &mut TexValueAssignmentGroup) {
     global.category(VISUALIZE);
     global.define_type::<TexColor>();
     global.define_type::<Gradient>();

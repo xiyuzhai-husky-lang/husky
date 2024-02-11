@@ -6,13 +6,15 @@ use std::ops::{Div, Rem};
 
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::eval::ops;
-use crate::foundations::{cast, func, IntoTexValue, Module, Scope, TexValue};
+use crate::foundations::{
+    cast, func, IntoTexValue, TexModuleEvaluation, TexValue, TexValueAssignmentGroup,
+};
 use crate::layout::{Angle, Length, Ratio, TexFraction};
 use crate::syntax::{Span, Spanned};
 
 /// A module with calculation definitions.
-pub fn module() -> Module {
-    let mut scope = Scope::new();
+pub fn module() -> TexModuleEvaluation {
+    let mut scope = TexValueAssignmentGroup::new();
     scope.define_func::<abs>();
     scope.define_func::<pow>();
     scope.define_func::<exp>();
@@ -54,7 +56,7 @@ pub fn module() -> Module {
     scope.define("pi", std::f64::consts::PI);
     scope.define("tau", std::f64::consts::TAU);
     scope.define("e", std::f64::consts::E);
-    Module::new("calc", scope)
+    TexModuleEvaluation::new("calc", scope)
 }
 
 /// Calculates the absolute value of a numeric value.

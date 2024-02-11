@@ -6,7 +6,7 @@ use crate::diag::{
     bail, error, warning, At, FileError, SourceResult, StrResult, Trace, Tracepoint,
 };
 use crate::eval::{eval, Eval, Vm};
-use crate::foundations::{Module, TexContent, TexValue};
+use crate::foundations::{TexContent, TexModuleEvaluation, TexValue};
 use crate::syntax::ast::{self, TexAstNode};
 use crate::syntax::{FileId, PackageSpec, PackageVersion, Span, VirtualPath};
 use crate::IsTexWorld;
@@ -111,7 +111,7 @@ pub fn import(
     source: TexValue,
     span: Span,
     allow_scopes: bool,
-) -> SourceResult<Module> {
+) -> SourceResult<TexModuleEvaluation> {
     let path = match source {
         TexValue::Str(path) => path,
         TexValue::Module(module) => return Ok(module),
@@ -136,7 +136,7 @@ pub fn import(
 }
 
 /// Import an external package.
-fn import_package(vm: &mut Vm, spec: PackageSpec, span: Span) -> SourceResult<Module> {
+fn import_package(vm: &mut Vm, spec: PackageSpec, span: Span) -> SourceResult<TexModuleEvaluation> {
     // Evaluate the manifest.
     let manifest_id = FileId::new(Some(spec.clone()), VirtualPath::new("tex.toml"));
     let bytes = vm.world().file(manifest_id).at(span)?;
@@ -158,7 +158,7 @@ fn import_package(vm: &mut Vm, spec: PackageSpec, span: Span) -> SourceResult<Mo
 }
 
 /// Import a file from a path.
-fn import_file(vm: &mut Vm, path: &str, span: Span) -> SourceResult<Module> {
+fn import_file(vm: &mut Vm, path: &str, span: Span) -> SourceResult<TexModuleEvaluation> {
     // Load the source file.
     let world = vm.world();
     let id = span.resolve_path(path).at(span)?;

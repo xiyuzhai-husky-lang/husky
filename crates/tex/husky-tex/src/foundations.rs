@@ -80,10 +80,10 @@ use crate::syntax::Spanned;
 /// Here, you'll find documentation for basic data types like [integers]($int)
 /// and [strings]($str) as well as details about core computational functions.
 #[category]
-pub static FOUNDATIONS: Category;
+pub static FOUNDATIONS: TexDefnKind;
 
 /// Hook up all `foundations` definitions.
-pub(super) fn define(global: &mut Scope, inputs: TexDict) {
+pub(super) fn define(global: &mut TexValueAssignmentGroup, inputs: TexDict) {
     global.category(FOUNDATIONS);
     global.define_type::<bool>();
     global.define_type::<i64>();
@@ -97,7 +97,7 @@ pub(super) fn define(global: &mut Scope, inputs: TexDict) {
     global.define_type::<Func>();
     global.define_type::<Args>();
     global.define_type::<Type>();
-    global.define_type::<Module>();
+    global.define_type::<TexModuleEvaluation>();
     global.define_type::<Regex>();
     global.define_type::<Selector>();
     global.define_type::<Datetime>();
@@ -285,7 +285,7 @@ pub fn eval(
 ) -> SourceResult<TexValue> {
     let Spanned { v: text, span } = source;
     let dict = scope;
-    let mut scope = Scope::new();
+    let mut scope = TexValueAssignmentGroup::new();
     for (key, value) in dict {
         scope.define(key, value);
     }
