@@ -120,9 +120,9 @@ checksum = "f26201604c87b1e01bd3d98f8d5d9a8fcbb815e8cedb41ffccbeb4bf593a35fe"
 
 [[package]]
 name = "ahash"
-version = "0.8.7"
+version = "0.8.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "77c3a9648d43b9cd48db467b3f87fdd6e146bcc88ab0180006cef2179fe11d01"
+checksum = "42cd52102d3df161c77a887b608d7a4897d7cc112886a9537b738a887a03aaff"
 dependencies = [
  "cfg-if",
  "getrandom 0.2.12",
@@ -1243,9 +1243,9 @@ checksum = "7588475145507237ded760e52bf2f1085495245502033756d28ea72ade0e498b"
 
 [[package]]
 name = "chrono"
-version = "0.4.33"
+version = "0.4.34"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9f13690e35a5e4ace198e7beea2895d29f3a9cc55015fcebe6336bd2010af9eb"
+checksum = "5bc015644b92d5890fab7489e49d21f879d5c990186827d42ec511919404f38b"
 dependencies = [
  "android-tzdata",
  "iana-time-zone",
@@ -2187,9 +2187,9 @@ dependencies = [
 
 [[package]]
 name = "ecolor"
-version = "0.26.0"
+version = "0.26.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "169a0e42e2b3d0f663e100f5c10710ffdb9748f7e7565305ecc09044d59e0fbd"
+checksum = "9c912193fa5698d4fbc857b831fb96b42215dcf565e06012993a65901299a21f"
 dependencies = [
  "bytemuck",
  "serde",
@@ -2215,9 +2215,9 @@ dependencies = [
 
 [[package]]
 name = "eframe"
-version = "0.26.0"
+version = "0.26.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2230537c7ee42c4c329461bad5933e91a8f938a9314645961e12e57080478731"
+checksum = "f31ff7b8ea429daa1370069cdca84cce0bc8e4358068fc50daef5e07b7e84481"
 dependencies = [
  "bytemuck",
  "cocoa",
@@ -2249,9 +2249,9 @@ dependencies = [
 
 [[package]]
 name = "egui"
-version = "0.26.0"
+version = "0.26.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5493685c2ca33e06b5ad45ae304b13bc084c395f422268bff1377633552f69ac"
+checksum = "abecd396ede556116fceaa0098a1c9278ef526119c5097311eac4bcf57484c52"
 dependencies = [
  "accesskit",
  "ahash",
@@ -2265,9 +2265,9 @@ dependencies = [
 
 [[package]]
 name = "egui-wgpu"
-version = "0.26.0"
+version = "0.26.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "094ce3408f61ead0747b506aeb9e3fa9adbd5d937096a26dfbee24387bce8b3a"
+checksum = "5c3b9dafdf68e57b0553205fa32bb111d84573de58410cd5fa448dc716e1d597"
 dependencies = [
  "bytemuck",
  "document-features",
@@ -2283,9 +2283,9 @@ dependencies = [
 
 [[package]]
 name = "egui-winit"
-version = "0.26.0"
+version = "0.26.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d85f8f89d6a937535e164a5bd6e31719fd7db01bc188d7b59425414b160a2ee1"
+checksum = "d0ef887214f5b65883cd1c85b0a5335e06f2876446c67fb64939c1ef0be518e0"
 dependencies = [
  "accesskit_winit",
  "arboard",
@@ -2311,9 +2311,9 @@ dependencies = [
 
 [[package]]
 name = "egui_glow"
-version = "0.26.0"
+version = "0.26.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e3b8d8d33da3d2ae4db39b30ddcbc5f31e9b0d74e65dc028cf711e94b68ec4d6"
+checksum = "95307de94643fc205543c4145f2ce254685f6a6ead906393e3996ede9a67b87f"
 dependencies = [
  "bytemuck",
  "egui",
@@ -2355,9 +2355,9 @@ dependencies = [
 
 [[package]]
 name = "emath"
-version = "0.26.0"
+version = "0.26.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6ba2475f57a416ce2a05e557f3d18e465c7aef23f3f6da2252b428eaaaaa6a65"
+checksum = "2386663fafbd043f2cd14f0ded4702deb9348fb7e7bacba9c9087a31b17487f1"
 dependencies = [
  "bytemuck",
  "serde",
@@ -2554,9 +2554,9 @@ dependencies = [
 
 [[package]]
 name = "epaint"
-version = "0.26.0"
+version = "0.26.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b823734a8b7e81302a5f1a8ba041ab4ed7805a43d8dfec4dac0c72b933699bbc"
+checksum = "36ac8c9ca960f0263856a7fbc90d7ad41280e8865a7cd3c64d3daec016bd7115"
 dependencies = [
  "ab_glyph",
  "ahash",
@@ -6280,6 +6280,243 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-tex"
+version = "0.1.0"
+dependencies = [
+ "az",
+ "bitflags 2.4.2",
+ "chinese-number",
+ "ciborium",
+ "comemo",
+ "csv",
+ "ecow",
+ "fontdb",
+ "hayagriva",
+ "husky-print-utils",
+ "husky-tex-macros",
+ "husky-tex-syntax",
+ "husky-tex-timing",
+ "hypher",
+ "icu_properties",
+ "icu_provider",
+ "icu_provider_adapters",
+ "icu_provider_blob",
+ "icu_segmenter",
+ "image",
+ "indexmap 2.2.2",
+ "kurbo",
+ "lipsum",
+ "log",
+ "once_cell",
+ "palette",
+ "phf",
+ "rayon",
+ "regex",
+ "roxmltree",
+ "rustybuzz",
+ "serde",
+ "serde_json",
+ "serde_yaml 0.9.31",
+ "siphasher 1.0.0",
+ "smallvec",
+ "stacker",
+ "syntect",
+ "time",
+ "toml",
+ "ttf-parser 0.20.0",
+ "two-face",
+ "typed-arena",
+ "unicode-bidi",
+ "unicode-math-class",
+ "unicode-script",
+ "unicode-segmentation",
+ "usvg",
+ "wasmi",
+]
+
+[[package]]
+name = "husky-tex-cli"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "clap 4.5.0",
+ "clap_complete",
+ "clap_mangen",
+ "codespan-reporting",
+ "comemo",
+ "ctrlc",
+ "dirs 5.0.1",
+ "ecow",
+ "env_proxy",
+ "flate2",
+ "fontdb",
+ "husky-tex",
+ "husky-tex-macros",
+ "husky-tex-pdf",
+ "husky-tex-render",
+ "husky-tex-svg",
+ "husky-tex-timing",
+ "native-tls",
+ "notify",
+ "once_cell",
+ "open",
+ "parking_lot",
+ "pathdiff",
+ "rayon",
+ "same-file",
+ "self-replace",
+ "semver",
+ "serde",
+ "serde_json",
+ "serde_yaml 0.9.31",
+ "siphasher 1.0.0",
+ "tar",
+ "tempfile",
+ "ureq",
+ "xz2",
+ "zip",
+]
+
+[[package]]
+name = "husky-tex-docs"
+version = "0.1.0"
+dependencies = [
+ "comemo",
+ "ecow",
+ "heck",
+ "husky-tex",
+ "include_dir",
+ "once_cell",
+ "pulldown-cmark",
+ "serde",
+ "serde_yaml 0.9.31",
+ "syntect",
+ "typed-arena",
+ "unicode_names2",
+ "unscanny",
+ "yaml-front-matter",
+]
+
+[[package]]
+name = "husky-tex-egui"
+version = "0.1.0"
+dependencies = [
+ "comemo",
+ "eframe",
+ "egui",
+ "expect-test",
+ "husky-path-utils",
+ "husky-print-utils",
+ "husky-tex",
+]
+
+[[package]]
+name = "husky-tex-ide"
+version = "0.1.0"
+dependencies = [
+ "comemo",
+ "ecow",
+ "husky-tex",
+ "if_chain",
+ "log",
+ "serde",
+ "unscanny",
+]
+
+[[package]]
+name = "husky-tex-macros"
+version = "0.1.0"
+dependencies = [
+ "heck",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.48",
+]
+
+[[package]]
+name = "husky-tex-pdf"
+version = "0.1.0"
+dependencies = [
+ "base64",
+ "bytemuck",
+ "comemo",
+ "ecow",
+ "husky-tex",
+ "husky-tex-macros",
+ "husky-tex-timing",
+ "image",
+ "miniz_oxide",
+ "once_cell",
+ "pdf-writer",
+ "subsetter",
+ "svg2pdf",
+ "ttf-parser 0.20.0",
+ "unicode-properties",
+ "unscanny",
+ "xmp-writer",
+]
+
+[[package]]
+name = "husky-tex-render"
+version = "0.1.0"
+dependencies = [
+ "bytemuck",
+ "comemo",
+ "flate2",
+ "husky-tex",
+ "husky-tex-macros",
+ "husky-tex-timing",
+ "image",
+ "pixglyph",
+ "resvg",
+ "roxmltree",
+ "tiny-skia",
+ "ttf-parser 0.20.0",
+ "usvg",
+]
+
+[[package]]
+name = "husky-tex-svg"
+version = "0.1.0"
+dependencies = [
+ "base64",
+ "comemo",
+ "ecow",
+ "flate2",
+ "husky-tex",
+ "husky-tex-macros",
+ "husky-tex-timing",
+ "ttf-parser 0.20.0",
+ "xmlparser",
+ "xmlwriter",
+]
+
+[[package]]
+name = "husky-tex-syntax"
+version = "0.1.0"
+dependencies = [
+ "comemo",
+ "ecow",
+ "once_cell",
+ "serde",
+ "unicode-ident",
+ "unicode-math-class",
+ "unicode-script",
+ "unicode-segmentation",
+ "unscanny",
+]
+
+[[package]]
+name = "husky-tex-timing"
+version = "0.1.0"
+dependencies = [
+ "husky-tex-syntax",
+ "parking_lot",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "husky-text"
 version = "0.0.0"
 dependencies = [
@@ -6588,243 +6825,6 @@ dependencies = [
  "tokio-tungstenite",
  "ui",
  "vec-like",
-]
-
-[[package]]
-name = "husky-typst"
-version = "0.1.0"
-dependencies = [
- "az",
- "bitflags 2.4.2",
- "chinese-number",
- "ciborium",
- "comemo",
- "csv",
- "ecow",
- "fontdb",
- "hayagriva",
- "husky-print-utils",
- "husky-typst-macros",
- "husky-typst-syntax",
- "husky-typst-timing",
- "hypher",
- "icu_properties",
- "icu_provider",
- "icu_provider_adapters",
- "icu_provider_blob",
- "icu_segmenter",
- "image",
- "indexmap 2.2.2",
- "kurbo",
- "lipsum",
- "log",
- "once_cell",
- "palette",
- "phf",
- "rayon",
- "regex",
- "roxmltree",
- "rustybuzz",
- "serde",
- "serde_json",
- "serde_yaml 0.9.31",
- "siphasher 1.0.0",
- "smallvec",
- "stacker",
- "syntect",
- "time",
- "toml",
- "ttf-parser 0.20.0",
- "two-face",
- "typed-arena",
- "unicode-bidi",
- "unicode-math-class",
- "unicode-script",
- "unicode-segmentation",
- "usvg",
- "wasmi",
-]
-
-[[package]]
-name = "husky-typst-cli"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "clap 4.5.0",
- "clap_complete",
- "clap_mangen",
- "codespan-reporting",
- "comemo",
- "ctrlc",
- "dirs 5.0.1",
- "ecow",
- "env_proxy",
- "flate2",
- "fontdb",
- "husky-typst",
- "husky-typst-macros",
- "husky-typst-pdf",
- "husky-typst-render",
- "husky-typst-svg",
- "husky-typst-timing",
- "native-tls",
- "notify",
- "once_cell",
- "open",
- "parking_lot",
- "pathdiff",
- "rayon",
- "same-file",
- "self-replace",
- "semver",
- "serde",
- "serde_json",
- "serde_yaml 0.9.31",
- "siphasher 1.0.0",
- "tar",
- "tempfile",
- "ureq",
- "xz2",
- "zip",
-]
-
-[[package]]
-name = "husky-typst-docs"
-version = "0.1.0"
-dependencies = [
- "comemo",
- "ecow",
- "heck",
- "husky-typst",
- "include_dir",
- "once_cell",
- "pulldown-cmark",
- "serde",
- "serde_yaml 0.9.31",
- "syntect",
- "typed-arena",
- "unicode_names2",
- "unscanny",
- "yaml-front-matter",
-]
-
-[[package]]
-name = "husky-typst-egui"
-version = "0.1.0"
-dependencies = [
- "comemo",
- "eframe",
- "egui",
- "expect-test",
- "husky-path-utils",
- "husky-print-utils",
- "husky-typst",
-]
-
-[[package]]
-name = "husky-typst-ide"
-version = "0.1.0"
-dependencies = [
- "comemo",
- "ecow",
- "husky-typst",
- "if_chain",
- "log",
- "serde",
- "unscanny",
-]
-
-[[package]]
-name = "husky-typst-macros"
-version = "0.1.0"
-dependencies = [
- "heck",
- "proc-macro2",
- "quote",
- "syn 2.0.48",
-]
-
-[[package]]
-name = "husky-typst-pdf"
-version = "0.1.0"
-dependencies = [
- "base64",
- "bytemuck",
- "comemo",
- "ecow",
- "husky-typst",
- "husky-typst-macros",
- "husky-typst-timing",
- "image",
- "miniz_oxide",
- "once_cell",
- "pdf-writer",
- "subsetter",
- "svg2pdf",
- "ttf-parser 0.20.0",
- "unicode-properties",
- "unscanny",
- "xmp-writer",
-]
-
-[[package]]
-name = "husky-typst-render"
-version = "0.1.0"
-dependencies = [
- "bytemuck",
- "comemo",
- "flate2",
- "husky-typst",
- "husky-typst-macros",
- "husky-typst-timing",
- "image",
- "pixglyph",
- "resvg",
- "roxmltree",
- "tiny-skia",
- "ttf-parser 0.20.0",
- "usvg",
-]
-
-[[package]]
-name = "husky-typst-svg"
-version = "0.1.0"
-dependencies = [
- "base64",
- "comemo",
- "ecow",
- "flate2",
- "husky-typst",
- "husky-typst-macros",
- "husky-typst-timing",
- "ttf-parser 0.20.0",
- "xmlparser",
- "xmlwriter",
-]
-
-[[package]]
-name = "husky-typst-syntax"
-version = "0.1.0"
-dependencies = [
- "comemo",
- "ecow",
- "once_cell",
- "serde",
- "unicode-ident",
- "unicode-math-class",
- "unicode-script",
- "unicode-segmentation",
- "unscanny",
-]
-
-[[package]]
-name = "husky-typst-timing"
-version = "0.1.0"
-dependencies = [
- "husky-typst-syntax",
- "parking_lot",
- "serde",
- "serde_json",
 ]
 
 [[package]]
@@ -7477,9 +7477,9 @@ checksum = "8e04e2fd2b8188ea827b32ef11de88377086d690286ab35747ef7f9bf3ccb590"
 
 [[package]]
 name = "indicatif"
-version = "0.17.7"
+version = "0.17.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fb28741c9db9a713d93deb3bb9515c20788cef5815265bee4980e87bde7e0f25"
+checksum = "763a5a8f45087d6bcea4222e7b72c291a054edf80e4ef6efd2a4979878c7bea3"
 dependencies = [
  "console",
  "instant",

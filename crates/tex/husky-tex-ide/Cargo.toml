@@ -1,0 +1,29 @@
+[package]
+name = "husky-tex-ide"
+description = "IDE functionality for Tex."
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[lib]
+test = false
+doctest = false
+bench = false
+
+[dependencies]
+husky-tex.workspace = true
+comemo.workspace = true
+ecow.workspace = true
+if_chain.workspace = true
+log.workspace = true
+serde.workspace = true
+unscanny.workspace = true
+
+[lints]
+workspace = true
