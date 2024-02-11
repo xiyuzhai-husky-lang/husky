@@ -1,6 +1,6 @@
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{dict, elem, func, Func, Packed, StyleChain, TexContent, TexElement};
+use crate::foundations::{dict, elem, func, Func, IsTexElem, Packed, StyleChain, TexContent};
 use crate::layout::{Fragment, LayoutMultiple, Regions, Size};
 use crate::syntax::Span;
 

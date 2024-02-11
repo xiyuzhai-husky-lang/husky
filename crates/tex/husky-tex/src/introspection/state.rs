@@ -5,8 +5,8 @@ use crate::diag::SourceResult;
 use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
 use crate::foundations::{
-    cast, elem, func, scope, select_where, ty, Func, Packed, Repr, Selector, Show, Str, StyleChain,
-    TexContent, TexElement, TexValue,
+    cast, elem, func, scope, select_where, ty, Func, IsTexElem, Packed, Repr, Selector, Show, Str,
+    StyleChain, TexContent, TexValue,
 };
 use crate::introspection::{Introspector, Locatable, Location, Locator};
 use crate::syntax::Span;

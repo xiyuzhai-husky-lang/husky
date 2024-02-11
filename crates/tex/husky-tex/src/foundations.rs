@@ -249,7 +249,7 @@ impl assert {
 /// ```example
 /// #eval("1 + 1") \
 /// #eval("(1, 2, 3, 4)").len() \
-/// #eval("*Markup!*", mode: "markup") \
+/// #eval("*TexMarkup!*", mode: "markup") \
 /// ```
 #[func(title = "Evaluate")]
 pub fn eval(

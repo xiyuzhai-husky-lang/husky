@@ -1,7 +1,7 @@
 use crate::diag::{At, SourceResult};
 use crate::eval::{Eval, Vm};
 use crate::foundations::{Func, Recipe, ShowableSelector, Styles, Transformation};
-use crate::syntax::ast::{self, AstNode};
+use crate::syntax::ast::{self, TexAstNode};
 
 impl Eval for ast::SetRule<'_> {
     type Output = Styles;
@@ -18,9 +18,8 @@ impl Eval for ast::SetRule<'_> {
             .eval(vm)?
             .cast::<Func>()
             .and_then(|func| {
-                func.element().ok_or_else(|| {
-                    "only element functions can be used in set rules".into()
-                })
+                func.element()
+                    .ok_or_else(|| "only element functions can be used in set rules".into())
             })
             .at(target.span())?;
         let args = self.args().eval(vm)?;
@@ -46,6 +45,10 @@ impl Eval for ast::ShowRule<'_> {
             expr => expr.eval(vm)?.cast::<Transformation>().at(span)?,
         };
 
-        Ok(Recipe { span, selector, transform })
+        Ok(Recipe {
+            span,
+            selector,
+            transform,
+        })
     }
 }

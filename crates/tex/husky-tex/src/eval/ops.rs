@@ -8,7 +8,7 @@ use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::eval::{access_dict, Access, Eval, Vm};
 use crate::foundations::{format_str, Datetime, IntoTexValue, Regex, Repr, TexValue};
 use crate::layout::{Length, Rel, TexAlignment};
-use crate::syntax::ast::{self, AstNode};
+use crate::syntax::ast::{self, TexAstNode};
 use crate::text::TextElem;
 use crate::util::Numeric;
 use crate::visualize::TexStroke;

@@ -1,10 +1,10 @@
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, Label, Packed, Show, ShowSet, Smart, StyleChain, Styles, TexContent, TexElement,
+    cast, elem, IsTexElem, Label, Packed, Show, ShowSet, Smart, StyleChain, Styles, TexContent,
 };
 use crate::layout::{BlockElem, HElem, LengthInEm, PadElem, Spacing, TexAlignment, VElem};
-use crate::model::{CitationForm, CiteElem};
+use crate::model::{CitationForm, CiteTexElem};
 use crate::text::{SmartQuoteElem, SpaceElem, TextElem};
 
 /// Displays a quote alongside an optional attribution.
@@ -172,7 +172,7 @@ impl Show for Packed<QuoteElem> {
                     }
                     Attribution::Label(label) => {
                         seq.push(
-                            CiteElem::new(*label)
+                            CiteTexElem::new(*label)
                                 .with_form(Some(CitationForm::Prose))
                                 .pack()
                                 .spanned(self.span()),
@@ -188,7 +188,8 @@ impl Show for Packed<QuoteElem> {
 
             realized = PadElem::new(realized).pack();
         } else if let Some(Attribution::Label(label)) = self.attribution(styles) {
-            realized += SpaceElem::new().pack() + CiteElem::new(*label).pack().spanned(self.span());
+            realized +=
+                SpaceElem::new().pack() + CiteTexElem::new(*label).pack().spanned(self.span());
         }
 
         Ok(realized)

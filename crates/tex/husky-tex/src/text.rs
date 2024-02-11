@@ -39,12 +39,12 @@ use crate::diag::{bail, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::Packed;
 use crate::foundations::{
-    cast, category, elem, Args, Array, Cast, Category, Construct, Fold, Never, PlainText, Repr,
-    Resolve, Scope, Set, Smart, StyleChain, TexContent, TexDict, TexElement,
+    cast, category, elem, Args, Array, Cast, Category, Construct, Fold, IsTexElem, Never,
+    PlainText, Repr, Resolve, Scope, Set, Smart, StyleChain, TexContent, TexDict,
 };
 use crate::layout::LengthInEm;
 use crate::layout::{Abs, Axis, Length, Rel, TexLayoutDirection};
-use crate::model::ParElem;
+use crate::model::ParagraphTexElem;
 use crate::syntax::Spanned;
 use crate::visualize::{RelativeTo, TexColor, TexPaint, TexStroke};
 
@@ -164,7 +164,7 @@ pub struct TextElem {
     /// #text(font: "DejaVu Sans", style: "oblique")[Oblique]
     /// ```
     #[ghost]
-    pub style: FontStyle,
+    pub style: TexFontStyle,
 
     /// The desired thickness of the font's glyphs. Accepts an integer between
     /// `{100}` and `{900}` or one of the predefined weight names. When the
@@ -777,9 +777,9 @@ pub(crate) fn variant(styles: StyleChain) -> FontVariant {
 
     if TextElem::emph_in(styles).0 {
         variant.style = match variant.style {
-            FontStyle::Normal => FontStyle::Italic,
-            FontStyle::Italic => FontStyle::Normal,
-            FontStyle::Oblique => FontStyle::Normal,
+            TexFontStyle::Normal => TexFontStyle::Italic,
+            TexFontStyle::Italic => TexFontStyle::Normal,
+            TexFontStyle::Oblique => TexFontStyle::Normal,
         }
     }
 
@@ -989,7 +989,7 @@ impl Resolve for Hyphenate {
 
     fn resolve(self, styles: StyleChain) -> Self::Output {
         match self.0 {
-            Smart::Auto => ParElem::justify_in(styles),
+            Smart::Auto => ParagraphTexElem::justify_in(styles),
             Smart::Custom(v) => v,
         }
     }

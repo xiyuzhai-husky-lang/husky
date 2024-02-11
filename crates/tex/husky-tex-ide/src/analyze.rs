@@ -5,7 +5,7 @@ use husky_tex::eval::{Tracer, Vm};
 use husky_tex::foundations::{Label, Scopes, TexValue};
 use husky_tex::introspection::{Introspector, Locator};
 use husky_tex::model::{BibliographyElem, TexDocument};
-use husky_tex::syntax::{ast, LinkedNode, Span, SyntaxKind};
+use husky_tex::syntax::{ast, LinkedNode, Span, TexSyntaxKind};
 use husky_tex::World;
 
 /// Try to determine a set of possible values for an expression.
@@ -31,7 +31,7 @@ pub fn analyze_expr(world: &dyn World, node: &LinkedNode) -> EcoVec<TexValue> {
 
         Some(_) => {
             if let Some(parent) = node.parent() {
-                if parent.kind() == SyntaxKind::FieldAccess && node.index() > 0 {
+                if parent.kind() == TexSyntaxKind::FieldAccess && node.index() > 0 {
                     return analyze_expr(world, parent);
                 }
             }

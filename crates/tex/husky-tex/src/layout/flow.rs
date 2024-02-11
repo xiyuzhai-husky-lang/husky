@@ -4,14 +4,14 @@ use comemo::Prehashed;
 
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{elem, Packed, Resolve, Smart, StyleChain, TexContent, TexElement};
+use crate::foundations::{elem, IsTexElem, Packed, Resolve, Smart, StyleChain, TexContent};
 use crate::introspection::{Meta, MetaElem};
 use crate::layout::{
     Abs, AlignElem, Axes, BlockElem, ColbreakElem, ColumnsElem, FixedAlignment, Fr, Fragment,
     Frame, FrameItem, LayoutMultiple, LayoutSingle, PlaceElem, Point, Regions, Rel, Size, Spacing,
     VAlignment, VElem,
 };
-use crate::model::{FootnoteElem, FootnoteEntry, ParElem};
+use crate::model::{FootnoteEntry, FootnoteTexElem, ParagraphTexElem};
 use crate::util::Numeric;
 
 /// Arranges spacing, paragraphs and block-level elements into a flow.
@@ -59,7 +59,7 @@ impl LayoutMultiple for Packed<FlowElem> {
                 if !layouter.regions.backlog.is_empty() || layouter.regions.last.is_some() {
                     layouter.finish_region(engine, true)?;
                 }
-            } else if let Some(elem) = child.to_packed::<ParElem>() {
+            } else if let Some(elem) = child.to_packed::<ParagraphTexElem>() {
                 layouter.layout_par(engine, elem, styles)?;
             } else if let Some(layoutable) = child.with::<dyn LayoutSingle>() {
                 layouter.layout_single(engine, layoutable, styles)?;
@@ -231,11 +231,11 @@ impl<'a> FlowLayouter<'a> {
     fn layout_par(
         &mut self,
         engine: &mut Engine,
-        par: &Packed<ParElem>,
+        par: &Packed<ParagraphTexElem>,
         styles: StyleChain,
     ) -> SourceResult<()> {
         let align = AlignElem::alignment_in(styles).resolve(styles);
-        let leading = ParElem::leading_in(styles);
+        let leading = ParagraphTexElem::leading_in(styles);
         let consecutive = self.last_was_par;
         let lines = par
             .layout(
@@ -668,7 +668,7 @@ impl FlowLayouter<'_> {
     fn try_handle_footnotes(
         &mut self,
         engine: &mut Engine,
-        mut notes: Vec<Packed<FootnoteElem>>,
+        mut notes: Vec<Packed<FootnoteTexElem>>,
     ) -> SourceResult<()> {
         if self.root && !self.handle_footnotes(engine, &mut notes, false, false)? {
             self.finish_region(engine, false)?;
@@ -681,7 +681,7 @@ impl FlowLayouter<'_> {
     fn handle_footnotes(
         &mut self,
         engine: &mut Engine,
-        notes: &mut Vec<Packed<FootnoteElem>>,
+        notes: &mut Vec<Packed<FootnoteTexElem>>,
         movable: bool,
         force: bool,
     ) -> SourceResult<bool> {
@@ -769,7 +769,7 @@ impl FlowLayouter<'_> {
 }
 
 /// Finds all footnotes in the frame.
-fn find_footnotes(notes: &mut Vec<Packed<FootnoteElem>>, frame: &Frame) {
+fn find_footnotes(notes: &mut Vec<Packed<FootnoteTexElem>>, frame: &Frame) {
     for (_, item) in frame.items() {
         match item {
             FrameItem::Group(group) => find_footnotes(notes, &group.frame),
@@ -778,7 +778,7 @@ fn find_footnotes(notes: &mut Vec<Packed<FootnoteElem>>, frame: &Frame) {
                     .iter()
                     .any(|note| note.location() == content.location()) =>
             {
-                let Some(footnote) = content.to_packed::<FootnoteElem>() else {
+                let Some(footnote) = content.to_packed::<FootnoteTexElem>() else {
                     continue;
                 };
                 notes.push(footnote.clone());

@@ -16,10 +16,10 @@ use crate::foundations::{Packed, Resolve, Smart, StyleChain, TexContent};
 use crate::introspection::{Introspector, Locator, MetaElem};
 use crate::layout::{
     Abs, AlignElem, Axes, BoxElem, FixedAlignment, Fr, Fragment, Frame, HElem, LengthInEm, Point,
-    Regions, Size, Sizing, Spacing, TexLayoutDirection,
+    Regions, Size, Spacing, TexLayoutDirection, TexSizing,
 };
 use crate::math::{EquationElem, MathParItem};
-use crate::model::{Linebreaks, ParElem};
+use crate::model::{Linebreaks, ParagraphTexElem};
 use crate::syntax::Span;
 use crate::text::{
     Lang, LinebreakElem, SmartQuoteElem, SmartQuoter, SmartQuotes, SpaceElem, TextElem,
@@ -428,7 +428,7 @@ fn collect<'a>(
     let mut spans = SpanMapper::new();
     let mut iter = children.iter().map(|c| &**c).peekable();
 
-    let first_line_indent = ParElem::first_line_indent_in(*styles);
+    let first_line_indent = ParagraphTexElem::first_line_indent_in(*styles);
     if !first_line_indent.is_zero()
         && consecutive
         && AlignElem::alignment_in(*styles).resolve(*styles).x
@@ -438,7 +438,7 @@ fn collect<'a>(
         segments.push((Segment::Spacing(first_line_indent.into()), *styles));
     }
 
-    let hang = ParElem::hanging_indent_in(*styles);
+    let hang = ParagraphTexElem::hanging_indent_in(*styles);
     if !hang.is_zero() {
         full.push(SPACING_REPLACE);
         segments.push((Segment::Spacing((-hang).into()), *styles));
@@ -604,7 +604,7 @@ fn prepare<'a>(
                 }
             }
             Segment::Box(elem, _) => {
-                if let Sizing::Fr(v) = elem.width(styles) {
+                if let TexSizing::Fr(v) = elem.width(styles) {
                     items.push(Item::Fractional(v, Some((elem, styles))));
                 } else {
                     let pod = Regions::one(region, Axes::splat(false));
@@ -636,12 +636,12 @@ fn prepare<'a>(
         hyphenate: shared_get(styles, children, TextElem::hyphenate_in),
         lang: shared_get(styles, children, TextElem::lang_in),
         align: AlignElem::alignment_in(styles).resolve(styles).x,
-        justify: ParElem::justify_in(styles),
-        hang: ParElem::hanging_indent_in(styles),
+        justify: ParagraphTexElem::justify_in(styles),
+        hang: ParagraphTexElem::hanging_indent_in(styles),
         cjk_latin_spacing,
         fallback: TextElem::fallback_in(styles),
-        leading: ParElem::leading_in(styles),
-        linebreaks: ParElem::linebreaks_in(styles),
+        leading: ParagraphTexElem::leading_in(styles),
+        linebreaks: ParagraphTexElem::linebreaks_in(styles),
         size: TextElem::size_in(styles),
     })
 }

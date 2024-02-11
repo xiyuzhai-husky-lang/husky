@@ -7,8 +7,8 @@ use ecow::EcoString;
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, select_where, ElementSchemaRef, Packed, Selector, Show, ShowSet, Smart,
-    StyleChain, Styles, Synthesize, TexContent, TexElement,
+    cast, elem, scope, select_where, ElementSchemaRef, IsTexElem, Packed, Selector, Show, ShowSet,
+    Smart, StyleChain, Styles, Synthesize, TexContent,
 };
 use crate::introspection::{Count, Counter, CounterKey, CounterUpdate, Locatable, Location};
 use crate::layout::{

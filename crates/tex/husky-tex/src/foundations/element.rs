@@ -26,7 +26,7 @@ pub struct ElementSchemaRef(Static<ElementSchema>);
 
 impl ElementSchemaRef {
     /// Get the element for `T`.
-    pub fn of<T: TexElement>() -> Self {
+    pub fn of<T: IsTexElem>() -> Self {
         T::elem()
     }
 
@@ -156,7 +156,7 @@ cast! {
 }
 
 /// A Tex element that is defined by a native Rust type.
-pub trait TexElement:
+pub trait IsTexElem:
     Debug + Clone + PartialEq + Hash + Construct + Set + Capable + Fields + Repr + Send + Sync + 'static
 {
     /// Get the element for the native Rust element.

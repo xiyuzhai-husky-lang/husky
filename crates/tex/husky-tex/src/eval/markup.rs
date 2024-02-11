@@ -1,16 +1,16 @@
 use crate::diag::{warning, SourceResult};
 use crate::eval::{Eval, Vm};
-use crate::foundations::{Label, Smart, TexContent, TexElement, TexValue, Unlabellable};
+use crate::foundations::{IsTexElem, Label, Smart, TexContent, TexValue, Unlabellable};
 use crate::math::EquationElem;
 use crate::model::{
-    EmphElem, EnumItem, HeadingElem, LinkElem, ListItem, ParbreakElem, RefElem, StrongElem,
+    EmphElem, EnumItem, HeadingTexElem, LinkTexElem, ListItem, ParbreakElem, RefElem, StrongElem,
     Supplement, TermItem,
 };
 use crate::symbols::Symbol;
-use crate::syntax::ast::{self, AstNode};
+use crate::syntax::ast::{self, TexAstNode};
 use crate::text::{LinebreakElem, RawElem, SmartQuoteElem, SpaceElem, TextElem};
 
-impl Eval for ast::Markup<'_> {
+impl Eval for ast::TexMarkup<'_> {
     type Output = TexContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
@@ -175,7 +175,7 @@ impl Eval for ast::Link<'_> {
     type Output = TexContent;
 
     fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
-        Ok(LinkElem::from_url(self.get().clone()).pack())
+        Ok(LinkTexElem::from_url(self.get().clone()).pack())
     }
 }
 
@@ -208,7 +208,7 @@ impl Eval for ast::Heading<'_> {
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let level = self.level();
         let body = self.body().eval(vm)?;
-        Ok(HeadingElem::new(body).with_level(level).pack())
+        Ok(HeadingTexElem::new(body).with_level(level).pack())
     }
 }
 

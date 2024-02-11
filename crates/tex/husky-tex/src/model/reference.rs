@@ -3,12 +3,14 @@ use ecow::eco_format;
 use crate::diag::{bail, At, Hint, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, Func, IntoTexValue, Label, Packed, Show, Smart, StyleChain, Synthesize, TexContent,
-    TexElement,
+    cast, elem, Func, IntoTexValue, IsTexElem, Label, Packed, Show, Smart, StyleChain, Synthesize,
+    TexContent,
 };
 use crate::introspection::{Counter, Locatable};
 use crate::math::EquationElem;
-use crate::model::{BibliographyElem, CiteElem, Destination, Figurable, FootnoteElem, Numbering};
+use crate::model::{
+    BibliographyElem, CiteTexElem, Figurable, FootnoteTexElem, Numbering, TexDestination,
+};
 use crate::text::TextElem;
 
 /// A reference to a label or bibliography.
@@ -127,7 +129,7 @@ pub struct RefElem {
 
     /// A synthesized citation.
     #[synthesized]
-    pub citation: Option<Packed<CiteElem>>,
+    pub citation: Option<Packed<CiteTexElem>>,
 
     /// The referenced element.
     #[synthesized]
@@ -171,8 +173,8 @@ impl Show for Packed<RefElem> {
 
         let elem = elem.at(span)?;
 
-        if elem.func() == FootnoteElem::elem() {
-            return Ok(FootnoteElem::with_label(target).pack().spanned(span));
+        if elem.func() == FootnoteTexElem::elem() {
+            return Ok(FootnoteTexElem::with_label(target).pack().spanned(span));
         }
 
         let elem = elem.clone();
@@ -221,7 +223,7 @@ impl Show for Packed<RefElem> {
             content = supplement + TextElem::packed("\u{a0}") + content;
         }
 
-        Ok(content.linked(Destination::Location(loc)))
+        Ok(content.linked(TexDestination::Location(loc)))
     }
 }
 
@@ -230,8 +232,8 @@ fn to_citation(
     reference: &Packed<RefElem>,
     engine: &mut Engine,
     styles: StyleChain,
-) -> SourceResult<Packed<CiteElem>> {
-    let mut elem = Packed::new(CiteElem::new(*reference.target()).with_supplement(
+) -> SourceResult<Packed<CiteTexElem>> {
+    let mut elem = Packed::new(CiteTexElem::new(*reference.target()).with_supplement(
         match reference.supplement(styles).clone() {
             Smart::Custom(Some(Supplement::Content(content))) => Some(content),
             _ => None,

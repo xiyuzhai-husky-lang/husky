@@ -4,7 +4,7 @@ use unicode_script::{Script, UnicodeScript};
 use unicode_segmentation::UnicodeSegmentation;
 use unscanny::Scanner;
 
-use crate::SyntaxKind;
+use crate::TexSyntaxKind;
 
 /// Splits up a string of source code into tokens.
 #[derive(Clone)]
@@ -24,7 +24,7 @@ pub(super) struct Lexer<'s> {
 #[derive(Debug, Copy, Clone, Eq, PartialEq)]
 pub(super) enum LexMode {
     /// Text and markup.
-    Markup,
+    TexMarkup,
     /// Math atoms, operators, etc.
     Math,
     /// Keywords, literals and operators.
@@ -77,15 +77,15 @@ impl<'s> Lexer<'s> {
 
 impl Lexer<'_> {
     /// Construct a full-positioned syntax error.
-    fn error(&mut self, message: impl Into<EcoString>) -> SyntaxKind {
+    fn error(&mut self, message: impl Into<EcoString>) -> TexSyntaxKind {
         self.error = Some(message.into());
-        SyntaxKind::Error
+        TexSyntaxKind::Error
     }
 }
 
 /// Shared.
 impl Lexer<'_> {
-    pub fn next(&mut self) -> SyntaxKind {
+    pub fn next(&mut self) -> TexSyntaxKind {
         self.newline = false;
         self.error = None;
         let start = self.s.cursor();
@@ -96,16 +96,16 @@ impl Lexer<'_> {
             Some('*') if self.s.eat_if('/') => self.error("unexpected end of block comment"),
 
             Some(c) => match self.mode {
-                LexMode::Markup => self.markup(start, c),
+                LexMode::TexMarkup => self.markup(start, c),
                 LexMode::Math => self.math(start, c),
                 LexMode::Code => self.code(start, c),
             },
 
-            None => SyntaxKind::Eof,
+            None => TexSyntaxKind::Eof,
         }
     }
 
-    fn whitespace(&mut self, start: usize, c: char) -> SyntaxKind {
+    fn whitespace(&mut self, start: usize, c: char) -> TexSyntaxKind {
         let more = self.s.eat_while(|c| is_space(c, self.mode));
         let newlines = match c {
             ' ' if more.is_empty() => 0,
@@ -113,19 +113,19 @@ impl Lexer<'_> {
         };
 
         self.newline = newlines > 0;
-        if self.mode == LexMode::Markup && newlines >= 2 {
-            SyntaxKind::Parbreak
+        if self.mode == LexMode::TexMarkup && newlines >= 2 {
+            TexSyntaxKind::Parbreak
         } else {
-            SyntaxKind::Space
+            TexSyntaxKind::Space
         }
     }
 
-    fn line_comment(&mut self) -> SyntaxKind {
+    fn line_comment(&mut self) -> TexSyntaxKind {
         self.s.eat_until(is_newline);
-        SyntaxKind::LineComment
+        TexSyntaxKind::LineComment
     }
 
-    fn block_comment(&mut self) -> SyntaxKind {
+    fn block_comment(&mut self) -> TexSyntaxKind {
         let mut state = '_';
         let mut depth = 1;
 
@@ -147,13 +147,13 @@ impl Lexer<'_> {
             }
         }
 
-        SyntaxKind::BlockComment
+        TexSyntaxKind::BlockComment
     }
 }
 
-/// Markup.
+/// TexMarkup.
 impl Lexer<'_> {
-    fn markup(&mut self, start: usize, c: char) -> SyntaxKind {
+    fn markup(&mut self, start: usize, c: char) -> TexSyntaxKind {
         match c {
             '\\' => self.backslash(),
             '`' => self.raw(),
@@ -162,40 +162,40 @@ impl Lexer<'_> {
             '<' if self.s.at(is_id_continue) => self.label(),
             '@' => self.ref_marker(),
 
-            '.' if self.s.eat_if("..") => SyntaxKind::Shorthand,
-            '-' if self.s.eat_if("--") => SyntaxKind::Shorthand,
-            '-' if self.s.eat_if('-') => SyntaxKind::Shorthand,
-            '-' if self.s.eat_if('?') => SyntaxKind::Shorthand,
-            '-' if self.s.at(char::is_numeric) => SyntaxKind::Shorthand,
-            '*' if !self.in_word() => SyntaxKind::Star,
-            '_' if !self.in_word() => SyntaxKind::Underscore,
+            '.' if self.s.eat_if("..") => TexSyntaxKind::Shorthand,
+            '-' if self.s.eat_if("--") => TexSyntaxKind::Shorthand,
+            '-' if self.s.eat_if('-') => TexSyntaxKind::Shorthand,
+            '-' if self.s.eat_if('?') => TexSyntaxKind::Shorthand,
+            '-' if self.s.at(char::is_numeric) => TexSyntaxKind::Shorthand,
+            '*' if !self.in_word() => TexSyntaxKind::Star,
+            '_' if !self.in_word() => TexSyntaxKind::Underscore,
 
-            '#' => SyntaxKind::Hash,
-            '[' => SyntaxKind::LeftBracket,
-            ']' => SyntaxKind::RightBracket,
-            '\'' => SyntaxKind::SmartQuote,
-            '"' => SyntaxKind::SmartQuote,
-            '$' => SyntaxKind::Dollar,
-            '~' => SyntaxKind::Shorthand,
-            ':' => SyntaxKind::Colon,
+            '#' => TexSyntaxKind::Hash,
+            '[' => TexSyntaxKind::LeftBracket,
+            ']' => TexSyntaxKind::RightBracket,
+            '\'' => TexSyntaxKind::SmartQuote,
+            '"' => TexSyntaxKind::SmartQuote,
+            '$' => TexSyntaxKind::Dollar,
+            '~' => TexSyntaxKind::Shorthand,
+            ':' => TexSyntaxKind::Colon,
             '=' => {
                 self.s.eat_while('=');
                 if self.space_or_end() {
-                    SyntaxKind::HeadingMarker
+                    TexSyntaxKind::HeadingMarker
                 } else {
                     self.text()
                 }
             }
-            '-' if self.space_or_end() => SyntaxKind::ListMarker,
-            '+' if self.space_or_end() => SyntaxKind::EnumMarker,
-            '/' if self.space_or_end() => SyntaxKind::TermMarker,
+            '-' if self.space_or_end() => TexSyntaxKind::ListMarker,
+            '+' if self.space_or_end() => TexSyntaxKind::EnumMarker,
+            '/' if self.space_or_end() => TexSyntaxKind::TermMarker,
             '0'..='9' => self.numbering(start),
 
             _ => self.text(),
         }
     }
 
-    fn backslash(&mut self) -> SyntaxKind {
+    fn backslash(&mut self) -> TexSyntaxKind {
         if self.s.eat_if("u{") {
             let hex = self.s.eat_while(char::is_ascii_alphanumeric);
             if !self.s.eat_if('}') {
@@ -210,25 +210,25 @@ impl Lexer<'_> {
                 return self.error(eco_format!("invalid Unicode codepoint: {}", hex));
             }
 
-            return SyntaxKind::Escape;
+            return TexSyntaxKind::Escape;
         }
 
         if self.s.done() || self.s.at(char::is_whitespace) {
-            SyntaxKind::Linebreak
+            TexSyntaxKind::Linebreak
         } else {
             self.s.eat();
-            SyntaxKind::Escape
+            TexSyntaxKind::Escape
         }
     }
 
-    fn raw(&mut self) -> SyntaxKind {
+    fn raw(&mut self) -> TexSyntaxKind {
         let mut backticks = 1;
         while self.s.eat_if('`') {
             backticks += 1;
         }
 
         if backticks == 2 {
-            return SyntaxKind::Raw;
+            return TexSyntaxKind::Raw;
         }
 
         let mut found = 0;
@@ -244,10 +244,10 @@ impl Lexer<'_> {
             return self.error("unclosed raw text");
         }
 
-        SyntaxKind::Raw
+        TexSyntaxKind::Raw
     }
 
-    fn link(&mut self) -> SyntaxKind {
+    fn link(&mut self) -> TexSyntaxKind {
         let (link, balanced) = link_prefix(self.s.after());
         self.s.jump(self.s.cursor() + link.len());
 
@@ -258,21 +258,21 @@ impl Lexer<'_> {
             );
         }
 
-        SyntaxKind::Link
+        TexSyntaxKind::Link
     }
 
-    fn numbering(&mut self, start: usize) -> SyntaxKind {
+    fn numbering(&mut self, start: usize) -> TexSyntaxKind {
         self.s.eat_while(char::is_ascii_digit);
 
         let read = self.s.from(start);
         if self.s.eat_if('.') && self.space_or_end() && read.parse::<usize>().is_ok() {
-            return SyntaxKind::EnumMarker;
+            return TexSyntaxKind::EnumMarker;
         }
 
         self.text()
     }
 
-    fn ref_marker(&mut self) -> SyntaxKind {
+    fn ref_marker(&mut self) -> TexSyntaxKind {
         self.s
             .eat_while(|c| is_id_continue(c) || matches!(c, ':' | '.'));
 
@@ -281,10 +281,10 @@ impl Lexer<'_> {
             self.s.uneat();
         }
 
-        SyntaxKind::RefMarker
+        TexSyntaxKind::RefMarker
     }
 
-    fn label(&mut self) -> SyntaxKind {
+    fn label(&mut self) -> TexSyntaxKind {
         let label = self
             .s
             .eat_while(|c| is_id_continue(c) || matches!(c, ':' | '.'));
@@ -296,10 +296,10 @@ impl Lexer<'_> {
             return self.error("unclosed label");
         }
 
-        SyntaxKind::Label
+        TexSyntaxKind::Label
     }
 
-    fn text(&mut self) -> SyntaxKind {
+    fn text(&mut self) -> TexSyntaxKind {
         macro_rules! table {
             ($(|$c:literal)*) => {
                 static TABLE: [bool; 128] = {
@@ -340,7 +340,7 @@ impl Lexer<'_> {
             self.s = s;
         }
 
-        SyntaxKind::Text
+        TexSyntaxKind::Text
     }
 
     fn in_word(&self) -> bool {
@@ -365,61 +365,61 @@ impl Lexer<'_> {
 
 /// Math.
 impl Lexer<'_> {
-    fn math(&mut self, start: usize, c: char) -> SyntaxKind {
+    fn math(&mut self, start: usize, c: char) -> TexSyntaxKind {
         match c {
             '\\' => self.backslash(),
             '"' => self.string(),
 
-            '-' if self.s.eat_if(">>") => SyntaxKind::Shorthand,
-            '-' if self.s.eat_if('>') => SyntaxKind::Shorthand,
-            '-' if self.s.eat_if("->") => SyntaxKind::Shorthand,
-            ':' if self.s.eat_if('=') => SyntaxKind::Shorthand,
-            ':' if self.s.eat_if(":=") => SyntaxKind::Shorthand,
-            '!' if self.s.eat_if('=') => SyntaxKind::Shorthand,
-            '.' if self.s.eat_if("..") => SyntaxKind::Shorthand,
-            '[' if self.s.eat_if('|') => SyntaxKind::Shorthand,
-            '<' if self.s.eat_if("==>") => SyntaxKind::Shorthand,
-            '<' if self.s.eat_if("-->") => SyntaxKind::Shorthand,
-            '<' if self.s.eat_if("--") => SyntaxKind::Shorthand,
-            '<' if self.s.eat_if("-<") => SyntaxKind::Shorthand,
-            '<' if self.s.eat_if("->") => SyntaxKind::Shorthand,
-            '<' if self.s.eat_if("<-") => SyntaxKind::Shorthand,
-            '<' if self.s.eat_if("<<") => SyntaxKind::Shorthand,
-            '<' if self.s.eat_if("=>") => SyntaxKind::Shorthand,
-            '<' if self.s.eat_if("==") => SyntaxKind::Shorthand,
-            '<' if self.s.eat_if("~~") => SyntaxKind::Shorthand,
-            '<' if self.s.eat_if('=') => SyntaxKind::Shorthand,
-            '<' if self.s.eat_if('<') => SyntaxKind::Shorthand,
-            '<' if self.s.eat_if('-') => SyntaxKind::Shorthand,
-            '<' if self.s.eat_if('~') => SyntaxKind::Shorthand,
-            '>' if self.s.eat_if("->") => SyntaxKind::Shorthand,
-            '>' if self.s.eat_if(">>") => SyntaxKind::Shorthand,
-            '=' if self.s.eat_if("=>") => SyntaxKind::Shorthand,
-            '=' if self.s.eat_if('>') => SyntaxKind::Shorthand,
-            '=' if self.s.eat_if(':') => SyntaxKind::Shorthand,
-            '>' if self.s.eat_if('=') => SyntaxKind::Shorthand,
-            '>' if self.s.eat_if('>') => SyntaxKind::Shorthand,
-            '|' if self.s.eat_if("->") => SyntaxKind::Shorthand,
-            '|' if self.s.eat_if("=>") => SyntaxKind::Shorthand,
-            '|' if self.s.eat_if(']') => SyntaxKind::Shorthand,
-            '|' if self.s.eat_if('|') => SyntaxKind::Shorthand,
-            '~' if self.s.eat_if("~>") => SyntaxKind::Shorthand,
-            '~' if self.s.eat_if('>') => SyntaxKind::Shorthand,
-            '*' | '-' => SyntaxKind::Shorthand,
+            '-' if self.s.eat_if(">>") => TexSyntaxKind::Shorthand,
+            '-' if self.s.eat_if('>') => TexSyntaxKind::Shorthand,
+            '-' if self.s.eat_if("->") => TexSyntaxKind::Shorthand,
+            ':' if self.s.eat_if('=') => TexSyntaxKind::Shorthand,
+            ':' if self.s.eat_if(":=") => TexSyntaxKind::Shorthand,
+            '!' if self.s.eat_if('=') => TexSyntaxKind::Shorthand,
+            '.' if self.s.eat_if("..") => TexSyntaxKind::Shorthand,
+            '[' if self.s.eat_if('|') => TexSyntaxKind::Shorthand,
+            '<' if self.s.eat_if("==>") => TexSyntaxKind::Shorthand,
+            '<' if self.s.eat_if("-->") => TexSyntaxKind::Shorthand,
+            '<' if self.s.eat_if("--") => TexSyntaxKind::Shorthand,
+            '<' if self.s.eat_if("-<") => TexSyntaxKind::Shorthand,
+            '<' if self.s.eat_if("->") => TexSyntaxKind::Shorthand,
+            '<' if self.s.eat_if("<-") => TexSyntaxKind::Shorthand,
+            '<' if self.s.eat_if("<<") => TexSyntaxKind::Shorthand,
+            '<' if self.s.eat_if("=>") => TexSyntaxKind::Shorthand,
+            '<' if self.s.eat_if("==") => TexSyntaxKind::Shorthand,
+            '<' if self.s.eat_if("~~") => TexSyntaxKind::Shorthand,
+            '<' if self.s.eat_if('=') => TexSyntaxKind::Shorthand,
+            '<' if self.s.eat_if('<') => TexSyntaxKind::Shorthand,
+            '<' if self.s.eat_if('-') => TexSyntaxKind::Shorthand,
+            '<' if self.s.eat_if('~') => TexSyntaxKind::Shorthand,
+            '>' if self.s.eat_if("->") => TexSyntaxKind::Shorthand,
+            '>' if self.s.eat_if(">>") => TexSyntaxKind::Shorthand,
+            '=' if self.s.eat_if("=>") => TexSyntaxKind::Shorthand,
+            '=' if self.s.eat_if('>') => TexSyntaxKind::Shorthand,
+            '=' if self.s.eat_if(':') => TexSyntaxKind::Shorthand,
+            '>' if self.s.eat_if('=') => TexSyntaxKind::Shorthand,
+            '>' if self.s.eat_if('>') => TexSyntaxKind::Shorthand,
+            '|' if self.s.eat_if("->") => TexSyntaxKind::Shorthand,
+            '|' if self.s.eat_if("=>") => TexSyntaxKind::Shorthand,
+            '|' if self.s.eat_if(']') => TexSyntaxKind::Shorthand,
+            '|' if self.s.eat_if('|') => TexSyntaxKind::Shorthand,
+            '~' if self.s.eat_if("~>") => TexSyntaxKind::Shorthand,
+            '~' if self.s.eat_if('>') => TexSyntaxKind::Shorthand,
+            '*' | '-' => TexSyntaxKind::Shorthand,
 
-            '#' => SyntaxKind::Hash,
-            '_' => SyntaxKind::Underscore,
-            '$' => SyntaxKind::Dollar,
-            '/' => SyntaxKind::Slash,
-            '^' => SyntaxKind::Hat,
-            '\'' => SyntaxKind::Prime,
-            '&' => SyntaxKind::MathAlignPoint,
-            '√' | '∛' | '∜' => SyntaxKind::Root,
+            '#' => TexSyntaxKind::Hash,
+            '_' => TexSyntaxKind::Underscore,
+            '$' => TexSyntaxKind::Dollar,
+            '/' => TexSyntaxKind::Slash,
+            '^' => TexSyntaxKind::Hat,
+            '\'' => TexSyntaxKind::Prime,
+            '&' => TexSyntaxKind::MathAlignPoint,
+            '√' | '∛' | '∜' => TexSyntaxKind::Root,
 
             // Identifiers.
             c if is_math_id_start(c) && self.s.at(is_math_id_continue) => {
                 self.s.eat_while(is_math_id_continue);
-                SyntaxKind::MathIdent
+                TexSyntaxKind::MathIdent
             }
 
             // Other math atoms.
@@ -427,7 +427,7 @@ impl Lexer<'_> {
         }
     }
 
-    fn math_text(&mut self, start: usize, c: char) -> SyntaxKind {
+    fn math_text(&mut self, start: usize, c: char) -> TexSyntaxKind {
         // Keep numbers and grapheme clusters together.
         if c.is_numeric() {
             self.s.eat_while(char::is_numeric);
@@ -444,13 +444,13 @@ impl Lexer<'_> {
                 .map_or(0, str::len);
             self.s.jump(start + len);
         }
-        SyntaxKind::Text
+        TexSyntaxKind::Text
     }
 }
 
 /// Code.
 impl Lexer<'_> {
-    fn code(&mut self, start: usize, c: char) -> SyntaxKind {
+    fn code(&mut self, start: usize, c: char) -> TexSyntaxKind {
         match c {
             '`' => self.raw(),
             '<' if self.s.at(is_id_continue) => self.label(),
@@ -458,35 +458,35 @@ impl Lexer<'_> {
             '.' if self.s.at(char::is_ascii_digit) => self.number(start, c),
             '"' => self.string(),
 
-            '=' if self.s.eat_if('=') => SyntaxKind::EqEq,
-            '!' if self.s.eat_if('=') => SyntaxKind::ExclEq,
-            '<' if self.s.eat_if('=') => SyntaxKind::LtEq,
-            '>' if self.s.eat_if('=') => SyntaxKind::GtEq,
-            '+' if self.s.eat_if('=') => SyntaxKind::PlusEq,
-            '-' | '\u{2212}' if self.s.eat_if('=') => SyntaxKind::HyphEq,
-            '*' if self.s.eat_if('=') => SyntaxKind::StarEq,
-            '/' if self.s.eat_if('=') => SyntaxKind::SlashEq,
-            '.' if self.s.eat_if('.') => SyntaxKind::Dots,
-            '=' if self.s.eat_if('>') => SyntaxKind::Arrow,
+            '=' if self.s.eat_if('=') => TexSyntaxKind::EqEq,
+            '!' if self.s.eat_if('=') => TexSyntaxKind::ExclEq,
+            '<' if self.s.eat_if('=') => TexSyntaxKind::LtEq,
+            '>' if self.s.eat_if('=') => TexSyntaxKind::GtEq,
+            '+' if self.s.eat_if('=') => TexSyntaxKind::PlusEq,
+            '-' | '\u{2212}' if self.s.eat_if('=') => TexSyntaxKind::HyphEq,
+            '*' if self.s.eat_if('=') => TexSyntaxKind::StarEq,
+            '/' if self.s.eat_if('=') => TexSyntaxKind::SlashEq,
+            '.' if self.s.eat_if('.') => TexSyntaxKind::Dots,
+            '=' if self.s.eat_if('>') => TexSyntaxKind::Arrow,
 
-            '{' => SyntaxKind::LeftBrace,
-            '}' => SyntaxKind::RightBrace,
-            '[' => SyntaxKind::LeftBracket,
-            ']' => SyntaxKind::RightBracket,
-            '(' => SyntaxKind::LeftParen,
-            ')' => SyntaxKind::RightParen,
-            '$' => SyntaxKind::Dollar,
-            ',' => SyntaxKind::Comma,
-            ';' => SyntaxKind::Semicolon,
-            ':' => SyntaxKind::Colon,
-            '.' => SyntaxKind::Dot,
-            '+' => SyntaxKind::Plus,
-            '-' | '\u{2212}' => SyntaxKind::Minus,
-            '*' => SyntaxKind::Star,
-            '/' => SyntaxKind::Slash,
-            '=' => SyntaxKind::Eq,
-            '<' => SyntaxKind::Lt,
-            '>' => SyntaxKind::Gt,
+            '{' => TexSyntaxKind::LeftBrace,
+            '}' => TexSyntaxKind::RightBrace,
+            '[' => TexSyntaxKind::LeftBracket,
+            ']' => TexSyntaxKind::RightBracket,
+            '(' => TexSyntaxKind::LeftParen,
+            ')' => TexSyntaxKind::RightParen,
+            '$' => TexSyntaxKind::Dollar,
+            ',' => TexSyntaxKind::Comma,
+            ';' => TexSyntaxKind::Semicolon,
+            ':' => TexSyntaxKind::Colon,
+            '.' => TexSyntaxKind::Dot,
+            '+' => TexSyntaxKind::Plus,
+            '-' | '\u{2212}' => TexSyntaxKind::Minus,
+            '*' => TexSyntaxKind::Star,
+            '/' => TexSyntaxKind::Slash,
+            '=' => TexSyntaxKind::Eq,
+            '<' => TexSyntaxKind::Lt,
+            '>' => TexSyntaxKind::Gt,
 
             c if is_id_start(c) => self.ident(start),
 
@@ -494,7 +494,7 @@ impl Lexer<'_> {
         }
     }
 
-    fn ident(&mut self, start: usize) -> SyntaxKind {
+    fn ident(&mut self, start: usize) -> TexSyntaxKind {
         self.s.eat_while(is_id_continue);
         let ident = self.s.from(start);
 
@@ -506,13 +506,13 @@ impl Lexer<'_> {
         }
 
         if ident == "_" {
-            SyntaxKind::Underscore
+            TexSyntaxKind::Underscore
         } else {
-            SyntaxKind::Ident
+            TexSyntaxKind::Ident
         }
     }
 
-    fn number(&mut self, mut start: usize, c: char) -> SyntaxKind {
+    fn number(&mut self, mut start: usize, c: char) -> TexSyntaxKind {
         // Handle alternative integer bases.
         let mut base = 10;
         if c == '0' {
@@ -562,9 +562,9 @@ impl Lexer<'_> {
         let suffix = self.s.from(suffix_start);
 
         let kind = if i64::from_str_radix(number, base).is_ok() {
-            SyntaxKind::Int
+            TexSyntaxKind::Int
         } else if base == 10 && number.parse::<f64>().is_ok() {
-            SyntaxKind::Float
+            TexSyntaxKind::Float
         } else {
             return self.error(match base {
                 2 => eco_format!("invalid binary number: 0b{}", number),
@@ -585,10 +585,10 @@ impl Lexer<'_> {
             return self.error(eco_format!("invalid number suffix: {}", suffix));
         }
 
-        SyntaxKind::Numeric
+        TexSyntaxKind::Numeric
     }
 
-    fn string(&mut self) -> SyntaxKind {
+    fn string(&mut self) -> TexSyntaxKind {
         let mut escaped = false;
         self.s.eat_until(|c| {
             let stop = c == '"' && !escaped;
@@ -600,34 +600,34 @@ impl Lexer<'_> {
             return self.error("unclosed string");
         }
 
-        SyntaxKind::Str
+        TexSyntaxKind::Str
     }
 }
 
 /// Try to parse an identifier into a keyword.
-fn keyword(ident: &str) -> Option<SyntaxKind> {
+fn keyword(ident: &str) -> Option<TexSyntaxKind> {
     Some(match ident {
-        "none" => SyntaxKind::None,
-        "auto" => SyntaxKind::Auto,
-        "true" => SyntaxKind::Bool,
-        "false" => SyntaxKind::Bool,
-        "not" => SyntaxKind::Not,
-        "and" => SyntaxKind::And,
-        "or" => SyntaxKind::Or,
-        "let" => SyntaxKind::Let,
-        "set" => SyntaxKind::Set,
-        "show" => SyntaxKind::Show,
-        "if" => SyntaxKind::If,
-        "else" => SyntaxKind::Else,
-        "for" => SyntaxKind::For,
-        "in" => SyntaxKind::In,
-        "while" => SyntaxKind::While,
-        "break" => SyntaxKind::Break,
-        "continue" => SyntaxKind::Continue,
-        "return" => SyntaxKind::Return,
-        "import" => SyntaxKind::Import,
-        "include" => SyntaxKind::Include,
-        "as" => SyntaxKind::As,
+        "none" => TexSyntaxKind::None,
+        "auto" => TexSyntaxKind::Auto,
+        "true" => TexSyntaxKind::Bool,
+        "false" => TexSyntaxKind::Bool,
+        "not" => TexSyntaxKind::Not,
+        "and" => TexSyntaxKind::And,
+        "or" => TexSyntaxKind::Or,
+        "let" => TexSyntaxKind::Let,
+        "set" => TexSyntaxKind::Set,
+        "show" => TexSyntaxKind::Show,
+        "if" => TexSyntaxKind::If,
+        "else" => TexSyntaxKind::Else,
+        "for" => TexSyntaxKind::For,
+        "in" => TexSyntaxKind::In,
+        "while" => TexSyntaxKind::While,
+        "break" => TexSyntaxKind::Break,
+        "continue" => TexSyntaxKind::Continue,
+        "return" => TexSyntaxKind::Return,
+        "import" => TexSyntaxKind::Import,
+        "include" => TexSyntaxKind::Include,
+        "as" => TexSyntaxKind::As,
         _ => return None,
     })
 }
@@ -636,7 +636,7 @@ fn keyword(ident: &str) -> Option<SyntaxKind> {
 #[inline]
 fn is_space(character: char, mode: LexMode) -> bool {
     match mode {
-        LexMode::Markup => matches!(character, ' ' | '\t') || is_newline(character),
+        LexMode::TexMarkup => matches!(character, ' ' | '\t') || is_newline(character),
         _ => character.is_whitespace(),
     }
 }

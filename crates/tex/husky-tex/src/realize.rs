@@ -14,9 +14,8 @@ use typed_arena::Arena;
 use crate::diag::{bail, SourceResult};
 use crate::engine::{Engine, Route};
 use crate::foundations::{
-    Behave, Behaviour, Packed, Recipe, RecipeIndex, Regex, Selector, Show, ShowSet, Style,
-    StyleChain, StyleVec, StyleVecBuilder, Styles, Synthesize, TexContent, TexElement,
-    Transformation,
+    Behave, Behaviour, IsTexElem, Packed, Recipe, RecipeIndex, Regex, Selector, Show, ShowSet,
+    Style, StyleChain, StyleVec, StyleVecBuilder, Styles, Synthesize, TexContent, Transformation,
 };
 use crate::introspection::{Locatable, Meta, MetaElem};
 use crate::layout::{
@@ -25,8 +24,8 @@ use crate::layout::{
 };
 use crate::math::{EquationElem, LayoutMath};
 use crate::model::{
-    CiteElem, CiteGroup, DocumentElem, EnumElem, EnumItem, ListElem, ListItem, ParElem,
-    ParbreakElem, TermItem, TermsElem,
+    CiteTexElem, DocumentElem, EnumElem, EnumItem, ListElem, ListItem, ParagraphTexElem,
+    ParbreakElem, TermItem, TermsElem, TexCiteGroup,
 };
 use crate::syntax::Span;
 use crate::text::{LinebreakElem, SmartQuoteElem, SpaceElem, TextElem};
@@ -541,7 +540,7 @@ impl<'a, 'v, 't> Builder<'a, 'v, 't> {
                 );
             }
             self.interrupt_page(outer, false)?;
-        } else if local.interruption::<ParElem>().is_some()
+        } else if local.interruption::<ParagraphTexElem>().is_some()
             || local.interruption::<AlignElem>().is_some()
         {
             self.interrupt_par()?;
@@ -685,7 +684,7 @@ impl<'a> FlowBuilder<'a> {
 
         if content.can::<dyn LayoutSingle>()
             || content.can::<dyn LayoutMultiple>()
-            || content.is::<ParElem>()
+            || content.is::<ParagraphTexElem>()
         {
             let is_tight_list = if let Some(elem) = content.to_packed::<ListElem>() {
                 elem.tight(styles)
@@ -698,7 +697,7 @@ impl<'a> FlowBuilder<'a> {
             };
 
             if !last_was_parbreak && is_tight_list {
-                let leading = ParElem::leading_in(styles);
+                let leading = ParagraphTexElem::leading_in(styles);
                 let spacing = VElem::list_attach(leading.into());
                 self.0.push(Cow::Owned(spacing.pack()), styles);
             }
@@ -750,7 +749,12 @@ impl<'a> ParBuilder<'a> {
     fn finish(self) -> (TexContent, StyleChain<'a>) {
         let (children, shared) = self.0.finish();
         let span = first_span(&children);
-        (ParElem::new(children.to_vec()).pack().spanned(span), shared)
+        (
+            ParagraphTexElem::new(children.to_vec())
+                .pack()
+                .spanned(span),
+            shared,
+        )
     }
 }
 
@@ -860,7 +864,7 @@ struct CiteGroupBuilder<'a> {
     /// The styles.
     styles: StyleChain<'a>,
     /// The citations.
-    items: Vec<Packed<CiteElem>>,
+    items: Vec<Packed<CiteTexElem>>,
     /// Trailing content for which it is unclear whether it is part of the list.
     staged: Vec<(&'a TexContent, StyleChain<'a>)>,
 }
@@ -872,7 +876,7 @@ impl<'a> CiteGroupBuilder<'a> {
             return true;
         }
 
-        if let Some(citation) = content.to_packed::<CiteElem>() {
+        if let Some(citation) = content.to_packed::<CiteTexElem>() {
             if self.items.is_empty() {
                 self.styles = styles;
             }
@@ -890,7 +894,10 @@ impl<'a> CiteGroupBuilder<'a> {
             .first()
             .map(|cite| cite.span())
             .unwrap_or(Span::detached());
-        (CiteGroup::new(self.items).pack().spanned(span), self.styles)
+        (
+            TexCiteGroup::new(self.items).pack().spanned(span),
+            self.styles,
+        )
     }
 }
 

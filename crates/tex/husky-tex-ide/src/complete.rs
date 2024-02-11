@@ -8,7 +8,7 @@ use husky_tex::foundations::{
 };
 use husky_tex::model::TexDocument;
 use husky_tex::syntax::{
-    ast, is_id_continue, is_id_start, is_ident, LinkedNode, Source, SyntaxKind,
+    ast, is_id_continue, is_id_start, is_ident, LinkedNode, Source, TexSyntaxKind,
 };
 use husky_tex::text::RawElem;
 use husky_tex::visualize::TexColor;
@@ -91,7 +91,7 @@ pub enum CompletionKind {
 fn complete_comments(ctx: &mut CompletionContext) -> bool {
     matches!(
         ctx.leaf.kind(),
-        SyntaxKind::LineComment | SyntaxKind::BlockComment
+        TexSyntaxKind::LineComment | TexSyntaxKind::BlockComment
     )
 }
 
@@ -100,27 +100,27 @@ fn complete_markup(ctx: &mut CompletionContext) -> bool {
     // Bail if we aren't even in markup.
     if !matches!(
         ctx.leaf.parent_kind(),
-        None | Some(SyntaxKind::Markup) | Some(SyntaxKind::Ref)
+        None | Some(TexSyntaxKind::TexMarkup) | Some(TexSyntaxKind::Ref)
     ) {
         return false;
     }
 
     // Start of an interpolated identifier: "#|".
-    if ctx.leaf.kind() == SyntaxKind::Hash {
+    if ctx.leaf.kind() == TexSyntaxKind::Hash {
         ctx.from = ctx.cursor;
         code_completions(ctx, true);
         return true;
     }
 
     // An existing identifier: "#pa|".
-    if ctx.leaf.kind() == SyntaxKind::Ident {
+    if ctx.leaf.kind() == TexSyntaxKind::Ident {
         ctx.from = ctx.leaf.offset();
         code_completions(ctx, true);
         return true;
     }
 
     // Start of a reference: "@|" or "@he|".
-    if ctx.leaf.kind() == SyntaxKind::RefMarker {
+    if ctx.leaf.kind() == TexSyntaxKind::RefMarker {
         ctx.from = ctx.leaf.offset() + 1;
         ctx.label_completions();
         return true;
@@ -129,8 +129,8 @@ fn complete_markup(ctx: &mut CompletionContext) -> bool {
     // Behind a half-completed binding: "#let x = |".
     if_chain! {
         if let Some(prev) = ctx.leaf.prev_leaf();
-        if prev.kind() == SyntaxKind::Eq;
-        if prev.parent_kind() == Some(SyntaxKind::LetBinding);
+        if prev.kind() == TexSyntaxKind::Eq;
+        if prev.parent_kind() == Some(TexSyntaxKind::LetBinding);
         then {
             ctx.from = ctx.cursor;
             code_completions(ctx, false);
@@ -268,23 +268,26 @@ fn markup_completions(ctx: &mut CompletionContext) {
 fn complete_math(ctx: &mut CompletionContext) -> bool {
     if !matches!(
         ctx.leaf.parent_kind(),
-        Some(SyntaxKind::Equation)
-            | Some(SyntaxKind::Math)
-            | Some(SyntaxKind::MathFrac)
-            | Some(SyntaxKind::MathAttach)
+        Some(TexSyntaxKind::Equation)
+            | Some(TexSyntaxKind::Math)
+            | Some(TexSyntaxKind::MathFrac)
+            | Some(TexSyntaxKind::MathAttach)
     ) {
         return false;
     }
 
     // Start of an interpolated identifier: "#|".
-    if ctx.leaf.kind() == SyntaxKind::Hash {
+    if ctx.leaf.kind() == TexSyntaxKind::Hash {
         ctx.from = ctx.cursor;
         code_completions(ctx, true);
         return true;
     }
 
     // Behind existing atom or identifier: "$a|$" or "$abc|$".
-    if matches!(ctx.leaf.kind(), SyntaxKind::Text | SyntaxKind::MathIdent) {
+    if matches!(
+        ctx.leaf.kind(),
+        TexSyntaxKind::Text | TexSyntaxKind::MathIdent
+    ) {
         ctx.from = ctx.leaf.offset();
         math_completions(ctx);
         return true;
@@ -328,14 +331,14 @@ fn math_completions(ctx: &mut CompletionContext) {
 fn complete_field_accesses(ctx: &mut CompletionContext) -> bool {
     // Behind an expression plus dot: "emoji.|".
     if_chain! {
-        if ctx.leaf.kind() == SyntaxKind::Dot
-            || (ctx.leaf.kind() == SyntaxKind::Text
+        if ctx.leaf.kind() == TexSyntaxKind::Dot
+            || (ctx.leaf.kind() == TexSyntaxKind::Text
                 && ctx.leaf.text() == ".");
         if ctx.leaf.range().end == ctx.cursor;
         if let Some(prev) = ctx.leaf.prev_sibling();
         if prev.is::<ast::Expr>();
-        if prev.parent_kind() != Some(SyntaxKind::Markup) ||
-           prev.prev_sibling_kind() == Some(SyntaxKind::Hash);
+        if prev.parent_kind() != Some(TexSyntaxKind::TexMarkup) ||
+           prev.prev_sibling_kind() == Some(TexSyntaxKind::Hash);
         if let Some(value) = analyze_expr(ctx.world, &prev).into_iter().next();
         then {
             ctx.from = ctx.cursor;
@@ -346,9 +349,9 @@ fn complete_field_accesses(ctx: &mut CompletionContext) -> bool {
 
     // Behind a started field access: "emoji.fa|".
     if_chain! {
-        if ctx.leaf.kind() == SyntaxKind::Ident;
+        if ctx.leaf.kind() == TexSyntaxKind::Ident;
         if let Some(prev) = ctx.leaf.prev_sibling();
-        if prev.kind() == SyntaxKind::Dot;
+        if prev.kind() == TexSyntaxKind::Dot;
         if let Some(prev_prev) = prev.prev_sibling();
         if prev_prev.is::<ast::Expr>();
         if let Some(value) = analyze_expr(ctx.world, &prev_prev).into_iter().next();
@@ -457,7 +460,7 @@ fn complete_imports(ctx: &mut CompletionContext) -> bool {
     if_chain! {
         if matches!(
             ctx.leaf.parent_kind(),
-            Some(SyntaxKind::ModuleImport | SyntaxKind::ModuleInclude)
+            Some(TexSyntaxKind::ModuleImport | TexSyntaxKind::ModuleInclude)
         );
         if let Some(ast::Expr::Str(str)) = ctx.leaf.cast();
         let value = str.get();
@@ -488,9 +491,9 @@ fn complete_imports(ctx: &mut CompletionContext) -> bool {
     // Behind a half-started identifier in an import list:
     // "#import "path.typ": thi|",
     if_chain! {
-        if ctx.leaf.kind() == SyntaxKind::Ident;
+        if ctx.leaf.kind() == TexSyntaxKind::Ident;
         if let Some(parent) = ctx.leaf.parent();
-        if parent.kind() == SyntaxKind::ImportItems;
+        if parent.kind() == TexSyntaxKind::ImportItems;
         if let Some(grand) = parent.parent();
         if let Some(ast::Expr::Import(import)) = grand.get().cast();
         if let Some(ast::Imports::Items(items)) = import.imports();
@@ -542,14 +545,14 @@ fn complete_rules(ctx: &mut CompletionContext) -> bool {
     };
 
     // Behind the set keyword: "set |".
-    if matches!(prev.kind(), SyntaxKind::Set) {
+    if matches!(prev.kind(), TexSyntaxKind::Set) {
         ctx.from = ctx.cursor;
         set_rule_completions(ctx);
         return true;
     }
 
     // Behind the show keyword: "show |".
-    if matches!(prev.kind(), SyntaxKind::Show) {
+    if matches!(prev.kind(), TexSyntaxKind::Show) {
         ctx.from = ctx.cursor;
         show_rule_selector_completions(ctx);
         return true;
@@ -558,8 +561,8 @@ fn complete_rules(ctx: &mut CompletionContext) -> bool {
     // Behind a half-completed show rule: "show strong: |".
     if_chain! {
         if let Some(prev) = ctx.leaf.prev_leaf();
-        if matches!(prev.kind(), SyntaxKind::Colon);
-        if matches!(prev.parent_kind(), Some(SyntaxKind::ShowRule));
+        if matches!(prev.kind(), TexSyntaxKind::Colon);
+        if matches!(prev.parent_kind(), Some(TexSyntaxKind::ShowRule));
         then {
             ctx.from = ctx.cursor;
             show_rule_recipe_completions(ctx);
@@ -634,7 +637,7 @@ fn complete_params(ctx: &mut CompletionContext) -> bool {
     let (callee, set, args) = if_chain! {
         if let Some(parent) = ctx.leaf.parent();
         if let Some(parent) = match parent.kind() {
-            SyntaxKind::Named => parent.parent(),
+            TexSyntaxKind::Named => parent.parent(),
             _ => Some(parent),
         };
         if let Some(args) = parent.get().cast::<ast::Args>();
@@ -657,7 +660,7 @@ fn complete_params(ctx: &mut CompletionContext) -> bool {
     let mut deciding = ctx.leaf.clone();
     while !matches!(
         deciding.kind(),
-        SyntaxKind::LeftParen | SyntaxKind::Comma | SyntaxKind::Colon
+        TexSyntaxKind::LeftParen | TexSyntaxKind::Comma | TexSyntaxKind::Colon
     ) {
         let Some(prev) = deciding.prev_leaf() else {
             break;
@@ -667,7 +670,7 @@ fn complete_params(ctx: &mut CompletionContext) -> bool {
 
     // Parameter values: "func(param:|)", "func(param: |)".
     if_chain! {
-        if deciding.kind() == SyntaxKind::Colon;
+        if deciding.kind() == TexSyntaxKind::Colon;
         if let Some(prev) = deciding.prev_leaf();
         if let Some(param) = prev.get().cast::<ast::Ident>();
         then {
@@ -682,8 +685,8 @@ fn complete_params(ctx: &mut CompletionContext) -> bool {
 
     // Parameters: "func(|)", "func(hi|)", "func(12,|)".
     if_chain! {
-        if matches!(deciding.kind(), SyntaxKind::LeftParen | SyntaxKind::Comma);
-        if deciding.kind() != SyntaxKind::Comma || deciding.range().end < ctx.cursor;
+        if matches!(deciding.kind(), TexSyntaxKind::LeftParen | TexSyntaxKind::Comma);
+        if deciding.kind() != TexSyntaxKind::Comma || deciding.range().end < ctx.cursor;
         then {
             if let Some(next) = deciding.next_leaf() {
                 ctx.from = ctx.cursor.min(next.offset());
@@ -800,17 +803,17 @@ fn resolve_global_callee<'a>(
 fn complete_code(ctx: &mut CompletionContext) -> bool {
     if matches!(
         ctx.leaf.parent_kind(),
-        None | Some(SyntaxKind::Markup)
-            | Some(SyntaxKind::Math)
-            | Some(SyntaxKind::MathFrac)
-            | Some(SyntaxKind::MathAttach)
-            | Some(SyntaxKind::MathRoot)
+        None | Some(TexSyntaxKind::TexMarkup)
+            | Some(TexSyntaxKind::Math)
+            | Some(TexSyntaxKind::MathFrac)
+            | Some(TexSyntaxKind::MathAttach)
+            | Some(TexSyntaxKind::MathRoot)
     ) {
         return false;
     }
 
     // An existing identifier: "{ pa| }".
-    if ctx.leaf.kind() == SyntaxKind::Ident {
+    if ctx.leaf.kind() == TexSyntaxKind::Ident {
         ctx.from = ctx.leaf.offset();
         code_completions(ctx, false);
         return true;
@@ -829,7 +832,7 @@ fn complete_code(ctx: &mut CompletionContext) -> bool {
         && (ctx.leaf.kind().is_trivia()
             || matches!(
                 ctx.leaf.kind(),
-                SyntaxKind::LeftParen | SyntaxKind::LeftBrace
+                TexSyntaxKind::LeftParen | TexSyntaxKind::LeftBrace
             ))
     {
         ctx.from = ctx.cursor;
@@ -1340,7 +1343,7 @@ impl<'a> CompletionContext<'a> {
 
             if let Some(parent) = node.parent() {
                 if let Some(v) = parent.cast::<ast::ForLoop>() {
-                    if node.prev_sibling_kind() != Some(SyntaxKind::In) {
+                    if node.prev_sibling_kind() != Some(TexSyntaxKind::In) {
                         let pattern = v.pattern();
                         for ident in pattern.idents() {
                             defined.insert(ident.get().clone());
@@ -1357,10 +1360,10 @@ impl<'a> CompletionContext<'a> {
 
         let in_math = matches!(
             self.leaf.parent_kind(),
-            Some(SyntaxKind::Equation)
-                | Some(SyntaxKind::Math)
-                | Some(SyntaxKind::MathFrac)
-                | Some(SyntaxKind::MathAttach)
+            Some(TexSyntaxKind::Equation)
+                | Some(TexSyntaxKind::Math)
+                | Some(TexSyntaxKind::MathFrac)
+                | Some(TexSyntaxKind::MathAttach)
         );
 
         let scope = if in_math { self.math } else { self.global };

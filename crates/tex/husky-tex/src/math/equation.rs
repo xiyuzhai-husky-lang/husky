@@ -5,7 +5,7 @@ use unicode_math_class::MathClass;
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    elem, Packed, Resolve, ShowSet, Smart, StyleChain, Styles, Synthesize, TexContent, TexElement,
+    elem, IsTexElem, Packed, Resolve, ShowSet, Smart, StyleChain, Styles, Synthesize, TexContent,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable};
 use crate::layout::{
@@ -13,7 +13,7 @@ use crate::layout::{
     Regions, Size, TexAlignment, TexLayoutDirection,
 };
 use crate::math::{scaled_font_size, LayoutMath, MathContext, MathSize, MathVariant};
-use crate::model::{Numbering, Outlinable, ParElem, Refable, Supplement};
+use crate::model::{Numbering, Outlinable, ParagraphTexElem, Refable, Supplement};
 use crate::syntax::Span;
 use crate::text::{
     families, variant, FontFamily, FontList, FontWeight, Lang, LocalName, Region, TexFont, TextElem,
@@ -204,7 +204,7 @@ impl Packed<EquationElem> {
             };
 
             let font_size = scaled_font_size(&ctx, styles);
-            let slack = ParElem::leading_in(styles) * 0.7;
+            let slack = ParagraphTexElem::leading_in(styles) * 0.7;
             let top_edge = TextElem::top_edge_in(styles).resolve(font_size, &font, None);
             let bottom_edge = -TextElem::bottom_edge_in(styles).resolve(font_size, &font, None);
 

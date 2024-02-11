@@ -3,7 +3,7 @@ use std::num::NonZeroUsize;
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    elem, Packed, Show, ShowSet, Smart, StyleChain, Styles, Synthesize, TexContent, TexElement,
+    elem, IsTexElem, Packed, Show, ShowSet, Smart, StyleChain, Styles, Synthesize, TexContent,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable};
 use crate::layout::{BlockElem, HElem, LengthInEm, VElem};
@@ -45,7 +45,7 @@ use crate::util::{option_eq, NonZeroExt};
 #[elem(
     Locatable, Synthesize, Count, Show, ShowSet, LocalName, Refable, Outlinable
 )]
-pub struct HeadingElem {
+pub struct HeadingTexElem {
     /// The logical nesting depth of the heading, starting from one.
     #[default(NonZeroUsize::ONE)]
     pub level: NonZeroUsize,
@@ -127,7 +127,7 @@ pub struct HeadingElem {
     pub body: TexContent,
 }
 
-impl Synthesize for Packed<HeadingElem> {
+impl Synthesize for Packed<HeadingTexElem> {
     fn synthesize(&mut self, engine: &mut Engine, styles: StyleChain) -> SourceResult<()> {
         let supplement = match (**self).supplement(styles) {
             Smart::Auto => TextElem::packed(Self::local_name_in(styles)),
@@ -140,12 +140,12 @@ impl Synthesize for Packed<HeadingElem> {
     }
 }
 
-impl Show for Packed<HeadingElem> {
+impl Show for Packed<HeadingTexElem> {
     #[husky_tex_macros::time(name = "heading", span = self.span())]
     fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         let mut realized = self.body().clone();
         if let Some(numbering) = (**self).numbering(styles).as_ref() {
-            realized = Counter::of(HeadingElem::elem())
+            realized = Counter::of(HeadingTexElem::elem())
                 .at(engine, self.location().unwrap())?
                 .display(engine, numbering)?
                 .spanned(self.span())
@@ -161,7 +161,7 @@ impl Show for Packed<HeadingElem> {
     }
 }
 
-impl ShowSet for Packed<HeadingElem> {
+impl ShowSet for Packed<HeadingTexElem> {
     fn show_set(&self, styles: StyleChain) -> Styles {
         let level = (**self).level(styles).get();
         let scale = match level {
@@ -184,7 +184,7 @@ impl ShowSet for Packed<HeadingElem> {
     }
 }
 
-impl Count for Packed<HeadingElem> {
+impl Count for Packed<HeadingTexElem> {
     fn update(&self) -> Option<CounterUpdate> {
         (**self)
             .numbering(StyleChain::default())
@@ -193,7 +193,7 @@ impl Count for Packed<HeadingElem> {
     }
 }
 
-impl Refable for Packed<HeadingElem> {
+impl Refable for Packed<HeadingTexElem> {
     fn supplement(&self) -> TexContent {
         // After synthesis, this should always be custom content.
         match (**self).supplement(StyleChain::default()) {
@@ -203,7 +203,7 @@ impl Refable for Packed<HeadingElem> {
     }
 
     fn counter(&self) -> Counter {
-        Counter::of(HeadingElem::elem())
+        Counter::of(HeadingTexElem::elem())
     }
 
     fn numbering(&self) -> Option<&Numbering> {
@@ -211,7 +211,7 @@ impl Refable for Packed<HeadingElem> {
     }
 }
 
-impl Outlinable for Packed<HeadingElem> {
+impl Outlinable for Packed<HeadingTexElem> {
     fn outline(&self, engine: &mut Engine) -> SourceResult<Option<TexContent>> {
         if !self.outlined(StyleChain::default()) {
             return Ok(None);
@@ -219,7 +219,7 @@ impl Outlinable for Packed<HeadingElem> {
 
         let mut content = self.body().clone();
         if let Some(numbering) = (**self).numbering(StyleChain::default()).as_ref() {
-            let numbers = Counter::of(HeadingElem::elem())
+            let numbers = Counter::of(HeadingTexElem::elem())
                 .at(engine, self.location().unwrap())?
                 .display(engine, numbering)?;
             content = numbers + SpaceElem::new().pack() + content;
@@ -233,7 +233,7 @@ impl Outlinable for Packed<HeadingElem> {
     }
 }
 
-impl LocalName for Packed<HeadingElem> {
+impl LocalName for Packed<HeadingTexElem> {
     fn local_name(lang: Lang, region: Option<Region>) -> &'static str {
         match lang {
             Lang::ALBANIAN => "Kapitull",

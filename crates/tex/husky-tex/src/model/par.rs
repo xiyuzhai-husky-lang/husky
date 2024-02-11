@@ -5,7 +5,7 @@ use comemo::Prehashed;
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    elem, Args, Cast, Construct, Packed, Set, Smart, StyleChain, TexContent, TexElement,
+    elem, Args, Cast, Construct, IsTexElem, Packed, Set, Smart, StyleChain, TexContent,
     Unlabellable,
 };
 use crate::layout::{Fragment, Length, LengthInEm, Size};
@@ -36,7 +36,7 @@ use crate::layout::{Fragment, Length, LengthInEm, Size};
 /// three integers. Then, we ...
 /// ```
 #[elem(title = "Paragraph", Debug, Construct)]
-pub struct ParElem {
+pub struct ParagraphTexElem {
     /// The spacing between lines.
     #[resolve]
     #[ghost]
@@ -109,7 +109,7 @@ pub struct ParElem {
     pub children: Vec<Prehashed<TexContent>>,
 }
 
-impl Construct for ParElem {
+impl Construct for ParagraphTexElem {
     fn construct(engine: &mut Engine, args: &mut Args) -> SourceResult<TexContent> {
         // The paragraph constructor is special: It doesn't create a paragraph
         // element. Instead, it just ensures that the passed content lives in a
@@ -124,7 +124,7 @@ impl Construct for ParElem {
     }
 }
 
-impl Packed<ParElem> {
+impl Packed<ParagraphTexElem> {
     /// Layout the paragraph into a collection of lines.
     #[husky_tex_macros::time(name = "par", span = self.span())]
     pub fn layout(
@@ -139,7 +139,7 @@ impl Packed<ParElem> {
     }
 }
 
-impl Debug for ParElem {
+impl Debug for ParagraphTexElem {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         write!(f, "Par ")?;
         f.debug_list().entries(&self.children).finish()

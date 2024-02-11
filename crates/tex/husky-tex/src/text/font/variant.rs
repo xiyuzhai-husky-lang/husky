@@ -10,7 +10,7 @@ use crate::layout::Ratio;
 #[derive(Default, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub struct FontVariant {
     /// The style of the font (normal / italic / oblique).
-    pub style: FontStyle,
+    pub style: TexFontStyle,
     /// How heavy the font is (100 - 900).
     pub weight: FontWeight,
     /// How condensed or expanded the font is (0.5 - 2.0).
@@ -19,7 +19,7 @@ pub struct FontVariant {
 
 impl FontVariant {
     /// Create a variant from its three components.
-    pub fn new(style: FontStyle, weight: FontWeight, stretch: FontStretch) -> Self {
+    pub fn new(style: TexFontStyle, weight: FontWeight, stretch: FontStretch) -> Self {
         Self {
             style,
             weight,
@@ -39,7 +39,7 @@ impl Debug for FontVariant {
     Debug, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Cast,
 )]
 #[serde(rename_all = "kebab-case")]
-pub enum FontStyle {
+pub enum TexFontStyle {
     /// The default, typically upright style.
     Normal,
     /// A cursive style with custom letterform.
@@ -48,7 +48,7 @@ pub enum FontStyle {
     Oblique,
 }
 
-impl FontStyle {
+impl TexFontStyle {
     /// The conceptual distance between the styles, expressed as a number.
     pub fn distance(self, other: Self) -> u16 {
         if self == other {
@@ -61,13 +61,13 @@ impl FontStyle {
     }
 }
 
-impl Default for FontStyle {
+impl Default for TexFontStyle {
     fn default() -> Self {
         Self::Normal
     }
 }
 
-impl From<usvg::FontStyle> for FontStyle {
+impl From<usvg::FontStyle> for TexFontStyle {
     fn from(style: usvg::FontStyle) -> Self {
         match style {
             usvg::FontStyle::Normal => Self::Normal,

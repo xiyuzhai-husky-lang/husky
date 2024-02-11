@@ -11,8 +11,8 @@ use smallvec::SmallVec;
 use crate::diag::{SourceResult, Trace, Tracepoint};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, func, ty, ElementSchemaRef, Func, Packed, Repr, Selector, Show, TexContent,
-    TexElement,
+    cast, elem, func, ty, ElementSchemaRef, Func, IsTexElem, Packed, Repr, Selector, Show,
+    TexContent,
 };
 use crate::syntax::Span;
 use crate::text::{FontFamily, FontList, TextElem};
@@ -128,7 +128,7 @@ impl Styles {
 
     /// Returns `Some(_)` with an optional span if this list contains
     /// styles for the given element.
-    pub fn interruption<T: TexElement>(&self) -> Option<Option<Span>> {
+    pub fn interruption<T: IsTexElem>(&self) -> Option<Option<Span>> {
         let elem = T::elem();
         self.0.iter().find_map(|entry| match &**entry {
             Style::Property(property) => property.is_of(elem).then_some(property.span),
@@ -241,7 +241,7 @@ impl Property {
     /// Create a new property from a key-value pair.
     pub fn new<E, T>(id: u8, value: T) -> Self
     where
-        E: TexElement,
+        E: IsTexElem,
         T: Debug + Clone + Hash + Send + Sync + 'static,
     {
         Self {

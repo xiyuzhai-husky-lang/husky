@@ -3,7 +3,7 @@ use std::collections::HashSet;
 use crate::diag::{bail, At, SourceResult};
 use crate::eval::{Access, Eval, Vm};
 use crate::foundations::{Array, TexDict, TexValue};
-use crate::syntax::ast::{self, AstNode};
+use crate::syntax::ast::{self, TexAstNode};
 
 impl Eval for ast::LetBinding<'_> {
     type Output = TexValue;

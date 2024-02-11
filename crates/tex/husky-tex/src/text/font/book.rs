@@ -7,7 +7,7 @@ use ttf_parser::{name_id, PlatformId, Tag};
 use unicode_segmentation::UnicodeSegmentation;
 
 use super::exceptions::find_exception;
-use crate::text::{FontStretch, FontStyle, FontVariant, FontWeight, TexFont};
+use crate::text::{FontStretch, FontVariant, FontWeight, TexFont, TexFontStyle};
 
 /// Metadata about a collection of fonts.
 #[derive(Debug, Default, Clone, Hash)]
@@ -248,9 +248,9 @@ impl FontInfo {
                     ttf.is_oblique() || full.contains("oblique") || full.contains("slanted");
 
                 match (italic, oblique) {
-                    (false, false) => FontStyle::Normal,
-                    (true, _) => FontStyle::Italic,
-                    (_, true) => FontStyle::Oblique,
+                    (false, false) => TexFontStyle::Normal,
+                    (true, _) => TexFontStyle::Italic,
+                    (_, true) => TexFontStyle::Oblique,
                 }
             });
 

@@ -19,9 +19,9 @@
 //!   These frames can finally be exported into an output format (currently PDF,
 //!   PNG, or SVG).
 //!
-//! [tokens]: syntax::SyntaxKind
+//! [tokens]: syntax::TexSyntaxKind
 //! [parsed]: syntax::parse
-//! [syntax tree]: syntax::SyntaxNode
+//! [syntax tree]: syntax::TexSyntaxNode
 //! [AST]: syntax::ast
 //! [evaluate]: eval::eval
 //! [module]: foundations::Module

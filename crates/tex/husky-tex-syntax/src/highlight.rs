@@ -1,4 +1,4 @@
-use crate::{ast, LinkedNode, SyntaxKind, SyntaxNode};
+use crate::{ast, LinkedNode, TexSyntaxKind, TexSyntaxNode};
 
 /// A syntax highlighting tag.
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
@@ -136,154 +136,154 @@ impl Tag {
 /// Returns `None` if the node should not be highlighted.
 pub fn highlight(node: &LinkedNode) -> Option<Tag> {
     match node.kind() {
-        SyntaxKind::Markup
-            if node.parent_kind() == Some(SyntaxKind::TermItem)
-                && node.next_sibling_kind() == Some(SyntaxKind::Colon) =>
+        TexSyntaxKind::TexMarkup
+            if node.parent_kind() == Some(TexSyntaxKind::TermItem)
+                && node.next_sibling_kind() == Some(TexSyntaxKind::Colon) =>
         {
             Some(Tag::ListTerm)
         }
-        SyntaxKind::Markup => None,
-        SyntaxKind::Text => None,
-        SyntaxKind::Space => None,
-        SyntaxKind::Linebreak => Some(Tag::Escape),
-        SyntaxKind::Parbreak => None,
-        SyntaxKind::Escape => Some(Tag::Escape),
-        SyntaxKind::Shorthand => Some(Tag::Escape),
-        SyntaxKind::SmartQuote => None,
-        SyntaxKind::Strong => Some(Tag::Strong),
-        SyntaxKind::Emph => Some(Tag::Emph),
-        SyntaxKind::Raw => Some(Tag::Raw),
-        SyntaxKind::Link => Some(Tag::Link),
-        SyntaxKind::Label => Some(Tag::Label),
-        SyntaxKind::Ref => Some(Tag::Ref),
-        SyntaxKind::RefMarker => None,
-        SyntaxKind::Heading => Some(Tag::Heading),
-        SyntaxKind::HeadingMarker => None,
-        SyntaxKind::ListItem => None,
-        SyntaxKind::ListMarker => Some(Tag::ListMarker),
-        SyntaxKind::EnumItem => None,
-        SyntaxKind::EnumMarker => Some(Tag::ListMarker),
-        SyntaxKind::TermItem => None,
-        SyntaxKind::TermMarker => Some(Tag::ListMarker),
-        SyntaxKind::Equation => None,
+        TexSyntaxKind::TexMarkup => None,
+        TexSyntaxKind::Text => None,
+        TexSyntaxKind::Space => None,
+        TexSyntaxKind::Linebreak => Some(Tag::Escape),
+        TexSyntaxKind::Parbreak => None,
+        TexSyntaxKind::Escape => Some(Tag::Escape),
+        TexSyntaxKind::Shorthand => Some(Tag::Escape),
+        TexSyntaxKind::SmartQuote => None,
+        TexSyntaxKind::Strong => Some(Tag::Strong),
+        TexSyntaxKind::Emph => Some(Tag::Emph),
+        TexSyntaxKind::Raw => Some(Tag::Raw),
+        TexSyntaxKind::Link => Some(Tag::Link),
+        TexSyntaxKind::Label => Some(Tag::Label),
+        TexSyntaxKind::Ref => Some(Tag::Ref),
+        TexSyntaxKind::RefMarker => None,
+        TexSyntaxKind::Heading => Some(Tag::Heading),
+        TexSyntaxKind::HeadingMarker => None,
+        TexSyntaxKind::ListItem => None,
+        TexSyntaxKind::ListMarker => Some(Tag::ListMarker),
+        TexSyntaxKind::EnumItem => None,
+        TexSyntaxKind::EnumMarker => Some(Tag::ListMarker),
+        TexSyntaxKind::TermItem => None,
+        TexSyntaxKind::TermMarker => Some(Tag::ListMarker),
+        TexSyntaxKind::Equation => None,
 
-        SyntaxKind::Math => None,
-        SyntaxKind::MathIdent => highlight_ident(node),
-        SyntaxKind::MathAlignPoint => Some(Tag::MathOperator),
-        SyntaxKind::MathDelimited => None,
-        SyntaxKind::MathAttach => None,
-        SyntaxKind::MathFrac => None,
-        SyntaxKind::MathRoot => None,
-        SyntaxKind::MathPrimes => None,
+        TexSyntaxKind::Math => None,
+        TexSyntaxKind::MathIdent => highlight_ident(node),
+        TexSyntaxKind::MathAlignPoint => Some(Tag::MathOperator),
+        TexSyntaxKind::MathDelimited => None,
+        TexSyntaxKind::MathAttach => None,
+        TexSyntaxKind::MathFrac => None,
+        TexSyntaxKind::MathRoot => None,
+        TexSyntaxKind::MathPrimes => None,
 
-        SyntaxKind::Hash => highlight_hash(node),
-        SyntaxKind::LeftBrace => Some(Tag::Punctuation),
-        SyntaxKind::RightBrace => Some(Tag::Punctuation),
-        SyntaxKind::LeftBracket => Some(Tag::Punctuation),
-        SyntaxKind::RightBracket => Some(Tag::Punctuation),
-        SyntaxKind::LeftParen => Some(Tag::Punctuation),
-        SyntaxKind::RightParen => Some(Tag::Punctuation),
-        SyntaxKind::Comma => Some(Tag::Punctuation),
-        SyntaxKind::Semicolon => Some(Tag::Punctuation),
-        SyntaxKind::Colon => Some(Tag::Punctuation),
-        SyntaxKind::Star => match node.parent_kind() {
-            Some(SyntaxKind::Strong) => None,
+        TexSyntaxKind::Hash => highlight_hash(node),
+        TexSyntaxKind::LeftBrace => Some(Tag::Punctuation),
+        TexSyntaxKind::RightBrace => Some(Tag::Punctuation),
+        TexSyntaxKind::LeftBracket => Some(Tag::Punctuation),
+        TexSyntaxKind::RightBracket => Some(Tag::Punctuation),
+        TexSyntaxKind::LeftParen => Some(Tag::Punctuation),
+        TexSyntaxKind::RightParen => Some(Tag::Punctuation),
+        TexSyntaxKind::Comma => Some(Tag::Punctuation),
+        TexSyntaxKind::Semicolon => Some(Tag::Punctuation),
+        TexSyntaxKind::Colon => Some(Tag::Punctuation),
+        TexSyntaxKind::Star => match node.parent_kind() {
+            Some(TexSyntaxKind::Strong) => None,
             _ => Some(Tag::Operator),
         },
-        SyntaxKind::Underscore => match node.parent_kind() {
-            Some(SyntaxKind::MathAttach) => Some(Tag::MathOperator),
+        TexSyntaxKind::Underscore => match node.parent_kind() {
+            Some(TexSyntaxKind::MathAttach) => Some(Tag::MathOperator),
             _ => None,
         },
-        SyntaxKind::Dollar => Some(Tag::MathDelimiter),
-        SyntaxKind::Plus => Some(Tag::Operator),
-        SyntaxKind::Minus => Some(Tag::Operator),
-        SyntaxKind::Slash => Some(match node.parent_kind() {
-            Some(SyntaxKind::MathFrac) => Tag::MathOperator,
+        TexSyntaxKind::Dollar => Some(Tag::MathDelimiter),
+        TexSyntaxKind::Plus => Some(Tag::Operator),
+        TexSyntaxKind::Minus => Some(Tag::Operator),
+        TexSyntaxKind::Slash => Some(match node.parent_kind() {
+            Some(TexSyntaxKind::MathFrac) => Tag::MathOperator,
             _ => Tag::Operator,
         }),
-        SyntaxKind::Hat => Some(Tag::MathOperator),
-        SyntaxKind::Prime => Some(Tag::MathOperator),
-        SyntaxKind::Dot => Some(Tag::Punctuation),
-        SyntaxKind::Eq => match node.parent_kind() {
-            Some(SyntaxKind::Heading) => None,
+        TexSyntaxKind::Hat => Some(Tag::MathOperator),
+        TexSyntaxKind::Prime => Some(Tag::MathOperator),
+        TexSyntaxKind::Dot => Some(Tag::Punctuation),
+        TexSyntaxKind::Eq => match node.parent_kind() {
+            Some(TexSyntaxKind::Heading) => None,
             _ => Some(Tag::Operator),
         },
-        SyntaxKind::EqEq => Some(Tag::Operator),
-        SyntaxKind::ExclEq => Some(Tag::Operator),
-        SyntaxKind::Lt => Some(Tag::Operator),
-        SyntaxKind::LtEq => Some(Tag::Operator),
-        SyntaxKind::Gt => Some(Tag::Operator),
-        SyntaxKind::GtEq => Some(Tag::Operator),
-        SyntaxKind::PlusEq => Some(Tag::Operator),
-        SyntaxKind::HyphEq => Some(Tag::Operator),
-        SyntaxKind::StarEq => Some(Tag::Operator),
-        SyntaxKind::SlashEq => Some(Tag::Operator),
-        SyntaxKind::Dots => Some(Tag::Operator),
-        SyntaxKind::Arrow => Some(Tag::Operator),
-        SyntaxKind::Root => Some(Tag::MathOperator),
+        TexSyntaxKind::EqEq => Some(Tag::Operator),
+        TexSyntaxKind::ExclEq => Some(Tag::Operator),
+        TexSyntaxKind::Lt => Some(Tag::Operator),
+        TexSyntaxKind::LtEq => Some(Tag::Operator),
+        TexSyntaxKind::Gt => Some(Tag::Operator),
+        TexSyntaxKind::GtEq => Some(Tag::Operator),
+        TexSyntaxKind::PlusEq => Some(Tag::Operator),
+        TexSyntaxKind::HyphEq => Some(Tag::Operator),
+        TexSyntaxKind::StarEq => Some(Tag::Operator),
+        TexSyntaxKind::SlashEq => Some(Tag::Operator),
+        TexSyntaxKind::Dots => Some(Tag::Operator),
+        TexSyntaxKind::Arrow => Some(Tag::Operator),
+        TexSyntaxKind::Root => Some(Tag::MathOperator),
 
-        SyntaxKind::Not => Some(Tag::Keyword),
-        SyntaxKind::And => Some(Tag::Keyword),
-        SyntaxKind::Or => Some(Tag::Keyword),
-        SyntaxKind::None => Some(Tag::Keyword),
-        SyntaxKind::Auto => Some(Tag::Keyword),
-        SyntaxKind::Let => Some(Tag::Keyword),
-        SyntaxKind::Set => Some(Tag::Keyword),
-        SyntaxKind::Show => Some(Tag::Keyword),
-        SyntaxKind::If => Some(Tag::Keyword),
-        SyntaxKind::Else => Some(Tag::Keyword),
-        SyntaxKind::For => Some(Tag::Keyword),
-        SyntaxKind::In => Some(Tag::Keyword),
-        SyntaxKind::While => Some(Tag::Keyword),
-        SyntaxKind::Break => Some(Tag::Keyword),
-        SyntaxKind::Continue => Some(Tag::Keyword),
-        SyntaxKind::Return => Some(Tag::Keyword),
-        SyntaxKind::Import => Some(Tag::Keyword),
-        SyntaxKind::Include => Some(Tag::Keyword),
-        SyntaxKind::As => Some(Tag::Keyword),
+        TexSyntaxKind::Not => Some(Tag::Keyword),
+        TexSyntaxKind::And => Some(Tag::Keyword),
+        TexSyntaxKind::Or => Some(Tag::Keyword),
+        TexSyntaxKind::None => Some(Tag::Keyword),
+        TexSyntaxKind::Auto => Some(Tag::Keyword),
+        TexSyntaxKind::Let => Some(Tag::Keyword),
+        TexSyntaxKind::Set => Some(Tag::Keyword),
+        TexSyntaxKind::Show => Some(Tag::Keyword),
+        TexSyntaxKind::If => Some(Tag::Keyword),
+        TexSyntaxKind::Else => Some(Tag::Keyword),
+        TexSyntaxKind::For => Some(Tag::Keyword),
+        TexSyntaxKind::In => Some(Tag::Keyword),
+        TexSyntaxKind::While => Some(Tag::Keyword),
+        TexSyntaxKind::Break => Some(Tag::Keyword),
+        TexSyntaxKind::Continue => Some(Tag::Keyword),
+        TexSyntaxKind::Return => Some(Tag::Keyword),
+        TexSyntaxKind::Import => Some(Tag::Keyword),
+        TexSyntaxKind::Include => Some(Tag::Keyword),
+        TexSyntaxKind::As => Some(Tag::Keyword),
 
-        SyntaxKind::Code => None,
-        SyntaxKind::Ident => highlight_ident(node),
-        SyntaxKind::Bool => Some(Tag::Keyword),
-        SyntaxKind::Int => Some(Tag::Number),
-        SyntaxKind::Float => Some(Tag::Number),
-        SyntaxKind::Numeric => Some(Tag::Number),
-        SyntaxKind::Str => Some(Tag::String),
-        SyntaxKind::CodeBlock => None,
-        SyntaxKind::ContentBlock => None,
-        SyntaxKind::Parenthesized => None,
-        SyntaxKind::Array => None,
-        SyntaxKind::Dict => None,
-        SyntaxKind::Named => None,
-        SyntaxKind::Keyed => None,
-        SyntaxKind::Unary => None,
-        SyntaxKind::Binary => None,
-        SyntaxKind::FieldAccess => None,
-        SyntaxKind::FuncCall => None,
-        SyntaxKind::Args => None,
-        SyntaxKind::Spread => None,
-        SyntaxKind::Closure => None,
-        SyntaxKind::Params => None,
-        SyntaxKind::LetBinding => None,
-        SyntaxKind::SetRule => None,
-        SyntaxKind::ShowRule => None,
-        SyntaxKind::Conditional => None,
-        SyntaxKind::WhileLoop => None,
-        SyntaxKind::ForLoop => None,
-        SyntaxKind::ModuleImport => None,
-        SyntaxKind::ImportItems => None,
-        SyntaxKind::RenamedImportItem => None,
-        SyntaxKind::ModuleInclude => None,
-        SyntaxKind::LoopBreak => None,
-        SyntaxKind::LoopContinue => None,
-        SyntaxKind::FuncReturn => None,
-        SyntaxKind::Destructuring => None,
-        SyntaxKind::DestructAssignment => None,
+        TexSyntaxKind::Code => None,
+        TexSyntaxKind::Ident => highlight_ident(node),
+        TexSyntaxKind::Bool => Some(Tag::Keyword),
+        TexSyntaxKind::Int => Some(Tag::Number),
+        TexSyntaxKind::Float => Some(Tag::Number),
+        TexSyntaxKind::Numeric => Some(Tag::Number),
+        TexSyntaxKind::Str => Some(Tag::String),
+        TexSyntaxKind::CodeBlock => None,
+        TexSyntaxKind::ContentBlock => None,
+        TexSyntaxKind::Parenthesized => None,
+        TexSyntaxKind::Array => None,
+        TexSyntaxKind::Dict => None,
+        TexSyntaxKind::Named => None,
+        TexSyntaxKind::Keyed => None,
+        TexSyntaxKind::Unary => None,
+        TexSyntaxKind::Binary => None,
+        TexSyntaxKind::FieldAccess => None,
+        TexSyntaxKind::FuncCall => None,
+        TexSyntaxKind::Args => None,
+        TexSyntaxKind::Spread => None,
+        TexSyntaxKind::Closure => None,
+        TexSyntaxKind::Params => None,
+        TexSyntaxKind::LetBinding => None,
+        TexSyntaxKind::SetRule => None,
+        TexSyntaxKind::ShowRule => None,
+        TexSyntaxKind::Conditional => None,
+        TexSyntaxKind::WhileLoop => None,
+        TexSyntaxKind::ForLoop => None,
+        TexSyntaxKind::ModuleImport => None,
+        TexSyntaxKind::ImportItems => None,
+        TexSyntaxKind::RenamedImportItem => None,
+        TexSyntaxKind::ModuleInclude => None,
+        TexSyntaxKind::LoopBreak => None,
+        TexSyntaxKind::LoopContinue => None,
+        TexSyntaxKind::FuncReturn => None,
+        TexSyntaxKind::Destructuring => None,
+        TexSyntaxKind::DestructAssignment => None,
 
-        SyntaxKind::LineComment => Some(Tag::Comment),
-        SyntaxKind::BlockComment => Some(Tag::Comment),
-        SyntaxKind::Error => Some(Tag::Error),
-        SyntaxKind::Eof => None,
+        TexSyntaxKind::LineComment => Some(Tag::Comment),
+        TexSyntaxKind::BlockComment => Some(Tag::Comment),
+        TexSyntaxKind::Error => Some(Tag::Error),
+        TexSyntaxKind::Eof => None,
     }
 }
 
@@ -293,45 +293,45 @@ fn highlight_ident(node: &LinkedNode) -> Option<Tag> {
     let next_leaf = node.next_leaf();
     if let Some(next) = &next_leaf {
         if node.range().end == next.offset()
-            && ((next.kind() == SyntaxKind::LeftParen
+            && ((next.kind() == TexSyntaxKind::LeftParen
                 && matches!(
                     next.parent_kind(),
-                    Some(SyntaxKind::Args | SyntaxKind::Params)
+                    Some(TexSyntaxKind::Args | TexSyntaxKind::Params)
                 ))
-                || (next.kind() == SyntaxKind::LeftBracket
-                    && next.parent_kind() == Some(SyntaxKind::ContentBlock)))
+                || (next.kind() == TexSyntaxKind::LeftBracket
+                    && next.parent_kind() == Some(TexSyntaxKind::ContentBlock)))
         {
             return Some(Tag::Function);
         }
     }
 
     // Are we in math?
-    if node.kind() == SyntaxKind::MathIdent {
+    if node.kind() == TexSyntaxKind::MathIdent {
         return Some(Tag::Interpolated);
     }
 
     // Find the first non-field access ancestor.
     let mut ancestor = node;
-    while ancestor.parent_kind() == Some(SyntaxKind::FieldAccess) {
+    while ancestor.parent_kind() == Some(TexSyntaxKind::FieldAccess) {
         ancestor = ancestor.parent()?;
     }
 
     // Are we directly before or behind a show rule colon?
-    if ancestor.parent_kind() == Some(SyntaxKind::ShowRule)
-        && (next_leaf.map(|leaf| leaf.kind()) == Some(SyntaxKind::Colon)
-            || node.prev_leaf().map(|leaf| leaf.kind()) == Some(SyntaxKind::Colon))
+    if ancestor.parent_kind() == Some(TexSyntaxKind::ShowRule)
+        && (next_leaf.map(|leaf| leaf.kind()) == Some(TexSyntaxKind::Colon)
+            || node.prev_leaf().map(|leaf| leaf.kind()) == Some(TexSyntaxKind::Colon))
     {
         return Some(Tag::Function);
     }
 
     // Are we (or an ancestor field access) directly after a hash.
-    if ancestor.prev_leaf().map(|leaf| leaf.kind()) == Some(SyntaxKind::Hash) {
+    if ancestor.prev_leaf().map(|leaf| leaf.kind()) == Some(TexSyntaxKind::Hash) {
         return Some(Tag::Interpolated);
     }
 
     // Are we behind a dot, that is behind another identifier?
     let prev = node.prev_leaf()?;
-    if prev.kind() == SyntaxKind::Dot {
+    if prev.kind() == TexSyntaxKind::Dot {
         let prev_prev = prev.prev_leaf()?;
         if is_ident(&prev_prev) {
             return highlight_ident(&prev_prev);
@@ -353,13 +353,13 @@ fn highlight_hash(node: &LinkedNode) -> Option<Tag> {
 
 /// Whether the node is one of the two identifier nodes.
 fn is_ident(node: &LinkedNode) -> bool {
-    matches!(node.kind(), SyntaxKind::Ident | SyntaxKind::MathIdent)
+    matches!(node.kind(), TexSyntaxKind::Ident | TexSyntaxKind::MathIdent)
 }
 
 /// Highlight a node to an HTML `code` element.
 ///
 /// This uses these [CSS classes for categories](Tag::css_class).
-pub fn highlight_html(root: &SyntaxNode) -> String {
+pub fn highlight_html(root: &TexSyntaxNode) -> String {
     let mut buf = String::from("<code>");
     let node = LinkedNode::new(root);
     highlight_html_impl(&mut buf, &node);

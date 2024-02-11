@@ -5,7 +5,7 @@ mod exceptions;
 mod variant;
 
 pub use self::book::{Coverage, FontFlags, FontInfo, TexFontBook};
-pub use self::variant::{FontStretch, FontStyle, FontVariant, FontWeight};
+pub use self::variant::{FontStretch, FontVariant, FontWeight, TexFontStyle};
 
 use std::fmt::{self, Debug, Formatter};
 use std::hash::{Hash, Hasher};

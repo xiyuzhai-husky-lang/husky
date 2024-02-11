@@ -4,12 +4,12 @@ use std::str::FromStr;
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, Label, Packed, Show, ShowSet, Smart, StyleChain, Styles, TexContent,
-    TexElement,
+    cast, elem, scope, IsTexElem, Label, Packed, Show, ShowSet, Smart, StyleChain, Styles,
+    TexContent,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable, Location};
 use crate::layout::{Abs, HElem, Length, LengthInEm, Ratio};
-use crate::model::{Destination, Numbering, NumberingPattern, ParElem};
+use crate::model::{Numbering, NumberingPattern, ParagraphTexElem, TexDestination};
 use crate::text::{SuperElem, TextElem, TextSize};
 use crate::util::NonZeroExt;
 use crate::visualize::{LineElem, TexStroke};
@@ -51,7 +51,7 @@ use crate::visualize::{LineElem, TexStroke};
 ///
 /// [issue]: https://github.com/typst/typst/issues/1467#issuecomment-1588799440
 #[elem(scope, Locatable, Show, Count)]
-pub struct FootnoteElem {
+pub struct FootnoteTexElem {
     /// How to number footnotes.
     ///
     /// By default, the footnote numbering continues throughout your document.
@@ -77,12 +77,12 @@ pub struct FootnoteElem {
 }
 
 #[scope]
-impl FootnoteElem {
+impl FootnoteTexElem {
     #[elem]
     type FootnoteEntry;
 }
 
-impl FootnoteElem {
+impl FootnoteTexElem {
     /// Creates a new footnote that the passed content as its body.
     pub fn with_content(content: TexContent) -> Self {
         Self::new(FootnoteBody::Content(content))
@@ -107,14 +107,14 @@ impl FootnoteElem {
     }
 }
 
-impl Packed<FootnoteElem> {
+impl Packed<FootnoteTexElem> {
     /// Returns the location of the definition of this footnote.
     pub fn declaration_location(&self, engine: &Engine) -> StrResult<Location> {
         match self.body() {
             FootnoteBody::Reference(label) => {
                 let element = engine.introspector.query_label(*label)?;
                 let footnote = element
-                    .to_packed::<FootnoteElem>()
+                    .to_packed::<FootnoteTexElem>()
                     .ok_or("referenced element should be a footnote")?;
                 footnote.declaration_location(engine)
             }
@@ -123,21 +123,21 @@ impl Packed<FootnoteElem> {
     }
 }
 
-impl Show for Packed<FootnoteElem> {
+impl Show for Packed<FootnoteTexElem> {
     #[husky_tex_macros::time(name = "footnote", span = self.span())]
     fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         let loc = self.declaration_location(engine).at(self.span())?;
         let numbering = self.numbering(styles);
-        let counter = Counter::of(FootnoteElem::elem());
+        let counter = Counter::of(FootnoteTexElem::elem());
         let num = counter.at(engine, loc)?.display(engine, numbering)?;
         let sup = SuperElem::new(num).pack().spanned(self.span());
         let loc = loc.variant(1);
         // Add zero-width weak spacing to make the footnote "sticky".
-        Ok(HElem::hole().pack() + sup.linked(Destination::Location(loc)))
+        Ok(HElem::hole().pack() + sup.linked(TexDestination::Location(loc)))
     }
 }
 
-impl Count for Packed<FootnoteElem> {
+impl Count for Packed<FootnoteTexElem> {
     fn update(&self) -> Option<CounterUpdate> {
         (!self.is_ref()).then(|| CounterUpdate::Step(NonZeroUsize::ONE))
     }
@@ -197,7 +197,7 @@ pub struct FootnoteEntry {
     /// listing #footnote[World! 🌏]
     /// ```
     #[required]
-    pub note: Packed<FootnoteElem>,
+    pub note: Packed<FootnoteTexElem>,
 
     /// The separator between the document body and the footnote listing.
     ///
@@ -270,7 +270,7 @@ impl Show for Packed<FootnoteEntry> {
         let number_gap = LengthInEm::new(0.05);
         let default = StyleChain::default();
         let numbering = note.numbering(default);
-        let counter = Counter::of(FootnoteElem::elem());
+        let counter = Counter::of(FootnoteTexElem::elem());
         let Some(loc) = note.location() else {
             bail!(
                 self.span(), "footnote entry must have a location";
@@ -282,7 +282,7 @@ impl Show for Packed<FootnoteEntry> {
         let sup = SuperElem::new(num)
             .pack()
             .spanned(self.span())
-            .linked(Destination::Location(loc))
+            .linked(TexDestination::Location(loc))
             .backlinked(loc.variant(1));
         Ok(TexContent::sequence([
             HElem::new(self.indent(styles).into()).pack(),
@@ -298,13 +298,13 @@ impl ShowSet for Packed<FootnoteEntry> {
         let text_size = LengthInEm::new(0.85);
         let leading = LengthInEm::new(0.5);
         let mut out = Styles::new();
-        out.set(ParElem::set_leading(leading.into()));
+        out.set(ParagraphTexElem::set_leading(leading.into()));
         out.set(TextElem::set_size(TextSize(text_size.into())));
         out
     }
 }
 
 cast! {
-    FootnoteElem,
+    FootnoteTexElem,
     v: TexContent => v.unpack::<Self>().unwrap_or_else(Self::with_content)
 }

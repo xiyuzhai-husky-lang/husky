@@ -27,7 +27,7 @@ use comemo::{Track, Tracked, TrackedMut};
 
 use crate::diag::{bail, SourceResult};
 use crate::engine::{Engine, Route};
-use crate::foundations::{Cast, Module, Scope, Scopes, TexElement, TexValue};
+use crate::foundations::{Cast, IsTexElem, Module, Scope, Scopes, TexValue};
 use crate::introspection::{Introspector, Locator};
 use crate::math::EquationElem;
 use crate::syntax::{ast, parse, parse_code, parse_math, Source, Span};
@@ -71,7 +71,7 @@ pub fn eval(
     }
 
     // Evaluate the module.
-    let markup = root.cast::<ast::Markup>().unwrap();
+    let markup = root.cast::<ast::TexMarkup>().unwrap();
     let output = markup.eval(&mut vm)?;
 
     // Handle control flow.
@@ -103,7 +103,7 @@ pub fn eval_string(
 ) -> SourceResult<TexValue> {
     let mut root = match mode {
         EvalMode::Code => parse_code(string),
-        EvalMode::Markup => parse(string),
+        EvalMode::TexMarkup => parse(string),
         EvalMode::Math => parse_math(string),
     };
 
@@ -135,7 +135,9 @@ pub fn eval_string(
     // Evaluate the code.
     let output = match mode {
         EvalMode::Code => root.cast::<ast::Code>().unwrap().eval(&mut vm)?,
-        EvalMode::Markup => TexValue::Content(root.cast::<ast::Markup>().unwrap().eval(&mut vm)?),
+        EvalMode::TexMarkup => {
+            TexValue::Content(root.cast::<ast::TexMarkup>().unwrap().eval(&mut vm)?)
+        }
         EvalMode::Math => TexValue::Content(
             EquationElem::new(root.cast::<ast::Math>().unwrap().eval(&mut vm)?)
                 .with_block(false)
@@ -157,7 +159,7 @@ pub enum EvalMode {
     /// Evaluate as code, as after a hash.
     Code,
     /// Evaluate as markup, like in a Tex file.
-    Markup,
+    TexMarkup,
     /// Evaluate as math, as in an equation.
     Math,
 }

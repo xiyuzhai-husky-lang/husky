@@ -3,7 +3,7 @@ use ecow::eco_format;
 use crate::diag::{bail, At, Hint, SourceResult, Trace, Tracepoint};
 use crate::eval::{Eval, Vm};
 use crate::foundations::{call_method_access, is_accessor_method, TexDict, TexValue};
-use crate::syntax::ast::{self, AstNode};
+use crate::syntax::ast::{self, TexAstNode};
 
 /// Access an expression mutably.
 pub(crate) trait Access {

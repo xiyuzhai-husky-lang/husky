@@ -5,12 +5,12 @@ use std::sync::Arc;
 
 use ecow::{eco_vec, EcoString, EcoVec};
 
-use crate::ast::AstNode;
-use crate::{FileId, Span, SyntaxKind};
+use crate::ast::TexAstNode;
+use crate::{FileId, Span, TexSyntaxKind};
 
 /// A node in the untyped syntax tree.
 #[derive(Clone, Eq, PartialEq, Hash)]
-pub struct SyntaxNode(Repr);
+pub struct TexSyntaxNode(Repr);
 
 /// The three internal representations.
 #[derive(Clone, Eq, PartialEq, Hash)]
@@ -23,14 +23,14 @@ enum Repr {
     Error(Arc<ErrorNode>),
 }
 
-impl SyntaxNode {
+impl TexSyntaxNode {
     /// Create a new leaf node.
-    pub fn leaf(kind: SyntaxKind, text: impl Into<EcoString>) -> Self {
+    pub fn leaf(kind: TexSyntaxKind, text: impl Into<EcoString>) -> Self {
         Self(Repr::Leaf(LeafNode::new(kind, text)))
     }
 
     /// Create a new inner node with children.
-    pub fn inner(kind: SyntaxKind, children: Vec<SyntaxNode>) -> Self {
+    pub fn inner(kind: TexSyntaxKind, children: Vec<TexSyntaxNode>) -> Self {
         Self(Repr::Inner(Arc::new(InnerNode::new(kind, children))))
     }
 
@@ -40,11 +40,11 @@ impl SyntaxNode {
     }
 
     /// The type of the node.
-    pub fn kind(&self) -> SyntaxKind {
+    pub fn kind(&self) -> TexSyntaxKind {
         match &self.0 {
             Repr::Leaf(leaf) => leaf.kind,
             Repr::Inner(inner) => inner.kind,
-            Repr::Error(_) => SyntaxKind::Error,
+            Repr::Error(_) => TexSyntaxKind::Error,
         }
     }
 
@@ -89,15 +89,18 @@ impl SyntaxNode {
     pub fn into_text(self) -> EcoString {
         match self.0 {
             Repr::Leaf(leaf) => leaf.text,
-            Repr::Inner(inner) => {
-                inner.children.iter().cloned().map(Self::into_text).collect()
-            }
+            Repr::Inner(inner) => inner
+                .children
+                .iter()
+                .cloned()
+                .map(Self::into_text)
+                .collect(),
             Repr::Error(node) => node.text.clone(),
         }
     }
 
     /// The node's children.
-    pub fn children(&self) -> std::slice::Iter<'_, SyntaxNode> {
+    pub fn children(&self) -> std::slice::Iter<'_, TexSyntaxNode> {
         match &self.0 {
             Repr::Leaf(_) | Repr::Error(_) => [].iter(),
             Repr::Inner(inner) => inner.children.iter(),
@@ -105,22 +108,22 @@ impl SyntaxNode {
     }
 
     /// Whether the node can be cast to the given AST node.
-    pub fn is<'a, T: AstNode<'a>>(&'a self) -> bool {
+    pub fn is<'a, T: TexAstNode<'a>>(&'a self) -> bool {
         self.cast::<T>().is_some()
     }
 
     /// Try to convert the node to a typed AST node.
-    pub fn cast<'a, T: AstNode<'a>>(&'a self) -> Option<T> {
+    pub fn cast<'a, T: TexAstNode<'a>>(&'a self) -> Option<T> {
         T::from_untyped(self)
     }
 
     /// Cast the first child that can cast to the AST type `T`.
-    pub fn cast_first_match<'a, T: AstNode<'a>>(&'a self) -> Option<T> {
+    pub fn cast_first_match<'a, T: TexAstNode<'a>>(&'a self) -> Option<T> {
         self.children().find_map(Self::cast)
     }
 
     /// Cast the last child that can cast to the AST type `T`.
-    pub fn cast_last_match<'a, T: AstNode<'a>>(&'a self) -> Option<T> {
+    pub fn cast_last_match<'a, T: TexAstNode<'a>>(&'a self) -> Option<T> {
         self.children().rev().find_map(Self::cast)
     }
 
@@ -176,7 +179,7 @@ impl SyntaxNode {
     }
 }
 
-impl SyntaxNode {
+impl TexSyntaxNode {
     /// Mark this node as erroneous.
     pub(super) fn make_erroneous(&mut self) {
         if let Repr::Inner(inner) = &mut self.0 {
@@ -186,7 +189,7 @@ impl SyntaxNode {
 
     /// Convert the child to another kind.
     #[track_caller]
-    pub(super) fn convert_to_kind(&mut self, kind: SyntaxKind) {
+    pub(super) fn convert_to_kind(&mut self, kind: TexSyntaxKind) {
         debug_assert!(!kind.is_error());
         match &mut self.0 {
             Repr::Leaf(leaf) => leaf.kind = kind,
@@ -198,15 +201,11 @@ impl SyntaxNode {
     /// Convert the child to an error.
     pub(super) fn convert_to_error(&mut self, message: impl Into<EcoString>) {
         let text = std::mem::take(self).into_text();
-        *self = SyntaxNode::error(message, text);
+        *self = TexSyntaxNode::error(message, text);
     }
 
     /// Assign spans to each node.
-    pub(super) fn numberize(
-        &mut self,
-        id: FileId,
-        within: Range<u64>,
-    ) -> NumberingResult {
+    pub(super) fn numberize(&mut self, id: FileId, within: Range<u64>) -> NumberingResult {
         if within.start >= within.end {
             return Err(Unnumberable);
         }
@@ -235,7 +234,7 @@ impl SyntaxNode {
     }
 
     /// The node's children, mutably.
-    pub(super) fn children_mut(&mut self) -> &mut [SyntaxNode] {
+    pub(super) fn children_mut(&mut self) -> &mut [TexSyntaxNode] {
         match &mut self.0 {
             Repr::Leaf(_) | Repr::Error(_) => &mut [],
             Repr::Inner(inner) => &mut Arc::make_mut(inner).children,
@@ -248,7 +247,7 @@ impl SyntaxNode {
     pub(super) fn replace_children(
         &mut self,
         range: Range<usize>,
-        replacement: Vec<SyntaxNode>,
+        replacement: Vec<TexSyntaxNode>,
     ) -> NumberingResult {
         if let Repr::Inner(inner) = &mut self.0 {
             Arc::make_mut(inner).replace_children(range, replacement)?;
@@ -288,14 +287,14 @@ impl SyntaxNode {
     /// In contrast to `default()`, this is a const fn.
     pub(super) const fn arbitrary() -> Self {
         Self(Repr::Leaf(LeafNode {
-            kind: SyntaxKind::Eof,
+            kind: TexSyntaxKind::Eof,
             text: EcoString::new(),
             span: Span::detached(),
         }))
     }
 }
 
-impl Debug for SyntaxNode {
+impl Debug for TexSyntaxNode {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         match &self.0 {
             Repr::Leaf(leaf) => leaf.fmt(f),
@@ -305,7 +304,7 @@ impl Debug for SyntaxNode {
     }
 }
 
-impl Default for SyntaxNode {
+impl Default for TexSyntaxNode {
     fn default() -> Self {
         Self::arbitrary()
     }
@@ -316,7 +315,7 @@ impl Default for SyntaxNode {
 struct LeafNode {
     /// What kind of node this is (each kind would have its own struct in a
     /// strongly typed AST).
-    kind: SyntaxKind,
+    kind: TexSyntaxKind,
     /// The source text of the node.
     text: EcoString,
     /// The node's span.
@@ -326,9 +325,13 @@ struct LeafNode {
 impl LeafNode {
     /// Create a new leaf node.
     #[track_caller]
-    fn new(kind: SyntaxKind, text: impl Into<EcoString>) -> Self {
+    fn new(kind: TexSyntaxKind, text: impl Into<EcoString>) -> Self {
         debug_assert!(!kind.is_error());
-        Self { kind, text: text.into(), span: Span::detached() }
+        Self {
+            kind,
+            text: text.into(),
+            span: Span::detached(),
+        }
     }
 
     /// The byte length of the node in the source text.
@@ -353,7 +356,7 @@ impl Debug for LeafNode {
 struct InnerNode {
     /// What kind of node this is (each kind would have its own struct in a
     /// strongly typed AST).
-    kind: SyntaxKind,
+    kind: TexSyntaxKind,
     /// The byte length of the node in the source.
     len: usize,
     /// The node's span.
@@ -365,13 +368,13 @@ struct InnerNode {
     /// The upper bound of this node's numbering range.
     upper: u64,
     /// This node's children, losslessly make up this node.
-    children: Vec<SyntaxNode>,
+    children: Vec<TexSyntaxNode>,
 }
 
 impl InnerNode {
     /// Create a new inner node with the given kind and children.
     #[track_caller]
-    fn new(kind: SyntaxKind, children: Vec<SyntaxNode>) -> Self {
+    fn new(kind: TexSyntaxKind, children: Vec<TexSyntaxNode>) -> Self {
         debug_assert!(!kind.is_error());
 
         let mut len = 0;
@@ -417,7 +420,7 @@ impl InnerNode {
             Some(range) if range.is_empty() => return Ok(()),
             Some(range) => self.children[range.clone()]
                 .iter()
-                .map(SyntaxNode::descendants)
+                .map(TexSyntaxNode::descendants)
                 .sum::<usize>(),
             None => self.descendants,
         };
@@ -474,16 +477,17 @@ impl InnerNode {
     fn replace_children(
         &mut self,
         mut range: Range<usize>,
-        replacement: Vec<SyntaxNode>,
+        replacement: Vec<TexSyntaxNode>,
     ) -> NumberingResult {
-        let Some(id) = self.span.id() else { return Err(Unnumberable) };
+        let Some(id) = self.span.id() else {
+            return Err(Unnumberable);
+        };
         let mut replacement_range = 0..replacement.len();
 
         // Trim off common prefix.
         while range.start < range.end
             && replacement_range.start < replacement_range.end
-            && self.children[range.start]
-                .spanless_eq(&replacement[replacement_range.start])
+            && self.children[range.start].spanless_eq(&replacement[replacement_range.start])
         {
             range.start += 1;
             replacement_range.start += 1;
@@ -492,8 +496,7 @@ impl InnerNode {
         // Trim off common suffix.
         while range.start < range.end
             && replacement_range.start < replacement_range.end
-            && self.children[range.end - 1]
-                .spanless_eq(&replacement[replacement_range.end - 1])
+            && self.children[range.end - 1].spanless_eq(&replacement[replacement_range.end - 1])
         {
             range.end -= 1;
             replacement_range.end -= 1;
@@ -504,26 +507,38 @@ impl InnerNode {
         let superseded = &self.children[range.clone()];
 
         // Compute the new byte length.
-        self.len = self.len + replacement.iter().map(SyntaxNode::len).sum::<usize>()
-            - superseded.iter().map(SyntaxNode::len).sum::<usize>();
+        self.len = self.len + replacement.iter().map(TexSyntaxNode::len).sum::<usize>()
+            - superseded.iter().map(TexSyntaxNode::len).sum::<usize>();
 
         // Compute the new number of descendants.
         self.descendants = self.descendants
-            + replacement.iter().map(SyntaxNode::descendants).sum::<usize>()
-            - superseded.iter().map(SyntaxNode::descendants).sum::<usize>();
+            + replacement
+                .iter()
+                .map(TexSyntaxNode::descendants)
+                .sum::<usize>()
+            - superseded
+                .iter()
+                .map(TexSyntaxNode::descendants)
+                .sum::<usize>();
 
         // Determine whether we're still erroneous after the replacement. That's
         // the case if
         // - any of the new nodes is erroneous,
         // - or if we were erroneous before due to a non-superseded node.
-        self.erroneous = replacement.iter().any(SyntaxNode::erroneous)
+        self.erroneous = replacement.iter().any(TexSyntaxNode::erroneous)
             || (self.erroneous
-                && (self.children[..range.start].iter().any(SyntaxNode::erroneous))
-                || self.children[range.end..].iter().any(SyntaxNode::erroneous));
+                && (self.children[..range.start]
+                    .iter()
+                    .any(TexSyntaxNode::erroneous))
+                || self.children[range.end..]
+                    .iter()
+                    .any(TexSyntaxNode::erroneous));
 
         // Perform the replacement.
-        self.children
-            .splice(range.clone(), replacement_vec.drain(replacement_range.clone()));
+        self.children.splice(
+            range.clone(),
+            replacement_vec.drain(replacement_range.clone()),
+        );
         range.end = range.start + replacement_range.len();
 
         // Renumber the new children. Retries until it works, taking
@@ -583,7 +598,7 @@ impl InnerNode {
     ) {
         self.len = self.len + new_len - prev_len;
         self.descendants = self.descendants + new_descendants - prev_descendants;
-        self.erroneous = self.children.iter().any(SyntaxNode::erroneous);
+        self.erroneous = self.children.iter().any(TexSyntaxNode::erroneous);
     }
 }
 
@@ -669,7 +684,7 @@ impl SyntaxError {
 /// **Note that all sibling and leaf accessors skip over trivia!**
 #[derive(Clone)]
 pub struct LinkedNode<'a> {
-    node: &'a SyntaxNode,
+    node: &'a TexSyntaxNode,
     parent: Option<Rc<Self>>,
     index: usize,
     offset: usize,
@@ -677,12 +692,17 @@ pub struct LinkedNode<'a> {
 
 impl<'a> LinkedNode<'a> {
     /// Start a new traversal at a root node.
-    pub fn new(root: &'a SyntaxNode) -> Self {
-        Self { node: root, parent: None, index: 0, offset: 0 }
+    pub fn new(root: &'a TexSyntaxNode) -> Self {
+        Self {
+            node: root,
+            parent: None,
+            index: 0,
+            offset: 0,
+        }
     }
 
     /// Get the contained syntax node.
-    pub fn get(&self) -> &'a SyntaxNode {
+    pub fn get(&self) -> &'a TexSyntaxNode {
         self.node
     }
 
@@ -758,7 +778,12 @@ impl<'a> LinkedNode<'a> {
         let index = self.index.checked_sub(1)?;
         let node = parent.node.children().nth(index)?;
         let offset = self.offset - node.len();
-        let prev = Self { node, parent: self.parent.clone(), index, offset };
+        let prev = Self {
+            node,
+            parent: self.parent.clone(),
+            index,
+            offset,
+        };
         if prev.kind().is_trivia() {
             prev.prev_sibling()
         } else {
@@ -772,7 +797,12 @@ impl<'a> LinkedNode<'a> {
         let index = self.index.checked_add(1)?;
         let node = parent.node.children().nth(index)?;
         let offset = self.offset + self.node.len();
-        let next = Self { node, parent: self.parent.clone(), index, offset };
+        let next = Self {
+            node,
+            parent: self.parent.clone(),
+            index,
+            offset,
+        };
         if next.kind().is_trivia() {
             next.next_sibling()
         } else {
@@ -781,17 +811,17 @@ impl<'a> LinkedNode<'a> {
     }
 
     /// Get the kind of this node's parent.
-    pub fn parent_kind(&self) -> Option<SyntaxKind> {
+    pub fn parent_kind(&self) -> Option<TexSyntaxKind> {
         Some(self.parent()?.node.kind())
     }
 
     /// Get the kind of this node's first previous non-trivia sibling.
-    pub fn prev_sibling_kind(&self) -> Option<SyntaxKind> {
+    pub fn prev_sibling_kind(&self) -> Option<TexSyntaxKind> {
         Some(self.prev_sibling()?.node.kind())
     }
 
     /// Get the kind of this node's next non-trivia sibling.
-    pub fn next_sibling_kind(&self) -> Option<SyntaxKind> {
+    pub fn next_sibling_kind(&self) -> Option<TexSyntaxKind> {
         Some(self.next_sibling()?.node.kind())
     }
 }
@@ -835,9 +865,7 @@ impl<'a> LinkedNode<'a> {
         let count = self.node.children().len();
         for (i, child) in self.children().enumerate() {
             let len = child.len();
-            if (offset < cursor && cursor <= offset + len)
-                || (offset == cursor && i + 1 == count)
-            {
+            if (offset < cursor && cursor <= offset + len) || (offset == cursor && i + 1 == count) {
                 return child.leaf_at(cursor);
             }
             offset += len;
@@ -875,7 +903,7 @@ impl<'a> LinkedNode<'a> {
 }
 
 impl Deref for LinkedNode<'_> {
-    type Target = SyntaxNode;
+    type Target = TexSyntaxNode;
 
     /// Dereference to a syntax node. Note that this shortens the lifetime, so
     /// you may need to use [`get()`](Self::get) instead in some situations.
@@ -893,7 +921,7 @@ impl Debug for LinkedNode<'_> {
 /// An iterator over the children of a linked node.
 pub struct LinkedChildren<'a> {
     parent: Rc<LinkedNode<'a>>,
-    iter: std::iter::Enumerate<std::slice::Iter<'a, SyntaxNode>>,
+    iter: std::iter::Enumerate<std::slice::Iter<'a, TexSyntaxNode>>,
     front: usize,
     back: usize,
 }

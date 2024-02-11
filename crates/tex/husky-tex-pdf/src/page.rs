@@ -6,7 +6,7 @@ use husky_tex::introspection::Meta;
 use husky_tex::layout::{
     Abs, Frame, FrameItem, GroupItem, LengthInEm, Page, Point, Ratio, Size, Transform,
 };
-use husky_tex::model::{Destination, Numbering};
+use husky_tex::model::{Numbering, TexDestination};
 use husky_tex::text::{Case, TexFont, TextItem};
 use husky_tex::util::{Deferred, Numeric};
 use husky_tex::visualize::{
@@ -173,15 +173,15 @@ fn write_page(ctx: &mut PdfContext, i: usize) {
             .flags(AnnotationFlags::PRINT);
 
         let pos = match dest {
-            Destination::Url(uri) => {
+            TexDestination::Url(uri) => {
                 annotation
                     .action()
                     .action_type(ActionType::Uri)
                     .uri(Str(uri.as_bytes()));
                 continue;
             }
-            Destination::Position(pos) => *pos,
-            Destination::Location(loc) => ctx.document.introspector.position(*loc),
+            TexDestination::Position(pos) => *pos,
+            TexDestination::Location(loc) => ctx.document.introspector.position(*loc),
         };
 
         let index = pos.page.get() - 1;
@@ -341,7 +341,7 @@ pub struct EncodedPage {
     /// Whether the page uses opacities.
     pub uses_opacities: bool,
     /// Links in the PDF coordinate system.
-    pub links: Vec<(Destination, Rect)>,
+    pub links: Vec<(TexDestination, Rect)>,
     /// The page's used resources
     pub resources: HashMap<PageResource, usize>,
     /// The page's PDF label.
@@ -412,7 +412,7 @@ pub struct PageContext<'a, 'b> {
     saves: Vec<State>,
     bottom: f32,
     uses_opacities: bool,
-    links: Vec<(Destination, Rect)>,
+    links: Vec<(TexDestination, Rect)>,
     /// Keep track of the resources being used in the page.
     pub resources: HashMap<PageResource, usize>,
 }
@@ -877,7 +877,7 @@ fn write_image(ctx: &mut PageContext, x: f32, y: f32, image: &Image, size: Size)
 }
 
 /// Save a link for later writing in the annotations dictionary.
-fn write_link(ctx: &mut PageContext, pos: Point, dest: &Destination, size: Size) {
+fn write_link(ctx: &mut PageContext, pos: Point, dest: &TexDestination, size: Size) {
     let mut min_x = Abs::inf();
     let mut min_y = Abs::inf();
     let mut max_x = -Abs::inf();

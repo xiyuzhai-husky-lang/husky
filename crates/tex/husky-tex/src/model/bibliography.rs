@@ -6,6 +6,28 @@ use std::num::NonZeroUsize;
 use std::path::Path;
 use std::sync::Arc;
 
+use crate::diag::{bail, error, At, FileError, SourceResult, StrResult};
+use crate::engine::Engine;
+use crate::eval::{eval_string, EvalMode};
+use crate::foundations::{
+    cast, elem, ty, Args, Array, Bytes, CastInfo, FromTexValue, IntoTexValue, IsTexElem, Label,
+    Packed, Reflect, Repr, Scope, Show, ShowSet, Smart, Str, StyleChain, Styles, Synthesize,
+    TexContent, TexValue, Type,
+};
+use crate::introspection::{Introspector, Locatable, Location};
+use crate::layout::{
+    BlockElem, GridCell, GridElem, HElem, LengthInEm, PadElem, TexSizing, TrackSizings, VElem,
+};
+use crate::model::{
+    CitationForm, FootnoteTexElem, HeadingTexElem, LinkTexElem, ParagraphTexElem, TexCiteGroup,
+    TexDestination,
+};
+use crate::syntax::{Span, Spanned};
+use crate::text::{
+    Lang, LocalName, Region, SubElem, SuperElem, TexFontStyle, TextElem, WeightDelta,
+};
+use crate::util::{option_eq, NonZeroExt, PicoStr};
+use crate::World;
 use comemo::{Prehashed, Tracked};
 use ecow::{eco_format, EcoString, EcoVec};
 use hayagriva::archive::ArchivedStyle;
@@ -18,27 +40,6 @@ use indexmap::IndexMap;
 use once_cell::sync::Lazy;
 use smallvec::{smallvec, SmallVec};
 use typed_arena::Arena;
-
-use crate::diag::{bail, error, At, FileError, SourceResult, StrResult};
-use crate::engine::Engine;
-use crate::eval::{eval_string, EvalMode};
-use crate::foundations::{
-    cast, elem, ty, Args, Array, Bytes, CastInfo, FromTexValue, IntoTexValue, Label, Packed,
-    Reflect, Repr, Scope, Show, ShowSet, Smart, Str, StyleChain, Styles, Synthesize, TexContent,
-    TexElement, TexValue, Type,
-};
-use crate::introspection::{Introspector, Locatable, Location};
-use crate::layout::{
-    BlockElem, GridCell, GridElem, HElem, LengthInEm, PadElem, Sizing, TrackSizings, VElem,
-};
-use crate::model::{
-    CitationForm, CiteGroup, Destination, FootnoteElem, HeadingElem, LinkElem, ParElem,
-};
-
-use crate::syntax::{Span, Spanned};
-use crate::text::{FontStyle, Lang, LocalName, Region, SubElem, SuperElem, TextElem, WeightDelta};
-use crate::util::{option_eq, NonZeroExt, PicoStr};
-use crate::World;
 
 /// A bibliography / reference listing.
 ///
@@ -214,7 +215,7 @@ impl Show for Packed<BibliographyElem> {
             });
 
             seq.push(
-                HeadingElem::new(title)
+                HeadingTexElem::new(title)
                     .with_level(NonZeroUsize::ONE)
                     .pack()
                     .spanned(self.span()),
@@ -242,7 +243,7 @@ impl Show for Packed<BibliographyElem> {
             seq.push(VElem::new(row_gutter).with_weakness(3).pack());
             seq.push(
                 GridElem::new(cells)
-                    .with_columns(TrackSizings(smallvec![Sizing::Auto; 2]))
+                    .with_columns(TrackSizings(smallvec![TexSizing::Auto; 2]))
                     .with_column_gutter(TrackSizings(smallvec![COLUMN_GUTTER.into()]))
                     .with_row_gutter(TrackSizings(smallvec![(row_gutter).into()]))
                     .pack()
@@ -257,7 +258,7 @@ impl Show for Packed<BibliographyElem> {
 
         let mut content = TexContent::sequence(seq);
         if works.hanging_indent {
-            content = content.styled(ParElem::set_hanging_indent(INDENT.into()));
+            content = content.styled(ParagraphTexElem::set_hanging_indent(INDENT.into()));
         }
 
         Ok(content)
@@ -268,7 +269,7 @@ impl ShowSet for Packed<BibliographyElem> {
     fn show_set(&self, _: StyleChain) -> Styles {
         const INDENT: LengthInEm = LengthInEm::new(1.0);
         let mut out = Styles::new();
-        out.set(HeadingElem::set_numbering(None));
+        out.set(HeadingTexElem::set_numbering(None));
         out.set(PadElem::set_left(INDENT.into()));
         out
     }
@@ -637,7 +638,7 @@ impl<'a> Generator<'a> {
         introspector: Tracked<Introspector>,
     ) -> StrResult<Self> {
         let bibliography = BibliographyElem::find(introspector)?;
-        let groups = introspector.query(&CiteGroup::elem().select());
+        let groups = introspector.query(&TexCiteGroup::elem().select());
         let infos = Vec::with_capacity(groups.len());
         Ok(Self {
             world,
@@ -659,7 +660,7 @@ impl<'a> Generator<'a> {
         // Process all citation groups.
         let mut driver = BibliographyDriver::new();
         for elem in &self.groups {
-            let group = elem.to_packed::<CiteGroup>().unwrap();
+            let group = elem.to_packed::<TexCiteGroup>().unwrap();
             let location = elem.location().unwrap();
             let children = group.children();
 
@@ -824,7 +825,7 @@ impl<'a> Generator<'a> {
                 let mut content = renderer.display_elem_children(&citation.citation, &mut None);
 
                 if info.footnote {
-                    content = FootnoteElem::with_content(content).pack();
+                    content = FootnoteTexElem::with_content(content).pack();
                 }
 
                 content
@@ -874,7 +875,7 @@ impl<'a> Generator<'a> {
             let mut prefix = item.first_field.as_ref().map(|elem| {
                 let mut content = renderer.display_elem_child(elem, &mut None);
                 if let Some(location) = first_occurrences.get(item.key.as_str()) {
-                    let dest = Destination::Location(*location);
+                    let dest = TexDestination::Location(*location);
                     content = content.linked(dest);
                 }
                 content.backlinked(backlink)
@@ -957,7 +958,7 @@ impl ElemRenderer<'_> {
                 Packed::new(GridCell::new(prefix)).spanned(self.span),
                 Packed::new(GridCell::new(content)).spanned(self.span),
             ])
-            .with_columns(TrackSizings(smallvec![Sizing::Auto; 2]))
+            .with_columns(TrackSizings(smallvec![TexSizing::Auto; 2]))
             .with_column_gutter(TrackSizings(smallvec![COLUMN_GUTTER.into()]))
             .pack()
             .spanned(self.span);
@@ -982,7 +983,7 @@ impl ElemRenderer<'_> {
 
         if let Some(hayagriva::ElemMeta::Entry(i)) = elem.meta {
             if let Some(location) = (self.link)(i) {
-                let dest = Destination::Location(location);
+                let dest = TexDestination::Location(location);
                 content = content.linked(dest);
             }
         }
@@ -999,8 +1000,8 @@ impl ElemRenderer<'_> {
 
     /// Display a link.
     fn display_link(&self, text: &hayagriva::Formatted, url: &str) -> TexContent {
-        let dest = Destination::Url(url.into());
-        LinkElem::new(dest.into(), self.display_formatted(text))
+        let dest = TexDestination::Url(url.into());
+        LinkTexElem::new(dest.into(), self.display_formatted(text))
             .pack()
             .spanned(self.span)
     }
@@ -1023,7 +1024,7 @@ fn apply_formatting(mut content: TexContent, format: &hayagriva::Formatting) -> 
     match format.font_style {
         citationberg::FontStyle::Normal => {}
         citationberg::FontStyle::Italic => {
-            content = content.styled(TextElem::set_style(FontStyle::Italic));
+            content = content.styled(TextElem::set_style(TexFontStyle::Italic));
         }
     }
 

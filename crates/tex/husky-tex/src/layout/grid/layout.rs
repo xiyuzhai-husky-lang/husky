@@ -10,7 +10,7 @@ use crate::foundations::{
 };
 use crate::layout::{
     Abs, Axes, Fr, Fragment, Frame, FrameItem, LayoutMultiple, Length, Point, Regions, Rel, Sides,
-    Size, Sizing, TexAlignment, TexLayoutDirection,
+    Size, TexAlignment, TexLayoutDirection, TexSizing,
 };
 use crate::syntax::Span;
 use crate::text::TextElem;
@@ -178,9 +178,9 @@ pub struct CellGrid {
     /// The grid cells.
     entries: Vec<Entry>,
     /// The column tracks including gutter tracks.
-    cols: Vec<Sizing>,
+    cols: Vec<TexSizing>,
     /// The row tracks including gutter tracks.
-    rows: Vec<Sizing>,
+    rows: Vec<TexSizing>,
     /// Whether this grid has gutters.
     has_gutter: bool,
 }
@@ -188,8 +188,8 @@ pub struct CellGrid {
 impl CellGrid {
     /// Generates the cell grid, given the tracks and cells.
     pub fn new(
-        tracks: Axes<&[Sizing]>,
-        gutter: Axes<&[Sizing]>,
+        tracks: Axes<&[TexSizing]>,
+        gutter: Axes<&[TexSizing]>,
         cells: impl IntoIterator<Item = Cell>,
     ) -> Self {
         let entries = cells.into_iter().map(Entry::Cell).collect();
@@ -204,8 +204,8 @@ impl CellGrid {
     /// weren't explicitly specified by the user with empty cells.
     #[allow(clippy::too_many_arguments)]
     pub fn resolve<T: ResolvableCell + Clone + Default>(
-        tracks: Axes<&[Sizing]>,
-        gutter: Axes<&[Sizing]>,
+        tracks: Axes<&[TexSizing]>,
+        gutter: Axes<&[TexSizing]>,
         cells: &[T],
         fill: &Celled<Option<TexPaint>>,
         align: &Celled<Smart<TexAlignment>>,
@@ -376,7 +376,11 @@ impl CellGrid {
     }
 
     /// Generates the cell grid, given the tracks and resolved entries.
-    fn new_internal(tracks: Axes<&[Sizing]>, gutter: Axes<&[Sizing]>, entries: Vec<Entry>) -> Self {
+    fn new_internal(
+        tracks: Axes<&[TexSizing]>,
+        gutter: Axes<&[TexSizing]>,
+        entries: Vec<Entry>,
+    ) -> Self {
         let mut cols = vec![];
         let mut rows = vec![];
 
@@ -393,8 +397,8 @@ impl CellGrid {
         };
 
         let has_gutter = gutter.any(|tracks| !tracks.is_empty());
-        let auto = Sizing::Auto;
-        let zero = Sizing::Rel(Rel::zero());
+        let auto = TexSizing::Auto;
+        let zero = TexSizing::Rel(Rel::zero());
         let get_or = |tracks: &[_], idx, default| {
             tracks
                 .get(idx)
@@ -666,9 +670,9 @@ impl<'a> GridLayouter<'a> {
             }
 
             match self.grid.rows[y] {
-                Sizing::Auto => self.layout_auto_row(engine, y)?,
-                Sizing::Rel(v) => self.layout_relative_row(engine, v, y)?,
-                Sizing::Fr(v) => self.lrows.push(Row::Fr(v, y)),
+                TexSizing::Auto => self.layout_auto_row(engine, y)?,
+                TexSizing::Rel(v) => self.layout_relative_row(engine, v, y)?,
+                TexSizing::Fr(v) => self.lrows.push(Row::Fr(v, y)),
             }
         }
 
@@ -769,13 +773,13 @@ impl<'a> GridLayouter<'a> {
         // fractional tracks.
         for (&col, rcol) in self.grid.cols.iter().zip(&mut self.rcols) {
             match col {
-                Sizing::Auto => {}
-                Sizing::Rel(v) => {
+                TexSizing::Auto => {}
+                TexSizing::Rel(v) => {
                     let resolved = v.resolve(self.styles).relative_to(self.regions.base().x);
                     *rcol = resolved;
                     rel += resolved;
                 }
-                Sizing::Fr(v) => fr += v,
+                TexSizing::Fr(v) => fr += v,
             }
         }
 
@@ -835,7 +839,7 @@ impl<'a> GridLayouter<'a> {
         // Determine size of auto columns by laying out all cells in those
         // columns, measuring them and finding the largest one.
         for (x, &col) in self.grid.cols.iter().enumerate() {
-            if col != Sizing::Auto {
+            if col != TexSizing::Auto {
                 continue;
             }
 
@@ -864,7 +868,7 @@ impl<'a> GridLayouter<'a> {
                             colspan
                         })
                         .rev()
-                        .find(|(_, col)| **col == Sizing::Auto)
+                        .find(|(_, col)| **col == TexSizing::Auto)
                         .map(|(x, _)| x);
 
                     if last_spanned_auto_col != Some(x) {
@@ -894,7 +898,7 @@ impl<'a> GridLayouter<'a> {
                 // For relative rows, we can already resolve the correct
                 // base and for auto and fr we could only guess anyway.
                 let height = match self.grid.rows[y] {
-                    Sizing::Rel(v) => v.resolve(self.styles).relative_to(self.regions.base().y),
+                    TexSizing::Rel(v) => v.resolve(self.styles).relative_to(self.regions.base().y),
                     _ => self.regions.base().y,
                 };
                 // Don't expand this auto column more than the cell actually
@@ -934,7 +938,7 @@ impl<'a> GridLayouter<'a> {
         }
 
         for (&col, rcol) in self.grid.cols.iter().zip(&mut self.rcols) {
-            if let Sizing::Fr(v) = col {
+            if let TexSizing::Fr(v) = col {
                 *rcol = v.share(fr, remaining);
             }
         }
@@ -957,7 +961,7 @@ impl<'a> GridLayouter<'a> {
             for (&col, &rcol) in self.grid.cols.iter().zip(&self.rcols) {
                 // Remove an auto column if it is not overlarge (rcol <= fair),
                 // but also hasn't already been removed (rcol > last).
-                if col == Sizing::Auto && rcol <= fair && rcol > last {
+                if col == TexSizing::Auto && rcol <= fair && rcol > last {
                     redistribute -= rcol;
                     overlarge -= 1;
                     changed = true;
@@ -967,7 +971,7 @@ impl<'a> GridLayouter<'a> {
 
         // Redistribute space fairly among overlarge columns.
         for (&col, rcol) in self.grid.cols.iter().zip(&mut self.rcols) {
-            if col == Sizing::Auto && *rcol > fair {
+            if col == TexSizing::Auto && *rcol > fair {
                 *rcol = fair;
             }
         }
@@ -1109,7 +1113,7 @@ impl<'a> GridLayouter<'a> {
                 let width = self.cell_spanned_width(x, cell.colspan.get());
                 let size = Size::new(width, height);
                 let mut pod = Regions::one(size, Axes::splat(true));
-                if self.grid.rows[y] == Sizing::Auto {
+                if self.grid.rows[y] == TexSizing::Auto {
                     pod.full = self.regions.full;
                 }
                 let mut frame = cell.layout(engine, self.styles, pod)?.into_frame();
@@ -1399,9 +1403,9 @@ mod test {
             Entry::Merged { parent: 22 },
         ];
         CellGrid::new_internal(
-            Axes::with_x(&[Sizing::Auto; COLS]),
+            Axes::with_x(&[TexSizing::Auto; COLS]),
             if gutters {
-                Axes::new(&[Sizing::Auto; COLS - 1], &[Sizing::Auto; ROWS - 1])
+                Axes::new(&[TexSizing::Auto; COLS - 1], &[TexSizing::Auto; ROWS - 1])
             } else {
                 Axes::default()
             },
