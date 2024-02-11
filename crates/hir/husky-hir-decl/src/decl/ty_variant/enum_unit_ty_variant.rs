@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::TypeUnitVariantSynDecl;
+use husky_syn_decl::decl::TypeUnitVariantSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct EnumUnitTypeVariantHirDecl {

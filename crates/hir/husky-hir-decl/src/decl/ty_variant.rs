@@ -3,7 +3,7 @@ mod enum_tuple_ty_variant;
 mod enum_unit_ty_variant;
 
 use husky_entity_kind::TypeKind;
-use husky_syn_decl::TypeVariantSynDecl;
+use husky_syn_decl::decl::TypeVariantSynDecl;
 
 pub use self::enum_props_ty_variant::*;
 pub use self::enum_tuple_ty_variant::*;

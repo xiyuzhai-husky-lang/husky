@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::TypeMemoizedFieldSynDecl;
+use husky_syn_decl::decl::TypeMemoizedFieldSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct TypeMemoFieldHirDecl {

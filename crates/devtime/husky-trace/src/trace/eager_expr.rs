@@ -8,7 +8,7 @@ use husky_sema_expr::{
     helpers::range::sema_expr_range_region, SemaExprData, SemaExprRegion,
     SemaRitchieParameterArgumentMatch,
 };
-use husky_syn_decl::HasSynDecl;
+use husky_syn_decl::decl::HasSynDecl;
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]

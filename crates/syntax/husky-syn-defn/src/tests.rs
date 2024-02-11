@@ -27,7 +27,7 @@ use husky_toml_token::TomlTokenJar;
     CorgiConfigJar,
     CorgiConfigAstJar,
     ManifestJar,
-    SynDeclJar,
+    husky_syn_decl::db::SynDeclJar,
     SynExprJar,
     SynDefnJar
 )]

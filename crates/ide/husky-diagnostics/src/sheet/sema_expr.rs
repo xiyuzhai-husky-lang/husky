@@ -4,7 +4,7 @@ use husky_sema_expr::{
     OriginalSemaExprDataError, OriginalSemaExprTermError, OriginalSemaExprTypeError,
     SemaExprTermError,
 };
-use husky_syn_decl::HasSynNodeDecl;
+use husky_syn_decl::decl::HasSynNodeDecl;
 use husky_syn_defn::module_item_syn_node_defns;
 use husky_syn_expr::SynExprRegion;
 use salsa::DisplayWithDb;

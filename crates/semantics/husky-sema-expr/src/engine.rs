@@ -19,7 +19,7 @@ use husky_eth_signature::HasEthTemplate;
 use husky_eth_term::term::{svar::EthSvar, EthTerm};
 use husky_place::PlaceRegistry;
 use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};
-use husky_syn_decl::{
+use husky_syn_decl::decl::{
     AssocItemSynNodeDecl, HasSynNodeDecl, ItemSynNodeDecl, TraitForTypeItemSynNodeDecl,
     TraitItemSynNodeDecl, TypeItemSynNodeDecl,
 };

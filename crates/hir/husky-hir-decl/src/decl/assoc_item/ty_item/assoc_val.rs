@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::TypeAssocValSynDecl;
+use husky_syn_decl::decl::TypeAssocValSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct TypeAssocValHirDecl {

@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::EnumTypeSynDecl;
+use husky_syn_decl::decl::EnumTypeSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar, constructor = new)]
 pub struct EnumTypeHirDecl {

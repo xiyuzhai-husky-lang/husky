@@ -1,6 +1,6 @@
 mod derive;
 
-use husky_syn_decl::AttrSynDecl;
+use husky_syn_decl::decl::AttrSynDecl;
 
 pub use self::derive::*;
 

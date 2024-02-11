@@ -3,14 +3,13 @@ mod ty_instance_constructor;
 pub mod ty_variant;
 mod utils;
 
-use husky_syn_decl::HasSynDecl;
-
 pub use self::fugitive::*;
 
 pub use self::ty_instance_constructor::*;
 
 use self::utils::*;
 use crate::*;
+use husky_syn_decl::decl::HasSynDecl;
 
 #[inline(always)]
 pub fn declarative_term_item_path_declarative_ty(

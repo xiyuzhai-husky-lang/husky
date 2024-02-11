@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::TypeTupleVariantSynDecl;
+use husky_syn_decl::decl::TypeTupleVariantSynDecl;
 use husky_syn_expr::TupleFieldSyndicate;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]

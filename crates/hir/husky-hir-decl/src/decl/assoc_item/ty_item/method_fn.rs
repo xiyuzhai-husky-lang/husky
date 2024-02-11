@@ -1,6 +1,6 @@
 use super::*;
 
-use husky_syn_decl::TypeMethodFnSynDecl;
+use husky_syn_decl::decl::TypeMethodFnSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct TypeMethodFnHirDecl {

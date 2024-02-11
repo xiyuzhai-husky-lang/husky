@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::PropsStructTypeSynDecl;
+use husky_syn_decl::decl::PropsStructTypeSynDecl;
 use husky_syn_expr::{PropsFieldSynInitialization, PropsFieldSyndicate};
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]

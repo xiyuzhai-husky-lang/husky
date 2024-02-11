@@ -1,4 +1,4 @@
-use husky_syn_decl::TupleStructTypeSynDecl;
+use husky_syn_decl::decl::TupleStructTypeSynDecl;
 use husky_syn_expr::TupleFieldSyndicate;
 
 use super::*;

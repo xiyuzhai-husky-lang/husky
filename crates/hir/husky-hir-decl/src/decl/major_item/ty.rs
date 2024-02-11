@@ -14,7 +14,7 @@ pub use self::unit_struct::*;
 
 use super::*;
 use husky_entity_path::TypePath;
-use husky_syn_decl::TypeSynDecl;
+use husky_syn_decl::decl::TypeSynDecl;
 
 #[salsa::debug_with_db]
 #[enum_class::from_variants]

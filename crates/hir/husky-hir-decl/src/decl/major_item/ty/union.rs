@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::UnionTypeSynDecl;
+use husky_syn_decl::decl::UnionTypeSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct UnionHirDecl {
