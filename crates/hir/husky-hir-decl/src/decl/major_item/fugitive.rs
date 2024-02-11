@@ -3,14 +3,13 @@ mod gn;
 mod ty_alias;
 mod val;
 
-use husky_syn_decl::FugitiveSynDecl;
-
 pub use self::gn::*;
 pub use self::r#fn::*;
 pub use self::ty_alias::*;
 pub use self::val::*;
 
 use super::*;
+use husky_syn_decl::decl::FugitiveSynDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]

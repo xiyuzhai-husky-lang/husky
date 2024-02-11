@@ -2,7 +2,7 @@ use crate::*;
 use husky_ast::{Ast, AstSheet};
 use husky_regional_token::{RegionalTokenIdx, RegionalTokenIdxBase};
 use husky_sema_opr::prefix::SemaPrefixOpr;
-use husky_syn_decl::HasSynNodeDecl;
+use husky_syn_decl::decl::HasSynNodeDecl;
 use husky_syn_defn::*;
 
 use husky_ast::HasAstSheet;

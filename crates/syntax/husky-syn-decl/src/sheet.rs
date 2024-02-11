@@ -1,4 +1,6 @@
-use crate::*;
+use crate::decl::HasSynNodeDecl;
+use crate::decl::SynDecl;
+use crate::{decl::ItemSynNodeDecl, *};
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct SynNodeDeclSheet {

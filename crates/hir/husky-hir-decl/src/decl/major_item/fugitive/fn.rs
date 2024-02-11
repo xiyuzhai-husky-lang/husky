@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::FunctionMajorFnSynDecl;
+use husky_syn_decl::decl::FunctionMajorFnSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct FunctionMajorFnHirDecl {

@@ -1,6 +1,5 @@
-use husky_syn_decl::{HasSynDecl, TypeAssocFnSynDecl, TypeItemSynDecl};
-
 use super::*;
+use husky_syn_decl::decl::{HasSynDecl, TypeAssocFnSynDecl, TypeItemSynDecl};
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct TypeAssocFnHirDecl {

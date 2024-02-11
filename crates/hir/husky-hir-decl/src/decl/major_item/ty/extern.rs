@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::ExternTypeSynDecl;
+use husky_syn_decl::decl::ExternTypeSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar, constructor = new_inner)]
 pub struct ExternTypeHirDecl {

@@ -10,11 +10,11 @@ pub mod sheet;
 mod tests;
 
 pub use self::db::*;
-pub use self::decl::*;
 pub use self::error::*;
 pub use self::parameter::*;
 pub use self::sheet::*;
 
+use self::decl::*;
 use self::parser::*;
 #[cfg(test)]
 use self::tests::*;

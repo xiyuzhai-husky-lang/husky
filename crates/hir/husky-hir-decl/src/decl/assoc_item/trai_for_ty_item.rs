@@ -3,7 +3,7 @@ mod assoc_ty;
 mod assoc_val;
 mod method_fn;
 
-use husky_syn_decl::TraitForTypeItemSynDecl;
+use husky_syn_decl::decl::TraitForTypeItemSynDecl;
 
 pub use self::assoc_fn::*;
 pub use self::assoc_ty::*;

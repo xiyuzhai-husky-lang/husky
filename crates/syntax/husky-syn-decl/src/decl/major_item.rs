@@ -1,6 +1,6 @@
-mod fugitive;
-mod trai;
-mod ty;
+pub mod fugitive;
+pub mod trai;
+pub mod ty;
 
 pub use self::fugitive::*;
 pub use self::trai::*;

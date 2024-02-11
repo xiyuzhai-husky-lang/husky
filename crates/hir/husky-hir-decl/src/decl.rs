@@ -15,7 +15,7 @@ pub use self::ty_variant::*;
 use crate::{db::*, *};
 use husky_hir_eager_expr::helpers::hir_eager_expr_region;
 
-use husky_syn_decl::HasSynDecl;
+use husky_syn_decl::decl::HasSynDecl;
 
 pub trait HasHirDecl {
     type HirDecl;

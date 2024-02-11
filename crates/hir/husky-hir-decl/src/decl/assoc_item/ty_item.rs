@@ -11,8 +11,7 @@ pub use self::memo_field::*;
 pub use self::method_fn::*;
 
 use super::*;
-
-use husky_syn_decl::TypeItemSynDecl;
+use husky_syn_decl::decl::TypeItemSynDecl;
 
 #[salsa::debug_with_db]
 #[enum_class::from_variants]

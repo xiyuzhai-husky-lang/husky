@@ -1,4 +1,4 @@
-use husky_syn_decl::UnitStructTypeSynDecl;
+use husky_syn_decl::decl::UnitStructTypeSynDecl;
 
 use super::*;
 

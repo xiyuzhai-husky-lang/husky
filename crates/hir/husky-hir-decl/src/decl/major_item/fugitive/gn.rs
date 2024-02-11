@@ -1,6 +1,6 @@
 use super::*;
 use husky_hir_lazy_expr::HirLazyExprRegion;
-use husky_syn_decl::MajorGnSynDecl;
+use husky_syn_decl::decl::MajorGnSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct FunctionGnFugitiveHirDecl {

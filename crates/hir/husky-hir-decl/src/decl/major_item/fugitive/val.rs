@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::MajorValSynDecl;
+use husky_syn_decl::decl::MajorValSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct ValFugitiveHirDecl {
