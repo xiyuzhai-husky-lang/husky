@@ -6,13 +6,13 @@ use crate::diag::{
     bail, error, warning, At, FileError, SourceResult, StrResult, Trace, Tracepoint,
 };
 use crate::eval::{eval, Eval, Vm};
-use crate::foundations::{Module, TypstContent, TypstValue};
+use crate::foundations::{Module, TexContent, TexValue};
 use crate::syntax::ast::{self, AstNode};
 use crate::syntax::{FileId, PackageSpec, PackageVersion, Span, VirtualPath};
 use crate::World;
 
 impl Eval for ast::ModuleImport<'_> {
-    type Output = TypstValue;
+    type Output = TexValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let source = self.source();
@@ -22,14 +22,14 @@ impl Eval for ast::ModuleImport<'_> {
         let imports = self.imports();
 
         match &source {
-            TypstValue::Func(func) => {
+            TexValue::Func(func) => {
                 if func.scope().is_none() {
                     bail!(source_span, "cannot import from user-defined functions");
                 }
             }
-            TypstValue::Type(_) => {}
+            TexValue::Type(_) => {}
             other => {
-                source = TypstValue::Module(import(vm, other.clone(), source_span, true)?);
+                source = TexValue::Module(import(vm, other.clone(), source_span, true)?);
             }
         }
 
@@ -90,12 +90,12 @@ impl Eval for ast::ModuleImport<'_> {
             }
         }
 
-        Ok(TypstValue::None)
+        Ok(TexValue::None)
     }
 }
 
 impl Eval for ast::ModuleInclude<'_> {
-    type Output = TypstContent;
+    type Output = TexContent;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let span = self.source().span();
@@ -108,13 +108,13 @@ impl Eval for ast::ModuleInclude<'_> {
 /// Process an import of a module relative to the current location.
 pub fn import(
     vm: &mut Vm,
-    source: TypstValue,
+    source: TexValue,
     span: Span,
     allow_scopes: bool,
 ) -> SourceResult<Module> {
     let path = match source {
-        TypstValue::Str(path) => path,
-        TypstValue::Module(module) => return Ok(module),
+        TexValue::Str(path) => path,
+        TexValue::Module(module) => return Ok(module),
         v if allow_scopes => {
             bail!(
                 span,

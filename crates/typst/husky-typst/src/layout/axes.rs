@@ -4,7 +4,7 @@ use std::ops::{BitAnd, BitAndAssign, BitOr, BitOrAssign, Deref, Not};
 
 use crate::diag::bail;
 use crate::foundations::{array, cast, Array, Resolve, Smart, StyleChain};
-use crate::layout::{Abs, Length, Ratio, Rel, TypstLayoutDirection};
+use crate::layout::{Abs, Length, Ratio, Rel, TexLayoutDirection};
 use crate::util::Get;
 
 /// A container with a horizontal and vertical component.
@@ -186,12 +186,12 @@ pub enum Axis {
 
 impl Axis {
     /// The direction with the given positivity for this axis.
-    pub fn dir(self, positive: bool) -> TypstLayoutDirection {
+    pub fn dir(self, positive: bool) -> TexLayoutDirection {
         match (self, positive) {
-            (Self::X, true) => TypstLayoutDirection::LeftRight,
-            (Self::X, false) => TypstLayoutDirection::RightLeft,
-            (Self::Y, true) => TypstLayoutDirection::TopDown,
-            (Self::Y, false) => TypstLayoutDirection::BottomUp,
+            (Self::X, true) => TexLayoutDirection::LeftRight,
+            (Self::X, false) => TexLayoutDirection::RightLeft,
+            (Self::Y, true) => TexLayoutDirection::TopDown,
+            (Self::Y, false) => TexLayoutDirection::BottomUp,
         }
     }
 

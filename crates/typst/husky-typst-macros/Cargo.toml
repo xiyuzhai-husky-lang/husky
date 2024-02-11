@@ -1,6 +1,6 @@
 [package]
 name = "husky-typst-macros"
-description = "Proc-macros for Typst."
+description = "Proc-macros for Tex."
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

@@ -9,7 +9,7 @@ use semver::Version;
 /// in environment variables.
 const ENV_PATH_SEP: char = if cfg!(windows) { ';' } else { ':' };
 
-/// The Typst compiler.
+/// The Tex compiler.
 #[derive(Debug, Clone, Parser)]
 #[clap(name = "typst", version = crate::typst_version(), author)]
 pub struct CliArguments {
@@ -52,7 +52,7 @@ pub enum Command {
     /// Lists all discovered fonts in system and custom font paths
     Fonts(FontsCommand),
 
-    /// Self update the Typst CLI
+    /// Self update the Tex CLI
     #[cfg_attr(not(feature = "self-update"), doc = " (disabled)")]
     Update(UpdateCommand),
 }
@@ -122,7 +122,7 @@ pub enum SerializationFormat {
 /// Common arguments of compile, watch, and query.
 #[derive(Debug, Clone, Args)]
 pub struct SharedArgs {
-    /// Path to input Typst file, use `-` to read input from stdin
+    /// Path to input Tex file, use `-` to read input from stdin
     #[clap(value_parser = input_value_parser)]
     pub input: Input,
 
@@ -226,7 +226,7 @@ impl Display for DiagnosticFormat {
     }
 }
 
-/// Update the CLI using a pre-compiled binary from a Typst GitHub release.
+/// Update the CLI using a pre-compiled binary from a Tex GitHub release.
 #[derive(Debug, Clone, Parser)]
 pub struct UpdateCommand {
     /// Which version to update to (defaults to latest)

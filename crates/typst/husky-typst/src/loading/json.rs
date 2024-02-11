@@ -2,7 +2,7 @@ use ecow::{eco_format, EcoString};
 
 use crate::diag::{At, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{func, scope, Str, TypstValue};
+use crate::foundations::{func, scope, Str, TexValue};
 use crate::loading::Readable;
 use crate::syntax::Spanned;
 use crate::World;
@@ -10,8 +10,8 @@ use crate::World;
 /// Reads structured data from a JSON file.
 ///
 /// The file must contain a valid JSON object or array. JSON objects will be
-/// converted into Typst dictionaries, and JSON arrays will be converted into
-/// Typst arrays. Strings and booleans will be converted into the Typst
+/// converted into Tex dictionaries, and JSON arrays will be converted into
+/// Tex arrays. Strings and booleans will be converted into the Tex
 /// equivalents, `null` will be converted into `{none}`, and numbers will be
 /// converted to floats or integers depending on whether they are whole numbers.
 ///
@@ -50,7 +50,7 @@ pub fn json(
     engine: &mut Engine,
     /// Path to a JSON file.
     path: Spanned<EcoString>,
-) -> SourceResult<TypstValue> {
+) -> SourceResult<TexValue> {
     let Spanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
@@ -64,7 +64,7 @@ impl json {
     pub fn decode(
         /// JSON data.
         data: Spanned<Readable>,
-    ) -> SourceResult<TypstValue> {
+    ) -> SourceResult<TexValue> {
         let Spanned { v: data, span } = data;
         serde_json::from_slice(data.as_slice())
             .map_err(|err| eco_format!("failed to parse JSON ({err})"))
@@ -74,8 +74,8 @@ impl json {
     /// Encodes structured data into a JSON string.
     #[func(title = "Encode JSON")]
     pub fn encode(
-        /// TypstValue to be encoded.
-        value: Spanned<TypstValue>,
+        /// TexValue to be encoded.
+        value: Spanned<TexValue>,
         /// Whether to pretty print the JSON with newlines and indentation.
         #[named]
         #[default(true)]

@@ -245,7 +245,9 @@ impl<T> Trace<T> for SourceResult<T> {
         F: Fn() -> Tracepoint,
     {
         self.map_err(|mut errors| {
-            let Some(trace_range) = world.range(span) else { return errors };
+            let Some(trace_range) = world.range(span) else {
+                return errors;
+            };
             for error in errors.make_mut().iter_mut() {
                 // Skip traces that surround the error.
                 if let Some(error_range) = world.range(error.span) {
@@ -283,8 +285,7 @@ where
             let mut diagnostic = SourceDiagnostic::error(span, message);
             if diagnostic.message.contains("(access denied)") {
                 diagnostic.hint("cannot read file outside of project root");
-                diagnostic
-                    .hint("you can adjust the project root with the --root argument");
+                diagnostic.hint("you can adjust the project root with the --root argument");
             }
             eco_vec![diagnostic]
         })
@@ -306,7 +307,10 @@ pub struct HintedString {
 
 impl From<EcoString> for HintedString {
     fn from(value: EcoString) -> Self {
-        Self { message: value, hints: vec![] }
+        Self {
+            message: value,
+            hints: vec![],
+        }
     }
 }
 
@@ -357,7 +361,7 @@ pub enum FileError {
     AccessDenied,
     /// A directory was found, but a file was expected.
     IsDirectory,
-    /// The file is not a Typst source file, but should have been.
+    /// The file is not a Tex source file, but should have been.
     NotSource,
     /// The file was not valid UTF-8, but should have been.
     InvalidUtf8,
@@ -376,7 +380,9 @@ impl FileError {
             io::ErrorKind::NotFound => Self::NotFound(path.into()),
             io::ErrorKind::PermissionDenied => Self::AccessDenied,
             io::ErrorKind::InvalidData
-                if err.to_string().contains("stream did not contain valid UTF-8") =>
+                if err
+                    .to_string()
+                    .contains("stream did not contain valid UTF-8") =>
             {
                 Self::InvalidUtf8
             }

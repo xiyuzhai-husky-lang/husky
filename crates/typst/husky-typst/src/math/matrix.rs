@@ -2,8 +2,8 @@ use smallvec::{smallvec, SmallVec};
 
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::foundations::{
-    cast, dict, elem, Array, Cast, Fold, Packed, Resolve, Smart, StyleChain, TypstContent,
-    TypstDict, TypstValue,
+    cast, dict, elem, Array, Cast, Fold, Packed, Resolve, Smart, StyleChain, TexContent, TexDict,
+    TexValue,
 };
 use crate::layout::{
     Abs, Axes, FixedAlignment, Frame, FrameItem, Length, LengthInEm, Point, Ratio, Rel, Size,
@@ -15,7 +15,7 @@ use crate::math::{
 use crate::syntax::{Span, Spanned};
 use crate::text::TextElem;
 use crate::util::Numeric;
-use crate::visualize::{LineCap, TypstFixedStroke, TypstGeometry, TypstShape, TypstStroke};
+use crate::visualize::{LineCap, TexFixedStroke, TexGeometry, TexShape, TexStroke};
 
 const DEFAULT_ROW_GAP: LengthInEm = LengthInEm::new(0.5);
 const DEFAULT_COL_GAP: LengthInEm = LengthInEm::new(0.5);
@@ -54,7 +54,7 @@ pub struct VecElem {
 
     /// The elements of the vector.
     #[variadic]
-    pub children: Vec<TypstContent>,
+    pub children: Vec<TexContent>,
 }
 
 impl LayoutMath for Packed<VecElem> {
@@ -190,11 +190,11 @@ pub struct MatElem {
         let mut rows = vec![];
         let mut width = 0;
 
-        let values = args.all::<Spanned<TypstValue>>()?;
-        if values.iter().any(|spanned| matches!(spanned.v, TypstValue::Array(_))) {
+        let values = args.all::<Spanned<TexValue>>()?;
+        if values.iter().any(|spanned| matches!(spanned.v, TexValue::Array(_))) {
             for Spanned { v, span } in values {
                 let array = v.cast::<Array>().at(span)?;
-                let row: Vec<_> = array.into_iter().map(TypstValue::display).collect();
+                let row: Vec<_> = array.into_iter().map(TexValue::display).collect();
                 width = width.max(row.len());
                 rows.push(row);
             }
@@ -204,13 +204,13 @@ pub struct MatElem {
 
         for row in &mut rows {
             if row.len() < width {
-                row.resize(width, TypstContent::empty());
+                row.resize(width, TexContent::empty());
             }
         }
 
         rows
     )]
-    pub rows: Vec<Vec<TypstContent>>,
+    pub rows: Vec<Vec<TexContent>>,
 }
 
 impl LayoutMath for Packed<MatElem> {
@@ -319,7 +319,7 @@ pub struct CasesElem {
 
     /// The branches of the case distinction.
     #[variadic]
-    pub children: Vec<TypstContent>,
+    pub children: Vec<TexContent>,
 }
 
 impl LayoutMath for Packed<CasesElem> {
@@ -392,7 +392,7 @@ impl Delimiter {
 fn layout_vec_body(
     ctx: &mut MathContext,
     styles: StyleChain,
-    column: &[TypstContent],
+    column: &[TexContent],
     align: FixedAlignment,
     row_gap: Rel<Abs>,
 ) -> SourceResult<Frame> {
@@ -411,7 +411,7 @@ fn layout_vec_body(
 fn layout_mat_body(
     ctx: &mut MathContext,
     styles: StyleChain,
-    rows: &[Vec<TypstContent>],
+    rows: &[Vec<TexContent>],
     augment: Option<Augment<Abs>>,
     gap: Axes<Rel<Abs>>,
     span: Span,
@@ -425,7 +425,7 @@ fn layout_mat_body(
     // The line cap is also set to square because it looks more "correct".
     let font_size = scaled_font_size(ctx, styles);
     let default_stroke_thickness = DEFAULT_STROKE_THICKNESS.at(font_size);
-    let default_stroke = TypstFixedStroke {
+    let default_stroke = TexFixedStroke {
         thickness: default_stroke_thickness,
         paint: TextElem::fill_in(styles).as_decoration(),
         cap: LineCap::Square,
@@ -555,15 +555,15 @@ fn layout_mat_body(
     Ok(frame)
 }
 
-fn line_item(length: Abs, vertical: bool, stroke: TypstFixedStroke, span: Span) -> FrameItem {
+fn line_item(length: Abs, vertical: bool, stroke: TexFixedStroke, span: Span) -> FrameItem {
     let line_geom = if vertical {
-        TypstGeometry::Line(Point::with_y(length))
+        TexGeometry::Line(Point::with_y(length))
     } else {
-        TypstGeometry::Line(Point::with_x(length))
+        TexGeometry::Line(Point::with_x(length))
     };
 
     FrameItem::Shape(
-        TypstShape {
+        TexShape {
             geometry: line_geom,
             fill: None,
             stroke: Some(stroke),
@@ -613,7 +613,7 @@ fn layout_delimiters(
 pub struct Augment<T: Numeric = Length> {
     pub hline: AugmentOffsets,
     pub vline: AugmentOffsets,
-    pub stroke: Smart<TypstStroke<T>>,
+    pub stroke: Smart<TexStroke<T>>,
 }
 
 impl<T: Numeric + Fold> Fold for Augment<T> {
@@ -662,13 +662,13 @@ cast! {
         vline: AugmentOffsets(smallvec![v]),
         stroke: Smart::Auto,
     },
-    mut dict: TypstDict => {
+    mut dict: TexDict => {
         let mut take = |key| dict.take(key).ok().map(AugmentOffsets::from_value).transpose();
         let hline = take("hline")?.unwrap_or_default();
         let vline = take("vline")?.unwrap_or_default();
         let stroke = dict.take("stroke")
             .ok()
-            .map(TypstStroke::from_value)
+            .map(TexStroke::from_value)
             .transpose()?
             .map(Smart::Custom)
             .unwrap_or(Smart::Auto);
@@ -689,5 +689,5 @@ cast! {
     AugmentOffsets,
     self => self.0.into_value(),
     v: isize => Self(smallvec![v]),
-    v: Array => Self(v.into_iter().map(TypstValue::cast).collect::<StrResult<_>>()?),
+    v: Array => Self(v.into_iter().map(TexValue::cast).collect::<StrResult<_>>()?),
 }

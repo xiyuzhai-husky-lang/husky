@@ -7,18 +7,18 @@ use ttf_parser::{name_id, PlatformId, Tag};
 use unicode_segmentation::UnicodeSegmentation;
 
 use super::exceptions::find_exception;
-use crate::text::{FontStretch, FontStyle, FontVariant, FontWeight, TypstFont};
+use crate::text::{FontStretch, FontStyle, FontVariant, FontWeight, TexFont};
 
 /// Metadata about a collection of fonts.
 #[derive(Debug, Default, Clone, Hash)]
-pub struct TypstFontBook {
+pub struct TexFontBook {
     /// Maps from lowercased family names to font indices.
     families: BTreeMap<String, Vec<usize>>,
     /// Metadata about each font in the collection.
     infos: Vec<FontInfo>,
 }
 
-impl TypstFontBook {
+impl TexFontBook {
     /// Create a new, empty font book.
     pub fn new() -> Self {
         Self {
@@ -37,7 +37,7 @@ impl TypstFontBook {
     }
 
     /// Create a font book for a collection of fonts.
-    pub fn from_fonts<'a>(fonts: impl IntoIterator<Item = &'a TypstFont>) -> Self {
+    pub fn from_fonts<'a>(fonts: impl IntoIterator<Item = &'a TexFont>) -> Self {
         Self::from_infos(fonts.into_iter().map(|font| font.info().clone()))
     }
 
@@ -213,7 +213,7 @@ impl FontInfo {
         // We cannot use Name ID 16 "Typographic Family", because for some
         // fonts it groups together more than just Style / Weight / Stretch
         // variants (e.g. Display variants of Noto fonts) and then some
-        // variants become inaccessible from Typst. And even though the
+        // variants become inaccessible from Tex. And even though the
         // fsSelection bit WWS should help us decide whether that is the
         // case, it's wrong for some fonts (e.g. for certain variants of "Noto
         // Sans Display").

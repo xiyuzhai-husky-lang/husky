@@ -1,8 +1,8 @@
 use crate::diag::{bail, At, Hint, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{elem, Behave, Behaviour, Packed, Smart, StyleChain, TypstContent};
+use crate::foundations::{elem, Behave, Behaviour, Packed, Smart, StyleChain, TexContent};
 use crate::layout::{
-    Alignment, Axes, Fragment, LayoutMultiple, Length, LengthInEm, Regions, Rel, VAlignment,
+    Axes, Fragment, LayoutMultiple, Length, LengthInEm, Regions, Rel, TexAlignment, VAlignment,
 };
 
 /// Places content at an absolute position.
@@ -36,8 +36,8 @@ pub struct PlaceElem {
     /// that axis will be ignored, instead, the item will be placed in the
     /// origin of the axis.
     #[positional]
-    #[default(Smart::Custom(Alignment::START))]
-    pub alignment: Smart<Alignment>,
+    #[default(Smart::Custom(TexAlignment::START))]
+    pub alignment: Smart<TexAlignment>,
 
     /// Whether the placed element has floating layout.
     ///
@@ -83,7 +83,7 @@ pub struct PlaceElem {
 
     /// The content to place.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl Packed<PlaceElem> {
@@ -118,7 +118,7 @@ impl Packed<PlaceElem> {
         let child = self
             .body()
             .clone()
-            .aligned(alignment.unwrap_or_else(|| Alignment::CENTER));
+            .aligned(alignment.unwrap_or_else(|| TexAlignment::CENTER));
 
         let pod = Regions::one(base, Axes::splat(false));
         let frame = child.layout(engine, styles, pod)?.into_frame();

@@ -4,7 +4,7 @@ mod book;
 mod exceptions;
 mod variant;
 
-pub use self::book::{Coverage, FontFlags, FontInfo, TypstFontBook};
+pub use self::book::{Coverage, FontFlags, FontInfo, TexFontBook};
 pub use self::variant::{FontStretch, FontStyle, FontVariant, FontWeight};
 
 use std::fmt::{self, Debug, Formatter};
@@ -21,7 +21,7 @@ use crate::layout::LengthInEm;
 ///
 /// Values of this type are cheap to clone and hash.
 #[derive(Clone)]
-pub struct TypstFont(Arc<Repr>);
+pub struct TexFont(Arc<Repr>);
 
 /// The internal representation of a font.
 struct Repr {
@@ -41,7 +41,7 @@ struct Repr {
     rusty: rustybuzz::Face<'static>,
 }
 
-impl TypstFont {
+impl TexFont {
     /// Parse a font from data and collection index.
     pub fn new(data: Bytes, index: u32) -> Option<Self> {
         // Safety:
@@ -131,22 +131,22 @@ impl TypstFont {
     }
 }
 
-impl Hash for TypstFont {
+impl Hash for TexFont {
     fn hash<H: Hasher>(&self, state: &mut H) {
         self.0.data.hash(state);
         self.0.index.hash(state);
     }
 }
 
-impl Debug for TypstFont {
+impl Debug for TexFont {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         write!(f, "Font({}, {:?})", self.info().family, self.info().variant)
     }
 }
 
-impl Eq for TypstFont {}
+impl Eq for TexFont {}
 
-impl PartialEq for TypstFont {
+impl PartialEq for TexFont {
     fn eq(&self, other: &Self) -> bool {
         self.0.data == other.0.data && self.0.index == other.0.index
     }

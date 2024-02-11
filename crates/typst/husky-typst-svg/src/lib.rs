@@ -10,12 +10,12 @@ use husky_typst::layout::{
     Abs, Angle, Axes, Frame, FrameItem, FrameKind, GroupItem, Point, Quadrant, Ratio, Size,
     Transform,
 };
-use husky_typst::model::TypstDocument;
-use husky_typst::text::{TextItem, TypstFont};
+use husky_typst::model::TexDocument;
+use husky_typst::text::{TexFont, TextItem};
 use husky_typst::util::hash128;
 use husky_typst::visualize::{
     Gradient, Image, ImageFormat, LineCap, LineJoin, Path, PathItem, Pattern, RasterFormat,
-    RatioOrAngle, RelativeTo, TypstColor, TypstFixedStroke, TypstGeometry, TypstPaint, TypstShape,
+    RatioOrAngle, RelativeTo, TexColor, TexFixedStroke, TexGeometry, TexPaint, TexShape,
     VectorFormat,
 };
 use ttf_parser::{GlyphId, OutlineBuilder};
@@ -40,7 +40,7 @@ pub fn svg(frame: &Frame) -> String {
 /// Export a document with potentially multiple pages into a single SVG file.
 ///
 /// The padding will be added around and between the individual frames.
-pub fn svg_merged(document: &TypstDocument, padding: Abs) -> String {
+pub fn svg_merged(document: &TexDocument, padding: Abs) -> String {
     let width = 2.0 * padding
         + document
             .pages
@@ -186,9 +186,9 @@ struct SVGSubGradient {
     /// The end point of the subgradient.
     t1: Angle,
     /// The color at the start point of the subgradient.
-    c0: TypstColor,
+    c0: TexColor,
     /// The color at the end point of the subgradient.
-    c1: TypstColor,
+    c1: TexColor,
 }
 
 /// The kind of linear gradient.
@@ -479,10 +479,10 @@ impl SVGRenderer {
         Some(())
     }
 
-    fn text_paint_transform(&self, state: State, paint: &TypstPaint) -> Transform {
+    fn text_paint_transform(&self, state: State, paint: &TexPaint) -> Transform {
         match paint {
-            TypstPaint::Solid(_) => Transform::identity(),
-            TypstPaint::Gradient(gradient) => match gradient.unwrap_relative(true) {
+            TexPaint::Solid(_) => Transform::identity(),
+            TexPaint::Gradient(gradient) => match gradient.unwrap_relative(true) {
                 RelativeTo::Self_ => Transform::identity(),
                 RelativeTo::Parent => Transform::scale(
                     Ratio::new(state.size.x.to_pt()),
@@ -490,7 +490,7 @@ impl SVGRenderer {
                 )
                 .post_concat(state.transform.invert().unwrap()),
             },
-            TypstPaint::Pattern(pattern) => match pattern.unwrap_relative(true) {
+            TexPaint::Pattern(pattern) => match pattern.unwrap_relative(true) {
                 RelativeTo::Self_ => Transform::identity(),
                 RelativeTo::Parent => state.transform.invert().unwrap(),
             },
@@ -498,7 +498,7 @@ impl SVGRenderer {
     }
 
     /// Render a shape element.
-    fn render_shape(&mut self, state: State, shape: &TypstShape) {
+    fn render_shape(&mut self, state: State, shape: &TexShape) {
         self.xml.start_element("path");
         self.xml.write_attribute("class", "typst-shape");
 
@@ -526,12 +526,7 @@ impl SVGRenderer {
     }
 
     /// Calculate the transform of the shape's fill or stroke.
-    fn shape_paint_transform(
-        &self,
-        state: State,
-        paint: &TypstPaint,
-        shape: &TypstShape,
-    ) -> Transform {
+    fn shape_paint_transform(&self, state: State, paint: &TexPaint, shape: &TexShape) -> Transform {
         let mut shape_size = shape.geometry.bbox_size();
         // Edge cases for strokes.
         if shape_size.x.to_pt() == 0.0 {
@@ -542,7 +537,7 @@ impl SVGRenderer {
             shape_size.y = Abs::pt(1.0);
         }
 
-        if let TypstPaint::Gradient(gradient) = paint {
+        if let TexPaint::Gradient(gradient) = paint {
             match gradient.unwrap_relative(false) {
                 RelativeTo::Self_ => Transform::scale(
                     Ratio::new(shape_size.x.to_pt()),
@@ -554,7 +549,7 @@ impl SVGRenderer {
                 )
                 .post_concat(state.transform.invert().unwrap()),
             }
-        } else if let TypstPaint::Pattern(pattern) = paint {
+        } else if let TexPaint::Pattern(pattern) = paint {
             match pattern.unwrap_relative(false) {
                 RelativeTo::Self_ => Transform::identity(),
                 RelativeTo::Parent => state.transform.invert().unwrap(),
@@ -565,7 +560,7 @@ impl SVGRenderer {
     }
 
     /// Calculate the size of the shape's fill.
-    fn shape_fill_size(&self, state: State, paint: &TypstPaint, shape: &TypstShape) -> Size {
+    fn shape_fill_size(&self, state: State, paint: &TexPaint, shape: &TexShape) -> Size {
         let mut shape_size = shape.geometry.bbox_size();
         // Edge cases for strokes.
         if shape_size.x.to_pt() == 0.0 {
@@ -576,7 +571,7 @@ impl SVGRenderer {
             shape_size.y = Abs::pt(1.0);
         }
 
-        if let TypstPaint::Gradient(gradient) = paint {
+        if let TexPaint::Gradient(gradient) = paint {
             match gradient.unwrap_relative(false) {
                 RelativeTo::Self_ => shape_size,
                 RelativeTo::Parent => state.size,
@@ -587,15 +582,15 @@ impl SVGRenderer {
     }
 
     /// Write a fill attribute.
-    fn write_fill(&mut self, fill: &TypstPaint, size: Size, ts: Transform) {
+    fn write_fill(&mut self, fill: &TexPaint, size: Size, ts: Transform) {
         match fill {
-            TypstPaint::Solid(color) => self.xml.write_attribute("fill", &color.encode()),
-            TypstPaint::Gradient(gradient) => {
+            TexPaint::Solid(color) => self.xml.write_attribute("fill", &color.encode()),
+            TexPaint::Gradient(gradient) => {
                 let id = self.push_gradient(gradient, size, ts);
                 self.xml
                     .write_attribute_fmt("fill", format_args!("url(#{id})"));
             }
-            TypstPaint::Pattern(pattern) => {
+            TexPaint::Pattern(pattern) => {
                 let id = self.push_pattern(pattern, size, ts);
                 self.xml
                     .write_attribute_fmt("fill", format_args!("url(#{id})"));
@@ -655,15 +650,15 @@ impl SVGRenderer {
     }
 
     /// Write a stroke attribute.
-    fn write_stroke(&mut self, stroke: &TypstFixedStroke, size: Size, fill_transform: Transform) {
+    fn write_stroke(&mut self, stroke: &TexFixedStroke, size: Size, fill_transform: Transform) {
         match &stroke.paint {
-            TypstPaint::Solid(color) => self.xml.write_attribute("stroke", &color.encode()),
-            TypstPaint::Gradient(gradient) => {
+            TexPaint::Solid(color) => self.xml.write_attribute("stroke", &color.encode()),
+            TexPaint::Gradient(gradient) => {
                 let id = self.push_gradient(gradient, size, fill_transform);
                 self.xml
                     .write_attribute_fmt("stroke", format_args!("url(#{id})"));
             }
-            TypstPaint::Pattern(pattern) => {
+            TexPaint::Pattern(pattern) => {
                 let id = self.push_pattern(pattern, size, fill_transform);
                 self.xml
                     .write_attribute_fmt("stroke", format_args!("url(#{id})"));
@@ -1104,7 +1099,7 @@ impl SVGRenderer {
 
 /// Convert an outline glyph to an SVG path.
 #[comemo::memoize]
-fn convert_outline_glyph_to_path(font: &TypstFont, id: GlyphId, scale: Ratio) -> Option<EcoString> {
+fn convert_outline_glyph_to_path(font: &TexFont, id: GlyphId, scale: Ratio) -> Option<EcoString> {
     let mut builder = SvgPathBuilder::with_scale(scale);
     font.ttf().outline_glyph(id, &mut builder)?;
     Some(builder.0)
@@ -1112,7 +1107,7 @@ fn convert_outline_glyph_to_path(font: &TypstFont, id: GlyphId, scale: Ratio) ->
 
 /// Convert a bitmap glyph to an encoded image URL.
 #[comemo::memoize]
-fn convert_bitmap_glyph_to_image(font: &TypstFont, id: GlyphId) -> Option<(Image, f64, f64)> {
+fn convert_bitmap_glyph_to_image(font: &TexFont, id: GlyphId) -> Option<(Image, f64, f64)> {
     let raster = font.ttf().glyph_raster_image(id, std::u16::MAX)?;
     if raster.format != ttf_parser::RasterImageFormat::PNG {
         return None;
@@ -1123,7 +1118,7 @@ fn convert_bitmap_glyph_to_image(font: &TypstFont, id: GlyphId) -> Option<(Image
 
 /// Convert an SVG glyph to an encoded image URL.
 #[comemo::memoize]
-fn convert_svg_glyph_to_base64_url(font: &TypstFont, id: GlyphId) -> Option<EcoString> {
+fn convert_svg_glyph_to_base64_url(font: &TexFont, id: GlyphId) -> Option<EcoString> {
     let mut data = font.ttf().glyph_svg_image(id)?.data;
 
     // Decompress SVGZ.
@@ -1185,19 +1180,19 @@ fn convert_svg_glyph_to_base64_url(font: &TypstFont, id: GlyphId) -> Option<EcoS
 
 /// Convert a geometry to an SVG path.
 #[comemo::memoize]
-fn convert_geometry_to_path(geometry: &TypstGeometry) -> EcoString {
+fn convert_geometry_to_path(geometry: &TexGeometry) -> EcoString {
     let mut builder = SvgPathBuilder::default();
     match geometry {
-        TypstGeometry::Line(t) => {
+        TexGeometry::Line(t) => {
             builder.move_to(0.0, 0.0);
             builder.line_to(t.x.to_pt() as f32, t.y.to_pt() as f32);
         }
-        TypstGeometry::Rect(rect) => {
+        TexGeometry::Rect(rect) => {
             let x = rect.x.to_pt() as f32;
             let y = rect.y.to_pt() as f32;
             builder.rect(x, y);
         }
-        TypstGeometry::Path(p) => return convert_path(p),
+        TexGeometry::Path(p) => return convert_path(p),
     };
     builder.0
 }
@@ -1423,14 +1418,14 @@ trait ColorEncode {
     fn encode(&self) -> EcoString;
 }
 
-impl ColorEncode for TypstColor {
+impl ColorEncode for TexColor {
     fn encode(&self) -> EcoString {
         match *self {
-            c @ TypstColor::Rgba(_)
-            | c @ TypstColor::Luma(_)
-            | c @ TypstColor::Cmyk(_)
-            | c @ TypstColor::Hsv(_) => c.to_hex(),
-            TypstColor::LinearRgb(rgb) => {
+            c @ TexColor::Rgba(_)
+            | c @ TexColor::Luma(_)
+            | c @ TexColor::Cmyk(_)
+            | c @ TexColor::Hsv(_) => c.to_hex(),
+            TexColor::LinearRgb(rgb) => {
                 if rgb.alpha != 1.0 {
                     eco_format!(
                         "color(srgb-linear {:.5} {:.5} {:.5} / {:.5})",
@@ -1448,7 +1443,7 @@ impl ColorEncode for TypstColor {
                     )
                 }
             }
-            TypstColor::Oklab(oklab) => {
+            TexColor::Oklab(oklab) => {
                 if oklab.alpha != 1.0 {
                     eco_format!(
                         "oklab({:.3}% {:.5} {:.5} / {:.5})",
@@ -1466,7 +1461,7 @@ impl ColorEncode for TypstColor {
                     )
                 }
             }
-            TypstColor::Oklch(oklch) => {
+            TexColor::Oklch(oklch) => {
                 if oklch.alpha != 1.0 {
                     eco_format!(
                         "oklch({:.3}% {:.5} {:.3}deg / {:.3})",
@@ -1484,7 +1479,7 @@ impl ColorEncode for TypstColor {
                     )
                 }
             }
-            TypstColor::Hsl(hsl) => {
+            TexColor::Hsl(hsl) => {
                 if hsl.alpha != 1.0 {
                     eco_format!(
                         "hsla({:.3}deg {:.3}% {:.3}% / {:.5})",

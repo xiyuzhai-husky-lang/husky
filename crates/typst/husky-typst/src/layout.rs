@@ -74,9 +74,9 @@ use comemo::{Tracked, TrackedMut};
 use crate::diag::{bail, SourceResult};
 use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
-use crate::foundations::{category, Category, Scope, StyleChain, TypstContent};
+use crate::foundations::{category, Category, Scope, StyleChain, TexContent};
 use crate::introspection::{Introspector, Locator};
-use crate::model::TypstDocument;
+use crate::model::TexDocument;
 use crate::realize::{realize_block, realize_root, Scratch};
 use crate::World;
 
@@ -94,8 +94,8 @@ pub fn define(global: &mut Scope) {
     global.define_type::<Ratio>();
     global.define_type::<Rel<Length>>();
     global.define_type::<Fr>();
-    global.define_type::<TypstLayoutDirection>();
-    global.define_type::<Alignment>();
+    global.define_type::<TexLayoutDirection>();
+    global.define_type::<TexAlignment>();
     global.define_elem::<PageElem>();
     global.define_elem::<PagebreakElem>();
     global.define_elem::<VElem>();
@@ -121,7 +121,7 @@ pub fn define(global: &mut Scope) {
 /// Root-level layout.
 pub trait LayoutRoot {
     /// Layout into a document with one frame per page.
-    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstDocument>;
+    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexDocument>;
 }
 
 /// Layout into multiple regions.
@@ -167,18 +167,18 @@ pub trait LayoutSingle {
     ) -> SourceResult<Frame>;
 }
 
-impl LayoutRoot for TypstContent {
-    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstDocument> {
+impl LayoutRoot for TexContent {
+    fn layout_root(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexDocument> {
         #[comemo::memoize]
         fn cached(
-            content: &TypstContent,
+            content: &TexContent,
             world: Tracked<dyn World + '_>,
             introspector: Tracked<Introspector>,
             route: Tracked<Route>,
             locator: Tracked<Locator>,
             tracer: TrackedMut<Tracer>,
             styles: StyleChain,
-        ) -> SourceResult<TypstDocument> {
+        ) -> SourceResult<TexDocument> {
             let mut locator = Locator::chained(locator);
             let mut engine = Engine {
                 world,
@@ -204,7 +204,7 @@ impl LayoutRoot for TypstContent {
     }
 }
 
-impl LayoutMultiple for TypstContent {
+impl LayoutMultiple for TexContent {
     fn layout(
         &self,
         engine: &mut Engine,
@@ -214,7 +214,7 @@ impl LayoutMultiple for TypstContent {
         #[allow(clippy::too_many_arguments)]
         #[comemo::memoize]
         fn cached(
-            content: &TypstContent,
+            content: &TexContent,
             world: Tracked<dyn World + '_>,
             introspector: Tracked<Introspector>,
             route: Tracked<Route>,

@@ -2,7 +2,7 @@ use ecow::{eco_format, EcoString};
 
 use crate::diag::{At, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{func, scope, Str, TypstValue};
+use crate::foundations::{func, scope, Str, TexValue};
 use crate::loading::Readable;
 use crate::syntax::{is_newline, Spanned};
 use crate::World;
@@ -10,8 +10,8 @@ use crate::World;
 /// Reads structured data from a TOML file.
 ///
 /// The file must contain a valid TOML table. TOML tables will be converted into
-/// Typst dictionaries, and TOML arrays will be converted into Typst arrays.
-/// Strings, booleans and datetimes will be converted into the Typst equivalents
+/// Tex dictionaries, and TOML arrays will be converted into Tex arrays.
+/// Strings, booleans and datetimes will be converted into the Tex equivalents
 /// and numbers will be converted to floats or integers depending on whether
 /// they are whole numbers.
 ///
@@ -33,7 +33,7 @@ pub fn toml(
     engine: &mut Engine,
     /// Path to a TOML file.
     path: Spanned<EcoString>,
-) -> SourceResult<TypstValue> {
+) -> SourceResult<TexValue> {
     let Spanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
@@ -47,7 +47,7 @@ impl toml {
     pub fn decode(
         /// TOML data.
         data: Spanned<Readable>,
-    ) -> SourceResult<TypstValue> {
+    ) -> SourceResult<TexValue> {
         let Spanned { v: data, span } = data;
         let raw = std::str::from_utf8(data.as_slice())
             .map_err(|_| "file is not valid utf-8")
@@ -60,8 +60,8 @@ impl toml {
     /// Encodes structured data into a TOML string.
     #[func(title = "Encode TOML")]
     pub fn encode(
-        /// TypstValue to be encoded.
-        value: Spanned<TypstValue>,
+        /// TexValue to be encoded.
+        value: Spanned<TexValue>,
         /// Whether to pretty-print the resulting TOML.
         #[named]
         #[default(true)]

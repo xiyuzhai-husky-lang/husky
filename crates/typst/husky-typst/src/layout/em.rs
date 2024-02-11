@@ -4,7 +4,7 @@ use std::ops::{Add, Div, Mul, Neg};
 
 use ecow::EcoString;
 
-use crate::foundations::{cast, repr, Repr, Resolve, StyleChain, TypstValue};
+use crate::foundations::{cast, repr, Repr, Resolve, StyleChain, TexValue};
 use crate::layout::Abs;
 use crate::text::TextElem;
 use crate::util::{Numeric, Scalar};
@@ -152,7 +152,7 @@ impl Sum for LengthInEm {
 
 cast! {
      LengthInEm,
-     self => TypstValue::Length(self.into()),
+     self => TexValue::Length(self.into()),
 }
 
 impl Resolve for LengthInEm {

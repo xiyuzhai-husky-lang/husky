@@ -5,17 +5,17 @@ use ecow::eco_format;
 use crate::diag::{bail, At, Hint, HintedStrResult, HintedString, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    Array, CastInfo, FromTypstValue, Func, IntoTypstValue, Reflect, Resolve, Smart, StyleChain,
-    TypstContent, TypstValue,
+    Array, CastInfo, FromTexValue, Func, IntoTexValue, Reflect, Resolve, Smart, StyleChain,
+    TexContent, TexValue,
 };
 use crate::layout::{
-    Abs, Alignment, Axes, Fr, Fragment, Frame, FrameItem, LayoutMultiple, Length, Point, Regions,
-    Rel, Sides, Size, Sizing, TypstLayoutDirection,
+    Abs, Axes, Fr, Fragment, Frame, FrameItem, LayoutMultiple, Length, Point, Regions, Rel, Sides,
+    Size, Sizing, TexAlignment, TexLayoutDirection,
 };
 use crate::syntax::Span;
 use crate::text::TextElem;
 use crate::util::{MaybeReverseIter, NonZeroExt, Numeric};
-use crate::visualize::{TypstFixedStroke, TypstGeometry, TypstPaint};
+use crate::visualize::{TexFixedStroke, TexGeometry, TexPaint};
 
 /// A value that can be configured per cell.
 #[derive(Debug, Clone, PartialEq, Hash)]
@@ -28,7 +28,7 @@ pub enum Celled<T> {
     Array(Vec<T>),
 }
 
-impl<T: Default + Clone + FromTypstValue> Celled<T> {
+impl<T: Default + Clone + FromTexValue> Celled<T> {
     /// Resolve the value based on the cell position.
     pub fn resolve(&self, engine: &mut Engine, x: usize, y: usize) -> SourceResult<T> {
         Ok(match self {
@@ -58,13 +58,13 @@ impl<T: Reflect> Reflect for Celled<T> {
         T::output() + Array::output() + Func::output()
     }
 
-    fn castable(value: &TypstValue) -> bool {
+    fn castable(value: &TexValue) -> bool {
         Array::castable(value) || Func::castable(value) || T::castable(value)
     }
 }
 
-impl<T: IntoTypstValue> IntoTypstValue for Celled<T> {
-    fn into_value(self) -> TypstValue {
+impl<T: IntoTexValue> IntoTexValue for Celled<T> {
+    fn into_value(self) -> TexValue {
         match self {
             Self::Value(value) => value.into_value(),
             Self::Func(func) => func.into_value(),
@@ -73,11 +73,11 @@ impl<T: IntoTypstValue> IntoTypstValue for Celled<T> {
     }
 }
 
-impl<T: FromTypstValue> FromTypstValue for Celled<T> {
-    fn from_value(value: TypstValue) -> StrResult<Self> {
+impl<T: FromTexValue> FromTexValue for Celled<T> {
+    fn from_value(value: TexValue) -> StrResult<Self> {
         match value {
-            TypstValue::Func(v) => Ok(Self::Func(v)),
-            TypstValue::Array(array) => Ok(Self::Array(
+            TexValue::Func(v) => Ok(Self::Func(v)),
+            TexValue::Array(array) => Ok(Self::Array(
                 array
                     .into_iter()
                     .map(T::from_value)
@@ -93,16 +93,16 @@ impl<T: FromTypstValue> FromTypstValue for Celled<T> {
 #[derive(Clone)]
 pub struct Cell {
     /// The cell's body.
-    pub body: TypstContent,
+    pub body: TexContent,
     /// The cell's fill.
-    pub fill: Option<TypstPaint>,
+    pub fill: Option<TexPaint>,
     /// The amount of columns spanned by the cell.
     pub colspan: NonZeroUsize,
 }
 
-impl From<TypstContent> for Cell {
+impl From<TexContent> for Cell {
     /// Create a simple cell given its body.
-    fn from(body: TypstContent) -> Self {
+    fn from(body: TexContent) -> Self {
         Self {
             body,
             fill: None,
@@ -154,8 +154,8 @@ pub trait ResolvableCell {
         self,
         x: usize,
         y: usize,
-        fill: &Option<TypstPaint>,
-        align: Smart<Alignment>,
+        fill: &Option<TexPaint>,
+        align: Smart<TexAlignment>,
         inset: Sides<Option<Rel<Length>>>,
         styles: StyleChain,
     ) -> Cell;
@@ -207,8 +207,8 @@ impl CellGrid {
         tracks: Axes<&[Sizing]>,
         gutter: Axes<&[Sizing]>,
         cells: &[T],
-        fill: &Celled<Option<TypstPaint>>,
-        align: &Celled<Smart<Alignment>>,
+        fill: &Celled<Option<TexPaint>>,
+        align: &Celled<Smart<TexAlignment>>,
         inset: Sides<Option<Rel<Length>>>,
         engine: &mut Engine,
         styles: StyleChain,
@@ -580,7 +580,7 @@ pub struct GridLayouter<'a> {
     /// The grid of cells.
     grid: &'a CellGrid,
     // How to stroke the cells.
-    stroke: &'a Option<TypstFixedStroke>,
+    stroke: &'a Option<TexFixedStroke>,
     /// The regions to layout children into.
     regions: Regions<'a>,
     /// The inherited styles.
@@ -628,7 +628,7 @@ impl<'a> GridLayouter<'a> {
     #[allow(clippy::too_many_arguments)]
     pub fn new(
         grid: &'a CellGrid,
-        stroke: &'a Option<TypstFixedStroke>,
+        stroke: &'a Option<TexFixedStroke>,
         regions: Regions<'a>,
         styles: StyleChain<'a>,
         span: Span,
@@ -649,7 +649,7 @@ impl<'a> GridLayouter<'a> {
             lrows: vec![],
             initial: regions.size,
             finished: vec![],
-            is_rtl: TextElem::dir_in(styles) == TypstLayoutDirection::RightLeft,
+            is_rtl: TextElem::dir_in(styles) == TexLayoutDirection::RightLeft,
             span,
         }
     }
@@ -693,7 +693,7 @@ impl<'a> GridLayouter<'a> {
                 // Render horizontal lines.
                 for offset in points(rows.iter().map(|piece| piece.height)) {
                     let target = Point::with_x(frame.width() + thickness);
-                    let hline = TypstGeometry::Line(target).stroked(stroke.clone());
+                    let hline = TexGeometry::Line(target).stroked(stroke.clone());
                     frame.prepend(
                         Point::new(-half, offset),
                         FrameItem::Shape(hline, self.span),
@@ -709,7 +709,7 @@ impl<'a> GridLayouter<'a> {
                     // is not drawn above colspans.
                     for (dy, length) in split_vline(self.grid, rows, x, 0, self.grid.rows.len()) {
                         let target = Point::with_y(length + thickness);
-                        let vline = TypstGeometry::Line(target).stroked(stroke.clone());
+                        let vline = TexGeometry::Line(target).stroked(stroke.clone());
                         frame.prepend(
                             Point::new(dx, dy - half),
                             FrameItem::Shape(vline, self.span),
@@ -744,7 +744,7 @@ impl<'a> GridLayouter<'a> {
                             };
                             let pos = Point::new(dx + offset, dy);
                             let size = Size::new(width, row.height);
-                            let rect = TypstGeometry::Rect(size).filled(fill);
+                            let rect = TexGeometry::Rect(size).filled(fill);
                             frame.prepend(pos, FrameItem::Shape(rect, self.span));
                         }
                     }
@@ -1349,7 +1349,7 @@ mod test {
 
     fn sample_cell() -> Cell {
         Cell {
-            body: TypstContent::default(),
+            body: TexContent::default(),
             fill: None,
             colspan: NonZeroUsize::ONE,
         }
@@ -1357,7 +1357,7 @@ mod test {
 
     fn cell_with_colspan(colspan: usize) -> Cell {
         Cell {
-            body: TypstContent::default(),
+            body: TexContent::default(),
             fill: None,
             colspan: NonZeroUsize::try_from(colspan).unwrap(),
         }

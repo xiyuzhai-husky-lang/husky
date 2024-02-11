@@ -1,6 +1,6 @@
 use std::num::NonZeroUsize;
 
-use husky_typst::foundations::{Packed, StyleChain, TypstElement};
+use husky_typst::foundations::{Packed, StyleChain, TexElement};
 use husky_typst::layout::Abs;
 use husky_typst::model::HeadingElem;
 use pdf_writer::{Finish, Ref, TextStr};
@@ -33,7 +33,7 @@ pub(crate) fn write_outline(ctx: &mut PdfContext) -> Option<Ref> {
             // - you reach a node whose children would be brothers of this
             // heading (=> add the current heading as a child of this node);
             // - you reach a node with no children (=> this heading probably
-            // skipped a few nesting levels in Typst, or one or more ancestors
+            // skipped a few nesting levels in Tex, or one or more ancestors
             // of this heading weren't bookmarked, so add it as a child of this
             // node, which is its deepest bookmarked ancestor);
             // - or, if the latest heading(s) was(/were) skipped
@@ -55,7 +55,7 @@ pub(crate) fn write_outline(ctx: &mut PdfContext) -> Option<Ref> {
             //
             // In other words, a heading can be added to the bookmark tree
             // at most as deep as its topmost skipped direct ancestor (if it
-            // exists), or at most as deep as its actual nesting level in Typst
+            // exists), or at most as deep as its actual nesting level in Tex
             // (not exceeding whichever is the most restrictive depth limit
             // of those two).
             while children.last().map_or(false, |last| {

@@ -5,7 +5,7 @@ use crate::diag::{bail, At, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
     cast, elem, scope, select_where, Func, LocatableSelector, Packed, Show, ShowSet, Smart,
-    StyleChain, Styles, TypstContent, TypstElement,
+    StyleChain, Styles, TexContent, TexElement,
 };
 use crate::introspection::{Counter, CounterKey, Locatable};
 use crate::layout::{BoxElem, Fr, HElem, HideElem, Length, Rel, RepeatElem, Spacing};
@@ -71,7 +71,7 @@ pub struct OutlineElem {
     /// `{show outline: set heading(numbering: "1.")}`
     /// ```
     #[default(Some(Smart::Auto))]
-    pub title: Option<Smart<TypstContent>>,
+    pub title: Option<Smart<TexContent>>,
 
     /// The type of element to include in the outline.
     ///
@@ -176,7 +176,7 @@ pub struct OutlineElem {
     /// = A New Beginning
     /// ```
     #[default(Some(RepeatElem::new(TextElem::packed(".")).pack()))]
-    pub fill: Option<TypstContent>,
+    pub fill: Option<TexContent>,
 }
 
 #[scope]
@@ -187,7 +187,7 @@ impl OutlineElem {
 
 impl Show for Packed<OutlineElem> {
     #[husky_typst_macros::time(name = "outline", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         let mut seq = vec![ParbreakElem::new().pack()];
         // Build the outline title.
         if let Some(title) = self.title(styles) {
@@ -208,7 +208,7 @@ impl Show for Packed<OutlineElem> {
             .depth(styles)
             .unwrap_or(NonZeroUsize::new(usize::MAX).unwrap());
 
-        let mut ancestors: Vec<&TypstContent> = vec![];
+        let mut ancestors: Vec<&TexContent> = vec![];
         let elems = engine.introspector.query(&self.target(styles).0);
 
         for elem in &elems {
@@ -248,7 +248,7 @@ impl Show for Packed<OutlineElem> {
 
         seq.push(ParbreakElem::new().pack());
 
-        Ok(TypstContent::sequence(seq))
+        Ok(TexContent::sequence(seq))
     }
 }
 
@@ -304,7 +304,7 @@ impl LocalName for Packed<OutlineElem> {
 /// `#outline()` element.
 pub trait Outlinable: Refable {
     /// Produce an outline item for this element.
-    fn outline(&self, engine: &mut Engine) -> SourceResult<Option<TypstContent>>;
+    fn outline(&self, engine: &mut Engine) -> SourceResult<Option<TexContent>>;
 
     /// Returns the nesting level of this element.
     fn level(&self) -> NonZeroUsize {
@@ -324,8 +324,8 @@ impl OutlineIndent {
     fn apply(
         indent: &Option<Smart<Self>>,
         engine: &mut Engine,
-        ancestors: &Vec<&TypstContent>,
-        seq: &mut Vec<TypstContent>,
+        ancestors: &Vec<&TexContent>,
+        seq: &mut Vec<TexContent>,
         span: Span,
     ) -> SourceResult<()> {
         match indent {
@@ -335,7 +335,7 @@ impl OutlineIndent {
             // 'auto' | 'true' => use numbering alignment for indenting
             Some(Smart::Auto | Smart::Custom(OutlineIndent::Bool(true))) => {
                 // Add hidden ancestors numberings to realize the indent.
-                let mut hidden = TypstContent::empty();
+                let mut hidden = TexContent::empty();
                 for ancestor in ancestors {
                     let ancestor_outlinable = ancestor.with::<dyn Outlinable>().unwrap();
 
@@ -391,12 +391,12 @@ cast! {
     v: Func => OutlineIndent::Func(v),
 }
 
-struct LengthOrContent(TypstContent);
+struct LengthOrContent(TexContent);
 
 cast! {
     LengthOrContent,
     v: Rel<Length> => Self(HElem::new(Spacing::Rel(v)).pack()),
-    v: TypstContent => Self(v),
+    v: TexContent => Self(v),
 }
 
 /// Represents each entry line in an outline, including the reference to the
@@ -437,13 +437,13 @@ pub struct OutlineEntry {
     /// through the [`location`]($content.location) method on content
     /// and can be [linked]($link) to.
     #[required]
-    pub element: TypstContent,
+    pub element: TexContent,
 
     /// The content which is displayed in place of the referred element at its
     /// entry in the outline. For a heading, this would be its number followed
     /// by the heading's title, for example.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 
     /// The content used to fill the space between the element's outline and
     /// its page number, as defined by the outline element this entry is
@@ -454,12 +454,12 @@ pub struct OutlineEntry {
     /// fractional width. For example, `{box(width: 1fr, repeat[-])}` would show
     /// precisely as many `-` characters as necessary to fill a particular gap.
     #[required]
-    pub fill: Option<TypstContent>,
+    pub fill: Option<TexContent>,
 
     /// The page number of the element this entry links to, formatted with the
     /// numbering set for the referenced page.
     #[required]
-    pub page: TypstContent,
+    pub page: TexContent,
 }
 
 impl OutlineEntry {
@@ -470,8 +470,8 @@ impl OutlineEntry {
     fn from_outlinable(
         engine: &mut Engine,
         span: Span,
-        elem: TypstContent,
-        fill: Option<TypstContent>,
+        elem: TexContent,
+        fill: Option<TexContent>,
     ) -> SourceResult<Option<Self>> {
         let Some(outlinable) = elem.with::<dyn Outlinable>() else {
             bail!(span, "cannot outline {}", elem.func().name());
@@ -498,7 +498,7 @@ impl OutlineEntry {
 
 impl Show for Packed<OutlineEntry> {
     #[husky_typst_macros::time(name = "outline.entry", span = self.span())]
-    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<TexContent> {
         let mut seq = vec![];
         let elem = self.element();
 
@@ -536,6 +536,6 @@ impl Show for Packed<OutlineEntry> {
         let page = self.page().clone().linked(Destination::Location(location));
         seq.push(page);
 
-        Ok(TypstContent::sequence(seq))
+        Ok(TexContent::sequence(seq))
     }
 }

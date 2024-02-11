@@ -2,8 +2,8 @@ use ecow::EcoString;
 use unicode_segmentation::UnicodeSegmentation;
 
 use crate::diag::{bail, StrResult};
-use crate::foundations::{array, cast, dict, elem, Array, FromTypstValue, Smart, Str, TypstDict};
-use crate::layout::TypstLayoutDirection;
+use crate::foundations::{array, cast, dict, elem, Array, FromTexValue, Smart, Str, TexDict};
+use crate::layout::TexLayoutDirection;
 use crate::syntax::is_newline;
 use crate::text::{Lang, Region};
 
@@ -25,7 +25,7 @@ use crate::text::{Lang, Region};
 ///
 /// # Syntax
 /// This function also has dedicated syntax: The normal quote characters
-/// (`'` and `"`). Typst automatically makes your quotes smart.
+/// (`'` and `"`). Tex automatically makes your quotes smart.
 #[elem(name = "smartquote")]
 pub struct SmartQuoteElem {
     /// Whether this should be a double quote.
@@ -217,7 +217,7 @@ impl<'s> SmartQuotes<'s> {
             "no" | "nb" | "nn" if alternative => low_high,
             "ru" | "no" | "nb" | "nn" | "ua" => ("’", "’", "«", "»"),
             "gr" => ("‘", "’", "«", "»"),
-            _ if lang.dir() == TypstLayoutDirection::RightLeft => ("’", "‘", "”", "“"),
+            _ if lang.dir() == TexLayoutDirection::RightLeft => ("’", "‘", "”", "“"),
             _ => default,
         };
 
@@ -343,19 +343,19 @@ pub struct SmartQuoteDict {
 cast! {
     SmartQuoteDict,
     self => dict! { "double" => self.double, "single" => self.single }.into_value(),
-    mut value: TypstDict => {
+    mut value: TexDict => {
         let keys = ["double", "single"];
 
         let double = value
             .take("double")
             .ok()
-            .map(FromTypstValue::from_value)
+            .map(FromTexValue::from_value)
             .transpose()?
             .unwrap_or(Smart::Auto);
         let single = value
             .take("single")
             .ok()
-            .map(FromTypstValue::from_value)
+            .map(FromTexValue::from_value)
             .transpose()?
             .unwrap_or(Smart::Auto);
 

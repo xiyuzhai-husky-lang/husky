@@ -1,5 +1,5 @@
 use crate::diag::{bail, SourceResult};
-use crate::foundations::{elem, Packed, StyleChain, TypstContent, TypstValue};
+use crate::foundations::{elem, Packed, StyleChain, TexContent, TexValue};
 use crate::layout::{Frame, FrameItem, LengthInEm, Point, Size};
 use crate::math::{
     scaled_font_size, style_for_denominator, style_for_numerator, FrameFragment, GlyphFragment,
@@ -7,7 +7,7 @@ use crate::math::{
 };
 use crate::syntax::{Span, Spanned};
 use crate::text::TextElem;
-use crate::visualize::{TypstFixedStroke, TypstGeometry};
+use crate::visualize::{TexFixedStroke, TexGeometry};
 
 const FRAC_AROUND: LengthInEm = LengthInEm::new(0.1);
 
@@ -28,11 +28,11 @@ const FRAC_AROUND: LengthInEm = LengthInEm::new(0.1);
 pub struct FracElem {
     /// The fraction's numerator.
     #[required]
-    pub num: TypstContent,
+    pub num: TexContent,
 
     /// The fraction's denominator.
     #[required]
-    pub denom: TypstContent,
+    pub denom: TexContent,
 }
 
 impl LayoutMath for Packed<FracElem> {
@@ -60,20 +60,20 @@ impl LayoutMath for Packed<FracElem> {
 pub struct BinomElem {
     /// The binomial's upper index.
     #[required]
-    pub upper: TypstContent,
+    pub upper: TexContent,
 
     /// The binomial's lower index.
     #[required]
     #[variadic]
     #[parse(
-        let values = args.all::<Spanned<TypstValue>>()?;
+        let values = args.all::<Spanned<TexValue>>()?;
         if values.is_empty() {
             // Prevents one element binomials
             bail!(args.span, "missing argument: lower");
         }
         values.into_iter().map(|spanned| spanned.v.display()).collect()
     )]
-    pub lower: Vec<TypstContent>,
+    pub lower: Vec<TexContent>,
 }
 
 impl LayoutMath for Packed<BinomElem> {
@@ -87,8 +87,8 @@ impl LayoutMath for Packed<BinomElem> {
 fn layout(
     ctx: &mut MathContext,
     styles: StyleChain,
-    num: &TypstContent,
-    denom: &[TypstContent],
+    num: &TexContent,
+    denom: &[TexContent],
     binom: bool,
     span: Span,
 ) -> SourceResult<()> {
@@ -122,7 +122,7 @@ fn layout(
 
     let denom_style = style_for_denominator(styles);
     let denom = ctx.layout_frame(
-        &TypstContent::sequence(
+        &TexContent::sequence(
             // Add a comma between each element.
             denom
                 .iter()
@@ -167,12 +167,10 @@ fn layout(
         frame.push(
             line_pos,
             FrameItem::Shape(
-                TypstGeometry::Line(Point::with_x(line_width)).stroked(
-                    TypstFixedStroke::from_pair(
-                        TextElem::fill_in(styles).as_decoration(),
-                        thickness,
-                    ),
-                ),
+                TexGeometry::Line(Point::with_x(line_width)).stroked(TexFixedStroke::from_pair(
+                    TextElem::fill_in(styles).as_decoration(),
+                    thickness,
+                )),
                 span,
             ),
         );

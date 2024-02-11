@@ -1,9 +1,9 @@
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, Label, Packed, Show, ShowSet, Smart, StyleChain, Styles, TypstContent, TypstElement,
+    cast, elem, Label, Packed, Show, ShowSet, Smart, StyleChain, Styles, TexContent, TexElement,
 };
-use crate::layout::{Alignment, BlockElem, HElem, LengthInEm, PadElem, Spacing, VElem};
+use crate::layout::{BlockElem, HElem, LengthInEm, PadElem, Spacing, TexAlignment, VElem};
 use crate::model::{CitationForm, CiteElem};
 use crate::text::{SmartQuoteElem, SpaceElem, TextElem};
 
@@ -124,13 +124,13 @@ pub struct QuoteElem {
 
     /// The quote.
     #[required]
-    body: TypstContent,
+    body: TexContent,
 }
 
 /// Attribution for a [quote](QuoteElem).
 #[derive(Debug, Clone, PartialEq, Hash)]
 pub enum Attribution {
-    Content(TypstContent),
+    Content(TexContent),
     Label(Label),
 }
 
@@ -140,13 +140,13 @@ cast! {
         Self::Content(content) => content.into_value(),
         Self::Label(label) => label.into_value(),
     },
-    content: TypstContent => Self::Content(content),
+    content: TexContent => Self::Content(content),
     label: Label => Self::Label(label),
 }
 
 impl Show for Packed<QuoteElem> {
     #[husky_typst_macros::time(name = "quote", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         let mut realized = self.body().clone();
         let block = self.block(styles);
 
@@ -154,7 +154,7 @@ impl Show for Packed<QuoteElem> {
             // Add zero-width weak spacing to make the quotes "sticky".
             let hole = HElem::hole().pack();
             let quote = SmartQuoteElem::new().with_double(true).pack();
-            realized = TypstContent::sequence([quote.clone(), hole.clone(), realized, hole, quote]);
+            realized = TexContent::sequence([quote.clone(), hole.clone(), realized, hole, quote]);
         }
 
         if block {
@@ -183,7 +183,7 @@ impl Show for Packed<QuoteElem> {
                 // Use v(0.9em, weak: true) bring the attribution closer to the
                 // quote.
                 let weak_v = VElem::weak(Spacing::Rel(LengthInEm::new(0.9).into())).pack();
-                realized += weak_v + TypstContent::sequence(seq).aligned(Alignment::END);
+                realized += weak_v + TexContent::sequence(seq).aligned(TexAlignment::END);
             }
 
             realized = PadElem::new(realized).pack();

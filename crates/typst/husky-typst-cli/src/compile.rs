@@ -9,9 +9,9 @@ use husky_typst::diag::{bail, At, Severity, SourceDiagnostic, StrResult};
 use husky_typst::eval::Tracer;
 use husky_typst::foundations::Datetime;
 use husky_typst::layout::Frame;
-use husky_typst::model::TypstDocument;
+use husky_typst::model::TexDocument;
 use husky_typst::syntax::{FileId, Source, Span};
-use husky_typst::visualize::TypstColor;
+use husky_typst::visualize::TexColor;
 use husky_typst::{World, WorldExt};
 use parking_lot::RwLock;
 use rayon::iter::{IndexedParallelIterator, IntoParallelRefIterator, ParallelIterator};
@@ -138,7 +138,7 @@ pub fn compile_once(
 /// Export into the target format.
 fn export(
     world: &mut SystemWorld,
-    document: &TypstDocument,
+    document: &TexDocument,
     command: &CompileCommand,
     watching: bool,
 ) -> StrResult<()> {
@@ -155,7 +155,7 @@ fn export(
 
 /// Export to a PDF.
 fn export_pdf(
-    document: &TypstDocument,
+    document: &TexDocument,
     command: &CompileCommand,
     world: &SystemWorld,
 ) -> StrResult<()> {
@@ -188,7 +188,7 @@ enum ImageExportFormat {
 /// Export to one or multiple PNGs.
 fn export_image(
     world: &mut SystemWorld,
-    document: &TypstDocument,
+    document: &TexDocument,
     command: &CompileCommand,
     watching: bool,
     fmt: ImageExportFormat,
@@ -234,7 +234,7 @@ fn export_image(
                     let pixmap = husky_typst_render::render(
                         &page.frame,
                         command.ppi / 72.0,
-                        TypstColor::WHITE,
+                        TexColor::WHITE,
                     );
                     pixmap
                         .save_png(path)

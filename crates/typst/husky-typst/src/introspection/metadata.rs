@@ -1,8 +1,6 @@
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{
-    elem, Behave, Behaviour, Packed, Show, StyleChain, TypstContent, TypstValue,
-};
+use crate::foundations::{elem, Behave, Behaviour, Packed, Show, StyleChain, TexContent, TexValue};
 use crate::introspection::Locatable;
 
 /// Exposes a value to the query system without producing visible content.
@@ -29,12 +27,12 @@ use crate::introspection::Locatable;
 pub struct MetadataElem {
     /// The value to embed into the document.
     #[required]
-    pub value: TypstValue,
+    pub value: TexValue,
 }
 
 impl Show for Packed<MetadataElem> {
-    fn show(&self, _: &mut Engine, _styles: StyleChain) -> SourceResult<TypstContent> {
-        Ok(TypstContent::empty())
+    fn show(&self, _: &mut Engine, _styles: StyleChain) -> SourceResult<TexContent> {
+        Ok(TexContent::empty())
     }
 }
 

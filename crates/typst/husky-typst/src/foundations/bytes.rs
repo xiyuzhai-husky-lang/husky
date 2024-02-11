@@ -8,7 +8,7 @@ use ecow::{eco_format, EcoString};
 use serde::{Serialize, Serializer};
 
 use crate::diag::{bail, StrResult};
-use crate::foundations::{cast, func, scope, ty, Array, Reflect, Repr, Str, TypstValue};
+use crate::foundations::{cast, func, scope, ty, Array, Reflect, Repr, Str, TexValue};
 
 /// A sequence of bytes.
 ///
@@ -123,10 +123,10 @@ impl Bytes {
         index: i64,
         /// A default value to return if the index is out of bounds.
         #[named]
-        default: Option<TypstValue>,
-    ) -> StrResult<TypstValue> {
+        default: Option<TexValue>,
+    ) -> StrResult<TexValue> {
         self.locate_opt(index)
-            .and_then(|i| self.0.get(i).map(|&b| TypstValue::Int(b.into())))
+            .and_then(|i| self.0.get(i).map(|&b| TexValue::Int(b.into())))
             .or(default)
             .ok_or_else(|| out_of_bounds_no_default(index, self.len()))
     }
@@ -242,8 +242,8 @@ cast! {
     v: Str => Self(v.as_bytes().into()),
     v: Array => Self(v.iter()
         .map(|item| match item {
-            TypstValue::Int(byte @ 0..=255) => Ok(*byte as u8),
-            TypstValue::Int(_) => bail!("number must be between 0 and 255"),
+            TexValue::Int(byte @ 0..=255) => Ok(*byte as u8),
+            TexValue::Int(_) => bail!("number must be between 0 and 255"),
             value => Err(<u8 as Reflect>::error(value)),
         })
         .collect::<Result<Vec<u8>, _>>()?

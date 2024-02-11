@@ -93,9 +93,7 @@ impl Lexer<'_> {
             Some(c) if is_space(c, self.mode) => self.whitespace(start, c),
             Some('/') if self.s.eat_if('/') => self.line_comment(),
             Some('/') if self.s.eat_if('*') => self.block_comment(),
-            Some('*') if self.s.eat_if('/') => {
-                self.error("unexpected end of block comment")
-            }
+            Some('*') if self.s.eat_if('/') => self.error("unexpected end of block comment"),
 
             Some(c) => match self.mode {
                 LexMode::Markup => self.markup(start, c),
@@ -275,7 +273,8 @@ impl Lexer<'_> {
     }
 
     fn ref_marker(&mut self) -> SyntaxKind {
-        self.s.eat_while(|c| is_id_continue(c) || matches!(c, ':' | '.'));
+        self.s
+            .eat_while(|c| is_id_continue(c) || matches!(c, ':' | '.'));
 
         // Don't include the trailing characters likely to be part of text.
         while matches!(self.s.scout(-1), Some('.' | ':')) {
@@ -286,7 +285,9 @@ impl Lexer<'_> {
     }
 
     fn label(&mut self) -> SyntaxKind {
-        let label = self.s.eat_while(|c| is_id_continue(c) || matches!(c, ':' | '.'));
+        let label = self
+            .s
+            .eat_while(|c| is_id_continue(c) || matches!(c, ':' | '.'));
         if label.is_empty() {
             return self.error("label cannot be empty");
         }
@@ -317,7 +318,10 @@ impl Lexer<'_> {
 
         loop {
             self.s.eat_until(|c: char| {
-                TABLE.get(c as usize).copied().unwrap_or_else(|| c.is_whitespace())
+                TABLE
+                    .get(c as usize)
+                    .copied()
+                    .unwrap_or_else(|| c.is_whitespace())
             });
 
             // Continue with the same text node if the thing would become text
@@ -628,7 +632,7 @@ fn keyword(ident: &str) -> Option<SyntaxKind> {
     })
 }
 
-/// Whether a character will become a Space token in Typst
+/// Whether a character will become a Space token in Tex
 #[inline]
 fn is_space(character: char, mode: LexMode) -> bool {
     match mode {
@@ -637,7 +641,7 @@ fn is_space(character: char, mode: LexMode) -> bool {
     }
 }
 
-/// Whether a character is interpreted as a newline by Typst.
+/// Whether a character is interpreted as a newline by Tex.
 #[inline]
 pub fn is_newline(character: char) -> bool {
     matches!(
@@ -724,7 +728,7 @@ fn count_newlines(text: &str) -> usize {
     newlines
 }
 
-/// Whether a string is a valid Typst identifier.
+/// Whether a string is a valid Tex identifier.
 ///
 /// In addition to what is specified in the [Unicode Standard][uax31], we allow:
 /// - `_` as a starting character,

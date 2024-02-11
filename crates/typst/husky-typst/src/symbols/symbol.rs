@@ -15,7 +15,7 @@ pub use husky_typst_macros::symbols;
 
 /// A Unicode symbol.
 ///
-/// Typst defines common symbols so that they can easily be written with
+/// Tex defines common symbols so that they can easily be written with
 /// standard keyboards. The symbols are defined in modules, from which they can
 /// be accessed using [field access notation]($scripting/#fields):
 ///
@@ -193,7 +193,7 @@ impl Symbol {
         /// Can be a just a string consisting of a single character for the
         /// modifierless variant or an array with two strings specifying the modifiers
         /// and the symbol. Individual modifiers should be separated by dots. When
-        /// displaying a symbol, Typst selects the first from the variants that have
+        /// displaying a symbol, Tex selects the first from the variants that have
         /// all attached modifiers and the minimum number of other modifiers.
         #[variadic]
         variants: Vec<Spanned<SymbolVariant>>,

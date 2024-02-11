@@ -5,7 +5,7 @@ use ecow::eco_format;
 use husky_typst::layout::{Abs, Angle, Point, Quadrant, Ratio, Transform};
 use husky_typst::util::Numeric;
 use husky_typst::visualize::{
-    ColorSpace, Gradient, RatioOrAngle, RelativeTo, TypstColor, WeightedColor,
+    ColorSpace, Gradient, RatioOrAngle, RelativeTo, TexColor, WeightedColor,
 };
 use pdf_writer::types::{ColorSpaceOperand, FunctionShadingType};
 use pdf_writer::writers::StreamShadingType;
@@ -200,8 +200,8 @@ fn shading_function(ctx: &mut PdfContext, gradient: &Gradient, color_space: Colo
 /// stops) of a gradient.
 fn single_gradient(
     ctx: &mut PdfContext,
-    first_color: TypstColor,
-    second_color: TypstColor,
+    first_color: TexColor,
+    second_color: TexColor,
     color_space: ColorSpace,
 ) -> Ref {
     let reference = ctx.alloc.bump();
@@ -430,7 +430,7 @@ fn compute_vertex_stream(gradient: &Gradient, aspect_ratio: Ratio) -> Arc<Vec<u8
 
             // The current progress in the current window.
             let t = |t| (t - t0.get()) / (t1.get() - t0.get());
-            let c = TypstColor::mix_iter(
+            let c = TexColor::mix_iter(
                 [
                     WeightedColor::new(c0, 1.0 - t(t_x)),
                     WeightedColor::new(c1, t(t_x)),
@@ -439,7 +439,7 @@ fn compute_vertex_stream(gradient: &Gradient, aspect_ratio: Ratio) -> Arc<Vec<u8
             )
             .unwrap();
 
-            let c_next = TypstColor::mix_iter(
+            let c_next = TexColor::mix_iter(
                 [
                     WeightedColor::new(c0, 1.0 - t(t_next)),
                     WeightedColor::new(c1, t(t_next)),

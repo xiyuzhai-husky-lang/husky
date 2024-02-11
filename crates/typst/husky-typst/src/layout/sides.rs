@@ -3,10 +3,10 @@ use std::ops::Add;
 
 use crate::diag::{bail, StrResult};
 use crate::foundations::{
-    cast, CastInfo, Fold, FromTypstValue, IntoTypstValue, Reflect, Resolve, StyleChain, TypstDict,
-    TypstValue,
+    cast, CastInfo, Fold, FromTexValue, IntoTexValue, Reflect, Resolve, StyleChain, TexDict,
+    TexValue,
 };
-use crate::layout::{Abs, Alignment, Axes, Axis, Corner, Rel, Size};
+use crate::layout::{Abs, Axes, Axis, Corner, Rel, Size, TexAlignment};
 use crate::util::Get;
 
 /// A container with left, top, right and bottom components.
@@ -163,30 +163,30 @@ impl<T: Debug + PartialEq> Debug for Sides<T> {
 
 impl<T: Reflect> Reflect for Sides<Option<T>> {
     fn input() -> CastInfo {
-        T::input() + TypstDict::input()
+        T::input() + TexDict::input()
     }
 
     fn output() -> CastInfo {
-        T::output() + TypstDict::output()
+        T::output() + TexDict::output()
     }
 
-    fn castable(value: &TypstValue) -> bool {
-        TypstDict::castable(value) || T::castable(value)
+    fn castable(value: &TexValue) -> bool {
+        TexDict::castable(value) || T::castable(value)
     }
 }
 
-impl<T> IntoTypstValue for Sides<Option<T>>
+impl<T> IntoTexValue for Sides<Option<T>>
 where
-    T: PartialEq + IntoTypstValue,
+    T: PartialEq + IntoTexValue,
 {
-    fn into_value(self) -> TypstValue {
+    fn into_value(self) -> TexValue {
         if self.is_uniform() {
             if let Some(left) = self.left {
                 return left.into_value();
             }
         }
 
-        let mut dict = TypstDict::new();
+        let mut dict = TexDict::new();
         let mut handle = |key: &str, component: Option<T>| {
             if let Some(c) = component {
                 dict.insert(key.into(), c.into_value());
@@ -198,17 +198,17 @@ where
         handle("right", self.right);
         handle("bottom", self.bottom);
 
-        TypstValue::Dict(dict)
+        TexValue::Dict(dict)
     }
 }
 
-impl<T> FromTypstValue for Sides<Option<T>>
+impl<T> FromTexValue for Sides<Option<T>>
 where
-    T: Default + FromTypstValue + Clone,
+    T: Default + FromTexValue + Clone,
 {
-    fn from_value(mut value: TypstValue) -> StrResult<Self> {
+    fn from_value(mut value: TexValue) -> StrResult<Self> {
         let expected_keys = ["left", "top", "right", "bottom", "x", "y", "rest"];
-        if let TypstValue::Dict(dict) = &mut value {
+        if let TexValue::Dict(dict) = &mut value {
             if dict.is_empty() {
                 return Ok(Self::splat(None));
             } else if dict
@@ -233,11 +233,11 @@ where
 
         if T::castable(&value) {
             Ok(Self::splat(Some(T::from_value(value)?)))
-        } else if let TypstValue::Dict(dict) = &value {
+        } else if let TexValue::Dict(dict) = &value {
             let keys = dict.iter().map(|kv| kv.0.as_str()).collect();
             // Do not hint at expected_keys, because T may be castable from Dict
             // objects with other sets of expected keys.
-            Err(TypstDict::unexpected_keys(keys, None))
+            Err(TexDict::unexpected_keys(keys, None))
         } else {
             Err(Self::error(&value))
         }
@@ -334,12 +334,12 @@ impl Side {
 
 cast! {
     Side,
-    self => Alignment::from(self).into_value(),
-    align: Alignment => match align {
-        Alignment::LEFT => Self::Left,
-        Alignment::RIGHT => Self::Right,
-        Alignment::TOP => Self::Top,
-        Alignment::BOTTOM => Self::Bottom,
+    self => TexAlignment::from(self).into_value(),
+    align: TexAlignment => match align {
+        TexAlignment::LEFT => Self::Left,
+        TexAlignment::RIGHT => Self::Right,
+        TexAlignment::TOP => Self::Top,
+        TexAlignment::BOTTOM => Self::Bottom,
         _ => bail!("cannot convert this alignment to a side"),
     },
 }

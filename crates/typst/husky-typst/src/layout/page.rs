@@ -6,20 +6,20 @@ use std::str::FromStr;
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, AutoValue, Cast, Fold, Func, Packed, Resolve, Smart, StyleChain, TypstContent,
-    TypstDict, TypstElement, TypstValue,
+    cast, elem, AutoTexValue, Cast, Fold, Func, Packed, Resolve, Smart, StyleChain, TexContent,
+    TexDict, TexElement, TexValue,
 };
 use crate::introspection::{Counter, CounterKey, ManualPageCounter};
 use crate::layout::{
-    Abs, AlignElem, Alignment, Axes, ColumnsElem, Frame, HAlignment, LayoutMultiple, Length, Point,
-    Ratio, Regions, Rel, Sides, Size, TypstLayoutDirection, VAlignment,
+    Abs, AlignElem, Axes, ColumnsElem, Frame, HAlignment, LayoutMultiple, Length, Point, Ratio,
+    Regions, Rel, Sides, Size, TexAlignment, TexLayoutDirection, VAlignment,
 };
 
 use crate::model::Numbering;
 use crate::syntax::Spanned;
 use crate::text::TextElem;
 use crate::util::{NonZeroExt, Numeric, Scalar};
-use crate::visualize::TypstPaint;
+use crate::visualize::TexPaint;
 
 /// Layouts its child onto one or multiple pages.
 ///
@@ -186,7 +186,7 @@ pub struct PageElem {
     /// *Dark mode enabled.*
     /// ```
     #[borrowed]
-    pub fill: Option<TypstPaint>,
+    pub fill: Option<TexPaint>,
 
     /// How to [number]($numbering) the pages.
     ///
@@ -223,7 +223,7 @@ pub struct PageElem {
     /// ```
     #[default(HAlignment::Center + VAlignment::Bottom)]
     #[parse({
-        let option: Option<Spanned<Alignment>> = args.named("number-align")?;
+        let option: Option<Spanned<TexAlignment>> = args.named("number-align")?;
         if let Some(Spanned { v: align, span }) = option {
             if align.y() == Some(VAlignment::Horizon) {
                 bail!(span, "page number cannot be `horizon`-aligned");
@@ -231,7 +231,7 @@ pub struct PageElem {
         }
         option.map(|spanned| spanned.v)
     })]
-    pub number_align: Alignment,
+    pub number_align: TexAlignment,
 
     /// The page's header. Fills the top margin of each page.
     ///
@@ -241,7 +241,7 @@ pub struct PageElem {
     ///   margin: (top: 32pt, bottom: 20pt),
     ///   header: [
     ///     #set text(8pt)
-    ///     #smallcaps[Typst Academcy]
+    ///     #smallcaps[Tex Academcy]
     ///     #h(1fr) _Exercise Sheet 3_
     ///   ],
     /// )
@@ -249,7 +249,7 @@ pub struct PageElem {
     /// #lorem(19)
     /// ```
     #[borrowed]
-    pub header: Option<TypstContent>,
+    pub header: Option<TexContent>,
 
     /// The amount the header is raised into the top margin.
     #[resolve]
@@ -280,7 +280,7 @@ pub struct PageElem {
     /// #lorem(48)
     /// ```
     #[borrowed]
-    pub footer: Option<TypstContent>,
+    pub footer: Option<TexContent>,
 
     /// The amount the footer is lowered into the bottom margin.
     #[resolve]
@@ -299,12 +299,12 @@ pub struct PageElem {
     ///   ]
     /// ))
     ///
-    /// = Typst's secret plans
+    /// = Tex's secret plans
     /// In the year 2023, we plan to take
     /// over the world (of typesetting).
     /// ```
     #[borrowed]
-    pub background: Option<TypstContent>,
+    pub background: Option<TexContent>,
 
     /// Content in the page's foreground.
     ///
@@ -318,7 +318,7 @@ pub struct PageElem {
     /// not understand our approach...
     /// ```
     #[borrowed]
-    pub foreground: Option<TypstContent>,
+    pub foreground: Option<TexContent>,
 
     /// The contents of the page(s).
     ///
@@ -326,7 +326,7 @@ pub struct PageElem {
     /// page. A new page with the page properties prior to the function invocation
     /// will be created after the body has been typeset.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 
     /// Whether the page should be aligned to an even or odd page.
     #[internal]
@@ -377,7 +377,7 @@ impl Packed<PageElem> {
         let binding = self
             .binding(styles)
             .unwrap_or_else(|| match TextElem::dir_in(styles) {
-                TypstLayoutDirection::LeftRight => Binding::Left,
+                TexLayoutDirection::LeftRight => Binding::Left,
                 _ => Binding::Right,
             });
 
@@ -479,12 +479,12 @@ impl Packed<PageElem> {
                     let ascent = header_ascent.relative_to(margin.top);
                     pos = Point::with_x(margin.left);
                     area = Size::new(pw, margin.top - ascent);
-                    align = Alignment::BOTTOM;
+                    align = TexAlignment::BOTTOM;
                 } else if ptr::eq(marginal, &footer) {
                     let descent = footer_descent.relative_to(margin.bottom);
                     pos = Point::new(margin.left, size.y - margin.bottom + descent);
                     area = Size::new(pw, margin.bottom - descent);
-                    align = Alignment::TOP;
+                    align = TexAlignment::TOP;
                 } else {
                     pos = Point::zero();
                     area = size;
@@ -567,10 +567,10 @@ impl Fold for Margin {
 cast! {
     Margin,
     self => {
-        let mut dict = TypstDict::new();
-        let mut handle = |key: &str, component: TypstValue| {
+        let mut dict = TexDict::new();
+        let mut handle = |key: &str, component: TexValue| {
             let value = component.into_value();
-            if value != TypstValue::None {
+            if value != TexValue::None {
                 dict.insert(key.into(), value);
             }
         };
@@ -585,12 +585,12 @@ cast! {
             handle("right", self.sides.right.into_value());
         }
 
-        TypstValue::Dict(dict)
+        TexValue::Dict(dict)
     },
-    _: AutoValue => Self::splat(Some(Smart::Auto)),
+    _: AutoTexValue => Self::splat(Some(Smart::Auto)),
     v: Rel<Length> => Self::splat(Some(Smart::Custom(v))),
-    mut dict: TypstDict => {
-        let mut take = |key| dict.take(key).ok().map(TypstValue::cast).transpose();
+    mut dict: TexDict => {
+        let mut take = |key| dict.take(key).ok().map(TexValue::cast).transpose();
 
         let rest = take("rest")?;
         let x = take("x")?.or(rest);
@@ -659,12 +659,12 @@ impl Binding {
 cast! {
     Binding,
     self => match self {
-        Self::Left => Alignment::LEFT.into_value(),
-        Self::Right => Alignment::RIGHT.into_value(),
+        Self::Left => TexAlignment::LEFT.into_value(),
+        Self::Right => TexAlignment::RIGHT.into_value(),
     },
-    v: Alignment => match v {
-        Alignment::LEFT => Self::Left,
-        Alignment::RIGHT => Self::Right,
+    v: TexAlignment => match v {
+        TexAlignment::LEFT => Self::Left,
+        TexAlignment::RIGHT => Self::Right,
         _ => bail!("must be `left` or `right`"),
     },
 }
@@ -673,14 +673,14 @@ cast! {
 #[derive(Debug, Clone, Hash)]
 pub enum Marginal {
     /// Bare content.
-    Content(TypstContent),
+    Content(TexContent),
     /// A closure mapping from a page number to content.
     Func(Func),
 }
 
 impl Marginal {
     /// Resolve the marginal based on the page number.
-    pub fn resolve(&self, engine: &mut Engine, page: usize) -> SourceResult<Cow<'_, TypstContent>> {
+    pub fn resolve(&self, engine: &mut Engine, page: usize) -> SourceResult<Cow<'_, TexContent>> {
         Ok(match self {
             Self::Content(content) => Cow::Borrowed(content),
             Self::Func(func) => Cow::Owned(func.call(engine, [page])?.display()),
@@ -694,7 +694,7 @@ cast! {
         Self::Content(v) => v.into_value(),
         Self::Func(v) => v.into_value(),
     },
-    v: TypstContent => Self::Content(v),
+    v: TexContent => Self::Content(v),
     v: Func => Self::Func(v),
 }
 

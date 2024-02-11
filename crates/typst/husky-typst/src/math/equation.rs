@@ -5,20 +5,18 @@ use unicode_math_class::MathClass;
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    elem, Packed, Resolve, ShowSet, Smart, StyleChain, Styles, Synthesize, TypstContent,
-    TypstElement,
+    elem, Packed, Resolve, ShowSet, Smart, StyleChain, Styles, Synthesize, TexContent, TexElement,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable};
 use crate::layout::{
-    Abs, AlignElem, Alignment, Axes, FixedAlignment, Frame, LayoutMultiple, LayoutSingle,
-    LengthInEm, Point, Regions, Size, TypstLayoutDirection,
+    Abs, AlignElem, Axes, FixedAlignment, Frame, LayoutMultiple, LayoutSingle, LengthInEm, Point,
+    Regions, Size, TexAlignment, TexLayoutDirection,
 };
 use crate::math::{scaled_font_size, LayoutMath, MathContext, MathSize, MathVariant};
 use crate::model::{Numbering, Outlinable, ParElem, Refable, Supplement};
 use crate::syntax::Span;
 use crate::text::{
-    families, variant, FontFamily, FontList, FontWeight, Lang, LocalName, Region, TextElem,
-    TypstFont,
+    families, variant, FontFamily, FontList, FontWeight, Lang, LocalName, Region, TexFont, TextElem,
 };
 use crate::util::{option_eq, NonZeroExt, Numeric};
 use crate::World;
@@ -96,7 +94,7 @@ pub struct EquationElem {
 
     /// The contents of the equation.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 
     /// The size of the glyphs.
     #[internal]
@@ -136,7 +134,7 @@ impl Synthesize for Packed<EquationElem> {
     fn synthesize(&mut self, engine: &mut Engine, styles: StyleChain) -> SourceResult<()> {
         let supplement = match self.as_ref().supplement(styles) {
             Smart::Auto => TextElem::packed(Self::local_name_in(styles)),
-            Smart::Custom(None) => TypstContent::empty(),
+            Smart::Custom(None) => TexContent::empty(),
             Smart::Custom(Some(supplement)) => supplement.resolve(engine, [self.clone().pack()])?,
         };
 
@@ -149,7 +147,7 @@ impl ShowSet for Packed<EquationElem> {
     fn show_set(&self, styles: StyleChain) -> Styles {
         let mut out = Styles::new();
         if self.block(styles) {
-            out.set(AlignElem::set_alignment(Alignment::CENTER));
+            out.set(AlignElem::set_alignment(TexAlignment::CENTER));
             out.set(EquationElem::set_size(MathSize::Display));
         }
         out.set(TextElem::set_weight(FontWeight::from_number(450)));
@@ -260,8 +258,8 @@ impl LayoutSingle for Packed<EquationElem> {
 
             let dir = TextElem::dir_in(styles);
             let offset = match (align, dir) {
-                (FixedAlignment::Start, TypstLayoutDirection::RightLeft) => full_counter_width,
-                (FixedAlignment::End, TypstLayoutDirection::LeftRight) => -full_counter_width,
+                (FixedAlignment::Start, TexLayoutDirection::RightLeft) => full_counter_width,
+                (FixedAlignment::End, TexLayoutDirection::LeftRight) => -full_counter_width,
                 _ => Abs::zero(),
             };
             frame.translate(Point::with_x(offset));
@@ -326,11 +324,11 @@ impl LocalName for Packed<EquationElem> {
 }
 
 impl Refable for Packed<EquationElem> {
-    fn supplement(&self) -> TypstContent {
+    fn supplement(&self) -> TexContent {
         // After synthesis, this should always be custom content.
         match (**self).supplement(StyleChain::default()) {
             Smart::Custom(Some(Supplement::Content(content))) => content,
-            _ => TypstContent::empty(),
+            _ => TexContent::empty(),
         }
     }
 
@@ -344,7 +342,7 @@ impl Refable for Packed<EquationElem> {
 }
 
 impl Outlinable for Packed<EquationElem> {
-    fn outline(&self, engine: &mut Engine) -> SourceResult<Option<TypstContent>> {
+    fn outline(&self, engine: &mut Engine) -> SourceResult<Option<TexContent>> {
         if !self.block(StyleChain::default()) {
             return Ok(None);
         }
@@ -355,7 +353,7 @@ impl Outlinable for Packed<EquationElem> {
         // After synthesis, this should always be custom content.
         let mut supplement = match (**self).supplement(StyleChain::default()) {
             Smart::Custom(Some(Supplement::Content(content))) => content,
-            _ => TypstContent::empty(),
+            _ => TexContent::empty(),
         };
 
         if !supplement.is_empty() {
@@ -382,7 +380,7 @@ fn find_math_font(
     engine: &mut Engine<'_>,
     styles: StyleChain,
     span: Span,
-) -> SourceResult<TypstFont> {
+) -> SourceResult<TexFont> {
     let variant = variant(styles);
     let world = engine.world;
     let Some(font) = families(styles).find_map(|family| {

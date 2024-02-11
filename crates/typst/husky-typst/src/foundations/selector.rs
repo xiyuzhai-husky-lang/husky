@@ -6,8 +6,8 @@ use smallvec::SmallVec;
 
 use crate::diag::{bail, StrResult};
 use crate::foundations::{
-    cast, func, repr, scope, ty, CastInfo, ElementSchemaRef, FromTypstValue, Func, Label, Reflect,
-    Regex, Repr, Str, StyleChain, Type, TypstContent, TypstDict, TypstValue,
+    cast, func, repr, scope, ty, CastInfo, ElementSchemaRef, FromTexValue, Func, Label, Reflect,
+    Regex, Repr, Str, StyleChain, TexContent, TexDict, TexValue, Type,
 };
 use crate::introspection::{Locatable, Location};
 use crate::symbols::Symbol;
@@ -27,11 +27,11 @@ macro_rules! __select_where {
         $(
             fields.push((
                 <$ty as $crate::foundations::Fields>::Enum::$field as u8,
-                $crate::foundations::IntoTypstValue::into_value($value),
+                $crate::foundations::IntoTexValue::into_value($value),
             ));
         )*
         $crate::foundations::Selector::Elem(
-            <$ty as $crate::foundations::TypstElement>::elem(),
+            <$ty as $crate::foundations::TexElement>::elem(),
             Some(fields),
         )
     }};
@@ -56,7 +56,7 @@ pub use crate::__select_where as select_where;
 /// elements. You can also use selectors to [query]($query) the document for
 /// certain types of elements.
 ///
-/// Furthermore, you can pass a selector to several of Typst's built-in
+/// Furthermore, you can pass a selector to several of Tex's built-in
 /// functions to configure their behaviour. One such example is the
 /// [outline]($outline) where it can be used to change which elements are listed
 /// within the outline.
@@ -83,7 +83,7 @@ pub enum Selector {
     ///
     /// If there is a dictionary, only elements with the fields from the
     /// dictionary match.
-    Elem(ElementSchemaRef, Option<SmallVec<[(u8, TypstValue); 1]>>),
+    Elem(ElementSchemaRef, Option<SmallVec<[(u8, TexValue); 1]>>),
     /// Matches the element at the specified location.
     Location(Location),
     /// Matches elements with a specific label.
@@ -136,7 +136,7 @@ impl Selector {
     }
 
     /// Whether the selector matches for the target.
-    pub fn matches(&self, target: &TypstContent, styles: Option<StyleChain>) -> bool {
+    pub fn matches(&self, target: &TexContent, styles: Option<StyleChain>) -> bool {
         match self {
             Self::Elem(element, dict) => {
                 // TODO: Optimize field access to not clone.
@@ -254,7 +254,7 @@ impl Repr for Selector {
                         .iter()
                         .map(|(id, value)| (elem.field_name(*id).unwrap(), value.clone()))
                         .map(|(name, value)| (EcoString::from(name).into(), value))
-                        .collect::<TypstDict>();
+                        .collect::<TexDict>();
                     eco_format!("{}.where{}", elem.name(), dict.repr())
                 } else {
                     elem.name().into()
@@ -337,7 +337,7 @@ impl Reflect for LocatableSelector {
         CastInfo::Type(Type::of::<Selector>())
     }
 
-    fn castable(value: &TypstValue) -> bool {
+    fn castable(value: &TexValue) -> bool {
         Label::castable(value) || Func::castable(value) || Selector::castable(value)
     }
 }
@@ -347,8 +347,8 @@ cast! {
     self => self.0.into_value(),
 }
 
-impl FromTypstValue for LocatableSelector {
-    fn from_value(value: TypstValue) -> StrResult<Self> {
+impl FromTexValue for LocatableSelector {
+    fn from_value(value: TexValue) -> StrResult<Self> {
         fn validate(selector: &Selector) -> StrResult<()> {
             match selector {
                 Selector::Elem(elem, _) => {
@@ -422,7 +422,7 @@ impl Reflect for ShowableSelector {
         CastInfo::Type(Type::of::<Selector>())
     }
 
-    fn castable(value: &TypstValue) -> bool {
+    fn castable(value: &TexValue) -> bool {
         Symbol::castable(value)
             || Str::castable(value)
             || Label::castable(value)
@@ -437,8 +437,8 @@ cast! {
     self => self.0.into_value(),
 }
 
-impl FromTypstValue for ShowableSelector {
-    fn from_value(value: TypstValue) -> StrResult<Self> {
+impl FromTexValue for ShowableSelector {
+    fn from_value(value: TexValue) -> StrResult<Self> {
         fn validate(selector: &Selector, nested: bool) -> StrResult<()> {
             match selector {
                 Selector::Elem(_, _) => {}

@@ -3,11 +3,11 @@ use egui::{vec2, Align2, Color32, Pos2, Rect, Rounding, Sense, Stroke, TextStyle
 use husky_typst::{
     eval::Tracer,
     layout::Abs,
-    visualize::{TypstColor, TypstFixedStroke, TypstGeometry, TypstPaint, TypstRgb, TypstRgba},
+    visualize::{TexColor, TexFixedStroke, TexGeometry, TexPaint, TexRgb, TexRgba},
 };
 use husky_typst::{
     layout::{Frame, FrameItem, GroupItem, Point, Size},
-    visualize::TypstShape,
+    visualize::TexShape,
 };
 use render::render;
 use std::sync::mpsc::{Receiver, SyncSender};
@@ -102,11 +102,11 @@ impl eframe::App for App {
     }
 }
 
-fn translate_paint(paint: &TypstPaint) -> Color32 {
+fn translate_paint(paint: &TexPaint) -> Color32 {
     match paint {
-        TypstPaint::Solid(color) => {
-            let TypstColor::Rgba(TypstRgba {
-                color: TypstRgb {
+        TexPaint::Solid(color) => {
+            let TexColor::Rgba(TexRgba {
+                color: TexRgb {
                     red, green, blue, ..
                 },
                 alpha,
@@ -121,8 +121,8 @@ fn translate_paint(paint: &TypstPaint) -> Color32 {
                 linear_to_discrete(alpha),
             )
         }
-        TypstPaint::Gradient(_) => todo!(),
-        TypstPaint::Pattern(_) => todo!(),
+        TexPaint::Gradient(_) => todo!(),
+        TexPaint::Pattern(_) => todo!(),
     }
 }
 

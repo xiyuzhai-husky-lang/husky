@@ -6,8 +6,8 @@ use indexmap::IndexMap;
 
 use crate::diag::{bail, HintedStrResult, HintedString, StrResult};
 use crate::foundations::{
-    ElementSchemaRef, Func, IntoTypstValue, Module, NativeFunc, NativeFuncData, NativeType, Type,
-    TypstElement, TypstValue,
+    ElementSchemaRef, Func, IntoTexValue, Module, NativeFunc, NativeFuncData, NativeType,
+    TexElement, TexValue, Type,
 };
 use crate::util::Static;
 use crate::Library;
@@ -49,7 +49,7 @@ impl<'a> Scopes<'a> {
     }
 
     /// Try to access a variable immutably.
-    pub fn get(&self, var: &str) -> HintedStrResult<&TypstValue> {
+    pub fn get(&self, var: &str) -> HintedStrResult<&TexValue> {
         std::iter::once(&self.top)
             .chain(self.scopes.iter().rev())
             .chain(self.base.map(|base| base.global.scope()))
@@ -58,7 +58,7 @@ impl<'a> Scopes<'a> {
     }
 
     /// Try to access a variable immutably in math.
-    pub fn get_in_math(&self, var: &str) -> HintedStrResult<&TypstValue> {
+    pub fn get_in_math(&self, var: &str) -> HintedStrResult<&TexValue> {
         std::iter::once(&self.top)
             .chain(self.scopes.iter().rev())
             .chain(self.base.map(|base| base.math.scope()))
@@ -67,7 +67,7 @@ impl<'a> Scopes<'a> {
     }
 
     /// Try to access a variable mutably.
-    pub fn get_mut(&mut self, var: &str) -> HintedStrResult<&mut TypstValue> {
+    pub fn get_mut(&mut self, var: &str) -> HintedStrResult<&mut TexValue> {
         std::iter::once(&mut self.top)
             .chain(&mut self.scopes.iter_mut().rev())
             .find_map(|scope| scope.get_mut(var))
@@ -135,7 +135,7 @@ impl Scope {
 
     /// Bind a value to a name.
     #[track_caller]
-    pub fn define(&mut self, name: impl Into<EcoString>, value: impl IntoTypstValue) {
+    pub fn define(&mut self, name: impl Into<EcoString>, value: impl IntoTexValue) {
         let name = name.into();
 
         #[cfg(debug_assertions)]
@@ -167,7 +167,7 @@ impl Scope {
     }
 
     /// Define a native element.
-    pub fn define_elem<T: TypstElement>(&mut self) {
+    pub fn define_elem<T: TexElement>(&mut self) {
         let data = T::data();
         self.define(data.name, ElementSchemaRef::from(data));
     }
@@ -178,7 +178,7 @@ impl Scope {
     }
 
     /// Define a captured, immutable binding.
-    pub fn define_captured(&mut self, var: impl Into<EcoString>, value: impl IntoTypstValue) {
+    pub fn define_captured(&mut self, var: impl Into<EcoString>, value: impl IntoTexValue) {
         self.map.insert(
             var.into(),
             Slot::new(value.into_value(), Kind::Captured, self.category),
@@ -186,12 +186,12 @@ impl Scope {
     }
 
     /// Try to access a variable immutably.
-    pub fn get(&self, var: &str) -> Option<&TypstValue> {
+    pub fn get(&self, var: &str) -> Option<&TexValue> {
         self.map.get(var).map(Slot::read)
     }
 
     /// Try to access a variable mutably.
-    pub fn get_mut(&mut self, var: &str) -> Option<HintedStrResult<&mut TypstValue>> {
+    pub fn get_mut(&mut self, var: &str) -> Option<HintedStrResult<&mut TexValue>> {
         self.map
             .get_mut(var)
             .map(Slot::write)
@@ -204,7 +204,7 @@ impl Scope {
     }
 
     /// Iterate over all definitions.
-    pub fn iter(&self) -> impl Iterator<Item = (&EcoString, &TypstValue)> {
+    pub fn iter(&self) -> impl Iterator<Item = (&EcoString, &TexValue)> {
         self.map.iter().map(|(k, v)| (k, v.read()))
     }
 }
@@ -242,7 +242,7 @@ pub trait NativeScope {
 #[derive(Clone, Hash)]
 struct Slot {
     /// The stored value.
-    value: TypstValue,
+    value: TexValue,
     /// The kind of slot, determines how the value can be accessed.
     kind: Kind,
     /// The category of the slot.
@@ -260,7 +260,7 @@ enum Kind {
 
 impl Slot {
     /// Create a new slot.
-    fn new(value: TypstValue, kind: Kind, category: Option<Category>) -> Self {
+    fn new(value: TexValue, kind: Kind, category: Option<Category>) -> Self {
         Self {
             value,
             kind,
@@ -269,12 +269,12 @@ impl Slot {
     }
 
     /// Read the value.
-    fn read(&self) -> &TypstValue {
+    fn read(&self) -> &TexValue {
         &self.value
     }
 
     /// Try to write to the value.
-    fn write(&mut self) -> StrResult<&mut TypstValue> {
+    fn write(&mut self) -> StrResult<&mut TexValue> {
         match self.kind {
             Kind::Normal => Ok(&mut self.value),
             Kind::Captured => {

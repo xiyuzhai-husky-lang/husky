@@ -6,7 +6,7 @@ use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
 use crate::foundations::{
     cast, elem, func, scope, select_where, ty, Func, Packed, Repr, Selector, Show, Str, StyleChain,
-    TypstContent, TypstElement, TypstValue,
+    TexContent, TexElement, TexValue,
 };
 use crate::introspection::{Introspector, Locatable, Location, Locator};
 use crate::syntax::Span;
@@ -17,8 +17,8 @@ use crate::World;
 /// Let's say you have some computations in your document and want to remember
 /// the result of your last computation to use it in the next one. You might try
 /// something similar to the code below and expect it to output 10, 13, 26, and
-/// 21. However this **does not work** in Typst. If you test this code, you will
-/// see that Typst complains with the following error message: _Variables from
+/// 21. However this **does not work** in Tex. If you test this code, you will
+/// see that Tex complains with the following error message: _Variables from
 /// outside the function are read-only and cannot be modified._
 ///
 /// ```typ
@@ -38,7 +38,7 @@ use crate::World;
 ///
 /// # State and document markup { #state-and-markup }
 /// Why does it do that? Because, in general, this kind of computation with side
-/// effects is problematic in document markup and Typst is upfront about that.
+/// effects is problematic in document markup and Tex is upfront about that.
 /// For the results to make sense, the computation must proceed in the same
 /// order in which the results will be laid out in the document. In our simple
 /// example, that's the case, but in general it might not be.
@@ -62,13 +62,13 @@ use crate::World;
 /// ...
 /// ```
 ///
-/// Here, Typst first processes the body of the document after the show rule,
+/// Here, Tex first processes the body of the document after the show rule,
 /// sees the `Introduction` heading, then passes the resulting content to the
 /// `template` function and only then sees the `Outline`. Just counting up would
 /// number the `Introduction` with `1` and the `Outline` with `2`.
 ///
-/// # Managing state in Typst { #state-in-typst }
-/// So what do we do instead? We use Typst's state management system. Calling
+/// # Managing state in Tex { #state-in-typst }
+/// So what do we do instead? We use Tex's state management system. Calling
 /// the `state` function with an identifying string key and an optional initial
 /// value gives you a state value which exposes a few methods. The two most
 /// important ones are `display` and `update`:
@@ -99,7 +99,7 @@ use crate::World;
 /// #compute("x - 5")
 /// ```
 ///
-/// State managed by Typst is always updated in layout order, not in evaluation
+/// State managed by Tex is always updated in layout order, not in evaluation
 /// order. The `update` method returns content and its effect occurs at the
 /// position where the returned content is inserted into the document.
 ///
@@ -127,11 +127,11 @@ use crate::World;
 /// ```
 ///
 /// This example is of course a bit silly, but in practice this is often exactly
-/// what you want! A good example are heading counters, which is why Typst's
+/// what you want! A good example are heading counters, which is why Tex's
 /// [counting system]($counter) is very similar to its state system.
 ///
 /// # Time Travel
-/// By using Typst's state management system you also get time travel
+/// By using Tex's state management system you also get time travel
 /// capabilities! By combining the state system with [`locate`]($locate) and
 /// [`query`]($query), we can find out what the value of the state will be at
 /// any position in the document from anywhere else. In particular, the `at`
@@ -148,7 +148,7 @@ use crate::World;
 /// >>> ]
 /// <<< ...
 ///
-/// TypstValue at `<here>` is
+/// TexValue at `<here>` is
 /// #locate(loc => s.at(
 ///   query(<here>, loc)
 ///     .first()
@@ -163,7 +163,7 @@ use crate::World;
 /// ```
 ///
 /// # A word of caution { #caution }
-/// To resolve the values of all states, Typst evaluates parts of your code
+/// To resolve the values of all states, Tex evaluates parts of your code
 /// multiple times. However, there is no guarantee that your state manipulation
 /// can actually be completely resolved.
 ///
@@ -172,7 +172,7 @@ use crate::World;
 /// this. We initialize our state with `1` and then update it to its own final
 /// value plus 1. So it should be `2`, but then its final value is `2`, so it
 /// should be `3`, and so on. This example displays a finite value because
-/// Typst simply gives up after a few attempts.
+/// Tex simply gives up after a few attempts.
 ///
 /// ```example
 /// #let s = state("x", 1)
@@ -192,12 +192,12 @@ pub struct State {
     /// The key that identifies the state.
     key: Str,
     /// The initial value of the state.
-    init: TypstValue,
+    init: TexValue,
 }
 
 impl State {
     /// Create a new state identified by a key.
-    pub fn new(key: Str, init: TypstValue) -> State {
+    pub fn new(key: Str, init: TexValue) -> State {
         Self { key, init }
     }
 
@@ -205,7 +205,7 @@ impl State {
     ///
     /// This has to happen just once for all states, cutting down the number
     /// of state updates from quadratic to linear.
-    fn sequence(&self, engine: &mut Engine) -> SourceResult<EcoVec<TypstValue>> {
+    fn sequence(&self, engine: &mut Engine) -> SourceResult<EcoVec<TexValue>> {
         self.sequence_impl(
             engine.world,
             engine.introspector,
@@ -224,7 +224,7 @@ impl State {
         route: Tracked<Route>,
         locator: Tracked<Locator>,
         tracer: TrackedMut<Tracer>,
-    ) -> SourceResult<EcoVec<TypstValue>> {
+    ) -> SourceResult<EcoVec<TexValue>> {
         let mut locator = Locator::chained(locator);
         let mut engine = Engine {
             world,
@@ -263,7 +263,7 @@ impl State {
         key: Str,
         /// The initial value of the state.
         #[default]
-        init: TypstValue,
+        init: TexValue,
     ) -> State {
         Self::new(key, init)
     }
@@ -279,7 +279,7 @@ impl State {
         /// value is directly displayed.
         #[default]
         func: Option<Func>,
-    ) -> TypstContent {
+    ) -> TexContent {
         DisplayElem::new(self, func).pack().spanned(span)
     }
 
@@ -289,7 +289,7 @@ impl State {
     /// is inserted into the document. If you don't put the output into the
     /// document, nothing happens! This would be the case, for example, if you
     /// write `{let _ = state("key").update(7)}`. State updates are always
-    /// applied in layout order and in that case, Typst wouldn't know when to
+    /// applied in layout order and in that case, Tex wouldn't know when to
     /// update the state.
     #[func]
     pub fn update(
@@ -300,7 +300,7 @@ impl State {
         /// given a function, that function receives the previous state and has
         /// to return the new state.
         update: StateUpdate,
-    ) -> TypstContent {
+    ) -> TexContent {
         UpdateElem::new(self.key, update).pack().spanned(span)
     }
 
@@ -314,7 +314,7 @@ impl State {
         /// suitable location can be retrieved from [`locate`]($locate) or
         /// [`query`]($query).
         location: Location,
-    ) -> SourceResult<TypstValue> {
+    ) -> SourceResult<TexValue> {
         let sequence = self.sequence(engine)?;
         let offset = engine
             .introspector
@@ -331,14 +331,14 @@ impl State {
         engine: &mut Engine,
         /// Can be an arbitrary location, as its value is irrelevant for the
         /// method's return value. Why is it required then? As noted before,
-        /// Typst has to evaluate parts of your code multiple times to determine
+        /// Tex has to evaluate parts of your code multiple times to determine
         /// the values of all state. By only allowing this method within
         /// [`locate`]($locate) calls, the amount of code that can depend on the
         /// method's result is reduced. If you could call `final` directly at
         /// the top level of a module, the evaluation of the whole module and
         /// its exports could depend on the state's value.
         location: Location,
-    ) -> SourceResult<TypstValue> {
+    ) -> SourceResult<TexValue> {
         let _ = location;
         let sequence = self.sequence(engine)?;
         Ok(sequence.last().unwrap().clone())
@@ -356,7 +356,7 @@ impl Repr for State {
 #[derive(Debug, Clone, PartialEq, Hash)]
 pub enum StateUpdate {
     /// Set the state to the specified value.
-    Set(TypstValue),
+    Set(TexValue),
     /// Apply the given function to the state.
     Func(Func),
 }
@@ -370,7 +370,7 @@ impl Repr for StateUpdate {
 cast! {
     type StateUpdate,
     v: Func => Self::Func(v),
-    v: TypstValue => Self::Set(v),
+    v: TexValue => Self::Set(v),
 }
 
 /// Executes a display of a state.
@@ -387,7 +387,7 @@ struct DisplayElem {
 
 impl Show for Packed<DisplayElem> {
     #[husky_typst_macros::time(name = "state.display", span = self.span())]
-    fn show(&self, engine: &mut Engine, _: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, engine: &mut Engine, _: StyleChain) -> SourceResult<TexContent> {
         let location = self.location().unwrap();
         let value = self.state().at(engine, location)?;
         Ok(match self.func() {
@@ -410,7 +410,7 @@ struct UpdateElem {
 }
 
 impl Show for Packed<UpdateElem> {
-    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<TypstContent> {
-        Ok(TypstContent::empty())
+    fn show(&self, _: &mut Engine, _: StyleChain) -> SourceResult<TexContent> {
+        Ok(TexContent::empty())
     }
 }

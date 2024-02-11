@@ -5,7 +5,7 @@ use comemo::Prehashed;
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    elem, Args, Cast, Construct, Packed, Set, Smart, StyleChain, TypstContent, TypstElement,
+    elem, Args, Cast, Construct, Packed, Set, Smart, StyleChain, TexContent, TexElement,
     Unlabellable,
 };
 use crate::layout::{Fragment, Length, LengthInEm, Size};
@@ -101,22 +101,22 @@ pub struct ParElem {
     /// The contents of the paragraph.
     #[external]
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 
     /// The paragraph's children.
     #[internal]
     #[variadic]
-    pub children: Vec<Prehashed<TypstContent>>,
+    pub children: Vec<Prehashed<TexContent>>,
 }
 
 impl Construct for ParElem {
-    fn construct(engine: &mut Engine, args: &mut Args) -> SourceResult<TypstContent> {
+    fn construct(engine: &mut Engine, args: &mut Args) -> SourceResult<TexContent> {
         // The paragraph constructor is special: It doesn't create a paragraph
         // element. Instead, it just ensures that the passed content lives in a
         // separate paragraph and styles it.
         let styles = Self::set(engine, args)?;
-        let body = args.expect::<TypstContent>("body")?;
-        Ok(TypstContent::sequence([
+        let body = args.expect::<TexContent>("body")?;
+        Ok(TexContent::sequence([
             ParbreakElem::new().pack(),
             body.styled_with_map(styles),
             ParbreakElem::new().pack(),
@@ -153,7 +153,7 @@ pub enum Linebreaks {
     Simple,
     /// Optimize the line breaks for the whole paragraph.
     ///
-    /// Typst will try to produce more evenly filled lines of text by
+    /// Tex will try to produce more evenly filled lines of text by
     /// considering the whole paragraph when calculating line breaks.
     Optimized,
 }

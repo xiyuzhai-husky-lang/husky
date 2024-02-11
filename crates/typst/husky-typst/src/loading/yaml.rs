@@ -2,7 +2,7 @@ use ecow::{eco_format, EcoString};
 
 use crate::diag::{At, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{func, scope, Str, TypstValue};
+use crate::foundations::{func, scope, Str, TexValue};
 use crate::loading::Readable;
 use crate::syntax::Spanned;
 use crate::World;
@@ -10,8 +10,8 @@ use crate::World;
 /// Reads structured data from a YAML file.
 ///
 /// The file must contain a valid YAML object or array. YAML mappings will be
-/// converted into Typst dictionaries, and YAML sequences will be converted into
-/// Typst arrays. Strings and booleans will be converted into the Typst
+/// converted into Tex dictionaries, and YAML sequences will be converted into
+/// Tex arrays. Strings and booleans will be converted into the Tex
 /// equivalents, null-values (`null`, `~` or empty ``) will be converted into
 /// `{none}`, and numbers will be converted to floats or integers depending on
 /// whether they are whole numbers. Custom YAML tags are ignored, though the
@@ -42,7 +42,7 @@ pub fn yaml(
     engine: &mut Engine,
     /// Path to a YAML file.
     path: Spanned<EcoString>,
-) -> SourceResult<TypstValue> {
+) -> SourceResult<TexValue> {
     let Spanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
@@ -56,7 +56,7 @@ impl yaml {
     pub fn decode(
         /// YAML data.
         data: Spanned<Readable>,
-    ) -> SourceResult<TypstValue> {
+    ) -> SourceResult<TexValue> {
         let Spanned { v: data, span } = data;
         serde_yaml::from_slice(data.as_slice())
             .map_err(|err| eco_format!("failed to parse YAML ({err})"))
@@ -66,8 +66,8 @@ impl yaml {
     /// Encode structured data into a YAML string.
     #[func(title = "Encode YAML")]
     pub fn encode(
-        /// TypstValue to be encoded.
-        value: Spanned<TypstValue>,
+        /// TexValue to be encoded.
+        value: Spanned<TexValue>,
     ) -> SourceResult<Str> {
         let Spanned { v: value, span } = value;
         serde_yaml::to_string(&value)

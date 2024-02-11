@@ -3,37 +3,37 @@
 use ecow::{eco_format, EcoString};
 
 use crate::diag::StrResult;
-use crate::foundations::{IntoTypstValue, Type, TypstValue, Version};
-use crate::layout::{Alignment, Length, Rel};
-use crate::visualize::TypstStroke;
+use crate::foundations::{IntoTexValue, TexValue, Type, Version};
+use crate::layout::{Length, Rel, TexAlignment};
+use crate::visualize::TexStroke;
 
 /// Try to access a field on a value.
 ///
 /// This function is exclusively for types which have predefined fields, such as
 /// stroke and length.
-pub(crate) fn field(value: &TypstValue, field: &str) -> StrResult<TypstValue> {
+pub(crate) fn field(value: &TexValue, field: &str) -> StrResult<TexValue> {
     let ty = value.ty();
     let nope = || Err(no_fields(ty));
     let missing = || Err(missing_field(ty, field));
 
-    // Special cases, such as module and dict, are handled by TypstValue itself
+    // Special cases, such as module and dict, are handled by TexValue itself
     let result = match value {
-        TypstValue::Version(version) => match version.component(field) {
+        TexValue::Version(version) => match version.component(field) {
             Ok(i) => i.into_value(),
             Err(_) => return missing(),
         },
-        TypstValue::Length(length) => match field {
+        TexValue::Length(length) => match field {
             "em" => length.em.get().into_value(),
             "abs" => length.abs.into_value(),
             _ => return missing(),
         },
-        TypstValue::Relative(rel) => match field {
+        TexValue::Relative(rel) => match field {
             "ratio" => rel.rel.into_value(),
             "length" => rel.abs.into_value(),
             _ => return missing(),
         },
-        TypstValue::Dyn(dynamic) => {
-            if let Some(stroke) = dynamic.downcast::<TypstStroke>() {
+        TexValue::Dyn(dynamic) => {
+            if let Some(stroke) = dynamic.downcast::<TexStroke>() {
                 match field {
                     "paint" => stroke.paint.clone().into_value(),
                     "thickness" => stroke.thickness.into_value(),
@@ -43,7 +43,7 @@ pub(crate) fn field(value: &TypstValue, field: &str) -> StrResult<TypstValue> {
                     "miter-limit" => stroke.miter_limit.map(|limit| limit.get()).into_value(),
                     _ => return missing(),
                 }
-            } else if let Some(align) = dynamic.downcast::<Alignment>() {
+            } else if let Some(align) = dynamic.downcast::<TexAlignment>() {
                 match field {
                     "x" => align.x().into_value(),
                     "y" => align.y().into_value(),
@@ -79,9 +79,9 @@ pub fn fields_on(ty: Type) -> &'static [&'static str] {
         &["em", "abs"]
     } else if ty == Type::of::<Rel>() {
         &["ratio", "length"]
-    } else if ty == Type::of::<TypstStroke>() {
+    } else if ty == Type::of::<TexStroke>() {
         &["paint", "thickness", "cap", "join", "dash", "miter-limit"]
-    } else if ty == Type::of::<Alignment>() {
+    } else if ty == Type::of::<TexAlignment>() {
         &["x", "y"]
     } else {
         &[]

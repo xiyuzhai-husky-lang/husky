@@ -83,7 +83,7 @@ use crate::syntax::Spanned;
 pub static FOUNDATIONS: Category;
 
 /// Hook up all `foundations` definitions.
-pub(super) fn define(global: &mut Scope, inputs: TypstDict) {
+pub(super) fn define(global: &mut Scope, inputs: TexDict) {
     global.category(FOUNDATIONS);
     global.define_type::<bool>();
     global.define_type::<i64>();
@@ -91,9 +91,9 @@ pub(super) fn define(global: &mut Scope, inputs: TypstDict) {
     global.define_type::<Str>();
     global.define_type::<Label>();
     global.define_type::<Bytes>();
-    global.define_type::<TypstContent>();
+    global.define_type::<TexContent>();
     global.define_type::<Array>();
-    global.define_type::<TypstDict>();
+    global.define_type::<TexDict>();
     global.define_type::<Func>();
     global.define_type::<Args>();
     global.define_type::<Type>();
@@ -127,7 +127,7 @@ pub(super) fn define(global: &mut Scope, inputs: TypstDict) {
 pub fn panic(
     /// The values to panic with and display to the user.
     #[variadic]
-    values: Vec<TypstValue>,
+    values: Vec<TexValue>,
 ) -> StrResult<Never> {
     let mut msg = EcoString::from("panicked");
     if !values.is_empty() {
@@ -185,9 +185,9 @@ impl assert {
     #[func(title = "Assert Equal")]
     pub fn eq(
         /// The first value to compare.
-        left: TypstValue,
+        left: TexValue,
         /// The second value to compare.
-        right: TypstValue,
+        right: TexValue,
         /// An optional message to display on error instead of the representations
         /// of the compared values.
         #[named]
@@ -218,9 +218,9 @@ impl assert {
     #[func(title = "Assert Not Equal")]
     pub fn ne(
         /// The first value to compare.
-        left: TypstValue,
+        left: TexValue,
         /// The second value to compare.
-        right: TypstValue,
+        right: TexValue,
         /// An optional message to display on error instead of the representations
         /// of the compared values.
         #[named]
@@ -241,7 +241,7 @@ impl assert {
     }
 }
 
-/// Evaluates a string as Typst code.
+/// Evaluates a string as Tex code.
 ///
 /// This function should only be used as a last resort.
 ///
@@ -255,7 +255,7 @@ impl assert {
 pub fn eval(
     /// The engine.
     engine: &mut Engine,
-    /// A string of Typst code to evaluate.
+    /// A string of Tex code to evaluate.
     source: Spanned<String>,
     /// The syntactical mode in which the string is parsed.
     ///
@@ -281,8 +281,8 @@ pub fn eval(
     /// ```
     #[named]
     #[default]
-    scope: TypstDict,
-) -> SourceResult<TypstValue> {
+    scope: TexDict,
+) -> SourceResult<TexValue> {
     let Spanned { v: text, span } = source;
     let dict = scope;
     let mut scope = Scope::new();

@@ -8,8 +8,8 @@ use once_cell::sync::Lazy;
 use crate::diag::{bail, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, repr, scope, ty, Args, CastInfo, ElementSchemaRef, IntoArgs, Scope, Selector, Type,
-    TypstContent, TypstValue,
+    cast, repr, scope, ty, Args, CastInfo, ElementSchemaRef, IntoArgs, Scope, Selector, TexContent,
+    TexValue, Type,
 };
 use crate::syntax::{ast, Span, SyntaxNode};
 use crate::util::Static;
@@ -23,7 +23,7 @@ pub use husky_typst_macros::func;
 /// _arguments_ enclosed in parentheses directly after the function name.
 /// Additionally, you can pass any number of trailing content blocks arguments
 /// to a function _after_ the normal argument list. If the normal argument list
-/// would become empty, it can be omitted. Typst supports positional and named
+/// would become empty, it can be omitted. Tex supports positional and named
 /// arguments. The former are identified by position and type, while the later
 /// are written as `name: value`.
 ///
@@ -43,13 +43,13 @@ pub use husky_typst_macros::func;
 /// #list[A][B]
 /// ```
 ///
-/// Functions are a fundamental building block of Typst. Typst provides
+/// Functions are a fundamental building block of Tex. Tex provides
 /// functions for a variety of typesetting tasks. Moreover, the markup you write
 /// is backed by functions and all styling happens through functions. This
 /// reference lists all available functions and how you can use them. Please
 /// also refer to the documentation about [set]($styling/#set-rules) and
 /// [show]($styling/#show-rules) rules to learn about additional ways you can
-/// work with functions in Typst.
+/// work with functions in Tex.
 ///
 /// # Element functions
 /// Some functions are associated with _elements_ like [headings]($heading) or
@@ -116,7 +116,7 @@ pub use husky_typst_macros::func;
 /// ```
 ///
 /// # Note on function purity
-/// In Typst, all functions are _pure._ This means that for the same
+/// In Tex, all functions are _pure._ This means that for the same
 /// arguments, they always return the same result. They cannot "remember" things to
 /// produce another value when they are called a second time.
 ///
@@ -198,7 +198,7 @@ impl Func {
 
     /// Get details about the function's return type.
     pub fn returns(&self) -> Option<&'static CastInfo> {
-        static CONTENT: Lazy<CastInfo> = Lazy::new(|| CastInfo::Type(Type::of::<TypstContent>()));
+        static CONTENT: Lazy<CastInfo> = Lazy::new(|| CastInfo::Type(Type::of::<TexContent>()));
         match &self.repr {
             Repr::Native(native) => Some(&native.0.returns),
             Repr::Element(_) => Some(&CONTENT),
@@ -228,7 +228,7 @@ impl Func {
     }
 
     /// Get a field from this function's scope, if possible.
-    pub fn field(&self, field: &str) -> StrResult<&'static TypstValue> {
+    pub fn field(&self, field: &str) -> StrResult<&'static TexValue> {
         let scope = self
             .scope()
             .ok_or("cannot access fields on user-defined functions")?;
@@ -250,13 +250,13 @@ impl Func {
     }
 
     /// Call the function with the given arguments.
-    pub fn call(&self, engine: &mut Engine, args: impl IntoArgs) -> SourceResult<TypstValue> {
+    pub fn call(&self, engine: &mut Engine, args: impl IntoArgs) -> SourceResult<TexValue> {
         self.call_impl(engine, args.into_args(self.span))
     }
 
     /// Non-generic implementation of `call`.
     #[husky_typst_macros::time(name = "func call", span = self.span())]
-    fn call_impl(&self, engine: &mut Engine, mut args: Args) -> SourceResult<TypstValue> {
+    fn call_impl(&self, engine: &mut Engine, mut args: Args) -> SourceResult<TexValue> {
         match &self.repr {
             Repr::Native(native) => {
                 let value = (native.function)(engine, &mut args)?;
@@ -266,7 +266,7 @@ impl Func {
             Repr::Element(func) => {
                 let value = func.construct(engine, &mut args)?;
                 args.finish()?;
-                Ok(TypstValue::Content(value))
+                Ok(TexValue::Content(value))
             }
             Repr::Closure(closure) => crate::eval::call_closure(
                 self,
@@ -311,7 +311,7 @@ impl Func {
         /// The arguments to apply to the function.
         #[external]
         #[variadic]
-        arguments: Vec<TypstValue>,
+        arguments: Vec<TexValue>,
     ) -> Func {
         let span = self.span;
         Self {
@@ -331,7 +331,7 @@ impl Func {
         /// The fields to filter for.
         #[variadic]
         #[external]
-        fields: Vec<TypstValue>,
+        fields: Vec<TexValue>,
     ) -> StrResult<Selector> {
         let fields = args.to_named();
         args.items.retain(|arg| arg.name.is_none());
@@ -398,7 +398,7 @@ impl From<ElementSchemaRef> for Func {
     }
 }
 
-/// A Typst function that is defined by a native Rust type that shadows a
+/// A Tex function that is defined by a native Rust type that shadows a
 /// native Rust function.
 pub trait NativeFunc {
     /// Get the function for the native Rust type.
@@ -413,7 +413,7 @@ pub trait NativeFunc {
 /// Defines a native function.
 #[derive(Debug)]
 pub struct NativeFuncData {
-    pub function: fn(&mut Engine, &mut Args) -> SourceResult<TypstValue>,
+    pub function: fn(&mut Engine, &mut Args) -> SourceResult<TexValue>,
     pub name: &'static str,
     pub title: &'static str,
     pub docs: &'static str,
@@ -444,7 +444,7 @@ pub struct ParamInfo {
     /// Describe what values this parameter accepts.
     pub input: CastInfo,
     /// Creates an instance of the parameter's default value.
-    pub default: Option<fn() -> TypstValue>,
+    pub default: Option<fn() -> TexValue>,
     /// Is the parameter positional?
     pub positional: bool,
     /// Is the parameter named?
@@ -466,7 +466,7 @@ pub struct Closure {
     /// The closure's syntax node. Must be castable to `ast::Closure`.
     pub node: SyntaxNode,
     /// Default values of named parameters.
-    pub defaults: Vec<TypstValue>,
+    pub defaults: Vec<TexValue>,
     /// Captured values from outer scopes.
     pub captured: Scope,
 }
@@ -490,5 +490,5 @@ impl From<Closure> for Func {
 
 cast! {
     Closure,
-    self => TypstValue::Func(self.into()),
+    self => TexValue::Func(self.into()),
 }

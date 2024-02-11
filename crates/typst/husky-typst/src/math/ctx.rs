@@ -12,7 +12,7 @@ use unicode_segmentation::UnicodeSegmentation;
 
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{Packed, Smart, StyleChain, TypstContent};
+use crate::foundations::{Packed, Smart, StyleChain, TexContent};
 use crate::layout::{Abs, Axes, BoxElem, Frame, LayoutMultiple, LengthInEm, Regions, Size};
 use crate::math::{
     scaled_font_size, styled_char, EquationElem, FrameFragment, GlyphFragment, LayoutMath,
@@ -21,7 +21,7 @@ use crate::math::{
 use crate::model::ParElem;
 use crate::syntax::{is_newline, Span};
 use crate::text::{
-    features, BottomEdge, BottomEdgeMetric, TextElem, TextSize, TopEdge, TopEdgeMetric, TypstFont,
+    features, BottomEdge, BottomEdgeMetric, TexFont, TextElem, TextSize, TopEdge, TopEdgeMetric,
 };
 
 macro_rules! scaled {
@@ -50,7 +50,7 @@ pub struct MathContext<'a, 'b, 'v> {
     pub engine: &'v mut Engine<'b>,
     pub regions: Regions<'static>,
     // Font-related.
-    pub font: &'a TypstFont,
+    pub font: &'a TexFont,
     pub ttf: &'a ttf_parser::Face<'a>,
     pub table: ttf_parser::math::Table<'a>,
     pub constants: ttf_parser::math::Constants<'a>,
@@ -66,7 +66,7 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
         engine: &'v mut Engine<'b>,
         styles: StyleChain<'a>,
         regions: Regions,
-        font: &'a TypstFont,
+        font: &'a TexFont,
     ) -> Self {
         let math_table = font.ttf().tables().math.unwrap();
         let gsub_table = font.ttf().tables().gsub;
@@ -178,7 +178,7 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
 
     pub fn layout_content(
         &mut self,
-        content: &TypstContent,
+        content: &TexContent,
         styles: StyleChain,
     ) -> SourceResult<Frame> {
         let local = TextElem::set_size(TextSize(scaled_font_size(self, styles).into())).wrap();
@@ -247,7 +247,7 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
             ]
             .map(|p| p.wrap());
 
-            // Anything else is handled by Typst's standard text layout.
+            // Anything else is handled by Tex's standard text layout.
             let styles = styles.chain(&local);
             let text: EcoString = text.chars().map(|c| styled_char(styles, c)).collect();
             if text.contains(is_newline) {

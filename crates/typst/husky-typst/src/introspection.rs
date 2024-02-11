@@ -27,13 +27,13 @@ use smallvec::SmallVec;
 
 use crate::foundations::Packed;
 use crate::foundations::{
-    category, elem, ty, Behave, Behaviour, Category, Repr, Scope, TypstContent, Unlabellable,
+    category, elem, ty, Behave, Behaviour, Category, Repr, Scope, TexContent, Unlabellable,
 };
 use crate::model::Destination;
 
 /// Interactions between document parts.
 ///
-/// This category is home to Typst's introspection capabilities: With the
+/// This category is home to Tex's introspection capabilities: With the
 /// `counter` function, you can access and manipulate page, section, figure, and
 /// equation counters or create custom ones. Meanwhile, the `query` function
 /// lets you search for elements in the document to construct things like a list
@@ -86,7 +86,7 @@ pub enum Meta {
     Link(Destination),
     /// An identifiable element that produces something within the area this
     /// metadata is attached to.
-    Elem(TypstContent),
+    Elem(TexContent),
     /// Indicates that content should be hidden. This variant doesn't appear
     /// in the final frames as it is removed alongside the content that should
     /// be hidden.

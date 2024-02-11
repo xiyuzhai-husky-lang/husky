@@ -1,6 +1,6 @@
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{elem, Packed, Resolve, StyleChain, TypstContent};
+use crate::foundations::{elem, Packed, Resolve, StyleChain, TexContent};
 use crate::layout::{Abs, Fragment, LayoutMultiple, Length, Point, Regions, Rel, Sides, Size};
 
 /// Adds spacing around content.
@@ -55,7 +55,7 @@ pub struct PadElem {
 
     /// The content to pad at the sides.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl LayoutMultiple for Packed<PadElem> {

@@ -3,9 +3,9 @@ use std::num::NonZeroUsize;
 use ecow::EcoString;
 use husky_typst::introspection::Meta;
 use husky_typst::layout::{Frame, FrameItem, Point, Position, Size};
-use husky_typst::model::{Destination, TypstDocument};
+use husky_typst::model::{Destination, TexDocument};
 use husky_typst::syntax::{FileId, LinkedNode, Source, Span, SyntaxKind};
-use husky_typst::visualize::TypstGeometry;
+use husky_typst::visualize::TexGeometry;
 use husky_typst::World;
 
 /// Where to [jump](jump_from_click) to.
@@ -31,7 +31,7 @@ impl Jump {
 /// Determine where to jump to based on a click in a frame.
 pub fn jump_from_click(
     world: &dyn World,
-    document: &TypstDocument,
+    document: &TexDocument,
     frame: &Frame,
     click: Point,
 ) -> Option<Jump> {
@@ -90,7 +90,7 @@ pub fn jump_from_click(
             }
 
             FrameItem::Shape(shape, span) => {
-                let TypstGeometry::Rect(size) = shape.geometry else {
+                let TexGeometry::Rect(size) = shape.geometry else {
                     continue;
                 };
                 if is_in_rect(pos, size, click) {
@@ -111,7 +111,7 @@ pub fn jump_from_click(
 
 /// Find the output location in the document for a cursor position.
 pub fn jump_from_cursor(
-    document: &TypstDocument,
+    document: &TexDocument,
     source: &Source,
     cursor: usize,
 ) -> Option<Position> {

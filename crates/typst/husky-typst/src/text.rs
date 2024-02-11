@@ -40,13 +40,13 @@ use crate::engine::Engine;
 use crate::foundations::Packed;
 use crate::foundations::{
     cast, category, elem, Args, Array, Cast, Category, Construct, Fold, Never, PlainText, Repr,
-    Resolve, Scope, Set, Smart, StyleChain, TypstContent, TypstDict, TypstElement,
+    Resolve, Scope, Set, Smart, StyleChain, TexContent, TexDict, TexElement,
 };
 use crate::layout::LengthInEm;
-use crate::layout::{Abs, Axis, Length, Rel, TypstLayoutDirection};
+use crate::layout::{Abs, Axis, Length, Rel, TexLayoutDirection};
 use crate::model::ParElem;
 use crate::syntax::Spanned;
-use crate::visualize::{RelativeTo, TypstColor, TypstPaint, TypstStroke};
+use crate::visualize::{RelativeTo, TexColor, TexPaint, TexStroke};
 
 /// Text styling.
 ///
@@ -92,7 +92,7 @@ pub(super) fn define(global: &mut Scope) {
 pub struct TextElem {
     /// A font family name or priority list of font family names.
     ///
-    /// When processing text, Typst tries all specified font families in order
+    /// When processing text, Tex tries all specified font families in order
     /// until it finds a font that has the necessary glyphs. In the example
     /// below, the font `Inria Serif` is preferred, but since it does not
     /// contain Arabic glyphs, the arabic text uses `Noto Sans Arabic` instead.
@@ -104,7 +104,7 @@ pub struct TextElem {
     ///   or `.otf` files into your project. They will be discovered
     ///   automatically.
     ///
-    /// - Locally, Typst uses your installed system fonts. In addition, you can
+    /// - Locally, Tex uses your installed system fonts. In addition, you can
     ///   use the `--font-path` argument or `TYPST_FONT_PATHS` environment
     ///   variable to add directories that should be scanned for fonts.
     ///
@@ -126,13 +126,13 @@ pub struct TextElem {
     pub font: FontList,
 
     /// Whether to allow last resort font fallback when the primary font list
-    /// contains no match. This lets Typst search through all available fonts
+    /// contains no match. This lets Tex search through all available fonts
     /// for the most similar one that has the necessary glyphs.
     ///
     /// _Note:_ Currently, there are no warnings when fallback is disabled and
     /// no glyphs are found. Instead, your text shows up in the form of "tofus":
     /// Small boxes that indicate the lack of an appropriate glyph. In the
-    /// future, you will be able to instruct Typst to issue warnings so you know
+    /// future, you will be able to instruct Tex to issue warnings so you know
     /// something is up.
     ///
     /// ```example
@@ -151,7 +151,7 @@ pub struct TextElem {
     /// When an italic style is requested and only an oblique one is available,
     /// it is used. Similarly, the other way around, an italic style can stand
     /// in for an oblique one.  When neither an italic nor an oblique style is
-    /// available, Typst selects the normal style. Since most fonts are only
+    /// available, Tex selects the normal style. Since most fonts are only
     /// available either in an italic or oblique style, the difference between
     /// italic and oblique style is rarely observable.
     ///
@@ -168,7 +168,7 @@ pub struct TextElem {
 
     /// The desired thickness of the font's glyphs. Accepts an integer between
     /// `{100}` and `{900}` or one of the predefined weight names. When the
-    /// desired weight is not available, Typst selects the font from the family
+    /// desired weight is not available, Tex selects the font from the family
     /// that is closest in weight.
     ///
     /// If you want to strongly emphasize your text, you should do so using the
@@ -189,7 +189,7 @@ pub struct TextElem {
     pub weight: FontWeight,
 
     /// The desired width of the glyphs. Accepts a ratio between `{50%}` and
-    /// `{200%}`. When the desired width is not available, Typst selects the
+    /// `{200%}`. When the desired width is not available, Tex selects the
     /// font from the family that is closest in stretch. This will only stretch
     /// the text if a condensed or expanded version of the font is available.
     ///
@@ -228,7 +228,7 @@ pub struct TextElem {
     /// This text is red.
     /// ```
     #[parse({
-        let paint: Option<Spanned<TypstPaint>> = args.named_or_find("fill")?;
+        let paint: Option<Spanned<TexPaint>> = args.named_or_find("fill")?;
         if let Some(paint) = &paint {
             if paint.v.relative() == Smart::Custom(RelativeTo::Self_) {
                 bail!(
@@ -240,9 +240,9 @@ pub struct TextElem {
         }
         paint.map(|paint| paint.v)
     })]
-    #[default(TypstColor::BLACK.into())]
+    #[default(TexColor::BLACK.into())]
     #[ghost]
-    pub fill: TypstPaint,
+    pub fill: TexPaint,
 
     /// How to stroke the text.
     ///
@@ -251,7 +251,7 @@ pub struct TextElem {
     /// ```
     #[resolve]
     #[ghost]
-    pub stroke: Option<TypstStroke>,
+    pub stroke: Option<TexStroke>,
 
     /// The amount of space that should be added between characters.
     ///
@@ -330,10 +330,10 @@ pub struct TextElem {
     /// #set text(size: 20pt)
     ///
     /// #set text(top-edge: "ascender")
-    /// #rect(fill: aqua)[Typst]
+    /// #rect(fill: aqua)[Tex]
     ///
     /// #set text(top-edge: "cap-height")
-    /// #rect(fill: aqua)[Typst]
+    /// #rect(fill: aqua)[Tex]
     /// ```
     #[default(TopEdge::Metric(TopEdgeMetric::CapHeight))]
     #[ghost]
@@ -347,10 +347,10 @@ pub struct TextElem {
     /// #set text(size: 20pt)
     ///
     /// #set text(bottom-edge: "baseline")
-    /// #rect(fill: aqua)[Typst]
+    /// #rect(fill: aqua)[Tex]
     ///
     /// #set text(bottom-edge: "descender")
-    /// #rect(fill: aqua)[Typst]
+    /// #rect(fill: aqua)[Tex]
     /// ```
     #[default(BottomEdge::Metric(BottomEdgeMetric::Baseline))]
     #[ghost]
@@ -358,7 +358,7 @@ pub struct TextElem {
 
     /// An [ISO 639-1/2/3 language code.](https://en.wikipedia.org/wiki/ISO_639)
     ///
-    /// Setting the correct language affects various parts of Typst:
+    /// Setting the correct language affects various parts of Tex:
     ///
     /// - The text processing pipeline can make more informed choices.
     /// - Hyphenation will use the correct patterns for the language.
@@ -616,7 +616,7 @@ pub struct TextElem {
     /// Content in which all text is styled according to the other arguments.
     #[external]
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 
     /// The text.
     #[required]
@@ -655,7 +655,7 @@ pub struct TextElem {
 
 impl TextElem {
     /// Create a new packed text element.
-    pub fn packed(text: impl Into<EcoString>) -> TypstContent {
+    pub fn packed(text: impl Into<EcoString>) -> TexContent {
         Self::new(text.into()).pack()
     }
 }
@@ -673,12 +673,12 @@ impl Repr for TextElem {
 }
 
 impl Construct for TextElem {
-    fn construct(engine: &mut Engine, args: &mut Args) -> SourceResult<TypstContent> {
+    fn construct(engine: &mut Engine, args: &mut Args) -> SourceResult<TexContent> {
         // The text constructor is special: It doesn't create a text element.
         // Instead, it leaves the passed argument structurally unchanged, but
         // styles all text in it.
         let styles = Self::set(engine, args)?;
-        let body = args.expect::<TypstContent>("body")?;
+        let body = args.expect::<TexContent>("body")?;
         Ok(body.styled_with_map(styles))
     }
 }
@@ -830,7 +830,7 @@ impl TopEdge {
     }
 
     /// Resolve the value of the text edge given a font's metrics.
-    pub fn resolve(self, font_size: Abs, font: &TypstFont, bbox: Option<Rect>) -> Abs {
+    pub fn resolve(self, font_size: Abs, font: &TexFont, bbox: Option<Rect>) -> Abs {
         match self {
             TopEdge::Metric(metric) => {
                 if let Ok(metric) = metric.try_into() {
@@ -900,7 +900,7 @@ impl BottomEdge {
     }
 
     /// Resolve the value of the text edge given a font's metrics.
-    pub fn resolve(self, font_size: Abs, font: &TypstFont, bbox: Option<Rect>) -> Abs {
+    pub fn resolve(self, font_size: Abs, font: &TexFont, bbox: Option<Rect>) -> Abs {
         match self {
             BottomEdge::Metric(metric) => {
                 if let Ok(metric) = metric.try_into() {
@@ -950,12 +950,12 @@ impl TryInto<VerticalFontMetric> for BottomEdgeMetric {
 
 /// The direction of text and inline objects in their line.
 #[derive(Debug, Default, Copy, Clone, Eq, PartialEq, Hash)]
-pub struct TextDir(pub Smart<TypstLayoutDirection>);
+pub struct TextDir(pub Smart<TexLayoutDirection>);
 
 cast! {
     TextDir,
     self => self.0.into_value(),
-    v: Smart<TypstLayoutDirection> => {
+    v: Smart<TexLayoutDirection> => {
         if v.map_or(false, |dir| dir.axis() == Axis::Y) {
             bail!("text direction must be horizontal");
         }
@@ -964,7 +964,7 @@ cast! {
 }
 
 impl Resolve for TextDir {
-    type Output = TypstLayoutDirection;
+    type Output = TexLayoutDirection;
 
     fn resolve(self, styles: StyleChain) -> Self::Output {
         match self.0 {
@@ -1053,7 +1053,7 @@ cast! {
             let key = std::str::from_utf8(&bytes).unwrap_or_default();
             (key.into(), num.into_value())
         })
-        .collect::<TypstDict>()
+        .collect::<TexDict>()
         .into_value(),
     values: Array => Self(values
         .into_iter()
@@ -1062,7 +1062,7 @@ cast! {
             Ok((Tag::from_bytes_lossy(tag.as_bytes()), 1))
         })
         .collect::<StrResult<_>>()?),
-    values: TypstDict => Self(values
+    values: TexDict => Self(values
         .into_iter()
         .map(|(k, v)| {
             let num = v.cast::<u32>()?;

@@ -1,6 +1,6 @@
 [package]
 name = "husky-typst-timing"
-description = "Performance timing for Typst."
+description = "Performance timing for Tex."
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

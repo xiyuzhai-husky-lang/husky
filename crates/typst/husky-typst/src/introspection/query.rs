@@ -1,5 +1,5 @@
 use crate::engine::Engine;
-use crate::foundations::{func, Array, LocatableSelector, TypstValue};
+use crate::foundations::{func, Array, LocatableSelector, TexValue};
 use crate::introspection::Location;
 
 /// Finds elements in the document.
@@ -14,7 +14,7 @@ use crate::introspection::Location;
 ///
 /// # Finding elements
 /// In the example below, we create a custom page header that displays the text
-/// "Typst Academy" in small capitals and the current section title. On the
+/// "Tex Academy" in small capitals and the current section title. On the
 /// first page, the section title is omitted because the header is before the
 /// first section heading.
 ///
@@ -24,12 +24,12 @@ use crate::introspection::Location;
 ///
 /// - On the first page the query for all headings before the current location
 ///   yields an empty array: There are no previous headings. We check for this
-///   case and and just display "Typst Academy".
+///   case and and just display "Tex Academy".
 ///
 /// - For the second page, we retrieve the last element from the query's result.
 ///   This is the latest heading before the current position and as such, it is
 ///   the heading of the section we are currently in. We access its content
-///   through the `body` field and display it alongside "Typst Academy".
+///   through the `body` field and display it alongside "Tex Academy".
 ///
 /// ```example
 /// >>> #set page(
@@ -44,7 +44,7 @@ use crate::introspection::Location;
 ///     loc,
 ///   )
 ///   let academy = smallcaps[
-///     Typst Academy
+///     Tex Academy
 ///   ]
 ///   if elems == () {
 ///     align(right, academy)
@@ -65,7 +65,7 @@ use crate::introspection::Location;
 /// ```
 ///
 /// # A word of caution { #caution }
-/// To resolve all your queries, Typst evaluates and layouts parts of the
+/// To resolve all your queries, Tex evaluates and layouts parts of the
 /// document multiple times. However, there is no guarantee that your queries
 /// can actually be completely resolved. If you aren't careful a query can
 /// affect itself—leading to a result that never stabilizes.
@@ -73,10 +73,10 @@ use crate::introspection::Location;
 /// In the example below, we query for all headings in the document. We then
 /// generate as many headings. In the beginning, there's just one heading,
 /// titled `Real`. Thus, `count` is `1` and one `Fake` heading is generated.
-/// Typst sees that the query's result has changed and processes it again. This
+/// Tex sees that the query's result has changed and processes it again. This
 /// time, `count` is `2` and two `Fake` headings are generated. This goes on and
 /// on. As we can see, the output has a finite amount of headings. This is
-/// because Typst simply gives up after a few attempts.
+/// because Tex simply gives up after a few attempts.
 ///
 /// In general, you should try not to write queries that affect themselves. The
 /// same words of caution also apply to other introspection features like
@@ -101,7 +101,7 @@ use crate::introspection::Location;
 /// #metadata("This is a note") <note>
 /// ```
 ///
-/// You can execute a query on it as follows using Typst's CLI:
+/// You can execute a query on it as follows using Tex's CLI:
 /// ```sh
 /// $ typst query example.typ "<note>"
 /// [
@@ -145,7 +145,7 @@ pub fn query(
     /// future.
     target: LocatableSelector,
     /// Can be an arbitrary location, as its value is irrelevant for the
-    /// function's return value. Why is it required then? As noted before, Typst
+    /// function's return value. Why is it required then? As noted before, Tex
     /// has to evaluate parts of your code multiple times to determine the
     /// values of all state. By only allowing this function within
     /// [`locate`]($locate) calls, the amount of code that can depend on the
@@ -157,6 +157,6 @@ pub fn query(
     let _ = location;
     let vec = engine.introspector.query(&target.0);
     vec.into_iter()
-        .map(|elem| TypstValue::Content(elem.into_inner()))
+        .map(|elem| TexValue::Content(elem.into_inner()))
         .collect()
 }

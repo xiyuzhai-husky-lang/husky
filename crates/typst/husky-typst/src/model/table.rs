@@ -4,16 +4,16 @@ use ecow::eco_format;
 
 use crate::diag::{SourceResult, Trace, Tracepoint};
 use crate::engine::Engine;
-use crate::foundations::{cast, elem, scope, Fold, Packed, Show, Smart, StyleChain, TypstContent};
+use crate::foundations::{cast, elem, scope, Fold, Packed, Show, Smart, StyleChain, TexContent};
 use crate::layout::{
-    show_grid_cell, Abs, Alignment, Axes, Cell, CellGrid, Celled, Fragment, GridLayouter,
-    LayoutMultiple, Length, Regions, Rel, ResolvableCell, Sides, TrackSizings,
+    show_grid_cell, Abs, Axes, Cell, CellGrid, Celled, Fragment, GridLayouter, LayoutMultiple,
+    Length, Regions, Rel, ResolvableCell, Sides, TexAlignment, TrackSizings,
 };
 use crate::model::Figurable;
 use crate::syntax::Span;
 use crate::text::{Lang, LocalName, Region};
 use crate::util::NonZeroExt;
-use crate::visualize::{TypstPaint, TypstStroke};
+use crate::visualize::{TexPaint, TexStroke};
 
 /// A table of items.
 ///
@@ -140,7 +140,7 @@ pub struct TableElem {
     /// )
     /// ```
     #[borrowed]
-    pub fill: Celled<Option<TypstPaint>>,
+    pub fill: Celled<Option<TexPaint>>,
 
     /// How to align the cells' content.
     ///
@@ -158,7 +158,7 @@ pub struct TableElem {
     /// )
     /// ```
     #[borrowed]
-    pub align: Celled<Smart<Alignment>>,
+    pub align: Celled<Smart<TexAlignment>>,
 
     /// How to [stroke]($stroke) the cells.
     ///
@@ -169,8 +169,8 @@ pub struct TableElem {
     /// third-party [tablex library](https://github.com/PgBiel/typst-tablex/).
     #[resolve]
     #[fold]
-    #[default(Some(TypstStroke::default()))]
-    pub stroke: Option<TypstStroke>,
+    #[default(Some(TexStroke::default()))]
+    pub stroke: Option<TexStroke>,
 
     /// How much to pad the cells' content.
     ///
@@ -221,7 +221,7 @@ impl LayoutMultiple for Packed<TableElem> {
         let column_gutter = self.column_gutter(styles);
         let row_gutter = self.row_gutter(styles);
         let fill = self.fill(styles);
-        let stroke = self.stroke(styles).map(TypstStroke::unwrap_or_default);
+        let stroke = self.stroke(styles).map(TexStroke::unwrap_or_default);
 
         let tracks = Axes::new(columns.0.as_slice(), rows.0.as_slice());
         let gutter = Axes::new(column_gutter.0.as_slice(), row_gutter.0.as_slice());
@@ -334,7 +334,7 @@ impl Figurable for Packed<TableElem> {}
 pub struct TableCell {
     /// The cell's body.
     #[required]
-    body: TypstContent,
+    body: TexContent,
 
     /// The cell's column (zero-indexed).
     /// Functions identically to the `x` field in [`grid.cell`]($grid.cell).
@@ -345,14 +345,14 @@ pub struct TableCell {
     y: Smart<usize>,
 
     /// The cell's fill override.
-    fill: Smart<Option<TypstPaint>>,
+    fill: Smart<Option<TexPaint>>,
 
     /// The amount of columns spanned by this cell.
     #[default(NonZeroUsize::ONE)]
     colspan: NonZeroUsize,
 
     /// The cell's alignment override.
-    align: Smart<Alignment>,
+    align: Smart<TexAlignment>,
 
     /// The cell's inset override.
     inset: Smart<Sides<Option<Rel<Length>>>>,
@@ -360,12 +360,12 @@ pub struct TableCell {
 
 cast! {
     TableCell,
-    v: TypstContent => v.into(),
+    v: TexContent => v.into(),
 }
 
 impl Default for Packed<TableCell> {
     fn default() -> Self {
-        Packed::new(TableCell::new(TypstContent::default()))
+        Packed::new(TableCell::new(TexContent::default()))
     }
 }
 
@@ -374,8 +374,8 @@ impl ResolvableCell for Packed<TableCell> {
         mut self,
         x: usize,
         y: usize,
-        fill: &Option<TypstPaint>,
-        align: Smart<Alignment>,
+        fill: &Option<TexPaint>,
+        align: Smart<TexAlignment>,
         inset: Sides<Option<Rel<Length>>>,
         styles: StyleChain,
     ) -> Cell {
@@ -422,13 +422,13 @@ impl ResolvableCell for Packed<TableCell> {
 }
 
 impl Show for Packed<TableCell> {
-    fn show(&self, _engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, _engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         show_grid_cell(self.body().clone(), self.inset(styles), self.align(styles))
     }
 }
 
-impl From<TypstContent> for TableCell {
-    fn from(value: TypstContent) -> Self {
+impl From<TexContent> for TableCell {
+    fn from(value: TexContent) -> Self {
         #[allow(clippy::unwrap_or_default)]
         value.unpack::<Self>().unwrap_or_else(Self::new)
     }

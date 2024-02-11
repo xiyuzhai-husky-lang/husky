@@ -1,14 +1,14 @@
 use crate::diag::SourceResult;
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, AutoValue, Packed, Resolve, Smart, StyleChain, TypstContent, TypstValue,
+    cast, elem, AutoTexValue, Packed, Resolve, Smart, StyleChain, TexContent, TexValue,
 };
 use crate::layout::{
     Abs, Axes, Corners, Fr, Fragment, Frame, FrameKind, LayoutMultiple, Length, LengthInEm, Ratio,
     Regions, Rel, Sides, Size, Spacing, VElem,
 };
 use crate::util::Numeric;
-use crate::visualize::{clip_rect, TypstPaint, TypstStroke};
+use crate::visualize::{clip_rect, TexPaint, TexStroke};
 
 /// An inline-level container that sizes content.
 ///
@@ -55,13 +55,13 @@ pub struct BoxElem {
 
     /// The box's background color. See the
     /// [rectangle's documentation]($rect.fill) for more details.
-    pub fill: Option<TypstPaint>,
+    pub fill: Option<TexPaint>,
 
     /// The box's border color. See the
     /// [rectangle's documentation]($rect.stroke) for more details.
     #[resolve]
     #[fold]
-    pub stroke: Sides<Option<Option<TypstStroke>>>,
+    pub stroke: Sides<Option<Option<TexStroke>>>,
 
     /// How much to round the box's corners. See the
     /// [rectangle's documentation]($rect.radius) for more details.
@@ -106,7 +106,7 @@ pub struct BoxElem {
 
     /// The contents of the box.
     #[positional]
-    pub body: Option<TypstContent>,
+    pub body: Option<TexContent>,
 }
 
 impl Packed<BoxElem> {
@@ -157,7 +157,7 @@ impl Packed<BoxElem> {
         let stroke = self
             .stroke(styles)
             .unwrap_or_default()
-            .map(|s| s.map(TypstStroke::unwrap_or_default));
+            .map(|s| s.map(TexStroke::unwrap_or_default));
 
         // Clip the contents
         if self.clip(styles) {
@@ -259,13 +259,13 @@ pub struct BlockElem {
 
     /// The block's background color. See the
     /// [rectangle's documentation]($rect.fill) for more details.
-    pub fill: Option<TypstPaint>,
+    pub fill: Option<TexPaint>,
 
     /// The block's border color. See the
     /// [rectangle's documentation]($rect.stroke) for more details.
     #[resolve]
     #[fold]
-    pub stroke: Sides<Option<Option<TypstStroke>>>,
+    pub stroke: Sides<Option<Option<TexStroke>>>,
 
     /// How much to round the block's corners. See the
     /// [rectangle's documentation]($rect.radius) for more details.
@@ -336,7 +336,7 @@ pub struct BlockElem {
 
     /// The contents of the block.
     #[positional]
-    pub body: Option<TypstContent>,
+    pub body: Option<TexContent>,
 
     /// Whether this block must stick to the following one.
     ///
@@ -429,7 +429,7 @@ impl LayoutMultiple for Packed<BlockElem> {
         let stroke = self
             .stroke(styles)
             .unwrap_or_default()
-            .map(|s| s.map(TypstStroke::unwrap_or_default));
+            .map(|s| s.map(TexStroke::unwrap_or_default));
 
         // Clip the contents
         if self.clip(styles) {
@@ -505,11 +505,11 @@ impl<T: Into<Spacing>> From<T> for Sizing {
 cast! {
     Sizing,
     self => match self {
-        Self::Auto => TypstValue::Auto,
+        Self::Auto => TexValue::Auto,
         Self::Rel(rel) => rel.into_value(),
         Self::Fr(fr) => fr.into_value(),
     },
-    _: AutoValue => Self::Auto,
+    _: AutoTexValue => Self::Auto,
     v: Rel<Length> => Self::Rel(v),
     v: Fr => Self::Fr(v),
 }

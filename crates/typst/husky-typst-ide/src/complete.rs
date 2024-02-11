@@ -3,15 +3,15 @@ use std::collections::{BTreeSet, HashSet};
 
 use ecow::{eco_format, EcoString};
 use husky_typst::foundations::{
-    fields_on, format_str, mutable_methods_on, repr, AutoValue, CastInfo, Func, Label, NoneValue,
-    Repr, Scope, Type, TypstValue,
+    fields_on, format_str, mutable_methods_on, repr, AutoTexValue, CastInfo, Func, Label,
+    NoneValue, Repr, Scope, TexValue, Type,
 };
-use husky_typst::model::TypstDocument;
+use husky_typst::model::TexDocument;
 use husky_typst::syntax::{
     ast, is_id_continue, is_id_start, is_ident, LinkedNode, Source, SyntaxKind,
 };
 use husky_typst::text::RawElem;
-use husky_typst::visualize::TypstColor;
+use husky_typst::visualize::TexColor;
 use husky_typst::World;
 use if_chain::if_chain;
 use serde::{Deserialize, Serialize};
@@ -33,7 +33,7 @@ use crate::{plain_docs_sentence, summarize_font_family};
 /// when the document is available.
 pub fn autocomplete(
     world: &dyn World,
-    document: Option<&TypstDocument>,
+    document: Option<&TexDocument>,
     source: &Source,
     cursor: usize,
     explicit: bool,
@@ -363,7 +363,7 @@ fn complete_field_accesses(ctx: &mut CompletionContext) -> bool {
 }
 
 /// Add completions for all fields on a value.
-fn field_access_completions(ctx: &mut CompletionContext, value: &TypstValue) {
+fn field_access_completions(ctx: &mut CompletionContext, value: &TexValue) {
     for (name, value) in value.ty().scope().iter() {
         ctx.value_completion(Some(name.clone()), value, true, None);
     }
@@ -402,7 +402,7 @@ fn field_access_completions(ctx: &mut CompletionContext, value: &TypstValue) {
     }
 
     match value {
-        TypstValue::Symbol(symbol) => {
+        TexValue::Symbol(symbol) => {
             for modifier in symbol.modifiers() {
                 if let Ok(modified) = symbol.clone().modified(modifier) {
                     ctx.completions.push(Completion {
@@ -414,17 +414,17 @@ fn field_access_completions(ctx: &mut CompletionContext, value: &TypstValue) {
                 }
             }
         }
-        TypstValue::Content(content) => {
+        TexValue::Content(content) => {
             for (name, value) in content.fields() {
                 ctx.value_completion(Some(name.into()), &value, false, None);
             }
         }
-        TypstValue::Dict(dict) => {
+        TexValue::Dict(dict) => {
             for (name, value) in dict.iter() {
                 ctx.value_completion(Some(name.clone().into()), value, false, None);
             }
         }
-        TypstValue::Plugin(plugin) => {
+        TexValue::Plugin(plugin) => {
             for name in plugin.iter() {
                 ctx.completions.push(Completion {
                     kind: CompletionKind::Func,
@@ -575,7 +575,7 @@ fn set_rule_completions(ctx: &mut CompletionContext) {
     ctx.scope_completions(true, |value| {
         matches!(
             value,
-            TypstValue::Func(func) if func.params()
+            TexValue::Func(func) if func.params()
                 .unwrap_or_default()
                 .iter()
                 .any(|param| param.settable),
@@ -587,7 +587,7 @@ fn set_rule_completions(ctx: &mut CompletionContext) {
 fn show_rule_selector_completions(ctx: &mut CompletionContext) {
     ctx.scope_completions(
         false,
-        |value| matches!(value, TypstValue::Func(func) if func.element().is_some()),
+        |value| matches!(value, TexValue::Func(func) if func.element().is_some()),
     );
 
     ctx.enrich("", ": ");
@@ -625,7 +625,7 @@ fn show_rule_recipe_completions(ctx: &mut CompletionContext) {
         "Transform the element with a function.",
     );
 
-    ctx.scope_completions(false, |value| matches!(value, TypstValue::Func(_)));
+    ctx.scope_completions(false, |value| matches!(value, TexValue::Func(_)));
 }
 
 /// Complete call and set rule parameters.
@@ -781,8 +781,8 @@ fn resolve_global_callee<'a>(
         ast::Expr::Ident(ident) => ctx.global.get(&ident)?,
         ast::Expr::FieldAccess(access) => match access.target() {
             ast::Expr::Ident(target) => match ctx.global.get(&target)? {
-                TypstValue::Module(module) => module.field(&access.field()).ok()?,
-                TypstValue::Func(func) => func.field(&access.field()).ok()?,
+                TexValue::Module(module) => module.field(&access.field()).ok()?,
+                TexValue::Func(func) => func.field(&access.field()).ok()?,
                 _ => return None,
             },
             _ => return None,
@@ -791,7 +791,7 @@ fn resolve_global_callee<'a>(
     };
 
     match value {
-        TypstValue::Func(func) => Some(func),
+        TexValue::Func(func) => Some(func),
         _ => None,
     }
 }
@@ -844,7 +844,7 @@ fn complete_code(ctx: &mut CompletionContext) -> bool {
 #[rustfmt::skip]
 fn code_completions(ctx: &mut CompletionContext, hash: bool) {
     ctx.scope_completions(true, |value| !hash || {
-        matches!(value, TypstValue::Symbol(_) | TypstValue::Func(_) | TypstValue::Type(_) | TypstValue::Module(_))
+        matches!(value, TexValue::Symbol(_) | TexValue::Func(_) | TexValue::Type(_) | TexValue::Module(_))
     });
 
     ctx.snippet_completion(
@@ -991,7 +991,7 @@ fn code_completions(ctx: &mut CompletionContext, hash: bool) {
 /// Context for autocompletion.
 struct CompletionContext<'a> {
     world: &'a (dyn World + 'a),
-    document: Option<&'a TypstDocument>,
+    document: Option<&'a TexDocument>,
     global: &'a Scope,
     math: &'a Scope,
     text: &'a str,
@@ -1009,7 +1009,7 @@ impl<'a> CompletionContext<'a> {
     /// Create a new autocompletion context.
     fn new(
         world: &'a (dyn World + 'a),
-        document: Option<&'a TypstDocument>,
+        document: Option<&'a TexDocument>,
         source: &'a Source,
         cursor: usize,
         explicit: bool,
@@ -1070,7 +1070,7 @@ impl<'a> CompletionContext<'a> {
             if !equation || family.contains("Math") {
                 self.value_completion(
                     None,
-                    &TypstValue::Str(family.into()),
+                    &TexValue::Str(family.into()),
                     false,
                     Some(detail.as_str()),
                 );
@@ -1088,7 +1088,7 @@ impl<'a> CompletionContext<'a> {
         for (package, description) in packages {
             self.value_completion(
                 None,
-                &TypstValue::Str(format_str!("{package}")),
+                &TexValue::Str(format_str!("{package}")),
                 false,
                 description.as_deref(),
             );
@@ -1159,7 +1159,7 @@ impl<'a> CompletionContext<'a> {
     fn value_completion(
         &mut self,
         label: Option<EcoString>,
-        value: &TypstValue,
+        value: &TexValue,
         parens: bool,
         docs: Option<&str>,
     ) {
@@ -1167,9 +1167,9 @@ impl<'a> CompletionContext<'a> {
         let label = label.unwrap_or_else(|| value.repr());
 
         let detail = docs.map(Into::into).or_else(|| match value {
-            TypstValue::Symbol(_) => None,
-            TypstValue::Func(func) => func.docs().map(plain_docs_sentence),
-            TypstValue::Type(ty) => Some(plain_docs_sentence(ty.docs())),
+            TexValue::Symbol(_) => None,
+            TexValue::Func(func) => func.docs().map(plain_docs_sentence),
+            TexValue::Type(ty) => Some(plain_docs_sentence(ty.docs())),
             v => {
                 let repr = v.repr();
                 (repr.as_str() != label).then_some(repr)
@@ -1177,8 +1177,8 @@ impl<'a> CompletionContext<'a> {
         });
 
         let mut apply = None;
-        if parens && matches!(value, TypstValue::Func(_)) {
-            if let TypstValue::Func(func) = value {
+        if parens && matches!(value, TexValue::Func(_)) {
+            if let TexValue::Func(func) = value {
                 if func
                     .params()
                     .is_some_and(|params| params.iter().all(|param| param.name == "self"))
@@ -1198,9 +1198,9 @@ impl<'a> CompletionContext<'a> {
 
         self.completions.push(Completion {
             kind: match value {
-                TypstValue::Func(_) => CompletionKind::Func,
-                TypstValue::Type(_) => CompletionKind::Type,
-                TypstValue::Symbol(s) => CompletionKind::Symbol(s.get()),
+                TexValue::Func(_) => CompletionKind::Func,
+                TexValue::Type(_) => CompletionKind::Type,
+                TexValue::Symbol(s) => CompletionKind::Symbol(s.get()),
                 _ => CompletionKind::Constant,
             },
             label,
@@ -1218,18 +1218,18 @@ impl<'a> CompletionContext<'a> {
 
         match cast {
             CastInfo::Any => {}
-            CastInfo::TypstValue(value, docs) => {
+            CastInfo::TexValue(value, docs) => {
                 self.value_completion(None, value, true, Some(docs));
             }
             CastInfo::Type(ty) => {
                 if *ty == Type::of::<NoneValue>() {
                     self.snippet_completion("none", "none", "Nothing.")
-                } else if *ty == Type::of::<AutoValue>() {
+                } else if *ty == Type::of::<AutoTexValue>() {
                     self.snippet_completion("auto", "auto", "A smart default.");
                 } else if *ty == Type::of::<bool>() {
                     self.snippet_completion("false", "false", "No / Disabled.");
                     self.snippet_completion("true", "true", "Yes / Enabled.");
-                } else if *ty == Type::of::<TypstColor>() {
+                } else if *ty == Type::of::<TexColor>() {
                     self.snippet_completion("luma()", "luma(${v})", "A custom grayscale color.");
                     self.snippet_completion(
                         "rgb()",
@@ -1296,7 +1296,7 @@ impl<'a> CompletionContext<'a> {
     /// Add completions for definitions that are available at the cursor.
     ///
     /// Filters the global/math scope with the given filter.
-    fn scope_completions(&mut self, parens: bool, filter: impl Fn(&TypstValue) -> bool) {
+    fn scope_completions(&mut self, parens: bool, filter: impl Fn(&TexValue) -> bool) {
         let mut defined = BTreeSet::new();
 
         let mut ancestor = Some(self.leaf.clone());

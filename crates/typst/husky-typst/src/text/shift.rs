@@ -2,7 +2,7 @@ use ecow::EcoString;
 
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{elem, Packed, Show, StyleChain, TypstContent};
+use crate::foundations::{elem, Packed, Show, StyleChain, TexContent};
 use crate::layout::{Length, LengthInEm};
 use crate::text::{variant, SpaceElem, TextElem, TextSize};
 use crate::World;
@@ -19,7 +19,7 @@ use crate::World;
 pub struct SubElem {
     /// Whether to prefer the dedicated subscript characters of the font.
     ///
-    /// If this is enabled, Typst first tries to transform the text to subscript
+    /// If this is enabled, Tex first tries to transform the text to subscript
     /// codepoints. If that fails, it falls back to rendering lowered and shrunk
     /// normal letters.
     ///
@@ -44,12 +44,12 @@ pub struct SubElem {
 
     /// The text to display in subscript.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl Show for Packed<SubElem> {
     #[husky_typst_macros::time(name = "sub", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         let body = self.body().clone();
         let mut transformed = None;
         if self.typographic(styles) {
@@ -79,7 +79,7 @@ impl Show for Packed<SubElem> {
 pub struct SuperElem {
     /// Whether to prefer the dedicated superscript characters of the font.
     ///
-    /// If this is enabled, Typst first tries to transform the text to
+    /// If this is enabled, Tex first tries to transform the text to
     /// superscript codepoints. If that fails, it falls back to rendering
     /// raised and shrunk normal letters.
     ///
@@ -104,12 +104,12 @@ pub struct SuperElem {
 
     /// The text to display in superscript.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl Show for Packed<SuperElem> {
     #[husky_typst_macros::time(name = "super", span = self.span())]
-    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, engine: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         let body = self.body().clone();
         let mut transformed = None;
         if self.typographic(styles) {
@@ -129,7 +129,7 @@ impl Show for Packed<SuperElem> {
 
 /// Find and transform the text contained in `content` to the given script kind
 /// if and only if it only consists of `Text`, `Space`, and `Empty` leafs.
-fn search_text(content: &TypstContent, sub: bool) -> Option<EcoString> {
+fn search_text(content: &TexContent, sub: bool) -> Option<EcoString> {
     if content.is::<SpaceElem>() {
         Some(' '.into())
     } else if let Some(elem) = content.to_packed::<TextElem>() {

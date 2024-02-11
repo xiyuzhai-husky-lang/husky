@@ -13,7 +13,7 @@ use crate::diag::{At, FileError, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
     cast, elem, scope, Args, Array, Bytes, Fold, Packed, PlainText, Show, ShowSet, Smart,
-    StyleChain, Styles, Synthesize, TypstContent, TypstElement, TypstValue,
+    StyleChain, Styles, Synthesize, TexContent, TexElement, TexValue,
 };
 use crate::layout::{BlockElem, HAlignment, LengthInEm};
 use crate::model::Figurable;
@@ -23,12 +23,12 @@ use crate::text::{
     TextElem, TextSize,
 };
 use crate::util::option_eq;
-use crate::visualize::TypstColor;
+use crate::visualize::TexColor;
 use crate::{syntax, World};
 
 // Shorthand for highlighter closures.
-type StyleFn<'a> = &'a mut dyn FnMut(&LinkedNode, Range<usize>, synt::Style) -> TypstContent;
-type LineFn<'a> = &'a mut dyn FnMut(i64, Range<usize>, &mut Vec<TypstContent>);
+type StyleFn<'a> = &'a mut dyn FnMut(&LinkedNode, Range<usize>, synt::Style) -> TexContent;
+type LineFn<'a> = &'a mut dyn FnMut(i64, Range<usize>, &mut Vec<TexContent>);
 
 /// Raw text with optional syntax highlighting.
 ///
@@ -141,15 +141,15 @@ pub struct RawElem {
     /// The language to syntax-highlight in.
     ///
     /// Apart from typical language tags known from Markdown, this supports the
-    /// `{"typ"}` and `{"typc"}` tags for Typst markup and Typst code,
+    /// `{"typ"}` and `{"typc"}` tags for Tex markup and Tex code,
     /// respectively.
     ///
     /// ````example
     /// ```typ
-    /// This is *Typst!*
+    /// This is *Tex!*
     /// ```
     ///
-    /// This is ```typ also *Typst*```, but inline!
+    /// This is ```typ also *Tex*```, but inline!
     /// ````
     #[borrowed]
     pub lang: Option<EcoString>,
@@ -282,7 +282,7 @@ impl RawElem {
                     syntax.file_extensions.iter().map(|s| s.as_str()).collect(),
                 )
             })
-            .chain([("Typst", vec!["typ"]), ("Typst (code)", vec!["typc"])])
+            .chain([("Tex", vec!["typ"]), ("Tex (code)", vec!["typc"])])
             .collect()
     }
 }
@@ -350,7 +350,7 @@ impl Packed<RawElem> {
                             i + 1,
                             count,
                             EcoString::from(&text[range]),
-                            TypstContent::sequence(line.drain(..)),
+                            TexContent::sequence(line.drain(..)),
                         ))
                         .spanned(span),
                     );
@@ -383,7 +383,7 @@ impl Packed<RawElem> {
                         i as i64 + 1,
                         count,
                         EcoString::from(line),
-                        TypstContent::sequence(line_content),
+                        TexContent::sequence(line_content),
                     ))
                     .spanned(span),
                 );
@@ -406,7 +406,7 @@ impl Packed<RawElem> {
 
 impl Show for Packed<RawElem> {
     #[husky_typst_macros::time(name = "raw", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         let lines = self.lines().map(|v| v.as_slice()).unwrap_or_default();
 
         let mut seq = EcoVec::with_capacity((2 * lines.len()).saturating_sub(1));
@@ -418,7 +418,7 @@ impl Show for Packed<RawElem> {
             seq.push(line.clone().pack());
         }
 
-        let mut realized = TypstContent::sequence(seq);
+        let mut realized = TexContent::sequence(seq);
         if self.block(styles) {
             // Align the text before inserting it into the block.
             realized = realized.aligned(self.align(styles).into());
@@ -513,12 +513,12 @@ pub struct RawLine {
 
     /// The highlighted raw text.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl Show for Packed<RawLine> {
     #[husky_typst_macros::time(name = "raw.line", span = self.span())]
-    fn show(&self, _: &mut Engine, _styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, _: &mut Engine, _styles: StyleChain) -> SourceResult<TexContent> {
         Ok(self.body().clone())
     }
 }
@@ -540,7 +540,7 @@ struct ThemedHighlighter<'a> {
     /// The current scopes.
     scopes: Vec<syntect::parsing::Scope>,
     /// The current highlighted line.
-    current_line: Vec<TypstContent>,
+    current_line: Vec<TexContent>,
     /// The range of the current line.
     range: Range<usize>,
     /// The current line number.
@@ -629,7 +629,7 @@ impl<'a> ThemedHighlighter<'a> {
 }
 
 /// Style a piece of text with a syntect style.
-fn styled(piece: &str, foreground: synt::Color, style: synt::Style) -> TypstContent {
+fn styled(piece: &str, foreground: synt::Color, style: synt::Style) -> TexContent {
     let mut body = TextElem::packed(piece);
 
     if style.foreground != foreground {
@@ -651,11 +651,11 @@ fn styled(piece: &str, foreground: synt::Color, style: synt::Style) -> TypstCont
     body
 }
 
-fn to_typst(synt::Color { r, g, b, a }: synt::Color) -> TypstColor {
-    TypstColor::from_u8(r, g, b, a)
+fn to_typst(synt::Color { r, g, b, a }: synt::Color) -> TexColor {
+    TexColor::from_u8(r, g, b, a)
 }
 
-fn to_syn(color: TypstColor) -> synt::Color {
+fn to_syn(color: TexColor) -> synt::Color {
     let [r, g, b, a] = color.to_vec4_u8();
     synt::Color { r, g, b, a }
 }
@@ -668,7 +668,7 @@ cast! {
     SyntaxPaths,
     self => self.0.into_value(),
     v: EcoString => Self(vec![v]),
-    v: Array => Self(v.into_iter().map(TypstValue::cast).collect::<StrResult<_>>()?),
+    v: Array => Self(v.into_iter().map(TexValue::cast).collect::<StrResult<_>>()?),
 }
 
 impl Fold for SyntaxPaths {
@@ -760,8 +760,8 @@ pub static RAW_SYNTAXES: Lazy<syntect::parsing::SyntaxSet> =
 
 /// The default theme used for syntax highlighting.
 pub static RAW_THEME: Lazy<synt::Theme> = Lazy::new(|| synt::Theme {
-    name: Some("Typst Light".into()),
-    author: Some("The Typst Project Developers".into()),
+    name: Some("Tex Light".into()),
+    author: Some("The Tex Project Developers".into()),
     settings: synt::ThemeSettings::default(),
     scopes: vec![
         item("comment", Some("#8a8a8a"), None),
@@ -825,7 +825,7 @@ fn item(scope: &str, color: Option<&str>, font_style: Option<synt::FontStyle>) -
     synt::ThemeItem {
         scope: scope.parse().unwrap(),
         style: synt::StyleModifier {
-            foreground: color.map(|s| to_syn(s.parse::<TypstColor>().unwrap())),
+            foreground: color.map(|s| to_syn(s.parse::<TexColor>().unwrap())),
             background: None,
             font_style,
         },

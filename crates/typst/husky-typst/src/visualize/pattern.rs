@@ -6,7 +6,7 @@ use ecow::{eco_format, EcoString};
 
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{func, repr, scope, ty, Smart, StyleChain, TypstContent};
+use crate::foundations::{func, repr, scope, ty, Smart, StyleChain, TexContent};
 use crate::layout::{Abs, Axes, Frame, LayoutMultiple, Length, Regions, Size};
 use crate::syntax::{Span, Spanned};
 use crate::util::Numeric;
@@ -15,7 +15,7 @@ use crate::World;
 
 /// A repeating pattern fill.
 ///
-/// Typst supports the most common pattern type of tiled patterns, where a
+/// Tex supports the most common pattern type of tiled patterns, where a
 /// pattern is repeated in a grid-like fashion, covering the entire area of an
 /// element that is filled or stroked. The pattern is defined by a tile size and
 /// a body defining the content of each cell. You can also add horizontal or
@@ -87,7 +87,7 @@ use crate::World;
 /// applied on text, in which case they are relative to the closest ancestor
 /// container.
 ///
-/// Typst determines the ancestor container as follows:
+/// Tex determines the ancestor container as follows:
 /// - For shapes that are placed at the root/top level of the document, the
 ///   closest ancestor is the page itself.
 /// - For other shapes, the ancestor is the innermost [`block`]($block) or
@@ -155,7 +155,7 @@ impl Pattern {
         #[default(Smart::Auto)]
         relative: Smart<RelativeTo>,
         /// The content of each cell of the pattern.
-        body: TypstContent,
+        body: TexContent,
     ) -> SourceResult<Pattern> {
         let size_span = size.span;
         if let Smart::Custom(size) = size.v {

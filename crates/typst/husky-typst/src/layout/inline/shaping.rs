@@ -12,11 +12,11 @@ use unicode_script::{Script, UnicodeScript};
 use super::SpanMapper;
 use crate::engine::Engine;
 use crate::foundations::StyleChain;
-use crate::layout::{Abs, Frame, FrameItem, LengthInEm, Point, Size, TypstLayoutDirection};
+use crate::layout::{Abs, Frame, FrameItem, LengthInEm, Point, Size, TexLayoutDirection};
 use crate::syntax::Span;
 use crate::text::{
-    decorate, families, features, variant, FontVariant, Glyph, Lang, Region, TextElem, TextItem,
-    TypstFont,
+    decorate, families, features, variant, FontVariant, Glyph, Lang, Region, TexFont, TextElem,
+    TextItem,
 };
 use crate::util::SliceExt;
 use crate::World;
@@ -32,7 +32,7 @@ pub(super) struct ShapedText<'a> {
     /// The text that was shaped.
     pub text: &'a str,
     /// The text direction.
-    pub dir: TypstLayoutDirection,
+    pub dir: TexLayoutDirection,
     /// The text language.
     pub lang: Lang,
     /// The text region.
@@ -53,7 +53,7 @@ pub(super) struct ShapedText<'a> {
 #[derive(Debug, Clone)]
 pub(super) struct ShapedGlyph {
     /// The font the glyph is contained in.
-    pub font: TypstFont,
+    pub font: TexFont,
     /// The glyph's index in the font.
     pub glyph_id: u16,
     /// The advance width of the glyph.
@@ -330,7 +330,7 @@ impl<'a> ShapedText<'a> {
         let bottom_edge = TextElem::bottom_edge_in(self.styles);
 
         // Expand top and bottom by reading the font's vertical metrics.
-        let mut expand = |font: &TypstFont, bbox: Option<ttf_parser::Rect>| {
+        let mut expand = |font: &TexFont, bbox: Option<ttf_parser::Rect>| {
             top.set_max(top_edge.resolve(self.size, font, bbox));
             bottom.set_max(-bottom_edge.resolve(self.size, font, bbox));
         };
@@ -583,13 +583,13 @@ struct ShapingContext<'a, 'v> {
     engine: &'a Engine<'v>,
     spans: &'a SpanMapper,
     glyphs: Vec<ShapedGlyph>,
-    used: Vec<TypstFont>,
+    used: Vec<TexFont>,
     styles: StyleChain<'a>,
     size: Abs,
     variant: FontVariant,
     features: Vec<rustybuzz::Feature>,
     fallback: bool,
-    dir: TypstLayoutDirection,
+    dir: TexLayoutDirection,
 }
 
 /// Shape text into [`ShapedText`].
@@ -600,7 +600,7 @@ pub(super) fn shape<'a>(
     text: &'a str,
     spans: &SpanMapper,
     styles: StyleChain<'a>,
-    dir: TypstLayoutDirection,
+    dir: TexLayoutDirection,
     lang: Lang,
     region: Option<Region>,
 ) -> ShapedText<'a> {
@@ -672,7 +672,7 @@ fn shape_segment<'a>(
 
     // Do font fallback if the families are exhausted and fallback is enabled.
     if selection.is_none() && ctx.fallback {
-        let first = ctx.used.first().map(TypstFont::info);
+        let first = ctx.used.first().map(TexFont::info);
         selection = book
             .select_fallback(first, ctx.variant, text)
             .and_then(|id| world.font(id))
@@ -700,8 +700,8 @@ fn shape_segment<'a>(
         buffer.set_script(script)
     }
     buffer.set_direction(match ctx.dir {
-        TypstLayoutDirection::LeftRight => rustybuzz::Direction::LeftToRight,
-        TypstLayoutDirection::RightLeft => rustybuzz::Direction::RightToLeft,
+        TexLayoutDirection::LeftRight => rustybuzz::Direction::LeftToRight,
+        TexLayoutDirection::RightLeft => rustybuzz::Direction::RightToLeft,
         _ => unimplemented!("vertical text layout"),
     });
     buffer.guess_segment_properties();
@@ -824,7 +824,7 @@ fn shape_segment<'a>(
 /// Create a shape plan.
 #[comemo::memoize]
 fn create_shape_plan(
-    font: &TypstFont,
+    font: &TexFont,
     direction: rustybuzz::Direction,
     script: rustybuzz::Script,
     language: Option<&rustybuzz::Language>,
@@ -840,7 +840,7 @@ fn create_shape_plan(
 }
 
 /// Shape the text with tofus from the given font.
-fn shape_tofus(ctx: &mut ShapingContext, base: usize, text: &str, font: TypstFont) {
+fn shape_tofus(ctx: &mut ShapingContext, base: usize, text: &str, font: TexFont) {
     let x_advance = font.advance(0).unwrap_or_default();
     let add_glyph = |(cluster, c): (usize, char)| {
         let start = base + cluster;
@@ -935,7 +935,7 @@ fn calculate_adjustability(ctx: &mut ShapingContext, lang: Lang, region: Option<
 }
 
 /// Difference between non-breaking and normal space.
-fn nbsp_delta(font: &TypstFont) -> Option<LengthInEm> {
+fn nbsp_delta(font: &TexFont) -> Option<LengthInEm> {
     let space = font.ttf().glyph_index(' ')?.0;
     let nbsp = font.ttf().glyph_index('\u{00A0}')?.0;
     Some(font.advance(nbsp)? - font.advance(space)?)
@@ -967,7 +967,7 @@ fn assert_all_glyphs_in_range(glyphs: &[ShapedGlyph], text: &str, range: Range<u
 ///
 /// This asserts instead of returning a bool in order to provide a more informative message when the invariant is violated.
 #[cfg(debug_assertions)]
-fn assert_glyph_ranges_in_order(glyphs: &[ShapedGlyph], dir: TypstLayoutDirection) {
+fn assert_glyph_ranges_in_order(glyphs: &[ShapedGlyph], dir: TexLayoutDirection) {
     if glyphs.is_empty() {
         return;
     }

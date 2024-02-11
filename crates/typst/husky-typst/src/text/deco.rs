@@ -4,11 +4,11 @@ use ttf_parser::{GlyphId, OutlineBuilder};
 
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{elem, Packed, Show, Smart, StyleChain, TypstContent};
+use crate::foundations::{elem, Packed, Show, Smart, StyleChain, TexContent};
 use crate::layout::{Abs, Frame, FrameItem, Length, LengthInEm, Point, Size};
 use crate::syntax::Span;
 use crate::text::{BottomEdge, BottomEdgeMetric, TextElem, TextItem, TopEdge, TopEdgeMetric};
-use crate::visualize::{TypstColor, TypstFixedStroke, TypstGeometry, TypstPaint, TypstStroke};
+use crate::visualize::{TexColor, TexFixedStroke, TexGeometry, TexPaint, TexStroke};
 
 /// Underlines text.
 ///
@@ -32,7 +32,7 @@ pub struct UnderlineElem {
     /// ```
     #[resolve]
     #[fold]
-    pub stroke: Smart<TypstStroke>,
+    pub stroke: Smart<TexStroke>,
 
     /// The position of the line relative to the baseline, read from the font
     /// tables if `{auto}`.
@@ -78,12 +78,12 @@ pub struct UnderlineElem {
 
     /// The content to underline.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl Show for Packed<UnderlineElem> {
     #[husky_typst_macros::time(name = "underline", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         Ok(self
             .body()
             .clone()
@@ -122,7 +122,7 @@ pub struct OverlineElem {
     /// ```
     #[resolve]
     #[fold]
-    pub stroke: Smart<TypstStroke>,
+    pub stroke: Smart<TexStroke>,
 
     /// The position of the line relative to the baseline. Read from the font
     /// tables if `{auto}`.
@@ -173,12 +173,12 @@ pub struct OverlineElem {
 
     /// The content to add a line over.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl Show for Packed<OverlineElem> {
     #[husky_typst_macros::time(name = "overline", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         Ok(self
             .body()
             .clone()
@@ -216,7 +216,7 @@ pub struct StrikeElem {
     /// ```
     #[resolve]
     #[fold]
-    pub stroke: Smart<TypstStroke>,
+    pub stroke: Smart<TexStroke>,
 
     /// The position of the line relative to the baseline. Read from the font
     /// tables if `{auto}`.
@@ -253,12 +253,12 @@ pub struct StrikeElem {
 
     /// The content to strike through.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl Show for Packed<StrikeElem> {
     #[husky_typst_macros::time(name = "strike", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         Ok(self
             .body()
             .clone()
@@ -288,8 +288,8 @@ pub struct HighlightElem {
     /// ```example
     /// This is #highlight(fill: blue)[with blue].
     /// ```
-    #[default(TypstColor::from_u8(0xFF, 0xFF, 0x5F, 0xFF).into())]
-    pub fill: TypstPaint,
+    #[default(TexColor::from_u8(0xFF, 0xFF, 0x5F, 0xFF).into())]
+    pub fill: TexPaint,
 
     /// The top end of the background rectangle.
     ///
@@ -326,12 +326,12 @@ pub struct HighlightElem {
 
     /// The content that should be highlighted.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl Show for Packed<HighlightElem> {
     #[husky_typst_macros::time(name = "highlight", span = self.span())]
-    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, _: &mut Engine, styles: StyleChain) -> SourceResult<TexContent> {
         Ok(self
             .body()
             .clone()
@@ -360,24 +360,24 @@ pub struct Decoration {
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
 enum DecoLine {
     Underline {
-        stroke: TypstStroke<Abs>,
+        stroke: TexStroke<Abs>,
         offset: Smart<Abs>,
         evade: bool,
         background: bool,
     },
     Strikethrough {
-        stroke: TypstStroke<Abs>,
+        stroke: TexStroke<Abs>,
         offset: Smart<Abs>,
         background: bool,
     },
     Overline {
-        stroke: TypstStroke<Abs>,
+        stroke: TexStroke<Abs>,
         offset: Smart<Abs>,
         evade: bool,
         background: bool,
     },
     Highlight {
-        fill: TypstPaint,
+        fill: TexPaint,
         top_edge: TopEdge,
         bottom_edge: BottomEdge,
     },
@@ -401,7 +401,7 @@ pub(crate) fn decorate(
     } = &deco.line
     {
         let (top, bottom) = determine_edges(text, *top_edge, *bottom_edge);
-        let rect = TypstGeometry::Rect(Size::new(width + 2.0 * deco.extent, top - bottom))
+        let rect = TexGeometry::Rect(Size::new(width + 2.0 * deco.extent, top - bottom))
             .filled(fill.clone());
         let origin = Point::new(pos.x - deco.extent, pos.y - top - shift);
         frame.prepend(origin, FrameItem::Shape(rect, Span::detached()));
@@ -436,7 +436,7 @@ pub(crate) fn decorate(
     };
 
     let offset = offset.unwrap_or(-metrics.position.at(text.size)) - shift;
-    let stroke = stroke.clone().unwrap_or(TypstFixedStroke::from_pair(
+    let stroke = stroke.clone().unwrap_or(TexFixedStroke::from_pair(
         text.fill.as_decoration(),
         metrics.thickness.at(text.size),
     ));
@@ -452,7 +452,7 @@ pub(crate) fn decorate(
         let target = Point::new(to - from, Abs::zero());
 
         if target.x >= min_width || !evade {
-            let shape = TypstGeometry::Line(target).stroked(stroke.clone());
+            let shape = TexGeometry::Line(target).stroked(stroke.clone());
 
             if prepend {
                 frame.prepend(origin, FrameItem::Shape(shape, Span::detached()));

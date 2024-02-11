@@ -4,7 +4,7 @@ use std::sync::Arc;
 use ecow::{eco_format, EcoString};
 
 use crate::diag::StrResult;
-use crate::foundations::{repr, ty, Scope, TypstContent, TypstValue};
+use crate::foundations::{repr, ty, Scope, TexContent, TexValue};
 
 /// An evaluated module, either built-in or resulting from a file.
 ///
@@ -39,7 +39,7 @@ struct Repr {
     /// The top-level definitions that were bound in this module.
     scope: Scope,
     /// The module's layoutable contents.
-    content: TypstContent,
+    content: TexContent,
 }
 
 impl Module {
@@ -49,7 +49,7 @@ impl Module {
             name: name.into(),
             inner: Arc::new(Repr {
                 scope,
-                content: TypstContent::empty(),
+                content: TexContent::empty(),
             }),
         }
     }
@@ -67,7 +67,7 @@ impl Module {
     }
 
     /// Update the module's content.
-    pub fn with_content(mut self, content: TypstContent) -> Self {
+    pub fn with_content(mut self, content: TexContent) -> Self {
         Arc::make_mut(&mut self.inner).content = content;
         self
     }
@@ -88,14 +88,14 @@ impl Module {
     }
 
     /// Try to access a definition in the module.
-    pub fn field(&self, name: &str) -> StrResult<&TypstValue> {
+    pub fn field(&self, name: &str) -> StrResult<&TexValue> {
         self.scope()
             .get(name)
             .ok_or_else(|| eco_format!("module `{}` does not contain `{name}`", self.name()))
     }
 
     /// Extract the module's content.
-    pub fn content(self) -> TypstContent {
+    pub fn content(self) -> TexContent {
         match Arc::try_unwrap(self.inner) {
             Ok(repr) => repr.content,
             Err(arc) => arc.content.clone(),

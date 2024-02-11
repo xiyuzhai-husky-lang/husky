@@ -5,8 +5,8 @@ use crate::diag::{bail, error, At, HintedStrResult, SourceResult, Trace, Tracepo
 use crate::engine::Engine;
 use crate::eval::{Access, Eval, FlowEvent, Route, Tracer, Vm};
 use crate::foundations::{
-    call_method_mut, is_mutating_method, Arg, Args, Bytes, Closure, Func, IntoTypstValue, Scope,
-    Scopes, TypstContent, TypstElement, TypstValue,
+    call_method_mut, is_mutating_method, Arg, Args, Bytes, Closure, Func, IntoTexValue, Scope,
+    Scopes, TexContent, TexElement, TexValue,
 };
 use crate::introspection::{Introspector, Locator};
 use crate::math::{Accent, AccentElem, LrElem};
@@ -17,7 +17,7 @@ use crate::text::TextElem;
 use crate::World;
 
 impl Eval for ast::FuncCall<'_> {
-    type Output = TypstValue;
+    type Output = TexValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         let span = self.span();
@@ -43,7 +43,7 @@ impl Eval for ast::FuncCall<'_> {
                 let target = target.access(vm)?;
 
                 // Only arrays and dictionaries have mutable methods.
-                if matches!(target, TypstValue::Array(_) | TypstValue::Dict(_)) {
+                if matches!(target, TexValue::Array(_) | TexValue::Dict(_)) {
                     args.span = span;
                     let point = || Tracepoint::Call(Some(field.get().clone()));
                     return call_method_mut(target, &field, args, span).trace(
@@ -61,7 +61,7 @@ impl Eval for ast::FuncCall<'_> {
             let mut args = args.eval(vm)?;
 
             // Handle plugins.
-            if let TypstValue::Plugin(plugin) = &target {
+            if let TexValue::Plugin(plugin) = &target {
                 let bytes = args.all::<Bytes>()?;
                 args.finish()?;
                 return Ok(plugin.call(&field, bytes).at(span)?.into_value());
@@ -87,10 +87,7 @@ impl Eval for ast::FuncCall<'_> {
                 (callee.clone(), args)
             } else if matches!(
                 target,
-                TypstValue::Symbol(_)
-                    | TypstValue::Func(_)
-                    | TypstValue::Type(_)
-                    | TypstValue::Module(_)
+                TexValue::Symbol(_) | TexValue::Func(_) | TexValue::Type(_) | TexValue::Module(_)
             ) {
                 (target.field(&field).at(field_span)?, args)
             } else {
@@ -111,8 +108,8 @@ impl Eval for ast::FuncCall<'_> {
                 };
 
                 match target {
-                    TypstValue::Dict(ref dict) => {
-                        if matches!(dict.get(&field), Ok(TypstValue::Func(_))) {
+                    TexValue::Dict(ref dict) => {
+                        if matches!(dict.get(&field), Ok(TexValue::Func(_))) {
                             error.hint(eco_format!(
                                 "to call the function stored in the dictionary, surround \
                                  the field access with parentheses, e.g. `(dict.{})(..)`",
@@ -134,8 +131,8 @@ impl Eval for ast::FuncCall<'_> {
         // Handle math special cases for non-functions:
         // Combining accent symbols apply themselves while everything else
         // simply displays the arguments verbatim.
-        if in_math && !matches!(callee, TypstValue::Func(_)) {
-            if let TypstValue::Symbol(sym) = &callee {
+        if in_math && !matches!(callee, TexValue::Func(_)) {
+            if let TexValue::Symbol(sym) = &callee {
                 let c = sym.get();
                 if let Some(accent) = Symbol::combining_accent(c) {
                     let base = args.expect("base")?;
@@ -145,11 +142,11 @@ impl Eval for ast::FuncCall<'_> {
                     if let Some(size) = size {
                         accent = accent.with_size(size);
                     }
-                    return Ok(TypstValue::Content(accent.pack()));
+                    return Ok(TexValue::Content(accent.pack()));
                 }
             }
-            let mut body = TypstContent::empty();
-            for (i, arg) in args.all::<TypstContent>()?.into_iter().enumerate() {
+            let mut body = TexContent::empty();
+            for (i, arg) in args.all::<TexContent>()?.into_iter().enumerate() {
                 if i > 0 {
                     body += TextElem::packed(',');
                 }
@@ -158,7 +155,7 @@ impl Eval for ast::FuncCall<'_> {
             if trailing_comma {
                 body += TextElem::packed(',');
             }
-            return Ok(TypstValue::Content(
+            return Ok(TexValue::Content(
                 callee.display().spanned(callee_span)
                     + LrElem::new(TextElem::packed('(') + body + TextElem::packed(')')).pack(),
             ));
@@ -205,22 +202,22 @@ impl Eval for ast::Args<'_> {
                     });
                 }
                 ast::Arg::Spread(expr) => match expr.eval(vm)? {
-                    TypstValue::None => {}
-                    TypstValue::Array(array) => {
+                    TexValue::None => {}
+                    TexValue::Array(array) => {
                         items.extend(array.into_iter().map(|value| Arg {
                             span,
                             name: None,
                             value: Spanned::new(value, span),
                         }));
                     }
-                    TypstValue::Dict(dict) => {
+                    TexValue::Dict(dict) => {
                         items.extend(dict.into_iter().map(|(key, value)| Arg {
                             span,
                             name: Some(key),
                             value: Spanned::new(value, span),
                         }));
                     }
-                    TypstValue::Args(args) => items.extend(args.items),
+                    TexValue::Args(args) => items.extend(args.items),
                     v => bail!(expr.span(), "cannot spread {}", v.ty()),
                 },
             }
@@ -234,7 +231,7 @@ impl Eval for ast::Args<'_> {
 }
 
 impl Eval for ast::Closure<'_> {
-    type Output = TypstValue;
+    type Output = TexValue;
 
     fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
         // Evaluate default values of named parameters.
@@ -259,7 +256,7 @@ impl Eval for ast::Closure<'_> {
             captured,
         };
 
-        Ok(TypstValue::Func(
+        Ok(TexValue::Func(
             Func::from(closure).spanned(self.params().span()),
         ))
     }
@@ -277,7 +274,7 @@ pub(crate) fn call_closure(
     locator: Tracked<Locator>,
     tracer: TrackedMut<Tracer>,
     mut args: Args,
-) -> SourceResult<TypstValue> {
+) -> SourceResult<TexValue> {
     let node = closure.node.cast::<ast::Closure>().unwrap();
 
     // Don't leak the scopes from the call site. Instead, we use the scope
@@ -300,7 +297,7 @@ pub(crate) fn call_closure(
 
     // Provide the closure itself for recursive calls.
     if let Some(name) = node.name() {
-        vm.define(name, TypstValue::Func(func.clone()));
+        vm.define(name, TexValue::Func(func.clone()));
     }
 
     // Parse the arguments according to the parameter list.
@@ -320,14 +317,14 @@ pub(crate) fn call_closure(
         match p {
             ast::Param::Pos(pattern) => match pattern {
                 ast::Pattern::Normal(ast::Expr::Ident(ident)) => {
-                    vm.define(ident, args.expect::<TypstValue>(&ident)?)
+                    vm.define(ident, args.expect::<TexValue>(&ident)?)
                 }
                 ast::Pattern::Normal(_) => unreachable!(),
                 pattern => {
                     crate::eval::destructure(
                         &mut vm,
                         pattern,
-                        args.expect::<TypstValue>("pattern parameter")?,
+                        args.expect::<TexValue>("pattern parameter")?,
                     )?;
                 }
             },
@@ -341,7 +338,7 @@ pub(crate) fn call_closure(
                 let name = named.name();
                 let default = defaults.next().unwrap();
                 let value = args
-                    .named::<TypstValue>(&name)?
+                    .named::<TexValue>(&name)?
                     .unwrap_or_else(|| default.clone());
                 vm.define(name, value);
             }
@@ -517,20 +514,20 @@ impl<'a> CapturesVisitor<'a> {
     fn bind(&mut self, ident: ast::Ident) {
         self.internal
             .top
-            .define(ident.get().clone(), TypstValue::None);
+            .define(ident.get().clone(), TexValue::None);
     }
 
     /// Capture a variable if it isn't internal.
     fn capture(
         &mut self,
         ident: &str,
-        getter: impl FnOnce(&'a Scopes<'a>, &str) -> HintedStrResult<&'a TypstValue>,
+        getter: impl FnOnce(&'a Scopes<'a>, &str) -> HintedStrResult<&'a TexValue>,
     ) {
         if self.internal.get(ident).is_err() {
             let Some(value) = self
                 .external
                 .map(|external| getter(external, ident).ok())
-                .unwrap_or(Some(&TypstValue::None))
+                .unwrap_or(Some(&TexValue::None))
             else {
                 return;
             };

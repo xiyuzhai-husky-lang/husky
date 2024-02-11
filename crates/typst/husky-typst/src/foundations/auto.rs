@@ -3,8 +3,8 @@ use std::fmt::{self, Debug, Formatter};
 
 use crate::diag::StrResult;
 use crate::foundations::{
-    ty, CastInfo, Fold, FromTypstValue, IntoTypstValue, Reflect, Repr, Resolve, StyleChain, Type,
-    TypstValue,
+    ty, CastInfo, Fold, FromTexValue, IntoTexValue, Reflect, Repr, Resolve, StyleChain, TexValue,
+    Type,
 };
 
 /// A value that indicates a smart default.
@@ -13,28 +13,28 @@ use crate::foundations::{
 ///
 /// Parameters that support the `{auto}` value have some smart default or
 /// contextual behaviour. A good example is the [text direction]($text.dir)
-/// parameter. Setting it to `{auto}` lets Typst automatically determine the
+/// parameter. Setting it to `{auto}` lets Tex automatically determine the
 /// direction from the [text language]($text.lang).
 #[ty(cast, name = "auto")]
 #[derive(Default, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
-pub struct AutoValue;
+pub struct AutoTexValue;
 
-impl IntoTypstValue for AutoValue {
-    fn into_value(self) -> TypstValue {
-        TypstValue::Auto
+impl IntoTexValue for AutoTexValue {
+    fn into_value(self) -> TexValue {
+        TexValue::Auto
     }
 }
 
-impl FromTypstValue for AutoValue {
-    fn from_value(value: TypstValue) -> StrResult<Self> {
+impl FromTexValue for AutoTexValue {
+    fn from_value(value: TexValue) -> StrResult<Self> {
         match value {
-            TypstValue::Auto => Ok(Self),
+            TexValue::Auto => Ok(Self),
             _ => Err(Self::error(&value)),
         }
     }
 }
 
-impl Reflect for AutoValue {
+impl Reflect for AutoTexValue {
     fn input() -> CastInfo {
         CastInfo::Type(Type::of::<Self>())
     }
@@ -43,18 +43,18 @@ impl Reflect for AutoValue {
         CastInfo::Type(Type::of::<Self>())
     }
 
-    fn castable(value: &TypstValue) -> bool {
-        matches!(value, TypstValue::Auto)
+    fn castable(value: &TexValue) -> bool {
+        matches!(value, TexValue::Auto)
     }
 }
 
-impl Debug for AutoValue {
+impl Debug for AutoTexValue {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         f.write_str("Auto")
     }
 }
 
-impl Repr for AutoValue {
+impl Repr for AutoTexValue {
     fn repr(&self) -> EcoString {
         "auto".into()
     }
@@ -200,31 +200,31 @@ impl<T> Default for Smart<T> {
 
 impl<T: Reflect> Reflect for Smart<T> {
     fn input() -> CastInfo {
-        T::input() + AutoValue::input()
+        T::input() + AutoTexValue::input()
     }
 
     fn output() -> CastInfo {
-        T::output() + AutoValue::output()
+        T::output() + AutoTexValue::output()
     }
 
-    fn castable(value: &TypstValue) -> bool {
-        AutoValue::castable(value) || T::castable(value)
+    fn castable(value: &TexValue) -> bool {
+        AutoTexValue::castable(value) || T::castable(value)
     }
 }
 
-impl<T: IntoTypstValue> IntoTypstValue for Smart<T> {
-    fn into_value(self) -> TypstValue {
+impl<T: IntoTexValue> IntoTexValue for Smart<T> {
+    fn into_value(self) -> TexValue {
         match self {
             Smart::Custom(v) => v.into_value(),
-            Smart::Auto => TypstValue::Auto,
+            Smart::Auto => TexValue::Auto,
         }
     }
 }
 
-impl<T: FromTypstValue> FromTypstValue for Smart<T> {
-    fn from_value(value: TypstValue) -> StrResult<Self> {
+impl<T: FromTexValue> FromTexValue for Smart<T> {
+    fn from_value(value: TexValue) -> StrResult<Self> {
         match value {
-            TypstValue::Auto => Ok(Self::Auto),
+            TexValue::Auto => Ok(Self::Auto),
             v if T::castable(&v) => Ok(Self::Custom(T::from_value(v)?)),
             _ => Err(Self::error(&value)),
         }

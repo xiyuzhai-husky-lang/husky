@@ -4,10 +4,10 @@ use smallvec::{smallvec, SmallVec};
 
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{cast, elem, scope, Array, Packed, Smart, StyleChain, TypstContent};
+use crate::foundations::{cast, elem, scope, Array, Packed, Smart, StyleChain, TexContent};
 use crate::layout::{
-    Alignment, Axes, BlockElem, Cell, CellGrid, Fragment, GridLayouter, HAlignment, LayoutMultiple,
-    Length, LengthInEm, Regions, Sizing, Spacing, VAlignment,
+    Axes, BlockElem, Cell, CellGrid, Fragment, GridLayouter, HAlignment, LayoutMultiple, Length,
+    LengthInEm, Regions, Sizing, Spacing, TexAlignment, VAlignment,
 };
 use crate::model::{Numbering, NumberingPattern, ParElem};
 use crate::text::TextElem;
@@ -179,7 +179,7 @@ pub struct EnumElem {
     /// 32. Thirty two
     /// ````
     #[default(HAlignment::End + VAlignment::Top)]
-    pub number_align: Alignment,
+    pub number_align: TexAlignment,
 
     /// The numbered list's items.
     ///
@@ -263,9 +263,9 @@ impl LayoutMultiple for Packed<EnumElem> {
                 .aligned(number_align)
                 .styled(TextElem::set_overhang(false));
 
-            cells.push(Cell::from(TypstContent::empty()));
+            cells.push(Cell::from(TexContent::empty()));
             cells.push(Cell::from(resolved));
-            cells.push(Cell::from(TypstContent::empty()));
+            cells.push(Cell::from(TexContent::empty()));
             cells.push(Cell::from(
                 item.body()
                     .clone()
@@ -300,7 +300,7 @@ pub struct EnumItem {
 
     /// The item's body.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 cast! {
@@ -313,5 +313,5 @@ cast! {
         };
         Self::new(body).with_number(number)
     },
-    v: TypstContent => v.unpack::<Self>().unwrap_or_else(Self::new),
+    v: TexContent => v.unpack::<Self>().unwrap_or_else(Self::new),
 }

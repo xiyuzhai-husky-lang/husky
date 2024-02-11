@@ -10,10 +10,10 @@ use unicode_segmentation::UnicodeSegmentation;
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, dict, func, repr, scope, ty, Array, Bytes, Func, IntoTypstValue, Label, Repr, Type,
-    TypstDict, TypstValue, Version,
+    cast, dict, func, repr, scope, ty, Array, Bytes, Func, IntoTexValue, Label, Repr, TexDict,
+    TexValue, Type, Version,
 };
-use crate::layout::Alignment;
+use crate::layout::TexAlignment;
 use crate::syntax::{Span, Spanned};
 
 /// Create a new [`Str`] from a format string.
@@ -39,7 +39,7 @@ pub use ecow::eco_format;
 /// together form a flag emoji. Strings can be added with the `+` operator,
 /// [joined together]($scripting/#blocks) and multiplied with integers.
 ///
-/// Typst provides utility methods for string manipulation. Many of these
+/// Tex provides utility methods for string manipulation. Many of these
 /// methods (e.g., `split`, `trim` and `replace`) operate on _patterns:_ A
 /// pattern can be either a string or a [regular expression]($regex). This makes
 /// the methods quite versatile.
@@ -208,8 +208,8 @@ impl Str {
         index: i64,
         /// A default value to return if the index is out of bounds.
         #[named]
-        default: Option<TypstValue>,
-    ) -> StrResult<TypstValue> {
+        default: Option<TexValue>,
+    ) -> StrResult<TexValue> {
         let len = self.len();
         self.locate_opt(index)?
             .and_then(|i| self.0[i..].graphemes(true).next().map(|s| s.into_value()))
@@ -248,14 +248,14 @@ impl Str {
     pub fn clusters(&self) -> Array {
         self.as_str()
             .graphemes(true)
-            .map(|s| TypstValue::Str(s.into()))
+            .map(|s| TexValue::Str(s.into()))
             .collect()
     }
 
     /// Returns the Unicode codepoints of the string as an array of substrings.
     #[func]
     pub fn codepoints(&self) -> Array {
-        self.chars().map(|c| TypstValue::Str(c.into())).collect()
+        self.chars().map(|c| TexValue::Str(c.into())).collect()
     }
 
     /// Converts a character into its corresponding code point.
@@ -392,7 +392,7 @@ impl Str {
         &self,
         /// The pattern to search for.
         pattern: StrPattern,
-    ) -> Option<TypstDict> {
+    ) -> Option<TexDict> {
         match pattern {
             StrPattern::Str(pat) => self.0.match_indices(pat.as_str()).next().map(match_to_dict),
             StrPattern::Regex(re) => re.captures(self).map(captures_to_dict),
@@ -413,12 +413,12 @@ impl Str {
                 .0
                 .match_indices(pat.as_str())
                 .map(match_to_dict)
-                .map(TypstValue::Dict)
+                .map(TexValue::Dict)
                 .collect(),
             StrPattern::Regex(re) => re
                 .captures_iter(self)
                 .map(captures_to_dict)
-                .map(TypstValue::Dict)
+                .map(TexValue::Dict)
                 .collect(),
         }
     }
@@ -447,7 +447,7 @@ impl Str {
 
         // Replace one match of a pattern with the replacement.
         let mut last_match = 0;
-        let mut handle_match = |range: Range<usize>, dict: TypstDict| -> SourceResult<()> {
+        let mut handle_match = |range: Range<usize>, dict: TexDict| -> SourceResult<()> {
             // Push everything until the match.
             output.push_str(&self[last_match..range.start]);
             last_match = range.end;
@@ -585,13 +585,13 @@ impl Str {
         match pattern {
             None => s
                 .split_whitespace()
-                .map(|v| TypstValue::Str(v.into()))
+                .map(|v| TexValue::Str(v.into()))
                 .collect(),
             Some(StrPattern::Str(pat)) => s
                 .split(pat.as_str())
-                .map(|v| TypstValue::Str(v.into()))
+                .map(|v| TexValue::Str(v.into()))
                 .collect(),
-            Some(StrPattern::Regex(re)) => re.split(s).map(|v| TypstValue::Str(v.into())).collect(),
+            Some(StrPattern::Regex(re)) => re.split(s).map(|v| TexValue::Str(v.into())).collect(),
         }
     }
 
@@ -732,7 +732,7 @@ impl From<Str> for String {
 
 cast! {
     char,
-    self => TypstValue::Str(self.into()),
+    self => TexValue::Str(self.into()),
     string: Str => {
         let mut chars = string.chars();
         match (chars.next(), chars.next()) {
@@ -744,18 +744,18 @@ cast! {
 
 cast! {
     &str,
-    self => TypstValue::Str(self.into()),
+    self => TexValue::Str(self.into()),
 }
 
 cast! {
     EcoString,
-    self => TypstValue::Str(self.into()),
+    self => TexValue::Str(self.into()),
     v: Str => v.into(),
 }
 
 cast! {
     String,
-    self => TypstValue::Str(self.into()),
+    self => TexValue::Str(self.into()),
     v: Str => v.into(),
 }
 
@@ -783,7 +783,7 @@ cast! {
 }
 
 /// Convert an item of std's `match_indices` to a dictionary.
-fn match_to_dict((start, text): (usize, &str)) -> TypstDict {
+fn match_to_dict((start, text): (usize, &str)) -> TexDict {
     dict! {
         "start" => start,
         "end" => start + text.len(),
@@ -793,7 +793,7 @@ fn match_to_dict((start, text): (usize, &str)) -> TypstDict {
 }
 
 /// Convert regex captures to a dictionary.
-fn captures_to_dict(cap: regex::Captures) -> TypstDict {
+fn captures_to_dict(cap: regex::Captures) -> TexDict {
     let m = cap.get(0).expect("missing first match");
     dict! {
         "start" => m.start(),
@@ -801,7 +801,7 @@ fn captures_to_dict(cap: regex::Captures) -> TypstDict {
         "text" => m.as_str(),
         "captures" =>  cap.iter()
             .skip(1)
-            .map(|opt| opt.map_or(TypstValue::None, |m| m.as_str().into_value()))
+            .map(|opt| opt.map_or(TexValue::None, |m| m.as_str().into_value()))
             .collect::<Array>(),
     }
 }
@@ -876,9 +876,9 @@ impl Regex {
     pub fn construct(
         /// The regular expression as a string.
         ///
-        /// Most regex escape sequences just work because they are not valid Typst
+        /// Most regex escape sequences just work because they are not valid Tex
         /// escape sequences. To produce regex escape sequences that are also valid in
-        /// Typst (e.g. `[\\]`), you need to escape twice. Thus, to match a verbatim
+        /// Tex (e.g. `[\\]`), you need to escape twice. Thus, to match a verbatim
         /// backslash, you would need to write `{regex("\\\\")}`.
         ///
         /// If you need many escape sequences, you can also create a raw element
@@ -947,9 +947,9 @@ pub enum StrSide {
 
 cast! {
     StrSide,
-    v: Alignment => match v {
-        Alignment::START => Self::Start,
-        Alignment::END => Self::End,
+    v: TexAlignment => match v {
+        TexAlignment::START => Self::Start,
+        TexAlignment::END => Self::End,
         _ => bail!("expected either `start` or `end`"),
     },
 }

@@ -13,10 +13,10 @@ use crate::World;
 
 /// A WebAssembly plugin.
 ///
-/// Typst is capable of interfacing with plugins compiled to WebAssembly. Plugin
+/// Tex is capable of interfacing with plugins compiled to WebAssembly. Plugin
 /// functions may accept multiple [byte buffers]($bytes) as arguments and return
-/// a single byte buffer. They should typically be wrapped in idiomatic Typst
-/// functions that perform the necessary conversions between native Typst types
+/// a single byte buffer. They should typically be wrapped in idiomatic Tex
+/// functions that perform the necessary conversions between native Tex types
 /// and bytes.
 ///
 /// Plugins run in isolation from your system, which means that printing,
@@ -25,7 +25,7 @@ use crate::World;
 /// shared WebAssembly library. Many compilers will use the
 /// [WASI ABI](https://wasi.dev/) by default or as their only option (e.g.
 /// emscripten), which allows printing, reading files, etc. This ABI will not
-/// directly work with Typst. You will either need to compile to a different
+/// directly work with Tex. You will either need to compile to a different
 /// target or [stub all functions](https://github.com/astrale-sharp/wasm-minimal-protocol/blob/master/wasi-stub).
 ///
 /// # Plugins and Packages
@@ -36,11 +36,11 @@ use crate::World;
 ///
 /// # Purity
 /// Plugin functions must be pure: Given the same arguments, they must always
-/// return the same value. The reason for this is that Typst functions must be
-/// pure (which is quite fundamental to the language design) and, since Typst
+/// return the same value. The reason for this is that Tex functions must be
+/// pure (which is quite fundamental to the language design) and, since Tex
 /// function can call plugin functions, this requirement is inherited. In
 /// particular, if a plugin function is called twice with the same arguments,
-/// Typst might cache the results and call your function only once.
+/// Tex might cache the results and call your function only once.
 ///
 /// # Example
 /// ```example
@@ -60,7 +60,7 @@ use crate::World;
 /// protocol:
 ///
 /// ## Exports
-/// A plugin module can export functions to make them callable from Typst. To
+/// A plugin module can export functions to make them callable from Tex. To
 /// conform to the protocol, an exported function should:
 ///
 /// - Take `n` 32-bit integer arguments `a_1`, `a_2`, ..., `a_n` (interpreted as
@@ -99,7 +99,7 @@ use crate::World;
 ///
 /// - `(import "typst_env" "wasm_minimal_protocol_send_result_to_host" (func (param i32 i32)))`
 ///
-///   Sends the output of the current function to the host (Typst). The first
+///   Sends the output of the current function to the host (Tex). The first
 ///   parameter shall be a pointer to a buffer (`ptr`), while the second is the
 ///   length of that buffer (`len`). The memory pointed at by `ptr` can be freed
 ///   immediately after this function returns. If the message should be

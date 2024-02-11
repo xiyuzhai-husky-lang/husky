@@ -1,5 +1,5 @@
 use crate::diag::SourceResult;
-use crate::foundations::{elem, Packed, StyleChain, TypstContent};
+use crate::foundations::{elem, Packed, StyleChain, TexContent};
 use crate::layout::{Abs, FixedAlignment, Frame, FrameItem, LengthInEm, Point, Size};
 use crate::math::{
     alignments, scaled_font_size, style_cramped, style_for_subscript, AlignmentResult,
@@ -7,7 +7,7 @@ use crate::math::{
 };
 use crate::syntax::Span;
 use crate::text::TextElem;
-use crate::visualize::{TypstFixedStroke, TypstGeometry};
+use crate::visualize::{TexFixedStroke, TexGeometry};
 
 const BRACE_GAP: LengthInEm = LengthInEm::new(0.25);
 const BRACKET_GAP: LengthInEm = LengthInEm::new(0.25);
@@ -27,7 +27,7 @@ enum LineKind {
 pub struct UnderlineElem {
     /// The content above the line.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl LayoutMath for Packed<UnderlineElem> {
@@ -46,7 +46,7 @@ impl LayoutMath for Packed<UnderlineElem> {
 pub struct OverlineElem {
     /// The content below the line.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl LayoutMath for Packed<OverlineElem> {
@@ -60,7 +60,7 @@ impl LayoutMath for Packed<OverlineElem> {
 fn layout_underoverline(
     ctx: &mut MathContext,
     styles: StyleChain,
-    body: &TypstContent,
+    body: &TexContent,
     span: Span,
     line: LineKind,
 ) -> SourceResult<()> {
@@ -104,10 +104,10 @@ fn layout_underoverline(
     frame.push(
         line_pos,
         FrameItem::Shape(
-            TypstGeometry::Line(Point::with_x(width)).stroked(TypstFixedStroke {
+            TexGeometry::Line(Point::with_x(width)).stroked(TexFixedStroke {
                 paint: TextElem::fill_in(styles).as_decoration(),
                 thickness: bar_height,
-                ..TypstFixedStroke::default()
+                ..TexFixedStroke::default()
             }),
             span,
         ),
@@ -127,11 +127,11 @@ fn layout_underoverline(
 pub struct UnderbraceElem {
     /// The content above the brace.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 
     /// The optional content below the brace.
     #[positional]
-    pub annotation: Option<TypstContent>,
+    pub annotation: Option<TexContent>,
 }
 
 impl LayoutMath for Packed<UnderbraceElem> {
@@ -159,11 +159,11 @@ impl LayoutMath for Packed<UnderbraceElem> {
 pub struct OverbraceElem {
     /// The content below the brace.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 
     /// The optional content above the brace.
     #[positional]
-    pub annotation: Option<TypstContent>,
+    pub annotation: Option<TexContent>,
 }
 
 impl LayoutMath for Packed<OverbraceElem> {
@@ -191,11 +191,11 @@ impl LayoutMath for Packed<OverbraceElem> {
 pub struct UnderbracketElem {
     /// The content above the bracket.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 
     /// The optional content below the bracket.
     #[positional]
-    pub annotation: Option<TypstContent>,
+    pub annotation: Option<TexContent>,
 }
 
 impl LayoutMath for Packed<UnderbracketElem> {
@@ -223,11 +223,11 @@ impl LayoutMath for Packed<UnderbracketElem> {
 pub struct OverbracketElem {
     /// The content below the bracket.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 
     /// The optional content above the bracket.
     #[positional]
-    pub annotation: Option<TypstContent>,
+    pub annotation: Option<TexContent>,
 }
 
 impl LayoutMath for Packed<OverbracketElem> {
@@ -251,8 +251,8 @@ impl LayoutMath for Packed<OverbracketElem> {
 fn layout_underoverspreader(
     ctx: &mut MathContext,
     styles: StyleChain,
-    body: &TypstContent,
-    annotation: &Option<TypstContent>,
+    body: &TexContent,
+    annotation: &Option<TexContent>,
     c: char,
     gap: LengthInEm,
     reverse: bool,

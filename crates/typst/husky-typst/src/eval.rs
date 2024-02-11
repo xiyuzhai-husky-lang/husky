@@ -27,7 +27,7 @@ use comemo::{Track, Tracked, TrackedMut};
 
 use crate::diag::{bail, SourceResult};
 use crate::engine::{Engine, Route};
-use crate::foundations::{Cast, Module, Scope, Scopes, TypstElement, TypstValue};
+use crate::foundations::{Cast, Module, Scope, Scopes, TexElement, TexValue};
 use crate::introspection::{Introspector, Locator};
 use crate::math::EquationElem;
 use crate::syntax::{ast, parse, parse_code, parse_math, Source, Span};
@@ -100,7 +100,7 @@ pub fn eval_string(
     span: Span,
     mode: EvalMode,
     scope: Scope,
-) -> SourceResult<TypstValue> {
+) -> SourceResult<TexValue> {
     let mut root = match mode {
         EvalMode::Code => parse_code(string),
         EvalMode::Markup => parse(string),
@@ -135,8 +135,8 @@ pub fn eval_string(
     // Evaluate the code.
     let output = match mode {
         EvalMode::Code => root.cast::<ast::Code>().unwrap().eval(&mut vm)?,
-        EvalMode::Markup => TypstValue::Content(root.cast::<ast::Markup>().unwrap().eval(&mut vm)?),
-        EvalMode::Math => TypstValue::Content(
+        EvalMode::Markup => TexValue::Content(root.cast::<ast::Markup>().unwrap().eval(&mut vm)?),
+        EvalMode::Math => TexValue::Content(
             EquationElem::new(root.cast::<ast::Math>().unwrap().eval(&mut vm)?)
                 .with_block(false)
                 .pack(),
@@ -156,7 +156,7 @@ pub fn eval_string(
 pub enum EvalMode {
     /// Evaluate as code, as after a hash.
     Code,
-    /// Evaluate as markup, like in a Typst file.
+    /// Evaluate as markup, like in a Tex file.
     Markup,
     /// Evaluate as math, as in an equation.
     Math,

@@ -1,7 +1,7 @@
 //! Handles special built-in methods on values.
 
 use crate::diag::{At, SourceResult};
-use crate::foundations::{Args, Array, Str, Type, TypstDict, TypstValue};
+use crate::foundations::{Args, Array, Str, TexDict, TexValue, Type};
 use crate::syntax::Span;
 
 /// List the available methods for a type and whether they take arguments.
@@ -16,7 +16,7 @@ pub fn mutable_methods_on(ty: Type) -> &'static [(&'static str, bool)] {
             ("insert", true),
             ("remove", true),
         ]
-    } else if ty == Type::of::<TypstDict>() {
+    } else if ty == Type::of::<TexDict>() {
         &[("at", true), ("insert", true), ("remove", true)]
     } else {
         &[]
@@ -35,17 +35,17 @@ pub(crate) fn is_accessor_method(method: &str) -> bool {
 
 /// Call a mutating method on a value.
 pub(crate) fn call_method_mut(
-    value: &mut TypstValue,
+    value: &mut TexValue,
     method: &str,
     mut args: Args,
     span: Span,
-) -> SourceResult<TypstValue> {
+) -> SourceResult<TexValue> {
     let ty = value.ty();
     let missing = || Err(missing_method(ty, method)).at(span);
-    let mut output = TypstValue::None;
+    let mut output = TexValue::None;
 
     match value {
-        TypstValue::Array(array) => match method {
+        TexValue::Array(array) => match method {
             "push" => array.push(args.expect("value")?),
             "pop" => output = array.pop().at(span)?,
             "insert" => array
@@ -59,7 +59,7 @@ pub(crate) fn call_method_mut(
             _ => return missing(),
         },
 
-        TypstValue::Dict(dict) => match method {
+        TexValue::Dict(dict) => match method {
             "insert" => dict.insert(args.expect::<Str>("key")?, args.expect("value")?),
             "remove" => {
                 output = dict
@@ -78,22 +78,22 @@ pub(crate) fn call_method_mut(
 
 /// Call an accessor method on a value.
 pub(crate) fn call_method_access<'a>(
-    value: &'a mut TypstValue,
+    value: &'a mut TexValue,
     method: &str,
     mut args: Args,
     span: Span,
-) -> SourceResult<&'a mut TypstValue> {
+) -> SourceResult<&'a mut TexValue> {
     let ty = value.ty();
     let missing = || Err(missing_method(ty, method)).at(span);
 
     let slot = match value {
-        TypstValue::Array(array) => match method {
+        TexValue::Array(array) => match method {
             "first" => array.first_mut().at(span)?,
             "last" => array.last_mut().at(span)?,
             "at" => array.at_mut(args.expect("index")?).at(span)?,
             _ => return missing(),
         },
-        TypstValue::Dict(dict) => match method {
+        TexValue::Dict(dict) => match method {
             "at" => dict.at_mut(&args.expect::<Str>("key")?).at(span)?,
             _ => return missing(),
         },

@@ -12,19 +12,19 @@ use serde::{Deserialize, Deserializer, Serialize, Serializer};
 use crate::diag::StrResult;
 use crate::eval::ops;
 use crate::foundations::{
-    fields, repr, Args, Array, AutoValue, Bytes, CastInfo, Datetime, Duration, FromTypstValue,
-    Func, IntoTypstValue, Label, Module, NativeType, NoneValue, Plugin, Reflect, Repr, Scope, Str,
-    Styles, Type, TypstContent, TypstDict, TypstElement, Version,
+    fields, repr, Args, Array, AutoTexValue, Bytes, CastInfo, Datetime, Duration, FromTexValue,
+    Func, IntoTexValue, Label, Module, NativeType, NoneValue, Plugin, Reflect, Repr, Scope, Str,
+    Styles, TexContent, TexDict, TexElement, Type, Version,
 };
 use crate::layout::{Abs, Angle, Fr, Length, LengthInEm, Ratio, Rel};
 use crate::symbols::Symbol;
 use crate::syntax::{ast, Span};
 use crate::text::{RawElem, TextElem};
-use crate::visualize::{Gradient, Pattern, TypstColor};
+use crate::visualize::{Gradient, Pattern, TexColor};
 
 /// A computational value.
 #[derive(Default, Clone)]
-pub enum TypstValue {
+pub enum TexValue {
     /// The value that indicates the absence of a meaningful value.
     #[default]
     None,
@@ -47,7 +47,7 @@ pub enum TypstValue {
     /// A fraction: `1fr`.
     Fraction(Fr),
     /// A color value: `#f79143ff`.
-    Color(TypstColor),
+    Color(TexColor),
     /// A gradient value: `gradient.linear(...)`.
     Gradient(Gradient),
     /// A pattern fill: `pattern(...)`.
@@ -67,13 +67,13 @@ pub enum TypstValue {
     /// A duration
     Duration(Duration),
     /// A content value: `[*Hi* there]`.
-    Content(TypstContent),
+    Content(TexContent),
     // Content styles.
     Styles(Styles),
     /// An array of values: `(1, "hi", 12cm)`.
     Array(Array),
     /// A dictionary value: `(a: 1, b: "hi")`.
-    Dict(TypstDict),
+    Dict(TexDict),
     /// An executable function.
     Func(Func),
     /// Captured arguments to a function.
@@ -85,16 +85,16 @@ pub enum TypstValue {
     /// A WebAssembly plugin.
     Plugin(Plugin),
     /// A dynamic value.
-    Dyn(CustomTypstValue),
+    Dyn(CustomTexValue),
 }
 
-impl TypstValue {
+impl TexValue {
     /// Create a new dynamic value.
     pub fn dynamic<T>(any: T) -> Self
     where
         T: Debug + Repr + NativeType + PartialEq + Hash + Sync + Send + 'static,
     {
-        Self::Dyn(CustomTypstValue::new(any))
+        Self::Dyn(CustomTexValue::new(any))
     }
 
     /// Create a numeric value from a number with a unit.
@@ -117,7 +117,7 @@ impl TypstValue {
     pub fn ty(&self) -> Type {
         match self {
             Self::None => Type::of::<NoneValue>(),
-            Self::Auto => Type::of::<AutoValue>(),
+            Self::Auto => Type::of::<AutoTexValue>(),
             Self::Bool(_) => Type::of::<bool>(),
             Self::Int(_) => Type::of::<i64>(),
             Self::Float(_) => Type::of::<f64>(),
@@ -126,7 +126,7 @@ impl TypstValue {
             Self::Ratio(_) => Type::of::<Ratio>(),
             Self::Relative(_) => Type::of::<Rel<Length>>(),
             Self::Fraction(_) => Type::of::<Fr>(),
-            Self::Color(_) => Type::of::<TypstColor>(),
+            Self::Color(_) => Type::of::<TexColor>(),
             Self::Gradient(_) => Type::of::<Gradient>(),
             Self::Pattern(_) => Type::of::<Pattern>(),
             Self::Symbol(_) => Type::of::<Symbol>(),
@@ -136,10 +136,10 @@ impl TypstValue {
             Self::Label(_) => Type::of::<Label>(),
             Self::Datetime(_) => Type::of::<Datetime>(),
             Self::Duration(_) => Type::of::<Duration>(),
-            Self::Content(_) => Type::of::<TypstContent>(),
+            Self::Content(_) => Type::of::<TexContent>(),
             Self::Styles(_) => Type::of::<Styles>(),
             Self::Array(_) => Type::of::<Array>(),
-            Self::Dict(_) => Type::of::<TypstDict>(),
+            Self::Dict(_) => Type::of::<TexDict>(),
             Self::Func(_) => Type::of::<Func>(),
             Self::Args(_) => Type::of::<Args>(),
             Self::Type(_) => Type::of::<Type>(),
@@ -150,12 +150,12 @@ impl TypstValue {
     }
 
     /// Try to cast the value into a specific type.
-    pub fn cast<T: FromTypstValue>(self) -> StrResult<T> {
+    pub fn cast<T: FromTexValue>(self) -> StrResult<T> {
         T::from_value(self)
     }
 
     /// Try to access a field on the value.
-    pub fn field(&self, field: &str) -> StrResult<TypstValue> {
+    pub fn field(&self, field: &str) -> StrResult<TexValue> {
         match self {
             Self::Symbol(symbol) => symbol.clone().modified(field).map(Self::Symbol),
             Self::Version(version) => version.component(field).map(Self::Int),
@@ -198,9 +198,9 @@ impl TypstValue {
     }
 
     /// Return the display representation of the value.
-    pub fn display(self) -> TypstContent {
+    pub fn display(self) -> TexContent {
         match self {
-            Self::None => TypstContent::empty(),
+            Self::None => TexContent::empty(),
             Self::Int(v) => TextElem::packed(repr::format_int_with_base(v, 10)),
             Self::Float(v) => TextElem::packed(repr::display_float(v)),
             Self::Str(v) => TextElem::packed(v),
@@ -218,18 +218,18 @@ impl TypstValue {
     /// Attach a span to the value, if possible.
     pub fn spanned(self, span: Span) -> Self {
         match self {
-            TypstValue::Content(v) => TypstValue::Content(v.spanned(span)),
-            TypstValue::Func(v) => TypstValue::Func(v.spanned(span)),
+            TexValue::Content(v) => TexValue::Content(v.spanned(span)),
+            TexValue::Func(v) => TexValue::Func(v.spanned(span)),
             v => v,
         }
     }
 }
 
-impl Debug for TypstValue {
+impl Debug for TexValue {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         match self {
             Self::None => Debug::fmt(&NoneValue, f),
-            Self::Auto => Debug::fmt(&AutoValue, f),
+            Self::Auto => Debug::fmt(&AutoTexValue, f),
             Self::Bool(v) => Debug::fmt(v, f),
             Self::Int(v) => Debug::fmt(v, f),
             Self::Float(v) => Debug::fmt(v, f),
@@ -262,11 +262,11 @@ impl Debug for TypstValue {
     }
 }
 
-impl Repr for TypstValue {
+impl Repr for TexValue {
     fn repr(&self) -> EcoString {
         match self {
             Self::None => NoneValue.repr(),
-            Self::Auto => AutoValue.repr(),
+            Self::Auto => AutoTexValue.repr(),
             Self::Bool(v) => v.repr(),
             Self::Int(v) => v.repr(),
             Self::Float(v) => v.repr(),
@@ -299,19 +299,19 @@ impl Repr for TypstValue {
     }
 }
 
-impl PartialEq for TypstValue {
+impl PartialEq for TexValue {
     fn eq(&self, other: &Self) -> bool {
         ops::equal(self, other)
     }
 }
 
-impl PartialOrd for TypstValue {
+impl PartialOrd for TexValue {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         ops::compare(self, other).ok()
     }
 }
 
-impl Hash for TypstValue {
+impl Hash for TexValue {
     fn hash<H: Hasher>(&self, state: &mut H) {
         std::mem::discriminant(self).hash(state);
         match self {
@@ -349,7 +349,7 @@ impl Hash for TypstValue {
     }
 }
 
-impl Serialize for TypstValue {
+impl Serialize for TexValue {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
@@ -372,7 +372,7 @@ impl Serialize for TypstValue {
     }
 }
 
-impl<'de> Deserialize<'de> for TypstValue {
+impl<'de> Deserialize<'de> for TexValue {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: Deserializer<'de>,
@@ -385,7 +385,7 @@ impl<'de> Deserialize<'de> for TypstValue {
 struct ValueVisitor;
 
 impl<'de> Visitor<'de> for ValueVisitor {
-    type Value = TypstValue;
+    type Value = TexValue;
 
     fn expecting(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("a typst value")
@@ -464,15 +464,15 @@ impl<'de> Visitor<'de> for ValueVisitor {
     }
 
     fn visit_none<E: Error>(self) -> Result<Self::Value, E> {
-        Ok(TypstValue::None)
+        Ok(TexValue::None)
     }
 
     fn visit_some<D: Deserializer<'de>>(self, deserializer: D) -> Result<Self::Value, D::Error> {
-        TypstValue::deserialize(deserializer)
+        TexValue::deserialize(deserializer)
     }
 
     fn visit_unit<E: Error>(self) -> Result<Self::Value, E> {
-        Ok(TypstValue::None)
+        Ok(TexValue::None)
     }
 
     fn visit_seq<A: SeqAccess<'de>>(self, seq: A) -> Result<Self::Value, A::Error> {
@@ -480,7 +480,7 @@ impl<'de> Visitor<'de> for ValueVisitor {
     }
 
     fn visit_map<A: MapAccess<'de>>(self, map: A) -> Result<Self::Value, A::Error> {
-        let dict = TypstDict::deserialize(MapAccessDeserializer::new(map))?;
+        let dict = TexDict::deserialize(MapAccessDeserializer::new(map))?;
         Ok(match Datetime::from_toml_dict(&dict) {
             None => dict.into_value(),
             Some(datetime) => datetime.into_value(),
@@ -491,9 +491,9 @@ impl<'de> Visitor<'de> for ValueVisitor {
 /// A value that is not part of the built-in enum.
 #[derive(Clone, Hash)]
 #[allow(clippy::derived_hash_with_manual_eq)]
-pub struct CustomTypstValue(Arc<dyn TypstValueDyn>);
+pub struct CustomTexValue(Arc<dyn TexValueDyn>);
 
-impl CustomTypstValue {
+impl CustomTexValue {
     /// Create a new instance from any value that satisfies the required bounds.
     pub fn new<T>(any: T) -> Self
     where
@@ -518,32 +518,32 @@ impl CustomTypstValue {
     }
 }
 
-impl Debug for CustomTypstValue {
+impl Debug for CustomTexValue {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         self.0.fmt(f)
     }
 }
 
-impl Repr for CustomTypstValue {
+impl Repr for CustomTexValue {
     fn repr(&self) -> EcoString {
         self.0.repr()
     }
 }
 
-impl PartialEq for CustomTypstValue {
+impl PartialEq for CustomTexValue {
     fn eq(&self, other: &Self) -> bool {
         self.0.dyn_eq(other)
     }
 }
 
-trait TypstValueDyn: Debug + Repr + Sync + Send + 'static {
+trait TexValueDyn: Debug + Repr + Sync + Send + 'static {
     fn as_any(&self) -> &dyn Any;
-    fn dyn_eq(&self, other: &CustomTypstValue) -> bool;
+    fn dyn_eq(&self, other: &CustomTexValue) -> bool;
     fn dyn_ty(&self) -> Type;
     fn dyn_hash(&self, state: &mut dyn Hasher);
 }
 
-impl<T> TypstValueDyn for T
+impl<T> TexValueDyn for T
 where
     T: Debug + Repr + NativeType + PartialEq + Hash + Sync + Send + 'static,
 {
@@ -551,7 +551,7 @@ where
         self
     }
 
-    fn dyn_eq(&self, other: &CustomTypstValue) -> bool {
+    fn dyn_eq(&self, other: &CustomTexValue) -> bool {
         let Some(other) = other.downcast::<Self>() else {
             return false;
         };
@@ -570,13 +570,13 @@ where
     }
 }
 
-impl Hash for dyn TypstValueDyn {
+impl Hash for dyn TexValueDyn {
     fn hash<H: Hasher>(&self, state: &mut H) {
         self.dyn_hash(state);
     }
 }
 
-/// Implements traits for primitives (TypstValue enum variants).
+/// Implements traits for primitives (TexValue enum variants).
 macro_rules! primitive {
     (
         $ty:ty: $name:literal, $variant:ident
@@ -591,23 +591,23 @@ macro_rules! primitive {
                 CastInfo::Type(Type::of::<Self>())
             }
 
-            fn castable(value: &TypstValue) -> bool {
-                matches!(value, TypstValue::$variant(_)
+            fn castable(value: &TexValue) -> bool {
+                matches!(value, TexValue::$variant(_)
                     $(|  primitive!(@$other $(($binding))?))*)
             }
         }
 
-        impl IntoTypstValue for $ty {
-            fn into_value(self) -> TypstValue {
-                TypstValue::$variant(self)
+        impl IntoTexValue for $ty {
+            fn into_value(self) -> TexValue {
+                TexValue::$variant(self)
             }
         }
 
-        impl FromTypstValue for $ty {
-            fn from_value(value: TypstValue) -> StrResult<Self> {
+        impl FromTexValue for $ty {
+            fn from_value(value: TexValue) -> StrResult<Self> {
                 match value {
-                    TypstValue::$variant(v) => Ok(v),
-                    $(TypstValue::$other$(($binding))? => Ok($out),)*
+                    TexValue::$variant(v) => Ok(v),
+                    $(TexValue::$other$(($binding))? => Ok($out),)*
                     v => Err(eco_format!(
                         "expected {}, found {}",
                         Type::of::<Self>(),
@@ -618,8 +618,8 @@ macro_rules! primitive {
         }
     };
 
-    (@$other:ident($binding:ident)) => { TypstValue::$other(_) };
-    (@$other:ident) => { TypstValue::$other };
+    (@$other:ident($binding:ident)) => { TexValue::$other(_) };
+    (@$other:ident) => { TexValue::$other };
 }
 
 primitive! { bool: "boolean", Bool }
@@ -634,7 +634,7 @@ primitive! { Rel<Length>:  "relative length",
     Ratio(v) => v.into()
 }
 primitive! { Fr: "fraction", Fraction }
-primitive! { TypstColor: "color", Color }
+primitive! { TexColor: "color", Color }
 primitive! { Gradient: "gradient", Gradient }
 primitive! { Pattern: "pattern", Pattern }
 primitive! { Symbol: "symbol", Symbol }
@@ -648,15 +648,15 @@ primitive! { Bytes: "bytes", Bytes }
 primitive! { Label: "label", Label }
 primitive! { Datetime: "datetime", Datetime }
 primitive! { Duration: "duration", Duration }
-primitive! { TypstContent: "content",
+primitive! { TexContent: "content",
     Content,
-    None => TypstContent::empty(),
+    None => TexContent::empty(),
     Symbol(v) => TextElem::packed(v.get()),
     Str(v) => TextElem::packed(v)
 }
 primitive! { Styles: "styles", Styles }
 primitive! { Array: "array", Array }
-primitive! { TypstDict: "dictionary", Dict }
+primitive! { TexDict: "dictionary", Dict }
 primitive! {
     Func: "function",
     Func,
@@ -673,14 +673,14 @@ mod tests {
     use crate::foundations::{array, dict};
 
     #[track_caller]
-    fn test(value: impl IntoTypstValue, exp: &str) {
+    fn test(value: impl IntoTexValue, exp: &str) {
         assert_eq!(value.into_value().repr(), exp);
     }
 
     #[test]
     fn test_value_debug() {
         // Primitives.
-        test(TypstValue::None, "none");
+        test(TexValue::None, "none");
         test(false, "false");
         test(12i64, "12");
         test(3.24, "3.24");
@@ -699,7 +699,7 @@ mod tests {
         test("\\", r#""\\""#);
         test("\"", r#""\"""#);
         test(array![], "()");
-        test(array![TypstValue::None], "(none,)");
+        test(array![TexValue::None], "(none,)");
         test(array![1, 2], "(1, 2)");
         test(dict![], "(:)");
         test(dict!["one" => 1], "(one: 1)");

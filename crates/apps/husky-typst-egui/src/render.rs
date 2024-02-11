@@ -9,7 +9,7 @@ pub(super) fn render(painter: &egui::Painter, frame: &Frame) {
 fn render_item(painter: &egui::Painter, origin: Pos2, position: Point, item: &FrameItem) {
     let translate_point = |point: Point| origin + vec2(to_px(point.x), to_px(point.y));
     let translate_size = |size: Size| vec2(to_px(size.x), to_px(size.y));
-    let translate_stroke = |stroke: Option<TypstFixedStroke>| {
+    let translate_stroke = |stroke: Option<TexFixedStroke>| {
         stroke.map_or(Stroke::NONE, |stroke| {
             stroke.thickness;
             (to_px(stroke.thickness), translate_paint(&stroke.paint)).into()
@@ -48,20 +48,20 @@ fn render_item(painter: &egui::Painter, origin: Pos2, position: Point, item: &Fr
             );
         }
         FrameItem::Shape(
-            TypstShape {
+            TexShape {
                 geometry,
                 fill,
                 stroke,
             },
             _span,
         ) => match geometry {
-            TypstGeometry::Line(to_point) => {
+            TexGeometry::Line(to_point) => {
                 painter.line_segment(
                     [position, translate_point(*to_point)],
                     translate_stroke(stroke.as_ref().cloned()),
                 );
             }
-            TypstGeometry::Rect(size) => {
+            TexGeometry::Rect(size) => {
                 painter.rect(
                     Rect::from_min_size(position, translate_size(*size)),
                     Rounding::default(),
@@ -69,7 +69,7 @@ fn render_item(painter: &egui::Painter, origin: Pos2, position: Point, item: &Fr
                     translate_stroke(stroke.as_ref().cloned()),
                 );
             }
-            TypstGeometry::Path(..) => todo!(),
+            TexGeometry::Path(..) => todo!(),
         },
         FrameItem::Image(..) => todo!(),
         FrameItem::Meta(..) => {}

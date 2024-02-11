@@ -2,7 +2,7 @@ use ecow::EcoString;
 
 use crate::diag::{format_xml_like_error, At, FileError, SourceResult};
 use crate::engine::Engine;
-use crate::foundations::{dict, func, scope, Array, IntoTypstValue, Str, TypstDict, TypstValue};
+use crate::foundations::{dict, func, scope, Array, IntoTexValue, Str, TexDict, TexValue};
 use crate::loading::Readable;
 use crate::syntax::Spanned;
 use crate::World;
@@ -61,7 +61,7 @@ pub fn xml(
     engine: &mut Engine,
     /// Path to an XML file.
     path: Spanned<EcoString>,
-) -> SourceResult<TypstValue> {
+) -> SourceResult<TexValue> {
     let Spanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
@@ -75,7 +75,7 @@ impl xml {
     pub fn decode(
         /// XML data.
         data: Spanned<Readable>,
-    ) -> SourceResult<TypstValue> {
+    ) -> SourceResult<TexValue> {
         let Spanned { v: data, span } = data;
         let text = std::str::from_utf8(data.as_slice())
             .map_err(FileError::from)
@@ -87,24 +87,24 @@ impl xml {
     }
 }
 
-/// Convert an XML node to a Typst value.
-fn convert_xml(node: roxmltree::Node) -> TypstValue {
+/// Convert an XML node to a Tex value.
+fn convert_xml(node: roxmltree::Node) -> TexValue {
     if node.is_text() {
         return node.text().unwrap_or_default().into_value();
     }
 
     let children: Array = node.children().map(convert_xml).collect();
     if node.is_root() {
-        return TypstValue::Array(children);
+        return TexValue::Array(children);
     }
 
     let tag: Str = node.tag_name().name().into();
-    let attrs: TypstDict = node
+    let attrs: TexDict = node
         .attributes()
         .map(|attr| (attr.name().into(), attr.value().into_value()))
         .collect();
 
-    TypstValue::Dict(dict! {
+    TexValue::Dict(dict! {
         "tag" => tag,
         "attrs" => attrs,
         "children" => children,

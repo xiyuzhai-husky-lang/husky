@@ -10,7 +10,7 @@ use time::{format_description, Month, PrimitiveDateTime};
 use crate::diag::{bail, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, func, repr, scope, ty, Duration, Repr, Smart, Str, TypstDict, TypstValue,
+    cast, func, repr, scope, ty, Duration, Repr, Smart, Str, TexDict, TexValue,
 };
 use crate::World;
 
@@ -153,12 +153,12 @@ impl Datetime {
     }
 
     /// Try to parse a dictionary as a TOML date.
-    pub fn from_toml_dict(dict: &TypstDict) -> Option<Self> {
+    pub fn from_toml_dict(dict: &TexDict) -> Option<Self> {
         if dict.len() != 1 {
             return None;
         }
 
-        let Ok(TypstValue::Str(string)) = dict.get("$__toml_private_datetime") else {
+        let Ok(TexValue::Str(string)) = dict.get("$__toml_private_datetime") else {
             return None;
         };
 
@@ -216,11 +216,11 @@ impl Datetime {
     /// You can specify the [datetime]($datetime) using a year, month, day,
     /// hour, minute, and second.
     ///
-    /// _Note_: Depending on which components of the datetime you specify, Typst
+    /// _Note_: Depending on which components of the datetime you specify, Tex
     /// will store it in one of the following three ways:
-    /// * If you specify year, month and day, Typst will store just a date.
-    /// * If you specify hour, minute and second, Typst will store just a time.
-    /// * If you specify all of year, month, day, hour, minute and second, Typst
+    /// * If you specify year, month and day, Tex will store just a date.
+    /// * If you specify hour, minute and second, Tex will store just a time.
+    /// * If you specify all of year, month, day, hour, minute and second, Tex
     ///   will store a full datetime.
     ///
     /// Depending on how it is stored, the [`display`]($datetime.display) method

@@ -6,7 +6,7 @@ use std::ops::{Div, Rem};
 
 use crate::diag::{bail, At, SourceResult, StrResult};
 use crate::eval::ops;
-use crate::foundations::{cast, func, IntoTypstValue, Module, Scope, TypstValue};
+use crate::foundations::{cast, func, IntoTexValue, Module, Scope, TexValue};
 use crate::layout::{Angle, Fr, Length, Ratio};
 use crate::syntax::{Span, Spanned};
 
@@ -68,22 +68,22 @@ pub fn module() -> Module {
 pub fn abs(
     /// The value whose absolute value to calculate.
     value: ToAbs,
-) -> TypstValue {
+) -> TexValue {
     value.0
 }
 
 /// A value of which the absolute value can be taken.
-pub struct ToAbs(TypstValue);
+pub struct ToAbs(TexValue);
 
 cast! {
     ToAbs,
     v: i64 => Self(v.abs().into_value()),
     v: f64 => Self(v.abs().into_value()),
-    v: Length => Self(TypstValue::Length(v.try_abs()
+    v: Length => Self(TexValue::Length(v.try_abs()
         .ok_or("cannot take absolute value of this length")?)),
-    v: Angle => Self(TypstValue::Angle(v.abs())),
-    v: Ratio => Self(TypstValue::Ratio(v.abs())),
-    v: Fr => Self(TypstValue::Fraction(v.abs())),
+    v: Angle => Self(TexValue::Angle(v.abs())),
+    v: Ratio => Self(TexValue::Ratio(v.abs())),
+    v: Fr => Self(TexValue::Fraction(v.abs())),
 }
 
 /// Raises a value to some exponent.
@@ -748,8 +748,8 @@ pub fn min(
     /// The sequence of values from which to extract the minimum.
     /// Must not be empty.
     #[variadic]
-    values: Vec<Spanned<TypstValue>>,
-) -> SourceResult<TypstValue> {
+    values: Vec<Spanned<TexValue>>,
+) -> SourceResult<TexValue> {
     minmax(span, values, Ordering::Less)
 }
 
@@ -766,17 +766,13 @@ pub fn max(
     /// The sequence of values from which to extract the maximum.
     /// Must not be empty.
     #[variadic]
-    values: Vec<Spanned<TypstValue>>,
-) -> SourceResult<TypstValue> {
+    values: Vec<Spanned<TexValue>>,
+) -> SourceResult<TexValue> {
     minmax(span, values, Ordering::Greater)
 }
 
 /// Find the minimum or maximum of a sequence of values.
-fn minmax(
-    span: Span,
-    values: Vec<Spanned<TypstValue>>,
-    goal: Ordering,
-) -> SourceResult<TypstValue> {
+fn minmax(span: Span, values: Vec<Spanned<TexValue>>, goal: Ordering) -> SourceResult<TexValue> {
     let mut iter = values.into_iter();
     let Some(Spanned {
         v: mut extremum, ..

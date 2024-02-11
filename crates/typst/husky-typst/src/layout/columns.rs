@@ -2,10 +2,10 @@ use std::num::NonZeroUsize;
 
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{elem, Behave, Behaviour, Packed, StyleChain, TypstContent};
+use crate::foundations::{elem, Behave, Behaviour, Packed, StyleChain, TexContent};
 use crate::layout::{
     Abs, Axes, Fragment, Frame, LayoutMultiple, Length, Point, Ratio, Regions, Rel, Size,
-    TypstLayoutDirection,
+    TexLayoutDirection,
 };
 use crate::text::TextElem;
 use crate::util::Numeric;
@@ -55,7 +55,7 @@ pub struct ColumnsElem {
 
     /// The content that should be layouted into the columns.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 }
 
 impl LayoutMultiple for Packed<ColumnsElem> {
@@ -123,7 +123,7 @@ impl LayoutMultiple for Packed<ColumnsElem> {
                 }
 
                 let width = frame.width();
-                let x = if dir == TypstLayoutDirection::LeftRight {
+                let x = if dir == TexLayoutDirection::LeftRight {
                     cursor
                 } else {
                     regions.size.x - cursor - width

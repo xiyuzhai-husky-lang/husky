@@ -1,10 +1,10 @@
 use crate::diag::{At, SourceResult};
-use crate::foundations::{cast, elem, Func, Packed, Resolve, Smart, StyleChain, TypstContent};
+use crate::foundations::{cast, elem, Func, Packed, Resolve, Smart, StyleChain, TexContent};
 use crate::layout::{Abs, Angle, Frame, FrameItem, Length, Point, Ratio, Rel, Size, Transform};
 use crate::math::{FrameFragment, LayoutMath, MathContext};
 use crate::syntax::Span;
 use crate::text::TextElem;
-use crate::visualize::{TypstFixedStroke, TypstGeometry, TypstStroke};
+use crate::visualize::{TexFixedStroke, TexGeometry, TexStroke};
 
 /// Displays a diagonal line over a part of an equation.
 ///
@@ -21,7 +21,7 @@ use crate::visualize::{TypstFixedStroke, TypstGeometry, TypstStroke};
 pub struct CancelElem {
     /// The content over which the line should be placed.
     #[required]
-    pub body: TypstContent,
+    pub body: TexContent,
 
     /// The length of the line, relative to the length of the diagonal spanning
     /// the whole element being "cancelled". A value of `{100%}` would then have
@@ -93,12 +93,12 @@ pub struct CancelElem {
     /// ```
     #[resolve]
     #[fold]
-    #[default(TypstStroke {
+    #[default(TexStroke {
         // Default stroke has 0.5pt for better visuals.
         thickness: Smart::Custom(Abs::pt(0.5).into()),
         ..Default::default()
     })]
-    pub stroke: TypstStroke,
+    pub stroke: TexStroke,
 }
 
 impl LayoutMath for Packed<CancelElem> {
@@ -116,7 +116,7 @@ impl LayoutMath for Packed<CancelElem> {
         let span = self.span();
         let length = self.length(styles).resolve(styles);
 
-        let stroke = self.stroke(styles).unwrap_or(TypstFixedStroke {
+        let stroke = self.stroke(styles).unwrap_or(TexFixedStroke {
             paint: TextElem::fill_in(styles).as_decoration(),
             ..Default::default()
         });
@@ -180,7 +180,7 @@ cast! {
 fn draw_cancel_line(
     ctx: &mut MathContext,
     length_scale: Rel<Abs>,
-    stroke: TypstFixedStroke,
+    stroke: TexFixedStroke,
     invert: bool,
     angle: &Smart<CancelAngle>,
     body_size: Size,
@@ -214,7 +214,7 @@ fn draw_cancel_line(
     let mut frame = Frame::soft(body_size);
     frame.push(
         start,
-        FrameItem::Shape(TypstGeometry::Line(delta).stroked(stroke), span),
+        FrameItem::Shape(TexGeometry::Line(delta).stroked(stroke), span),
     );
 
     // Having the middle of the line at the origin is convenient here.

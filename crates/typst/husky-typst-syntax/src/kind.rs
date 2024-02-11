@@ -1,4 +1,4 @@
-/// A syntactical building block of a Typst file.
+/// A syntactical building block of a Tex file.
 ///
 /// Can be created by the lexer or by the parser.
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
@@ -285,11 +285,7 @@ impl SyntaxKind {
     pub fn is_terminator(self) -> bool {
         matches!(
             self,
-            Self::Eof
-                | Self::Semicolon
-                | Self::RightBrace
-                | Self::RightParen
-                | Self::RightBracket
+            Self::Eof | Self::Semicolon | Self::RightBrace | Self::RightParen | Self::RightBracket
         )
     }
 
