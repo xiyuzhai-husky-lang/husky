@@ -3,7 +3,9 @@ use husky_typst::layout::Frame;
 use std::sync::mpsc::{Receiver, SyncSender};
 use std::sync::Arc;
 
-pub fn spawn(egui_ctx: egui::Context) -> (SyncSender<String>, Receiver<Result<Frame, String>>) {
+pub fn spawn_compilation_thread(
+    egui_ctx: egui::Context,
+) -> (SyncSender<String>, Receiver<Result<Frame, String>>) {
     let sandbox = Arc::new(crate::sandbox::Sandbox::new());
 
     let (in_send, in_recv) = std::sync::mpsc::sync_channel(4);
