@@ -1,1 +1,1 @@
-pub trait IsState {}
+pub trait IsDdpState {}

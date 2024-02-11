@@ -1,1 +1,1 @@
-pub trait IsEngine {}
+pub trait IsDdpEngine<'a> {}

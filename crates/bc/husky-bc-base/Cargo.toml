@@ -7,3 +7,5 @@ edition = "2021"
 [dependencies]
 # abstraction
 shifted-unsigned-int.workspace = true
+# tasks
+husky-ddp-task.workspace = true
