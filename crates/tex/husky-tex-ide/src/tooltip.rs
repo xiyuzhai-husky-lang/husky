@@ -5,7 +5,7 @@ use husky_tex::eval::{CapturesVisitor, Tracer};
 use husky_tex::foundations::{repr, CastInfo, Repr, TexValue};
 use husky_tex::layout::Length;
 use husky_tex::model::TexDocument;
-use husky_tex::syntax::{ast, LinkedNode, Source, SyntaxKind};
+use husky_tex::syntax::{ast, LinkedNode, Source, TexSyntaxKind};
 use husky_tex::util::{round_2, Numeric};
 use husky_tex::World;
 use if_chain::if_chain;
@@ -109,13 +109,13 @@ fn expr_tooltip(world: &dyn World, leaf: &LinkedNode) -> Option<Tooltip> {
 fn closure_tooltip(leaf: &LinkedNode) -> Option<Tooltip> {
     // Only show this tooltip when hovering over the equals sign or arrow of
     // the closure. Showing it across the whole subtree is too noisy.
-    if !matches!(leaf.kind(), SyntaxKind::Eq | SyntaxKind::Arrow) {
+    if !matches!(leaf.kind(), TexSyntaxKind::Eq | TexSyntaxKind::Arrow) {
         return None;
     }
 
     // Find the closure to analyze.
     let parent = leaf.parent()?;
-    if parent.kind() != SyntaxKind::Closure {
+    if parent.kind() != TexSyntaxKind::Closure {
         return None;
     }
 
@@ -156,8 +156,8 @@ fn length_tooltip(length: Length) -> Option<Tooltip> {
 /// Tooltip for a hovered reference or label.
 fn label_tooltip(document: &TexDocument, leaf: &LinkedNode) -> Option<Tooltip> {
     let target = match leaf.kind() {
-        SyntaxKind::RefMarker => leaf.text().trim_start_matches('@'),
-        SyntaxKind::Label => leaf.text().trim_start_matches('<').trim_end_matches('>'),
+        TexSyntaxKind::RefMarker => leaf.text().trim_start_matches('@'),
+        TexSyntaxKind::Label => leaf.text().trim_start_matches('<').trim_end_matches('>'),
         _ => return None,
     };
 
@@ -178,7 +178,7 @@ fn named_param_tooltip(world: &dyn World, leaf: &LinkedNode) -> Option<Tooltip> 
         if let Some(parent) = leaf.parent();
         if let Some(named) = parent.cast::<ast::Named>();
         if let Some(grand) = parent.parent();
-        if matches!(grand.kind(), SyntaxKind::Args);
+        if matches!(grand.kind(), TexSyntaxKind::Args);
         if let Some(grand_grand) = grand.parent();
         if let Some(expr) = grand_grand.cast::<ast::Expr>();
         if let Some(ast::Expr::Ident(callee)) = match expr {

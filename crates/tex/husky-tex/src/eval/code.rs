@@ -3,7 +3,7 @@ use ecow::{eco_vec, EcoVec};
 use crate::diag::{bail, error, At, SourceDiagnostic, SourceResult};
 use crate::eval::{ops, Eval, Vm};
 use crate::foundations::{Array, Str, TexContent, TexDict, TexValue};
-use crate::syntax::ast::{self, AstNode};
+use crate::syntax::ast::{self, TexAstNode};
 
 impl Eval for ast::Code<'_> {
     type Output = TexValue;

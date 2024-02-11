@@ -11,7 +11,7 @@ use crate::foundations::{
     cast, repr, scope, ty, Args, CastInfo, ElementSchemaRef, IntoArgs, Scope, Selector, TexContent,
     TexValue, Type,
 };
-use crate::syntax::{ast, Span, SyntaxNode};
+use crate::syntax::{ast, Span, TexSyntaxNode};
 use crate::util::Static;
 
 #[doc(inline)]
@@ -464,7 +464,7 @@ pub struct ParamInfo {
 #[derive(Debug, Hash)]
 pub struct Closure {
     /// The closure's syntax node. Must be castable to `ast::Closure`.
-    pub node: SyntaxNode,
+    pub node: TexSyntaxNode,
     /// Default values of named parameters.
     pub defaults: Vec<TexValue>,
     /// Captured values from outer scopes.

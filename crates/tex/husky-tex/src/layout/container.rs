@@ -40,7 +40,7 @@ pub struct BoxElem {
     /// ```example
     /// Line in #box(width: 1fr, line(length: 100%)) between.
     /// ```
-    pub width: Sizing,
+    pub width: TexSizing,
 
     /// The height of the box.
     pub height: Smart<Rel<Length>>,
@@ -118,9 +118,9 @@ impl Packed<BoxElem> {
         regions: Regions,
     ) -> SourceResult<Frame> {
         let width = match self.width(styles) {
-            Sizing::Auto => Smart::Auto,
-            Sizing::Rel(rel) => Smart::Custom(rel),
-            Sizing::Fr(_) => Smart::Custom(Ratio::one().into()),
+            TexSizing::Auto => Smart::Auto,
+            TexSizing::Rel(rel) => Smart::Custom(rel),
+            TexSizing::Fr(_) => Smart::Custom(Ratio::one().into()),
         };
 
         // Resolve the sizing to a concrete size.
@@ -469,7 +469,7 @@ impl LayoutMultiple for Packed<BlockElem> {
 
 /// Defines how to size a grid cell along an axis.
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
-pub enum Sizing {
+pub enum TexSizing {
     /// A track that fits its cell's contents.
     Auto,
     /// A track size specified in absolute terms and relative to the parent's
@@ -480,20 +480,20 @@ pub enum Sizing {
     Fr(Fr),
 }
 
-impl Sizing {
+impl TexSizing {
     /// Whether this is fractional sizing.
     pub fn is_fractional(self) -> bool {
         matches!(self, Self::Fr(_))
     }
 }
 
-impl Default for Sizing {
+impl Default for TexSizing {
     fn default() -> Self {
         Self::Auto
     }
 }
 
-impl<T: Into<Spacing>> From<T> for Sizing {
+impl<T: Into<Spacing>> From<T> for TexSizing {
     fn from(spacing: T) -> Self {
         match spacing.into() {
             Spacing::Rel(rel) => Self::Rel(rel),
@@ -503,7 +503,7 @@ impl<T: Into<Spacing>> From<T> for Sizing {
 }
 
 cast! {
-    Sizing,
+    TexSizing,
     self => match self {
         Self::Auto => TexValue::Auto,
         Self::Rel(rel) => rel.into_value(),

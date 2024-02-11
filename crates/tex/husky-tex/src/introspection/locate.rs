@@ -1,6 +1,6 @@
 use crate::diag::SourceResult;
 use crate::engine::Engine;
-use crate::foundations::{elem, func, Func, Packed, Show, StyleChain, TexContent, TexElement};
+use crate::foundations::{elem, func, Func, IsTexElem, Packed, Show, StyleChain, TexContent};
 use crate::introspection::Locatable;
 use crate::syntax::Span;
 

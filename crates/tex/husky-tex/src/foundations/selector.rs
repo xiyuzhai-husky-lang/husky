@@ -31,7 +31,7 @@ macro_rules! __select_where {
             ));
         )*
         $crate::foundations::Selector::Elem(
-            <$ty as $crate::foundations::TexElement>::elem(),
+            <$ty as $crate::foundations::IsTexElem>::elem(),
             Some(fields),
         )
     }};

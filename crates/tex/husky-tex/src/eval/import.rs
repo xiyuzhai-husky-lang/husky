@@ -7,7 +7,7 @@ use crate::diag::{
 };
 use crate::eval::{eval, Eval, Vm};
 use crate::foundations::{Module, TexContent, TexValue};
-use crate::syntax::ast::{self, AstNode};
+use crate::syntax::ast::{self, TexAstNode};
 use crate::syntax::{FileId, PackageSpec, PackageVersion, Span, VirtualPath};
 use crate::World;
 

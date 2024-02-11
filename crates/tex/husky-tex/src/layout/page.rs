@@ -6,8 +6,8 @@ use std::str::FromStr;
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, AutoTexValue, Cast, Fold, Func, Packed, Resolve, Smart, StyleChain, TexContent,
-    TexDict, TexElement, TexValue,
+    cast, elem, AutoTexValue, Cast, Fold, Func, IsTexElem, Packed, Resolve, Smart, StyleChain,
+    TexContent, TexDict, TexValue,
 };
 use crate::introspection::{Counter, CounterKey, ManualPageCounter};
 use crate::layout::{

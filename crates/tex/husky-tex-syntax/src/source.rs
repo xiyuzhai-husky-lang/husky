@@ -8,7 +8,7 @@ use std::sync::Arc;
 use comemo::Prehashed;
 
 use crate::reparser::reparse;
-use crate::{is_newline, parse, FileId, LinkedNode, Span, SyntaxNode, VirtualPath};
+use crate::{is_newline, parse, FileId, LinkedNode, Span, TexSyntaxNode, VirtualPath};
 
 /// A source file.
 ///
@@ -24,7 +24,7 @@ pub struct Source(Arc<Repr>);
 struct Repr {
     id: FileId,
     text: Prehashed<String>,
-    root: Prehashed<SyntaxNode>,
+    root: Prehashed<TexSyntaxNode>,
     lines: Vec<Line>,
 }
 
@@ -47,7 +47,7 @@ impl Source {
     }
 
     /// The root node of the file's untyped syntax tree.
-    pub fn root(&self) -> &SyntaxNode {
+    pub fn root(&self) -> &TexSyntaxNode {
         &self.0.root
     }
 
@@ -99,8 +99,7 @@ impl Source {
             .take_while(|(x, y)| x == y)
             .count();
 
-        while !old.is_char_boundary(old.len() - suffix)
-            || !new.is_char_boundary(new.len() - suffix)
+        while !old.is_char_boundary(old.len() - suffix) || !new.is_char_boundary(new.len() - suffix)
         {
             suffix += 1;
         }
@@ -124,7 +123,9 @@ impl Source {
         let inner = Arc::make_mut(&mut self.0);
 
         // Update the text itself.
-        inner.text.update(|text| text.replace_range(replace.clone(), with));
+        inner
+            .text
+            .update(|text| text.replace_range(replace.clone(), with));
 
         // Remove invalidated line starts.
         inner.lines.truncate(line + 1);
@@ -188,7 +189,11 @@ impl Source {
     /// Return the index of the line that contains the given byte index.
     pub fn byte_to_line(&self, byte_idx: usize) -> Option<usize> {
         (byte_idx <= self.0.text.len()).then(|| {
-            match self.0.lines.binary_search_by_key(&byte_idx, |line| line.byte_idx) {
+            match self
+                .0
+                .lines
+                .binary_search_by_key(&byte_idx, |line| line.byte_idx)
+            {
                 Ok(i) => i,
                 Err(i) => i - 1,
             }
@@ -209,7 +214,11 @@ impl Source {
     /// Return the byte index at the UTF-16 code unit.
     pub fn utf16_to_byte(&self, utf16_idx: usize) -> Option<usize> {
         let line = self.0.lines.get(
-            match self.0.lines.binary_search_by_key(&utf16_idx, |line| line.utf16_idx) {
+            match self
+                .0
+                .lines
+                .binary_search_by_key(&utf16_idx, |line| line.utf16_idx)
+            {
                 Ok(i) => i,
                 Err(i) => i - 1,
             },
@@ -242,11 +251,7 @@ impl Source {
     ///
     /// The column defines the number of characters to go beyond the start of
     /// the line.
-    pub fn line_column_to_byte(
-        &self,
-        line_idx: usize,
-        column_idx: usize,
-    ) -> Option<usize> {
+    pub fn line_column_to_byte(&self, line_idx: usize, column_idx: usize) -> Option<usize> {
         let range = self.line_to_range(line_idx)?;
         let line = self.get(range.clone())?;
         let mut chars = line.chars();
@@ -288,9 +293,12 @@ struct Line {
 
 /// Create a line vector.
 fn lines(text: &str) -> Vec<Line> {
-    std::iter::once(Line { byte_idx: 0, utf16_idx: 0 })
-        .chain(lines_from(0, 0, text))
-        .collect()
+    std::iter::once(Line {
+        byte_idx: 0,
+        utf16_idx: 0,
+    })
+    .chain(lines_from(0, 0, text))
+    .collect()
 }
 
 /// Compute a line iterator from an offset.
@@ -316,7 +324,10 @@ fn lines_from(
             utf16_idx += 1;
         }
 
-        Some(Line { byte_idx: byte_offset + s.cursor(), utf16_idx })
+        Some(Line {
+            byte_idx: byte_offset + s.cursor(),
+            utf16_idx,
+        })
     })
 }
 
@@ -338,10 +349,22 @@ mod tests {
         assert_eq!(
             source.0.lines,
             [
-                Line { byte_idx: 0, utf16_idx: 0 },
-                Line { byte_idx: 7, utf16_idx: 6 },
-                Line { byte_idx: 15, utf16_idx: 12 },
-                Line { byte_idx: 18, utf16_idx: 15 },
+                Line {
+                    byte_idx: 0,
+                    utf16_idx: 0
+                },
+                Line {
+                    byte_idx: 7,
+                    utf16_idx: 6
+                },
+                Line {
+                    byte_idx: 15,
+                    utf16_idx: 12
+                },
+                Line {
+                    byte_idx: 18,
+                    utf16_idx: 15
+                },
             ]
         );
     }

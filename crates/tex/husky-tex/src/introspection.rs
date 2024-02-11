@@ -29,7 +29,7 @@ use crate::foundations::Packed;
 use crate::foundations::{
     category, elem, ty, Behave, Behaviour, Category, Repr, Scope, TexContent, Unlabellable,
 };
-use crate::model::Destination;
+use crate::model::TexDestination;
 
 /// Interactions between document parts.
 ///
@@ -83,7 +83,7 @@ impl Behave for Packed<MetaElem> {
 #[derive(Clone, PartialEq, Hash)]
 pub enum Meta {
     /// An internal or external link to a destination.
-    Link(Destination),
+    Link(TexDestination),
     /// An identifiable element that produces something within the area this
     /// metadata is attached to.
     Elem(TexContent),

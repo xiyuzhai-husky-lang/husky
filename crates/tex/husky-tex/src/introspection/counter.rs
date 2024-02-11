@@ -9,14 +9,14 @@ use crate::diag::{At, SourceResult, StrResult};
 use crate::engine::{Engine, Route};
 use crate::eval::Tracer;
 use crate::foundations::{
-    cast, elem, func, scope, select_where, ty, Array, ElementSchemaRef, Func, IntoTexValue, Label,
-    LocatableSelector, Packed, Repr, Selector, Show, Str, StyleChain, TexContent, TexElement,
+    cast, elem, func, scope, select_where, ty, Array, ElementSchemaRef, Func, IntoTexValue,
+    IsTexElem, Label, LocatableSelector, Packed, Repr, Selector, Show, Str, StyleChain, TexContent,
     TexValue,
 };
 use crate::introspection::{Introspector, Locatable, Location, Locator, Meta};
 use crate::layout::{Frame, FrameItem, PageElem};
 use crate::math::EquationElem;
-use crate::model::{FigureElem, HeadingElem, Numbering, NumberingPattern};
+use crate::model::{FigureElem, HeadingTexElem, Numbering, NumberingPattern};
 use crate::syntax::Span;
 use crate::util::NonZeroExt;
 use crate::World;
@@ -644,8 +644,8 @@ impl Show for Packed<DisplayElem> {
                     return None;
                 };
 
-                if func == HeadingElem::elem() {
-                    HeadingElem::numbering_in(styles).clone()
+                if func == HeadingTexElem::elem() {
+                    HeadingTexElem::numbering_in(styles).clone()
                 } else if func == FigureElem::elem() {
                     FigureElem::numbering_in(styles).clone()
                 } else if func == EquationElem::elem() {

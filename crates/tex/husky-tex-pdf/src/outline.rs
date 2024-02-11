@@ -1,8 +1,8 @@
 use std::num::NonZeroUsize;
 
-use husky_tex::foundations::{Packed, StyleChain, TexElement};
+use husky_tex::foundations::{IsTexElem, Packed, StyleChain};
 use husky_tex::layout::Abs;
-use husky_tex::model::HeadingElem;
+use husky_tex::model::HeadingTexElem;
 use pdf_writer::{Finish, Ref, TextStr};
 
 use crate::{AbsExt, PdfContext};
@@ -20,9 +20,9 @@ pub(crate) fn write_outline(ctx: &mut PdfContext) -> Option<Ref> {
     let elements = ctx
         .document
         .introspector
-        .query(&HeadingElem::elem().select());
+        .query(&HeadingTexElem::elem().select());
     for elem in elements.iter() {
-        let heading = elem.to_packed::<HeadingElem>().unwrap();
+        let heading = elem.to_packed::<HeadingTexElem>().unwrap();
         let leaf = HeadingNode::leaf(heading);
 
         if leaf.bookmarked {
@@ -114,14 +114,14 @@ pub(crate) fn write_outline(ctx: &mut PdfContext) -> Option<Ref> {
 /// A heading in the outline panel.
 #[derive(Debug, Clone)]
 struct HeadingNode<'a> {
-    element: &'a Packed<HeadingElem>,
+    element: &'a Packed<HeadingTexElem>,
     level: NonZeroUsize,
     bookmarked: bool,
     children: Vec<HeadingNode<'a>>,
 }
 
 impl<'a> HeadingNode<'a> {
-    fn leaf(element: &'a Packed<HeadingElem>) -> Self {
+    fn leaf(element: &'a Packed<HeadingTexElem>) -> Self {
         HeadingNode {
             level: element.level(StyleChain::default()),
             // 'bookmarked' set to 'auto' falls back to the value of 'outlined'.

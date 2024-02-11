@@ -1,11 +1,11 @@
 use serde::Deserialize;
 
-use super::{FontStretch, FontStyle, FontWeight};
+use super::{FontStretch, FontWeight, TexFontStyle};
 
 #[derive(Debug, Default, Deserialize)]
 pub struct Exception {
     pub family: Option<&'static str>,
-    pub style: Option<FontStyle>,
+    pub style: Option<TexFontStyle>,
     pub weight: Option<FontWeight>,
     pub stretch: Option<FontStretch>,
 }
@@ -21,20 +21,32 @@ impl Exception {
     }
 
     const fn family(self, family: &'static str) -> Self {
-        Self { family: Some(family), ..self }
+        Self {
+            family: Some(family),
+            ..self
+        }
     }
 
-    const fn style(self, style: FontStyle) -> Self {
-        Self { style: Some(style), ..self }
+    const fn style(self, style: TexFontStyle) -> Self {
+        Self {
+            style: Some(style),
+            ..self
+        }
     }
 
     const fn weight(self, weight: u16) -> Self {
-        Self { weight: Some(FontWeight(weight)), ..self }
+        Self {
+            weight: Some(FontWeight(weight)),
+            ..self
+        }
     }
 
     #[allow(unused)] // left for future use
     const fn stretch(self, stretch: u16) -> Self {
-        Self { stretch: Some(FontStretch(stretch)), ..self }
+        Self {
+            stretch: Some(FontStretch(stretch)),
+            ..self
+        }
     }
 }
 
@@ -111,10 +123,10 @@ static EXCEPTION_MAP: phf::Map<&'static str, Exception> = phf::phf_map! {
     "NewCMSans10-BookOblique" => Exception::new()
         .family("New Computer Modern Sans")
         .weight(450)
-        .style(FontStyle::Oblique),
+        .style(TexFontStyle::Oblique),
     "NewCMSans10-Oblique" => Exception::new()
         .family("New Computer Modern Sans")
-        .style(FontStyle::Oblique),
+        .style(TexFontStyle::Oblique),
     "NewCMSans10-Regular" => Exception::new()
         .family("New Computer Modern Sans"),
     "NewCMUncial08-Bold" => Exception::new()
@@ -138,18 +150,18 @@ static EXCEPTION_MAP: phf::Map<&'static str, Exception> = phf::phf_map! {
     "LMMono12-Regular" => Exception::new()
         .family("Latin Modern Mono 12"),
     "LMMonoLt10-BoldOblique" => Exception::new()
-        .style(FontStyle::Oblique),
+        .style(TexFontStyle::Oblique),
     "LMMonoLt10-Regular" => Exception::new()
         .weight(300),
     "LMMonoLt10-Oblique" => Exception::new()
         .weight(300)
-        .style(FontStyle::Oblique),
+        .style(TexFontStyle::Oblique),
     "LMMonoLtCond10-Regular" => Exception::new()
         .weight(300)
         .stretch(666),
     "LMMonoLtCond10-Oblique" => Exception::new()
         .weight(300)
-        .style(FontStyle::Oblique)
+        .style(TexFontStyle::Oblique)
         .stretch(666),
     "LMMonoPropLt10-Regular" => Exception::new()
         .weight(300),

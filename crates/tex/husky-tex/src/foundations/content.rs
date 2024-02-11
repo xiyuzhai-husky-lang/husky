@@ -14,12 +14,12 @@ use smallvec::smallvec;
 use crate::diag::{SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    elem, func, scope, ty, ElementSchemaRef, Fields, IntoTexValue, Label, Recipe, RecipeIndex,
-    Repr, Selector, Str, Style, StyleChain, Styles, TexDict, TexElement, TexValue,
+    elem, func, scope, ty, ElementSchemaRef, Fields, IntoTexValue, IsTexElem, Label, Recipe,
+    RecipeIndex, Repr, Selector, Str, Style, StyleChain, Styles, TexDict, TexValue,
 };
 use crate::introspection::{Location, Meta, MetaElem};
 use crate::layout::{AlignElem, Axes, Length, MoveElem, PadElem, Rel, Sides, TexAlignment};
-use crate::model::{Destination, EmphElem, StrongElem};
+use crate::model::{EmphElem, StrongElem, TexDestination};
 use crate::syntax::Span;
 use crate::text::UnderlineElem;
 use crate::util::{fat, BitSet};
@@ -72,7 +72,7 @@ use crate::util::{fat, BitSet};
 #[allow(clippy::derived_hash_with_manual_eq)]
 pub struct TexContent {
     /// The partially element-dependant inner data.
-    inner: Arc<TexContentInner<dyn TexElementDyn>>,
+    inner: Arc<TexContentInner<dyn IsTexElemDyn>>,
     /// The element's source code location.
     span: Span,
 }
@@ -95,7 +95,7 @@ struct TexContentInner<T: ?Sized> {
 
 impl TexContent {
     /// Creates a new content from an element.
-    pub fn new<T: TexElement>(elem: T) -> Self {
+    pub fn new<T: IsTexElem>(elem: T) -> Self {
         Self {
             inner: Arc::new(TexContentInner {
                 label: None,
@@ -241,33 +241,33 @@ impl TexContent {
     }
 
     /// Whether the contained element is of type `T`.
-    pub fn is<T: TexElement>(&self) -> bool {
+    pub fn is<T: IsTexElem>(&self) -> bool {
         self.inner.elem.type_id_dyn() == TypeId::of::<T>()
     }
 
     /// Downcasts the element to a packed value.
-    pub fn to_packed<T: TexElement>(&self) -> Option<&Packed<T>> {
+    pub fn to_packed<T: IsTexElem>(&self) -> Option<&Packed<T>> {
         Packed::from_ref(self)
     }
 
     /// Downcasts the element to a mutable packed value.
-    pub fn to_packed_mut<T: TexElement>(&mut self) -> Option<&mut Packed<T>> {
+    pub fn to_packed_mut<T: IsTexElem>(&mut self) -> Option<&mut Packed<T>> {
         Packed::from_mut(self)
     }
 
     /// Downcasts the element into an owned packed value.
-    pub fn into_packed<T: TexElement>(self) -> Result<Packed<T>, Self> {
+    pub fn into_packed<T: IsTexElem>(self) -> Result<Packed<T>, Self> {
         Packed::from_owned(self)
     }
 
     /// Extract the raw underlying element.
-    pub fn unpack<T: TexElement>(self) -> Result<T, Self> {
+    pub fn unpack<T: IsTexElem>(self) -> Result<T, Self> {
         self.into_packed::<T>().map(Packed::unpack)
     }
 
     /// Makes sure the content is not shared and returns a mutable reference to
     /// the inner data.
-    fn make_mut(&mut self) -> &mut TexContentInner<dyn TexElementDyn> {
+    fn make_mut(&mut self) -> &mut TexContentInner<dyn IsTexElemDyn> {
         let arc = &mut self.inner;
         if Arc::strong_count(arc) > 1 || Arc::weak_count(arc) > 0 {
             *self = arc.elem.clone_dyn(arc, self.span);
@@ -479,7 +479,7 @@ impl TexContent {
     }
 
     /// Link the content somewhere.
-    pub fn linked(self, dest: Destination) -> Self {
+    pub fn linked(self, dest: TexDestination) -> Self {
         self.styled(MetaElem::set_data(smallvec![Meta::Link(dest)]))
     }
 
@@ -600,7 +600,7 @@ impl Debug for TexContent {
     }
 }
 
-impl<T: TexElement> From<T> for TexContent {
+impl<T: IsTexElem> From<T> for TexContent {
     fn from(value: T) -> Self {
         Self::new(value)
     }
@@ -705,15 +705,15 @@ impl Serialize for TexContent {
 }
 
 /// The trait that combines all the other traits into a trait object.
-trait TexElementDyn: Debug + Repr + Fields + Send + Sync + 'static {
+trait IsTexElemDyn: Debug + Repr + Fields + Send + Sync + 'static {
     fn type_id_dyn(&self) -> TypeId;
     fn element_schema_ref_dyn(&self) -> ElementSchemaRef;
-    fn clone_dyn(&self, inner: &TexContentInner<dyn TexElementDyn>, span: Span) -> TexContent;
+    fn clone_dyn(&self, inner: &TexContentInner<dyn IsTexElemDyn>, span: Span) -> TexContent;
     fn hash_dyn(&self, hasher: &mut dyn Hasher);
     fn eq_dyn(&self, other: &TexContent) -> bool;
 }
 
-impl<T: TexElement> TexElementDyn for T {
+impl<T: IsTexElem> IsTexElemDyn for T {
     fn type_id_dyn(&self) -> TypeId {
         TypeId::of::<Self>()
     }
@@ -722,7 +722,7 @@ impl<T: TexElement> TexElementDyn for T {
         Self::elem()
     }
 
-    fn clone_dyn(&self, inner: &TexContentInner<dyn TexElementDyn>, span: Span) -> TexContent {
+    fn clone_dyn(&self, inner: &TexContentInner<dyn IsTexElemDyn>, span: Span) -> TexContent {
         TexContent {
             inner: Arc::new(TexContentInner {
                 label: inner.label,
@@ -747,7 +747,7 @@ impl<T: TexElement> TexElementDyn for T {
     }
 }
 
-impl Hash for dyn TexElementDyn {
+impl Hash for dyn IsTexElemDyn {
     fn hash<H: Hasher>(&self, state: &mut H) {
         self.hash_dyn(state);
     }
@@ -756,13 +756,13 @@ impl Hash for dyn TexElementDyn {
 /// A packed element of a static type.
 #[derive(Clone, PartialEq, Hash)]
 #[repr(transparent)]
-pub struct Packed<T: TexElement>(
+pub struct Packed<T: IsTexElem>(
     /// Invariant: Must be of type `T`.
     TexContent,
     PhantomData<T>,
 );
 
-impl<T: TexElement> Packed<T> {
+impl<T: IsTexElem> Packed<T> {
     /// Pack element while retaining its static type.
     pub fn new(element: T) -> Self {
         // Safety: The element is known to be of type `T`.
@@ -839,19 +839,19 @@ impl<T: TexElement> Packed<T> {
     }
 }
 
-impl<T: TexElement> AsRef<T> for Packed<T> {
+impl<T: IsTexElem> AsRef<T> for Packed<T> {
     fn as_ref(&self) -> &T {
         self
     }
 }
 
-impl<T: TexElement> AsMut<T> for Packed<T> {
+impl<T: IsTexElem> AsMut<T> for Packed<T> {
     fn as_mut(&mut self) -> &mut T {
         self
     }
 }
 
-impl<T: TexElement> Deref for Packed<T> {
+impl<T: IsTexElem> Deref for Packed<T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
@@ -861,11 +861,11 @@ impl<T: TexElement> Deref for Packed<T> {
         // - This downcast works the same way as dyn Any's does. We can't reuse
         //   that one because we don't want to pay the cost for every deref.
         let elem = &self.0.inner.elem;
-        unsafe { &*(elem as *const dyn TexElementDyn as *const T) }
+        unsafe { &*(elem as *const dyn IsTexElemDyn as *const T) }
     }
 }
 
-impl<T: TexElement> DerefMut for Packed<T> {
+impl<T: IsTexElem> DerefMut for Packed<T> {
     fn deref_mut(&mut self) -> &mut Self::Target {
         // Safety:
         // - Packed<T> guarantees that the content trait object wraps
@@ -874,11 +874,11 @@ impl<T: TexElement> DerefMut for Packed<T> {
         // - This downcast works the same way as dyn Any's does. We can't reuse
         //   that one because we don't want to pay the cost for every deref.
         let elem = &mut self.0.make_mut().elem;
-        unsafe { &mut *(elem as *mut dyn TexElementDyn as *mut T) }
+        unsafe { &mut *(elem as *mut dyn IsTexElemDyn as *mut T) }
     }
 }
 
-impl<T: TexElement + Debug> Debug for Packed<T> {
+impl<T: IsTexElem + Debug> Debug for Packed<T> {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         self.0.fmt(f)
     }

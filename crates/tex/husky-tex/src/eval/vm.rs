@@ -3,7 +3,7 @@ use comemo::Tracked;
 use crate::engine::Engine;
 use crate::eval::FlowEvent;
 use crate::foundations::{IntoTexValue, Scopes};
-use crate::syntax::ast::{self, AstNode};
+use crate::syntax::ast::{self, TexAstNode};
 use crate::syntax::Span;
 use crate::World;
 

@@ -13,7 +13,7 @@ use crate::foundations::{
     cast, elem, scope, Array, Fold, Packed, Show, Smart, StyleChain, TexContent, TexValue,
 };
 use crate::layout::{
-    AlignElem, Axes, Fragment, LayoutMultiple, Length, Regions, Rel, Sides, Sizing, TexAlignment,
+    AlignElem, Axes, Fragment, LayoutMultiple, Length, Regions, Rel, Sides, TexAlignment, TexSizing,
 };
 use crate::syntax::Span;
 use crate::util::NonZeroExt;
@@ -321,13 +321,13 @@ impl LayoutMultiple for Packed<GridElem> {
 
 /// Track sizing definitions.
 #[derive(Debug, Default, Clone, Eq, PartialEq, Hash)]
-pub struct TrackSizings(pub SmallVec<[Sizing; 4]>);
+pub struct TrackSizings(pub SmallVec<[TexSizing; 4]>);
 
 cast! {
     TrackSizings,
     self => self.0.into_value(),
-    sizing: Sizing => Self(smallvec![sizing]),
-    count: NonZeroUsize => Self(smallvec![Sizing::Auto; count.get()]),
+    sizing: TexSizing => Self(smallvec![sizing]),
+    count: NonZeroUsize => Self(smallvec![TexSizing::Auto; count.get()]),
     values: Array => Self(values.into_iter().map(TexValue::cast).collect::<StrResult<_>>()?),
 }
 

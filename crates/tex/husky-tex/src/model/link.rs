@@ -28,7 +28,7 @@ use crate::text::{Hyphenate, TextElem};
 /// This function also has dedicated syntax: Text that starts with `http://` or
 /// `https://` is automatically turned into a link.
 #[elem(Show)]
-pub struct LinkElem {
+pub struct LinkTexElem {
     /// The destination the link points to.
     ///
     /// - To link to web pages, `dest` should be a valid URL string. If the URL
@@ -70,7 +70,7 @@ pub struct LinkElem {
     /// the URL will be shown as the link.
     #[required]
     #[parse(match &dest {
-        LinkTarget::Dest(Destination::Url(url)) => match args.eat()? {
+        LinkTarget::Dest(TexDestination::Url(url)) => match args.eat()? {
             Some(body) => body,
             None => body_from_url(url),
         },
@@ -79,15 +79,15 @@ pub struct LinkElem {
     pub body: TexContent,
 }
 
-impl LinkElem {
+impl LinkTexElem {
     /// Create a link element from a URL with its bare text.
     pub fn from_url(url: EcoString) -> Self {
         let body = body_from_url(&url);
-        Self::new(LinkTarget::Dest(Destination::Url(url)), body)
+        Self::new(LinkTarget::Dest(TexDestination::Url(url)), body)
     }
 }
 
-impl Show for Packed<LinkElem> {
+impl Show for Packed<LinkTexElem> {
     #[husky_tex_macros::time(name = "link", span = self.span())]
     fn show(&self, engine: &mut Engine, _: StyleChain) -> SourceResult<TexContent> {
         let body = self.body().clone();
@@ -95,7 +95,7 @@ impl Show for Packed<LinkElem> {
             LinkTarget::Dest(dest) => body.linked(dest.clone()),
             LinkTarget::Label(label) => {
                 let elem = engine.introspector.query_label(*label).at(self.span())?;
-                let dest = Destination::Location(elem.location().unwrap());
+                let dest = TexDestination::Location(elem.location().unwrap());
                 body.clone().linked(dest)
             }
         };
@@ -116,7 +116,7 @@ fn body_from_url(url: &EcoString) -> TexContent {
 /// A target where a link can go.
 #[derive(Debug, Clone, PartialEq, Hash)]
 pub enum LinkTarget {
-    Dest(Destination),
+    Dest(TexDestination),
     Label(Label),
 }
 
@@ -126,19 +126,19 @@ cast! {
         Self::Dest(v) => v.into_value(),
         Self::Label(v) => v.into_value(),
     },
-    v: Destination => Self::Dest(v),
+    v: TexDestination => Self::Dest(v),
     v: Label => Self::Label(v),
 }
 
-impl From<Destination> for LinkTarget {
-    fn from(dest: Destination) -> Self {
+impl From<TexDestination> for LinkTarget {
+    fn from(dest: TexDestination) -> Self {
         Self::Dest(dest)
     }
 }
 
 /// A link destination.
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
-pub enum Destination {
+pub enum TexDestination {
     /// A link to a URL.
     Url(EcoString),
     /// A link to a point on a page.
@@ -147,14 +147,14 @@ pub enum Destination {
     Location(Location),
 }
 
-impl Repr for Destination {
+impl Repr for TexDestination {
     fn repr(&self) -> EcoString {
         eco_format!("{self:?}")
     }
 }
 
 cast! {
-    Destination,
+    TexDestination,
     self => match self {
         Self::Url(v) => v.into_value(),
         Self::Position(v) => v.into_value(),

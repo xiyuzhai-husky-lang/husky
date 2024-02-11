@@ -3,8 +3,8 @@ use unicode_segmentation::UnicodeSegmentation;
 use crate::diag::{bail, error, At, SourceDiagnostic, SourceResult};
 use crate::eval::{destructure, ops, Eval, Vm};
 use crate::foundations::{IntoTexValue, TexValue};
-use crate::syntax::ast::{self, AstNode};
-use crate::syntax::{Span, SyntaxKind, SyntaxNode};
+use crate::syntax::ast::{self, TexAstNode};
+use crate::syntax::{Span, TexSyntaxKind, TexSyntaxNode};
 
 /// The maximum number of loop iterations.
 const MAX_ITERATIONS: usize = 10_000;
@@ -208,7 +208,7 @@ impl Eval for ast::FuncReturn<'_> {
 }
 
 /// Whether the expression always evaluates to the same value.
-fn is_invariant(expr: &SyntaxNode) -> bool {
+fn is_invariant(expr: &TexSyntaxNode) -> bool {
     match expr.cast() {
         Some(ast::Expr::Ident(_)) => false,
         Some(ast::Expr::MathIdent(_)) => false,
@@ -221,7 +221,7 @@ fn is_invariant(expr: &SyntaxNode) -> bool {
 }
 
 /// Whether the expression contains a break or return.
-fn can_diverge(expr: &SyntaxNode) -> bool {
-    matches!(expr.kind(), SyntaxKind::Break | SyntaxKind::Return)
+fn can_diverge(expr: &TexSyntaxNode) -> bool {
+    matches!(expr.kind(), TexSyntaxKind::Break | TexSyntaxKind::Return)
         || expr.children().any(can_diverge)
 }

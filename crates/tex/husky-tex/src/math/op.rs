@@ -2,7 +2,7 @@ use ecow::EcoString;
 use unicode_math_class::MathClass;
 
 use crate::diag::SourceResult;
-use crate::foundations::{elem, Packed, Scope, StyleChain, TexContent, TexElement};
+use crate::foundations::{elem, IsTexElem, Packed, Scope, StyleChain, TexContent};
 use crate::layout::HElem;
 use crate::math::{upright, FrameFragment, LayoutMath, Limits, MathContext, THIN};
 use crate::text::TextElem;

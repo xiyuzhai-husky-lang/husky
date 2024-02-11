@@ -1,13 +1,13 @@
 use crate::diag::{bail, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, Array, Packed, Smart, StyleChain, TexContent, TexElement,
+    cast, elem, scope, Array, IsTexElem, Packed, Smart, StyleChain, TexContent,
 };
 use crate::layout::{
     BlockElem, Fragment, HElem, LayoutMultiple, Length, LengthInEm, Regions, Sides, Spacing,
     StackChild, StackElem, TexLayoutDirection,
 };
-use crate::model::ParElem;
+use crate::model::ParagraphTexElem;
 use crate::text::TextElem;
 use crate::util::Numeric;
 
@@ -121,7 +121,7 @@ impl LayoutMultiple for Packed<TermsElem> {
         let indent = self.indent(styles);
         let hanging_indent = self.hanging_indent(styles);
         let gutter = if self.tight(styles) {
-            ParElem::leading_in(styles).into()
+            ParagraphTexElem::leading_in(styles).into()
         } else {
             self.spacing(styles)
                 .unwrap_or_else(|| *BlockElem::below_in(styles).amount())

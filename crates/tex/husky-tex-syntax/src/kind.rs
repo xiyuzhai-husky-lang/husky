@@ -3,9 +3,9 @@
 /// Can be created by the lexer or by the parser.
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
 #[repr(u8)]
-pub enum SyntaxKind {
-    /// Markup.
-    Markup,
+pub enum TexSyntaxKind {
+    /// TexMarkup.
+    TexMarkup,
     /// Plain text without markup.
     Text,
     /// Whitespace. Contains at most one newline in markup, as more indicate a
@@ -267,7 +267,7 @@ pub enum SyntaxKind {
     Eof,
 }
 
-impl SyntaxKind {
+impl TexSyntaxKind {
     /// Is this a bracket, brace, or parenthesis?
     pub fn is_grouping(self) -> bool {
         matches!(
@@ -349,7 +349,7 @@ impl SyntaxKind {
     /// A human-readable name for the kind.
     pub fn name(self) -> &'static str {
         match self {
-            Self::Markup => "markup",
+            Self::TexMarkup => "markup",
             Self::Text => "text",
             Self::Space => "space",
             Self::Linebreak => "line break",

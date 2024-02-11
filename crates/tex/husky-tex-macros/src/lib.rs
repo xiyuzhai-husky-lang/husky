@@ -132,7 +132,7 @@ pub fn ty(stream: BoundaryStream, item: BoundaryStream) -> BoundaryStream {
 
 /// Makes a native Rust type usable as a Tex element.
 ///
-/// This implements `TexElement` for the given type.
+/// This implements `IsTexElem` for the given type.
 ///
 /// ```
 /// /// A section heading.

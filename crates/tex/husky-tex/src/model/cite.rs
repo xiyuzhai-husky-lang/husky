@@ -41,7 +41,7 @@ use crate::text::{Lang, Region, TextElem};
 /// used to cite works from the bibliography. The label then corresponds to the
 /// citation key.
 #[elem(Synthesize)]
-pub struct CiteElem {
+pub struct CiteTexElem {
     /// The citation key that identifies the entry in the bibliography that
     /// shall be cited, as a label.
     ///
@@ -108,7 +108,7 @@ pub struct CiteElem {
     pub region: Option<Region>,
 }
 
-impl Synthesize for Packed<CiteElem> {
+impl Synthesize for Packed<CiteTexElem> {
     fn synthesize(&mut self, _: &mut Engine, styles: StyleChain) -> SourceResult<()> {
         let elem = self.as_mut();
         elem.push_lang(TextElem::lang_in(styles));
@@ -118,7 +118,7 @@ impl Synthesize for Packed<CiteElem> {
 }
 
 cast! {
-    CiteElem,
+    CiteTexElem,
     v: TexContent => v.unpack::<Self>().map_err(|_| "expected citation")?,
 }
 
@@ -143,13 +143,13 @@ pub enum CitationForm {
 /// This is automatically created from adjacent citations during show rule
 /// application.
 #[elem(Locatable, Show)]
-pub struct CiteGroup {
+pub struct TexCiteGroup {
     /// The citations.
     #[required]
-    pub children: Vec<Packed<CiteElem>>,
+    pub children: Vec<Packed<CiteTexElem>>,
 }
 
-impl Show for Packed<CiteGroup> {
+impl Show for Packed<TexCiteGroup> {
     #[husky_tex_macros::time(name = "cite", span = self.span())]
     fn show(&self, engine: &mut Engine, _: StyleChain) -> SourceResult<TexContent> {
         let location = self.location().unwrap();

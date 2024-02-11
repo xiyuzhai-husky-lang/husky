@@ -1,6 +1,6 @@
 //! A typed layer over the untyped syntax tree.
 //!
-//! The AST is rooted in the [`Markup`] node.
+//! The AST is rooted in the [`TexMarkup`] node.
 
 use std::num::NonZeroUsize;
 use std::ops::Deref;
@@ -9,16 +9,16 @@ use ecow::EcoString;
 use unscanny::Scanner;
 
 use crate::{
-    is_id_continue, is_id_start, is_newline, split_newlines, Span, SyntaxKind, SyntaxNode,
+    is_id_continue, is_id_start, is_newline, split_newlines, Span, TexSyntaxKind, TexSyntaxNode,
 };
 
 /// A typed AST node.
-pub trait AstNode<'a>: Sized {
+pub trait TexAstNode<'a>: Sized {
     /// Convert a node into its typed variant.
-    fn from_untyped(node: &'a SyntaxNode) -> Option<Self>;
+    fn from_untyped(node: &'a TexSyntaxNode) -> Option<Self>;
 
     /// A reference to the underlying syntax node.
-    fn to_untyped(self) -> &'a SyntaxNode;
+    fn to_untyped(self) -> &'a TexSyntaxNode;
 
     /// The source code location.
     fn span(self) -> Span {
@@ -30,19 +30,19 @@ pub trait AstNode<'a>: Sized {
 /// panicking when the syntactical structure isn't valid. In a normal
 /// compilation, evaluation isn't attempted on a broken file, but for IDE
 /// functionality, it is.
-static ARBITRARY: SyntaxNode = SyntaxNode::arbitrary();
+static ARBITRARY: TexSyntaxNode = TexSyntaxNode::arbitrary();
 
 macro_rules! node {
     ($(#[$attr:meta])* $name:ident) => {
         #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
         #[repr(transparent)]
         $(#[$attr])*
-        pub struct $name<'a>(&'a SyntaxNode);
+        pub struct $name<'a>(&'a TexSyntaxNode);
 
-        impl<'a> AstNode<'a> for $name<'a> {
+        impl<'a> TexAstNode<'a> for $name<'a> {
             #[inline]
-            fn from_untyped(node: &'a SyntaxNode) -> Option<Self> {
-                if node.kind() == SyntaxKind::$name {
+            fn from_untyped(node: &'a TexSyntaxNode) -> Option<Self> {
+                if node.kind() == TexSyntaxKind::$name {
                     Some(Self(node))
                 } else {
                     Option::None
@@ -50,7 +50,7 @@ macro_rules! node {
             }
 
             #[inline]
-            fn to_untyped(self) -> &'a SyntaxNode {
+            fn to_untyped(self) -> &'a TexSyntaxNode {
                 self.0
             }
         }
@@ -66,10 +66,10 @@ macro_rules! node {
 
 node! {
     /// The syntactical root capable of representing a full parsed document.
-    Markup
+    TexMarkup
 }
 
-impl<'a> Markup<'a> {
+impl<'a> TexMarkup<'a> {
     /// The expressions.
     pub fn exprs(self) -> impl DoubleEndedIterator<Item = Expr<'a>> {
         let mut was_stmt = false;
@@ -78,7 +78,7 @@ impl<'a> Markup<'a> {
             .filter(move |node| {
                 // Ignore newline directly after statements without semicolons.
                 let kind = node.kind();
-                let keep = !was_stmt || node.kind() != SyntaxKind::Space;
+                let keep = !was_stmt || node.kind() != TexSyntaxKind::Space;
                 was_stmt = kind.is_stmt();
                 keep
             })
@@ -206,77 +206,77 @@ pub enum Expr<'a> {
 }
 
 impl<'a> Expr<'a> {
-    fn cast_with_space(node: &'a SyntaxNode) -> Option<Self> {
+    fn cast_with_space(node: &'a TexSyntaxNode) -> Option<Self> {
         match node.kind() {
-            SyntaxKind::Space => node.cast().map(Self::Space),
+            TexSyntaxKind::Space => node.cast().map(Self::Space),
             _ => Self::from_untyped(node),
         }
     }
 }
 
-impl<'a> AstNode<'a> for Expr<'a> {
-    fn from_untyped(node: &'a SyntaxNode) -> Option<Self> {
+impl<'a> TexAstNode<'a> for Expr<'a> {
+    fn from_untyped(node: &'a TexSyntaxNode) -> Option<Self> {
         match node.kind() {
-            SyntaxKind::Linebreak => node.cast().map(Self::Linebreak),
-            SyntaxKind::Parbreak => node.cast().map(Self::Parbreak),
-            SyntaxKind::Text => node.cast().map(Self::Text),
-            SyntaxKind::Escape => node.cast().map(Self::Escape),
-            SyntaxKind::Shorthand => node.cast().map(Self::Shorthand),
-            SyntaxKind::SmartQuote => node.cast().map(Self::SmartQuote),
-            SyntaxKind::Strong => node.cast().map(Self::Strong),
-            SyntaxKind::Emph => node.cast().map(Self::Emph),
-            SyntaxKind::Raw => node.cast().map(Self::Raw),
-            SyntaxKind::Link => node.cast().map(Self::Link),
-            SyntaxKind::Label => node.cast().map(Self::Label),
-            SyntaxKind::Ref => node.cast().map(Self::Ref),
-            SyntaxKind::Heading => node.cast().map(Self::Heading),
-            SyntaxKind::ListItem => node.cast().map(Self::List),
-            SyntaxKind::EnumItem => node.cast().map(Self::Enum),
-            SyntaxKind::TermItem => node.cast().map(Self::Term),
-            SyntaxKind::Equation => node.cast().map(Self::Equation),
-            SyntaxKind::Math => node.cast().map(Self::Math),
-            SyntaxKind::MathIdent => node.cast().map(Self::MathIdent),
-            SyntaxKind::MathAlignPoint => node.cast().map(Self::MathAlignPoint),
-            SyntaxKind::MathDelimited => node.cast().map(Self::MathDelimited),
-            SyntaxKind::MathAttach => node.cast().map(Self::MathAttach),
-            SyntaxKind::MathPrimes => node.cast().map(Self::MathPrimes),
-            SyntaxKind::MathFrac => node.cast().map(Self::MathFrac),
-            SyntaxKind::MathRoot => node.cast().map(Self::MathRoot),
-            SyntaxKind::Ident => node.cast().map(Self::Ident),
-            SyntaxKind::None => node.cast().map(Self::None),
-            SyntaxKind::Auto => node.cast().map(Self::Auto),
-            SyntaxKind::Bool => node.cast().map(Self::Bool),
-            SyntaxKind::Int => node.cast().map(Self::Int),
-            SyntaxKind::Float => node.cast().map(Self::Float),
-            SyntaxKind::Numeric => node.cast().map(Self::Numeric),
-            SyntaxKind::Str => node.cast().map(Self::Str),
-            SyntaxKind::CodeBlock => node.cast().map(Self::Code),
-            SyntaxKind::ContentBlock => node.cast().map(Self::Content),
-            SyntaxKind::Parenthesized => node.cast().map(Self::Parenthesized),
-            SyntaxKind::Array => node.cast().map(Self::Array),
-            SyntaxKind::Dict => node.cast().map(Self::Dict),
-            SyntaxKind::Unary => node.cast().map(Self::Unary),
-            SyntaxKind::Binary => node.cast().map(Self::Binary),
-            SyntaxKind::FieldAccess => node.cast().map(Self::FieldAccess),
-            SyntaxKind::FuncCall => node.cast().map(Self::FuncCall),
-            SyntaxKind::Closure => node.cast().map(Self::Closure),
-            SyntaxKind::LetBinding => node.cast().map(Self::Let),
-            SyntaxKind::DestructAssignment => node.cast().map(Self::DestructAssign),
-            SyntaxKind::SetRule => node.cast().map(Self::Set),
-            SyntaxKind::ShowRule => node.cast().map(Self::Show),
-            SyntaxKind::Conditional => node.cast().map(Self::Conditional),
-            SyntaxKind::WhileLoop => node.cast().map(Self::While),
-            SyntaxKind::ForLoop => node.cast().map(Self::For),
-            SyntaxKind::ModuleImport => node.cast().map(Self::Import),
-            SyntaxKind::ModuleInclude => node.cast().map(Self::Include),
-            SyntaxKind::LoopBreak => node.cast().map(Self::Break),
-            SyntaxKind::LoopContinue => node.cast().map(Self::Continue),
-            SyntaxKind::FuncReturn => node.cast().map(Self::Return),
+            TexSyntaxKind::Linebreak => node.cast().map(Self::Linebreak),
+            TexSyntaxKind::Parbreak => node.cast().map(Self::Parbreak),
+            TexSyntaxKind::Text => node.cast().map(Self::Text),
+            TexSyntaxKind::Escape => node.cast().map(Self::Escape),
+            TexSyntaxKind::Shorthand => node.cast().map(Self::Shorthand),
+            TexSyntaxKind::SmartQuote => node.cast().map(Self::SmartQuote),
+            TexSyntaxKind::Strong => node.cast().map(Self::Strong),
+            TexSyntaxKind::Emph => node.cast().map(Self::Emph),
+            TexSyntaxKind::Raw => node.cast().map(Self::Raw),
+            TexSyntaxKind::Link => node.cast().map(Self::Link),
+            TexSyntaxKind::Label => node.cast().map(Self::Label),
+            TexSyntaxKind::Ref => node.cast().map(Self::Ref),
+            TexSyntaxKind::Heading => node.cast().map(Self::Heading),
+            TexSyntaxKind::ListItem => node.cast().map(Self::List),
+            TexSyntaxKind::EnumItem => node.cast().map(Self::Enum),
+            TexSyntaxKind::TermItem => node.cast().map(Self::Term),
+            TexSyntaxKind::Equation => node.cast().map(Self::Equation),
+            TexSyntaxKind::Math => node.cast().map(Self::Math),
+            TexSyntaxKind::MathIdent => node.cast().map(Self::MathIdent),
+            TexSyntaxKind::MathAlignPoint => node.cast().map(Self::MathAlignPoint),
+            TexSyntaxKind::MathDelimited => node.cast().map(Self::MathDelimited),
+            TexSyntaxKind::MathAttach => node.cast().map(Self::MathAttach),
+            TexSyntaxKind::MathPrimes => node.cast().map(Self::MathPrimes),
+            TexSyntaxKind::MathFrac => node.cast().map(Self::MathFrac),
+            TexSyntaxKind::MathRoot => node.cast().map(Self::MathRoot),
+            TexSyntaxKind::Ident => node.cast().map(Self::Ident),
+            TexSyntaxKind::None => node.cast().map(Self::None),
+            TexSyntaxKind::Auto => node.cast().map(Self::Auto),
+            TexSyntaxKind::Bool => node.cast().map(Self::Bool),
+            TexSyntaxKind::Int => node.cast().map(Self::Int),
+            TexSyntaxKind::Float => node.cast().map(Self::Float),
+            TexSyntaxKind::Numeric => node.cast().map(Self::Numeric),
+            TexSyntaxKind::Str => node.cast().map(Self::Str),
+            TexSyntaxKind::CodeBlock => node.cast().map(Self::Code),
+            TexSyntaxKind::ContentBlock => node.cast().map(Self::Content),
+            TexSyntaxKind::Parenthesized => node.cast().map(Self::Parenthesized),
+            TexSyntaxKind::Array => node.cast().map(Self::Array),
+            TexSyntaxKind::Dict => node.cast().map(Self::Dict),
+            TexSyntaxKind::Unary => node.cast().map(Self::Unary),
+            TexSyntaxKind::Binary => node.cast().map(Self::Binary),
+            TexSyntaxKind::FieldAccess => node.cast().map(Self::FieldAccess),
+            TexSyntaxKind::FuncCall => node.cast().map(Self::FuncCall),
+            TexSyntaxKind::Closure => node.cast().map(Self::Closure),
+            TexSyntaxKind::LetBinding => node.cast().map(Self::Let),
+            TexSyntaxKind::DestructAssignment => node.cast().map(Self::DestructAssign),
+            TexSyntaxKind::SetRule => node.cast().map(Self::Set),
+            TexSyntaxKind::ShowRule => node.cast().map(Self::Show),
+            TexSyntaxKind::Conditional => node.cast().map(Self::Conditional),
+            TexSyntaxKind::WhileLoop => node.cast().map(Self::While),
+            TexSyntaxKind::ForLoop => node.cast().map(Self::For),
+            TexSyntaxKind::ModuleImport => node.cast().map(Self::Import),
+            TexSyntaxKind::ModuleInclude => node.cast().map(Self::Include),
+            TexSyntaxKind::LoopBreak => node.cast().map(Self::Break),
+            TexSyntaxKind::LoopContinue => node.cast().map(Self::Continue),
+            TexSyntaxKind::FuncReturn => node.cast().map(Self::Return),
             _ => Option::None,
         }
     }
 
-    fn to_untyped(self) -> &'a SyntaxNode {
+    fn to_untyped(self) -> &'a TexSyntaxNode {
         match self {
             Self::Text(v) => v.to_untyped(),
             Self::Space(v) => v.to_untyped(),
@@ -530,7 +530,7 @@ node! {
 
 impl<'a> Strong<'a> {
     /// The contents of the strong node.
-    pub fn body(self) -> Markup<'a> {
+    pub fn body(self) -> TexMarkup<'a> {
         self.0.cast_first_match().unwrap_or_default()
     }
 }
@@ -542,7 +542,7 @@ node! {
 
 impl<'a> Emph<'a> {
     /// The contents of the emphasis node.
-    pub fn body(self) -> Markup<'a> {
+    pub fn body(self) -> TexMarkup<'a> {
         self.0.cast_first_match().unwrap_or_default()
     }
 }
@@ -667,7 +667,7 @@ impl<'a> Ref<'a> {
     pub fn target(self) -> &'a str {
         self.0
             .children()
-            .find(|node| node.kind() == SyntaxKind::RefMarker)
+            .find(|node| node.kind() == TexSyntaxKind::RefMarker)
             .map(|node| node.text().trim_start_matches('@'))
             .unwrap_or_default()
     }
@@ -685,7 +685,7 @@ node! {
 
 impl<'a> Heading<'a> {
     /// The contents of the heading.
-    pub fn body(self) -> Markup<'a> {
+    pub fn body(self) -> TexMarkup<'a> {
         self.0.cast_first_match().unwrap_or_default()
     }
 
@@ -693,7 +693,7 @@ impl<'a> Heading<'a> {
     pub fn level(self) -> NonZeroUsize {
         self.0
             .children()
-            .find(|node| node.kind() == SyntaxKind::HeadingMarker)
+            .find(|node| node.kind() == TexSyntaxKind::HeadingMarker)
             .and_then(|node| node.len().try_into().ok())
             .unwrap_or(NonZeroUsize::new(1).unwrap())
     }
@@ -706,7 +706,7 @@ node! {
 
 impl<'a> ListItem<'a> {
     /// The contents of the list item.
-    pub fn body(self) -> Markup<'a> {
+    pub fn body(self) -> TexMarkup<'a> {
         self.0.cast_first_match().unwrap_or_default()
     }
 }
@@ -720,13 +720,13 @@ impl<'a> EnumItem<'a> {
     /// The explicit numbering, if any: `23.`.
     pub fn number(self) -> Option<usize> {
         self.0.children().find_map(|node| match node.kind() {
-            SyntaxKind::EnumMarker => node.text().trim_end_matches('.').parse().ok(),
+            TexSyntaxKind::EnumMarker => node.text().trim_end_matches('.').parse().ok(),
             _ => Option::None,
         })
     }
 
     /// The contents of the list item.
-    pub fn body(self) -> Markup<'a> {
+    pub fn body(self) -> TexMarkup<'a> {
         self.0.cast_first_match().unwrap_or_default()
     }
 }
@@ -738,12 +738,12 @@ node! {
 
 impl<'a> TermItem<'a> {
     /// The term described by the item.
-    pub fn term(self) -> Markup<'a> {
+    pub fn term(self) -> TexMarkup<'a> {
         self.0.cast_first_match().unwrap_or_default()
     }
 
     /// The description of the term.
-    pub fn description(self) -> Markup<'a> {
+    pub fn description(self) -> TexMarkup<'a> {
         self.0.cast_last_match().unwrap_or_default()
     }
 }
@@ -761,8 +761,9 @@ impl<'a> Equation<'a> {
 
     /// Whether the equation should be displayed as a separate block.
     pub fn block(self) -> bool {
-        let is_space =
-            |node: Option<&SyntaxNode>| node.map(SyntaxNode::kind) == Some(SyntaxKind::Space);
+        let is_space = |node: Option<&TexSyntaxNode>| {
+            node.map(TexSyntaxNode::kind) == Some(TexSyntaxKind::Space)
+        };
         is_space(self.0.children().nth(1)) && is_space(self.0.children().nth_back(1))
     }
 }
@@ -848,16 +849,16 @@ impl<'a> MathAttach<'a> {
     pub fn bottom(self) -> Option<Expr<'a>> {
         self.0
             .children()
-            .skip_while(|node| !matches!(node.kind(), SyntaxKind::Underscore))
-            .find_map(SyntaxNode::cast)
+            .skip_while(|node| !matches!(node.kind(), TexSyntaxKind::Underscore))
+            .find_map(TexSyntaxNode::cast)
     }
 
     /// The top attachment.
     pub fn top(self) -> Option<Expr<'a>> {
         self.0
             .children()
-            .skip_while(|node| !matches!(node.kind(), SyntaxKind::Hat))
-            .find_map(SyntaxNode::cast)
+            .skip_while(|node| !matches!(node.kind(), TexSyntaxKind::Hat))
+            .find_map(TexSyntaxNode::cast)
     }
 
     /// Extract attached primes if present.
@@ -879,7 +880,7 @@ impl MathPrimes<'_> {
     pub fn count(self) -> usize {
         self.0
             .children()
-            .filter(|node| matches!(node.kind(), SyntaxKind::Prime))
+            .filter(|node| matches!(node.kind(), TexSyntaxKind::Prime))
             .count()
     }
 }
@@ -1133,7 +1134,7 @@ node! {
 impl<'a> Code<'a> {
     /// The list of expressions contained in the code.
     pub fn exprs(self) -> impl DoubleEndedIterator<Item = Expr<'a>> {
-        self.0.children().filter_map(SyntaxNode::cast)
+        self.0.children().filter_map(TexSyntaxNode::cast)
     }
 }
 
@@ -1144,7 +1145,7 @@ node! {
 
 impl<'a> ContentBlock<'a> {
     /// The contained markup.
-    pub fn body(self) -> Markup<'a> {
+    pub fn body(self) -> TexMarkup<'a> {
         self.0.cast_first_match().unwrap_or_default()
     }
 }
@@ -1169,7 +1170,7 @@ node! {
 impl<'a> Array<'a> {
     /// The array's items.
     pub fn items(self) -> impl DoubleEndedIterator<Item = ArrayItem<'a>> {
-        self.0.children().filter_map(SyntaxNode::cast)
+        self.0.children().filter_map(TexSyntaxNode::cast)
     }
 }
 
@@ -1182,15 +1183,15 @@ pub enum ArrayItem<'a> {
     Spread(Expr<'a>),
 }
 
-impl<'a> AstNode<'a> for ArrayItem<'a> {
-    fn from_untyped(node: &'a SyntaxNode) -> Option<Self> {
+impl<'a> TexAstNode<'a> for ArrayItem<'a> {
+    fn from_untyped(node: &'a TexSyntaxNode) -> Option<Self> {
         match node.kind() {
-            SyntaxKind::Spread => node.cast_first_match().map(Self::Spread),
+            TexSyntaxKind::Spread => node.cast_first_match().map(Self::Spread),
             _ => node.cast().map(Self::Pos),
         }
     }
 
-    fn to_untyped(self) -> &'a SyntaxNode {
+    fn to_untyped(self) -> &'a TexSyntaxNode {
         match self {
             Self::Pos(v) => v.to_untyped(),
             Self::Spread(v) => v.to_untyped(),
@@ -1206,7 +1207,7 @@ node! {
 impl<'a> Dict<'a> {
     /// The dictionary's items.
     pub fn items(self) -> impl DoubleEndedIterator<Item = DictItem<'a>> {
-        self.0.children().filter_map(SyntaxNode::cast)
+        self.0.children().filter_map(TexSyntaxNode::cast)
     }
 }
 
@@ -1221,17 +1222,17 @@ pub enum DictItem<'a> {
     Spread(Expr<'a>),
 }
 
-impl<'a> AstNode<'a> for DictItem<'a> {
-    fn from_untyped(node: &'a SyntaxNode) -> Option<Self> {
+impl<'a> TexAstNode<'a> for DictItem<'a> {
+    fn from_untyped(node: &'a TexSyntaxNode) -> Option<Self> {
         match node.kind() {
-            SyntaxKind::Named => node.cast().map(Self::Named),
-            SyntaxKind::Keyed => node.cast().map(Self::Keyed),
-            SyntaxKind::Spread => node.cast_first_match().map(Self::Spread),
+            TexSyntaxKind::Named => node.cast().map(Self::Named),
+            TexSyntaxKind::Keyed => node.cast().map(Self::Keyed),
+            TexSyntaxKind::Spread => node.cast_first_match().map(Self::Spread),
             _ => Option::None,
         }
     }
 
-    fn to_untyped(self) -> &'a SyntaxNode {
+    fn to_untyped(self) -> &'a TexSyntaxNode {
         match self {
             Self::Named(v) => v.to_untyped(),
             Self::Keyed(v) => v.to_untyped(),
@@ -1312,11 +1313,11 @@ pub enum UnOp {
 
 impl UnOp {
     /// Try to convert the token into a unary operation.
-    pub fn from_kind(token: SyntaxKind) -> Option<Self> {
+    pub fn from_kind(token: TexSyntaxKind) -> Option<Self> {
         Some(match token {
-            SyntaxKind::Plus => Self::Pos,
-            SyntaxKind::Minus => Self::Neg,
-            SyntaxKind::Not => Self::Not,
+            TexSyntaxKind::Plus => Self::Pos,
+            TexSyntaxKind::Minus => Self::Neg,
+            TexSyntaxKind::Not => Self::Not,
             _ => return Option::None,
         })
     }
@@ -1351,11 +1352,11 @@ impl<'a> Binary<'a> {
         self.0
             .children()
             .find_map(|node| match node.kind() {
-                SyntaxKind::Not => {
+                TexSyntaxKind::Not => {
                     not = true;
                     Option::None
                 }
-                SyntaxKind::In if not => Some(BinOp::NotIn),
+                TexSyntaxKind::In if not => Some(BinOp::NotIn),
                 _ => BinOp::from_kind(node.kind()),
             })
             .unwrap_or(BinOp::Add)
@@ -1417,26 +1418,26 @@ pub enum BinOp {
 
 impl BinOp {
     /// Try to convert the token into a binary operation.
-    pub fn from_kind(token: SyntaxKind) -> Option<Self> {
+    pub fn from_kind(token: TexSyntaxKind) -> Option<Self> {
         Some(match token {
-            SyntaxKind::Plus => Self::Add,
-            SyntaxKind::Minus => Self::Sub,
-            SyntaxKind::Star => Self::Mul,
-            SyntaxKind::Slash => Self::Div,
-            SyntaxKind::And => Self::And,
-            SyntaxKind::Or => Self::Or,
-            SyntaxKind::EqEq => Self::Eq,
-            SyntaxKind::ExclEq => Self::Neq,
-            SyntaxKind::Lt => Self::Lt,
-            SyntaxKind::LtEq => Self::Leq,
-            SyntaxKind::Gt => Self::Gt,
-            SyntaxKind::GtEq => Self::Geq,
-            SyntaxKind::Eq => Self::Assign,
-            SyntaxKind::In => Self::In,
-            SyntaxKind::PlusEq => Self::AddAssign,
-            SyntaxKind::HyphEq => Self::SubAssign,
-            SyntaxKind::StarEq => Self::MulAssign,
-            SyntaxKind::SlashEq => Self::DivAssign,
+            TexSyntaxKind::Plus => Self::Add,
+            TexSyntaxKind::Minus => Self::Sub,
+            TexSyntaxKind::Star => Self::Mul,
+            TexSyntaxKind::Slash => Self::Div,
+            TexSyntaxKind::And => Self::And,
+            TexSyntaxKind::Or => Self::Or,
+            TexSyntaxKind::EqEq => Self::Eq,
+            TexSyntaxKind::ExclEq => Self::Neq,
+            TexSyntaxKind::Lt => Self::Lt,
+            TexSyntaxKind::LtEq => Self::Leq,
+            TexSyntaxKind::Gt => Self::Gt,
+            TexSyntaxKind::GtEq => Self::Geq,
+            TexSyntaxKind::Eq => Self::Assign,
+            TexSyntaxKind::In => Self::In,
+            TexSyntaxKind::PlusEq => Self::AddAssign,
+            TexSyntaxKind::HyphEq => Self::SubAssign,
+            TexSyntaxKind::StarEq => Self::MulAssign,
+            TexSyntaxKind::SlashEq => Self::DivAssign,
             _ => return Option::None,
         })
     }
@@ -1568,7 +1569,7 @@ node! {
 impl<'a> Args<'a> {
     /// The positional and named arguments.
     pub fn items(self) -> impl DoubleEndedIterator<Item = Arg<'a>> {
-        self.0.children().filter_map(SyntaxNode::cast)
+        self.0.children().filter_map(TexSyntaxNode::cast)
     }
 
     /// Whether there is a comma at the end.
@@ -1578,7 +1579,7 @@ impl<'a> Args<'a> {
             .rev()
             .skip(1)
             .find(|n| !n.kind().is_trivia())
-            .is_some_and(|n| n.kind() == SyntaxKind::Comma)
+            .is_some_and(|n| n.kind() == TexSyntaxKind::Comma)
     }
 }
 
@@ -1593,16 +1594,16 @@ pub enum Arg<'a> {
     Spread(Expr<'a>),
 }
 
-impl<'a> AstNode<'a> for Arg<'a> {
-    fn from_untyped(node: &'a SyntaxNode) -> Option<Self> {
+impl<'a> TexAstNode<'a> for Arg<'a> {
+    fn from_untyped(node: &'a TexSyntaxNode) -> Option<Self> {
         match node.kind() {
-            SyntaxKind::Named => node.cast().map(Self::Named),
-            SyntaxKind::Spread => node.cast_first_match().map(Self::Spread),
+            TexSyntaxKind::Named => node.cast().map(Self::Named),
+            TexSyntaxKind::Spread => node.cast_first_match().map(Self::Spread),
             _ => node.cast().map(Self::Pos),
         }
     }
 
-    fn to_untyped(self) -> &'a SyntaxNode {
+    fn to_untyped(self) -> &'a TexSyntaxNode {
         match self {
             Self::Pos(v) => v.to_untyped(),
             Self::Named(v) => v.to_untyped(),
@@ -1643,7 +1644,7 @@ node! {
 impl<'a> Params<'a> {
     /// The parameter bindings.
     pub fn children(self) -> impl DoubleEndedIterator<Item = Param<'a>> {
-        self.0.children().filter_map(SyntaxNode::cast)
+        self.0.children().filter_map(TexSyntaxNode::cast)
     }
 }
 
@@ -1680,16 +1681,16 @@ pub enum Param<'a> {
     Sink(Spread<'a>),
 }
 
-impl<'a> AstNode<'a> for Param<'a> {
-    fn from_untyped(node: &'a SyntaxNode) -> Option<Self> {
+impl<'a> TexAstNode<'a> for Param<'a> {
+    fn from_untyped(node: &'a TexSyntaxNode) -> Option<Self> {
         match node.kind() {
-            SyntaxKind::Named => node.cast().map(Self::Named),
-            SyntaxKind::Spread => node.cast().map(Self::Sink),
+            TexSyntaxKind::Named => node.cast().map(Self::Named),
+            TexSyntaxKind::Spread => node.cast().map(Self::Sink),
             _ => node.cast().map(Self::Pos),
         }
     }
 
-    fn to_untyped(self) -> &'a SyntaxNode {
+    fn to_untyped(self) -> &'a TexSyntaxNode {
         match self {
             Self::Pos(v) => v.to_untyped(),
             Self::Named(v) => v.to_untyped(),
@@ -1706,7 +1707,7 @@ node! {
 impl<'a> Destructuring<'a> {
     /// The bindings of the destructuring.
     pub fn bindings(self) -> impl DoubleEndedIterator<Item = DestructuringKind<'a>> {
-        self.0.children().filter_map(SyntaxNode::cast)
+        self.0.children().filter_map(TexSyntaxNode::cast)
     }
 
     /// Returns a list of all identifiers in the pattern.
@@ -1733,17 +1734,17 @@ pub enum DestructuringKind<'a> {
     Placeholder(Underscore<'a>),
 }
 
-impl<'a> AstNode<'a> for DestructuringKind<'a> {
-    fn from_untyped(node: &'a SyntaxNode) -> Option<Self> {
+impl<'a> TexAstNode<'a> for DestructuringKind<'a> {
+    fn from_untyped(node: &'a TexSyntaxNode) -> Option<Self> {
         match node.kind() {
-            SyntaxKind::Named => node.cast().map(Self::Named),
-            SyntaxKind::Spread => node.cast().map(Self::Sink),
-            SyntaxKind::Underscore => node.cast().map(Self::Placeholder),
+            TexSyntaxKind::Named => node.cast().map(Self::Named),
+            TexSyntaxKind::Spread => node.cast().map(Self::Sink),
+            TexSyntaxKind::Underscore => node.cast().map(Self::Placeholder),
             _ => node.cast().map(Self::Normal),
         }
     }
 
-    fn to_untyped(self) -> &'a SyntaxNode {
+    fn to_untyped(self) -> &'a TexSyntaxNode {
         match self {
             Self::Normal(v) => v.to_untyped(),
             Self::Named(v) => v.to_untyped(),
@@ -1764,16 +1765,16 @@ pub enum Pattern<'a> {
     Destructuring(Destructuring<'a>),
 }
 
-impl<'a> AstNode<'a> for Pattern<'a> {
-    fn from_untyped(node: &'a SyntaxNode) -> Option<Self> {
+impl<'a> TexAstNode<'a> for Pattern<'a> {
+    fn from_untyped(node: &'a TexSyntaxNode) -> Option<Self> {
         match node.kind() {
-            SyntaxKind::Destructuring => node.cast().map(Self::Destructuring),
-            SyntaxKind::Underscore => node.cast().map(Self::Placeholder),
+            TexSyntaxKind::Destructuring => node.cast().map(Self::Destructuring),
+            TexSyntaxKind::Underscore => node.cast().map(Self::Placeholder),
             _ => node.cast().map(Self::Normal),
         }
     }
 
-    fn to_untyped(self) -> &'a SyntaxNode {
+    fn to_untyped(self) -> &'a TexSyntaxNode {
         match self {
             Self::Normal(v) => v.to_untyped(),
             Self::Destructuring(v) => v.to_untyped(),
@@ -1840,7 +1841,7 @@ impl<'a> LetBinding<'a> {
     pub fn init(self) -> Option<Expr<'a>> {
         match self.kind() {
             LetBindingKind::Normal(Pattern::Normal(_)) => {
-                self.0.children().filter_map(SyntaxNode::cast).nth(1)
+                self.0.children().filter_map(TexSyntaxNode::cast).nth(1)
             }
             LetBindingKind::Normal(_) => self.0.cast_first_match(),
             LetBindingKind::Closure(_) => self.0.cast_first_match(),
@@ -1885,8 +1886,8 @@ impl<'a> SetRule<'a> {
     pub fn condition(self) -> Option<Expr<'a>> {
         self.0
             .children()
-            .skip_while(|child| child.kind() != SyntaxKind::If)
-            .find_map(SyntaxNode::cast)
+            .skip_while(|child| child.kind() != TexSyntaxKind::If)
+            .find_map(TexSyntaxNode::cast)
     }
 }
 
@@ -1901,8 +1902,8 @@ impl<'a> ShowRule<'a> {
         self.0
             .children()
             .rev()
-            .skip_while(|child| child.kind() != SyntaxKind::Colon)
-            .find_map(SyntaxNode::cast)
+            .skip_while(|child| child.kind() != TexSyntaxKind::Colon)
+            .find_map(TexSyntaxNode::cast)
     }
 
     /// The transformation recipe.
@@ -1926,14 +1927,14 @@ impl<'a> Conditional<'a> {
     pub fn if_body(self) -> Expr<'a> {
         self.0
             .children()
-            .filter_map(SyntaxNode::cast)
+            .filter_map(TexSyntaxNode::cast)
             .nth(1)
             .unwrap_or_default()
     }
 
     /// The expression to evaluate if the condition is false.
     pub fn else_body(self) -> Option<Expr<'a>> {
-        self.0.children().filter_map(SyntaxNode::cast).nth(2)
+        self.0.children().filter_map(TexSyntaxNode::cast).nth(2)
     }
 }
 
@@ -1969,8 +1970,8 @@ impl<'a> ForLoop<'a> {
     pub fn iterable(self) -> Expr<'a> {
         self.0
             .children()
-            .skip_while(|&c| c.kind() != SyntaxKind::In)
-            .find_map(SyntaxNode::cast)
+            .skip_while(|&c| c.kind() != TexSyntaxKind::In)
+            .find_map(TexSyntaxNode::cast)
             .unwrap_or_default()
     }
 
@@ -1994,8 +1995,8 @@ impl<'a> ModuleImport<'a> {
     /// The items to be imported.
     pub fn imports(self) -> Option<Imports<'a>> {
         self.0.children().find_map(|node| match node.kind() {
-            SyntaxKind::Star => Some(Imports::Wildcard),
-            SyntaxKind::ImportItems => node.cast().map(Imports::Items),
+            TexSyntaxKind::Star => Some(Imports::Wildcard),
+            TexSyntaxKind::ImportItems => node.cast().map(Imports::Items),
             _ => Option::None,
         })
     }
@@ -2005,8 +2006,8 @@ impl<'a> ModuleImport<'a> {
     pub fn new_name(self) -> Option<Ident<'a>> {
         self.0
             .children()
-            .skip_while(|child| child.kind() != SyntaxKind::As)
-            .find_map(SyntaxNode::cast)
+            .skip_while(|child| child.kind() != TexSyntaxKind::As)
+            .find_map(TexSyntaxNode::cast)
     }
 }
 
@@ -2028,8 +2029,8 @@ impl<'a> ImportItems<'a> {
     /// Returns an iterator over the items to import from the module.
     pub fn iter(self) -> impl DoubleEndedIterator<Item = ImportItem<'a>> {
         self.0.children().filter_map(|child| match child.kind() {
-            SyntaxKind::RenamedImportItem => child.cast().map(ImportItem::Renamed),
-            SyntaxKind::Ident => child.cast().map(ImportItem::Simple),
+            TexSyntaxKind::RenamedImportItem => child.cast().map(ImportItem::Renamed),
+            TexSyntaxKind::Ident => child.cast().map(ImportItem::Simple),
             _ => Option::None,
         })
     }
@@ -2081,7 +2082,7 @@ impl<'a> RenamedImportItem<'a> {
     pub fn new_name(self) -> Ident<'a> {
         self.0
             .children()
-            .filter_map(SyntaxNode::cast)
+            .filter_map(TexSyntaxNode::cast)
             .nth(1)
             .unwrap_or_default()
     }

@@ -9,7 +9,7 @@ use smallvec::SmallVec;
 use unicode_math_class::MathClass;
 
 use crate::diag::{At, SourceResult, StrResult};
-use crate::foundations::{array, repr, Packed, Repr, Str, TexElement, TexValue, Type};
+use crate::foundations::{array, repr, IsTexElem, Packed, Repr, Str, TexValue, Type};
 use crate::syntax::{Span, Spanned};
 
 #[rustfmt::skip]
@@ -84,7 +84,7 @@ impl<T: Reflect> Reflect for Spanned<T> {
     }
 }
 
-impl<T: TexElement + Reflect> Reflect for Packed<T> {
+impl<T: IsTexElem + Reflect> Reflect for Packed<T> {
     fn input() -> CastInfo {
         T::input()
     }
@@ -194,7 +194,7 @@ impl<T: IntoTexValue + Clone> IntoTexValue for Cow<'_, T> {
     }
 }
 
-impl<T: TexElement + IntoTexValue> IntoTexValue for Packed<T> {
+impl<T: IsTexElem + IntoTexValue> IntoTexValue for Packed<T> {
     fn into_value(self) -> TexValue {
         TexValue::Content(self.pack())
     }
@@ -259,7 +259,7 @@ impl FromTexValue for TexValue {
     }
 }
 
-impl<T: TexElement + FromTexValue> FromTexValue for Packed<T> {
+impl<T: IsTexElem + FromTexValue> FromTexValue for Packed<T> {
     fn from_value(mut value: TexValue) -> StrResult<Self> {
         if let TexValue::Content(content) = value {
             match content.into_packed::<T>() {

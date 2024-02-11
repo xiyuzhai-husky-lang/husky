@@ -8,7 +8,7 @@ use crate::math::{
     alignments, scaled_font_size, spacing, AlignmentResult, EquationElem, FrameFragment,
     MathContext, MathFragment, MathParItem, MathSize,
 };
-use crate::model::ParElem;
+use crate::model::ParagraphTexElem;
 
 use super::fragment::SpacingFragment;
 
@@ -177,7 +177,7 @@ impl MathRow {
         }
 
         let leading = if EquationElem::size_in(styles) >= MathSize::Text {
-            ParElem::leading_in(styles)
+            ParagraphTexElem::leading_in(styles)
         } else {
             let font_size = scaled_font_size(ctx, styles);
             TIGHT_LEADING.at(font_size)

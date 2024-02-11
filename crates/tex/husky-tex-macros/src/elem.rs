@@ -639,7 +639,7 @@ fn create_style_chain_access(field: &Field, borrowed: bool, inherent: TokenStrea
 
     quote! {
         styles.#getter::<#ty>(
-            <Self as #foundations::TexElement>::elem(),
+            <Self as #foundations::IsTexElem>::elem(),
             Fields::#enum_ident as u8,
             #inherent,
             #default,
@@ -647,7 +647,7 @@ fn create_style_chain_access(field: &Field, borrowed: bool, inherent: TokenStrea
     }
 }
 
-/// Creates the element's `TexElement` implementation.
+/// Creates the element's `IsTexElem` implementation.
 fn create_native_elem_impl(element: &Elem) -> TokenStream {
     let Elem {
         name,
@@ -691,7 +691,7 @@ fn create_native_elem_impl(element: &Elem) -> TokenStream {
     };
 
     quote! {
-        impl #foundations::TexElement for #ident {
+        impl #foundations::IsTexElem for #ident {
             fn data() -> &'static #foundations::ElementSchema {
                 static DATA: #foundations::ElementSchema = #data;
                 &DATA

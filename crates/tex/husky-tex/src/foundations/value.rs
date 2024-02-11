@@ -13,8 +13,8 @@ use crate::diag::StrResult;
 use crate::eval::ops;
 use crate::foundations::{
     fields, repr, Args, Array, AutoTexValue, Bytes, CastInfo, Datetime, Duration, FromTexValue,
-    Func, IntoTexValue, Label, Module, NativeType, NoneValue, Plugin, Reflect, Repr, Scope, Str,
-    Styles, TexContent, TexDict, TexElement, Type, Version,
+    Func, IntoTexValue, IsTexElem, Label, Module, NativeType, NoneValue, Plugin, Reflect, Repr,
+    Scope, Str, Styles, TexContent, TexDict, Type, Version,
 };
 use crate::layout::{Abs, Angle, Fr, Length, LengthInEm, Ratio, Rel};
 use crate::symbols::Symbol;

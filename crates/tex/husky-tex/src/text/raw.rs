@@ -12,8 +12,8 @@ use unicode_segmentation::UnicodeSegmentation;
 use crate::diag::{At, FileError, SourceResult, StrResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, Args, Array, Bytes, Fold, Packed, PlainText, Show, ShowSet, Smart,
-    StyleChain, Styles, Synthesize, TexContent, TexElement, TexValue,
+    cast, elem, scope, Args, Array, Bytes, Fold, IsTexElem, Packed, PlainText, Show, ShowSet,
+    Smart, StyleChain, Styles, Synthesize, TexContent, TexValue,
 };
 use crate::layout::{BlockElem, HAlignment, LengthInEm};
 use crate::model::Figurable;

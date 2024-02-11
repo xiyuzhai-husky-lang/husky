@@ -7,9 +7,9 @@ use crate::engine::Engine;
 use crate::foundations::{cast, elem, scope, Array, Packed, Smart, StyleChain, TexContent};
 use crate::layout::{
     Axes, BlockElem, Cell, CellGrid, Fragment, GridLayouter, HAlignment, LayoutMultiple, Length,
-    LengthInEm, Regions, Sizing, Spacing, TexAlignment, VAlignment,
+    LengthInEm, Regions, Spacing, TexAlignment, TexSizing, VAlignment,
 };
-use crate::model::{Numbering, NumberingPattern, ParElem};
+use crate::model::{Numbering, NumberingPattern, ParagraphTexElem};
 use crate::text::TextElem;
 
 /// A numbered list.
@@ -221,7 +221,7 @@ impl LayoutMultiple for Packed<EnumElem> {
         let indent = self.indent(styles);
         let body_indent = self.body_indent(styles);
         let gutter = if self.tight(styles) {
-            ParElem::leading_in(styles).into()
+            ParagraphTexElem::leading_in(styles).into()
         } else {
             self.spacing(styles)
                 .unwrap_or_else(|| *BlockElem::below_in(styles).amount())
@@ -277,10 +277,10 @@ impl LayoutMultiple for Packed<EnumElem> {
         let stroke = None;
         let grid = CellGrid::new(
             Axes::with_x(&[
-                Sizing::Rel(indent.into()),
-                Sizing::Auto,
-                Sizing::Rel(body_indent.into()),
-                Sizing::Auto,
+                TexSizing::Rel(indent.into()),
+                TexSizing::Auto,
+                TexSizing::Rel(body_indent.into()),
+                TexSizing::Auto,
             ]),
             Axes::with_y(&[gutter.into()]),
             cells,

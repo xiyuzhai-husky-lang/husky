@@ -18,7 +18,7 @@ use crate::math::{
     scaled_font_size, styled_char, EquationElem, FrameFragment, GlyphFragment, LayoutMath,
     MathFragment, MathRow, MathSize, THICK,
 };
-use crate::model::ParElem;
+use crate::model::ParagraphTexElem;
 use crate::syntax::{is_newline, Span};
 use crate::text::{
     features, BottomEdge, BottomEdgeMetric, TexFont, TextElem, TextSize, TopEdge, TopEdgeMetric,
@@ -283,7 +283,7 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
         // to extend as far as needed.
         let spaced = text.graphemes(true).nth(1).is_some();
         let text = TextElem::packed(text).spanned(span);
-        let par = ParElem::new(vec![Prehashed::new(text)]);
+        let par = ParagraphTexElem::new(vec![Prehashed::new(text)]);
         let frame = Packed::new(par)
             .spanned(span)
             .layout(self.engine, styles, false, Size::splat(Abs::inf()), false)?

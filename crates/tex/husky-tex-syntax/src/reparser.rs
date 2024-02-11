@@ -1,6 +1,6 @@
 use std::ops::Range;
 
-use crate::{is_newline, parse, reparse_block, reparse_markup, Span, SyntaxKind, SyntaxNode};
+use crate::{is_newline, parse, reparse_block, reparse_markup, Span, TexSyntaxKind, TexSyntaxNode};
 
 /// Refresh the given syntax node with as little parsing as possible.
 ///
@@ -11,7 +11,7 @@ use crate::{is_newline, parse, reparse_block, reparse_markup, Span, SyntaxKind, 
 /// The high-level API for this function is
 /// [`Source::edit`](crate::Source::edit).
 pub fn reparse(
-    root: &mut SyntaxNode,
+    root: &mut TexSyntaxNode,
     text: &str,
     replaced: Range<usize>,
     replacement_len: usize,
@@ -31,8 +31,8 @@ fn try_reparse(
     text: &str,
     replaced: Range<usize>,
     replacement_len: usize,
-    parent_kind: Option<SyntaxKind>,
-    node: &mut SyntaxNode,
+    parent_kind: Option<TexSyntaxKind>,
+    node: &mut TexSyntaxNode,
     offset: usize,
 ) -> Option<Range<usize>> {
     // The range of children which overlap with the edit.
@@ -97,8 +97,8 @@ fn try_reparse(
     // contained in things like headings or lists because too much can go wrong
     // with indent and line breaks.
     if overlap.is_empty()
-        || node.kind() != SyntaxKind::Markup
-        || !matches!(parent_kind, None | Some(SyntaxKind::ContentBlock))
+        || node.kind() != TexSyntaxKind::TexMarkup
+        || !matches!(parent_kind, None | Some(TexSyntaxKind::ContentBlock))
     {
         return None;
     }
@@ -124,7 +124,7 @@ fn try_reparse(
         }
 
         // Also take hash.
-        if start > 0 && children[start - 1].kind() == SyntaxKind::Hash {
+        if start > 0 && children[start - 1].kind() == TexSyntaxKind::Hash {
             start -= 1;
         }
 
@@ -157,8 +157,8 @@ fn try_reparse(
 
         // Stop parsing early if this kind is encountered.
         let stop_kind = match parent_kind {
-            Some(_) => SyntaxKind::RightBracket,
-            None => SyntaxKind::Eof,
+            Some(_) => TexSyntaxKind::RightBracket,
+            None => TexSyntaxKind::Eof,
         };
 
         // Reparse!
@@ -208,30 +208,30 @@ fn overlaps(first: &Range<usize>, second: &Range<usize>) -> bool {
 }
 
 /// Whether the selection should be expanded beyond a node of this kind.
-fn expand(node: &SyntaxNode) -> bool {
+fn expand(node: &TexSyntaxNode) -> bool {
     let kind = node.kind();
     kind.is_trivia()
         || kind.is_error()
-        || kind == SyntaxKind::Semicolon
+        || kind == TexSyntaxKind::Semicolon
         || node.text() == "/"
         || node.text() == ":"
 }
 
 /// Whether `at_start` would still be true after this node given the
 /// previous value of the property.
-fn next_at_start(node: &SyntaxNode, at_start: &mut bool) {
+fn next_at_start(node: &TexSyntaxNode, at_start: &mut bool) {
     let kind = node.kind();
     if kind.is_trivia() {
-        *at_start |= kind == SyntaxKind::Parbreak
-            || (kind == SyntaxKind::Space && node.text().chars().any(is_newline));
+        *at_start |= kind == TexSyntaxKind::Parbreak
+            || (kind == TexSyntaxKind::Space && node.text().chars().any(is_newline));
     } else {
         *at_start = false;
     }
 }
 
 /// Update `nesting` based on the node.
-fn next_nesting(node: &SyntaxNode, nesting: &mut usize) {
-    if node.kind() == SyntaxKind::Text {
+fn next_nesting(node: &TexSyntaxNode, nesting: &mut usize) {
+    if node.kind() == TexSyntaxKind::Text {
         match node.text().as_str() {
             "[" => *nesting += 1,
             "]" if *nesting > 0 => *nesting -= 1,

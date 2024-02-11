@@ -4,12 +4,12 @@ use std::str::FromStr;
 use crate::diag::{bail, At, SourceResult};
 use crate::engine::Engine;
 use crate::foundations::{
-    cast, elem, scope, select_where, Func, LocatableSelector, Packed, Show, ShowSet, Smart,
-    StyleChain, Styles, TexContent, TexElement,
+    cast, elem, scope, select_where, Func, IsTexElem, LocatableSelector, Packed, Show, ShowSet,
+    Smart, StyleChain, Styles, TexContent,
 };
 use crate::introspection::{Counter, CounterKey, Locatable};
 use crate::layout::{BoxElem, Fr, HElem, HideElem, Length, Rel, RepeatElem, Spacing};
-use crate::model::{Destination, HeadingElem, NumberingPattern, ParbreakElem, Refable};
+use crate::model::{HeadingTexElem, NumberingPattern, ParbreakElem, Refable, TexDestination};
 use crate::syntax::Span;
 use crate::text::{Lang, LinebreakElem, LocalName, Region, SpaceElem, TextElem};
 use crate::util::{option_eq, NonZeroExt};
@@ -93,7 +93,7 @@ pub struct OutlineElem {
     ///   caption: [Experiment results],
     /// )
     /// ```
-    #[default(LocatableSelector(select_where!(HeadingElem, Outlined => true)))]
+    #[default(LocatableSelector(select_where!(HeadingTexElem, Outlined => true)))]
     #[borrowed]
     pub target: LocatableSelector,
 
@@ -196,7 +196,7 @@ impl Show for Packed<OutlineElem> {
             });
 
             seq.push(
-                HeadingElem::new(title)
+                HeadingTexElem::new(title)
                     .with_level(NonZeroUsize::ONE)
                     .pack()
                     .spanned(self.span()),
@@ -255,8 +255,8 @@ impl Show for Packed<OutlineElem> {
 impl ShowSet for Packed<OutlineElem> {
     fn show_set(&self, _: StyleChain) -> Styles {
         let mut out = Styles::new();
-        out.set(HeadingElem::set_outlined(false));
-        out.set(HeadingElem::set_numbering(None));
+        out.set(HeadingTexElem::set_outlined(false));
+        out.set(HeadingTexElem::set_numbering(None));
         out
     }
 }
@@ -515,7 +515,11 @@ impl Show for Packed<OutlineEntry> {
         };
 
         // The body text remains overridable.
-        seq.push(self.body().clone().linked(Destination::Location(location)));
+        seq.push(
+            self.body()
+                .clone()
+                .linked(TexDestination::Location(location)),
+        );
 
         // Add filler symbols between the section name and page number.
         if let Some(filler) = self.fill() {
@@ -533,7 +537,10 @@ impl Show for Packed<OutlineEntry> {
         }
 
         // Add the page number.
-        let page = self.page().clone().linked(Destination::Location(location));
+        let page = self
+            .page()
+            .clone()
+            .linked(TexDestination::Location(location));
         seq.push(page);
 
         Ok(TexContent::sequence(seq))

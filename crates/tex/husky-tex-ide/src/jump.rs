@@ -3,8 +3,8 @@ use std::num::NonZeroUsize;
 use ecow::EcoString;
 use husky_tex::introspection::Meta;
 use husky_tex::layout::{Frame, FrameItem, Point, Position, Size};
-use husky_tex::model::{Destination, TexDocument};
-use husky_tex::syntax::{FileId, LinkedNode, Source, Span, SyntaxKind};
+use husky_tex::model::{TexDestination, TexDocument};
+use husky_tex::syntax::{FileId, LinkedNode, Source, Span, TexSyntaxKind};
 use husky_tex::visualize::TexGeometry;
 use husky_tex::World;
 
@@ -40,9 +40,9 @@ pub fn jump_from_click(
         if let FrameItem::Meta(Meta::Link(dest), size) = item {
             if is_in_rect(*pos, *size, click) {
                 return Some(match dest {
-                    Destination::Url(url) => Jump::Url(url.clone()),
-                    Destination::Position(pos) => Jump::Position(*pos),
-                    Destination::Location(loc) => {
+                    TexDestination::Url(url) => Jump::Url(url.clone()),
+                    TexDestination::Position(pos) => Jump::Position(*pos),
+                    TexDestination::Location(loc) => {
                         Jump::Position(document.introspector.position(*loc))
                     }
                 });
@@ -72,7 +72,7 @@ pub fn jump_from_click(
                         let Some(id) = span.id() else { continue };
                         let source = world.source(id).ok()?;
                         let node = source.find(span)?;
-                        let pos = if node.kind() == SyntaxKind::Text {
+                        let pos = if node.kind() == TexSyntaxKind::Text {
                             let range = node.range();
                             let mut offset = range.start + usize::from(span_offset);
                             if (click.x - pos.x) > width / 2.0 {
@@ -116,7 +116,7 @@ pub fn jump_from_cursor(
     cursor: usize,
 ) -> Option<Position> {
     let node = LinkedNode::new(source.root()).leaf_at(cursor)?;
-    if node.kind() != SyntaxKind::Text {
+    if node.kind() != TexSyntaxKind::Text {
         return None;
     }
 

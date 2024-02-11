@@ -5,14 +5,14 @@ use crate::diag::{bail, error, At, HintedStrResult, SourceResult, Trace, Tracepo
 use crate::engine::Engine;
 use crate::eval::{Access, Eval, FlowEvent, Route, Tracer, Vm};
 use crate::foundations::{
-    call_method_mut, is_mutating_method, Arg, Args, Bytes, Closure, Func, IntoTexValue, Scope,
-    Scopes, TexContent, TexElement, TexValue,
+    call_method_mut, is_mutating_method, Arg, Args, Bytes, Closure, Func, IntoTexValue, IsTexElem,
+    Scope, Scopes, TexContent, TexValue,
 };
 use crate::introspection::{Introspector, Locator};
 use crate::math::{Accent, AccentElem, LrElem};
 use crate::symbols::Symbol;
-use crate::syntax::ast::{self, AstNode};
-use crate::syntax::{Spanned, SyntaxNode};
+use crate::syntax::ast::{self, TexAstNode};
+use crate::syntax::{Spanned, TexSyntaxNode};
 use crate::text::TextElem;
 use crate::World;
 
@@ -402,7 +402,7 @@ impl<'a> CapturesVisitor<'a> {
     }
 
     /// Visit any node and collect all captured variables.
-    pub fn visit(&mut self, node: &SyntaxNode) {
+    pub fn visit(&mut self, node: &TexSyntaxNode) {
         match node.cast() {
             // Every identifier is a potential variable that we need to capture.
             // Identifiers that shouldn't count as captures because they

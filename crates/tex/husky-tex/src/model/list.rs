@@ -5,9 +5,9 @@ use crate::foundations::{
 };
 use crate::layout::{
     Axes, BlockElem, Cell, CellGrid, Fragment, GridLayouter, HAlignment, LayoutMultiple, Length,
-    LengthInEm, Regions, Sizing, Spacing, VAlignment,
+    LengthInEm, Regions, Spacing, TexSizing, VAlignment,
 };
-use crate::model::ParElem;
+use crate::model::ParagraphTexElem;
 use crate::text::TextElem;
 
 /// A bullet list.
@@ -145,7 +145,7 @@ impl LayoutMultiple for Packed<ListElem> {
         let indent = self.indent(styles);
         let body_indent = self.body_indent(styles);
         let gutter = if self.tight(styles) {
-            ParElem::leading_in(styles).into()
+            ParagraphTexElem::leading_in(styles).into()
         } else {
             self.spacing(styles)
                 .unwrap_or_else(|| *BlockElem::below_in(styles).amount())
@@ -171,10 +171,10 @@ impl LayoutMultiple for Packed<ListElem> {
         let stroke = None;
         let grid = CellGrid::new(
             Axes::with_x(&[
-                Sizing::Rel(indent.into()),
-                Sizing::Auto,
-                Sizing::Rel(body_indent.into()),
-                Sizing::Auto,
+                TexSizing::Rel(indent.into()),
+                TexSizing::Auto,
+                TexSizing::Rel(body_indent.into()),
+                TexSizing::Auto,
             ]),
             Axes::with_y(&[gutter.into()]),
             cells,

@@ -6,8 +6,8 @@ use indexmap::IndexMap;
 
 use crate::diag::{bail, HintedStrResult, HintedString, StrResult};
 use crate::foundations::{
-    ElementSchemaRef, Func, IntoTexValue, Module, NativeFunc, NativeFuncData, NativeType,
-    TexElement, TexValue, Type,
+    ElementSchemaRef, Func, IntoTexValue, IsTexElem, Module, NativeFunc, NativeFuncData,
+    NativeType, TexValue, Type,
 };
 use crate::util::Static;
 use crate::Library;
@@ -167,7 +167,7 @@ impl Scope {
     }
 
     /// Define a native element.
-    pub fn define_elem<T: TexElement>(&mut self) {
+    pub fn define_elem<T: IsTexElem>(&mut self) {
         let data = T::data();
         self.define(data.name, ElementSchemaRef::from(data));
     }

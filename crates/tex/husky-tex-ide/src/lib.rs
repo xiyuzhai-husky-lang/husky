@@ -13,7 +13,7 @@ pub use self::tooltip::{tooltip, Tooltip};
 use std::fmt::Write;
 
 use ecow::{eco_format, EcoString};
-use husky_tex::text::{FontInfo, FontStyle};
+use husky_tex::text::{FontInfo, TexFontStyle};
 
 /// Extract the first sentence of plain text of a piece of documentation.
 ///
@@ -70,7 +70,7 @@ fn summarize_font_family<'a>(variants: impl Iterator<Item = &'a FontInfo>) -> Ec
     let mut max_weight = 0;
     for info in &infos {
         let weight = info.variant.weight.to_number();
-        has_italic |= info.variant.style == FontStyle::Italic;
+        has_italic |= info.variant.style == TexFontStyle::Italic;
         min_weight = min_weight.min(weight);
         max_weight = min_weight.max(weight);
     }
