@@ -4461,6 +4461,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-boot-task-interface"
+version = "0.1.0"
+
+[[package]]
+name = "husky-boot-task-interface-macros"
+version = "0.1.0"
+
+[[package]]
 name = "husky-cargo-utils"
 version = "0.1.0"
 dependencies = [
@@ -4587,6 +4595,21 @@ dependencies = [
  "serde",
  "ui",
 ]
+
+[[package]]
+name = "husky-ddp-task"
+version = "0.1.0"
+dependencies = [
+ "husky-ddp-task-interface",
+]
+
+[[package]]
+name = "husky-ddp-task-interface"
+version = "0.1.0"
+
+[[package]]
+name = "husky-ddp-task-interface-macros"
+version = "0.1.0"
 
 [[package]]
 name = "husky-dec-signature"
@@ -5421,6 +5444,14 @@ dependencies = [
  "husky-val",
  "husky-vm",
 ]
+
+[[package]]
+name = "husky-io-task-interface"
+version = "0.1.0"
+
+[[package]]
+name = "husky-io-task-interface-macros"
+version = "0.1.0"
 
 [[package]]
 name = "husky-io-utils"

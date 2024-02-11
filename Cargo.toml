@@ -331,19 +331,21 @@ husky-syn-defn = { path = "crates/syntax/husky-syn-defn" }
 husky-syn-opr = { path = "crates/syntax/husky-syn-opr" }
 husky-entity-tree = { path = "crates/syntax/husky-entity-tree" }
 # tasks
+husky-boot-task = { path = "crates/tasks/husky-boot-task" }
+husky-boot-task-interface = { path = "crates/tasks/husky-boot-task-interface" }
+husky-boot-task-interface-macros = { path = "crates/tasks/husky-boot-task-interface-macros" }
+husky-ddp-task = { path = "crates/tasks/husky-ddp-task" }
+husky-ddp-task-interface = { path = "crates/tasks/husky-ddp-task-interface" }
+husky-ddp-task-interface-macros = { path = "crates/tasks/husky-ddp-task-interface-macros" }
 husky-io-task = { path = "crates/tasks/husky-io-task" }
+husky-io-task-interface = { path = "crates/tasks/husky-io-task-interface" }
+husky-io-task-interface-macros = { path = "crates/tasks/husky-io-task-interface-macros" }
 husky-ml-task = { path = "crates/tasks/husky-ml-task" }
 husky-ml-task-interface = { path = "crates/tasks/husky-ml-task-interface" }
 husky-ml-task-interface-macros = { path = "crates/tasks/husky-ml-task-interface-macros" }
 husky-task = { path = "crates/tasks/husky-task" }
 husky-task-interface = { path = "crates/tasks/husky-task-interface" }
 husky-task-interface-macros = { path = "crates/tasks/husky-task-interface-macros" }
-# toml
-husky-corgi-config-ast = { path = "crates/toml/husky-corgi-config-ast" }
-husky-manifest-ast = { path = "crates/toml/husky-manifest-ast" }
-husky-toml-ast = { path = "crates/toml/husky-toml-ast" }
-husky-toml-token = { path = "crates/toml/husky-toml-token" }
-husky-toolchain-config-ast = { path = "crates/toml/husky-toolchain-config-ast" }
 # tex
 husky-tex = { path = "crates/tex/husky-tex" }
 husky-tex-cli = { path = "crates/tex/husky-tex-cli" }
@@ -355,6 +357,12 @@ husky-tex-render = { path = "crates/tex/husky-tex-render" }
 husky-tex-svg = { path = "crates/tex/husky-tex-svg" }
 husky-tex-syntax = { path = "crates/tex/husky-tex-syntax" }
 husky-tex-timing = { path = "crates/tex/husky-tex-timing" }
+# toml
+husky-corgi-config-ast = { path = "crates/toml/husky-corgi-config-ast" }
+husky-manifest-ast = { path = "crates/toml/husky-manifest-ast" }
+husky-toml-ast = { path = "crates/toml/husky-toml-ast" }
+husky-toml-token = { path = "crates/toml/husky-toml-token" }
+husky-toolchain-config-ast = { path = "crates/toml/husky-toolchain-config-ast" }
 # utls
 husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
 husky-check-utils = { path = "crates/utils/husky-check-utils" }
