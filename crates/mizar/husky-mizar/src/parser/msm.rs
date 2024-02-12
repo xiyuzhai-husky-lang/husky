@@ -368,7 +368,7 @@ impl MsmParser {
         })
     }
 
-    fn parse_attr(&mut self) -> Result<Option<Attr>> {
+    fn parse_attr(&mut self) -> Result<Option<MizAttr>> {
         let Ok(e) = self.r.try_read_start(&mut self.buf, None)? else {
             return Ok(None);
         };
@@ -386,14 +386,14 @@ impl MsmParser {
                     }
                 }
                 let args = self.parse_terms()?;
-                Attr::Attr {
+                MizAttr::Attr {
                     pos,
                     sym: (sym, spelling),
                     args,
                 }
             }
             b"NegatedAdjective" => {
-                let attr = Attr::Non {
+                let attr = MizAttr::Non {
                     pos: self.r.get_pos(&e)?,
                     attr: Box::new(self.parse_attr()?.unwrap()),
                 };
@@ -404,7 +404,7 @@ impl MsmParser {
         }))
     }
 
-    fn parse_attrs(&mut self) -> Result<Vec<Attr>> {
+    fn parse_attrs(&mut self) -> Result<Vec<MizAttr>> {
         self.r
             .read_start(&mut self.buf, Some("Adjective-Cluster"))?;
         let mut attrs = vec![];

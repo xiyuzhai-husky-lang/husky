@@ -1079,7 +1079,7 @@ impl<'a> Parser<'a> {
         &mut self,
         allow_type: bool,
         allow_term: bool,
-    ) -> Result<(Vec<Attr>, Option<Box<Type>>), Box<Term>> {
+    ) -> Result<(Vec<MizAttr>, Option<Box<Type>>), Box<Term>> {
         let mut attrs = vec![];
         loop {
             let non = self.scan.next_if(|tok| tok.kind == MizKeyword::Non.into());
@@ -1112,13 +1112,13 @@ impl<'a> Parser<'a> {
                     },
                 ));
             };
-            let mut attr = Attr::Attr {
+            let mut attr = MizAttr::Attr {
                 pos: tok.pos,
                 sym: (sym, tok.spelling.to_owned()),
                 args,
             };
             if let Some(non) = non {
-                attr = Attr::Non {
+                attr = MizAttr::Non {
                     pos: non.pos,
                     attr: Box::new(attr),
                 };

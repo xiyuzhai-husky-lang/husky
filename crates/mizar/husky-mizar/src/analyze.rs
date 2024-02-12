@@ -1303,10 +1303,10 @@ impl Analyzer<'_> {
     }
 
     /// AnalyzeAttrFrm
-    fn elab_is_attr(&mut self, attr: &ast::Attr, pos: bool, tm: &TermQua) -> Formula {
+    fn elab_is_attr(&mut self, attr: &ast::MizAttr, pos: bool, tm: &TermQua) -> Formula {
         match attr {
-            ast::Attr::Non { attr, .. } => self.elab_is_attr(attr, !pos, tm),
-            ast::Attr::Attr { sym, args, .. } => {
+            ast::MizAttr::Non { attr, .. } => self.elab_is_attr(attr, !pos, tm),
+            ast::MizAttr::Attr { sym, args, .. } => {
                 let args = (args.iter().map(|t| self.elab_term_qua(t)))
                     .chain(std::iter::once(tm.clone()))
                     .collect_vec();
@@ -1338,10 +1338,10 @@ impl Analyzer<'_> {
     }
 
     /// AnalyzeAttribute
-    fn elab_attr(&mut self, attr: &ast::Attr, mut pos: bool, ty: &mut Type) -> MizAttr {
+    fn elab_attr(&mut self, attr: &ast::MizAttr, mut pos: bool, ty: &mut Type) -> MizAttr {
         match attr {
-            ast::Attr::Non { attr, .. } => self.elab_attr(attr, !pos, ty),
-            ast::Attr::Attr { sym, args, .. } => {
+            ast::MizAttr::Non { attr, .. } => self.elab_attr(attr, !pos, ty),
+            ast::MizAttr::Attr { sym, args, .. } => {
                 // vprintln!("elab_attr {attr:?} <- {ty:?}");
                 let v = self.lc.bound_var.push(std::mem::take(ty));
                 let args = (args.iter().map(|t| self.elab_term_qua(t)))
@@ -3424,14 +3424,14 @@ impl CollectReserved<'_> {
         tms.iter_mut().for_each(|tm| self.visit_term(tm))
     }
 
-    fn visit_attr(&mut self, attr: &mut ast::Attr) {
+    fn visit_attr(&mut self, attr: &mut ast::MizAttr) {
         match attr {
-            ast::Attr::Attr { args, .. } => self.visit_terms(args),
-            ast::Attr::Non { attr, .. } => self.visit_attr(attr),
+            ast::MizAttr::Attr { args, .. } => self.visit_terms(args),
+            ast::MizAttr::Non { attr, .. } => self.visit_attr(attr),
         }
     }
 
-    fn visit_attrs(&mut self, attrs: &mut [ast::Attr]) {
+    fn visit_attrs(&mut self, attrs: &mut [ast::MizAttr]) {
         attrs.iter_mut().for_each(|attr| self.visit_attr(attr))
     }
 
@@ -5413,7 +5413,7 @@ impl BlockReader {
     fn elab_exist_reg(
         &mut self,
         elab: &mut Analyzer,
-        concl: &[ast::Attr],
+        concl: &[ast::MizAttr],
         ty: &ast::Type,
         conds: &mut [ast::CorrCond],
         corr: &mut Option<ast::Correctness>,
@@ -5466,8 +5466,8 @@ impl BlockReader {
     fn elab_cond_reg(
         &mut self,
         elab: &mut Analyzer,
-        antecedent: &[ast::Attr],
-        concl: &[ast::Attr],
+        antecedent: &[ast::MizAttr],
+        concl: &[ast::MizAttr],
         ty: &ast::Type,
         conds: &mut [ast::CorrCond],
         corr: &mut Option<ast::Correctness>,
@@ -5549,7 +5549,7 @@ impl BlockReader {
         &mut self,
         elab: &mut Analyzer,
         term: &ast::Term,
-        concl: &[ast::Attr],
+        concl: &[ast::MizAttr],
         oty: Option<&ast::Type>,
         conds: &mut [ast::CorrCond],
         corr: &mut Option<ast::Correctness>,

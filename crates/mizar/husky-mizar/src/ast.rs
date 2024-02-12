@@ -153,7 +153,7 @@ pub enum Type {
     },
     Cluster {
         pos: Position,
-        attrs: Vec<Attr>,
+        attrs: Vec<MizAttr>,
         ty: Box<Type>,
     },
     Reservation {
@@ -240,7 +240,7 @@ pub enum Formula {
         pos: Position,
         positive: bool,
         term: Box<Term>,
-        attrs: Vec<Attr>,
+        attrs: Vec<MizAttr>,
     },
     Is {
         pos: Position,
@@ -590,7 +590,7 @@ pub enum PatternRedef {
 }
 
 #[derive(Debug)]
-pub enum Attr {
+pub enum MizAttr {
     Attr {
         pos: Position,
         sym: (AttrSymId, String),
@@ -598,14 +598,14 @@ pub enum Attr {
     },
     Non {
         pos: Position,
-        attr: Box<Attr>,
+        attr: Box<MizAttr>,
     },
 }
 
-impl Attr {
+impl MizAttr {
     pub fn pos(&self) -> Position {
         match *self {
-            Attr::Attr { pos, .. } | Attr::Non { pos, .. } => pos,
+            MizAttr::Attr { pos, .. } | MizAttr::Non { pos, .. } => pos,
         }
     }
 }
@@ -613,17 +613,17 @@ impl Attr {
 #[derive(Debug)]
 pub enum ClusterDeclKind {
     Exist {
-        concl: Vec<Attr>,
+        concl: Vec<MizAttr>,
         ty: Box<Type>,
     },
     Func {
         term: Box<Term>,
-        concl: Vec<Attr>,
+        concl: Vec<MizAttr>,
         ty: Option<Box<Type>>,
     },
     Cond {
-        antecedent: Vec<Attr>,
-        concl: Vec<Attr>,
+        antecedent: Vec<MizAttr>,
+        concl: Vec<MizAttr>,
         ty: Box<Type>,
     },
 }

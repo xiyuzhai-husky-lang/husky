@@ -22,7 +22,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 45,
+                        ast_idx: 52,
                         ident_token: IdentToken {
                             ident: `i8`,
                             token_idx: TokenIdx(
@@ -76,7 +76,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 50,
+                        ast_idx: 57,
                         ident_token: IdentToken {
                             ident: `i16`,
                             token_idx: TokenIdx(
@@ -130,7 +130,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 55,
+                        ast_idx: 62,
                         ident_token: IdentToken {
                             ident: `i32`,
                             token_idx: TokenIdx(
@@ -184,7 +184,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 60,
+                        ast_idx: 67,
                         ident_token: IdentToken {
                             ident: `i64`,
                             token_idx: TokenIdx(
@@ -238,7 +238,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 65,
+                        ast_idx: 72,
                         ident_token: IdentToken {
                             ident: `i128`,
                             token_idx: TokenIdx(
@@ -292,7 +292,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 70,
+                        ast_idx: 77,
                         ident_token: IdentToken {
                             ident: `isize`,
                             token_idx: TokenIdx(
@@ -346,7 +346,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 75,
+                        ast_idx: 82,
                         ident_token: IdentToken {
                             ident: `u8`,
                             token_idx: TokenIdx(
@@ -400,7 +400,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 80,
+                        ast_idx: 87,
                         ident_token: IdentToken {
                             ident: `u16`,
                             token_idx: TokenIdx(
@@ -454,7 +454,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 85,
+                        ast_idx: 92,
                         ident_token: IdentToken {
                             ident: `u32`,
                             token_idx: TokenIdx(
@@ -508,7 +508,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 90,
+                        ast_idx: 97,
                         ident_token: IdentToken {
                             ident: `u64`,
                             token_idx: TokenIdx(
@@ -562,7 +562,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 95,
+                        ast_idx: 102,
                         ident_token: IdentToken {
                             ident: `u128`,
                             token_idx: TokenIdx(
@@ -616,7 +616,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 100,
+                        ast_idx: 107,
                         ident_token: IdentToken {
                             ident: `usize`,
                             token_idx: TokenIdx(
@@ -670,7 +670,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 105,
+                        ast_idx: 112,
                         ident_token: IdentToken {
                             ident: `f32`,
                             token_idx: TokenIdx(
@@ -724,11 +724,11 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 110,
+                        ast_idx: 117,
                         ident_token: IdentToken {
                             ident: `f64`,
                             token_idx: TokenIdx(
-                                813,
+                                863,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -763,7 +763,7 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 41,
+                ast_idx: 48,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
                     `core::num`,
@@ -784,7 +784,7 @@ EntityTreePresheet {
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 42,
+                ast_idx: 49,
                 use_expr_idx: 5,
                 visibility: Scope::PubUnder(
                     `core::num`,
