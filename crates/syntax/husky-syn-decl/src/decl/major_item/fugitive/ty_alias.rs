@@ -25,7 +25,7 @@ pub struct TypeAliasSynDecl {
     pub path: FugitivePath,
     #[return_ref]
     pub template_parameters: TemplateSynParametersData,
-    pub expr: Option<SynExprIdx>,
+    pub ty_term: Option<SynExprIdx>,
     pub syn_expr_region: SynExprRegion,
 }
 

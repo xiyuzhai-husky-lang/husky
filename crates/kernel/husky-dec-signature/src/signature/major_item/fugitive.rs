@@ -51,6 +51,8 @@ pub(crate) fn fugitive_syn_dec_template(
         FugitiveSynDecl::FunctionGn(decl) => {
             MajorGnDecTemplate::from_decl(db, decl).map(Into::into)
         }
-        FugitiveSynDecl::TypeAlias(decl) => todo!(),
+        FugitiveSynDecl::TypeAlias(decl) => {
+            TypeAliasDecTemplate::from_decl(db, decl).map(Into::into)
+        }
     }
 }
