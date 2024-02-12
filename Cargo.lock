@@ -5839,6 +5839,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-pn-prototype"
+version = "0.1.0"
+
+[[package]]
 name = "husky-primitive-value"
 version = "0.1.0"
 
@@ -5859,6 +5863,10 @@ dependencies = [
  "tikv-jemalloc-ctl",
  "winapi",
 ]
+
+[[package]]
+name = "husky-qn-prototype"
+version = "0.1.0"
 
 [[package]]
 name = "husky-regional-token"
