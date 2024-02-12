@@ -29,7 +29,7 @@ pub fn ty_ontology_path_declarative_ty(
     db: &::salsa::Db,
     path: TypePath,
 ) -> DeclarativeTypeResult<DecTerm> {
-    let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
+    let dec_term_menu = db.dec_term_menu(path.toolchain(db)).unwrap();
     let signature = match path.dec_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
@@ -43,7 +43,7 @@ pub fn ty_ontology_path_declarative_ty(
         CurryKind::Explicit,
         variances,
         signature.template_parameters(db),
-        declarative_term_menu.ty0(),
+        dec_term_menu.ty0(),
     )
 }
 
@@ -86,7 +86,7 @@ pub fn trai_path_declarative_ty(
     db: &::salsa::Db,
     path: TraitPath,
 ) -> DeclarativeTypeResult<DecTerm> {
-    let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
+    let dec_term_menu = db.dec_term_menu(path.toolchain(db)).unwrap();
     let Ok(variances) = trai_item_variances(db, path) else {
         todo!()
     };
@@ -100,6 +100,6 @@ pub fn trai_path_declarative_ty(
         CurryKind::Explicit,
         variances,
         signature.template_parameters_without_self_ty(db),
-        declarative_term_menu.trai_ty(),
+        dec_term_menu.trai_ty(),
     )
 }

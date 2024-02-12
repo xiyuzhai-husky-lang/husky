@@ -9,7 +9,7 @@ impl<'a> SemaExprEngine<'a> {
             .current_syn_symbol_indices()
         {
             let Some(signature) = self
-                .declarative_term_region
+                .dec_term_region
                 .dec_symbol_region()
                 .current_parameter_symbol_signature(current_syn_symbol_idx)
             else {

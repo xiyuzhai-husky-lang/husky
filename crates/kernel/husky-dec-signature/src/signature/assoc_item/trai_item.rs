@@ -54,7 +54,7 @@ pub(crate) fn trai_item_syn_dec_template(
             TraitMethodFnDecTemplate::from_decl(db, decl).map(Into::into)
         }
         TraitItemSynDecl::AssocType(decl) => {
-            TraitAssocTypeDecTemplate::from_decl(db, decl).map(Into::into)
+            TraitAssocTypeDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TraitItemSynDecl::AssocVal(decl) => {
             TraitAssocValDecTemplate::from_decl(db, decl).map(Into::into)

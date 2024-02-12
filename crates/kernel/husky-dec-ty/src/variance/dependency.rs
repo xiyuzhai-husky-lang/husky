@@ -24,10 +24,7 @@ pub(crate) fn item_variance_crate_dependencies(
     db: &::salsa::Db,
     id: VarianceId,
 ) -> VarianceResultRef<&[VarianceId]> {
-    let _declarative_term_menu = db
-        .declarative_term_menu(id.path.toolchain(db))
-        .as_ref()
-        .unwrap();
+    let _declarative_term_menu = db.dec_term_menu(id.path.toolchain(db)).as_ref().unwrap();
     match id.path {
         ItemPath::Submodule(_, _) => todo!(),
         ItemPath::MajorItem(path) => match path {
@@ -59,7 +56,7 @@ pub(crate) fn declarative_ty_item_variance_crate_dependencies(
     path: TypePath,
     _idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {
-    let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
+    let _declarative_term_menu = db.dec_term_menu(path.toolchain(db)).unwrap();
     let signature = match path.dec_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
@@ -89,7 +86,7 @@ pub(crate) fn trai_item_variance_crate_dependencies(
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn form_item_variance_crate_dependencies(
     db: &::salsa::Db,
-    path: MajorFugitivePath,
+    path: FugitivePath,
     _idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {
     let _signature = match path.dec_template(db) {

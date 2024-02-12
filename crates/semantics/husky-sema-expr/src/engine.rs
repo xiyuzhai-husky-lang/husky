@@ -36,7 +36,7 @@ pub(crate) struct SemaExprEngine<'a> {
     syn_expr_region: SynExprRegion,
     syn_expr_region_data: &'a SynExprRegionData,
     regional_tokens_data: RegionalTokensData<'a>,
-    declarative_term_region: &'a SynExprDecTermRegion,
+    dec_term_region: &'a SynExprDecTermRegion,
     stack_location_registry: PlaceRegistry,
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,
@@ -117,24 +117,24 @@ impl<'a> SemaExprEngine<'a> {
             .flatten()
             .map(|term| EthTerm::ty_from_dec(db, term).ok())
             .flatten();
-        let declarative_term_region = db.syn_expr_dec_term_region(syn_expr_region);
-        let self_ty = declarative_term_region
+        let dec_term_region = db.syn_expr_dec_term_region(syn_expr_region);
+        let self_ty = dec_term_region
             .dec_symbol_region()
             .self_ty()
             .map(|self_ty| EthTerm::ty_from_dec(db, self_ty).ok())
             .flatten();
-        let self_value = declarative_term_region
+        let self_value = dec_term_region
             .dec_symbol_region()
             .self_value()
             .map(|self_value| EthSvar::from_dec(db, self_value).ok())
             .flatten();
         let mut stack_location_registry = Default::default();
-        let self_lifetime = declarative_term_region
+        let self_lifetime = dec_term_region
             .dec_symbol_region()
             .self_lifetime()
             .map(|self_lifetime| EthSvar::from_dec(db, self_lifetime).ok())
             .flatten();
-        let self_place = declarative_term_region
+        let self_place = dec_term_region
             .dec_symbol_region()
             .self_place()
             .map(|self_place| EthSvar::from_dec(db, self_place).ok())
@@ -166,7 +166,7 @@ impl<'a> SemaExprEngine<'a> {
             term_menu: db.ethereal_term_menu(toolchain),
             syn_expr_region,
             syn_expr_region_data,
-            declarative_term_region,
+            dec_term_region,
             stack_location_registry,
             sema_expr_arena: SemaExprArena::default(),
             sema_stmt_arena: SemaStmtArena::default(),

@@ -15,7 +15,7 @@ pub(crate) fn reduce_term_application(
     let argument = term_application.argument(db).reduce(db);
     let shift = term_application.shift(db);
     match function {
-        EthTerm::EntityPath(ItemPathTerm::MajorFugitive(_)) => todo!(),
+        EthTerm::EntityPath(ItemPathTerm::Fugitive(_)) => todo!(),
         EthTerm::Ritchie(_) => todo!(),
         EthTerm::Abstraction(_) => todo!(),
         EthTerm::Application(function_term_application)

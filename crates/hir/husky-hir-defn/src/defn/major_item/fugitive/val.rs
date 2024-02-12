@@ -4,7 +4,7 @@ use husky_hir_expr::helpers::hir_body_with_expr_region;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct ValHirDefn {
-    pub path: MajorFugitivePath,
+    pub path: FugitivePath,
     pub hir_decl: ValFugitiveHirDecl,
     pub body_with_hir_expr_region: Option<(HirExprIdx, HirExprRegion)>,
 }
@@ -22,11 +22,7 @@ impl From<ValHirDefn> for HirDefn {
 }
 
 impl ValHirDefn {
-    pub(super) fn new(
-        db: &::salsa::Db,
-        path: MajorFugitivePath,
-        hir_decl: ValFugitiveHirDecl,
-    ) -> Self {
+    pub(super) fn new(db: &::salsa::Db, path: FugitivePath, hir_decl: ValFugitiveHirDecl) -> Self {
         Self::new_inner(
             db,
             path,

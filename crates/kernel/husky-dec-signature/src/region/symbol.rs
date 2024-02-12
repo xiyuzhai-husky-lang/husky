@@ -166,15 +166,15 @@ impl DecSvarRegion {
     pub(crate) fn new(
         parent: Option<&DecSvarRegion>,
         syn_expr_region_data: &SynExprRegionData,
-        declarative_term_menu: &DecTermMenu,
+        dec_term_menu: &DecTermMenu,
     ) -> Self {
         let registry = parent.map_or(Default::default(), |parent| parent.symbol_registry.clone());
         let implicit_self_lifetime = syn_expr_region_data
             .has_self_lifetime()
-            .then_some(declarative_term_menu.implicit_self_lifetime());
+            .then_some(dec_term_menu.implicit_self_lifetime());
         let implicit_self_place = syn_expr_region_data
             .has_self_place()
-            .then_some(declarative_term_menu.implicit_self_place());
+            .then_some(dec_term_menu.implicit_self_place());
         let symbol_name_map =
             parent.map_or(Default::default(), |parent| parent.symbol_name_map.clone());
         Self {

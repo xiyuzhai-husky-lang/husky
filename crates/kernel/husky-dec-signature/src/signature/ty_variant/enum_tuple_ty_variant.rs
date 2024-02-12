@@ -20,14 +20,14 @@ impl EnumTupleVariantDecTemplate {
         decl: TypeTupleVariantSynDecl,
     ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
-        let declarative_term_region = syn_expr_dec_term_region(db, syn_expr_region);
+        let dec_term_region = syn_expr_dec_term_region(db, syn_expr_region);
         let fields = decl
             .fields(db)
             .iter()
             .enumerate()
             .map(|(i, field)| {
                 Ok(EnumTupleVariantFieldDecTemplate {
-                    ty: match declarative_term_region.expr_term(field.ty()) {
+                    ty: match dec_term_region.expr_term(field.ty()) {
                         Ok(ty) => ty,
                         Err(_) => {
                             return Err(DecSignatureError::FieldTypeDecTermError(

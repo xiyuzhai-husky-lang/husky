@@ -465,6 +465,7 @@ impl<'a> SemaExprEngine<'a> {
                 | SynExprRootKind::TupleStructFieldType
                 | SynExprRootKind::ConstantImplicitParameterType
                 | SynExprRootKind::ExplicitParameterType
+                | SynExprRootKind::TypeAliasTypeTerm
                 | SynExprRootKind::AssocTypeTerm => {
                     let sema_expr_idx = self.build_sema_expr(
                         root.syn_expr_idx(),

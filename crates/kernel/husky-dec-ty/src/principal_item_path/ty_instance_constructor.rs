@@ -5,7 +5,7 @@ pub fn ty_instance_constructor_path_declarative_ty(
     db: &::salsa::Db,
     path: TypePath,
 ) -> DeclarativeTypeResult<DecTerm> {
-    let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
+    let _declarative_term_menu = db.dec_term_menu(path.toolchain(db)).unwrap();
     let signature = match path.dec_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),

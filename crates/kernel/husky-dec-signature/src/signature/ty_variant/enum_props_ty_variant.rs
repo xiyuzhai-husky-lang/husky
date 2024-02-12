@@ -21,7 +21,7 @@ impl EnumPropsVariantDecTemplate {
         decl: TypePropsVariantSynDecl,
     ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
-        let declarative_term_region = syn_expr_dec_term_region(db, syn_expr_region);
+        let dec_term_region = syn_expr_dec_term_region(db, syn_expr_region);
         let fields = decl
             .fields(db)
             .iter()
@@ -29,7 +29,7 @@ impl EnumPropsVariantDecTemplate {
             .map(|(i, field)| {
                 Ok(EnumPropsVariantFieldDecTemplate {
                     ident: field.ident(),
-                    ty: declarative_term_region.expr_term(field.ty()).map_err(|_| {
+                    ty: dec_term_region.expr_term(field.ty()).map_err(|_| {
                         DecSignatureError::FieldTypeDecTermError(i.try_into().unwrap())
                     })?,
                 })

@@ -2,14 +2,14 @@ use super::*;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct ValFugitiveEthTemplate {
-    pub path: MajorFugitivePath,
+    pub path: FugitivePath,
     pub return_ty: EthTerm,
 }
 
 impl ValFugitiveEthTemplate {
     pub(super) fn from_dec(
         db: &::salsa::Db,
-        path: MajorFugitivePath,
+        path: FugitivePath,
         dec_template: MajorValDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let return_ty = EthTerm::ty_from_dec(db, dec_template.return_ty(db))?;
