@@ -25,7 +25,7 @@ members = [
     "crates/vm/*",
     "crates/benchmarks/*",
     "library/core",
-    "registry/*",
+    "registry/*", "crates/prototypes/husky-tn-prototype", "crates/prototypes/husky-vn-prototype", "crates/prototypes/husky-pn-prototype", "crates/prototypes/husky-qn-prototype",
 ]
 resolver = "2"
 
