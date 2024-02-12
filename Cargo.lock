@@ -6583,6 +6583,10 @@ name = "husky-text-span"
 version = "0.1.0"
 
 [[package]]
+name = "husky-tn-prototype"
+version = "0.1.0"
+
+[[package]]
 name = "husky-token"
 version = "0.0.0"
 dependencies = [
@@ -7086,6 +7090,10 @@ dependencies = [
  "salsa",
  "shifted-unsigned-int",
 ]
+
+[[package]]
+name = "husky-vn-prototype"
+version = "0.1.0"
 
 [[package]]
 name = "husky-websocket-utils"
