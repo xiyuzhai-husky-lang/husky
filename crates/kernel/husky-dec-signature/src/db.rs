@@ -32,13 +32,12 @@ pub struct DecSignatureJar(
     trai_syn_dec_template,
     // fugitive
     // fugitive_signature,
-    // fugitive_syn_dec_template,
+    fugitive_syn_dec_template,
     MajorValDecTemplate,
     MajorFnDecTemplate,
     MajorGnDecTemplate,
     TypeAliasDecTemplate,
     // impl block
-    // impl_block_signature_from_decl,
     TypeImplBlockDecTemplate,
     ty_impl_block_syn_dec_template,
     TraitForTypeImplBlockDecTemplate,
@@ -49,9 +48,8 @@ pub struct DecSignatureJar(
     EnumPropsVariantDecTemplate,
     EnumTupleVariantDecTemplate,
     // associated items
-    // assoc_item_syn_declarative_signature_from_decl,
     // type item
-    // ty_item_syn_dec_template,
+    ty_item_syn_dec_template,
     TypeAssocFnDecTemplate,
     TypeMethodFnDecTemplate,
     TypeMethodFunctionDecTemplate,

@@ -56,7 +56,7 @@ impl HasDecTemplate for TypeItemPath {
     }
 }
 
-// #[salsa::tracked(jar = DecSignatureJar)]
+#[salsa::tracked(jar = DecSignatureJar)]
 pub(crate) fn ty_item_syn_dec_template(
     db: &::salsa::Db,
     path: TypeItemPath,
