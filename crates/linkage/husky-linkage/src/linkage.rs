@@ -5,7 +5,7 @@ use crate::{
 use either::*;
 use husky_coword::Ident;
 use husky_entity_kind::{FugitiveKind, TraitItemKind, TypeItemKind, TypeKind};
-use husky_entity_path::{AssocItemPath, MajorFugitivePath, PreludeTraitPath, TypeVariantPath};
+use husky_entity_path::{AssocItemPath, FugitivePath, PreludeTraitPath, TypeVariantPath};
 use husky_entity_path::{TraitForTypeItemPath, TypePath};
 use husky_hir_decl::decl::{HasHirDecl, TypeHirDecl};
 use husky_hir_decl::helpers::enum_ty_has_only_unit_variants;
@@ -32,11 +32,11 @@ pub struct Linkage {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinkageData {
     MajorFn {
-        path: MajorFugitivePath,
+        path: FugitivePath,
         instantiation: LinInstantiation,
     },
     MajorVal {
-        path: MajorFugitivePath,
+        path: FugitivePath,
         instantiation: LinInstantiation,
     },
     MemoizedField {
@@ -69,7 +69,7 @@ pub enum LinkageData {
     },
     Index,
     MajorGn {
-        path: MajorFugitivePath,
+        path: FugitivePath,
         instantiation: LinInstantiation,
     },
     VecConstructor {
@@ -91,7 +91,7 @@ pub enum LinkageStructField {
 
 impl Linkage {
     /// gives a linkage if the item is eagerly defined or extern
-    pub fn new_val_item(path: MajorFugitivePath, db: &::salsa::Db) -> Option<Self> {
+    pub fn new_val_item(path: FugitivePath, db: &::salsa::Db) -> Option<Self> {
         let FugitiveHirDefn::Val(hir_defn) = path.hir_defn(db).unwrap() else {
             unreachable!()
         };
@@ -206,7 +206,7 @@ impl Linkage {
     }
 
     pub fn new_function_fn_item(
-        path: MajorFugitivePath,
+        path: FugitivePath,
         hir_instantiation: &HirInstantiation,
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
@@ -222,7 +222,7 @@ impl Linkage {
     }
 
     pub fn new_function_gn_item(
-        path: MajorFugitivePath,
+        path: FugitivePath,
         hir_instantiation: &HirInstantiation,
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,

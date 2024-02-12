@@ -7,7 +7,7 @@ pub use self::html::*;
 use crate::*;
 use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{
-    AssocItemPath, MajorFugitivePath, MajorItemPath, PrincipalEntityPath, TraitForTypeItemPath,
+    AssocItemPath, FugitivePath, MajorItemPath, PrincipalEntityPath, TraitForTypeItemPath,
     TypePath, TypeVariantPath,
 };
 use husky_fly_term::signature::{FlyFieldSignature, MethodFlySignature};
@@ -65,12 +65,12 @@ pub enum HirLazyExprData {
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
     },
     FunctionFnItemCall {
-        path: MajorFugitivePath,
+        path: FugitivePath,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
     },
     FunctionGnItemCall {
-        path: MajorFugitivePath,
+        path: FugitivePath,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
     },

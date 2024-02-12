@@ -30,7 +30,7 @@ impl From<FugitiveHirDefn> for HirDefn {
 }
 
 impl FugitiveHirDefn {
-    pub fn path(self, db: &::salsa::Db) -> MajorFugitivePath {
+    pub fn path(self, db: &::salsa::Db) -> FugitivePath {
         match self {
             FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.path(db),
             FugitiveHirDefn::Val(hir_defn) => hir_defn.path(db),
@@ -82,7 +82,7 @@ impl FugitiveHirDefn {
     }
 }
 
-impl HasHirDefn for MajorFugitivePath {
+impl HasHirDefn for FugitivePath {
     type HirDefn = FugitiveHirDefn;
 
     fn hir_defn(self, db: &::salsa::Db) -> Option<Self::HirDefn> {
@@ -91,10 +91,7 @@ impl HasHirDefn for MajorFugitivePath {
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-pub(crate) fn fugitive_hir_defn(
-    db: &::salsa::Db,
-    path: MajorFugitivePath,
-) -> Option<FugitiveHirDefn> {
+pub(crate) fn fugitive_hir_defn(db: &::salsa::Db, path: FugitivePath) -> Option<FugitiveHirDefn> {
     match path.hir_decl(db)? {
         FugitiveHirDecl::FunctionFn(hir_decl) => {
             Some(FunctionFnHirDefn::new(db, path, hir_decl).into())

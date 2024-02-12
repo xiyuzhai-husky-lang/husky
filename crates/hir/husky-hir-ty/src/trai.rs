@@ -22,7 +22,7 @@ impl HirTrait {
             EthTerm::Symbol(_) => todo!(),
             EthTerm::Hvar(_) => todo!(),
             EthTerm::EntityPath(path) => match path {
-                ItemPathTerm::MajorFugitive(_) => todo!(),
+                ItemPathTerm::Fugitive(_) => todo!(),
                 ItemPathTerm::Trait(trai_path) => Self::new(db, trai_path, smallvec![]),
                 ItemPathTerm::TypeOntology(_) => todo!(),
                 ItemPathTerm::TypeInstance(_) => todo!(),

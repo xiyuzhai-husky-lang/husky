@@ -11,8 +11,8 @@ impl MajorValDecTemplate {
         decl: MajorValSynDecl,
     ) -> DecSignatureResult<MajorValDecTemplate> {
         let syn_expr_region = decl.syn_expr_region(db);
-        let declarative_term_region = syn_expr_dec_term_region(db, syn_expr_region);
-        let return_ty = declarative_term_region.expr_term(decl.return_ty(db).syn_expr_idx())?;
+        let dec_term_region = syn_expr_dec_term_region(db, syn_expr_region);
+        let return_ty = dec_term_region.expr_term(decl.return_ty(db).syn_expr_idx())?;
         Ok(MajorValDecTemplate::new(db, return_ty))
     }
 

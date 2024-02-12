@@ -56,7 +56,7 @@ impl HasType for TraitPath {
     }
 }
 
-impl HasType for MajorFugitivePath {
+impl HasType for FugitivePath {
     fn ty(self, db: &::salsa::Db) -> EthTermResult<EthTerm> {
         EthTerm::ty_from_dec(db, fugitive_path_declarative_ty(db, self)?)
     }
@@ -118,7 +118,7 @@ impl EthTerm {
             EthTerm::Symbol(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
             EthTerm::Hvar(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
             EthTerm::EntityPath(slf) => match slf {
-                ItemPathTerm::MajorFugitive(_path) => todo!(),
+                ItemPathTerm::Fugitive(_path) => todo!(),
                 ItemPathTerm::Trait(path) => {
                     RawType::Declarative(trai_path_declarative_ty(db, path)?)
                 }

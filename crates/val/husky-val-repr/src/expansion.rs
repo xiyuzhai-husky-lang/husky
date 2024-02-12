@@ -778,10 +778,7 @@ fn runtime_constants(
 fn val_item_val_repr_expansions(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> Vec<(
-    husky_entity_path::MajorFugitivePath,
-    Option<ValReprExpansion>,
-)> {
+) -> Vec<(husky_entity_path::FugitivePath, Option<ValReprExpansion>)> {
     val_item_val_reprs(db, module_path)
         .into_iter()
         .map(|(path, val_repr)| (path, val_repr.expansion(db)))

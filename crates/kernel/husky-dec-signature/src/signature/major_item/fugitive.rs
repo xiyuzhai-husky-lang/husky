@@ -31,7 +31,7 @@ impl FugitiveDecTemplate {
     }
 }
 
-impl HasDecTemplate for MajorFugitivePath {
+impl HasDecTemplate for FugitivePath {
     type DecTemplate = FugitiveDecTemplate;
 
     fn dec_template(self, db: &::salsa::Db) -> DecSignatureResult<Self::DecTemplate> {
@@ -42,16 +42,15 @@ impl HasDecTemplate for MajorFugitivePath {
 // #[salsa::tracked(jar = DecSignatureJar)]
 pub(crate) fn fugitive_syn_dec_template(
     db: &::salsa::Db,
-    path: MajorFugitivePath,
+    path: FugitivePath,
 ) -> DecSignatureResult<FugitiveDecTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
-        FugitiveSynDecl::FunctionFn(decl) => {
-            MajorFnDecTemplate::from_decl(db, decl).map(Into::into)
-        }
+        FugitiveSynDecl::Fn(decl) => MajorFnDecTemplate::from_decl(db, decl).map(Into::into),
         FugitiveSynDecl::Val(decl) => MajorValDecTemplate::from_decl(db, decl).map(Into::into),
         FugitiveSynDecl::FunctionGn(decl) => {
             MajorGnDecTemplate::from_decl(db, decl).map(Into::into)
         }
+        FugitiveSynDecl::TypeAlias(decl) => todo!(),
     }
 }

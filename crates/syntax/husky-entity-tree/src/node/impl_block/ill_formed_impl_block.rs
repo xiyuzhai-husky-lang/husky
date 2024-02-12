@@ -127,7 +127,7 @@ pub enum ImplBlockIllForm {
     #[error("expected `derive` identifier")]
     ExpectedDeriveIdent(TokenStreamState),
     #[error("UnexpectedFugitivePath")]
-    UnexpectedFugitivePath(MajorFugitivePath),
+    UnexpectedFugitivePath(FugitivePath),
     #[error("InvalidTypeSketch")]
     InvalidTypeSketch,
 }

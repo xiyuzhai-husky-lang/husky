@@ -13,7 +13,7 @@ pub(super) struct DecTermEngine<'a> {
     db: &'a ::salsa::Db,
     toolchain: Toolchain,
     syn_expr_region_data: &'a SynExprRegionData,
-    declarative_term_menu: &'a DecTermMenu,
+    dec_term_menu: &'a DecTermMenu,
     symbol_declarative_term_region: DecSvarRegion,
     expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
     /// todo: change this to ordered
@@ -43,17 +43,17 @@ impl<'a> DecTermEngine<'a> {
         let toolchain = syn_expr_region.toolchain(db);
         // ad hoc
         let _item_path_menu = item_path_menu(db, toolchain);
-        let declarative_term_menu = db.declarative_term_menu(toolchain).unwrap();
+        let dec_term_menu = db.dec_term_menu(toolchain).unwrap();
         let syn_expr_region_data = &syn_expr_region.data(db);
         Self {
             db,
             toolchain,
             syn_expr_region_data,
-            declarative_term_menu,
+            dec_term_menu,
             symbol_declarative_term_region: DecSvarRegion::new(
                 parent_term_symbol_region,
                 syn_expr_region_data,
-                declarative_term_menu,
+                dec_term_menu,
             ),
             expr_terms: SynExprMap::new(syn_expr_region_data.expr_arena()),
             pattern_expr_ty_infos: SynPatternExprMap::new(
@@ -121,7 +121,7 @@ impl<'a> DecTermEngine<'a> {
                             DecSvar::new_lifetime(
                                 self.db,
                                 self.toolchain,
-                                self.declarative_term_menu,
+                                self.dec_term_menu,
                                 &mut self.symbol_declarative_term_region.symbol_registry_mut(),
                                 attrs,
                                 variance,
@@ -132,7 +132,7 @@ impl<'a> DecTermEngine<'a> {
                             DecSvar::new_place(
                                 self.db,
                                 self.toolchain,
-                                self.declarative_term_menu,
+                                self.dec_term_menu,
                                 &mut self.symbol_declarative_term_region.symbol_registry_mut(),
                                 attrs,
                                 variance,
@@ -143,7 +143,7 @@ impl<'a> DecTermEngine<'a> {
                             DecSvar::new_ty(
                                 self.db,
                                 self.toolchain,
-                                self.declarative_term_menu,
+                                self.dec_term_menu,
                                 &mut self.symbol_declarative_term_region.symbol_registry_mut(),
                                 attrs,
                                 variance,
@@ -294,6 +294,7 @@ impl<'a> DecTermEngine<'a> {
                 | SynExprRootKind::ReturnType
                 | SynExprRootKind::TupleStructFieldType
                 | SynExprRootKind::ExplicitParameterDefaultValue { .. }
+                | SynExprRootKind::TypeAliasTypeTerm
                 | SynExprRootKind::AssocTypeTerm => (),
                 SynExprRootKind::SelfType => {
                     let self_ty_term = self.infer_new_expr_term(expr_root.syn_expr_idx()).ok();
@@ -446,7 +447,7 @@ impl<'a> DecTermEngine<'a> {
                         DecTerm::LeashOrBitNot(self.syn_expr_region_data.path().toolchain(self.db))
                     }
                     SynPrefixOpr::Ref => todo!(),
-                    SynPrefixOpr::Option => self.declarative_term_menu.option_ty_path(),
+                    SynPrefixOpr::Option => self.dec_term_menu.option_ty_path(),
                 };
                 Ok(DecApplication::new(self.db, tmpl, opd).into())
             }
@@ -541,7 +542,7 @@ impl<'a> DecTermEngine<'a> {
                 .into())
             }
             SynExprData::BoxColonList { ref items, .. } => match items.len() {
-                0 => Ok(self.declarative_term_menu.slice_ty_path()),
+                0 => Ok(self.dec_term_menu.slice_ty_path()),
                 _ => todo!(),
             },
             SynExprData::Bracketed { item, .. } => self.infer_new_expr_term(item),
@@ -556,14 +557,14 @@ impl<'a> DecTermEngine<'a> {
                 None => match self.symbol_declarative_term_region.self_place() {
                     Some(place) => Ok(DecApplication::new(
                         self.db,
-                        self.declarative_term_menu.at_ty_path(),
+                        self.dec_term_menu.at_ty_path(),
                         place.into(),
                     )
                     .into()),
                     None => todo!(),
                 },
             },
-            SynExprData::Unit { .. } => Ok(self.declarative_term_menu.unit()),
+            SynExprData::Unit { .. } => Ok(self.dec_term_menu.unit()),
             SynExprData::EmptyHtmlTag {
                 empty_html_bra_idx: langle_token_idx,
                 function_ident,
@@ -591,7 +592,7 @@ impl<'a> DecTermEngine<'a> {
                     .collect::<DecTermResult2<SmallVec<_>>>()?;
                 let return_ty = match return_ty_expr {
                     Some(return_ty_expr) => self.infer_new_expr_term(return_ty_expr)?,
-                    None => self.declarative_term_menu.unit(),
+                    None => self.dec_term_menu.unit(),
                 };
                 Ok(DecRitchie::new(self.db, ritchie_kind, parameter_tys, return_ty).into())
             }

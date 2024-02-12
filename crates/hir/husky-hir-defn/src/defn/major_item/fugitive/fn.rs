@@ -5,7 +5,7 @@ use husky_hir_decl::{
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct FunctionFnHirDefn {
-    pub path: MajorFugitivePath,
+    pub path: FugitivePath,
     pub hir_decl: FunctionMajorFnHirDecl,
     pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
@@ -25,7 +25,7 @@ impl From<FunctionFnHirDefn> for HirDefn {
 impl FunctionFnHirDefn {
     pub(super) fn new(
         db: &::salsa::Db,
-        path: MajorFugitivePath,
+        path: FugitivePath,
         hir_decl: FunctionMajorFnHirDecl,
     ) -> Self {
         FunctionFnHirDefn::new_inner(

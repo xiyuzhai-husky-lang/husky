@@ -28,14 +28,6 @@ impl MajorItemSynNodeDecl {
         }
     }
 
-    pub fn syn_node_path(self, db: &::salsa::Db) -> ItemSynNodePath {
-        match self {
-            MajorItemSynNodeDecl::Type(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
-            MajorItemSynNodeDecl::Fugitive(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
-            MajorItemSynNodeDecl::Trait(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
-        }
-    }
-
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
             MajorItemSynNodeDecl::Type(syn_node_decl) => syn_node_decl.errors(db),

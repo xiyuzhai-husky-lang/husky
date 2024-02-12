@@ -6,7 +6,7 @@ use super::*;
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn fugitive_path_declarative_ty(
     db: &::salsa::Db,
-    path: MajorFugitivePath,
+    path: FugitivePath,
 ) -> DeclarativeTypeResult<DecTerm> {
     let signature = match path.dec_template(db) {
         Ok(signature) => signature,
@@ -17,7 +17,7 @@ pub fn fugitive_path_declarative_ty(
     };
     // ad hoc
     let variances = &variances;
-    let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
+    let dec_term_menu = db.dec_term_menu(path.toolchain(db)).unwrap();
     match signature {
         FugitiveDecTemplate::Fn(signature) => {
             fn_path_declarative_ty(db, path.toolchain(db), variances, signature)
@@ -26,7 +26,7 @@ pub fn fugitive_path_declarative_ty(
             gn_path_declarative_ty(db, path.toolchain(db), variances, signature)
         }
         FugitiveDecTemplate::Val(signature) => {
-            val_path_declarative_ty(db, signature, declarative_term_menu)
+            val_path_declarative_ty(db, signature, dec_term_menu)
         }
         FugitiveDecTemplate::TypeAlias(_) => todo!(),
     }

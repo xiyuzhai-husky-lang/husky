@@ -42,6 +42,6 @@ pub struct DecTermJar(
     crate::term::ty_as_trai_item::DecTypeAsTraitItem,
     crate::term::constraint::DecTraitConstraint,
     crate::term::list::DecList,
-    declarative_term_menu,
+    dec_term_menu,
     DecWrapper,
 );

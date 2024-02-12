@@ -11,7 +11,7 @@ impl DeclarativeTemplateParameter {
     fn new_explicit_from_decl(
         parameter_decl_pattern: &TemplateSynParameterData,
         region: &SynExprDecTermRegion,
-        declarative_term_menu: &DecTermMenu,
+        dec_term_menu: &DecTermMenu,
     ) -> DeclarativeTemplateParameter {
         let symbol = parameter_decl_pattern.symbol();
         let annotated_variance =
@@ -97,15 +97,15 @@ impl DeclarativeTemplateParameter {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct DeclarativeTemplateParameterTemplates {
+pub struct DecTemplateParameters {
     data: SmallVec<[DeclarativeTemplateParameter; 4]>,
 }
 
-impl DeclarativeTemplateParameterTemplates {
+impl DecTemplateParameters {
     pub(crate) fn from_decl(
         template_parameter_obelisks: &[TemplateSynParameterData],
-        declarative_term_region: &SynExprDecTermRegion,
-        declarative_term_menu: &DecTermMenu,
+        dec_term_region: &SynExprDecTermRegion,
+        dec_term_menu: &DecTermMenu,
     ) -> Self {
         Self {
             data: template_parameter_obelisks
@@ -113,12 +113,12 @@ impl DeclarativeTemplateParameterTemplates {
                 .map(|parameter_obelisk| {
                     DeclarativeTemplateParameter::new_explicit_from_decl(
                         parameter_obelisk,
-                        declarative_term_region,
-                        declarative_term_menu,
+                        dec_term_region,
+                        dec_term_menu,
                     )
                 })
                 .chain(
-                    declarative_term_region
+                    dec_term_region
                         .dec_symbol_region()
                         .implicit_template_parameter_symbols()
                         .iter()
@@ -133,7 +133,7 @@ impl DeclarativeTemplateParameterTemplates {
     }
 }
 
-impl std::ops::Deref for DeclarativeTemplateParameterTemplates {
+impl std::ops::Deref for DecTemplateParameters {
     type Target = [DeclarativeTemplateParameter];
 
     fn deref(&self) -> &Self::Target {

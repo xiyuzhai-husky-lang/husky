@@ -202,7 +202,7 @@ impl<'a> SemaExprEngine<'a> {
                 current_syn_symbol_idx,
                 current_syn_symbol_kind,
             } => match self
-                .declarative_term_region
+                .dec_term_region
                 .current_syn_symbol_signature(*current_syn_symbol_idx)
             {
                 Some(current_syn_symbol_signature) => {
@@ -384,7 +384,7 @@ impl<'a> SemaExprEngine<'a> {
                 .into(),
                 MajorItemPath::Trait(trai_path) => ItemPathTerm::Trait(trai_path).into(),
                 MajorItemPath::Fugitive(fugitive_path) => {
-                    ItemPathTerm::MajorFugitive(fugitive_path).into()
+                    ItemPathTerm::Fugitive(fugitive_path).into()
                 }
             },
             // todo: generics

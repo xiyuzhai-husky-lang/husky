@@ -43,6 +43,7 @@ pub enum SynExprRootKind {
     ValExpr,
     EvalExpr,
     AssocTypeTerm,
+    TypeAliasTypeTerm,
 }
 
 #[salsa::debug_with_db]

@@ -8,7 +8,7 @@ impl EthTerm {
             EthTerm::Literal(_) => FinalDestination::AnyDerived,
             EthTerm::Symbol(_) | EthTerm::Hvar(_) => FinalDestination::AnyOriginal,
             EthTerm::EntityPath(path) => match path {
-                ItemPathTerm::MajorFugitive(path) => match path.fugitive_kind(db) {
+                ItemPathTerm::Fugitive(path) => match path.fugitive_kind(db) {
                     FugitiveKind::TypeAlias => todo!(),
                     FugitiveKind::FunctionFn
                     | FugitiveKind::FunctionGn

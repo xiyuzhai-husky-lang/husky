@@ -47,7 +47,7 @@ impl<'a> DeclParser<'a> {
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct MajorValSynDecl {
     #[id]
-    pub path: MajorFugitivePath,
+    pub path: FugitivePath,
     pub return_ty: ReturnTypeBeforeEqSyndicate,
     pub expr: Option<SynExprIdx>,
     pub syn_expr_region: SynExprRegion,
@@ -56,18 +56,12 @@ pub struct MajorValSynDecl {
 impl MajorValSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
-        path: MajorFugitivePath,
+        path: FugitivePath,
         syn_node_decl: MajorValSynNodeDecl,
     ) -> DeclResult<Self> {
         let val_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let expr = syn_node_decl.expr(db);
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(MajorValSynDecl::new(
-            db,
-            path,
-            val_ty,
-            expr,
-            syn_expr_region,
-        ))
+        Ok(Self::new(db, path, val_ty, expr, syn_expr_region))
     }
 }

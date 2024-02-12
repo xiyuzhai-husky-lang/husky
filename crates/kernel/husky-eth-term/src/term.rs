@@ -90,7 +90,7 @@ impl EthTerm {
             DecTerm::Symbol(declarative_term) => EthSvar::from_dec(db, declarative_term)?.into(),
             DecTerm::Hvar(declarative_term) => EthHvar::from_dec(db, declarative_term)?.into(),
             DecTerm::EntityPath(declarative_term) => match declarative_term {
-                DecItemPath::Fugitive(path) => ItemPathTerm::MajorFugitive(path).into(),
+                DecItemPath::Fugitive(path) => ItemPathTerm::Fugitive(path).into(),
                 DecItemPath::Trait(path) => ItemPathTerm::Trait(path).into(),
                 DecItemPath::Type(path) => match ty_expectation {
                     TypeFinalDestinationExpectation::EqsSort => {
@@ -209,7 +209,7 @@ impl EthTerm {
             )
             | EthTerm::Category(_)
             | EthTerm::Universe(_) => self,
-            EthTerm::EntityPath(ItemPathTerm::MajorFugitive(_)) => todo!(),
+            EthTerm::EntityPath(ItemPathTerm::Fugitive(_)) => todo!(),
             EthTerm::Curry(_) => self,
             EthTerm::Ritchie(slf) => slf.reduce(db).into(),
             EthTerm::Abstraction(_) => todo!(),
@@ -231,10 +231,7 @@ pub(crate) fn ethereal_term_from_application_or_ritchie_call_declarative_term(
         RawType::Declarative(DecTerm::Curry(curry)) => {
             let items = declarative_term.items(db);
             let argument = match items.len() {
-                0 => db
-                    .declarative_term_menu(curry.toolchain(db))
-                    .unwrap()
-                    .unit(),
+                0 => db.dec_term_menu(curry.toolchain(db)).unwrap().unit(),
                 1 => items[0],
                 _ => todo!(),
             };

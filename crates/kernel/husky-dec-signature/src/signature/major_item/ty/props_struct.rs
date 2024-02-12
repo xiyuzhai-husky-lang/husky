@@ -3,7 +3,7 @@ use super::*;
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct PropsStructTypeDecTemplate {
     #[return_ref]
-    pub template_parameters: DeclarativeTemplateParameterTemplates,
+    pub template_parameters: DecTemplateParameters,
     pub self_ty: DecTerm,
     #[return_ref]
     pub fields: SmallVec<[PropsStructFieldDecTemplate; 4]>,
@@ -25,14 +25,12 @@ impl PropsStructTypeDecTemplate {
         decl: PropsStructTypeSynDecl,
     ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
-        let declarative_term_region = syn_expr_dec_term_region(db, syn_expr_region);
-        let declarative_term_menu = db
-            .declarative_term_menu(syn_expr_region.toolchain(db))
-            .unwrap();
-        let template_parameters = DeclarativeTemplateParameterTemplates::from_decl(
+        let dec_term_region = syn_expr_dec_term_region(db, syn_expr_region);
+        let dec_term_menu = db.dec_term_menu(syn_expr_region.toolchain(db)).unwrap();
+        let template_parameters = DecTemplateParameters::from_decl(
             decl.template_parameters(db),
-            declarative_term_region,
-            declarative_term_menu,
+            dec_term_region,
+            dec_term_menu,
         );
         let self_ty = construct_self_ty(db, path, &template_parameters);
         let fields = decl
@@ -42,7 +40,7 @@ impl PropsStructTypeDecTemplate {
             .map(|(i, field)| {
                 Ok(PropsStructFieldDecTemplate {
                     ident: field.ident(),
-                    ty: match declarative_term_region.expr_term(field.ty()) {
+                    ty: match dec_term_region.expr_term(field.ty()) {
                         Ok(ty) => ty,
                         Err(_) => {
                             return Err(DecSignatureError::FieldTypeDecTermError(

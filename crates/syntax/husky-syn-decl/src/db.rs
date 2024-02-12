@@ -56,7 +56,7 @@ pub struct SynDeclJar(
     crate::decl::major_item::MajorValSynNodeDecl,
     crate::decl::major_item::MajorValSynDecl,
     crate::decl::major_item::MajorFnSynNodeDecl,
-    crate::decl::major_item::FunctionMajorFnSynDecl,
+    crate::decl::major_item::MajorFnSynDecl,
     crate::decl::major_item::MajorGnSynNodeDecl,
     crate::decl::major_item::MajorGnSynDecl,
     crate::decl::major_item::TypeAliasSynNodeDecl,
