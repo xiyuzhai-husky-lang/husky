@@ -10,7 +10,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Enum(
                         EnumTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
@@ -47,7 +47,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Enum(
                         EnumTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
@@ -93,7 +93,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Enum(
                         EnumTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
@@ -139,7 +139,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Gn(
                         MajorGnDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
@@ -231,7 +231,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -317,7 +317,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -355,7 +355,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -452,7 +452,7 @@
                                     ),
                                 },
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             ty_term: EntityPath(
@@ -511,7 +511,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -562,7 +562,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -659,7 +659,7 @@
                                     ),
                                 },
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             ty_term: EntityPath(
@@ -718,7 +718,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {

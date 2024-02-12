@@ -10,7 +10,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                         },
@@ -30,7 +30,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                         },
@@ -50,7 +50,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                         },
@@ -70,7 +70,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                         },
@@ -90,7 +90,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                         },
@@ -110,7 +110,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                         },
@@ -130,7 +130,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                         },
@@ -150,7 +150,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                         },
@@ -170,7 +170,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                         },
@@ -190,7 +190,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                         },
@@ -210,7 +210,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                         },
@@ -230,7 +230,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                         },
@@ -250,7 +250,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                         },
@@ -270,7 +270,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                         },
@@ -301,7 +301,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(
@@ -333,7 +333,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::i8(0)::abs`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -359,7 +359,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -409,7 +409,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::i8(0)::max`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -435,7 +435,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -508,7 +508,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         trai: Application(
@@ -579,7 +579,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -655,7 +655,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(
@@ -687,7 +687,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::i16(0)::abs`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -713,7 +713,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -763,7 +763,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::i16(0)::max`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -789,7 +789,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -862,7 +862,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         trai: Application(
@@ -933,7 +933,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -1009,7 +1009,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(
@@ -1041,7 +1041,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::i32(0)::abs`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -1067,7 +1067,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -1117,7 +1117,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::i32(0)::max`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -1143,7 +1143,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -1210,7 +1210,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::i32(0)::min`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -1236,7 +1236,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -1309,7 +1309,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         trai: Application(
@@ -1380,7 +1380,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -1456,7 +1456,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(
@@ -1488,7 +1488,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::i64(0)::abs`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -1514,7 +1514,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -1570,7 +1570,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         trai: Application(
@@ -1641,7 +1641,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -1717,7 +1717,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(
@@ -1749,7 +1749,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::i128(0)::abs`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -1775,7 +1775,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -1831,7 +1831,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         trai: Application(
@@ -1902,7 +1902,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -1978,7 +1978,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(
@@ -2010,7 +2010,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::isize(0)::abs`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -2036,7 +2036,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -2092,7 +2092,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         trai: Application(
@@ -2163,7 +2163,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -2239,7 +2239,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(
@@ -2271,7 +2271,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::u8(0)::abs`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -2297,7 +2297,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -2353,7 +2353,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         trai: Application(
@@ -2424,7 +2424,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -2500,7 +2500,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(
@@ -2532,7 +2532,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::u16(0)::abs`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -2558,7 +2558,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -2614,7 +2614,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         trai: Application(
@@ -2685,7 +2685,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -2761,7 +2761,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(
@@ -2793,7 +2793,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::u32(0)::abs`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -2819,7 +2819,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -2875,7 +2875,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         trai: Application(
@@ -2946,7 +2946,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -3022,7 +3022,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(
@@ -3054,7 +3054,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::u64(0)::abs`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -3080,7 +3080,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -3136,7 +3136,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         trai: Application(
@@ -3207,7 +3207,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -3283,7 +3283,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(
@@ -3315,7 +3315,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::u128(0)::abs`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -3341,7 +3341,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -3397,7 +3397,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         trai: Application(
@@ -3468,7 +3468,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -3544,7 +3544,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(
@@ -3576,7 +3576,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::usize(0)::abs`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -3602,7 +3602,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -3658,7 +3658,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         trai: Application(
@@ -3729,7 +3729,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -3805,7 +3805,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(
@@ -3837,7 +3837,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -3863,7 +3863,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -3913,7 +3913,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -3939,7 +3939,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -3989,7 +3989,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -4015,7 +4015,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -4082,7 +4082,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -4108,7 +4108,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -4175,7 +4175,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -4201,7 +4201,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -4251,7 +4251,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::f32(0)::cos`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -4277,7 +4277,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -4327,7 +4327,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::f32(0)::sin`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -4353,7 +4353,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -4403,7 +4403,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::f32(0)::acos`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -4429,7 +4429,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -4485,7 +4485,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         trai: Application(
@@ -4556,7 +4556,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -4632,7 +4632,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(
@@ -4664,7 +4664,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::f64(0)::abs`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -4690,7 +4690,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -4740,7 +4740,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::num::f64(0)::acos`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -4766,7 +4766,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -4822,7 +4822,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         trai: Application(
@@ -4893,7 +4893,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {

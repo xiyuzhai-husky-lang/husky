@@ -10,7 +10,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Enum(
                         EnumTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_ty: EntityPath(

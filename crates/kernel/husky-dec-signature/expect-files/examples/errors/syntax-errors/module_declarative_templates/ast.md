@@ -10,7 +10,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::PropsStruct(
                         PropsStructTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_ty: EntityPath(
@@ -70,7 +70,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(

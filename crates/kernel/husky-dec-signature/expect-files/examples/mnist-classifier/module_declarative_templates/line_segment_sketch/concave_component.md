@@ -10,7 +10,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::PropsStruct(
                         PropsStructTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_ty: EntityPath(
@@ -107,7 +107,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Fn(
                         MajorFnDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -158,7 +158,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         trai: EntityPath(
@@ -233,7 +233,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -292,7 +292,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(
@@ -324,7 +324,7 @@
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -369,7 +369,7 @@
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -414,7 +414,7 @@
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -459,7 +459,7 @@
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -504,7 +504,7 @@
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -549,7 +549,7 @@
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -594,7 +594,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -620,7 +620,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -670,7 +670,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -696,7 +696,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -746,7 +746,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -772,7 +772,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -822,7 +822,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -848,7 +848,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -898,7 +898,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -924,7 +924,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -974,7 +974,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -1000,7 +1000,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {

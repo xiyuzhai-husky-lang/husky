@@ -10,7 +10,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Enum(
                         EnumTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
@@ -64,7 +64,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -179,7 +179,7 @@
                                     ),
                                 },
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             ty_term: Symbol(
@@ -234,7 +234,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {

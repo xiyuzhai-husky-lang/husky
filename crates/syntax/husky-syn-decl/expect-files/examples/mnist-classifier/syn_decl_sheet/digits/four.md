@@ -125,8 +125,8 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::FunctionFn(
-                        FunctionMajorFnSynDecl {
+                    FugitiveSynDecl::Fn(
+                        MajorFnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
@@ -814,8 +814,8 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::FunctionFn(
-                        FunctionMajorFnSynDecl {
+                    FugitiveSynDecl::Fn(
+                        MajorFnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
@@ -1051,8 +1051,8 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::FunctionFn(
-                        FunctionMajorFnSynDecl {
+                    FugitiveSynDecl::Fn(
+                        MajorFnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [

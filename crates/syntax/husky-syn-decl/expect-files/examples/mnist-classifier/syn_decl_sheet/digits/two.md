@@ -125,8 +125,8 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::FunctionFn(
-                        FunctionMajorFnSynDecl {
+                    FugitiveSynDecl::Fn(
+                        MajorFnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
@@ -362,8 +362,8 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::FunctionFn(
-                        FunctionMajorFnSynDecl {
+                    FugitiveSynDecl::Fn(
+                        MajorFnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
@@ -599,8 +599,8 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::FunctionFn(
-                        FunctionMajorFnSynDecl {
+                    FugitiveSynDecl::Fn(
+                        MajorFnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [

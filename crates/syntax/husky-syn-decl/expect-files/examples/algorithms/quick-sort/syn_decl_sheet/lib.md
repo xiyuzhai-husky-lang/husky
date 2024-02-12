@@ -8,8 +8,8 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::FunctionFn(
-                        FunctionMajorFnSynDecl {
+                    FugitiveSynDecl::Fn(
+                        MajorFnSynDecl {
                             path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                             template_parameters: [
                                 TemplateSynParameterData {
@@ -301,8 +301,8 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::FunctionFn(
-                        FunctionMajorFnSynDecl {
+                    FugitiveSynDecl::Fn(
+                        MajorFnSynDecl {
                             path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                             template_parameters: [
                                 TemplateSynParameterData {
@@ -780,8 +780,8 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::FunctionFn(
-                        FunctionMajorFnSynDecl {
+                    FugitiveSynDecl::Fn(
+                        MajorFnSynDecl {
                             path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                             template_parameters: [
                                 TemplateSynParameterData {
@@ -1292,8 +1292,8 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::FunctionFn(
-                        FunctionMajorFnSynDecl {
+                    FugitiveSynDecl::Fn(
+                        MajorFnSynDecl {
                             path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [],
@@ -1376,8 +1376,8 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::FunctionFn(
-                        FunctionMajorFnSynDecl {
+                    FugitiveSynDecl::Fn(
+                        MajorFnSynDecl {
                             path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [],

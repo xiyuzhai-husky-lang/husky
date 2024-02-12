@@ -322,8 +322,8 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::FunctionFn(
-                        FunctionMajorFnSynDecl {
+                    FugitiveSynDecl::Fn(
+                        MajorFnSynDecl {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
