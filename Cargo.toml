@@ -336,9 +336,9 @@ husky-entity-tree = { path = "crates/syntax/husky-entity-tree" }
 husky-boot-task = { path = "crates/tasks/husky-boot-task" }
 husky-boot-task-interface = { path = "crates/tasks/husky-boot-task-interface" }
 husky-boot-task-interface-macros = { path = "crates/tasks/husky-boot-task-interface-macros" }
-husky-ddp-task = { path = "crates/tasks/husky-ddp-task" }
-husky-ddp-task-interface = { path = "crates/tasks/husky-ddp-task-interface" }
-husky-ddp-task-interface-macros = { path = "crates/tasks/husky-ddp-task-interface-macros" }
+husky-ndp-task = { path = "crates/tasks/husky-ndp-task" }
+husky-ndp-task-interface = { path = "crates/tasks/husky-ndp-task-interface" }
+husky-ndp-task-interface-macros = { path = "crates/tasks/husky-ndp-task-interface-macros" }
 husky-io-task = { path = "crates/tasks/husky-io-task" }
 husky-io-task-interface = { path = "crates/tasks/husky-io-task-interface" }
 husky-io-task-interface-macros = { path = "crates/tasks/husky-io-task-interface-macros" }

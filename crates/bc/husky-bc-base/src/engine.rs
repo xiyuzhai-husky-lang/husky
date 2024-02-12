@@ -1,4 +1,4 @@
-use husky_ddp_task::engine::IsDdpEngine;
+use husky_ndp_task::engine::IsNdpEngine;
 
 use crate::{db::BcDb, state::BcState, trajectory::BcTrajectory};
 
@@ -9,4 +9,4 @@ pub struct BcEngine<'a> {
     history: BcTrajectory,
 }
 
-impl<'a> IsDdpEngine<'a> for BcEngine<'a> {}
+impl<'a> IsNdpEngine<'a> for BcEngine<'a> {}

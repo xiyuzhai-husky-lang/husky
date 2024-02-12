@@ -1,8 +1,8 @@
 pub mod action;
 pub mod db;
-mod ddp;
 pub mod engine;
 pub mod expr;
+pub mod ndp;
 pub mod rule;
 pub mod sketch;
 pub mod state;

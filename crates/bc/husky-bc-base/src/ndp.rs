@@ -1,11 +1,11 @@
-use husky_ddp_task::ddp::IsDdp;
+use husky_ndp_task::ndp::IsNdp;
 
 use crate::{action::BcAction, engine::BcEngine, rule::BcRule, state::BcState};
 
 /// Border Collie Deterministic Decision Process
-pub struct BcDdp {}
+pub struct BcNdp {}
 
-impl IsDdp for BcDdp {
+impl IsNdp for BcNdp {
     type Action = BcAction;
 
     type State = BcState;

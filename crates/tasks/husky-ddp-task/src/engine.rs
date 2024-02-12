@@ -1,1 +1,0 @@
-pub trait IsDdpEngine<'a> {}

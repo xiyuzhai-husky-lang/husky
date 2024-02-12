@@ -1,4 +1,4 @@
-use husky_ddp_task::state::IsDdpState;
+use husky_ndp_task::state::IsNdpState;
 
 use crate::stmt::BcStmtIdx;
 
@@ -7,4 +7,4 @@ pub struct BcState {
     stmts: Vec<BcStmtIdx>,
 }
 
-impl IsDdpState for BcState {}
+impl IsNdpState for BcState {}
