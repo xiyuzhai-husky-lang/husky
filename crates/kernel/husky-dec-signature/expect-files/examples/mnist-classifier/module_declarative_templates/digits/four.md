@@ -38,7 +38,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Fn(
                         MajorFnDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -161,7 +161,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Fn(
                         MajorFnDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -204,7 +204,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Fn(
                         MajorFnDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {

@@ -10,7 +10,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::PropsStruct(
                         PropsStructTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_ty: EntityPath(
@@ -107,7 +107,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Enum(
                         EnumTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_ty: EntityPath(
@@ -138,7 +138,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Fn(
                         MajorFnDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -205,7 +205,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Fn(
                         MajorFnDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -272,7 +272,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Fn(
                         MajorFnDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -339,7 +339,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Fn(
                         MajorFnDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -422,7 +422,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Fn(
                         MajorFnDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -489,7 +489,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Fn(
                         MajorFnDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -588,7 +588,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::PropsStruct(
                         PropsStructTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_ty: EntityPath(
@@ -701,7 +701,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Fn(
                         MajorFnDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -748,7 +748,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Fn(
                         MajorFnDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -799,7 +799,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         trai: EntityPath(
@@ -874,7 +874,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -933,7 +933,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [],
                         },
                         ty: EntityPath(
@@ -965,7 +965,7 @@
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -1010,7 +1010,7 @@
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -1055,7 +1055,7 @@
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -1100,7 +1100,7 @@
                         TypeMemoizedFieldDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -1145,7 +1145,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
                                 ty: EntityPath(
@@ -1171,7 +1171,7 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {

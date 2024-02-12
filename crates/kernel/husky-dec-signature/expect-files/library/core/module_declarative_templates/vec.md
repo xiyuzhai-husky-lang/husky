@@ -10,7 +10,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: Some(
@@ -53,7 +53,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -91,7 +91,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
@@ -119,7 +119,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -165,7 +165,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
@@ -193,7 +193,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
@@ -262,7 +262,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
@@ -290,7 +290,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
@@ -342,7 +342,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
@@ -370,7 +370,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
@@ -422,7 +422,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
@@ -450,7 +450,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
@@ -502,7 +502,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
@@ -530,7 +530,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -572,7 +572,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
@@ -600,7 +600,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -675,7 +675,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
@@ -703,7 +703,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,

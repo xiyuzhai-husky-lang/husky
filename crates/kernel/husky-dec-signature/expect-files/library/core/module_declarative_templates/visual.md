@@ -9,7 +9,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -38,7 +38,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                         },
@@ -64,7 +64,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -155,7 +155,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {

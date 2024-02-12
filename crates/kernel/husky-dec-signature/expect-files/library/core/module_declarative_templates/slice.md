@@ -10,7 +10,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: Some(
@@ -42,7 +42,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
                         ExternTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: Some(
@@ -85,7 +85,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -123,7 +123,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
@@ -151,7 +151,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -197,7 +197,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
@@ -225,7 +225,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
@@ -320,7 +320,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -412,7 +412,7 @@
                                     ),
                                 },
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             ty_term: Symbol(
@@ -450,7 +450,7 @@
             DecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
                     TypeImplBlockDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -488,7 +488,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
@@ -516,7 +516,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -562,7 +562,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
@@ -590,7 +590,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -636,7 +636,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
@@ -664,7 +664,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -710,7 +710,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
@@ -738,7 +738,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
@@ -780,7 +780,7 @@
                         TypeMethodFnDecTemplate {
                             path: TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
                             impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                template_parameters: DecTemplateParameters {
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
@@ -808,7 +808,7 @@
                                     },
                                 ),
                             ),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {

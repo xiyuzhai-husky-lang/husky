@@ -460,8 +460,8 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::FunctionFn(
-                        FunctionMajorFnSynDecl {
+                    FugitiveSynDecl::Fn(
+                        MajorFnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
@@ -697,8 +697,8 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::FunctionFn(
-                        FunctionMajorFnSynDecl {
+                    FugitiveSynDecl::Fn(
+                        MajorFnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [

@@ -9,7 +9,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -46,7 +46,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -83,7 +83,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -120,7 +120,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -157,7 +157,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -194,7 +194,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -231,7 +231,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -268,7 +268,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -305,7 +305,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -342,7 +342,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -379,7 +379,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -407,7 +407,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -444,7 +444,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -481,7 +481,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -509,7 +509,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -537,7 +537,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -574,7 +574,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
                     TraitDecTemplate {
-                        template_parameters: DeclarativeTemplateParameterTemplates {
+                        template_parameters: DecTemplateParameters {
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
@@ -612,7 +612,7 @@
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Enum(
                         EnumTypeDecTemplate {
-                            template_parameters: DeclarativeTemplateParameterTemplates {
+                            template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
