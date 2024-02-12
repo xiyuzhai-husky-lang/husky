@@ -3204,6 +3204,31 @@ TokenSheetData {
                 PunctuationMapped::Colon,
             ),
         ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `backprop`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Bracket::Par,
+                ),
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Todo,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Bracket::Par,
+                ),
+            ),
+        ),
         TokenData::Keyword(
             Keyword::Pub,
         ),
@@ -3244,6 +3269,31 @@ TokenSheetData {
                 PunctuationMapped::Semicolon,
             ),
         ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `backprop`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Bracket::Par,
+                ),
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Todo,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Bracket::Par,
+                ),
+            ),
+        ),
         TokenData::Keyword(
             Keyword::Pub,
         ),
@@ -3282,6 +3332,47 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Semicolon,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `backprop`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Bracket::Par,
+                ),
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Todo,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
+            ),
+        ),
+        TokenData::Ident(
+            `other`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Eq,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Todo,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Bracket::Par,
+                ),
             ),
         ),
         TokenData::Keyword(
@@ -3333,6 +3424,47 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Semicolon,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `backprop`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Bracket::Par,
+                ),
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Todo,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
+            ),
+        ),
+        TokenData::Ident(
+            `other`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Eq,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Todo,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Bracket::Par,
+                ),
             ),
         ),
         TokenData::Keyword(
@@ -3426,6 +3558,31 @@ TokenSheetData {
                 PunctuationMapped::Semicolon,
             ),
         ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `backprop`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Bracket::Par,
+                ),
+            ),
+        ),
+        TokenData::Ident(
+            `sin`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Bracket::Par,
+                ),
+            ),
+        ),
         TokenData::Keyword(
             Keyword::Pub,
         ),
@@ -3464,6 +3621,66 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Semicolon,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `backprop`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Bracket::Par,
+                ),
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Vertical,
+            ),
+        ),
+        TokenData::Ident(
+            `slf`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Vertical,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Minus,
+            ),
+        ),
+        TokenData::Ident(
+            `cos`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Bracket::Par,
+                ),
+            ),
+        ),
+        TokenData::Ident(
+            `slf`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Bracket::Par,
+                ),
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Bracket::Par,
+                ),
             ),
         ),
         TokenData::Keyword(
@@ -3566,6 +3783,31 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Colon,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `backprop`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Bracket::Par,
+                ),
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Todo,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Bracket::Par,
+                ),
             ),
         ),
         TokenData::Keyword(
@@ -4371,22 +4613,27 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                713,
+                710,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                721,
+                718,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                732,
+                723,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                743,
+                731,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                740,
             ),
         ),
         TokenGroupStart(
@@ -4396,47 +4643,42 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                759,
+                760,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                767,
+                771,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                775,
+                779,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                781,
+                784,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                791,
+                792,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                798,
+                804,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                811,
+                812,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                815,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                818,
+                820,
             ),
         ),
         TokenGroupStart(
@@ -4446,12 +4688,47 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                834,
+                831,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                840,
+                841,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                848,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                861,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                865,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                868,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                876,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                884,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                890,
             ),
         ),
     ],
@@ -4558,7 +4835,14 @@ TokenSheetData {
         4,
         4,
         4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
         0,
+        4,
         4,
         0,
         0,

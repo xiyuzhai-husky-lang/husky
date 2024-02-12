@@ -25,8 +25,6 @@ fn make_source(source: String) -> Source {
 fn fonts() -> Vec<TexFont> {
     use husky_path_utils::rust::husky_cargo_workspace_manifest_dir;
 
-    use husky_print_utils::p;
-    p!(husky_cargo_workspace_manifest_dir());
     std::fs::read_dir(husky_cargo_workspace_manifest_dir().join("assets/fonts"))
         .unwrap()
         .map(Result::unwrap)

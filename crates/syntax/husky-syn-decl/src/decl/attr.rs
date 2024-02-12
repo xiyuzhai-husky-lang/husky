@@ -1,17 +1,17 @@
-pub mod backward;
+pub mod backprop;
 pub mod derive;
 pub mod effect;
 
 pub use self::derive::*;
 
-use self::{backward::BackwardAttrSynNodeDecl, effect::EffectAttrSynNodeDecl};
+use self::{backprop::BackpropAttrSynNodeDecl, effect::EffectAttrSynNodeDecl};
 use super::*;
 use husky_coword::coword_menu;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum AttrSynNodeDecl {
-    Backward(BackwardAttrSynNodeDecl),
+    Backprop(BackpropAttrSynNodeDecl),
     Derive(DeriveAttrSynNodeDecl),
     Effect(EffectAttrSynNodeDecl),
 }
@@ -21,7 +21,7 @@ impl AttrSynNodeDecl {
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             AttrSynNodeDecl::Derive(slf) => slf.syn_expr_region(db),
-            AttrSynNodeDecl::Backward(slf) => slf.syn_expr_region(db),
+            AttrSynNodeDecl::Backprop(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Effect(slf) => slf.syn_expr_region(db),
         }
     }
@@ -29,7 +29,7 @@ impl AttrSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
             AttrSynNodeDecl::Derive(slf) => slf.errors(db),
-            AttrSynNodeDecl::Backward(slf) => slf.errors(db),
+            AttrSynNodeDecl::Backprop(slf) => slf.errors(db),
             AttrSynNodeDecl::Effect(slf) => slf.errors(db),
         }
     }
@@ -73,7 +73,7 @@ impl AttrSynDecl {
             AttrSynNodeDecl::Derive(sndecl) => {
                 DeriveAttrSynDecl::from_node_decl(db, path, sndecl)?.into()
             }
-            AttrSynNodeDecl::Backward(_) => todo!(),
+            AttrSynNodeDecl::Backprop(_) => todo!(),
             AttrSynNodeDecl::Effect(_) => todo!(),
         })
     }

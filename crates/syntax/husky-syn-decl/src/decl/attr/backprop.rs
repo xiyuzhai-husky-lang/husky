@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new_inner)]
-pub struct BackwardAttrSynNodeDecl {
+pub struct BackpropAttrSynNodeDecl {
     #[id]
     pub syn_node_path: AttrSynNodePath,
     pub pound_token: PoundRegionalToken,
@@ -17,7 +17,7 @@ pub struct BackwardAttrSynNodeDecl {
 
 /// # getters
 
-impl BackwardAttrSynNodeDecl {
+impl BackpropAttrSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         todo!()
     }

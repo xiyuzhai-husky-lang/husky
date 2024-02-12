@@ -191,7 +191,7 @@ pub(crate) fn ty_impl_block_items(
                     );
                     Some((ident_token.ident(), syn_node_path, node))
                 }
-                Ast::Err { .. } => None,
+                Ast::Attr { .. } | Ast::Sorc { .. } | Ast::Err { .. } => None,
                 _ => unreachable!(),
             }
         })

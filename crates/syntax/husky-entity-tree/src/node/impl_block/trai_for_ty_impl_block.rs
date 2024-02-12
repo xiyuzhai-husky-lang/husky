@@ -222,8 +222,8 @@ impl TraitForTypeImplBlockSynNode {
                         );
                         Some((ident_token.ident(), syn_node_path, node))
                     }
-                    Ast::Err { .. } => None,
-                    _ => unreachable!(),
+                    Ast::Sorc { .. } | Ast::Attr { .. } | Ast::Err { .. } => None,
+                    _ => unreachable!("Invariant"),
                 }
             })
             .collect()

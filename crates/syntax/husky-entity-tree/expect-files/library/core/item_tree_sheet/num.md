@@ -22,7 +22,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 45,
+                        ast_idx: 52,
                         ident_token: IdentToken {
                             ident: `i8`,
                             token_idx: TokenIdx(
@@ -76,7 +76,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 50,
+                        ast_idx: 57,
                         ident_token: IdentToken {
                             ident: `i16`,
                             token_idx: TokenIdx(
@@ -130,7 +130,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 55,
+                        ast_idx: 62,
                         ident_token: IdentToken {
                             ident: `i32`,
                             token_idx: TokenIdx(
@@ -184,7 +184,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 60,
+                        ast_idx: 67,
                         ident_token: IdentToken {
                             ident: `i64`,
                             token_idx: TokenIdx(
@@ -238,7 +238,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 65,
+                        ast_idx: 72,
                         ident_token: IdentToken {
                             ident: `i128`,
                             token_idx: TokenIdx(
@@ -292,7 +292,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 70,
+                        ast_idx: 77,
                         ident_token: IdentToken {
                             ident: `isize`,
                             token_idx: TokenIdx(
@@ -346,7 +346,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 75,
+                        ast_idx: 82,
                         ident_token: IdentToken {
                             ident: `u8`,
                             token_idx: TokenIdx(
@@ -400,7 +400,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 80,
+                        ast_idx: 87,
                         ident_token: IdentToken {
                             ident: `u16`,
                             token_idx: TokenIdx(
@@ -454,7 +454,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 85,
+                        ast_idx: 92,
                         ident_token: IdentToken {
                             ident: `u32`,
                             token_idx: TokenIdx(
@@ -508,7 +508,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 90,
+                        ast_idx: 97,
                         ident_token: IdentToken {
                             ident: `u64`,
                             token_idx: TokenIdx(
@@ -562,7 +562,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 95,
+                        ast_idx: 102,
                         ident_token: IdentToken {
                             ident: `u128`,
                             token_idx: TokenIdx(
@@ -616,7 +616,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 100,
+                        ast_idx: 107,
                         ident_token: IdentToken {
                             ident: `usize`,
                             token_idx: TokenIdx(
@@ -670,7 +670,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 105,
+                        ast_idx: 112,
                         ident_token: IdentToken {
                             ident: `f32`,
                             token_idx: TokenIdx(
@@ -724,11 +724,11 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 110,
+                        ast_idx: 117,
                         ident_token: IdentToken {
                             ident: `f64`,
                             token_idx: TokenIdx(
-                                813,
+                                863,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -914,7 +914,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -945,7 +945,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -976,7 +976,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1007,7 +1007,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1038,7 +1038,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1069,7 +1069,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1100,7 +1100,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1131,7 +1131,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1162,7 +1162,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1193,7 +1193,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1224,7 +1224,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1255,7 +1255,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1286,7 +1286,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1317,7 +1317,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1348,7 +1348,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1379,7 +1379,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1410,7 +1410,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1441,7 +1441,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1472,7 +1472,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1497,7 +1497,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 42,
+                        ast_idx: 49,
                         use_expr_idx: 3,
                     },
                 ),
@@ -1548,7 +1548,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1599,7 +1599,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1650,7 +1650,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1701,7 +1701,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1752,7 +1752,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1803,7 +1803,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1854,7 +1854,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1905,7 +1905,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1956,7 +1956,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2007,7 +2007,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2058,7 +2058,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2109,7 +2109,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2160,7 +2160,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2211,7 +2211,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2262,7 +2262,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2313,7 +2313,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2364,7 +2364,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2415,7 +2415,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2466,7 +2466,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2517,7 +2517,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2568,7 +2568,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2619,7 +2619,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2670,7 +2670,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2721,7 +2721,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2772,7 +2772,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2823,7 +2823,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2874,7 +2874,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2925,7 +2925,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2976,7 +2976,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3027,7 +3027,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3078,7 +3078,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3191,7 +3191,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3304,7 +3304,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3355,7 +3355,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3406,7 +3406,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3457,7 +3457,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3508,7 +3508,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3559,7 +3559,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3610,7 +3610,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3661,7 +3661,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        ast_idx: 41,
+                        ast_idx: 48,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3720,7 +3720,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 46,
+                    ast_idx: 53,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             35,
@@ -3780,7 +3780,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 47,
+                    ast_idx: 54,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             57,
@@ -3856,7 +3856,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 51,
+                    ast_idx: 58,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             98,
@@ -3916,7 +3916,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 52,
+                    ast_idx: 59,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             120,
@@ -3992,7 +3992,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 56,
+                    ast_idx: 63,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             161,
@@ -4052,7 +4052,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 57,
+                    ast_idx: 64,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             194,
@@ -4128,7 +4128,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 61,
+                    ast_idx: 68,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             234,
@@ -4188,7 +4188,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 62,
+                    ast_idx: 69,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             245,
@@ -4264,7 +4264,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 66,
+                    ast_idx: 73,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             286,
@@ -4324,7 +4324,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 67,
+                    ast_idx: 74,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             297,
@@ -4400,7 +4400,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 71,
+                    ast_idx: 78,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             338,
@@ -4460,7 +4460,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 72,
+                    ast_idx: 79,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             349,
@@ -4536,7 +4536,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 76,
+                    ast_idx: 83,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             390,
@@ -4596,7 +4596,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 77,
+                    ast_idx: 84,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             401,
@@ -4672,7 +4672,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 81,
+                    ast_idx: 88,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             442,
@@ -4732,7 +4732,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 82,
+                    ast_idx: 89,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             453,
@@ -4808,7 +4808,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 86,
+                    ast_idx: 93,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             494,
@@ -4868,7 +4868,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 87,
+                    ast_idx: 94,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             505,
@@ -4944,7 +4944,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 91,
+                    ast_idx: 98,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             546,
@@ -5004,7 +5004,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 92,
+                    ast_idx: 99,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             557,
@@ -5080,7 +5080,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 96,
+                    ast_idx: 103,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             598,
@@ -5140,7 +5140,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 97,
+                    ast_idx: 104,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             609,
@@ -5216,7 +5216,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 101,
+                    ast_idx: 108,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             650,
@@ -5276,7 +5276,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 102,
+                    ast_idx: 109,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             661,
@@ -5352,7 +5352,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 106,
+                    ast_idx: 113,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             702,
@@ -5361,7 +5361,7 @@ EntityTreeSheet {
                     ty_expr: 41,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            29..37,
+                            29..43,
                         ),
                     },
                 },
@@ -5412,15 +5412,15 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 107,
+                    ast_idx: 114,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            775,
+                            820,
                         ),
                     },
                     trai_expr: 42,
                     for_token: TokenIdx(
-                        778,
+                        823,
                     ),
                     ty_sketch_expr: Path(
                         43,
@@ -5429,7 +5429,7 @@ EntityTreeSheet {
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    37..38,
+                                    43..45,
                                 ),
                             },
                         ),
@@ -5488,16 +5488,16 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 111,
+                    ast_idx: 118,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            815,
+                            865,
                         ),
                     },
                     ty_expr: 44,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            38..40,
+                            45..47,
                         ),
                     },
                 },
@@ -5548,15 +5548,15 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 112,
+                    ast_idx: 119,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            834,
+                            884,
                         ),
                     },
                     trai_expr: 45,
                     for_token: TokenIdx(
-                        837,
+                        887,
                     ),
                     ty_sketch_expr: Path(
                         46,
@@ -5565,7 +5565,7 @@ EntityTreeSheet {
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    40..41,
+                                    47..48,
                                 ),
                             },
                         ),
@@ -5577,7 +5577,7 @@ EntityTreeSheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 41,
+                ast_idx: 48,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
                     `core::num`,
@@ -5604,7 +5604,7 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 42,
+                ast_idx: 49,
                 use_expr_idx: 5,
                 visibility: Scope::PubUnder(
                     `core::num`,
@@ -5631,7 +5631,7 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 42,
+                ast_idx: 49,
                 use_expr_idx: 4,
                 visibility: Scope::PubUnder(
                     `core::num`,
@@ -5678,7 +5678,7 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 42,
+                ast_idx: 49,
                 use_expr_idx: 3,
                 visibility: Scope::PubUnder(
                     `core::num`,
@@ -5728,7 +5728,7 @@ EntityTreeSheet {
             UseAllRule {
                 parent_module_path: `core`,
                 is_same_crate: true,
-                ast_idx: 41,
+                ast_idx: 48,
                 use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `core::num`,
