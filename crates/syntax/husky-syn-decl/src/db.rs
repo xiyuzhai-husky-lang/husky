@@ -122,8 +122,8 @@ pub struct SynDeclJar(
     // attr
     crate::decl::attr::derive::DeriveAttrSynNodeDecl,
     crate::decl::attr::derive::DeriveAttrSynDecl,
-    crate::decl::attr::differential::DifferentialAttrSynNodeDecl,
-    crate::decl::attr::differential::DifferentialAttrSynDecl,
+    crate::decl::attr::backward::BackwardAttrSynNodeDecl,
+    crate::decl::attr::backward::BackwardAttrSynDecl,
     crate::decl::attr::effect::EffectAttrSynNodeDecl,
     crate::decl::attr::effect::EffectAttrSynDecl,
     crate::decl::attr_syn_node_decl,
