@@ -39,7 +39,7 @@ impl HasDecTemplate for FugitivePath {
     }
 }
 
-// #[salsa::tracked(jar = DecSignatureJar)]
+#[salsa::tracked(jar = DecSignatureJar)]
 pub(crate) fn fugitive_syn_dec_template(
     db: &::salsa::Db,
     path: FugitivePath,
