@@ -8,4 +8,4 @@ edition = "2021"
 # abstraction
 shifted-unsigned-int.workspace = true
 # tasks
-husky-ddp-task.workspace = true
+husky-ndp-task.workspace = true

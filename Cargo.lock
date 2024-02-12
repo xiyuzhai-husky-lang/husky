@@ -4425,7 +4425,7 @@ dependencies = [
 name = "husky-bc-base"
 version = "0.1.0"
 dependencies = [
- "husky-ddp-task",
+ "husky-ndp-task",
  "shifted-unsigned-int",
 ]
 
@@ -4600,21 +4600,6 @@ dependencies = [
  "serde",
  "ui",
 ]
-
-[[package]]
-name = "husky-ddp-task"
-version = "0.1.0"
-dependencies = [
- "husky-ddp-task-interface",
-]
-
-[[package]]
-name = "husky-ddp-task-interface"
-version = "0.1.0"
-
-[[package]]
-name = "husky-ddp-task-interface-macros"
-version = "0.1.0"
 
 [[package]]
 name = "husky-dec-signature"
@@ -5772,6 +5757,21 @@ dependencies = [
  "vec-like",
  "version-stamp",
 ]
+
+[[package]]
+name = "husky-ndp-task"
+version = "0.1.0"
+dependencies = [
+ "husky-ndp-task-interface",
+]
+
+[[package]]
+name = "husky-ndp-task-interface"
+version = "0.1.0"
+
+[[package]]
+name = "husky-ndp-task-interface-macros"
+version = "0.1.0"
 
 [[package]]
 name = "husky-notebook"

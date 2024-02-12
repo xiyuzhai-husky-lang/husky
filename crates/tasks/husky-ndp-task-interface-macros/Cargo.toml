@@ -1,5 +1,5 @@
 [package]
-name = "husky-ddp-task-interface-macros"
+name = "husky-ndp-task-interface-macros"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
