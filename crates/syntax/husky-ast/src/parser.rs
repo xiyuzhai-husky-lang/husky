@@ -54,10 +54,11 @@ impl<'a> AstParser<'a> {
         for seq in self.token_sheet.token_verses().nested_sequences().iter() {
             // todo: refactor such that token_verse_iter is pub(crate)
             self.token_verse_iter = seq.token_verse_iter(self.token_sheet.tokens());
-            nested_top_level_asts.push((
-                seq.lcurl(),
-                self.parse_normal_ast_children::<FugitiveBody>(),
-            ))
+            let indent = self.token_verse_iter.next_token_verse_indent();
+            let nested_asts = self.with_indent(indent, |slf| {
+                slf.parse_normal_ast_children::<FugitiveBody>()
+            });
+            nested_top_level_asts.push((seq.lcurl(), nested_asts))
         }
         AstSheet::new(
             self.ast_arena,
@@ -70,7 +71,7 @@ impl<'a> AstParser<'a> {
     pub(crate) fn parse_normal_ast_children_indented<C: IsAstChildren>(
         &mut self,
     ) -> Option<AstIdxRange> {
-        let range = self.with_indent(|slf| slf.parse_normal_ast_children::<C>());
+        let range = self.indented(|slf| slf.parse_normal_ast_children::<C>());
         (range.len() > 0).then_some(range)
     }
 

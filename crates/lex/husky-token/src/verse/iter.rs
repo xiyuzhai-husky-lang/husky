@@ -76,6 +76,10 @@ impl<'a> TokenVerseIter<'a> {
             None
         }
     }
+
+    pub fn next_token_verse_indent(&self) -> u32 {
+        self.verses_data[0].indent
+    }
 }
 
 impl<'a> Iterator for TokenVerseIter<'a> {
