@@ -19,10 +19,10 @@ impl RegionalTokenIdx {
     }
 
     pub(crate) fn from_token_idx(
-        next_token_idx: TokenIdx,
+        token_idx: TokenIdx,
         regional_token_idx_base: RegionalTokenIdxBase,
     ) -> RegionalTokenIdx {
-        Self::from_index(next_token_idx.index() - regional_token_idx_base.index_base())
+        Self::from_index(token_idx.index() - regional_token_idx_base.index_base())
     }
 }
 

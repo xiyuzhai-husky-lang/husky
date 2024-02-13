@@ -157,7 +157,7 @@ impl<'a> SynExprContext<'a> {
     pub(crate) fn alloc_item_path_expr(
         &mut self,
         expr: SynPrincipalEntityPathExpr,
-    ) -> SynPrincipalEntityPathExprIdx {
+    ) -> PrincipalEntityPathSynExprIdx {
         self.syn_principal_entity_path_expr_arena.alloc_one(expr)
     }
 

@@ -4,6 +4,7 @@ use husky_token::{TokenDb, TokenIdxRange, TokenSheetData};
 
 use super::*;
 
+/// dedy is short for definition body
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct DefnTokraRegion {
     #[return_ref]
@@ -18,13 +19,14 @@ pub struct DefnTokraRegion {
 }
 
 impl DefnTokraRegion {
-    pub fn data<'a>(self, db: &'a ::salsa::Db) -> DefnTokraRegionData<'a> {
-        DefnTokraRegionData {
+    pub fn data<'a>(self, db: &'a ::salsa::Db) -> DefnTokraRegionDataRef<'a> {
+        DefnTokraRegionDataRef {
             tokens_data: self._tokens_data(db),
             ast_arena: self.ast_arena(db).to_ref(),
             root_body: self.root_body(db),
             ast_token_idx_ranges: self.ast_token_idx_ranges(db),
             token_verse_starts: self.token_verse_starts(db),
+            nested: &(),
         }
     }
 
@@ -34,15 +36,16 @@ impl DefnTokraRegion {
 }
 
 #[derive(Debug, Clone, Copy)]
-pub struct DefnTokraRegionData<'a> {
+pub struct DefnTokraRegionDataRef<'a> {
     tokens_data: &'a [TokenData],
     ast_arena: DefnAstArenaRef<'a>,
     root_body: DefnAstIdxRange,
     token_verse_starts: &'a [RegionalTokenVerseStart],
     ast_token_idx_ranges: &'a [RegionalTokenIdxRange],
+    nested: &'a (),
 }
 
-impl<'a> DefnTokraRegionData<'a> {
+impl<'a> DefnTokraRegionDataRef<'a> {
     #[inline(always)]
     pub fn root_body(self) -> DefnAstIdxRange {
         self.root_body
@@ -77,7 +80,7 @@ impl<'a> DefnTokraRegionData<'a> {
     }
 }
 
-impl<'a> std::ops::Index<RegionalTokenIdx> for DefnTokraRegionData<'a> {
+impl<'a> std::ops::Index<RegionalTokenIdx> for DefnTokraRegionDataRef<'a> {
     type Output = TokenData;
 
     fn index(&self, idx: RegionalTokenIdx) -> &Self::Output {
@@ -85,7 +88,7 @@ impl<'a> std::ops::Index<RegionalTokenIdx> for DefnTokraRegionData<'a> {
     }
 }
 
-impl<'a> std::ops::Index<RegionalTokenVerseIdx> for DefnTokraRegionData<'a> {
+impl<'a> std::ops::Index<RegionalTokenVerseIdx> for DefnTokraRegionDataRef<'a> {
     type Output = [TokenData];
 
     fn index(&self, regional_token_verse_idx: RegionalTokenVerseIdx) -> &Self::Output {
@@ -99,7 +102,7 @@ impl<'a> std::ops::Index<RegionalTokenVerseIdx> for DefnTokraRegionData<'a> {
     }
 }
 
-impl<'a> std::ops::Index<DefnAstIdx> for DefnTokraRegionData<'a> {
+impl<'a> std::ops::Index<DefnAstIdx> for DefnTokraRegionDataRef<'a> {
     type Output = DefnAst;
 
     fn index(&self, idx: DefnAstIdx) -> &Self::Output {
@@ -141,11 +144,11 @@ fn item_syn_defn_tokra_region_with_source_map(
     db: &::salsa::Db,
     id: ItemSynNodePathId,
 ) -> Option<(DefnTokraRegion, DefnTokraRegionSourceMap)> {
-    let builder = SynDefnTokraRegionBuilder::new(id.module_path(db), id.ast_idx(db), db)?;
+    let builder = DefnTokraRegionBuilder::new(id.module_path(db), id.ast_idx(db), db)?;
     Some(builder.build())
 }
 
-struct SynDefnTokraRegionBuilder<'a> {
+struct DefnTokraRegionBuilder<'a> {
     ast_sheet: &'a AstSheet,
     ast_token_idx_range_sheet: &'a AstTokenIdxRangeSheet,
     defn_ast_arena: DefnAstArena,
@@ -159,7 +162,7 @@ struct SynDefnTokraRegionBuilder<'a> {
     db: &'a ::salsa::Db,
 }
 
-impl<'a> SynDefnTokraRegionBuilder<'a> {
+impl<'a> DefnTokraRegionBuilder<'a> {
     fn new(module_path: ModulePath, ast_idx: AstIdx, db: &'a ::salsa::Db) -> Option<Self> {
         // let
         let ast_sheet = module_path.ast_sheet(db);
@@ -265,6 +268,7 @@ impl<'a> SynDefnTokraRegionBuilder<'a> {
                 regional_token_verse_idx: RegionalTokenVerseIdx::new(
                     token_verse_idx,
                     self.regional_token_verse_idx_base,
+                    self.regional_token_idx_base,
                 ),
                 body: body.map(|body| self.build_asts(body.ast_idx_range())),
             }),
@@ -286,6 +290,7 @@ impl<'a> SynDefnTokraRegionBuilder<'a> {
                 regional_token_verse_idx: RegionalTokenVerseIdx::new(
                     token_verse_idx,
                     self.regional_token_verse_idx_base,
+                    self.regional_token_idx_base,
                 ),
                 pattern_stmt: self.build_ast_then_alloc(pattern_stmt).expect("todo"),
                 case_branches: self.build_asts(case_branches),

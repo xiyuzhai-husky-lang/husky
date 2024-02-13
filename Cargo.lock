@@ -5885,6 +5885,7 @@ dependencies = [
  "husky-vfs",
  "parsec",
  "salsa",
+ "shifted-unsigned-int",
  "thiserror",
 ]
 

@@ -9,7 +9,7 @@ pub enum SynPrincipalEntityPathExpr {
         principal_entity_path: PrincipalEntityPath,
     },
     Subitem {
-        parent: SynPrincipalEntityPathExprIdx,
+        parent: PrincipalEntityPathSynExprIdx,
         colon_colon_token: ColonColonRegionalToken,
         ident_token: SynExprResult<IdentRegionalToken>,
         path: SynExprResult<PrincipalEntityPath>,
@@ -17,5 +17,5 @@ pub enum SynPrincipalEntityPathExpr {
 }
 
 pub type SynPrincipalEntityPathExprArena = Arena<SynPrincipalEntityPathExpr>;
-pub type SynPrincipalEntityPathExprIdx = ArenaIdx<SynPrincipalEntityPathExpr>;
+pub type PrincipalEntityPathSynExprIdx = ArenaIdx<SynPrincipalEntityPathExpr>;
 pub type SynPrincipalEntityPathExprMap<V> = ArenaMap<SynPrincipalEntityPathExpr, V>;

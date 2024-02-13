@@ -42,7 +42,7 @@ where
 
     fn parse_subitem_identifiable_path_expr(
         &mut self,
-        parent_expr_idx: SynPrincipalEntityPathExprIdx,
+        parent_expr_idx: PrincipalEntityPathSynExprIdx,
         parent_path: MajorEntityPath,
         colon_colon_regional_token: ColonColonRegionalToken,
     ) -> IdentifiableEntityPathExpr {

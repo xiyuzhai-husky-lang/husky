@@ -4,7 +4,7 @@ use husky_entity_path::{EntityPath, PrincipalEntityPath};
 use husky_entity_tree::{OnceUseRuleIdx, UseExprIdx, UseOneRuleState};
 use husky_sema_expr::SemaExprIdx;
 use husky_syn_expr::{
-    entity_path::SynPrincipalEntityPathExprIdx, CurrentSynSymbolIdx, CurrentSynSymbolKind,
+    entity_path::PrincipalEntityPathSynExprIdx, CurrentSynSymbolIdx, CurrentSynSymbolKind,
     InheritedSynSymbolIdx, InheritedSynSymbolKind, SynExprRegion, SynPatternExprIdx,
 };
 #[cfg(feature = "protocol_support")]
@@ -23,7 +23,7 @@ pub struct TokenInfo {
 pub enum TokenInfoSource {
     UseExpr(UseExprIdx),
     SemaExpr(SemaExprIdx),
-    SynPrincipalEntityPathExpr(SynPrincipalEntityPathExprIdx, PrincipalEntityPath),
+    SynPrincipalEntityPathExpr(PrincipalEntityPathSynExprIdx, PrincipalEntityPath),
     PatternExpr(SynPatternExprIdx),
     // todo: add #[skip] attribute
     TemplateParameter(CurrentSynSymbolIdx),

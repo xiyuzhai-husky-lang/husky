@@ -1,5 +1,7 @@
 use crate::*;
 
+pub struct RegionalTokenVerseData {}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct RegionalTokenVerseStart(RegionalTokenIdx);
 
@@ -26,6 +28,8 @@ impl RegionalTokenVerseStart {
 }
 
 /// 0-based
+///
+/// the relative token idx in a regional token verse
 #[derive(Debug, Default, Clone, Copy, PartialEq, Eq)]
 pub struct RegionalTokenVerseRelativeTokenIndex(usize);
 

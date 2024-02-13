@@ -27,6 +27,7 @@ use husky_token_data::*;
 #[cfg(test)]
 use parsec::TryParseOptionFromStream;
 use parsec::{HasStreamState, IsStreamParser};
+use shifted_unsigned_int::ShiftedU32;
 use std::num::NonZeroU32;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -48,20 +49,32 @@ impl RegionalTokenVerseIdxBase {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct RegionalTokenVerseIdx(NonZeroU32);
+pub struct RegionalTokenVerseIdx {
+    /// None if the verse is main,
+    ///
+    /// Some(_) if the verse is nested
+    lcurl: Option<RegionalTokenIdx>,
+    raw: ShiftedU32,
+}
 
 impl RegionalTokenVerseIdx {
-    pub fn new(token_verse_idx: TokenVerseIdx, base: RegionalTokenVerseIdxBase) -> Self {
-        Self::from_index(token_verse_idx.index() - base.index())
+    pub fn new(
+        token_verse_idx: TokenVerseIdx,
+        regional_token_verse_idx_base: RegionalTokenVerseIdxBase,
+        regional_token_idx_base: RegionalTokenIdxBase,
+    ) -> Self {
+        let index = token_verse_idx.index() - regional_token_verse_idx_base.index();
+        debug_assert!(index <= u32::MAX as usize);
+        Self {
+            lcurl: token_verse_idx
+                .lcurl()
+                .map(|lcurl| RegionalTokenIdx::from_token_idx(lcurl, regional_token_idx_base)),
+            raw: index.into(),
+        }
     }
 
     pub fn index(self) -> usize {
-        (self.0.get() - 1) as usize
-    }
-
-    fn from_index(index: usize) -> Self {
-        debug_assert!(index <= u32::MAX as usize);
-        Self(unsafe { NonZeroU32::new_unchecked(index as u32 + 1) })
+        self.raw.into()
     }
 }
 
