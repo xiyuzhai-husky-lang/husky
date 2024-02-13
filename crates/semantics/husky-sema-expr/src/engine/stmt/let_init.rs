@@ -29,10 +29,11 @@ impl<'a> SemaExprEngine<'a> {
                         },
                     )
                 }
-                Err(e) => {
-                    use husky_print_utils::p;
-                    p!(e.debug(self.db()));
-                    todo!()
+                Err(_) => {
+                    return (
+                        Err(DerivedSemaExprDataError::SynPatternError.into()),
+                        Err(DerivedSemaExprTypeError::SynPatternError.into()),
+                    )
                 }
             };
         let contract = self.syn_expr_region_data.pattern_contract(
