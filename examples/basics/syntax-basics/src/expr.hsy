@@ -1,0 +1,4 @@
+fn nested():
+    let t = {
+        1
+    }

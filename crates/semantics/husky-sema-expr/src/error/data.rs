@@ -54,6 +54,8 @@ pub enum DerivedSemaExprDataError {
         opd_sema_expr_idx: SemaExprIdx,
         e: EtherealSignatureError,
     },
+    #[error("SynPatternError")]
+    SynPatternError,
 }
 
 impl From<&SynExprError> for SemaExprDataError {

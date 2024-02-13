@@ -175,6 +175,8 @@ pub enum DerivedSemaExprTypeError {
     EvalExprTypeNotInferred,
     #[error("BranchTypeMerge")]
     BranchTypeMerge,
+    #[error("SynPatternError")]
+    SynPatternError,
 }
 
 pub type SemaExprTypeResult<T> = Result<T, SemaExprTypeError>;
