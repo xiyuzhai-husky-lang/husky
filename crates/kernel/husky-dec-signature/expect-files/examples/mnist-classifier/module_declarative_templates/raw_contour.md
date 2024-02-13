@@ -130,7 +130,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -197,7 +199,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -264,7 +268,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -331,7 +337,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -414,7 +422,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -481,7 +491,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -693,7 +705,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -740,7 +754,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -850,7 +866,9 @@
                                         },
                                     },
                                     ident: `visualize`,
-                                    item_kind: MethodFn,
+                                    item_kind: MethodRitchie(
+                                        Fn,
+                                    ),
                                 },
                             ),
                         ),
@@ -1135,7 +1153,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
+                TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -1143,7 +1163,9 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
+                            path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                Fn,
+                            )`),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],

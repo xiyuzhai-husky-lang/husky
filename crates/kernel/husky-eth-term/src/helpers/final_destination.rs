@@ -1,4 +1,4 @@
-use husky_entity_kind::FugitiveKind;
+use husky_entity_kind::MajorFugitiveKind;
 
 use super::*;
 
@@ -8,13 +8,12 @@ impl EthTerm {
             EthTerm::Literal(_) => FinalDestination::AnyDerived,
             EthTerm::Symbol(_) | EthTerm::Hvar(_) => FinalDestination::AnyOriginal,
             EthTerm::EntityPath(path) => match path {
-                ItemPathTerm::Fugitive(path) => match path.fugitive_kind(db) {
-                    FugitiveKind::TypeAlias => todo!(),
-                    FugitiveKind::FunctionFn
-                    | FugitiveKind::FunctionGn
-                    | FugitiveKind::Val
-                    | FugitiveKind::Formal
-                    | FugitiveKind::Const => FinalDestination::AnyDerived,
+                ItemPathTerm::Fugitive(path) => match path.major_fugitive_kind(db) {
+                    MajorFugitiveKind::TypeAlias => todo!(),
+                    MajorFugitiveKind::Ritchie(_)
+                    | MajorFugitiveKind::Val
+                    | MajorFugitiveKind::Formal
+                    | MajorFugitiveKind::Const => FinalDestination::AnyDerived,
                 },
                 ItemPathTerm::TypeOntology(_) => FinalDestination::TypeOntology,
                 ItemPathTerm::Trait(_)

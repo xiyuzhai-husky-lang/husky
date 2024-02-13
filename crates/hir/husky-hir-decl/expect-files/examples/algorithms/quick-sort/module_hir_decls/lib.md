@@ -3,7 +3,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
                 FunctionMajorFnHirDecl {
-                    path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
+                    path: FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
@@ -66,7 +68,9 @@
                         path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
-                                    FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
+                                    FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),
@@ -129,7 +133,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
                 FunctionMajorFnHirDecl {
-                    path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                    path: FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
@@ -214,7 +220,9 @@
                         path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
-                                    FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                    FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),
@@ -297,7 +305,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
                 FunctionMajorFnHirDecl {
-                    path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                    path: FugitivePath(`quick_sort::partition`, `Ritchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
@@ -382,7 +392,9 @@
                         path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
-                                    FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                                    FugitivePath(`quick_sort::partition`, `Ritchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),
@@ -465,7 +477,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
                 FunctionMajorFnHirDecl {
-                    path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
+                    path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -483,7 +497,9 @@
                         path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
-                                    FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
+                                    FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),
@@ -516,7 +532,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
                 FunctionMajorFnHirDecl {
-                    path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
+                    path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -534,7 +552,9 @@
                         path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
-                                    FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
+                                    FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),

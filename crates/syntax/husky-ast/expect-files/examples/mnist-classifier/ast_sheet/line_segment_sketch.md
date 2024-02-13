@@ -25,7 +25,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TraitForTypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -93,7 +95,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        AssocFunctionFn,
+                        AssocRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -134,7 +138,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -184,7 +190,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TraitForTypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -439,7 +447,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        AssocFunctionFn,
+                        AssocRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -2256,7 +2266,9 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
-                        FunctionFn,
+                        Ritchie(
+                            Fn,
+                        ),
                     ),
                     connection: Connected,
                 },
@@ -2274,7 +2286,9 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                        Fn,
+                    )`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -2299,7 +2313,9 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
-                        FunctionFn,
+                        Ritchie(
+                            Fn,
+                        ),
                     ),
                     connection: Connected,
                 },
@@ -2317,7 +2333,9 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                        Fn,
+                    )`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -2342,7 +2360,9 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
-                        FunctionFn,
+                        Ritchie(
+                            Fn,
+                        ),
                     ),
                     connection: Connected,
                 },
@@ -2360,7 +2380,9 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                        Fn,
+                    )`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -2385,7 +2407,9 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
-                        FunctionFn,
+                        Ritchie(
+                            Fn,
+                        ),
                     ),
                     connection: Connected,
                 },
@@ -2403,7 +2427,9 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                        Fn,
+                    )`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -2428,7 +2454,9 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
-                        FunctionFn,
+                        Ritchie(
+                            Fn,
+                        ),
                     ),
                     connection: Connected,
                 },
@@ -2446,7 +2474,9 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                        Fn,
+                    )`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(

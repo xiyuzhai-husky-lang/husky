@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_kind::ritchie::RitchieItemKind;
 
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct EnumPropsVariantDecTemplate {
@@ -39,7 +40,7 @@ impl EnumPropsVariantDecTemplate {
         let return_ty = parent_ty_template.self_ty(db);
         let instance_constructor_ty = DecRitchie::new(
             db,
-            TypeRitchieKind::Fn.into(),
+            RitchieItemKind::Fn.into(),
             fields
                 .iter()
                 .copied()

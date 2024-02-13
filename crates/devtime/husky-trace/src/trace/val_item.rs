@@ -1,7 +1,9 @@
 use super::*;
 use crate::registry::assoc_trace::VoidAssocTraceRegistry;
 use husky_hir_defn::HasHirDefn;
-use husky_sema_expr::{helpers::analysis::sema_expr_region_contains_gn, SemaExprData, SemaExprDb};
+use husky_sema_expr::{
+    helpers::analysis::sema_expr_region_requires_lazy, SemaExprData, SemaExprDb,
+};
 use husky_syn_defn::{item_syn_defn, ItemSynDefn};
 
 #[salsa::debug_with_db]
@@ -19,7 +21,10 @@ pub struct ValItemTraceData {
 
 impl Trace {
     pub fn from_val_item_path(val_item_path: FugitivePath, db: &::salsa::Db) -> Self {
-        debug_assert_eq!(val_item_path.fugitive_kind(db), FugitiveKind::Val);
+        debug_assert_eq!(
+            val_item_path.major_fugitive_kind(db),
+            MajorFugitiveKind::Val
+        );
         let path = TracePath::new(ValItemTracePathData { val_item_path }, db);
         Trace::new(
             path,
@@ -68,7 +73,7 @@ impl ValItemTraceData {
         let sema_expr_region_data = sema_expr_region.data(db);
         let body: SemaExprIdx = sema_expr_region_data.syn_root_to_sema_expr_idx(body);
         let sema_expr_arena = sema_expr_region_data.sema_expr_arena();
-        match sema_expr_region_contains_gn(db, sema_expr_region) {
+        match sema_expr_region_requires_lazy(db, sema_expr_region) {
             true => match body.data(sema_expr_arena) {
                 &SemaExprData::Block { stmts } => Trace::new_lazy_stmts(
                     biological_parent_path,

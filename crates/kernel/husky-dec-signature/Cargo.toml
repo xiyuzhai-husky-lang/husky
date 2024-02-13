@@ -16,6 +16,7 @@ vec-like.workspace = true
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-coword.workspace = true
+husky-entity-kind.workspace = true
 husky-entity-path.workspace = true
 husky-term-prelude.workspace = true
 husky-dec-term.workspace = true

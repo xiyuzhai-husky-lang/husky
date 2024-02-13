@@ -11,17 +11,23 @@
     ),
     ItemPath::MajorItem(
         MajorItemPath::Fugitive(
-            FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
+            FugitivePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::MajorItem(
         MajorItemPath::Fugitive(
-            FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
+            FugitivePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::MajorItem(
         MajorItemPath::Fugitive(
-            FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
+            FugitivePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                Fn,
+            )`),
         ),
     ),
 ]

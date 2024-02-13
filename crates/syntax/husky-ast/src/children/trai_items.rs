@@ -24,10 +24,14 @@ impl IsAstChildren for TraitItems {
             EntityKindKeywordGroup::Submodule(_) => {
                 Err(OriginalAstError::UnexpectedModUnderFugitive)?
             }
-            EntityKindKeywordGroup::FugitiveFn(_) => TraitItemKind::MethodFn,
-            EntityKindKeywordGroup::StaticFn(_, _) => TraitItemKind::AssocFunctionFn,
-            EntityKindKeywordGroup::Gn(_) => TraitItemKind::AssocFunctionGn,
-            EntityKindKeywordGroup::FormalEntity(_) => TraitItemKind::AssocFormal,
+            EntityKindKeywordGroup::Fn(_) => TraitItemKind::METHOD_FN,
+            EntityKindKeywordGroup::Gn(_) => TraitItemKind::METHOD_GN,
+            EntityKindKeywordGroup::Vn(_) => TraitItemKind::METHOD_VN,
+            EntityKindKeywordGroup::Pn(_) => TraitItemKind::METHOD_PN,
+            EntityKindKeywordGroup::Qn(_) => TraitItemKind::METHOD_QN,
+            EntityKindKeywordGroup::Bn(_) => TraitItemKind::METHOD_BN,
+            EntityKindKeywordGroup::StaticFn(_, _) => TraitItemKind::ASSOC_FN,
+            EntityKindKeywordGroup::FormalEntity(_) => TraitItemKind::ASSOC_FORMAL,
             EntityKindKeywordGroup::MajorType(_) => {
                 Err(OriginalAstError::UnexpectedMajorTypeInsideImplBlock)?
             }

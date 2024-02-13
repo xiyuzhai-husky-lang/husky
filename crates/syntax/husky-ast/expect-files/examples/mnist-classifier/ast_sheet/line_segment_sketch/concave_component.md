@@ -25,7 +25,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TraitForTypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -685,7 +687,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -726,7 +730,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -767,7 +773,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -808,7 +816,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -849,7 +859,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -890,7 +902,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -1251,7 +1265,9 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
-                        FunctionFn,
+                        Ritchie(
+                            Fn,
+                        ),
                     ),
                     connection: Connected,
                 },
@@ -1269,7 +1285,9 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                        Fn,
+                    )`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(

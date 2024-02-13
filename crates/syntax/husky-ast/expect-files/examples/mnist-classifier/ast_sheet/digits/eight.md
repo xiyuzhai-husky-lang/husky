@@ -269,7 +269,9 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
-                        FunctionFn,
+                        Ritchie(
+                            Fn,
+                        ),
                     ),
                     connection: Connected,
                 },
@@ -287,7 +289,9 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                        Fn,
+                    )`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(

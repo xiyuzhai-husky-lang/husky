@@ -7,11 +7,15 @@ edition = "2021"
 [dependencies]
 ordered-float.workspace = true
 thiserror.workspace = true
+# abstractions
 salsa.workspace = true
 enum-class.workspace = true
-husky-entity-path.workspace = true
+# fs
 husky-vfs.workspace = true
+# kernel
 husky-coword.workspace = true
+husky-entity-kind.workspace = true
+husky-entity-path.workspace = true
 # task
 husky-task-interface.workspace = true
 # utils

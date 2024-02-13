@@ -93,7 +93,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
                 FunctionMajorFnHirDecl {
-                    path: FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -143,7 +145,9 @@
                         path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
+                                    FugitivePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),
@@ -188,7 +192,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
                 FunctionMajorFnHirDecl {
-                    path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -238,7 +244,9 @@
                         path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
+                                    FugitivePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),
@@ -283,7 +291,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
                 FunctionMajorFnHirDecl {
-                    path: FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -333,7 +343,9 @@
                         path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
+                                    FugitivePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),

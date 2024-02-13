@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_kind::{EntityKind, FugitiveKind, MajorItemKind};
+use husky_entity_kind::{ritchie::RitchieItemKind, EntityKind, MajorFugitiveKind, MajorItemKind};
 use husky_opr::*;
 use std::ops::ControlFlow;
 
@@ -55,7 +55,7 @@ where
                     PronounKeyword::Super => todo!(),
                 },
                 Keyword::Fugitive(FugitiveKeyword::Fn) => {
-                    DisambiguatedTokenData::Ritchie(regional_token_idx, TypeRitchieKind::Fn.into())
+                    DisambiguatedTokenData::Ritchie(regional_token_idx, RitchieItemKind::Fn.into())
                 }
                 Keyword::Sorry => DisambiguatedTokenData::Sorry { regional_token_idx },
                 Keyword::Todo => DisambiguatedTokenData::Todo { regional_token_idx },
@@ -119,7 +119,7 @@ where
                                         connection: _,
                                     } => match module_item_kind {
                                         MajorItemKind::Fugitive(
-                                            FugitiveKind::Val | FugitiveKind::Const,
+                                            MajorFugitiveKind::Val | MajorFugitiveKind::Const,
                                         ) => DisambiguatedTokenData::SynBinaryOpr(
                                             regional_token_idx,
                                             BinaryComparisonOpr::Less.into(),

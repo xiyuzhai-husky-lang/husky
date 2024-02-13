@@ -30,7 +30,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -153,7 +155,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -196,7 +200,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(

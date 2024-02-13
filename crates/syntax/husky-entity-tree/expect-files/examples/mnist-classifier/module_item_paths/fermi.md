@@ -6,7 +6,9 @@
     ),
     ItemPath::MajorItem(
         MajorItemPath::Fugitive(
-            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::ImplBlock(

@@ -8,7 +8,7 @@ pub(crate) use self::precedence::{RustPrecedence, RustPrecedenceRange};
 
 use self::{precedence::hir_eager_expr_precedence, site::HirEagerExprSite};
 use crate::{binding::RustBinding, *};
-use husky_entity_kind::FugitiveKind;
+use husky_entity_kind::MajorFugitiveKind;
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_hir_eager_expr::{
     HirEagerCondition, HirEagerElifBranch, HirEagerElseBranch, HirEagerExprData, HirEagerExprEntry,
@@ -151,12 +151,8 @@ impl HirEagerExprSite {
                 match principal_entity_path {
                     PrincipalEntityPath::Module(_) => unreachable!(),
                     PrincipalEntityPath::MajorItem(MajorItemPath::Fugitive(path)) => {
-                        match path.fugitive_kind(db) {
-                            FugitiveKind::FunctionFn | FugitiveKind::Const => (),
-                            FugitiveKind::Val => builder.bracketed(RustBracket::Par, |_| ()),
-                            FugitiveKind::FunctionGn
-                            | FugitiveKind::TypeAlias
-                            | FugitiveKind::Formal => unreachable!(),
+                        if let MajorFugitiveKind::Val = path.major_fugitive_kind(db) {
+                            builder.bracketed(RustBracket::Par, |_| ())
                         }
                     }
                     PrincipalEntityPath::TypeVariant(_) => (),

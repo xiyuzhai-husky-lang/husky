@@ -4,7 +4,7 @@ use crate::{
 };
 use either::*;
 use husky_coword::Ident;
-use husky_entity_kind::{FugitiveKind, TraitItemKind, TypeItemKind, TypeKind};
+use husky_entity_kind::{AssocItemKind, MajorFugitiveKind, TraitItemKind, TypeItemKind, TypeKind};
 use husky_entity_path::{AssocItemPath, FugitivePath, PreludeTraitPath, TypeVariantPath};
 use husky_entity_path::{TraitForTypeItemPath, TypePath};
 use husky_hir_decl::decl::{HasHirDecl, TypeHirDecl};
@@ -31,7 +31,11 @@ pub struct Linkage {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinkageData {
-    MajorFn {
+    MajorRitchieEager {
+        path: FugitivePath,
+        instantiation: LinInstantiation,
+    },
+    MajorRitchieLazy {
         path: FugitivePath,
         instantiation: LinInstantiation,
     },
@@ -43,11 +47,11 @@ pub enum LinkageData {
         path: AssocItemPath,
         instantiation: LinInstantiation,
     },
-    MethodFn {
+    MethodRitchie {
         path: AssocItemPath,
         instantiation: LinInstantiation,
     },
-    AssocFn {
+    AssocRitchie {
         path: AssocItemPath,
         instantiation: LinInstantiation,
     },
@@ -68,10 +72,6 @@ pub enum LinkageData {
         field: LinkageStructField,
     },
     Index,
-    MajorGn {
-        path: FugitivePath,
-        instantiation: LinInstantiation,
-    },
     VecConstructor {
         element_ty: LinType,
     },
@@ -151,7 +151,7 @@ impl Linkage {
     ) -> Self {
         Self::new(
             db,
-            LinkageData::MethodFn {
+            LinkageData::MethodRitchie {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -211,10 +211,10 @@ impl Linkage {
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        debug_assert_eq!(path.fugitive_kind(db), FugitiveKind::FunctionFn);
+        debug_assert_eq!(path.major_fugitive_kind(db), MajorFugitiveKind::FN);
         Self::new(
             db,
-            LinkageData::MajorFn {
+            LinkageData::MajorRitchieEager {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -227,10 +227,10 @@ impl Linkage {
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        debug_assert_eq!(path.fugitive_kind(db), FugitiveKind::FunctionGn);
+        debug_assert_eq!(path.major_fugitive_kind(db), MajorFugitiveKind::GN);
         Self::new(
             db,
-            LinkageData::MajorGn {
+            LinkageData::MajorRitchieLazy {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -245,7 +245,7 @@ impl Linkage {
     ) -> Self {
         Self::new(
             db,
-            LinkageData::AssocFn {
+            LinkageData::AssocRitchie {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -303,32 +303,36 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     .collect()
             }
             match path {
-                JavPath::Fugitive(path) => match path.fugitive_kind(db) {
-                    FugitiveKind::FunctionFn => build(
-                        instantiation,
-                        |instantiation| {
-                            Linkage::new(
-                                db,
-                                LinkageData::MajorFn {
-                                    path,
-                                    instantiation,
-                                },
-                            )
-                        },
-                        db,
-                    ),
-                    FugitiveKind::FunctionGn => {
-                        let Some(FugitiveHirDefn::FunctionGn(hir_defn)) = path.hir_defn(db) else {
-                            unreachable!()
-                        };
-                        match hir_defn.hir_lazy_expr_region(db) {
-                            Some(_) => smallvec![],
-                            None => build(
+                JavPath::Fugitive(path) => match path.major_fugitive_kind(db) {
+                    MajorFugitiveKind::Ritchie(ritchie_item_kind) => {
+                        match ritchie_item_kind.is_lazy() {
+                            true => {
+                                let Some(hir_defn) = path.hir_defn(db) else {
+                                    unreachable!()
+                                };
+                                match hir_defn.hir_expr_region(db) {
+                                    Some(_) => smallvec![],
+                                    None => build(
+                                        instantiation,
+                                        |instantiation| {
+                                            Linkage::new(
+                                                db,
+                                                LinkageData::MajorRitchieLazy {
+                                                    path,
+                                                    instantiation,
+                                                },
+                                            )
+                                        },
+                                        db,
+                                    ),
+                                }
+                            }
+                            false => build(
                                 instantiation,
                                 |instantiation| {
                                     Linkage::new(
                                         db,
-                                        LinkageData::MajorGn {
+                                        LinkageData::MajorRitchieEager {
                                             path,
                                             instantiation,
                                         },
@@ -338,7 +342,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             ),
                         }
                     }
-                    FugitiveKind::Val => {
+                    MajorFugitiveKind::Val => {
                         smallvec![Linkage::new(
                             db,
                             LinkageData::MajorVal {
@@ -347,16 +351,16 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             }
                         )]
                     }
-                    FugitiveKind::Const => todo!(),
-                    FugitiveKind::TypeAlias | FugitiveKind::Formal => unreachable!(),
+                    MajorFugitiveKind::Const => todo!(),
+                    MajorFugitiveKind::TypeAlias | MajorFugitiveKind::Formal => unreachable!(),
                 },
                 JavPath::TypeItem(path) => match path.item_kind(db) {
-                    TypeItemKind::MethodFn => build(
+                    TypeItemKind::AssocRitchie(_) => build(
                         instantiation,
                         |instantiation| {
                             Linkage::new(
                                 db,
-                                LinkageData::MethodFn {
+                                LinkageData::AssocRitchie {
                                     path: path.into(),
                                     instantiation,
                                 },
@@ -364,22 +368,10 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         },
                         db,
                     ),
-                    TypeItemKind::AssocFunctionFn => build(
-                        instantiation,
-                        |instantiation| {
-                            Linkage::new(
-                                db,
-                                LinkageData::AssocFn {
-                                    path: path.into(),
-                                    instantiation,
-                                },
-                            )
-                        },
-                        db,
-                    ),
-                    TypeItemKind::AssocFunctionGn => todo!(),
                     TypeItemKind::AssocVal => todo!(),
                     TypeItemKind::AssocType => smallvec![],
+                    TypeItemKind::AssocFormal => todo!(),
+                    TypeItemKind::AssocConst => todo!(),
                     TypeItemKind::MemoizedField => build(
                         instantiation,
                         |instantiation| {
@@ -393,18 +385,12 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         },
                         db,
                     ),
-                    TypeItemKind::AssocFormal => todo!(),
-                    TypeItemKind::AssocConst => todo!(),
-                },
-                JavPath::TraitItem(_) => todo!(),
-                JavPath::TraitForTypeItem(path) => match path.item_kind(db) {
-                    TraitItemKind::MemoizedField => todo!(),
-                    TraitItemKind::MethodFn => build(
+                    TypeItemKind::MethodRitchie(_) => build(
                         instantiation,
                         |instantiation| {
                             Linkage::new(
                                 db,
-                                LinkageData::MethodFn {
+                                LinkageData::MethodRitchie {
                                     path: path.into(),
                                     instantiation,
                                 },
@@ -412,9 +398,33 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         },
                         db,
                     ),
+                },
+                JavPath::TraitItem(_) => todo!(),
+                JavPath::TraitForTypeItem(path) => match path.item_kind(db) {
+                    TraitItemKind::MemoizedField => todo!(),
+                    TraitItemKind::MethodRitchie(ritchie_item_kind) => {
+                        match ritchie_item_kind.is_lazy() {
+                            true => {
+                                todo!()
+                            }
+                            false => build(
+                                instantiation,
+                                |instantiation| {
+                                    Linkage::new(
+                                        db,
+                                        LinkageData::MethodRitchie {
+                                            path: path.into(),
+                                            instantiation,
+                                        },
+                                    )
+                                },
+                                db,
+                            ),
+                        }
+                    }
                     TraitItemKind::AssocType => smallvec![],
                     TraitItemKind::AssocVal => todo!(),
-                    TraitItemKind::AssocFunctionFn => {
+                    TraitItemKind::AssocRitchie(ritchie_item_kind) => {
                         match path.impl_block(db).trai_path(db).refine(db) {
                             Left(PreludeTraitPath::UNVEIL) => {
                                 LinInstantiation::from_javelin(instantiation, db)
@@ -423,7 +433,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                         [
                                             Linkage::new(
                                                 db,
-                                                LinkageData::AssocFn {
+                                                LinkageData::AssocRitchie {
                                                     path: path.into(),
                                                     instantiation: instantiation.clone(),
                                                 },
@@ -440,22 +450,24 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                     .flatten()
                                     .collect()
                             }
-                            _ => build(
-                                instantiation,
-                                |instantiation| {
-                                    Linkage::new(
-                                        db,
-                                        LinkageData::AssocFn {
-                                            path: path.into(),
-                                            instantiation,
-                                        },
-                                    )
-                                },
-                                db,
-                            ),
+                            _ => match ritchie_item_kind.is_lazy() {
+                                true => todo!(),
+                                false => build(
+                                    instantiation,
+                                    |instantiation| {
+                                        Linkage::new(
+                                            db,
+                                            LinkageData::AssocRitchie {
+                                                path: path.into(),
+                                                instantiation,
+                                            },
+                                        )
+                                    },
+                                    db,
+                                ),
+                            },
                         }
                     }
-                    TraitItemKind::AssocFunctionGn => todo!(),
                     TraitItemKind::AssocFormal => todo!(),
                     TraitItemKind::AssocConst => todo!(),
                 },

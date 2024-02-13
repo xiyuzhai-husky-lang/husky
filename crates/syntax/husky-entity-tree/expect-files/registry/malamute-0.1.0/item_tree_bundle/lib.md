@@ -194,7 +194,9 @@ EntityTreeCrateBundle {
                                                 MajorItemSynNodePathData::Fugitive(
                                                     FugitiveSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                                Gn,
+                                                            )`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -212,7 +214,9 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
-                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                        Gn,
+                                    )`),
                                     body: None,
                                 },
                             },
@@ -225,7 +229,9 @@ EntityTreeCrateBundle {
                                             MajorItemSynNodePathData::Fugitive(
                                                 FugitiveSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                        path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                            Gn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -274,7 +280,9 @@ EntityTreeCrateBundle {
                         visibility: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
-                                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                    Gn,
+                                )`),
                             ),
                         },
                     },

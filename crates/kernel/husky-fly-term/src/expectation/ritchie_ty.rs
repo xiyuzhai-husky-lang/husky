@@ -60,7 +60,7 @@ impl ExpectFlyTerm for ExpectEqsRitchieType {
 #[derive(Debug, PartialEq, Eq, Clone)]
 // #[salsa::derive_debug_with_db(db = FlyTermDb)]
 pub struct ExpectEqsRitchieTypeOutcome {
-    pub(crate) ritchie_ty_kind: TypeRitchieKind,
+    pub(crate) ritchie_ty_kind: RitchieItemKind,
     pub(crate) parameter_contracted_tys: SmallVec<[FlyRitchieParameter; 2]>,
     pub(crate) return_ty: FlyTerm,
 }
@@ -74,7 +74,7 @@ impl ExpectEqsRitchieTypeOutcome {
         self.return_ty
     }
 
-    pub fn ritchie_ty_kind(&self) -> TypeRitchieKind {
+    pub fn ritchie_ty_kind(&self) -> RitchieItemKind {
         self.ritchie_ty_kind
     }
 }

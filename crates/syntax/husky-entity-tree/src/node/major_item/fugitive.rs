@@ -1,4 +1,4 @@
-use husky_entity_kind::FugitiveKind;
+use husky_entity_kind::MajorFugitiveKind;
 
 use super::*;
 
@@ -62,8 +62,11 @@ impl FugitiveSynNodePath {
         self.data(db).maybe_ambiguous_path.path.ident(db)
     }
 
-    pub fn fugitive_kind(self, db: &::salsa::Db) -> FugitiveKind {
-        self.data(db).maybe_ambiguous_path.path.fugitive_kind(db)
+    pub fn fugitive_kind(self, db: &::salsa::Db) -> MajorFugitiveKind {
+        self.data(db)
+            .maybe_ambiguous_path
+            .path
+            .major_fugitive_kind(db)
     }
 
     pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a MajorItemSynNode {

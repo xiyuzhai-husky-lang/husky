@@ -21,17 +21,21 @@ impl IsAstChildren for FugitiveBody {
             EntityKindKeywordGroup::Submodule(_) => {
                 Err(OriginalAstError::UnexpectedModUnderFugitive)?
             }
-            EntityKindKeywordGroup::FugitiveFn(_) => FugitiveKind::FunctionFn.into(),
+            EntityKindKeywordGroup::Fn(_) => MajorFugitiveKind::FN.into(),
             EntityKindKeywordGroup::StaticFn(_, _) => {
                 Err(OriginalAstError::UnexpectedStaticFnOutsideImplBlock)?
             }
-            EntityKindKeywordGroup::Gn(_) => FugitiveKind::FunctionGn.into(),
-            EntityKindKeywordGroup::FormalEntity(_) => FugitiveKind::Formal.into(),
+            EntityKindKeywordGroup::Gn(_) => MajorFugitiveKind::GN.into(),
+            EntityKindKeywordGroup::Vn(_) => MajorFugitiveKind::VN.into(),
+            EntityKindKeywordGroup::Pn(_) => MajorFugitiveKind::PN.into(),
+            EntityKindKeywordGroup::Qn(_) => MajorFugitiveKind::QN.into(),
+            EntityKindKeywordGroup::Bn(_) => MajorFugitiveKind::BN.into(),
+            EntityKindKeywordGroup::FormalEntity(_) => MajorFugitiveKind::Formal.into(),
             EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),
-            EntityKindKeywordGroup::AliasOrAssociateType(_) => FugitiveKind::TypeAlias.into(),
+            EntityKindKeywordGroup::AliasOrAssociateType(_) => MajorFugitiveKind::TypeAlias.into(),
             EntityKindKeywordGroup::Trait(_) => MajorItemKind::Trait,
-            EntityKindKeywordGroup::Val(_) => FugitiveKind::Val.into(),
-            EntityKindKeywordGroup::Const(_) => FugitiveKind::Const.into(),
+            EntityKindKeywordGroup::Val(_) => MajorFugitiveKind::Val.into(),
+            EntityKindKeywordGroup::Const(_) => MajorFugitiveKind::Const.into(),
             EntityKindKeywordGroup::Memo(_) => Err(OriginalAstError::UnexpectedMemoUnderFugitive)?,
         };
         Ok(EntityKind::MajorItem {

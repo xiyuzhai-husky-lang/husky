@@ -1,7 +1,4 @@
-use husky_entity_kind::{
-    FugitiveKind, TraitItemKind,
-    TypeItemKind::{self},
-};
+use husky_entity_kind::{AssocItemKind, MajorFugitiveKind, TraitItemKind, TypeItemKind};
 use husky_entity_path::{region::RegionPath, AssocItemPath, ItemPath, MajorItemPath};
 use husky_hir_eager_expr::{
     builder::hir_eager_expr_region_with_source_map,
@@ -11,7 +8,7 @@ use husky_hir_lazy_expr::{
     builder::hir_lazy_expr_region_with_source_map,
     helpers::{hir_lazy_body_with_expr_region, hir_lazy_expr_region_from_syn},
 };
-use husky_sema_expr::{helpers::analysis::sema_expr_region_contains_gn, SemaExprDb};
+use husky_sema_expr::{helpers::analysis::sema_expr_region_requires_lazy, SemaExprDb};
 use husky_syn_expr::SynExprRegion;
 
 use crate::{source_map::HirExprSourceMap, *};
@@ -40,7 +37,7 @@ pub fn hir_body_with_expr_region(
 
 pub fn hir_expr_region(syn_expr_region: SynExprRegion, db: &::salsa::Db) -> HirExprRegion {
     let sema_expr_region = db.sema_expr_region(syn_expr_region);
-    match sema_expr_region_contains_gn(db, sema_expr_region) {
+    match sema_expr_region_requires_lazy(db, sema_expr_region) {
         true => hir_lazy_expr_region_from_syn(syn_expr_region, db).into(),
         false => hir_eager_expr_region(syn_expr_region, db).into(),
     }
@@ -72,24 +69,36 @@ fn is_lazy(sema_expr_region: husky_sema_expr::SemaExprRegion, db: &salsa::Db) ->
         }
         RegionPath::Decl(path) | RegionPath::Defn(path) => match path {
             ItemPath::MajorItem(path) => match path {
-                MajorItemPath::Fugitive(path) => match path.fugitive_kind(db) {
-                    FugitiveKind::FunctionGn => true,
-                    FugitiveKind::Val => sema_expr_region_contains_gn(db, sema_expr_region),
+                MajorItemPath::Fugitive(path) => match path.major_fugitive_kind(db) {
+                    MajorFugitiveKind::GN | MajorFugitiveKind::QN => true,
+                    MajorFugitiveKind::Val | MajorFugitiveKind::VN | MajorFugitiveKind::BN => {
+                        sema_expr_region_requires_lazy(db, sema_expr_region)
+                    }
                     _ => false,
                 },
                 _ => false,
             },
             ItemPath::AssocItem(path) => match path {
                 AssocItemPath::TypeItem(path) => match path.item_kind(db) {
-                    TypeItemKind::AssocVal => sema_expr_region_contains_gn(db, sema_expr_region),
+                    TypeItemKind::AssocRitchie(ritchie_item_kind)
+                    | TypeItemKind::MethodRitchie(ritchie_item_kind) => ritchie_item_kind.is_lazy(),
+                    TypeItemKind::AssocVal => sema_expr_region_requires_lazy(db, sema_expr_region),
                     _ => false,
                 },
                 AssocItemPath::TraitItem(path) => match path.item_kind(db) {
-                    TraitItemKind::AssocVal => sema_expr_region_contains_gn(db, sema_expr_region),
+                    TraitItemKind::AssocRitchie(ritchie_item_kind)
+                    | TraitItemKind::MethodRitchie(ritchie_item_kind) => {
+                        ritchie_item_kind.is_lazy()
+                    }
+                    TraitItemKind::AssocVal => sema_expr_region_requires_lazy(db, sema_expr_region),
                     _ => false,
                 },
                 AssocItemPath::TraitForTypeItem(path) => match path.item_kind(db) {
-                    TraitItemKind::AssocVal => sema_expr_region_contains_gn(db, sema_expr_region),
+                    TraitItemKind::AssocRitchie(ritchie_item_kind)
+                    | TraitItemKind::MethodRitchie(ritchie_item_kind) => {
+                        ritchie_item_kind.is_lazy()
+                    }
+                    TraitItemKind::AssocVal => sema_expr_region_requires_lazy(db, sema_expr_region),
                     _ => false,
                 },
             },

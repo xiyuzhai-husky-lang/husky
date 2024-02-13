@@ -12,7 +12,7 @@ pub use self::method_fn::*;
 
 use super::*;
 
-use husky_entity_kind::TypeItemKind;
+use husky_entity_kind::{AssocItemKind, TypeItemKind};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
@@ -87,12 +87,11 @@ impl<'a> DeclParser<'a> {
     ) -> TypeItemSynNodeDecl {
         let db = self.db();
         match syn_node_path.data(db).item_kind(self.db()) {
-            TypeItemKind::MethodFn => self.parse_ty_method_node_decl(syn_node_path).into(),
-            TypeItemKind::AssocFunctionFn => self.parse_ty_assoc_fn_node_decl(syn_node_path).into(),
+            TypeItemKind::AssocRitchie(_) => self.parse_ty_assoc_fn_node_decl(syn_node_path).into(),
+            TypeItemKind::MethodRitchie(_) => self.parse_ty_method_node_decl(syn_node_path).into(),
             TypeItemKind::MemoizedField => self.parse_ty_memo_decl(syn_node_path).into(),
             TypeItemKind::AssocVal => todo!(),
             TypeItemKind::AssocType => todo!(),
-            TypeItemKind::AssocFunctionGn => todo!(),
             TypeItemKind::AssocFormal => todo!(),
             TypeItemKind::AssocConst => todo!(),
         }

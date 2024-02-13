@@ -12,7 +12,7 @@ pub struct FugitivePathData {
     module_path: ModulePath,
     ident: Ident,
     connection: MajorItemConnection,
-    fugitive_kind: FugitiveKind,
+    fugitive_kind: MajorFugitiveKind,
 }
 
 impl FugitivePath {
@@ -20,7 +20,7 @@ impl FugitivePath {
         module_path: ModulePath,
         ident: Ident,
         connection: MajorItemConnection,
-        fugitive_kind: FugitiveKind,
+        fugitive_kind: MajorFugitiveKind,
         db: &::salsa::Db,
     ) -> Self {
         Self(ItemPathId::new(
@@ -45,7 +45,7 @@ impl FugitivePath {
         self.data(db).ident
     }
 
-    pub fn fugitive_kind(self, db: &::salsa::Db) -> FugitiveKind {
+    pub fn major_fugitive_kind(self, db: &::salsa::Db) -> MajorFugitiveKind {
         self.data(db).fugitive_kind
     }
 
@@ -81,7 +81,7 @@ impl FugitivePathData {
         self.connection
     }
 
-    pub fn fugitive_kind(&self) -> FugitiveKind {
+    pub fn fugitive_kind(&self) -> MajorFugitiveKind {
         self.fugitive_kind
     }
 

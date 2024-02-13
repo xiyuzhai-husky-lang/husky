@@ -177,7 +177,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TraitForTypeItem(
-                        AssocFunctionFn,
+                        AssocRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -292,7 +294,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TraitForTypeItem(
-                        AssocFunctionFn,
+                        AssocRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -530,7 +534,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TraitForTypeItem(
-                        AssocFunctionFn,
+                        AssocRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -794,7 +800,9 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
-                        FunctionGn,
+                        Ritchie(
+                            Gn,
+                        ),
                     ),
                     connection: Connected,
                 },
@@ -812,7 +820,9 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                        Gn,
+                    )`),
                     body: None,
                 },
             },

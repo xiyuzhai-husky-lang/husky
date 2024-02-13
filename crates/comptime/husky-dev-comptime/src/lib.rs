@@ -2,7 +2,7 @@ pub mod db;
 
 use self::db::DevComptimeDb;
 
-use husky_entity_kind::{FugitiveKind, TraitItemKind, TypeItemKind};
+use husky_entity_kind::{AssocItemKind, MajorFugitiveKind, TraitItemKind, TypeItemKind};
 use husky_entity_path::{AssocItemPath, ItemPath, MajorItemPath};
 use husky_entity_tree::helpers::ingredient::{HasIngredientPaths, IngredientPath};
 use husky_linkage::linkage::Linkage;
@@ -132,7 +132,7 @@ fn ingredient_vals(
                     .map(|&ingredient_path| {
                         let val_repr = match ingredient_path.item_path() {
                             ItemPath::MajorItem(MajorItemPath::Fugitive(path))
-                                if path.fugitive_kind(db) == FugitiveKind::Val =>
+                                if path.major_fugitive_kind(db) == MajorFugitiveKind::Val =>
                             {
                                 Some(ValRepr::new_val_item(path, db))
                             }

@@ -61,7 +61,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        AssocFunctionFn,
+                        AssocRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -102,7 +104,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -143,7 +147,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -184,7 +190,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -225,7 +233,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -597,7 +607,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -642,7 +654,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -683,7 +697,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -724,7 +740,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -765,7 +783,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -806,7 +826,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -847,7 +869,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -888,7 +912,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -992,7 +1018,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -1033,7 +1061,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -1128,7 +1158,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -1169,7 +1201,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -1210,7 +1244,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -1251,7 +1287,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -1292,7 +1330,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -1333,7 +1373,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -1410,7 +1452,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -1451,7 +1495,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -1492,7 +1538,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {
@@ -1533,7 +1581,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TypeItem(
-                        MethodFn,
+                        MethodRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {

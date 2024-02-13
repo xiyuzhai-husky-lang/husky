@@ -1091,7 +1091,9 @@ EntityTreeCrateBundle {
                                                 MajorItemSynNodePathData::Fugitive(
                                                     FugitiveSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`syntax_basics::expr::nested`, `FunctionFn`),
+                                                            path: FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                                                                Fn,
+                                                            )`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1111,7 +1113,9 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
-                                    path: FugitivePath(`syntax_basics::expr::nested`, `FunctionFn`),
+                                    path: FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                                        Fn,
+                                    )`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -1130,7 +1134,9 @@ EntityTreeCrateBundle {
                                             MajorItemSynNodePathData::Fugitive(
                                                 FugitiveSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`syntax_basics::expr::nested`, `FunctionFn`),
+                                                        path: FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1156,7 +1162,9 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
-                                FugitivePath(`syntax_basics::expr::nested`, `FunctionFn`),
+                                FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         },
                     },

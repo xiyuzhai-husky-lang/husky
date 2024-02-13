@@ -192,7 +192,9 @@ EntityTreePresheet {
                                         MajorItemSynNodePathData::Fugitive(
                                             FugitiveSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                        Gn,
+                                                    )`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -210,7 +212,9 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Fugitive {
-                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                Gn,
+                            )`),
                             body: None,
                         },
                     },
@@ -223,7 +227,9 @@ EntityTreePresheet {
                                     MajorItemSynNodePathData::Fugitive(
                                         FugitiveSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                    Gn,
+                                                )`),
                                                 disambiguator: 0,
                                             },
                                         },

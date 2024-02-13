@@ -138,7 +138,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
                 FunctionMajorFnHirDecl {
-                    path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -188,7 +190,9 @@
                         path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
+                                    FugitivePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),
@@ -233,7 +237,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
                 FunctionMajorFnHirDecl {
-                    path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -283,7 +289,9 @@
                         path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
+                                    FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),

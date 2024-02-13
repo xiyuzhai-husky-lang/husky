@@ -12,7 +12,7 @@ pub use self::method_fn::*;
 pub use self::method_function::*;
 
 use super::*;
-use husky_entity_kind::TypeItemKind;
+use husky_entity_kind::{AssocItemKind, TypeItemKind};
 use husky_entity_tree::HasItemPathsMap;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -116,7 +116,7 @@ pub(crate) fn ty_item_eth_templates_map(
             ) {
                 let result = match result {
                     Ok(paths) => match ty_item_kind {
-                        TypeItemKind::MethodFn => paths
+                        TypeItemKind::MethodRitchie(_) => paths
                             .iter()
                             .copied()
                             .map(|path| match path.eth_template(db) {
@@ -128,7 +128,7 @@ pub(crate) fn ty_item_eth_templates_map(
                             })
                             .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
                             .map(TypeItemEthTemplates::MethodFn),
-                        TypeItemKind::AssocFunctionFn => paths
+                        TypeItemKind::AssocRitchie(_) => paths
                             .iter()
                             .copied()
                             .map(|path| match path.eth_template(db) {
@@ -139,8 +139,7 @@ pub(crate) fn ty_item_eth_templates_map(
                                 _ => unreachable!(),
                             })
                             .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
-                            .map(TypeItemEthTemplates::AssocFn),
-                        TypeItemKind::AssocFunctionGn => todo!(),
+                            .map(TypeItemEthTemplates::AssocFn), 
                         TypeItemKind::AssocVal => todo!(),
                         TypeItemKind::AssocType => todo!(),
                         TypeItemKind::MemoizedField => paths

@@ -54,7 +54,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::three::uparc`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -97,7 +99,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::three::downarc`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -140,7 +144,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::three::back`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(

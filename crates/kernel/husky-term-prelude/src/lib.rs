@@ -14,13 +14,13 @@ mod universe;
 pub use self::category::*;
 pub use self::contract::*;
 pub use self::curry::*;
-
 pub use self::error::*;
 pub use self::final_destination::*;
 pub use self::item_path::*;
 pub use self::modifier::*;
 pub use self::universe::*;
 
+use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_entity_path::*;
 
 #[salsa::jar]
@@ -46,30 +46,38 @@ pub struct TermPreludeJar(
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum RitchieKind {
-    Type(TypeRitchieKind),
-    Trait(TraitRitchieKind),
+    Type(RitchieItemKind),
+    Trait(RitchieTraitKind),
 }
 
 impl RitchieKind {
-    pub const RITCHIE_TYPE_FN: Self = RitchieKind::Type(TypeRitchieKind::Fn);
-    pub const RITCHIE_TYPE_GN: Self = RitchieKind::Type(TypeRitchieKind::Gn);
+    pub const RITCHIE_TYPE_FN: Self = RitchieKind::Type(RitchieItemKind::Fn);
+    pub const RITCHIE_TYPE_GN: Self = RitchieKind::Type(RitchieItemKind::Gn);
+    pub const RITCHIE_TYPE_VN: Self = RitchieKind::Type(RitchieItemKind::Vn);
+    pub const RITCHIE_TYPE_PN: Self = RitchieKind::Type(RitchieItemKind::Pn);
+    pub const RITCHIE_TYPE_QN: Self = RitchieKind::Type(RitchieItemKind::Qn);
+    pub const RITCHIE_TYPE_BN: Self = RitchieKind::Type(RitchieItemKind::Bn);
 
     pub fn code(self) -> &'static str {
         match self {
             RitchieKind::Type(ritchie_ty_kind) => match ritchie_ty_kind {
-                TypeRitchieKind::Fn => "fn(",
-                TypeRitchieKind::Gn => "gn(",
+                RitchieItemKind::Fn => "fn(",
+                RitchieItemKind::Gn => "gn(",
+                RitchieItemKind::Vn => "vn(",
+                RitchieItemKind::Pn => "pn(",
+                RitchieItemKind::Qn => "qn(",
+                RitchieItemKind::Bn => "bn(",
             },
             RitchieKind::Trait(ritchie_trai_kind) => match ritchie_trai_kind {
-                TraitRitchieKind::Fn => "Fn(",
-                TraitRitchieKind::FnMut => "FnMut(",
-                TraitRitchieKind::FnOnce => "FnOnce(",
-                TraitRitchieKind::Gn => "Gn(",
+                RitchieTraitKind::Fn => "Fn(",
+                RitchieTraitKind::FnMut => "FnMut(",
+                RitchieTraitKind::FnOnce => "FnOnce(",
+                RitchieTraitKind::Gn => "Gn(",
             },
         }
     }
 
-    pub fn ritchie_ty_kind(self) -> Option<TypeRitchieKind> {
+    pub fn ritchie_ty_kind(self) -> Option<RitchieItemKind> {
         match self {
             RitchieKind::Type(ritchie_ty_kind) => Some(ritchie_ty_kind),
             RitchieKind::Trait(_) => None,
@@ -78,13 +86,7 @@ impl RitchieKind {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TypeRitchieKind {
-    Fn,
-    Gn,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TraitRitchieKind {
+pub enum RitchieTraitKind {
     Fn,
     FnMut,
     FnOnce,

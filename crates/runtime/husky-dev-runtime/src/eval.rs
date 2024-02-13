@@ -325,7 +325,7 @@ impl<Task: IsTask> DevRuntime<Task> {
 
 #[test]
 fn val_repr_eval_works() {
-    use husky_entity_kind::FugitiveKind;
+    use husky_entity_kind::MajorFugitiveKind;
     use husky_entity_path::*;
     use husky_entity_tree::helpers::paths::module_item_paths;
     use husky_ml_task::MlTask;
@@ -347,7 +347,7 @@ fn val_repr_eval_works() {
         let ItemPath::MajorItem(MajorItemPath::Fugitive(fugitive_path)) = item_path else {
             continue;
         };
-        if fugitive_path.fugitive_kind(db) != FugitiveKind::Val {
+        if fugitive_path.major_fugitive_kind(db) != MajorFugitiveKind::Val {
             continue;
         }
         let val_repr = ValRepr::new_val_item(fugitive_path, db);

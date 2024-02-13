@@ -1,3 +1,4 @@
+use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_vfs::Toolchain;
 use smallvec::ToSmallVec;
 
@@ -48,7 +49,7 @@ pub(crate) fn fn_path_declarative_ty(
         signature.template_parameters(db),
         DecRitchie::new(
             db,
-            TypeRitchieKind::Fn.into(),
+            RitchieItemKind::Fn.into(),
             parenate_parameters,
             return_declarative_ty,
         ),
@@ -71,7 +72,7 @@ pub(crate) fn gn_path_declarative_ty(
         signature.template_parameters(db),
         DecRitchie::new(
             db,
-            TypeRitchieKind::Fn.into(),
+            RitchieItemKind::Fn.into(),
             param_declarative_tys,
             return_declarative_ty,
         ),

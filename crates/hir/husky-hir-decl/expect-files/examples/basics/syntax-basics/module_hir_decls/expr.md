@@ -3,7 +3,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
                 FunctionMajorFnHirDecl {
-                    path: FugitivePath(`syntax_basics::expr::nested`, `FunctionFn`),
+                    path: FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -21,7 +23,9 @@
                         path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
-                                    FugitivePath(`syntax_basics::expr::nested`, `FunctionFn`),
+                                    FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),

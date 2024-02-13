@@ -16,7 +16,7 @@ pub(crate) struct IllFormedItemSynNode {
     syn_node_path: IllFormedItemSynNodePath,
     ast_idx: AstIdx,
     ident: Ident,
-    item_kind: TraitItemKind,
+    item_kind: AssocItemKind,
     visibility: Scope,
     is_generic: bool,
 }

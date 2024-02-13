@@ -27,6 +27,7 @@ pub use self::sort::*;
 pub use self::subtype::*;
 
 use super::*;
+use husky_entity_kind::ritchie::RitchieItemKind;
 use idx_arena::ArenaIdx;
 use thiserror::Error;
 
@@ -120,7 +121,7 @@ pub trait ExpectFlyTerm: Into<Expectation> + Clone {
             FinalDestination::TypeOntology
             | FinalDestination::AnyOriginal
             | FinalDestination::AnyDerived => TypePathDisambiguation::InstanceConstructor,
-            FinalDestination::Ritchie(RitchieKind::Type(TypeRitchieKind::Fn)) => {
+            FinalDestination::Ritchie(RitchieKind::Type(RitchieItemKind::Fn)) => {
                 TypePathDisambiguation::InstanceConstructor
             }
             FinalDestination::Ritchie(_) => todo!(),

@@ -49,18 +49,30 @@ impl IngredientPath {
             } => match module_item_kind {
                 MajorItemKind::Type(_) => false,
                 MajorItemKind::Fugitive(fugitive_kind) => match fugitive_kind {
-                    FugitiveKind::FunctionFn => false,
-                    // gn doesn't directly needs jars
-                    FugitiveKind::FunctionGn => false,
-                    FugitiveKind::TypeAlias => false,
-                    FugitiveKind::Val => true,
-                    FugitiveKind::Formal => false,
-                    FugitiveKind::Const => false,
+                    MajorFugitiveKind::Ritchie(ritchie_item_kind) => ritchie_item_kind.needs_jar(),
+                    MajorFugitiveKind::TypeAlias => false,
+                    MajorFugitiveKind::Val => true,
+                    MajorFugitiveKind::Formal => false,
+                    MajorFugitiveKind::Const => false,
                 },
                 MajorItemKind::Trait => false,
             },
             EntityKind::AssocItem { assoc_item_kind } => match assoc_item_kind {
-                AssocItemKind::TraitItem(TraitItemKind::AssocVal)
+                AssocItemKind::TypeItem(
+                    TypeItemKind::AssocRitchie(ritchie_item_kind)
+                    | TypeItemKind::MethodRitchie(ritchie_item_kind),
+                )
+                | AssocItemKind::TraitItem(
+                    TraitItemKind::AssocRitchie(ritchie_item_kind)
+                    | TraitItemKind::MethodRitchie(ritchie_item_kind),
+                )
+                | AssocItemKind::TraitForTypeItem(
+                    TraitItemKind::AssocRitchie(ritchie_item_kind)
+                    | TraitItemKind::MethodRitchie(ritchie_item_kind),
+                ) => ritchie_item_kind.needs_jar(),
+                AssocItemKind::TraitItem(
+                    TraitItemKind::MemoizedField | TraitItemKind::AssocVal,
+                )
                 | AssocItemKind::TypeItem(TypeItemKind::MemoizedField | TypeItemKind::AssocVal)
                 | AssocItemKind::TraitForTypeItem(
                     TraitItemKind::MemoizedField | TraitItemKind::AssocVal,

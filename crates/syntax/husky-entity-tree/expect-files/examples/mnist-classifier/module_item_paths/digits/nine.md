@@ -16,12 +16,16 @@
     ),
     ItemPath::MajorItem(
         MajorItemPath::Fugitive(
-            FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
+            FugitivePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::MajorItem(
         MajorItemPath::Fugitive(
-            FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
+            FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
+                Fn,
+            )`),
         ),
     ),
 ]
