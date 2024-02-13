@@ -7,7 +7,11 @@ pub trait AsVecMapEntry {
     type K;
     fn key(&self) -> Self::K
     where
-        Self::K: Copy;
+        Self::K: Copy,
+    {
+        *self.key_ref()
+    }
+
     fn key_ref(&self) -> &Self::K;
 }
 

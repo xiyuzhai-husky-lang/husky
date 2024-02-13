@@ -31,7 +31,7 @@ impl TypeMethodFnDecTemplate {
         let self_ty = impl_block.ty(db);
         let contract = match decl.self_value_parameter(db) {
             Some(self_value_parameter) => {
-                TermContract::new(self_value_parameter.ephem_symbol_modifier_token_group())
+                TermContract::new(self_value_parameter.ephem_symbol_modifier_token_verse())
             }
             None => TermContract::Pure,
         };

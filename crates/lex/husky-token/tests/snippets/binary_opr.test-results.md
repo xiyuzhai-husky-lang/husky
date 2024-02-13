@@ -23,16 +23,21 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }
 ```
 
@@ -55,16 +60,21 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }
 ```
 
@@ -87,16 +97,21 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }
 ```
 
@@ -123,16 +138,21 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }
 ```
 
@@ -159,16 +179,21 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }
 ```
 
@@ -191,16 +216,21 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }
 ```
 
@@ -223,16 +253,21 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }
 ```
 
@@ -259,16 +294,21 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }
 ```
 
@@ -295,16 +335,21 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }
 ```
 
@@ -331,16 +376,21 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }
 ```
 
@@ -363,16 +413,21 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }
 ```
 
@@ -399,16 +454,21 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }
 ```
 
@@ -431,16 +491,21 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }
 ```
 
@@ -467,15 +532,20 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }
 ```

@@ -5,7 +5,7 @@ use husky_fly_term::FlyTermRegion;
 use husky_regional_token::{RegionalTokenIdxBase, RegionalTokenIdxRange, RegionalTokenStreamState};
 use husky_sema_expr::*;
 use husky_syn_expr::{SynExprDb, SynExprIdx, SynExprRangeRegion, SynExprRegion};
-use husky_token::{TokenDb, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenStreamState};
+use husky_token::{verse::idx::TokenVerseIdx, TokenDb, TokenIdx, TokenIdxRange, TokenStreamState};
 
 pub(crate) struct SheetDiagnosticsContext<'a> {
     db: &'a ::salsa::Db,
@@ -46,10 +46,10 @@ impl<'a> SheetDiagnosticsContext<'a> {
             .token_stream_state_text_range(token_stream_state)
     }
 
-    pub(crate) fn token_group_text_range(&self, token_group_idx: TokenGroupIdx) -> TextRange {
+    pub(crate) fn token_verse_text_range(&self, token_verse_idx: TokenVerseIdx) -> TextRange {
         let token_idx_range = self
             .token_sheet_data()
-            .token_group_token_idx_range(token_group_idx);
+            .token_verse_token_idx_range(token_verse_idx);
         self.ranged_token_sheet.tokens_text_range(token_idx_range)
     }
 

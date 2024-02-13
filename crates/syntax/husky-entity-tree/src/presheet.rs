@@ -158,13 +158,13 @@ impl<'a> EntityTreePresheetBuilder<'a> {
     fn process(&mut self, ast_idx: AstIdx, ast: &Ast) {
         match *ast {
             Ast::Use {
-                token_group_idx,
+                token_verse_idx,
                 ref visibility_expr,
                 state_after_visibility_expr,
             } => {
                 let mut token_stream = self
                     .token_sheet_data
-                    .token_group_token_stream(token_group_idx, state_after_visibility_expr);
+                    .token_verse_token_stream(token_verse_idx, state_after_visibility_expr);
                 let Ok(use_expr_root) =
                     parse_use_expr_root(&mut token_stream, &mut self.use_expr_arena)
                 else {

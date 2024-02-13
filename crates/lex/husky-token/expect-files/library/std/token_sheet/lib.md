@@ -19,26 +19,35 @@ TokenSheetData {
             `ops`,
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                3,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                5,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-        0,
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            3,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            5,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }

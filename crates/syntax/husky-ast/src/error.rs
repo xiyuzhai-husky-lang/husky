@@ -2,7 +2,7 @@ use crate::*;
 use husky_scope_expr::{
     DerivedVisibilityExprError, OriginalVisibilityExprError, VisibilityExprError,
 };
-use husky_token::{TokenGroupIdx, TokenIdx, TokenStreamState};
+use husky_token::{TokenIdx, TokenStreamState};
 use husky_vfs::error::VfsError;
 use original_error::OriginalError;
 use thiserror::Error;
@@ -100,15 +100,15 @@ pub enum OriginalAstError {
     #[error("unexpected memomoized field outside implementation block")]
     UnexpectedMemoFieldOutsideImplBlock,
     #[error("ExpectedTypeItems")]
-    ExpectedTypeItems(TokenGroupIdx),
+    ExpectedTypeItems(TokenVerseIdx),
     #[error("ExpectedTypeVariants")]
-    ExpectedTypeVariants(TokenGroupIdx),
+    ExpectedTypeVariants(TokenVerseIdx),
     #[error("ExpectedIdentForTypeVariant")]
     ExpectedIdentForTypeVariant(TokenStreamState),
     #[error("ExpectedFormBodyForConfig")]
-    ExpectedFormBodyForConfig(TokenGroupIdx),
+    ExpectedFormBodyForConfig(TokenVerseIdx),
     #[error("ExpectedFormBodyForMain")]
-    ExpectedFormBodyForMain(TokenGroupIdx),
+    ExpectedFormBodyForMain(TokenVerseIdx),
     #[error("SubmoduleFileNotFound")]
     SubmoduleFileNotFound {
         ident_token: IdentToken,

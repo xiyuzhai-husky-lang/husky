@@ -72,7 +72,7 @@ impl Diagnose for OriginalEntityTreeError {
             OriginalEntityTreeError::EntitySymbolAlreadyDefined { old: _, new } => {
                 match ctx.ast_sheet()[new.decl_ast_idx(db)] {
                     Ast::Use {
-                        token_group_idx: _,
+                        token_verse_idx: _,
                         visibility_expr: _,
                         state_after_visibility_expr: _,
                     } => todo!(),
@@ -117,8 +117,13 @@ impl Diagnose for ImplBlockIllForm {
                         format!("expected identifier",)
                     }
                     OriginalMajorItemPathExprError::NoSuchSubitem => todo!(),
-                    OriginalMajorItemPathExprError::NoSuperForCrateRoot { super_token: _ } => todo!(),
-                    OriginalMajorItemPathExprError::PathIsNotMajor { ident_token: _, path: _ } => todo!(),
+                    OriginalMajorItemPathExprError::NoSuperForCrateRoot { super_token: _ } => {
+                        todo!()
+                    }
+                    OriginalMajorItemPathExprError::PathIsNotMajor {
+                        ident_token: _,
+                        path: _,
+                    } => todo!(),
                     OriginalMajorItemPathExprError::NoSuperForParent {
                         parent: _,
                         super_token: _,

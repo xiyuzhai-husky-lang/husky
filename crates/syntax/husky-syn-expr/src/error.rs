@@ -111,7 +111,7 @@ pub enum OriginalSynExprError {
         dot_regional_token_idx: RegionalTokenIdx,
     },
     #[error("expect block")]
-    ExpectedBlock(RegionalTokenGroupIdx),
+    ExpectedBlock(RegionalTokenVerseIdx),
     #[error("unterminated list")]
     UnterminatedList {
         bra_regional_token_idx: RegionalTokenIdx,

@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum EphemSymbolModifierTokenGroup {
+pub enum EphemSymbolModifierTokenVerse {
     Mut(MutToken),
     RefMut(RefToken, Option<LifetimeToken>, MutToken),
     Ambersand(AmbersandToken, Option<LifetimeToken>),
@@ -10,40 +10,40 @@ pub enum EphemSymbolModifierTokenGroup {
     Tilde(TildeToken),
 }
 
-impl Into<SvarModifier> for EphemSymbolModifierTokenGroup {
+impl Into<SvarModifier> for EphemSymbolModifierTokenVerse {
     #[inline(always)]
     fn into(self) -> SvarModifier {
         match self {
-            EphemSymbolModifierTokenGroup::Mut(_) => SvarModifier::Mut,
-            EphemSymbolModifierTokenGroup::RefMut(..) => SvarModifier::RefMut,
-            EphemSymbolModifierTokenGroup::Ambersand(_, lifetime_token) => {
+            EphemSymbolModifierTokenVerse::Mut(_) => SvarModifier::Mut,
+            EphemSymbolModifierTokenVerse::RefMut(..) => SvarModifier::RefMut,
+            EphemSymbolModifierTokenVerse::Ambersand(_, lifetime_token) => {
                 SvarModifier::Ambersand(lifetime_token.map(|t| t.label()))
             }
-            EphemSymbolModifierTokenGroup::AmbersandMut(_, lifetime_token, _) => {
+            EphemSymbolModifierTokenVerse::AmbersandMut(_, lifetime_token, _) => {
                 SvarModifier::AmbersandMut(lifetime_token.map(|t| t.label()))
             }
-            EphemSymbolModifierTokenGroup::Le(..) => SvarModifier::Le,
-            EphemSymbolModifierTokenGroup::Tilde(..) => SvarModifier::Tilde,
+            EphemSymbolModifierTokenVerse::Le(..) => SvarModifier::Le,
+            EphemSymbolModifierTokenVerse::Tilde(..) => SvarModifier::Tilde,
         }
     }
 }
 
-impl Into<TermContract> for EphemSymbolModifierTokenGroup {
+impl Into<TermContract> for EphemSymbolModifierTokenVerse {
     #[inline(always)]
     fn into(self) -> TermContract {
         match self {
-            EphemSymbolModifierTokenGroup::Mut(_) => TermContract::Move,
-            EphemSymbolModifierTokenGroup::RefMut(..) => TermContract::BorrowMut,
-            EphemSymbolModifierTokenGroup::Ambersand(_, _) => TermContract::Borrow,
-            EphemSymbolModifierTokenGroup::AmbersandMut(_, _, _) => TermContract::BorrowMut,
-            EphemSymbolModifierTokenGroup::Le(_) => TermContract::Leash,
-            EphemSymbolModifierTokenGroup::Tilde(_) => TermContract::Leash,
+            EphemSymbolModifierTokenVerse::Mut(_) => TermContract::Move,
+            EphemSymbolModifierTokenVerse::RefMut(..) => TermContract::BorrowMut,
+            EphemSymbolModifierTokenVerse::Ambersand(_, _) => TermContract::Borrow,
+            EphemSymbolModifierTokenVerse::AmbersandMut(_, _, _) => TermContract::BorrowMut,
+            EphemSymbolModifierTokenVerse::Le(_) => TermContract::Leash,
+            EphemSymbolModifierTokenVerse::Tilde(_) => TermContract::Leash,
         }
     }
 }
 
 // todo: change this to TryParse
-impl<'a, SP> parsec::TryParseOptionFromStream<SP> for EphemSymbolModifierTokenGroup
+impl<'a, SP> parsec::TryParseOptionFromStream<SP> for EphemSymbolModifierTokenVerse
 where
     SP: TokenStreamParser<'a>,
 {
@@ -58,7 +58,7 @@ where
         };
         match token {
             TokenData::Keyword(Keyword::Modifier(kw)) => match kw {
-                ModifierKeyword::Mut => Ok(Some(EphemSymbolModifierTokenGroup::Mut(MutToken {
+                ModifierKeyword::Mut => Ok(Some(EphemSymbolModifierTokenVerse::Mut(MutToken {
                     token_idx,
                 }))),
                 ModifierKeyword::Covariant
@@ -70,20 +70,20 @@ where
             TokenData::Punctuation(Punctuation::AMBERSAND) => {
                 let lifetime_token = token_stream.try_parse_option::<LifetimeToken>()?;
                 if let Some(mut_token) = token_stream.try_parse_option::<MutToken>()? {
-                    Ok(Some(EphemSymbolModifierTokenGroup::AmbersandMut(
+                    Ok(Some(EphemSymbolModifierTokenVerse::AmbersandMut(
                         AmbersandToken(token_idx),
                         lifetime_token,
                         mut_token,
                     )))
                 } else {
-                    Ok(Some(EphemSymbolModifierTokenGroup::Ambersand(
+                    Ok(Some(EphemSymbolModifierTokenVerse::Ambersand(
                         AmbersandToken(token_idx),
                         lifetime_token,
                     )))
                 }
             }
             TokenData::Punctuation(Punctuation::TILDE) => Ok(Some(
-                EphemSymbolModifierTokenGroup::Tilde(TildeToken(token_idx)),
+                EphemSymbolModifierTokenVerse::Tilde(TildeToken(token_idx)),
             )),
             TokenData::Error(error) => Err(error)?,
             _ => Ok(None),

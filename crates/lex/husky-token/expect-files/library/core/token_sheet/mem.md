@@ -221,44 +221,59 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                5,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                16,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                27,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                35,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                44,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            5,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            16,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            27,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            35,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            44,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }

@@ -9,8 +9,8 @@ impl RegionalTokenIdxBase {
         Self(0)
     }
 
-    pub fn new(token_group_base: TokenGroupStart) -> Self {
-        Self(token_group_base.token_idx().index())
+    pub fn new(token_verse_base: TokenVerseStart) -> Self {
+        Self(token_verse_base.token_idx().index())
     }
 
     pub fn index_base(&self) -> usize {

@@ -23,14 +23,14 @@ impl<'a> SynStmtContext<'a> {
     fn parse_case_branch(&mut self, if_branch: DefnAstIdx) -> SynCaseBranch {
         match self.asts()[if_branch] {
             DefnAst::BasicStmtOrBranch {
-                regional_token_group_idx,
+                regional_token_verse_idx,
                 body,
             } => {
                 let access_end = self
                     .defn_tokra_region_data()
                     .ast_token_idx_range(if_branch)
                     .end();
-                let mut parser = self.expr_parser(regional_token_group_idx);
+                let mut parser = self.expr_parser(regional_token_verse_idx);
                 let vertical_token = parser
                     .try_parse_option()
                     .expect("guaranteed by ast")

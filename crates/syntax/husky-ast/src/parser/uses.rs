@@ -3,12 +3,12 @@ use super::*;
 impl<'a> AstParser<'a> {
     pub(super) fn parse_use_ast(
         &mut self,
-        token_group_idx: TokenGroupIdx,
+        token_verse_idx: TokenVerseIdx,
         visibility_expr: VisibilityExpr,
         state_after_visibility_expr: Option<TokenStreamState>,
     ) -> Ast {
         Ast::Use {
-            token_group_idx,
+            token_verse_idx,
             visibility_expr,
             state_after_visibility_expr,
         }

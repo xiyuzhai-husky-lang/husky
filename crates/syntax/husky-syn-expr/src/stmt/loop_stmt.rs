@@ -169,7 +169,7 @@ impl SynForextParticulars {
 impl<'a> SynStmtContext<'a> {
     pub(super) fn parse_for_loop_stmt(
         &mut self,
-        _token_group_idx: RegionalTokenGroupIdx,
+        _token_verse_idx: RegionalTokenVerseIdx,
         for_token: StmtForRegionalToken,
         expr: SynExprIdx,
         eol_colon: SynExprResult<EolRegionalToken>,
@@ -311,7 +311,7 @@ impl<'a> SynStmtContext<'a> {
 
     pub(super) fn parse_forext_loop_stmt(
         &mut self,
-        _token_group_idx: RegionalTokenGroupIdx,
+        _token_verse_idx: RegionalTokenVerseIdx,
         forext_token: ForextRegionalToken,
         expr: SynExprIdx,
         eol_colon: SynExprResult<EolRegionalToken>,

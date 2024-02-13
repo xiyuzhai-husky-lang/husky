@@ -27,6 +27,6 @@ where
 
     let token_sheet = db.snippet_token_sheet_data(Snippet::new(db, input.to_owned()));
     let mut stream = token_sheet
-        .token_group_token_stream(token_sheet.token_group_iter().next().unwrap().0, None);
+        .token_verse_token_stream(token_sheet.main_token_verse_iter().next().unwrap().0, None);
     stream.try_parse_option()
 }

@@ -2,9 +2,12 @@ AstSheet {
     ast_arena: Arena {
         data: [
             Ast::Use {
-                token_group_idx: TokenGroupIdx(
-                    0,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        1,
+                    ),
+                },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
                     visibility: Scope::PubUnder(
@@ -14,15 +17,21 @@ AstSheet {
                 state_after_visibility_expr: None,
             },
             Ast::Attr {
-                token_group_idx: TokenGroupIdx(
-                    1,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        2,
+                    ),
+                },
                 ident: `derive`,
             },
             Ast::Identifiable {
-                token_group_idx: TokenGroupIdx(
-                    2,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        3,
+                    ),
+                },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
@@ -58,15 +67,21 @@ AstSheet {
                 },
             },
             Ast::Attr {
-                token_group_idx: TokenGroupIdx(
-                    3,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        4,
+                    ),
+                },
                 ident: `derive`,
             },
             Ast::Identifiable {
-                token_group_idx: TokenGroupIdx(
-                    4,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        5,
+                    ),
+                },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
@@ -102,15 +117,21 @@ AstSheet {
                 },
             },
             Ast::Attr {
-                token_group_idx: TokenGroupIdx(
-                    5,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        6,
+                    ),
+                },
                 ident: `derive`,
             },
             Ast::Identifiable {
-                token_group_idx: TokenGroupIdx(
-                    6,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        7,
+                    ),
+                },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
@@ -146,9 +167,12 @@ AstSheet {
                 },
             },
             Ast::Identifiable {
-                token_group_idx: TokenGroupIdx(
-                    7,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        8,
+                    ),
+                },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
@@ -184,9 +208,12 @@ AstSheet {
                 },
             },
             Ast::Identifiable {
-                token_group_idx: TokenGroupIdx(
-                    8,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        9,
+                    ),
+                },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
@@ -222,9 +249,12 @@ AstSheet {
                 },
             },
             Ast::Identifiable {
-                token_group_idx: TokenGroupIdx(
-                    9,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        10,
+                    ),
+                },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
@@ -260,9 +290,12 @@ AstSheet {
                 },
             },
             Ast::Identifiable {
-                token_group_idx: TokenGroupIdx(
-                    10,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        11,
+                    ),
+                },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
@@ -298,9 +331,12 @@ AstSheet {
                 },
             },
             Ast::Identifiable {
-                token_group_idx: TokenGroupIdx(
-                    11,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        12,
+                    ),
+                },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {

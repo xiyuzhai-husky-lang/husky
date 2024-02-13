@@ -41,20 +41,27 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                7,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-        0,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            7,
+                        ),
+                    ),
+                    indent: 0,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }

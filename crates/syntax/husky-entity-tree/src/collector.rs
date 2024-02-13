@@ -86,9 +86,9 @@ impl<'a> EntityTreeCollector<'a> {
                     .all_ast_indexed_iter()
                     .filter_map(|(ast_idx, ast)| match ast {
                         Ast::ImplBlock {
-                            token_group_idx,
+                            token_verse_idx,
                             items,
-                        } => Some(ImplBlockSynNode::parse_from_token_group(
+                        } => Some(ImplBlockSynNode::parse_from_token_verse(
                             self.db,
                             self.crate_root_path,
                             context!(self, presheet),
@@ -97,7 +97,7 @@ impl<'a> EntityTreeCollector<'a> {
                             *items,
                             self.db
                                 .token_sheet_data(module_path)
-                                .token_group_token_stream(*token_group_idx, None),
+                                .token_verse_token_stream(*token_verse_idx, None),
                             &mut self.impl_registry,
                             &mut self.major_path_expr_arena,
                         )),

@@ -316,7 +316,7 @@ fn calc_self_value_ty(
         let Some(self_value_parameter) = self_value_parameter else {
             return SvarModifier::Pure;
         };
-        SvarModifier::new(self_value_parameter.ephem_symbol_modifier_token_group())
+        SvarModifier::new(self_value_parameter.ephem_symbol_modifier_token_verse())
     }
     let self_ty: FlyTerm = self_ty?.into();
     let modifier = match syn_expr_region_data.path() {

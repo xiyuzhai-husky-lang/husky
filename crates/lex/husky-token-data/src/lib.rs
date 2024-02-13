@@ -34,6 +34,10 @@ pub enum TokenData {
 
 #[cfg(feature = "protocol_support")]
 impl TokenData {
+    pub const VERTICAL: Self = TokenData::Punctuation(Punctuation::VERTICAL);
+    pub const EQ: Self = TokenData::Punctuation(Punctuation::EQ);
+    pub const LCURL: Self = TokenData::Punctuation(Punctuation::LCURL);
+
     // overridable given more information
     pub fn default_token_class(self) -> TokenClass {
         match self {

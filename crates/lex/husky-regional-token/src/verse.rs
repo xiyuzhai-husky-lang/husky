@@ -1,14 +1,14 @@
 use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct RegionalTokenGroupStart(RegionalTokenIdx);
+pub struct RegionalTokenVerseStart(RegionalTokenIdx);
 
-impl RegionalTokenGroupStart {
-    pub fn from_token_group_start(
-        token_group_start: TokenGroupStart,
+impl RegionalTokenVerseStart {
+    pub fn from_token_verse_start(
+        token_verse_start: TokenVerseStart,
         regional_token_idx_base: RegionalTokenIdxBase,
     ) -> Self {
-        let index = token_group_start.index() - regional_token_idx_base.index_base();
+        let index = token_verse_start.index() - regional_token_idx_base.index_base();
         Self::from_index(index)
     }
 
@@ -27,10 +27,10 @@ impl RegionalTokenGroupStart {
 
 /// 0-based
 #[derive(Debug, Default, Clone, Copy, PartialEq, Eq)]
-pub struct RegionalTokenGroupRelativeTokenIndex(usize);
+pub struct RegionalTokenVerseRelativeTokenIndex(usize);
 
-impl RegionalTokenGroupRelativeTokenIndex {
-    pub(crate) fn new(base: RegionalTokenGroupStart, regional_token_idx: RegionalTokenIdx) -> Self {
+impl RegionalTokenVerseRelativeTokenIndex {
+    pub(crate) fn new(base: RegionalTokenVerseStart, regional_token_idx: RegionalTokenIdx) -> Self {
         debug_assert!(base.regional_token_idx() <= regional_token_idx);
         Self(regional_token_idx.index() - base.index())
     }
@@ -39,18 +39,18 @@ impl RegionalTokenGroupRelativeTokenIndex {
         self.0
     }
 
-    pub(crate) fn regional_token_idx(self, base: RegionalTokenGroupStart) -> RegionalTokenIdx {
+    pub(crate) fn regional_token_idx(self, base: RegionalTokenVerseStart) -> RegionalTokenIdx {
         base.0 + self.0
     }
 }
 
-impl std::ops::AddAssign<usize> for RegionalTokenGroupRelativeTokenIndex {
+impl std::ops::AddAssign<usize> for RegionalTokenVerseRelativeTokenIndex {
     fn add_assign(&mut self, rhs: usize) {
         self.0 += rhs
     }
 }
 
-impl std::ops::SubAssign<usize> for RegionalTokenGroupRelativeTokenIndex {
+impl std::ops::SubAssign<usize> for RegionalTokenVerseRelativeTokenIndex {
     fn sub_assign(&mut self, rhs: usize) {
         self.0 -= rhs
     }

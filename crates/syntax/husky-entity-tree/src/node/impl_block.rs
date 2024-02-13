@@ -119,7 +119,7 @@ impl ImplBlockSynNode {
 }
 
 impl ImplBlockSynNode {
-    pub(crate) fn parse_from_token_group<'a, 'b>(
+    pub(crate) fn parse_from_token_verse<'a, 'b>(
         db: &::salsa::Db,
         crate_root_path: ModulePath,
         item_tree_context: EntityTreeSymbolContext<'a, 'b>,
@@ -142,7 +142,7 @@ impl ImplBlockSynNode {
             .try_parse_option::<ImplToken>()
             .expect("okay guaranteed by `husky-ast`")
             .expect("some guaranteed by `husky-ast`");
-        match Self::parse_from_token_group_aux(
+        match Self::parse_from_token_verse_aux(
             db,
             crate_root_path,
             registry,
@@ -166,7 +166,7 @@ impl ImplBlockSynNode {
         }
     }
 
-    pub(crate) fn parse_from_token_group_aux<'a, 'b>(
+    pub(crate) fn parse_from_token_verse_aux<'a, 'b>(
         db: &::salsa::Db,
         _crate_root_path: ModulePath,
         registry: &mut ImplBlockRegistry,

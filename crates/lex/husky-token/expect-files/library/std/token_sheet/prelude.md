@@ -1,5 +1,9 @@
 TokenSheetData {
     tokens: [],
-    token_group_starts: [],
-    indents: [],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [],
+        },
+        nested_sequences: [],
+    },
 }

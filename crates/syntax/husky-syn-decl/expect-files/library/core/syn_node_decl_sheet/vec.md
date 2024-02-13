@@ -856,7 +856,7 @@ SynNodeDeclSheet {
                                     ),
                                     self_value_parameter: Some(
                                         SelfValueParameterSyndicate {
-                                            ephem_symbol_modifier_token_group: Some(
+                                            ephem_symbol_modifier_token_verse: Some(
                                                 AmbersandMut(
                                                     AmbersandRegionalToken(
                                                         RegionalTokenIdx(
@@ -1297,7 +1297,7 @@ SynNodeDeclSheet {
                                     ),
                                     self_value_parameter: Some(
                                         SelfValueParameterSyndicate {
-                                            ephem_symbol_modifier_token_group: Some(
+                                            ephem_symbol_modifier_token_verse: Some(
                                                 At(
                                                     AtRegionalToken(
                                                         RegionalTokenIdx(
@@ -1695,7 +1695,7 @@ SynNodeDeclSheet {
                                     ),
                                     self_value_parameter: Some(
                                         SelfValueParameterSyndicate {
-                                            ephem_symbol_modifier_token_group: Some(
+                                            ephem_symbol_modifier_token_verse: Some(
                                                 At(
                                                     AtRegionalToken(
                                                         RegionalTokenIdx(
@@ -2093,7 +2093,7 @@ SynNodeDeclSheet {
                                     ),
                                     self_value_parameter: Some(
                                         SelfValueParameterSyndicate {
-                                            ephem_symbol_modifier_token_group: Some(
+                                            ephem_symbol_modifier_token_verse: Some(
                                                 AmbersandMut(
                                                     AmbersandRegionalToken(
                                                         RegionalTokenIdx(
@@ -2486,7 +2486,7 @@ SynNodeDeclSheet {
                                     ),
                                     self_value_parameter: Some(
                                         SelfValueParameterSyndicate {
-                                            ephem_symbol_modifier_token_group: Some(
+                                            ephem_symbol_modifier_token_verse: Some(
                                                 Tilde(
                                                     TildeRegionalToken(
                                                         RegionalTokenIdx(
@@ -2863,7 +2863,7 @@ SynNodeDeclSheet {
                                     ),
                                     self_value_parameter: Some(
                                         SelfValueParameterSyndicate {
-                                            ephem_symbol_modifier_token_group: Some(
+                                            ephem_symbol_modifier_token_verse: Some(
                                                 Tilde(
                                                     TildeRegionalToken(
                                                         RegionalTokenIdx(
@@ -3465,7 +3465,7 @@ SynNodeDeclSheet {
                                     ),
                                     self_value_parameter: Some(
                                         SelfValueParameterSyndicate {
-                                            ephem_symbol_modifier_token_group: Some(
+                                            ephem_symbol_modifier_token_verse: Some(
                                                 AmbersandMut(
                                                     AmbersandRegionalToken(
                                                         RegionalTokenIdx(

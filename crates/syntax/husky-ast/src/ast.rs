@@ -1,29 +1,29 @@
 use crate::*;
 
-/// syntax tree down to TokenGroup level
+/// syntax tree down to TokenVerse level
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum Ast {
     Err {
-        token_group_idx: TokenGroupIdx,
+        token_verse_idx: TokenVerseIdx,
         error: AstError,
     },
     Use {
-        token_group_idx: TokenGroupIdx,
+        token_verse_idx: TokenVerseIdx,
         visibility_expr: VisibilityExpr,
         state_after_visibility_expr: Option<TokenStreamState>,
     },
     /// specify comptime sorceries
     /// doesn't need to be processed until comptime
-    Sorc { token_group_idx: TokenGroupIdx },
+    Sorc { token_verse_idx: TokenVerseIdx },
     /// decoration, used for deriving trait implementations, etc.
     /// needs to be processed before inference
     Attr {
-        token_group_idx: TokenGroupIdx,
+        token_verse_idx: TokenVerseIdx,
         ident: Ident,
     },
     BasicStmtOrBranch {
-        token_group_idx: TokenGroupIdx,
+        token_verse_idx: TokenVerseIdx,
         body: Option<FugitiveBody>,
     },
     IfElseStmts {
@@ -32,12 +32,12 @@ pub enum Ast {
         else_branch: Option<AstIdx>,
     },
     MatchStmt {
-        token_group_idx: TokenGroupIdx,
+        token_verse_idx: TokenVerseIdx,
         pattern_stmt: AstIdx,
         case_branches: AstIdxRange,
     },
     Identifiable {
-        token_group_idx: TokenGroupIdx,
+        token_verse_idx: TokenVerseIdx,
         visibility_expr: VisibilityExpr,
         item_kind: EntityKind,
         ident_token: IdentToken,
@@ -46,14 +46,14 @@ pub enum Ast {
         block: DefnBlock,
     },
     TypeVariant {
-        token_group_idx: TokenGroupIdx,
+        token_verse_idx: TokenVerseIdx,
         variant_path: TypeVariantPath,
         vertical_token: VerticalToken,
         ident_token: IdentToken,
         saved_stream_state: TokenStreamState,
     },
     ImplBlock {
-        token_group_idx: TokenGroupIdx,
+        token_verse_idx: TokenVerseIdx,
         items: Option<ImplBlockItems>,
     },
 }

@@ -1,12 +1,11 @@
+use super::*;
 use husky_ast::HasAstSheet;
 use husky_ast::{
     error::{AstError, OriginalAstError},
     Ast,
 };
 use husky_scope_expr::OriginalVisibilityExprError;
-use husky_token::TokenGroupIdx;
-
-use super::*;
+use husky_token::verse::idx::TokenVerseIdx;
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct AstDiagnosticSheet {
@@ -24,16 +23,16 @@ pub(crate) fn ast_diagnostic_sheet(
     for ast in module_path.ast_sheet(db).data() {
         match ast {
             Ast::Err {
-                token_group_idx,
+                token_verse_idx,
                 error: AstError::Original(error),
-            } => diagnostics.push((*token_group_idx, error).to_diagnostic(&ctx)),
+            } => diagnostics.push((*token_verse_idx, error).to_diagnostic(&ctx)),
             _ => (),
         }
     }
     // todo
     AstDiagnosticSheet::new(db, diagnostics)
 }
-impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
+impl Diagnose for (TokenVerseIdx, &OriginalAstError) {
     type Context<'a> = SheetDiagnosticsContext<'a>;
 
     fn message(&self, _db: &SheetDiagnosticsContext) -> String {
@@ -226,7 +225,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::ExpectedTypeVariants(_)
             | OriginalAstError::ExpectedIdentForTypeVariant(_)
             | OriginalAstError::ExpectedFormBodyForConfig(_)
-            | OriginalAstError::ExpectedFormBodyForMain(_) => ctx.token_group_text_range(self.0),
+            | OriginalAstError::ExpectedFormBodyForMain(_) => ctx.token_verse_text_range(self.0),
             OriginalAstError::ExpectedIdent(token_stream_state)
             | OriginalAstError::VisibilityExprError(
                 OriginalVisibilityExprError::ExpectedRightParenthesis(token_stream_state)

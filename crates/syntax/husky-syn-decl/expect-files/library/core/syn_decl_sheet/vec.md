@@ -657,7 +657,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: Some(
                                 SelfValueParameterSyndicate {
-                                    ephem_symbol_modifier_token_group: Some(
+                                    ephem_symbol_modifier_token_verse: Some(
                                         AmbersandMut(
                                             AmbersandRegionalToken(
                                                 RegionalTokenIdx(
@@ -1034,7 +1034,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: Some(
                                 SelfValueParameterSyndicate {
-                                    ephem_symbol_modifier_token_group: Some(
+                                    ephem_symbol_modifier_token_verse: Some(
                                         At(
                                             AtRegionalToken(
                                                 RegionalTokenIdx(
@@ -1368,7 +1368,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: Some(
                                 SelfValueParameterSyndicate {
-                                    ephem_symbol_modifier_token_group: Some(
+                                    ephem_symbol_modifier_token_verse: Some(
                                         At(
                                             AtRegionalToken(
                                                 RegionalTokenIdx(
@@ -1702,7 +1702,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: Some(
                                 SelfValueParameterSyndicate {
-                                    ephem_symbol_modifier_token_group: Some(
+                                    ephem_symbol_modifier_token_verse: Some(
                                         AmbersandMut(
                                             AmbersandRegionalToken(
                                                 RegionalTokenIdx(
@@ -2031,7 +2031,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: Some(
                                 SelfValueParameterSyndicate {
-                                    ephem_symbol_modifier_token_group: Some(
+                                    ephem_symbol_modifier_token_verse: Some(
                                         Tilde(
                                             TildeRegionalToken(
                                                 RegionalTokenIdx(
@@ -2344,7 +2344,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: Some(
                                 SelfValueParameterSyndicate {
-                                    ephem_symbol_modifier_token_group: Some(
+                                    ephem_symbol_modifier_token_verse: Some(
                                         Tilde(
                                             TildeRegionalToken(
                                                 RegionalTokenIdx(
@@ -2870,7 +2870,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: Some(
                                 SelfValueParameterSyndicate {
-                                    ephem_symbol_modifier_token_group: Some(
+                                    ephem_symbol_modifier_token_verse: Some(
                                         AmbersandMut(
                                             AmbersandRegionalToken(
                                                 RegionalTokenIdx(

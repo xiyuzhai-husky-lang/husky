@@ -46,12 +46,12 @@ impl<'a> SynStmtContext<'a> {
 
     pub(crate) fn expr_parser<'b>(
         &'b mut self,
-        token_group_idx: RegionalTokenGroupIdx,
+        token_verse_idx: RegionalTokenVerseIdx,
     ) -> SynExprParser<'a, &'b mut SynExprContext<'a>>
     where
         'a: 'b,
     {
-        let token_stream = self.token_group_token_stream(token_group_idx);
+        let token_stream = self.token_verse_token_stream(token_verse_idx);
         SynExprParser::new(self, None, token_stream)
     }
 
@@ -69,12 +69,12 @@ impl<'a> SynStmtContext<'a> {
         self.expr_context.finish()
     }
 
-    pub(crate) fn token_group_token_stream(
+    pub(crate) fn token_verse_token_stream(
         &self,
-        regional_token_group_idx: RegionalTokenGroupIdx,
+        regional_token_verse_idx: RegionalTokenVerseIdx,
     ) -> RegionalTokenStream<'a> {
         self.defn_tokra_region_data
-            .token_stream(regional_token_group_idx)
+            .token_stream(regional_token_verse_idx)
     }
 
     pub(crate) fn asts(&self) -> DefnAstArenaRef<'a> {

@@ -5,23 +5,23 @@ mod base;
 #[cfg(test)]
 mod tests;
 mod token;
-mod token_group;
 mod token_idx;
 mod token_idx_range;
 mod tokens_data;
+mod verse;
 
 pub use self::base::*;
 pub use self::token::*;
-pub use self::token_group::*;
 pub use self::token_idx::*;
 pub use self::token_idx_range::*;
 pub use self::tokens_data::*;
+pub use self::verse::*;
 
 #[cfg(test)]
 use crate::tests::*;
 use husky_coword::Ident;
 use husky_opr::Bracket;
-use husky_token::TokenGroupStart;
+use husky_token::verse::{idx::TokenVerseIdx, start::TokenVerseStart};
 use husky_token::*;
 use husky_token_data::*;
 #[cfg(test)]
@@ -30,9 +30,9 @@ use parsec::{HasStreamState, IsStreamParser};
 use std::num::NonZeroU32;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct RegionalTokenGroupIdxBase(u32);
+pub struct RegionalTokenVerseIdxBase(u32);
 
-impl RegionalTokenGroupIdxBase {
+impl RegionalTokenVerseIdxBase {
     pub fn index(self) -> usize {
         self.0 as usize
     }
@@ -42,17 +42,17 @@ impl RegionalTokenGroupIdxBase {
         Self(index as u32)
     }
 
-    pub fn from_token_group_idx(token_group_idx: TokenGroupIdx) -> Self {
-        Self::from_index(token_group_idx.index())
+    pub fn from_token_verse_idx(token_verse_idx: TokenVerseIdx) -> Self {
+        Self::from_index(token_verse_idx.index())
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct RegionalTokenGroupIdx(NonZeroU32);
+pub struct RegionalTokenVerseIdx(NonZeroU32);
 
-impl RegionalTokenGroupIdx {
-    pub fn new(token_group_idx: TokenGroupIdx, base: RegionalTokenGroupIdxBase) -> Self {
-        Self::from_index(token_group_idx.index() - base.index())
+impl RegionalTokenVerseIdx {
+    pub fn new(token_verse_idx: TokenVerseIdx, base: RegionalTokenVerseIdxBase) -> Self {
+        Self::from_index(token_verse_idx.index() - base.index())
     }
 
     pub fn index(self) -> usize {
@@ -99,9 +99,9 @@ impl RegionalTokenStreamState {
 }
 
 pub struct RegionalTokenStream<'a> {
-    start: RegionalTokenGroupStart,
+    start: RegionalTokenVerseStart,
     tokens: &'a [TokenData],
-    next_relative: RegionalTokenGroupRelativeTokenIndex,
+    next_relative: RegionalTokenVerseRelativeTokenIndex,
 }
 
 impl<'a> HasStreamState for RegionalTokenStream<'a> {
@@ -135,7 +135,7 @@ impl<'a> Iterator for RegionalTokenStream<'a> {
 
 impl<'a> RegionalTokenStream<'a> {
     pub fn new_snippet_regional_token_stream(tokens: &'a [TokenData]) -> Self {
-        let start = RegionalTokenGroupStart::from_index(0);
+        let start = RegionalTokenVerseStart::from_index(0);
         Self {
             start,
             tokens,
@@ -147,13 +147,13 @@ impl<'a> RegionalTokenStream<'a> {
         tokens: &'a [TokenData],
         saved_regional_token_stream_state: Option<RegionalTokenStreamState>,
     ) -> Self {
-        let start = RegionalTokenGroupStart::from_index(0);
+        let start = RegionalTokenVerseStart::from_index(0);
         Self {
             start,
             tokens,
             next_relative: saved_regional_token_stream_state
                 .map(|regional_token_stream_state| {
-                    RegionalTokenGroupRelativeTokenIndex::new(
+                    RegionalTokenVerseRelativeTokenIndex::new(
                         start,
                         regional_token_stream_state.next_regional_token_idx(),
                     )
@@ -164,10 +164,10 @@ impl<'a> RegionalTokenStream<'a> {
 
     pub fn new_defn_regional_token_stream(
         tokens: &'a [TokenData],
-        regional_token_group_start: RegionalTokenGroupStart,
+        regional_token_verse_start: RegionalTokenVerseStart,
     ) -> Self {
         Self {
-            start: regional_token_group_start,
+            start: regional_token_verse_start,
             tokens,
             next_relative: Default::default(),
         }
@@ -217,7 +217,7 @@ impl<'a> RegionalTokenStream<'a> {
     }
 
     pub fn rollback(&mut self, state: RegionalTokenIdx) {
-        self.next_relative = RegionalTokenGroupRelativeTokenIndex::new(self.start, state);
+        self.next_relative = RegionalTokenVerseRelativeTokenIndex::new(self.start, state);
     }
 
     pub fn next_index(&self) -> RegionalTokenIdx {
@@ -277,7 +277,7 @@ impl<'a> RegionalTokenStream<'a> {
     }
 
     pub fn rollback_raw(&mut self, token_idx: RegionalTokenIdx) {
-        self.next_relative = RegionalTokenGroupRelativeTokenIndex::new(self.start, token_idx)
+        self.next_relative = RegionalTokenVerseRelativeTokenIndex::new(self.start, token_idx)
     }
 }
 

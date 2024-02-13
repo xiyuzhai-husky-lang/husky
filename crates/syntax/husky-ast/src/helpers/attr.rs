@@ -8,12 +8,12 @@ impl AstSheet {
         &self,
         parent: ItemPath,
         attr_parent_ast_idx: AstIdx,
-        mut f: impl FnMut(AstIdx, TokenGroupIdx, AttrItemPath) -> D,
+        mut f: impl FnMut(AstIdx, TokenVerseIdx, AttrItemPath) -> D,
         db: &::salsa::Db,
     ) -> smallvec::SmallVec<A> {
         let mut registry = AttrRegistry::new(parent);
         let mut attrs: smallvec::SmallVec<A> = smallvec::smallvec![];
-        for (ast_idx, token_group_idx, ident) in self
+        for (ast_idx, token_verse_idx, ident) in self
             .siblings()
             .iter()
             .filter_map(move |siblings| {
@@ -32,15 +32,15 @@ impl AstSheet {
                     .filter_map(|(ast_idx, ast)| match ast {
                         Ast::Sorc { .. } => None,
                         Ast::Attr {
-                            token_group_idx,
+                            token_verse_idx,
                             ident,
-                        } => Some((ast_idx, *token_group_idx, *ident)),
+                        } => Some((ast_idx, *token_verse_idx, *ident)),
                         _ => unreachable!(),
                     })
             })
             .flatten()
         {
-            attrs.push(f(ast_idx, token_group_idx, registry.issue(ident, db)))
+            attrs.push(f(ast_idx, token_verse_idx, registry.issue(ident, db)))
         }
         attrs
     }

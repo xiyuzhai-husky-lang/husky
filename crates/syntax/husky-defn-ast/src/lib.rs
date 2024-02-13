@@ -1,6 +1,6 @@
 // base 1
 
-use husky_regional_token::RegionalTokenGroupIdx;
+use husky_regional_token::RegionalTokenVerseIdx;
 
 use idx_arena::*;
 
@@ -14,7 +14,7 @@ pub enum DefnAst {
     /// let or return or require or a single `if` or `elif` or `else` or case branch
     BasicStmtOrBranch {
         /// the token group for the head
-        regional_token_group_idx: RegionalTokenGroupIdx,
+        regional_token_verse_idx: RegionalTokenVerseIdx,
         /// maybe have body or not
         body: Option<DefnAstIdxRange>,
     },
@@ -30,7 +30,7 @@ pub enum DefnAst {
     /// it's guaranteed that branches fall into `DefnAst::BasicStmtOrBranch`
     MatchStmt {
         /// the token group for the head
-        regional_token_group_idx: RegionalTokenGroupIdx,
+        regional_token_verse_idx: RegionalTokenVerseIdx,
         /// ast idx for the head
         pattern_stmt: DefnAstIdx,
         case_branches: DefnAstIdxRange,

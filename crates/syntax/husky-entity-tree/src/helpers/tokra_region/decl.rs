@@ -70,13 +70,13 @@ fn build_decl_tokra_region(
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     let token_sheet_data = db.token_sheet_data(module_path);
     let ast_sheet = module_path.ast_sheet(db);
-    let (token_group_idx, ast, saved_regional_stream_state) = match ast_sheet[ast_idx] {
+    let (token_verse_idx, ast, saved_regional_stream_state) = match ast_sheet[ast_idx] {
         Ast::Attr {
-            token_group_idx,
+            token_verse_idx,
             ident: _,
-        } => (token_group_idx, DeclAst::Attr, None),
+        } => (token_verse_idx, DeclAst::Attr, None),
         Ast::Identifiable {
-            token_group_idx,
+            token_verse_idx,
             visibility_expr: _,
             item_kind: _,
             ident_token: _,
@@ -84,30 +84,30 @@ fn build_decl_tokra_region(
             saved_stream_state,
             block: _,
         } => (
-            token_group_idx,
+            token_verse_idx,
             DeclAst::Identifiable {},
             Some(saved_stream_state),
         ),
         Ast::TypeVariant {
-            token_group_idx,
+            token_verse_idx,
             variant_path: _,
             vertical_token: _,
             ident_token: _,
             saved_stream_state,
         } => (
-            token_group_idx,
+            token_verse_idx,
             DeclAst::TypeVariant,
             Some(saved_stream_state),
         ),
         Ast::ImplBlock {
-            token_group_idx,
+            token_verse_idx,
             items: _,
-        } => (token_group_idx, DeclAst::ImplBlock, None),
+        } => (token_verse_idx, DeclAst::ImplBlock, None),
         _ => unreachable!(),
     };
-    let tokens = token_sheet_data[token_group_idx].to_vec();
+    let tokens = token_sheet_data[token_verse_idx].to_vec();
     let regional_token_idx_base =
-        RegionalTokenIdxBase::new(token_sheet_data.token_group_start(token_group_idx));
+        RegionalTokenIdxBase::new(token_sheet_data.token_verse_start(token_verse_idx));
     let saved_regional_stream_state = saved_regional_stream_state.map(|token_stream_state| {
         RegionalTokenStreamState::from_token_stream_state(
             token_stream_state,

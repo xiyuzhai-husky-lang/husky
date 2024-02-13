@@ -12,9 +12,9 @@ mod tests;
 mod token_idx;
 mod token_idx_range;
 // mod token;
-mod token_group;
 mod token_visibility;
 mod tokenize;
+pub mod verse;
 
 pub use self::db::*;
 pub use self::helpers::*;
@@ -23,7 +23,6 @@ pub use self::stream::*;
 pub use self::token_idx::*;
 pub use self::token_idx_range::*;
 // pub use self::token::*;
-pub use self::token_group::*;
 pub use self::token_visibility::*;
 
 use self::snippet::*;

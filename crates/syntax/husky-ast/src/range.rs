@@ -62,37 +62,37 @@ impl<'a> AstTokenIdxRangeCalculator<'a> {
     fn calc_ast(&self, ast: &Ast) -> TokenIdxRange {
         match ast {
             Ast::Err {
-                token_group_idx, ..
+                token_verse_idx, ..
             }
             | Ast::Use {
-                token_group_idx, ..
+                token_verse_idx, ..
             }
             | Ast::Sorc {
-                token_group_idx, ..
+                token_verse_idx, ..
             }
             | Ast::Attr {
-                token_group_idx, ..
+                token_verse_idx, ..
             }
             | Ast::TypeVariant {
-                token_group_idx, ..
+                token_verse_idx, ..
             } => self
                 .token_sheet_data
-                .token_group_token_idx_range(*token_group_idx),
+                .token_verse_token_idx_range(*token_verse_idx),
             Ast::BasicStmtOrBranch {
-                token_group_idx,
+                token_verse_idx,
                 body,
                 ..
-            } => self.calc_ast_group(*token_group_idx, body.map(|body| body.ast_idx_range())),
+            } => self.calc_ast_group(*token_verse_idx, body.map(|body| body.ast_idx_range())),
             Ast::Identifiable {
-                token_group_idx,
+                token_verse_idx,
                 block,
                 ..
-            } => self.calc_ast_group(*token_group_idx, block.children()),
+            } => self.calc_ast_group(*token_verse_idx, block.children()),
             Ast::ImplBlock {
-                token_group_idx,
+                token_verse_idx,
                 items: body,
                 ..
-            } => self.calc_ast_group(*token_group_idx, body.map(|body| body.ast_idx_range())),
+            } => self.calc_ast_group(*token_verse_idx, body.map(|body| body.ast_idx_range())),
             Ast::IfElseStmts {
                 if_branch: if_stmt,
                 elif_branches: elif_stmts,
@@ -134,20 +134,20 @@ impl<'a> AstTokenIdxRangeCalculator<'a> {
 
     fn calc_ast_group(
         &self,
-        token_group_idx: TokenGroupIdx,
+        token_verse_idx: TokenVerseIdx,
         ast_idx_range: impl Into<Option<AstIdxRange>>,
     ) -> TokenIdxRange {
-        let token_group_token_idx_range = self
+        let token_verse_token_idx_range = self
             .token_sheet_data
-            .token_group_token_idx_range(token_group_idx);
-        let start = token_group_token_idx_range.start();
+            .token_verse_token_idx_range(token_verse_idx);
+        let start = token_verse_token_idx_range.start();
         let ast_idx_range: Option<AstIdxRange> = ast_idx_range.into();
         let end = match ast_idx_range {
             Some(ast_idx_range) => match ast_idx_range.last() {
                 Some(last) => self.ast_ranges[last.index()].end(),
-                None => token_group_token_idx_range.end(),
+                None => token_verse_token_idx_range.end(),
             },
-            None => token_group_token_idx_range.end(),
+            None => token_verse_token_idx_range.end(),
         };
         (start, end).into()
     }
