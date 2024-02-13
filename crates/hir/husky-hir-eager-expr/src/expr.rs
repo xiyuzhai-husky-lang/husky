@@ -456,6 +456,9 @@ impl ToHirEager for SemaExprIdx {
             SemaExprData::Unreachable { .. } => HirEagerExprData::Unreachable,
             SemaExprData::VecFunctor { .. } => todo!(),
             SemaExprData::ArrayFunctor { .. } => todo!(),
+            SemaExprData::NestedBlock { stmts, .. } => HirEagerExprData::Block {
+                stmts: stmts.to_hir_eager(builder),
+            },
         };
         let ty = self.ty(builder.sema_expr_arena_ref2());
         let ty_place = ty

@@ -239,6 +239,10 @@ impl<'a> RegionalTokenStream<'a> {
     }
 
     pub fn rollback(&mut self, state: RegionalTokenIdx) {
+        self.set_state(state)
+    }
+
+    pub fn set_state(&mut self, state: RegionalTokenIdx) {
         self.next_relative = RegionalTokenVerseRelativeTokenIndex::new(self.start, state);
     }
 

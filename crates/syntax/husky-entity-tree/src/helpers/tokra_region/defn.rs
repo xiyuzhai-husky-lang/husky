@@ -19,9 +19,10 @@ pub struct DefnTokraRegion {
     ast_token_idx_ranges: Vec<RegionalTokenIdxRange>,
     #[return_ref]
     nested_blocks: Vec<(
-        RegionalTokenIdx,
+        RegionalTokenIdx, // lcurl
         DefnAstIdxRange,
         Vec<RegionalTokenVerseStart>,
+        RegionalTokenIdx, // end
     )>,
 }
 
@@ -53,6 +54,7 @@ pub struct DefnTokraRegionDataRef<'a> {
         RegionalTokenIdx,
         DefnAstIdxRange,
         Vec<RegionalTokenVerseStart>,
+        RegionalTokenIdx,
     )],
 }
 
@@ -75,7 +77,7 @@ impl<'a> DefnTokraRegionDataRef<'a> {
         let token_verse_starts = if let Some(lcurl) = regional_token_verse_idx.lcurl() {
             self.nested_blocks
                 .iter()
-                .find_map(|&(lcurl1, _, ref token_verse_starts)| {
+                .find_map(|&(lcurl1, _, ref token_verse_starts, _)| {
                     (lcurl == lcurl1).then_some(token_verse_starts)
                 })
                 .unwrap()
@@ -99,12 +101,15 @@ impl<'a> DefnTokraRegionDataRef<'a> {
         self.ast_arena
     }
 
-    pub fn nested_block(&self, lcurl_regional_token_idx: RegionalTokenIdx) -> DefnAstIdxRange {
+    pub fn nested_block_ast_idx_range_and_end(
+        &self,
+        lcurl_regional_token_idx: RegionalTokenIdx,
+    ) -> (DefnAstIdxRange, RegionalTokenIdx) {
         self.nested_blocks
             .iter()
-            .find_map(|&(lcurl_regional_token_idx1, defn_ast_idx_range, _)| {
+            .find_map(|&(lcurl_regional_token_idx1, defn_ast_idx_range, _, end)| {
                 (lcurl_regional_token_idx == lcurl_regional_token_idx1)
-                    .then_some(defn_ast_idx_range)
+                    .then_some((defn_ast_idx_range, end))
             })
             .unwrap()
     }
@@ -266,8 +271,9 @@ impl<'a> DefnTokraRegionBuilder<'a> {
             .copied()
             .filter_map(|(token_idx, ast_idx_range)| {
                 asts_token_idx_range.contains(token_idx).then(|| {
-                    let verse_starts = self.token_sheet_data.token_verses().nested_sequences()
-                        [token_idx]
+                    let nested_token_verse_sequence =
+                        &self.token_sheet_data.token_verses().nested_sequences()[token_idx];
+                    let verse_starts = nested_token_verse_sequence
                         .verses_data()
                         .iter()
                         .map(|verse| {
@@ -281,6 +287,10 @@ impl<'a> DefnTokraRegionBuilder<'a> {
                         RegionalTokenIdx::from_token_idx(token_idx, self.regional_token_idx_base),
                         self.build_asts(ast_idx_range),
                         verse_starts,
+                        RegionalTokenIdx::from_token_idx(
+                            nested_token_verse_sequence.end(),
+                            self.regional_token_idx_base,
+                        ),
                     )
                 })
             })
@@ -377,6 +387,7 @@ impl<'a> DefnTokraRegionBuilder<'a> {
             RegionalTokenIdx,
             DefnAstIdxRange,
             Vec<RegionalTokenVerseStart>,
+            RegionalTokenIdx,
         )>,
     ) -> (DefnTokraRegion, DefnTokraRegionSourceMap) {
         // todo: nested??

@@ -6,26 +6,11 @@ EntityTreePresheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::line_segment_sketch::concave_component`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 83,
+                                },
+                            ),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
@@ -42,26 +27,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 83,
+                            },
+                        ),
                     ),
                 ),
                 ident: `concave_component`,
@@ -73,26 +43,11 @@ EntityTreePresheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::line_segment_sketch::convex_component`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 84,
+                                },
+                            ),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
@@ -109,26 +64,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `mnist_classifier::line_segment_sketch::convex_component`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 84,
+                            },
+                        ),
                     ),
                 ),
                 ident: `convex_component`,
@@ -140,26 +80,11 @@ EntityTreePresheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::line_segment_sketch::convexity`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 85,
+                                },
+                            ),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
@@ -176,26 +101,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `mnist_classifier::line_segment_sketch::convexity`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 85,
+                            },
+                        ),
                     ),
                 ),
                 ident: `convexity`,
@@ -207,26 +117,11 @@ EntityTreePresheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::line_segment_sketch::line_segment`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 86,
+                                },
+                            ),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
@@ -243,26 +138,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `mnist_classifier::line_segment_sketch::line_segment`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 86,
+                            },
+                        ),
                     ),
                 ),
                 ident: `line_segment`,
@@ -275,18 +155,11 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Type(
-                                            TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 87,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -306,18 +179,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(
                         TypeSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Type(
-                                        TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 87,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -329,18 +195,11 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Type(
-                                            TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 88,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -360,18 +219,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(
                         TypeSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Type(
-                                        TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 88,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -383,20 +235,11 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Fugitive(
-                                            FugitiveSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 89,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -426,20 +269,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
-                                                    Fn,
-                                                )`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 89,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -453,20 +287,11 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Fugitive(
-                                            FugitiveSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 90,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -496,20 +321,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
-                                                    Fn,
-                                                )`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 90,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -523,20 +339,11 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Fugitive(
-                                            FugitiveSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 91,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -566,20 +373,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
-                                                    Fn,
-                                                )`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 91,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -593,20 +391,11 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Fugitive(
-                                            FugitiveSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 92,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -636,20 +425,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
-                                                    Fn,
-                                                )`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 92,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -663,20 +443,11 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Fugitive(
-                                            FugitiveSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 93,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -706,20 +477,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
-                                                    Fn,
-                                                )`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 93,
+                                },
+                            ),
                         ),
                     ),
                 ),

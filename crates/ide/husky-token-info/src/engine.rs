@@ -443,6 +443,18 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     TokenInfoData::BoxColon,
                 )
             }
+            SemaExprData::FunctionRitchieCall {
+                function_sema_expr_idx,
+                template_arguments,
+                lpar_regional_token_idx,
+                ritchie_parameter_argument_matches,
+                rpar_regional_token_idx,
+            } => todo!(),
+            SemaExprData::NestedBlock {
+                lcurl_regional_token_idx,
+                stmts,
+                rcurl_regional_token,
+            } => todo!(),
         }
     }
 

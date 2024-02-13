@@ -321,6 +321,7 @@ impl Diagnose for OriginalSynExprError {
                 regional_token_idx: _,
                 error: _,
             } => todo!(),
+            OriginalSynExprError::ExpectedBlockRcurl(_) => todo!(),
         }
     }
 

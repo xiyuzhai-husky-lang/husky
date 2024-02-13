@@ -134,9 +134,13 @@
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
-                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                        Fn,
+                    )`),
                     hir_decl: FunctionMajorFnHirDecl {
-                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -248,7 +252,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -303,7 +309,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -328,7 +336,9 @@
                                                 self_contract: Leash,
                                                 ident: `collect_leashes`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
+                                                    TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -417,7 +427,9 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -581,7 +593,9 @@
                                                 self_contract: BorrowMut,
                                                 ident: `pop_with_largest_opt_f32`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
+                                                    TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -664,7 +678,9 @@
                                                 self_contract: BorrowMut,
                                                 ident: `push`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+                                                    TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -1209,7 +1225,9 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -1363,7 +1381,9 @@
                                                 self_contract: Pure,
                                                 ident: `max`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -1682,7 +1702,9 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -1836,7 +1858,9 @@
                                                 self_contract: Pure,
                                                 ident: `max`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -2155,7 +2179,9 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -2309,7 +2335,9 @@
                                                 self_contract: Pure,
                                                 ident: `abs`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -2328,7 +2356,9 @@
                                                 self_contract: Pure,
                                                 ident: `max`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],

@@ -6,26 +6,11 @@ EntityTreePresheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `syntax_basics::ast`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
                         ),
                         visibility: Scope::PubUnder(
                             `syntax_basics`,
@@ -42,26 +27,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `syntax_basics::ast`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 1,
+                            },
+                        ),
                     ),
                 ),
                 ident: `ast`,
@@ -73,26 +43,11 @@ EntityTreePresheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `syntax_basics::uses`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
                         ),
                         visibility: Scope::PubUnder(
                             `syntax_basics`,
@@ -109,26 +64,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `syntax_basics::uses`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 2,
+                            },
+                        ),
                     ),
                 ),
                 ident: `uses`,
@@ -140,26 +80,11 @@ EntityTreePresheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `syntax_basics::defn`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
                         ),
                         visibility: Scope::PubUnder(
                             `syntax_basics`,
@@ -176,26 +101,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `syntax_basics::defn`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 3,
+                            },
+                        ),
                     ),
                 ),
                 ident: `defn`,
@@ -207,26 +117,11 @@ EntityTreePresheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `syntax_basics::expr`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
                         ),
                         visibility: Scope::PubUnder(
                             `syntax_basics`,
@@ -243,26 +138,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `syntax_basics::expr`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 4,
+                            },
+                        ),
                     ),
                 ),
                 ident: `expr`,

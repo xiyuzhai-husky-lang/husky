@@ -189,9 +189,13 @@
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
-                    path: FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                        Fn,
+                    )`),
                     hir_decl: FunctionMajorFnHirDecl {
-                        path: FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
+                        path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -241,7 +245,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
+                                        FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -286,7 +292,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -311,7 +319,9 @@
                                                 self_contract: Pure,
                                                 ident: `displacement`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -503,9 +513,13 @@
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
-                    path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                        Fn,
+                    )`),
                     hir_decl: FunctionMajorFnHirDecl {
-                        path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
+                        path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -555,7 +569,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
+                                        FugitivePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -600,7 +616,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -625,7 +643,9 @@
                                                 self_contract: Pure,
                                                 ident: `displacement`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -790,7 +810,9 @@
                                                 self_contract: Pure,
                                                 ident: `abs`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -858,7 +880,9 @@
                                                 self_contract: Pure,
                                                 ident: `ymax`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -964,7 +988,9 @@
                                                 self_contract: Pure,
                                                 ident: `end`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -983,7 +1009,9 @@
                                                 self_contract: Pure,
                                                 ident: `relative_point`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -1093,7 +1121,9 @@
                                                 self_contract: Pure,
                                                 ident: `end`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],

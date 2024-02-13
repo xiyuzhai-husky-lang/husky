@@ -365,6 +365,26 @@ impl<'a> SemaExprEngine<'a> {
             SemaExprData::NewList {
                 items, element_ty, ..
             } => todo!(),
+            SemaExprData::InheritedSynSymbol {
+                ident,
+                regional_token_idx,
+                inherited_syn_symbol_idx,
+                inherited_syn_symbol_kind,
+            } => todo!(),
+            SemaExprData::Ritchie {
+                ritchie_kind_regional_token_idx,
+                ritchie_kind,
+                lpar_token,
+                parameter_ty_items,
+                rpar_regional_token_idx,
+                light_arrow_token,
+                return_ty_sema_expr_idx,
+            } => todo!(),
+            SemaExprData::NestedBlock {
+                lcurl_regional_token_idx,
+                stmts,
+                rcurl_regional_token,
+            } => todo!(),
         }
     }
 

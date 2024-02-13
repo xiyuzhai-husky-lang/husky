@@ -169,6 +169,8 @@ pub enum OriginalSynExprError {
         regional_token_idx: RegionalTokenIdx,
         error: EntityTreeError,
     },
+    #[error("ExpectedBlockRcurl")]
+    ExpectedBlockRcurl(RegionalTokenStreamState),
 }
 
 impl OriginalSynExprError {
@@ -269,6 +271,7 @@ impl OriginalSynExprError {
             OriginalSynExprError::ExpectedTypeTermForAssocType(_) => todo!(),
             OriginalSynExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
             OriginalSynExprError::EntityTree { .. } => todo!(),
+            OriginalSynExprError::ExpectedBlockRcurl(_) => todo!(),
         }
     }
 }

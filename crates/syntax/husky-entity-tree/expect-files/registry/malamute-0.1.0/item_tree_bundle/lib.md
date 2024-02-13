@@ -9,18 +9,11 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Type(
-                                                    TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`malamute::Class`, `Enum`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemSynNodePathId(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -46,18 +39,11 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`malamute::Class`, `Enum`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 1,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -69,18 +55,11 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Type(
-                                                    TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemSynNodePathId(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -106,18 +85,11 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -129,18 +101,11 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Type(
-                                                    TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemSynNodePathId(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -166,18 +131,11 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -189,20 +147,11 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
-                                                                Gn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemSynNodePathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -224,20 +173,11 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`malamute::narrow_down`, `Ritchie(
-                                                            Gn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 4,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -292,47 +232,21 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::ImplBlock(
-                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `malamute`,
-                                                    trai_path: TraitPath(`core::default::Default`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 130,
+                                },
+                            ),
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePathData {
-                                                path: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::default::Default`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 130,
+                                    },
+                                ),
                             ),
                             ast_idx: 27,
                             impl_token: ImplToken {
@@ -362,47 +276,21 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::ImplBlock(
-                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `malamute`,
-                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`malamute::Class`, `Enum`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 131,
+                                },
+                            ),
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePathData {
-                                                path: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::Class`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 131,
+                                    },
+                                ),
                             ),
                             ast_idx: 28,
                             impl_token: ImplToken {
@@ -432,47 +320,21 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::ImplBlock(
-                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `malamute`,
-                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 132,
+                                },
+                            ),
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePathData {
-                                                path: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 132,
+                                    },
+                                ),
                             ),
                             ast_idx: 31,
                             impl_token: ImplToken {

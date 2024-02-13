@@ -490,13 +490,19 @@ where
         let TokraRegionDataRef::Defn(tokra_region) = self.context().tokra_region_data() else {
             unreachable!()
         };
-        let asts = tokra_region.nested_block(lcurl_regional_token_idx);
+        let (asts, nested_block_end) =
+            tokra_region.nested_block_ast_idx_range_and_end(lcurl_regional_token_idx);
         let stmts = self.context_mut().parse_stmts(asts);
-        let rcurl_regional_token = todo!();
-        let syn_expr_data = SynExprData::NestedBlock {
-            lcurl_regional_token_idx,
-            stmts,
-            rcurl_regional_token,
+        self.token_stream.set_state(nested_block_end);
+        let syn_expr_data = match self.try_parse_expected::<BlockRcurlRegionalToken, _>(
+            OriginalSynExprError::ExpectedBlockRcurl,
+        ) {
+            Ok(rcurl_regional_token) => SynExprData::NestedBlock {
+                lcurl_regional_token_idx,
+                stmts,
+                rcurl_regional_token,
+            },
+            Err(e) => SynExprData::Err(e),
         };
         self.push_top_syn_expr(syn_expr_data.into())
     }

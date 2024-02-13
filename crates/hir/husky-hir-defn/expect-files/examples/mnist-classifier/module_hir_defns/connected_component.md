@@ -212,9 +212,13 @@
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
-                    path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                        Fn,
+                    )`),
                     hir_decl: FunctionMajorFnHirDecl {
-                        path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                        path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -264,7 +268,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -309,7 +315,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -559,9 +567,13 @@
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
-                    path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                        Fn,
+                    )`),
                     hir_decl: FunctionMajorFnHirDecl {
-                        path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                        path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -602,7 +614,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                                        FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -657,7 +671,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -1322,9 +1338,13 @@
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
-                    path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                        Fn,
+                    )`),
                     hir_decl: FunctionMajorFnHirDecl {
-                        path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                        path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1364,7 +1384,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -1409,7 +1431,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -1462,7 +1486,9 @@
                                                                             },
                                                                         },
                                                                         ident: `clone`,
-                                                                        item_kind: MethodFn,
+                                                                        item_kind: MethodRitchie(
+                                                                            Fn,
+                                                                        ),
                                                                     },
                                                                 ),
                                                             ),
@@ -1609,7 +1635,9 @@
                                                 self_contract: Pure,
                                                 ident: `ctz`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodFn`),
+                                                    TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -1625,7 +1653,9 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::AssocFunctionFnCall {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocFunctionFn`),
+                                                    TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -1728,7 +1758,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::FunctionFnCall {
-                                                path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                                                path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
                                                     separator: None,
@@ -2086,7 +2118,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::FunctionFnCall {
-                                                path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                                                path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
                                                     separator: None,
@@ -2515,7 +2549,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::FunctionFnCall {
-                                                path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                                                path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
                                                     separator: None,
@@ -2917,7 +2953,9 @@
                                                 self_contract: BorrowMut,
                                                 ident: `push`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+                                                    TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -3624,7 +3662,9 @@
                                             },
                                         },
                                         ident: `visualize`,
-                                        item_kind: MethodFn,
+                                        item_kind: MethodRitchie(
+                                            Fn,
+                                        ),
                                     },
                                 ),
                             ),
@@ -3647,7 +3687,9 @@
                                                 },
                                             },
                                             ident: `visualize`,
-                                            item_kind: MethodFn,
+                                            item_kind: MethodRitchie(
+                                                Fn,
+                                            ),
                                         },
                                     ),
                                 ),
@@ -3696,7 +3738,9 @@
                                                                 },
                                                             },
                                                             ident: `visualize`,
-                                                            item_kind: MethodFn,
+                                                            item_kind: MethodRitchie(
+                                                                Fn,
+                                                            ),
                                                         },
                                                     ),
                                                 ),
@@ -3757,7 +3801,9 @@
                                                                     },
                                                                 },
                                                                 ident: `visualize`,
-                                                                item_kind: MethodFn,
+                                                                item_kind: MethodRitchie(
+                                                                    Fn,
+                                                                ),
                                                             },
                                                         ),
                                                     ),
@@ -3824,7 +3870,9 @@
                                                                             },
                                                                         },
                                                                         ident: `visualize`,
-                                                                        item_kind: MethodFn,
+                                                                        item_kind: MethodRitchie(
+                                                                            Fn,
+                                                                        ),
                                                                     },
                                                                 ),
                                                             ),
@@ -4051,7 +4099,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::FunctionFnCall {
-                                                path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
+                                                path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
                                                     separator: None,
@@ -4218,7 +4268,9 @@
                                                 self_contract: Leash,
                                                 ident: `collect_leashes`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
+                                                    TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -4305,7 +4357,9 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                                                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                                            Fn,
+                                                        )`),
                                                     ),
                                                 ),
                                             ),
@@ -4318,7 +4372,9 @@
                                                 self_contract: BorrowMut,
                                                 ident: `pop_with_largest_opt_f32`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
+                                                    TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -4419,7 +4475,9 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                                                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                                            Fn,
+                                                        )`),
                                                     ),
                                                 ),
                                             ),
@@ -4432,7 +4490,9 @@
                                                 self_contract: BorrowMut,
                                                 ident: `pop_with_largest_opt_f32`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
+                                                    TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -4509,7 +4569,9 @@
                                                 self_contract: BorrowMut,
                                                 ident: `push`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+                                                    TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -4620,7 +4682,9 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                                                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                                            Fn,
+                                                        )`),
                                                     ),
                                                 ),
                                             ),
@@ -4633,7 +4697,9 @@
                                                 self_contract: BorrowMut,
                                                 ident: `pop_with_largest_opt_f32`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
+                                                    TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -4710,7 +4776,9 @@
                                                 self_contract: BorrowMut,
                                                 ident: `push`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+                                                    TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -5089,7 +5157,9 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -5186,7 +5256,9 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -5661,7 +5733,9 @@
                                                 self_contract: Pure,
                                                 ident: `span`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
+                                                    TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -5680,7 +5754,9 @@
                                                 self_contract: Pure,
                                                 ident: `max`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::i32(0)::max`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::i32(0)::max`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -6038,7 +6114,9 @@
                                                 self_contract: Pure,
                                                 ident: `span`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
+                                                    TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -6649,7 +6727,9 @@
                                                 self_contract: Pure,
                                                 ident: `co`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
+                                                    TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -6802,7 +6882,9 @@
                                                 self_contract: Pure,
                                                 ident: `co`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
+                                                    TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -7653,9 +7735,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -7695,7 +7781,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -7746,7 +7834,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -8007,7 +8097,9 @@
                                                 self_contract: Pure,
                                                 ident: `span`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
+                                                    TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -8248,9 +8340,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -8290,7 +8386,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -8341,7 +8439,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -8602,7 +8702,9 @@
                                                 self_contract: Pure,
                                                 ident: `right_mass`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodFn`),
+                                                    TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
