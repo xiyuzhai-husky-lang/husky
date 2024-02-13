@@ -115,9 +115,9 @@ impl<'a> SynStmtContext<'a> {
     ) -> SynStmtData {
         match self.defn_tokra_region_data()[ast_idx] {
             DefnAst::BasicStmtOrBranch {
-                regional_token_group_idx: token_group_idx,
+                regional_token_verse_idx: token_verse_idx,
                 body,
-            } => self.parse_basic_stmt(token_group_idx, block_end, body),
+            } => self.parse_basic_stmt(token_verse_idx, block_end, body),
             DefnAst::IfElseStmts {
                 if_branch,
                 elif_branches,
@@ -128,11 +128,11 @@ impl<'a> SynStmtContext<'a> {
                 else_branch: self.parse_else_branch(else_branch),
             },
             DefnAst::MatchStmt {
-                regional_token_group_idx,
+                regional_token_verse_idx,
                 case_branches,
                 ..
             } => {
-                let mut parser = self.expr_parser(regional_token_group_idx);
+                let mut parser = self.expr_parser(regional_token_verse_idx);
                 SynStmtData::Match {
                     match_token: parser.try_parse_option().unwrap().unwrap(),
                     match_expr: parser.parse_expr_expected(
@@ -150,11 +150,11 @@ impl<'a> SynStmtContext<'a> {
 
     fn parse_basic_stmt(
         &mut self,
-        token_group_idx: RegionalTokenGroupIdx,
+        token_verse_idx: RegionalTokenVerseIdx,
         block_end: RegionalTokenIdxRangeEnd,
         body: Option<DefnAstIdxRange>,
     ) -> SynStmtData {
-        let mut parser = self.expr_parser(token_group_idx);
+        let mut parser = self.expr_parser(token_verse_idx);
         match parser.try_parse_option::<BasicStmtKeywordRegionalToken>() {
             Ok(Some(basic_stmt_keyword_token)) => match basic_stmt_keyword_token {
                 BasicStmtKeywordRegionalToken::Let(let_token) => SynStmtData::Let {
@@ -200,7 +200,7 @@ impl<'a> SynStmtContext<'a> {
                     let eol_colon =
                         parser.try_parse_expected(OriginalSynExprError::ExpectedEolColon);
                     self.parse_for_loop_stmt(
-                        token_group_idx,
+                        token_verse_idx,
                         for_token,
                         expr,
                         eol_colon,
@@ -218,7 +218,7 @@ impl<'a> SynStmtContext<'a> {
                     let eol_colon =
                         parser.try_parse_expected(OriginalSynExprError::ExpectedEolColon);
                     self.parse_forext_loop_stmt(
-                        token_group_idx,
+                        token_verse_idx,
                         forext_token,
                         expr,
                         eol_colon,

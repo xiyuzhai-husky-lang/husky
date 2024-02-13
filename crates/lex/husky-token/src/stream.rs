@@ -1,27 +1,30 @@
-use crate::*;
-
+use crate::{
+    verse::{idx::TokenVerseIdx, start::TokenVerseStart, TokenVerseRelativeTokenIndex},
+    TokenIdx, TokenSheetData, *,
+};
+use husky_token_data::{Punctuation, TokenData};
 #[cfg(test)]
 use husky_vfs::snippet::Snippet;
 
 #[derive(Debug, Clone)]
 pub struct TokenStream<'a> {
-    base: TokenGroupStart,
+    base: TokenVerseStart,
     tokens: &'a [TokenData],
-    next_relative: TokenGroupRelativeTokenIndex,
+    next_relative: TokenVerseRelativeTokenIndex,
 }
 
 impl TokenSheetData {
-    pub fn token_group_token_stream<'a>(
+    pub fn token_verse_token_stream<'a>(
         &'a self,
-        token_group_idx: TokenGroupIdx,
+        token_verse_idx: TokenVerseIdx,
         saved_stream_state: impl Into<Option<TokenStreamState>>,
     ) -> TokenStream<'a> {
         let state: Option<TokenStreamState> = saved_stream_state.into();
-        let base = self.token_group_start(token_group_idx);
+        let base = self.token_verse_start(token_verse_idx);
         let next_relative = state
-            .map(|state| TokenGroupRelativeTokenIndex::new(base, state.next_token_idx))
+            .map(|state| TokenVerseRelativeTokenIndex::new(base, state.next_token_idx))
             .unwrap_or_default();
-        let tokens = &self[token_group_idx];
+        let tokens = &self[token_verse_idx];
         assert!(tokens.len() > 0);
         TokenStream {
             base,
@@ -90,7 +93,7 @@ impl<'a> TokenStream<'a> {
     }
 
     pub fn rollback(&mut self, state: TokenIdx) {
-        self.next_relative = TokenGroupRelativeTokenIndex::new(self.base, state);
+        self.next_relative = TokenVerseRelativeTokenIndex::new(self.base, state);
     }
 
     pub fn next_index(&self) -> TokenIdx {
@@ -135,7 +138,7 @@ impl<'a> TokenStream<'a> {
     }
 
     pub fn rollback_raw(&mut self, token_idx: TokenIdx) {
-        self.next_relative = TokenGroupRelativeTokenIndex::new(self.base, token_idx)
+        self.next_relative = TokenVerseRelativeTokenIndex::new(self.base, token_idx)
     }
 }
 
@@ -147,8 +150,8 @@ fn next_indexed_works() {
         db,
         "What does a rusty can of spray-on rust remover smell like?\n Irony.".into(),
     ));
-    let (token_group_idx, _) = token_sheet_data.token_group_iter().next().unwrap();
-    let mut token_iter = token_sheet_data.token_group_token_stream(token_group_idx, None);
+    let (token_verse_idx, _) = token_sheet_data.main_token_verse_iter().next().unwrap();
+    let mut token_iter = token_sheet_data.token_verse_token_stream(token_verse_idx, None);
     while let Some((token_idx, token)) = token_iter.next_indexed() {
         assert_eq!(token_sheet_data[token_idx], token)
     }

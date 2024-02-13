@@ -1,3 +1,4 @@
+#![feature(nonzero_ops)]
 use std::{
     num::{NonZeroU16, NonZeroU32, NonZeroU64, NonZeroU8, NonZeroUsize},
     ops::AddAssign,
@@ -62,6 +63,12 @@ impl Default for ShiftedU32 {
     }
 }
 
+impl ShiftedU32 {
+    pub unsafe fn unchecked_add(self, rhs: u32) -> Self {
+        Self(self.0.unchecked_add(rhs))
+    }
+}
+
 impl From<usize> for ShiftedU32 {
     fn from(value: usize) -> Self {
         debug_assert!(value + 1 < u32::MAX as usize);
@@ -71,6 +78,12 @@ impl From<usize> for ShiftedU32 {
 
 impl Into<usize> for ShiftedU32 {
     fn into(self) -> usize {
+        self.index()
+    }
+}
+
+impl ShiftedU32 {
+    pub fn index(self) -> usize {
         self.0.get() as usize - 1
     }
 }

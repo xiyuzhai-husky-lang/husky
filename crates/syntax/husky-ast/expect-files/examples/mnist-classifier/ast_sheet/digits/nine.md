@@ -2,105 +2,156 @@ AstSheet {
     ast_arena: Arena {
         data: [
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    2,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        3,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    4,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        5,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    14,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        15,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    15,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        16,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    16,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        17,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    17,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        18,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    18,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        19,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    19,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        20,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    20,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        21,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    21,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        22,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    22,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        23,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    23,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        24,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    24,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        25,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    25,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        26,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    26,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        27,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    27,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        28,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    13,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        14,
+                    ),
+                },
                 body: Some(
                     FugitiveBody {
                         ast_idx_range: ArenaIdxRange(
@@ -110,45 +161,66 @@ AstSheet {
                 ),
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    6,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        7,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    7,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        8,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    8,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        9,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    9,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        10,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    10,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        11,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    11,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        12,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    12,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        13,
+                    ),
+                },
                 body: None,
             },
             Ast::IfElseStmts {
@@ -159,57 +231,84 @@ AstSheet {
                 else_branch: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    28,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        29,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    30,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        31,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    31,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        32,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    32,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        33,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    34,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        35,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    35,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        36,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    36,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        37,
+                    ),
+                },
                 body: None,
             },
             Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    37,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        38,
+                    ),
+                },
                 body: None,
             },
             Ast::Use {
-                token_group_idx: TokenGroupIdx(
-                    0,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        1,
+                    ),
+                },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
                     visibility: Scope::PubUnder(
@@ -219,9 +318,12 @@ AstSheet {
                 state_after_visibility_expr: None,
             },
             Ast::Identifiable {
-                token_group_idx: TokenGroupIdx(
-                    1,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        2,
+                    ),
+                },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
                     visibility: Scope::PubUnder(
@@ -259,9 +361,12 @@ AstSheet {
                 },
             },
             Ast::Identifiable {
-                token_group_idx: TokenGroupIdx(
-                    3,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        4,
+                    ),
+                },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
                     visibility: Scope::PubUnder(
@@ -299,9 +404,12 @@ AstSheet {
                 },
             },
             Ast::Identifiable {
-                token_group_idx: TokenGroupIdx(
-                    5,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        6,
+                    ),
+                },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::PubUnder {
                         pub_token: PubToken {
@@ -362,9 +470,12 @@ AstSheet {
                 },
             },
             Ast::Identifiable {
-                token_group_idx: TokenGroupIdx(
-                    29,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        30,
+                    ),
+                },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
                     visibility: Scope::PubUnder(
@@ -402,9 +513,12 @@ AstSheet {
                 },
             },
             Ast::Identifiable {
-                token_group_idx: TokenGroupIdx(
-                    33,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        34,
+                    ),
+                },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
                     visibility: Scope::PubUnder(

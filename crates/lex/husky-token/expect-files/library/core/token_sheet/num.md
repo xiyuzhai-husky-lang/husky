@@ -4135,722 +4135,963 @@ TokenSheetData {
             ),
         ),
     ],
-    token_group_starts: [
-        TokenGroupStart(
-            TokenIdx(
-                1,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                5,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                11,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                18,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                31,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                35,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                38,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                46,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                57,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                63,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                74,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                81,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                94,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                98,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                101,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                109,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                120,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                126,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                137,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                144,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                157,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                161,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                164,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                172,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                183,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                194,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                200,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                210,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                217,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                230,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                234,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                237,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                245,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                251,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                262,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                269,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                282,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                286,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                289,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                297,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                303,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                314,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                321,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                334,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                338,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                341,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                349,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                355,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                366,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                373,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                386,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                390,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                393,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                401,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                407,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                418,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                425,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                438,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                442,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                445,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                453,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                459,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                470,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                477,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                490,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                494,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                497,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                505,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                511,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                522,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                529,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                542,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                546,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                549,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                557,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                563,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                574,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                581,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                594,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                598,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                601,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                609,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                615,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                626,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                633,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                646,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                650,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                653,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                661,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                667,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                678,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                685,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                698,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                702,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                705,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                710,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                718,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                723,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                731,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                740,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                751,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                760,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                771,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                779,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                784,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                792,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                804,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                812,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                820,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                826,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                831,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                841,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                848,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                861,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                865,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                868,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                876,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                884,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                890,
-            ),
-        ),
-    ],
-    indents: [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        4,
-        4,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        4,
-        4,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        4,
-        4,
-        4,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        4,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        4,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        4,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        4,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        4,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        4,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        4,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        4,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        4,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        0,
-        4,
-        4,
-        0,
-        0,
-        0,
-        0,
-        4,
-        4,
-        0,
-        4,
-    ],
+    token_verses: TokenVerses {
+        main_sequence: MainTokenVerseSequence {
+            verses_data: [
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            1,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            5,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            11,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            18,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            31,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            35,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            38,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            46,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            57,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            63,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            74,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            81,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            94,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            98,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            101,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            109,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            120,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            126,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            137,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            144,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            157,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            161,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            164,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            172,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            183,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            194,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            200,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            210,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            217,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            230,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            234,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            237,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            245,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            251,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            262,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            269,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            282,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            286,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            289,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            297,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            303,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            314,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            321,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            334,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            338,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            341,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            349,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            355,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            366,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            373,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            386,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            390,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            393,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            401,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            407,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            418,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            425,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            438,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            442,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            445,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            453,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            459,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            470,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            477,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            490,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            494,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            497,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            505,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            511,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            522,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            529,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            542,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            546,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            549,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            557,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            563,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            574,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            581,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            594,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            598,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            601,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            609,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            615,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            626,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            633,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            646,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            650,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            653,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            661,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            667,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            678,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            685,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            698,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            702,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            705,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            710,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            718,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            723,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            731,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            740,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            751,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            760,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            771,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            779,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            784,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            792,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            804,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            812,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            820,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            826,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            831,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            841,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            848,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            861,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            865,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            868,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            876,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            884,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            890,
+                        ),
+                    ),
+                    indent: 4,
+                },
+            ],
+        },
+        nested_sequences: [],
+    },
 }

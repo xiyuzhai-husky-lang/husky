@@ -1,5 +1,13 @@
-use crate::*;
-use husky_text_protocol::position::TextPosition;
+use crate::{
+    tokenize,
+    verse::{
+        idx::TokenVerseIdx, iter::TokenVerseIter, start::TokenVerseStart, TokenVerse, TokenVerses,
+    },
+    TokenIdx, TokenIdxRange, TokenJar, TokenStreamState,
+};
+use husky_text_protocol::{position::TextPosition, range::TextRange};
+use husky_token_data::TokenData;
+use husky_vfs::ModulePath;
 
 impl std::ops::Index<TokenIdx> for TokenSheetData {
     type Output = TokenData;
@@ -32,8 +40,7 @@ pub struct TokenSheet {
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenSheetData {
     tokens: Vec<TokenData>,
-    token_group_starts: Vec<TokenGroupStart>,
-    indents: Vec<u32>,
+    token_verses: TokenVerses,
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -143,131 +150,6 @@ pub(crate) fn token_sheet(db: &::salsa::Db, module_path: ModulePath) -> TokenShe
     ranged_token_sheet(db, module_path).token_sheet
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct TokenGroupIdx(usize);
-
-impl TokenGroupIdx {
-    pub fn index(self) -> usize {
-        self.0 as usize
-    }
-}
-
-impl std::fmt::Display for TokenGroupIdx {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        std::fmt::Display::fmt(&self.0, f)
-    }
-}
-
-pub struct TokenGroupIter<'a> {
-    tokens: &'a [TokenData],
-    line_group_starts: &'a [TokenGroupStart],
-    indents: &'a [u32],
-    current: usize,
-}
-
-impl<'a> TokenGroupIter<'a> {
-    pub(crate) fn new(
-        tokens: &'a [TokenData],
-        line_group_starts: &'a [TokenGroupStart],
-        indents: &'a [u32],
-    ) -> Self {
-        Self {
-            tokens,
-            line_group_starts,
-            indents,
-            current: 0,
-        }
-    }
-
-    pub fn state(&self) -> TokenGroupIdx {
-        TokenGroupIdx(self.current)
-    }
-
-    pub fn rollback(&mut self, state: TokenGroupIdx) {
-        self.current = state.0
-    }
-
-    fn peek(&self) -> Option<(TokenGroupIdx, TokenGroup<'a>)> {
-        if self.current >= self.line_group_starts.len() {
-            return None;
-        }
-        let idx = self.current;
-        let start = self.line_group_starts[idx];
-        let end = self
-            .line_group_starts
-            .get(self.current + 1)
-            .map(|end| end.index())
-            .unwrap_or(self.tokens.len());
-        Some((
-            TokenGroupIdx(idx),
-            TokenGroup {
-                tokens: &self.tokens[start.index()..end],
-                indent: self.indents[idx],
-            },
-        ))
-    }
-
-    pub fn peek_token_group_of_exact_indent_with_its_first_token(
-        &self,
-        indent: u32,
-    ) -> Option<(TokenGroupIdx, TokenGroup<'a>, TokenData)> {
-        let (idx, token_group) = self.peek()?;
-        if token_group.indent() != indent {
-            return None;
-        }
-        let first_noncomment = token_group.first();
-        Some((idx, token_group, first_noncomment))
-    }
-
-    pub fn next_token_group_of_no_less_indent_with_its_first_two_tokens(
-        &mut self,
-        indent: u32,
-    ) -> Option<(TokenGroupIdx, TokenGroup<'a>, TokenData, Option<TokenData>)> {
-        let (idx, token_group) = self.peek()?;
-        if token_group.indent() >= indent {
-            self.current += 1;
-            let fst = token_group.first();
-            let snd = token_group.second();
-            Some((idx, token_group, fst, snd))
-        } else {
-            None
-        }
-    }
-}
-
-impl<'a> Iterator for TokenGroupIter<'a> {
-    type Item = (TokenGroupIdx, TokenGroup<'a>);
-
-    fn next(&mut self) -> Option<Self::Item> {
-        let item = self.peek()?;
-        self.current += 1;
-        Some(item)
-    }
-}
-
-pub struct TokenGroup<'a> {
-    tokens: &'a [TokenData],
-    indent: u32,
-}
-
-impl<'a> TokenGroup<'a> {
-    pub fn first(&self) -> TokenData {
-        *self.tokens.first().unwrap()
-    }
-
-    pub fn second(&self) -> Option<TokenData> {
-        self.tokens.get(1).copied()
-    }
-
-    pub fn last(&self) -> TokenData {
-        *self.tokens.last().unwrap()
-    }
-
-    pub fn indent(&self) -> u32 {
-        self.indent
-    }
-}
-
 impl RangedTokenSheet {
     pub fn new(
         db: &::salsa::Db,
@@ -275,15 +157,13 @@ impl RangedTokenSheet {
         token_ranges: Vec<TextRange>,
         comments: Vec<Comment>,
     ) -> RangedTokenSheet {
-        let token_group_starts = produce_token_group_starts(&tokens, &token_ranges);
-        let indents = produce_indents(&token_group_starts, &token_ranges);
+        let token_verses = TokenVerses::new(&tokens, &token_ranges);
         RangedTokenSheet {
             token_sheet: TokenSheet::new(
                 db,
                 TokenSheetData {
-                    token_group_starts,
+                    token_verses,
                     tokens,
-                    indents,
                 },
             ),
             token_ranges,
@@ -317,70 +197,46 @@ impl RangedTokenSheet {
     }
 }
 
-fn produce_indents(token_group_starts: &[TokenGroupStart], token_ranges: &[TextRange]) -> Vec<u32> {
-    token_group_starts
-        .iter()
-        .map(|i| token_ranges[i.index()].start.j())
-        .collect()
-}
-
 impl TokenSheetData {
     pub fn len(&self) -> usize {
         self.tokens.len()
     }
 
-    pub fn token_group_iter<'a>(&'a self) -> TokenGroupIter<'a> {
-        TokenGroupIter::new(&self.tokens, &self.token_group_starts, &self.indents)
+    pub fn main_token_verse_iter<'a>(&'a self) -> TokenVerseIter<'a> {
+        self.token_verses.main_token_verse_iter(&self.tokens)
     }
 
-    pub fn token_group_start(&self, token_group_idx: TokenGroupIdx) -> TokenGroupStart {
-        self.token_group_starts[token_group_idx.0]
+    pub fn token_verse_start(&self, token_verse_idx: TokenVerseIdx) -> TokenVerseStart {
+        self.token_verses[token_verse_idx].start()
     }
 
-    pub fn token_group_token_idx_range(&self, token_group_idx: TokenGroupIdx) -> TokenIdxRange {
-        let start = self.token_group_starts[token_group_idx.0].index();
-        let end = self
-            .token_group_starts
-            .get(token_group_idx.0 + 1)
-            .map(|&end| end.index())
-            .unwrap_or(self.tokens.len());
-        TokenIdxRange::from_indices(start, end)
+    pub fn token_verse_token_idx_range(&self, token_verse_idx: TokenVerseIdx) -> TokenIdxRange {
+        self.token_verses
+            .token_verse_token_idx_range(token_verse_idx, self.tokens.len())
     }
 
     pub fn tokens(&self) -> &[TokenData] {
         self.tokens.as_ref()
     }
 
-    pub fn token_group_idx(&self, token_idx: TokenIdx) -> TokenGroupIdx {
-        assert!(self.token_group_starts[0].index() == 0);
-        TokenGroupIdx(
-            match self
-                .token_group_starts
-                .binary_search_by(|base| base.token_idx().cmp(&token_idx))
-            {
-                Ok(i) => i,
-                Err(i) => {
-                    assert!(i > 0);
-                    i - 1
-                }
-            },
-        )
+    pub fn token_verse_idx(&self, token_idx: TokenIdx) -> TokenVerseIdx {
+        self.token_verses.token_verse_idx(token_idx)
     }
 
-    pub fn token_group_starts(&self) -> &[TokenGroupStart] {
-        self.token_group_starts.as_ref()
+    pub fn token_verses(&self) -> &TokenVerses {
+        &self.token_verses
     }
 }
 
-impl std::ops::Index<TokenGroupIdx> for TokenSheetData {
+impl std::ops::Index<TokenVerseIdx> for TokenSheetData {
     type Output = [TokenData];
 
-    fn index(&self, index: TokenGroupIdx) -> &Self::Output {
-        let start = self.token_group_starts[index.0].index();
+    fn index(&self, idx: TokenVerseIdx) -> &Self::Output {
+        let start = self.token_verses[idx].start().index();
         let end = self
-            .token_group_starts
-            .get(index.0 + 1)
-            .map(|&end| end.index())
+            .token_verses
+            .get(idx.next())
+            .map(|end| end.start().index())
             .unwrap_or(self.tokens.len());
         &self.tokens[start..end]
     }

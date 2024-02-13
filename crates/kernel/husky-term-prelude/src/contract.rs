@@ -12,11 +12,11 @@ pub enum TermContract {
 }
 
 impl TermContract {
-    pub fn new<TG>(ephem_symbol_modifier_token_group: Option<TG>) -> Self
+    pub fn new<TG>(ephem_symbol_modifier_token_verse: Option<TG>) -> Self
     where
         TG: Into<TermContract>,
     {
-        match ephem_symbol_modifier_token_group {
+        match ephem_symbol_modifier_token_verse {
             Some(t) => t.into(),
             None => TermContract::Pure,
         }

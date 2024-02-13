@@ -6,20 +6,20 @@ use parsec::IsStreamParser;
 impl<'a> AstParser<'a> {
     pub(super) fn parse_defn<C: IsAstChildren>(
         &mut self,
-        token_group_idx: TokenGroupIdx,
+        token_verse_idx: TokenVerseIdx,
         visibility_expr: VisibilityExpr,
         state: Option<TokenStreamState>,
     ) -> Ast {
-        self.parse_defn_aux::<C>(token_group_idx, visibility_expr, state)
+        self.parse_defn_aux::<C>(token_verse_idx, visibility_expr, state)
             .unwrap_or_else(|error| Ast::Err {
-                token_group_idx,
+                token_verse_idx,
                 error,
             })
     }
 
     fn parse_defn_aux<C: IsAstChildren>(
         &mut self,
-        token_group_idx: TokenGroupIdx,
+        token_verse_idx: TokenVerseIdx,
         visibility_expr: VisibilityExpr,
         state: Option<TokenStreamState>,
     ) -> AstResult<Ast> {
@@ -27,7 +27,7 @@ impl<'a> AstParser<'a> {
             self.db,
             self.module_path,
             self.token_sheet
-                .token_group_token_stream(token_group_idx, state),
+                .token_verse_token_stream(token_verse_idx, state),
         );
         let (item_kind, ident_token, is_generic, saved_stream_state) =
             aux_parser.parse_head::<C>()?;
@@ -92,7 +92,7 @@ impl<'a> AstParser<'a> {
             visibility_expr,
             ident_token,
             is_generic,
-            token_group_idx,
+            token_verse_idx,
             block,
             item_kind,
             saved_stream_state,
@@ -118,20 +118,20 @@ impl<'a> AstParser<'a> {
         let mut ty_variants = vec![];
         let registry = &mut TypeVariantRegistry::new_u8();
         loop {
-            let state = self.token_groups.state();
-            let Some((token_group_idx, _)) = self.token_groups.next() else {
+            let state = self.token_verses.state();
+            let Some((token_verse_idx, _)) = self.token_verses.next() else {
                 break;
             };
-            // todo: change the api of `self.token_groups.next()`
+            // todo: change the api of `self.token_verses.next()`
             // it should directly return a token stream
             let mut aux_parser = BasicAuxAstParser::new(
                 self.db,
                 self.module_path,
                 self.token_sheet
-                    .token_group_token_stream(token_group_idx, None),
+                    .token_verse_token_stream(token_verse_idx, None),
             );
             let Ok(Some(vertical_token)) = aux_parser.try_parse_option::<VerticalToken>() else {
-                self.token_groups.rollback(state);
+                self.token_verses.rollback(state);
                 break;
             };
             ty_variants.push(
@@ -139,7 +139,7 @@ impl<'a> AstParser<'a> {
                     OriginalAstError::ExpectedIdentForTypeVariant,
                 ) {
                     Ok(ident_token) => Ast::TypeVariant {
-                        token_group_idx,
+                        token_verse_idx,
                         variant_path: TypeVariantPath::new(
                             path,
                             ident_token.ident(),
@@ -151,7 +151,7 @@ impl<'a> AstParser<'a> {
                         saved_stream_state: aux_parser.save_state(),
                     },
                     Err(error) => Ast::Err {
-                        token_group_idx,
+                        token_verse_idx,
                         error,
                     },
                 },

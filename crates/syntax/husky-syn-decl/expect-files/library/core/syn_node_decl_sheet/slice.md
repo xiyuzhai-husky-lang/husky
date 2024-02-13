@@ -1043,7 +1043,7 @@ SynNodeDeclSheet {
                                     ),
                                     self_value_parameter: Some(
                                         SelfValueParameterSyndicate {
-                                            ephem_symbol_modifier_token_group: Some(
+                                            ephem_symbol_modifier_token_verse: Some(
                                                 AmbersandMut(
                                                     AmbersandRegionalToken(
                                                         RegionalTokenIdx(

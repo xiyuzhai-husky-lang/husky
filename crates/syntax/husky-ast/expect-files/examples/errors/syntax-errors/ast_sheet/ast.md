@@ -2,17 +2,23 @@ AstSheet {
     ast_arena: Arena {
         data: [
             Ast::Err {
-                token_group_idx: TokenGroupIdx(
-                    3,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        4,
+                    ),
+                },
                 error: AstError::Original(
                     OriginalAstError::UnexpectedModUnderFugitive,
                 ),
             },
             Ast::Err {
-                token_group_idx: TokenGroupIdx(
-                    0,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        1,
+                    ),
+                },
                 error: AstError::Original(
                     OriginalAstError::SubmoduleFileNotFound {
                         ident_token: IdentToken {
@@ -32,9 +38,12 @@ AstSheet {
                 ),
             },
             Ast::Identifiable {
-                token_group_idx: TokenGroupIdx(
-                    1,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        2,
+                    ),
+                },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
                     visibility: Scope::PubUnder(
@@ -66,9 +75,12 @@ AstSheet {
                 },
             },
             Ast::ImplBlock {
-                token_group_idx: TokenGroupIdx(
-                    2,
-                ),
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: ShiftedU32(
+                        3,
+                    ),
+                },
                 items: Some(
                     Type(
                         TypeItems {

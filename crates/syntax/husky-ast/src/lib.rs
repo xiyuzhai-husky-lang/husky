@@ -34,7 +34,12 @@ use husky_coword::*;
 use husky_entity_kind::EntityKind;
 use husky_entity_path::{ItemPath, TypeVariantPath};
 use husky_scope_expr::VisibilityExpr;
-use husky_token::{IdentToken, TokenGroupIdx, TokenStreamState, VerticalToken};
+use husky_token::{
+    verse::{idx::TokenVerseIdx, iter::TokenVerseIter, TokenVerse},
+    IdentToken, TokenStreamState, VerticalToken,
+};
 use husky_token_data::*;
 use husky_vfs::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
+
+type State = TokenVerseIdx;
