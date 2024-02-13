@@ -76,7 +76,9 @@ EntityTreePresheet {
                                         MajorItemSynNodePathData::Fugitive(
                                             FugitiveSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
+                                                    path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -96,7 +98,9 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
+                            path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                                Fn,
+                            )`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -115,7 +119,9 @@ EntityTreePresheet {
                                     MajorItemSynNodePathData::Fugitive(
                                         FugitiveSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
+                                                path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                                 disambiguator: 0,
                                             },
                                         },

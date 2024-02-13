@@ -8,6 +8,7 @@ pub(crate) use self::solid::*;
 
 use crate::*;
 use husky_dec_term::term::HvarIndex;
+use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_eth_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
 use husky_eth_term::term::{curry::EthCurry, hvar::EthHvar, svar::EthSvar};
 use husky_term_prelude::literal::Literal;
@@ -112,23 +113,9 @@ impl<'a> FlyTermData<'a> {
                 parameter_contracted_tys,
                 return_ty,
             } => match ritchie_kind {
-                RitchieKind::Type(ritchi_ty_kind) => match ritchi_ty_kind {
-                    TypeRitchieKind::Fn => {
-                        // for param in parameter_contracted_tys.iter() {
-                        //     match param {
-                        //         FlyRitchieParameter::Regular(param) => {
-                        //             p!(param.ty().show(db, terms))
-                        //         }
-                        //         FlyRitchieParameter::Variadic(_) => (),
-                        //         FlyRitchieParameter::Keyed(_) => todo!(),
-                        //     }
-                        // }
-                        format!("fn(...) -> {}", return_ty.show(db, terms))
-                    }
-                    TypeRitchieKind::Gn => {
-                        format!("fn(...) -> {}", return_ty.show(db, terms))
-                    }
-                },
+                RitchieKind::Type(ritchi_ty_kind) => {
+                    format!("{}(...) -> {}", ritchi_ty_kind, return_ty.show(db, terms))
+                }
                 RitchieKind::Trait(_) => todo!(),
             },
             FlyTermData::Symbol { term, ty } => format!("symbol({})", ty.show(db, terms)),
@@ -253,10 +240,7 @@ impl FlyTerm {
                 parameter_contracted_tys,
                 return_ty,
             } => match ritchie_kind {
-                RitchieKind::Type(ritchie_ty_kind) => match ritchie_ty_kind {
-                    TypeRitchieKind::Fn => Ok(Some(true)),
-                    TypeRitchieKind::Gn => Ok(Some(true)),
-                },
+                RitchieKind::Type(_) => Ok(Some(true)),
                 RitchieKind::Trait(_) => todo!(),
             },
             FlyBaseTypeData::Symbol { symbol: term } => Ok(Some(false)),

@@ -1,13 +1,14 @@
 use super::*;
+use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_eth_term::term::ritchie::{
     EthRitchie, EthRitchieRegularParameter, EtherealRitchieParameter,
 };
 use husky_fly_term::FlyRitchieRegularParameter;
-use husky_term_prelude::{TermContract, TypeRitchieKind};
+use husky_term_prelude::TermContract;
 
 #[salsa::interned(db = HirTypeDb, jar = HirTypeJar, constructor = new)]
 pub struct HirRitchieType {
-    pub ritchie_ty_kind: TypeRitchieKind,
+    pub ritchie_ty_kind: RitchieItemKind,
     #[return_ref]
     pub parameters: HirRitchieParameters,
     pub return_ty: HirType,

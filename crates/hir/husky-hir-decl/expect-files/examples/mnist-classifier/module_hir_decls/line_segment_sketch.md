@@ -159,7 +159,9 @@
                                         self_contract: Pure,
                                         ident: `first`,
                                         path: AssocItemPath::TypeItem(
-                                            TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
+                                            TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                         instantiation: HirInstantiation {
                                             symbol_map: [
@@ -222,7 +224,9 @@
                                                                     },
                                                                 },
                                                                 ident: `clone`,
-                                                                item_kind: MethodFn,
+                                                                item_kind: MethodRitchie(
+                                                                    Fn,
+                                                                ),
                                                             },
                                                         ),
                                                     ),
@@ -276,7 +280,9 @@
                                         self_contract: Pure,
                                         ident: `last`,
                                         path: AssocItemPath::TypeItem(
-                                            TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
+                                            TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                         instantiation: HirInstantiation {
                                             symbol_map: [
@@ -339,7 +345,9 @@
                                                                     },
                                                                 },
                                                                 ident: `clone`,
-                                                                item_kind: MethodFn,
+                                                                item_kind: MethodRitchie(
+                                                                    Fn,
+                                                                ),
                                                             },
                                                         ),
                                                     ),
@@ -519,7 +527,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
                 FunctionMajorFnHirDecl {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -560,7 +570,9 @@
                         path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),
@@ -615,7 +627,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
                 FunctionMajorFnHirDecl {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -656,7 +670,9 @@
                         path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),
@@ -711,7 +727,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
                 FunctionMajorFnHirDecl {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -773,7 +791,9 @@
                         path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),
@@ -838,7 +858,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
                 FunctionMajorFnHirDecl {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -911,7 +933,9 @@
                         path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),
@@ -986,7 +1010,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
                 FunctionMajorFnHirDecl {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1047,7 +1073,9 @@
                         path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),
@@ -1186,7 +1214,9 @@
                                             },
                                         },
                                         ident: `visualize`,
-                                        item_kind: MethodFn,
+                                        item_kind: MethodRitchie(
+                                            Fn,
+                                        ),
                                     },
                                 ),
                             ),
@@ -1235,7 +1265,9 @@
                                                             },
                                                         },
                                                         ident: `visualize`,
-                                                        item_kind: MethodFn,
+                                                        item_kind: MethodRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -1350,7 +1382,9 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::AssocFn(
                 TypeAssocFnHirDecl {
-                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1412,7 +1446,9 @@
                         path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
+                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),
@@ -1483,7 +1519,9 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
-                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1511,7 +1549,9 @@
                         path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),
@@ -1635,7 +1675,9 @@
                                             },
                                         },
                                         ident: `visualize`,
-                                        item_kind: MethodFn,
+                                        item_kind: MethodRitchie(
+                                            Fn,
+                                        ),
                                     },
                                 ),
                             ),
@@ -1684,7 +1726,9 @@
                                                             },
                                                         },
                                                         ident: `visualize`,
-                                                        item_kind: MethodFn,
+                                                        item_kind: MethodRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -1913,7 +1957,9 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::AssocFn(
                 TypeAssocFnHirDecl {
-                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocFunctionFn`),
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocRitchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1964,7 +2010,9 @@
                         path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocFunctionFn`),
+                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),

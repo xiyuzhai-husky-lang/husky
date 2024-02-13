@@ -279,9 +279,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
+                    path: TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
+                        path: TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -309,7 +313,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
+                                        TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -367,9 +373,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
+                    path: TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
+                        path: TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -420,7 +430,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
+                                        TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -861,9 +873,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodFn`),
+                    path: TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodFn`),
+                        path: TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -891,7 +907,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodFn`),
+                                        TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -949,9 +967,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                    path: TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                        path: TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -979,7 +1001,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -1037,9 +1061,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
+                    path: TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
+                        path: TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1067,7 +1095,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
+                                        TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -1125,9 +1155,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
+                    path: TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
+                        path: TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1177,7 +1211,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
+                                        TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -1235,9 +1271,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
+                    path: TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
+                        path: TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1287,7 +1327,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
+                                        TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),

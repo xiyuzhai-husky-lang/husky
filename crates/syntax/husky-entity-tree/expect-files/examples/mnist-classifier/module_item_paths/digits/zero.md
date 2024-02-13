@@ -6,7 +6,9 @@
     ),
     ItemPath::MajorItem(
         MajorItemPath::Fugitive(
-            FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
+            FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::MajorItem(

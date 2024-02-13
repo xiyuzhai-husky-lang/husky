@@ -12,7 +12,9 @@ EntityTreePresheet {
                                         MajorItemSynNodePathData::Fugitive(
                                             FugitiveSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
+                                                    path: FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -30,7 +32,9 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Fugitive {
-                            path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
+                            path: FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+                                Fn,
+                            )`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -49,7 +53,9 @@ EntityTreePresheet {
                                     MajorItemSynNodePathData::Fugitive(
                                         FugitiveSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
+                                                path: FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -72,7 +78,9 @@ EntityTreePresheet {
                                         MajorItemSynNodePathData::Fugitive(
                                             FugitiveSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                                    path: FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -92,7 +100,9 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Fugitive {
-                            path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                            path: FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                Fn,
+                            )`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -111,7 +121,9 @@ EntityTreePresheet {
                                     MajorItemSynNodePathData::Fugitive(
                                         FugitiveSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                                path: FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -136,7 +148,9 @@ EntityTreePresheet {
                                         MajorItemSynNodePathData::Fugitive(
                                             FugitiveSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                                                    path: FugitivePath(`quick_sort::partition`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -156,7 +170,9 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Fugitive {
-                            path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                            path: FugitivePath(`quick_sort::partition`, `Ritchie(
+                                Fn,
+                            )`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -175,7 +191,9 @@ EntityTreePresheet {
                                     MajorItemSynNodePathData::Fugitive(
                                         FugitiveSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                                                path: FugitivePath(`quick_sort::partition`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -200,7 +218,9 @@ EntityTreePresheet {
                                         MajorItemSynNodePathData::Fugitive(
                                             FugitiveSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
+                                                    path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -220,7 +240,9 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Fugitive {
-                            path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
+                            path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                                Fn,
+                            )`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -239,7 +261,9 @@ EntityTreePresheet {
                                     MajorItemSynNodePathData::Fugitive(
                                         FugitiveSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
+                                                path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -264,7 +288,9 @@ EntityTreePresheet {
                                         MajorItemSynNodePathData::Fugitive(
                                             FugitiveSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
+                                                    path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -284,7 +310,9 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Fugitive {
-                            path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
+                            path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                                Fn,
+                            )`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -303,7 +331,9 @@ EntityTreePresheet {
                                     MajorItemSynNodePathData::Fugitive(
                                         FugitiveSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
+                                                path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                                 disambiguator: 0,
                                             },
                                         },

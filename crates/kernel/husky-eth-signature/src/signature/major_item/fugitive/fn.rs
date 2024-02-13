@@ -1,6 +1,7 @@
 use super::*;
+use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_eth_term::term::ritchie::{EthRitchie, EtherealRitchieParameter};
-use husky_term_prelude::{RitchieKind, TypeRitchieKind};
+use husky_term_prelude::RitchieKind;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct FunctionFnEthTemplate {
@@ -25,7 +26,7 @@ impl FunctionFnEthTemplate {
         let return_ty = EthTerm::ty_from_dec(db, tmpl.return_ty(db))?;
         let ritchie_ty = EthRitchie::new(
             db,
-            RitchieKind::Type(TypeRitchieKind::Fn),
+            RitchieKind::Type(RitchieItemKind::Fn),
             ritchie_params,
             return_ty,
         )?;

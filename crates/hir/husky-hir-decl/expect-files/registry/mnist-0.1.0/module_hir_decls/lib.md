@@ -255,7 +255,9 @@
                                             },
                                         },
                                         ident: `visualize`,
-                                        item_kind: MethodFn,
+                                        item_kind: MethodRitchie(
+                                            Fn,
+                                        ),
                                     },
                                 ),
                             ),
@@ -304,7 +306,9 @@
                                                             },
                                                         },
                                                         ident: `visualize`,
-                                                        item_kind: MethodFn,
+                                                        item_kind: MethodRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -419,7 +423,9 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::AssocFn(
                 TypeAssocFnHirDecl {
-                    path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocFunctionFn`),
+                    path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocRitchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -437,7 +443,9 @@
                         path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocFunctionFn`),
+                                    TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),
@@ -719,7 +727,9 @@
                                             },
                                         },
                                         ident: `visualize`,
-                                        item_kind: MethodFn,
+                                        item_kind: MethodRitchie(
+                                            Fn,
+                                        ),
                                     },
                                 ),
                             ),
@@ -768,7 +778,9 @@
                                                             },
                                                         },
                                                         ident: `visualize`,
-                                                        item_kind: MethodFn,
+                                                        item_kind: MethodRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -883,7 +895,9 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::AssocFn(
                 TypeAssocFnHirDecl {
-                    path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocFunctionFn`),
+                    path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocRitchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -901,7 +915,9 @@
                         path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocFunctionFn`),
+                                    TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),

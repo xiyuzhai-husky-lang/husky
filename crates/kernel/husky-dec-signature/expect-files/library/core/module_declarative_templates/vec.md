@@ -81,7 +81,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -89,7 +91,9 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                            path: TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                Fn,
+                            )`),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [
@@ -155,7 +159,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+                TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -163,7 +169,9 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+                            path: TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                                Fn,
+                            )`),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [
@@ -252,7 +260,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
+                TypeItemPath(`(core::vec::Vec(0)::first`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -260,7 +270,9 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
+                            path: TypeItemPath(`(core::vec::Vec(0)::first`, `MethodRitchie(
+                                Fn,
+                            )`),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [
@@ -332,7 +344,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
+                TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -340,7 +354,9 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
+                            path: TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                Fn,
+                            )`),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [
@@ -412,7 +428,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
+                TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -420,7 +438,9 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
+                            path: TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodRitchie(
+                                Fn,
+                            )`),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [
@@ -492,7 +512,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
+                TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -500,7 +522,9 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
+                            path: TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodRitchie(
+                                Fn,
+                            )`),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [
@@ -562,7 +586,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
+                TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -570,7 +596,9 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
+                            path: TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodRitchie(
+                                Fn,
+                            )`),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [
@@ -665,7 +693,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
+                TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -673,7 +703,9 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
+                            path: TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodRitchie(
+                                Fn,
+                            )`),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [

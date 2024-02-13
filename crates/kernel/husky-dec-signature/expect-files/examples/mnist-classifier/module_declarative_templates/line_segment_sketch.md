@@ -279,7 +279,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -346,7 +348,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -413,7 +417,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -492,7 +498,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -587,7 +595,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -713,7 +723,9 @@
                                         },
                                     },
                                     ident: `visualize`,
-                                    item_kind: MethodFn,
+                                    item_kind: MethodRitchie(
+                                        Fn,
+                                    ),
                                 },
                             ),
                         ),
@@ -818,7 +830,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -826,7 +840,9 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::AssocFn(
                         TypeAssocFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocFunctionFn`),
+                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                                Fn,
+                            )`),
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -909,7 +925,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -917,7 +935,9 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                Fn,
+                            )`),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -1052,7 +1072,9 @@
                                         },
                                     },
                                     ident: `visualize`,
-                                    item_kind: MethodFn,
+                                    item_kind: MethodRitchie(
+                                        Fn,
+                                    ),
                                 },
                             ),
                         ),
@@ -1243,7 +1265,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocFunctionFn`),
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -1251,7 +1275,9 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::AssocFn(
                         TypeAssocFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocFunctionFn`),
+                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocRitchie(
+                                Fn,
+                            )`),
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(

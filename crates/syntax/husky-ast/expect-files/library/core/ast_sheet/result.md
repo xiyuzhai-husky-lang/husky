@@ -127,7 +127,9 @@ AstSheet {
                 },
                 item_kind: AssocItem {
                     assoc_item_kind: TraitForTypeItem(
-                        AssocFunctionFn,
+                        AssocRitchie(
+                            Fn,
+                        ),
                     ),
                 },
                 ident_token: IdentToken {

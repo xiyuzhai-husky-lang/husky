@@ -5,7 +5,7 @@ pub use self::call_list::*;
 pub use self::html::*;
 
 use crate::*;
-use husky_entity_kind::FugitiveKind;
+use husky_entity_kind::MajorFugitiveKind;
 use husky_entity_path::{
     AssocItemPath, FugitivePath, MajorItemPath, PrincipalEntityPath, TraitForTypeItemPath,
     TypePath, TypeVariantPath,
@@ -277,25 +277,26 @@ impl ToHirLazy for SemaExprIdx {
                                 }
                                 MajorItemPath::Trait(_) => unreachable!(),
                                 MajorItemPath::Fugitive(path) => {
-                                    match path.fugitive_kind(builder.db()) {
-                                        FugitiveKind::FunctionFn => {
+                                    match path.major_fugitive_kind(builder.db()) {
+                                        MajorFugitiveKind::FN => {
                                             HirLazyExprData::FunctionFnItemCall {
                                                 path,
                                                 instantiation,
                                                 item_groups,
                                             }
                                         }
-                                        FugitiveKind::FunctionGn => {
+                                        MajorFugitiveKind::GN => {
                                             HirLazyExprData::FunctionGnItemCall {
                                                 path,
                                                 instantiation,
                                                 item_groups,
                                             }
                                         }
-                                        FugitiveKind::TypeAlias
-                                        | FugitiveKind::Val
-                                        | FugitiveKind::Formal => unreachable!(),
-                                        FugitiveKind::Const => todo!(),
+                                        MajorFugitiveKind::Ritchie(_) => todo!(),
+                                        MajorFugitiveKind::TypeAlias
+                                        | MajorFugitiveKind::Val
+                                        | MajorFugitiveKind::Formal => unreachable!(),
+                                        MajorFugitiveKind::Const => todo!(),
                                     }
                                 }
                             },

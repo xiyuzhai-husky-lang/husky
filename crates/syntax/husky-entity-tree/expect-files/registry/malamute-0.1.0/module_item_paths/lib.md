@@ -16,7 +16,9 @@
     ),
     ItemPath::MajorItem(
         MajorItemPath::Fugitive(
-            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                Gn,
+            )`),
         ),
     ),
     ItemPath::ImplBlock(
@@ -51,7 +53,9 @@
                                     },
                                 },
                                 ident: `default`,
-                                item_kind: AssocFunctionFn,
+                                item_kind: AssocRitchie(
+                                    Fn,
+                                ),
                             },
                         ),
                     ),
@@ -117,7 +121,9 @@
                                     },
                                 },
                                 ident: `unveil`,
-                                item_kind: AssocFunctionFn,
+                                item_kind: AssocRitchie(
+                                    Fn,
+                                ),
                             },
                         ),
                     ),
@@ -183,7 +189,9 @@
                                     },
                                 },
                                 ident: `unveil`,
-                                item_kind: AssocFunctionFn,
+                                item_kind: AssocRitchie(
+                                    Fn,
+                                ),
                             },
                         ),
                     ),

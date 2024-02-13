@@ -23,27 +23,37 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodFn`),
+            TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodRitchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodFn`),
+            TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodRitchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
+            TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodRitchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
+            TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodRitchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodFn`),
+            TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodRitchie(
+                Fn,
+            )`),
         ),
     ),
 ]

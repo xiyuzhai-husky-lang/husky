@@ -288,7 +288,9 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
-                        FunctionFn,
+                        Ritchie(
+                            Fn,
+                        ),
                     ),
                     connection: Connected,
                 },
@@ -306,7 +308,9 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
+                    path: FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+                        Fn,
+                    )`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -331,7 +335,9 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
-                        FunctionFn,
+                        Ritchie(
+                            Fn,
+                        ),
                     ),
                     connection: Connected,
                 },
@@ -349,7 +355,9 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                    path: FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                        Fn,
+                    )`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -374,7 +382,9 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
-                        FunctionFn,
+                        Ritchie(
+                            Fn,
+                        ),
                     ),
                     connection: Connected,
                 },
@@ -392,7 +402,9 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                    path: FugitivePath(`quick_sort::partition`, `Ritchie(
+                        Fn,
+                    )`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -426,7 +438,9 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
-                        FunctionFn,
+                        Ritchie(
+                            Fn,
+                        ),
                     ),
                     connection: Connected,
                 },
@@ -444,7 +458,9 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
+                    path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                        Fn,
+                    )`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -478,7 +494,9 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
-                        FunctionFn,
+                        Ritchie(
+                            Fn,
+                        ),
                     ),
                     connection: Connected,
                 },
@@ -496,7 +514,9 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
+                    path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                        Fn,
+                    )`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(

@@ -51,7 +51,9 @@
                                     },
                                 },
                                 ident: `visualize`,
-                                item_kind: MethodFn,
+                                item_kind: MethodRitchie(
+                                    Fn,
+                                ),
                             },
                         ),
                     ),
@@ -78,7 +80,9 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocFunctionFn`),
+            TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocRitchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::ImplBlock(
@@ -153,7 +157,9 @@
                                     },
                                 },
                                 ident: `visualize`,
-                                item_kind: MethodFn,
+                                item_kind: MethodRitchie(
+                                    Fn,
+                                ),
                             },
                         ),
                     ),
@@ -180,7 +186,9 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocFunctionFn`),
+            TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocRitchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::ImplBlock(

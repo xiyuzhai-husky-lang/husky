@@ -158,7 +158,9 @@
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionGn(
                 FunctionGnFugitiveHirDecl {
-                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                        Gn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
@@ -381,7 +383,9 @@
                                             },
                                         },
                                         ident: `default`,
-                                        item_kind: AssocFunctionFn,
+                                        item_kind: AssocRitchie(
+                                            Fn,
+                                        ),
                                     },
                                 ),
                             ),
@@ -420,7 +424,9 @@
                                                             },
                                                         },
                                                         ident: `default`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -792,7 +798,9 @@
                                             },
                                         },
                                         ident: `unveil`,
-                                        item_kind: AssocFunctionFn,
+                                        item_kind: AssocRitchie(
+                                            Fn,
+                                        ),
                                     },
                                 ),
                             ),
@@ -874,7 +882,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -1155,7 +1165,9 @@
                                             },
                                         },
                                         ident: `unveil`,
-                                        item_kind: AssocFunctionFn,
+                                        item_kind: AssocRitchie(
+                                            Fn,
+                                        ),
                                     },
                                 ),
                             ),
@@ -1225,7 +1237,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),

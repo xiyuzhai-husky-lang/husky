@@ -9,7 +9,7 @@ pub use self::ty_alias::*;
 pub use self::val::*;
 
 use super::*;
-use husky_entity_kind::FugitiveKind;
+use husky_entity_kind::MajorFugitiveKind;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
@@ -63,14 +63,15 @@ impl<'a> DeclParser<'a> {
         syn_node_path: FugitiveSynNodePath,
     ) -> FugitiveSynNodeDecl {
         match syn_node_path.fugitive_kind(self.db()) {
-            FugitiveKind::Val => self.parse_val_node_decl(syn_node_path).into(),
-            FugitiveKind::FunctionFn => self.parse_fn_node_decl(syn_node_path).into(),
-            FugitiveKind::TypeAlias => {
+            MajorFugitiveKind::Val => self.parse_val_node_decl(syn_node_path).into(),
+            MajorFugitiveKind::FN => self.parse_fn_node_decl(syn_node_path).into(),
+            MajorFugitiveKind::TypeAlias => {
                 todo!()
             }
-            FugitiveKind::FunctionGn => self.parse_gn_node_decl(syn_node_path).into(),
-            FugitiveKind::Formal => todo!(),
-            FugitiveKind::Const => todo!(),
+            MajorFugitiveKind::GN => self.parse_gn_node_decl(syn_node_path).into(),
+            MajorFugitiveKind::Formal => todo!(),
+            MajorFugitiveKind::Const => todo!(),
+            MajorFugitiveKind::Ritchie(_) => todo!(),
         }
     }
 }

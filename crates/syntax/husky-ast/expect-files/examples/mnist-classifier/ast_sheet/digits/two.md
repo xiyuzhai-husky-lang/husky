@@ -469,7 +469,9 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
-                        FunctionFn,
+                        Ritchie(
+                            Fn,
+                        ),
                     ),
                     connection: Connected,
                 },
@@ -487,7 +489,9 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
+                        Fn,
+                    )`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -512,7 +516,9 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
-                        FunctionFn,
+                        Ritchie(
+                            Fn,
+                        ),
                     ),
                     connection: Connected,
                 },
@@ -530,7 +536,9 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
+                        Fn,
+                    )`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -555,7 +563,9 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
-                        FunctionFn,
+                        Ritchie(
+                            Fn,
+                        ),
                     ),
                     connection: Connected,
                 },
@@ -573,7 +583,9 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
+                        Fn,
+                    )`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(

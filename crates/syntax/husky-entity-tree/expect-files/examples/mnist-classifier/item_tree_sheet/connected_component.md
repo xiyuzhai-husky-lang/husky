@@ -120,7 +120,9 @@ EntityTreeSheet {
                                         MajorItemSynNodePathData::Fugitive(
                                             FugitiveSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                                                    path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -140,7 +142,9 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                            path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                Fn,
+                            )`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -159,7 +163,9 @@ EntityTreeSheet {
                                     MajorItemSynNodePathData::Fugitive(
                                         FugitiveSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                                                path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -238,7 +244,9 @@ EntityTreeSheet {
                                         MajorItemSynNodePathData::Fugitive(
                                             FugitiveSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                                                    path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -258,7 +266,9 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                            path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                Fn,
+                            )`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -277,7 +287,9 @@ EntityTreeSheet {
                                     MajorItemSynNodePathData::Fugitive(
                                         FugitiveSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                                                path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -302,7 +314,9 @@ EntityTreeSheet {
                                         MajorItemSynNodePathData::Fugitive(
                                             FugitiveSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                                                    path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -320,7 +334,9 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                            path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                Fn,
+                            )`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -339,7 +355,9 @@ EntityTreeSheet {
                                     MajorItemSynNodePathData::Fugitive(
                                         FugitiveSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                                                path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -381,7 +399,9 @@ EntityTreeSheet {
                 ),
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 },
             },
@@ -401,7 +421,9 @@ EntityTreeSheet {
                 ),
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                        FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 },
             },
@@ -410,7 +432,9 @@ EntityTreeSheet {
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 },
             },
@@ -784,12 +808,16 @@ EntityTreeSheet {
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
                                     major_item_path: MajorItemPath::Fugitive(
-                                        FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                        FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                            Gn,
+                                        )`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Fugitive(
-                                        FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                        FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                            Gn,
+                                        )`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -801,7 +829,9 @@ EntityTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                    Gn,
+                                )`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1002,12 +1032,16 @@ EntityTreeSheet {
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         },
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1392,12 +1426,16 @@ EntityTreeSheet {
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
                                     major_item_path: MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1409,7 +1447,9 @@ EntityTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1470,12 +1510,16 @@ EntityTreeSheet {
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
                                     major_item_path: MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
+                                        FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
+                                        FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1487,7 +1531,9 @@ EntityTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1640,12 +1686,16 @@ EntityTreeSheet {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             major_item_path: MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
+                                                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
+                                                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                             ),
                                         ),
                                         visibility: Scope::Pub,
@@ -1655,7 +1705,9 @@ EntityTreeSheet {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
+                                        FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1667,7 +1719,9 @@ EntityTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1857,12 +1911,16 @@ EntityTreeSheet {
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
                                     major_item_path: MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1874,7 +1932,9 @@ EntityTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                         visibility: Scope::PubUnder(

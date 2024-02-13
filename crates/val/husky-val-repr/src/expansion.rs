@@ -2,7 +2,7 @@ use crate::{
     repr::source::{ValReprExpansionSource, ValReprSource},
     *,
 };
-use husky_entity_kind::FugitiveKind;
+use husky_entity_kind::MajorFugitiveKind;
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 
 use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
@@ -368,12 +368,11 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 PrincipalEntityPath::MajorItem(path) => match path {
                     MajorItemPath::Type(_) => todo!(),
                     MajorItemPath::Trait(_) => todo!(),
-                    MajorItemPath::Fugitive(path) => match path.fugitive_kind(self.db) {
-                        FugitiveKind::FunctionFn => todo!(),
-                        FugitiveKind::FunctionGn => todo!(),
-                        FugitiveKind::Const => todo!(),
-                        FugitiveKind::Val => return ValRepr::new_val_item(path, self.db),
-                        FugitiveKind::TypeAlias | FugitiveKind::Formal => unreachable!(),
+                    MajorItemPath::Fugitive(path) => match path.major_fugitive_kind(self.db) {
+                        MajorFugitiveKind::Ritchie(_) => todo!(),
+                        MajorFugitiveKind::Const => todo!(),
+                        MajorFugitiveKind::Val => return ValRepr::new_val_item(path, self.db),
+                        MajorFugitiveKind::TypeAlias | MajorFugitiveKind::Formal => unreachable!(),
                     },
                 },
                 PrincipalEntityPath::TypeVariant(path) => (ValOpn::TypeVariant(path), smallvec![]),

@@ -11,7 +11,9 @@
     ),
     ItemPath::MajorItem(
         MajorItemPath::Fugitive(
-            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::MajorItem(
@@ -21,12 +23,16 @@
     ),
     ItemPath::MajorItem(
         MajorItemPath::Fugitive(
-            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::MajorItem(
         MajorItemPath::Fugitive(
-            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::ImplBlock(
@@ -61,7 +67,9 @@
                                     },
                                 },
                                 ident: `visualize`,
-                                item_kind: MethodFn,
+                                item_kind: MethodRitchie(
+                                    Fn,
+                                ),
                             },
                         ),
                     ),
@@ -128,12 +136,16 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
+            TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodRitchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
+            TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodRitchie(
+                Fn,
+            )`),
         ),
     ),
 ]

@@ -204,7 +204,9 @@ EntityTreePresheet {
                                         MajorItemSynNodePathData::Fugitive(
                                             FugitiveSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
+                                                    path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -224,7 +226,9 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
+                            path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
+                                Fn,
+                            )`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -243,7 +247,9 @@ EntityTreePresheet {
                                     MajorItemSynNodePathData::Fugitive(
                                         FugitiveSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
+                                                path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -268,7 +274,9 @@ EntityTreePresheet {
                                         MajorItemSynNodePathData::Fugitive(
                                             FugitiveSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
+                                                    path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -288,7 +296,9 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
+                            path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
+                                Fn,
+                            )`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -307,7 +317,9 @@ EntityTreePresheet {
                                     MajorItemSynNodePathData::Fugitive(
                                         FugitiveSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
+                                                path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                                 disambiguator: 0,
                                             },
                                         },

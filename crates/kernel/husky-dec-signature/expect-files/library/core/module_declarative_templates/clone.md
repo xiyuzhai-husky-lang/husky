@@ -115,7 +115,9 @@
                                         },
                                     },
                                     ident: `clone`,
-                                    item_kind: MethodFn,
+                                    item_kind: MethodRitchie(
+                                        Fn,
+                                    ),
                                 },
                             ),
                         ),

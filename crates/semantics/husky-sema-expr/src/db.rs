@@ -18,7 +18,7 @@ pub struct SemaExprJar(
     SemaExprRegion,
     crate::region::sema_expr_region,
     crate::region::sema_expr_region_eth_term_fmt_context,
-    crate::helpers::analysis::sema_expr_region_contains_gn,
+    crate::helpers::analysis::sema_expr_region_requires_lazy,
     crate::helpers::range::SemaExprRangeRegion,
     crate::helpers::range::sema_expr_range_region,
 );

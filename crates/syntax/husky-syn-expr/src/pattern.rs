@@ -9,7 +9,7 @@ pub use self::symbol::*;
 
 use super::*;
 use husky_coword::Ident;
-use husky_entity_kind::FugitiveKind;
+use husky_entity_kind::MajorFugitiveKind;
 use husky_entity_path::{ItemPath, TypePath, TypeVariantPath};
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::{IsStreamParser, PunctuatedSmallList, TryParseOptionFromStream};
@@ -145,17 +145,19 @@ where
                                 PrincipalEntityPath::MajorItem(path) => match path {
                                     MajorItemPath::Type(_) => todo!(),
                                     MajorItemPath::Trait(_) => todo!(),
-                                    MajorItemPath::Fugitive(path) => match path.fugitive_kind(db) {
-                                        FugitiveKind::FunctionFn
-                                        | FugitiveKind::FunctionGn
-                                        | FugitiveKind::Val => parse_overriding_ident_pattern(
-                                            parser,
-                                            path_expr_idx,
-                                            symbol_modifier_tokens,
-                                        ),
-                                        FugitiveKind::TypeAlias => todo!(),
-                                        FugitiveKind::Formal => todo!(),
-                                        FugitiveKind::Const => todo!(),
+                                    MajorItemPath::Fugitive(path) => match path
+                                        .major_fugitive_kind(db)
+                                    {
+                                        MajorFugitiveKind::Ritchie(_) | MajorFugitiveKind::Val => {
+                                            parse_overriding_ident_pattern(
+                                                parser,
+                                                path_expr_idx,
+                                                symbol_modifier_tokens,
+                                            )
+                                        }
+                                        MajorFugitiveKind::TypeAlias => todo!(),
+                                        MajorFugitiveKind::Formal => todo!(),
+                                        MajorFugitiveKind::Const => todo!(),
                                     },
                                 },
                                 PrincipalEntityPath::TypeVariant(path) => {

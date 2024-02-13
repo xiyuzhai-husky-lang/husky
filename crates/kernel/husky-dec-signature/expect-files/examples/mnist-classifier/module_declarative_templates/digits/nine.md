@@ -82,7 +82,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(
@@ -125,7 +127,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(

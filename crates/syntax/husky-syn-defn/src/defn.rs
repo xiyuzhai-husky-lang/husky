@@ -1,6 +1,6 @@
 use crate::*;
 
-use husky_entity_kind::{TraitItemKind, TypeItemKind};
+use husky_entity_kind::{AssocItemKind, TraitItemKind, TypeItemKind};
 use husky_entity_tree::helpers::paths::{module_item_paths, module_item_syn_node_paths};
 use husky_syn_expr::helpers::block_expr::parse_defn_block_expr;
 
@@ -26,9 +26,8 @@ pub fn item_syn_node_defn(
             match path {
                 AssocItemSynNodePath::TypeItem(syn_node_path) => {
                     match syn_node_path.data(db).item_kind(db) {
-                        TypeItemKind::MethodFn => AllowSelfValue::True,
-                        TypeItemKind::AssocFunctionFn => AllowSelfValue::False,
-                        TypeItemKind::AssocFunctionGn => AllowSelfValue::False,
+                        TypeItemKind::MethodRitchie(_) => AllowSelfValue::True,
+                        TypeItemKind::AssocRitchie(_) => AllowSelfValue::False,
                         TypeItemKind::AssocVal => AllowSelfValue::True,
                         TypeItemKind::AssocType => AllowSelfValue::False,
                         TypeItemKind::MemoizedField => AllowSelfValue::True,
@@ -39,11 +38,10 @@ pub fn item_syn_node_defn(
                 AssocItemSynNodePath::TraitItem(syn_node_path) => {
                     match syn_node_path.data(db).item_kind(db) {
                         TraitItemKind::MemoizedField => AllowSelfValue::True,
-                        TraitItemKind::MethodFn => AllowSelfValue::True,
+                        TraitItemKind::MethodRitchie(_) => AllowSelfValue::True,
                         TraitItemKind::AssocType => AllowSelfValue::False,
                         TraitItemKind::AssocVal => AllowSelfValue::True,
-                        TraitItemKind::AssocFunctionFn => AllowSelfValue::False,
-                        TraitItemKind::AssocFunctionGn => AllowSelfValue::False,
+                        TraitItemKind::AssocRitchie(_) => AllowSelfValue::False,
                         TraitItemKind::AssocFormal => todo!(),
                         TraitItemKind::AssocConst => AllowSelfValue::False,
                     }
@@ -51,11 +49,10 @@ pub fn item_syn_node_defn(
                 AssocItemSynNodePath::TraitForTypeItem(syn_node_path) => {
                     match syn_node_path.data(db).item_kind(db) {
                         TraitItemKind::MemoizedField => AllowSelfValue::True,
-                        TraitItemKind::MethodFn => AllowSelfValue::True,
+                        TraitItemKind::MethodRitchie(_) => AllowSelfValue::True,
                         TraitItemKind::AssocType => AllowSelfValue::False,
                         TraitItemKind::AssocVal => AllowSelfValue::True,
-                        TraitItemKind::AssocFunctionFn => AllowSelfValue::False,
-                        TraitItemKind::AssocFunctionGn => AllowSelfValue::False,
+                        TraitItemKind::AssocRitchie(_) => AllowSelfValue::False,
                         TraitItemKind::AssocFormal => todo!(),
                         TraitItemKind::AssocConst => AllowSelfValue::False,
                     }

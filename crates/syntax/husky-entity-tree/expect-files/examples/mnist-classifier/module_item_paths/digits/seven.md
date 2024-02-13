@@ -6,7 +6,9 @@
     ),
     ItemPath::MajorItem(
         MajorItemPath::Fugitive(
-            FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
+            FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::MajorItem(
@@ -16,12 +18,16 @@
     ),
     ItemPath::MajorItem(
         MajorItemPath::Fugitive(
-            FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
+            FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::MajorItem(
         MajorItemPath::Fugitive(
-            FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
+            FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                Fn,
+            )`),
         ),
     ),
     ItemPath::MajorItem(

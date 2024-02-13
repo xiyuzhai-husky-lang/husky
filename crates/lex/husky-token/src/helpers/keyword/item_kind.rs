@@ -6,15 +6,23 @@ pub enum EntityKindKeywordGroup {
     /// todo: remove mod
     Submodule(ModToken),
     /// `fn`
-    FugitiveFn(FugitiveFnToken),
+    Fn(FnToken),
+    /// `gn`
+    Gn(GnToken),
+    /// `vn`
+    Vn(VnToken),
+    /// `pn`
+    Pn(PnToken),
+    /// `qn`
+    Qn(QnToken),
+    /// `vn`
+    Bn(BnToken),
     /// `static fn`
-    StaticFn(StaticToken, FugitiveFnToken),
+    StaticFn(StaticToken, FnToken),
     /// `val`
     Val(ValToken),
     /// `memo`
     Memo(MemoToken),
-    /// `gn`
-    Gn(GnToken),
     /// husky will have the capacities of theorem proving
     FormalEntity(FormalEntityToken),
     /// type defined as a major entity
@@ -27,7 +35,37 @@ pub enum EntityKindKeywordGroup {
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct FugitiveFnToken {
+pub struct FnToken {
+    token_idx: TokenIdx,
+}
+
+#[salsa::debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct GnToken {
+    token_idx: TokenIdx,
+}
+
+#[salsa::debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct VnToken {
+    token_idx: TokenIdx,
+}
+
+#[salsa::debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct PnToken {
+    token_idx: TokenIdx,
+}
+
+#[salsa::debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct QnToken {
+    token_idx: TokenIdx,
+}
+
+#[salsa::debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct BnToken {
     token_idx: TokenIdx,
 }
 
@@ -167,12 +205,6 @@ pub struct ModToken {
     token_idx: TokenIdx,
 }
 
-#[salsa::debug_with_db]
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct GnToken {
-    token_idx: TokenIdx,
-}
-
 impl<'a, Context> parsec::TryParseOptionFromStream<Context> for EntityKindKeywordGroup
 where
     Context: TokenStreamParser<'a>,
@@ -193,11 +225,15 @@ where
         };
         match kw {
             Keyword::Fugitive(kw) => match kw {
-                FugitiveKeyword::Fn => {
-                    Ok(Some(EntityKindKeywordGroup::FugitiveFn(FugitiveFnToken {
-                        token_idx,
-                    })))
+                FugitiveKeyword::Val => {
+                    Ok(Some(EntityKindKeywordGroup::Val(ValToken { token_idx })))
                 }
+                FugitiveKeyword::Fn => Ok(Some(EntityKindKeywordGroup::Fn(FnToken { token_idx }))),
+                FugitiveKeyword::Vn => Ok(Some(EntityKindKeywordGroup::Vn(VnToken { token_idx }))),
+                FugitiveKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
+                FugitiveKeyword::Pn => Ok(Some(EntityKindKeywordGroup::Pn(PnToken { token_idx }))),
+                FugitiveKeyword::Qn => Ok(Some(EntityKindKeywordGroup::Qn(QnToken { token_idx }))),
+                FugitiveKeyword::Bn => Ok(Some(EntityKindKeywordGroup::Bn(BnToken { token_idx }))),
                 FugitiveKeyword::Def => Ok(Some(EntityKindKeywordGroup::FormalEntity(
                     FormalEntityToken::Def(DefToken { token_idx }),
                 ))),
@@ -213,13 +249,9 @@ where
                 FugitiveKeyword::Type => Ok(Some(EntityKindKeywordGroup::AliasOrAssociateType(
                     TypeToken { token_idx },
                 ))),
-                FugitiveKeyword::Val => {
-                    Ok(Some(EntityKindKeywordGroup::Val(ValToken { token_idx })))
-                }
                 FugitiveKeyword::Memo => {
                     Ok(Some(EntityKindKeywordGroup::Memo(MemoToken { token_idx })))
                 }
-                FugitiveKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
             },
             Keyword::TypeEntity(keyword) => {
                 Ok(Some(EntityKindKeywordGroup::MajorType(MajorTypeToken {
@@ -242,7 +274,7 @@ where
                     token_stream.next();
                     Ok(Some(EntityKindKeywordGroup::StaticFn(
                         StaticToken { token_idx },
-                        FugitiveFnToken {
+                        FnToken {
                             token_idx: token_idx + 1,
                         },
                     )))

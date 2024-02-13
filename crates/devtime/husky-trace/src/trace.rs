@@ -29,7 +29,7 @@ use crate::{
     registry::trace_path::{TracePathDisambiguator, TracePathRegistry},
     *,
 };
-use husky_entity_kind::FugitiveKind;
+use husky_entity_kind::MajorFugitiveKind;
 use husky_entity_path::MajorItemPath;
 use husky_entity_path::{FugitivePath, ItemPath};
 use husky_entity_tree::helpers::paths::module_item_paths;
@@ -132,13 +132,12 @@ impl Trace {
     }
 
     fn from_fugitive_path(fugitive_path: FugitivePath, db: &::salsa::Db) -> Option<Self> {
-        match fugitive_path.fugitive_kind(db) {
-            FugitiveKind::Const => todo!(),
-            FugitiveKind::Val => Some(Trace::from_val_item_path(fugitive_path, db).into()),
-            FugitiveKind::FunctionFn
-            | FugitiveKind::FunctionGn
-            | FugitiveKind::TypeAlias
-            | FugitiveKind::Formal => None,
+        match fugitive_path.major_fugitive_kind(db) {
+            MajorFugitiveKind::Const => todo!(),
+            MajorFugitiveKind::Val => Some(Trace::from_val_item_path(fugitive_path, db).into()),
+            MajorFugitiveKind::Ritchie(_)
+            | MajorFugitiveKind::TypeAlias
+            | MajorFugitiveKind::Formal => None,
         }
     }
 

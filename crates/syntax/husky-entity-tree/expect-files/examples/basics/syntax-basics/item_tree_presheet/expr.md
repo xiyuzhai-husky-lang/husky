@@ -12,7 +12,9 @@ EntityTreePresheet {
                                         MajorItemSynNodePathData::Fugitive(
                                             FugitiveSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`syntax_basics::expr::nested`, `FunctionFn`),
+                                                    path: FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -32,7 +34,9 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Fugitive {
-                            path: FugitivePath(`syntax_basics::expr::nested`, `FunctionFn`),
+                            path: FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                                Fn,
+                            )`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -51,7 +55,9 @@ EntityTreePresheet {
                                     MajorItemSynNodePathData::Fugitive(
                                         FugitiveSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`syntax_basics::expr::nested`, `FunctionFn`),
+                                                path: FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                                 disambiguator: 0,
                                             },
                                         },

@@ -58,13 +58,13 @@ impl TranspileToRustWith<()> for Linkage {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<()>) {
         let db = builder.db;
         match *self.data(db) {
-            LinkageData::MajorFn {
+            LinkageData::MajorRitchieEager {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 (path, instantiation).transpile_to_rust(builder)
             }),
-            LinkageData::MajorGn {
+            LinkageData::MajorRitchieLazy {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::GnLinkageImpl, |builder| {
@@ -76,7 +76,7 @@ impl TranspileToRustWith<()> for Linkage {
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 path.transpile_to_rust(builder)
             }),
-            LinkageData::MethodFn {
+            LinkageData::MethodRitchie {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
@@ -92,7 +92,7 @@ impl TranspileToRustWith<()> for Linkage {
                 .macro_call(RustMacroName::EnumU8Presenter, |builder| {
                     ty_path.transpile_to_rust(builder)
                 }),
-            LinkageData::AssocFn {
+            LinkageData::AssocRitchie {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {

@@ -214,7 +214,9 @@
                                         },
                                     },
                                     ident: `unveil`,
-                                    item_kind: AssocFunctionFn,
+                                    item_kind: AssocRitchie(
+                                        Fn,
+                                    ),
                                 },
                             ),
                         ),

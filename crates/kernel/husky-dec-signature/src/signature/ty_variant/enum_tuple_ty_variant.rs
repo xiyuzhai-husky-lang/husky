@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_kind::ritchie::RitchieItemKind;
 
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct EnumTupleVariantDecTemplate {
@@ -42,7 +43,7 @@ impl EnumTupleVariantDecTemplate {
         let return_ty = parent_ty_template.self_ty(db);
         let instance_constructor_ty = DecRitchie::new(
             db,
-            TypeRitchieKind::Fn.into(),
+            RitchieItemKind::Fn.into(),
             fields
                 .iter()
                 .copied()
