@@ -3,15 +3,21 @@ use super::*;
 pub(super) struct TokenVersesBuilder<'a> {
     tokens_data: &'a [TokenData],
     token_ranges: &'a [TextRange],
+    line_starts: &'a [usize],
     main_sequence: MainTokenVerseSequence,
     nested_sequences: VecMap<NestedTokenVerseSequence>,
 }
 
 impl<'a> TokenVersesBuilder<'a> {
-    pub(super) fn new(tokens_data: &'a [TokenData], token_ranges: &'a [TextRange]) -> Self {
+    pub(super) fn new(
+        tokens_data: &'a [TokenData],
+        token_ranges: &'a [TextRange],
+        line_starts: &'a [usize],
+    ) -> Self {
         Self {
             tokens_data,
             token_ranges,
+            line_starts,
             main_sequence: Default::default(),
             nested_sequences: Default::default(),
         }
@@ -23,11 +29,15 @@ impl<'a> TokenVersesBuilder<'a> {
     }
 
     fn build_main_sequence(&mut self) {
-        let token_verses_data = self.build_token_verses_data();
+        let token_verses_data = self.build_token_verses_data(&mut 0, 0);
         self.main_sequence = MainTokenVerseSequence::new(token_verses_data)
     }
 
-    pub(crate) fn build_token_verses_data(&mut self) -> Vec<TokenVerseData> {
+    pub(crate) fn build_token_verses_data(
+        &mut self,
+        i: &mut usize,
+        indent0: u32,
+    ) -> Vec<TokenVerseData> {
         use ControlFlow::*;
 
         enum ControlFlow {
@@ -38,15 +48,17 @@ impl<'a> TokenVersesBuilder<'a> {
         let Self {
             tokens_data,
             token_ranges,
+            line_starts,
             ..
-        } = self;
-        let line_starts = produce_line_starts(token_ranges);
-        let mut i = 0;
+        } = *self;
         let mut token_verse_starts = vec![];
         let mut state = TokenVerseProductionState::None;
-        while i < line_starts.len() {
-            let line0_start = line_starts[i];
+        while *i < line_starts.len() {
+            let line0_start = line_starts[*i];
             let line0_indent = token_ranges[line0_start].start.col.0;
+            if line0_indent < indent0 {
+                return token_verse_starts;
+            }
             token_verse_starts.push(TokenVerseData::new(
                 TokenVerseStart::from_index(line0_start),
                 line0_indent,
@@ -63,8 +75,8 @@ impl<'a> TokenVersesBuilder<'a> {
                 },
                 _ => TokenVerseProductionState::None,
             };
-            i = {
-                let mut j = i + 1;
+            *i = {
+                let mut j = *i + 1;
                 while j < line_starts.len() {
                     let line1_start = line_starts[j];
                     let line1_start_token_data = &tokens_data[line1_start];
@@ -88,7 +100,8 @@ impl<'a> TokenVersesBuilder<'a> {
                                     },
                                 };
                                 if nested {
-                                    todo!()
+                                    self.build_token_verses_data(&mut j, line1_indent);
+                                    Continue
                                 } else {
                                     Continue
                                 }
@@ -158,111 +171,7 @@ pub enum TokenVerseProductionState {
     MatchVertical,
 }
 
-fn produce_indents(token_verse_starts: &[TokenVerseStart], token_ranges: &[TextRange]) -> Vec<u32> {
-    token_verse_starts
-        .iter()
-        .map(|i| token_ranges[i.index()].start.j())
-        .collect()
-}
-
-pub(crate) fn produce_token_verse_starts_aux(
-    tokens_data: &[TokenData],
-    token_ranges: &[TextRange],
-) -> Vec<TokenVerseStart> {
-    use ControlFlow::*;
-
-    enum ControlFlow {
-        Break,
-        Continue,
-    }
-
-    let line_starts = produce_line_starts(token_ranges);
-    let mut i = 0;
-    let mut token_verse_starts = vec![];
-    let mut state = TokenVerseProductionState::None;
-    while i < line_starts.len() {
-        let line0_start = line_starts[i];
-        let line0_indent = token_ranges[line0_start].start.col.0;
-        token_verse_starts.push(TokenVerseStart::from_index(line0_start));
-        state = match tokens_data[line0_start] {
-            TokenData::Keyword(Keyword::Stmt(StmtKeyword::Match)) => {
-                TokenVerseProductionState::Match
-            }
-            TokenData::Punctuation(Punctuation::VERTICAL) => match state {
-                TokenVerseProductionState::None => TokenVerseProductionState::None,
-                TokenVerseProductionState::Match | TokenVerseProductionState::MatchVertical => {
-                    TokenVerseProductionState::MatchVertical
-                }
-            },
-            _ => TokenVerseProductionState::None,
-        };
-        i = {
-            let mut j = i + 1;
-            while j < line_starts.len() {
-                let line1_start = line_starts[j];
-                let line1_start_token_data = &tokens_data[line1_start];
-                let line1_indent = token_ranges[line1_start].start.col.0;
-                let control_flow = if line1_indent > line0_indent {
-                    // detected an indentation
-                    match tokens_data[line1_start - 1] {
-                        TokenData::Keyword(Keyword::End(_))
-                        | TokenData::Punctuation(Punctuation::EQ)
-                        | TokenData::Punctuation(Punctuation::HEAVY_ARROW)
-                        | TokenData::Punctuation(Punctuation::COLON) => Break,
-                        TokenData::LCURL => todo!(),
-                        TokenData::Punctuation(
-                            Punctuation::LPAR | Punctuation::LBOX | Punctuation::LA_OR_LT,
-                        ) => Continue,
-                        _ => match line1_start_token_data {
-                            TokenData::Keyword(
-                                Keyword::Pronoun(_)
-                                | Keyword::Modifier(_)
-                                | Keyword::End(_)
-                                | Keyword::Pub,
-                            ) => Continue,
-                            TokenData::Keyword(_kw) => Break,
-                            _ => Continue,
-                        },
-                    }
-                } else if line1_indent == line0_indent {
-                    match line1_start_token_data {
-                        TokenData::Punctuation(
-                            Punctuation::RPAR
-                            | Punctuation::RBOX
-                            | Punctuation::RCURL
-                            | Punctuation::RA_OR_GT,
-                        ) => Continue,
-                        TokenData::Punctuation(Punctuation::VERTICAL) => match state {
-                            TokenVerseProductionState::None | TokenVerseProductionState::Match => {
-                                Break
-                            }
-                            TokenVerseProductionState::MatchVertical => {
-                                if tokens_data[line_starts[j - 1]..line1_start]
-                                    .contains(&TokenData::Punctuation(Punctuation::HEAVY_ARROW))
-                                {
-                                    Break
-                                } else {
-                                    Continue
-                                }
-                            }
-                        },
-                        _ => Break,
-                    }
-                } else {
-                    Break
-                };
-                match control_flow {
-                    Break => break,
-                    Continue => j += 1,
-                }
-            }
-            j
-        }
-    }
-    token_verse_starts
-}
-
-fn produce_line_starts(token_ranges: &[TextRange]) -> Vec<usize> {
+pub(super) fn produce_line_starts(token_ranges: &[TextRange]) -> Vec<usize> {
     (0..token_ranges.len())
         .filter_map(|line_start| {
             if line_start == 0 {
