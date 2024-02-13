@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_tree::{ModuleSymbolContext, PreludeResult};
 use husky_token::TokenDb;
-use husky_vfs::{snippet::Snippet, CratePath};
+use husky_vfs::{snippet::Snippet, CratePath, ModulePath};
 
 #[salsa::tracked(jar = SynExprJar, return_ref)]
 pub fn parse_expr_from_snippet(
@@ -12,7 +12,7 @@ pub fn parse_expr_from_snippet(
     let token_sheet_data = db.snippet_token_sheet_data(snippet);
     let expr_context = SynExprContext::new2(
         db,
-        SynNodeRegionPath::Snippet(crate_path.root_module_path(db), snippet),
+        SynNodeRegionPath::Snippet(ModulePath::new_snippet(snippet, db)),
         ModuleSymbolContext::new_default(db, crate_path)?,
         None,
         AllowSelfType::False,

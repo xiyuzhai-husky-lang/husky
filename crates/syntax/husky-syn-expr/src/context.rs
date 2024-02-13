@@ -67,7 +67,7 @@ impl<'a> SynExprContext<'a> {
             db,
             path,
             module_path,
-            crate_root_path: module_path.crate_path(db).root_module_path(db),
+            crate_root_path: module_path.root_module_path(db),
             parent_syn_expr_region: parent_expr_region,
             syn_symbol_context: SynSymbolContextMut::new(
                 module_symbol_context,

@@ -35,6 +35,30 @@ where
 }
 
 macro_rules! define_specific_punctuation_token {
+    ($ty: ident, $punc: ident) => {
+        #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+        #[salsa::debug_with_db]
+        pub struct $ty(pub(super) TokenIdx);
+
+        impl $ty {
+            pub fn token_idx(self) -> TokenIdx {
+                self.0
+            }
+        }
+
+        impl<'a, Context> parsec::TryParseOptionFromStream<Context> for $ty
+        where
+            Context: TokenStreamParser<'a>,
+        {
+            type Error = TokenDataError;
+
+            fn try_parse_option_from_stream_without_guaranteed_rollback(
+                ctx: &mut Context,
+            ) -> TokenDataResult<Option<Self>> {
+                parse_specific_punctuation_from(ctx, Punctuation::$punc, $ty)
+            }
+        }
+    };
     ($ty: ident, $punc: ident, $test_name: ident, $s: literal) => {
         #[derive(Debug, Clone, Copy, PartialEq, Eq)]
         #[salsa::debug_with_db]
@@ -112,23 +136,13 @@ define_specific_punctuation_token!(LboxToken, LBOX, lbox_token_works, "[");
 
 define_specific_punctuation_token!(RboxToken, RBOX, rbox_token_works, "]");
 
-define_specific_punctuation_token!(
-    InlineLcurlToken,
-    INLINE_LCURL,
-    inline_lcurl_token_works,
-    "{"
-);
+define_specific_punctuation_token!(InlineLcurlToken, INLINE_LCURL);
 
-define_specific_punctuation_token!(BlockLcurlToken, NESTED_LCURL, nested_lcurl_token_works, "{");
+define_specific_punctuation_token!(NestedLcurlToken, NESTED_LCURL);
 
-define_specific_punctuation_token!(
-    InlineRcurlToken,
-    INLINE_RCURL,
-    inline_rcurl_token_works,
-    "}"
-);
+define_specific_punctuation_token!(InlineRcurlToken, INLINE_RCURL);
 
-define_specific_punctuation_token!(BlockRcurlToken, NESTED_RCURL, nested_rcurl_token_works, "}");
+define_specific_punctuation_token!(NestedRcurlToken, NESTED_RCURL);
 
 define_specific_punctuation_token!(LaOrLtToken, LA_OR_LT, la_or_lt_token_works, "<");
 

@@ -9,26 +9,11 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Submodule(
-                                        SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `std::prelude`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
                             ),
                         ),
                         Module,
@@ -43,26 +28,11 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Submodule(
-                                        SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `std::logic`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
                             ),
                         ),
                         Module,
@@ -77,26 +47,11 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Submodule(
-                                        SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `std::ops`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 3,
+                                    },
+                                ),
                             ),
                         ),
                         Module,

@@ -6,7 +6,7 @@ use crate::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
 pub enum SynNodeRegionPath {
-    Snippet(Snippet),
+    Snippet(ModulePath),
     Decl(ItemSynNodePath),
     Defn(ItemSynNodePath),
 }

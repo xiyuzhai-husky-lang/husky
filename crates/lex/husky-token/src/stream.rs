@@ -150,6 +150,7 @@ fn next_indexed_works() {
     let db = &*db;
     let token_sheet_data = db.snippet_token_sheet_data(Snippet::new(
         db,
+        Ident::from_ref(db, "next_indexed_works").unwrap(),
         "What does a rusty can of spray-on rust remover smell like?\n Irony.".into(),
     ));
     let (token_verse_idx, _) = token_sheet_data.main_token_verse_iter().next().unwrap();

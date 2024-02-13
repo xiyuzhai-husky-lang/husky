@@ -51,8 +51,7 @@ impl SynNodeRegionPath {
     pub fn tokra_region_data_ref<'a>(self, db: &'a ::salsa::Db) -> Option<TokraRegionDataRef<'a>> {
         Some(match self {
             SynNodeRegionPath::Snippet(module_path) => {
-                // ad hoc
-                return None;
+                todo!()
             }
             SynNodeRegionPath::Decl(slf) => slf.decl_tokra_region(db).data(db).into(),
             SynNodeRegionPath::Defn(slf) => slf.defn_tokra_region(db)?.data(db).into(),

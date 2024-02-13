@@ -25,7 +25,11 @@ where
 {
     use husky_vfs::snippet::Snippet;
 
-    let token_sheet = db.snippet_token_sheet_data(Snippet::new(db, input.to_owned()));
+    let token_sheet = db.snippet_token_sheet_data(Snippet::new(
+        db,
+        Ident::from_ref(db, "quick_parse").unwrap(),
+        input.to_owned(),
+    ));
     let mut stream = token_sheet
         .token_verse_token_stream(token_sheet.main_token_verse_iter().next().unwrap().0, None);
     stream.try_parse_option()
