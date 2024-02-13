@@ -205,6 +205,73 @@ EntityTreeCrateBundle {
                             `syntax_basics`,
                         ),
                     },
+                    ItemNodeEntry {
+                        node: ItemSynNode::Submodule(
+                            SubmoduleSynNode {
+                                syn_node_path: SubmoduleSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `syntax_basics::expr`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `syntax_basics`,
+                                ),
+                                ast_idx: 4,
+                                ident_token: IdentToken {
+                                    ident: `expr`,
+                                    token_idx: TokenIdx(
+                                        8,
+                                    ),
+                                },
+                            },
+                        ),
+                        syn_node_path: ItemSynNodePath::Submodule(
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `syntax_basics::expr`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                        ident: `expr`,
+                        visibility: Scope::PubUnder(
+                            `syntax_basics`,
+                        ),
+                    },
                 ],
             },
             item_symbol_table: EntitySymbolTable(
@@ -259,6 +326,25 @@ EntityTreeCrateBundle {
                                         SubmoduleItemPathData {
                                             submodule_path: SubmodulePath(
                                                 `syntax_basics::defn`,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                    },
+                    EntitySymbolEntry {
+                        ident: `expr`,
+                        visibility: Scope::PubUnder(
+                            `syntax_basics`,
+                        ),
+                        symbol: EntitySymbol::Submodule {
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `syntax_basics::expr`,
                                             ),
                                         },
                                     ),
@@ -499,6 +585,37 @@ EntityTreeCrateBundle {
                             },
                         ),
                     },
+                    EntitySymbolEntry {
+                        ident: `expr`,
+                        visibility: Scope::PubUnder(
+                            `syntax_basics::uses`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Submodule {
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `syntax_basics::expr`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
+                                path: PrincipalEntityPath::Module(
+                                    `syntax_basics::expr`,
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `syntax_basics::uses`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
                 ],
             ),
             impl_block_syn_node_table: [],
@@ -544,7 +661,7 @@ EntityTreeCrateBundle {
                             `syntax_basics::uses`,
                         ),
                         progress: Ok(
-                            3,
+                            4,
                         ),
                     },
                 ],
@@ -946,6 +1063,100 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
+                            ),
+                        },
+                    },
+                ],
+            ),
+            impl_block_syn_node_table: [],
+            once_use_rules: OnceUseRules(
+                [],
+            ),
+            use_all_rules: UseAllRules(
+                [],
+            ),
+            errors: [],
+        },
+        EntityTreeSheet {
+            module_path: `syntax_basics::expr`,
+            major_item_node_table: MajorEntityNodeTable {
+                entries: [
+                    ItemNodeEntry {
+                        node: ItemSynNode::MajorItem(
+                            MajorItemSynNode {
+                                syn_node_path: MajorItemSynNodePath::Fugitive(
+                                    FugitiveSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Fugitive(
+                                                    FugitiveSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`syntax_basics::expr::nested`, `FunctionFn`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `syntax_basics::expr`,
+                                ),
+                                ast_idx: 2,
+                                ident_token: IdentToken {
+                                    ident: `nested`,
+                                    token_idx: TokenIdx(
+                                        2,
+                                    ),
+                                },
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`syntax_basics::expr::nested`, `FunctionFn`),
+                                    body: Some(
+                                        FugitiveBody {
+                                            ast_idx_range: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            },
+                        ),
+                        syn_node_path: ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Fugitive(
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`syntax_basics::expr::nested`, `FunctionFn`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        ident: `nested`,
+                        visibility: Scope::PubUnder(
+                            `syntax_basics::expr`,
+                        ),
+                    },
+                ],
+            },
+            item_symbol_table: EntitySymbolTable(
+                [
+                    EntitySymbolEntry {
+                        ident: `nested`,
+                        visibility: Scope::PubUnder(
+                            `syntax_basics::expr`,
+                        ),
+                        symbol: EntitySymbol::MajorItem {
+                            major_item_path: MajorItemPath::Fugitive(
+                                FugitivePath(`syntax_basics::expr::nested`, `FunctionFn`),
                             ),
                         },
                     },

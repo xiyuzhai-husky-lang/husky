@@ -7,4 +7,5 @@
     `syntax_basics::defn::major_item`,
     `syntax_basics::defn::major_item::ty`,
     `syntax_basics::defn::major_item::ty::enum_ty`,
+    `syntax_basics::expr`,
 ]

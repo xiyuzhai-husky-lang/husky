@@ -8,4 +8,7 @@
     SubmodulePath(
         `syntax_basics::defn`,
     ),
+    SubmodulePath(
+        `syntax_basics::expr`,
+    ),
 ]
